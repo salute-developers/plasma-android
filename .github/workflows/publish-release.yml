@@ -1,0 +1,78 @@
+name: "Publish Release"
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Название тэга (например release-16-04-2025)'
+        required: true
+
+jobs:
+  publish-release:
+    name: Create Tag & Trigger Module Publishes
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Computed envs
+        run: |
+          DATE=$(date +'%d.%m.%Y')
+          echo "DATE=$DATE" >> $GITHUB_ENV
+          echo "FROM_TAG=$(git merge-base --fork-point origin/main)" >> $GITHUB_ENV
+
+      - name: Retrieve tag exists flag
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        with:
+          tag: ${{ github.event.inputs.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Verify tag not exists
+        run: |
+          if [ ${{ steps.checkTag.outputs.exists }} == true ]; then exit 1; else exit 0; fi
+
+      - name: Create and push tag
+        run: |
+          git config --global user.email "salutedevs@gmail.com"
+          git config --global user.name "Salute Android Team"
+
+          git tag -a $TAG -m "Release $TAG"
+          git push origin $TAG
+        env:
+          TAG: ${{ github.event.inputs.tag_name }}
+
+      - name: Create Release on GitHub
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.tag_name }}
+          release_name: ${{ github.event.inputs.tag_name }}
+          draft: true
+          prerelease: false
+
+      - name: Determine changed modules
+        id: changed
+        run: |
+          .github/scripts/changed-modules.sh "${{ env.FROM_TAG }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Dispatch publish workflows for changed modules
+        if: steps.changed.outputs.modules != ''
+        run: |
+          chmod +x .github/scripts/dispatch-publish.sh
+          .github/scripts/dispatch-publish.sh "${{ steps.changed.outputs.modules }}" "${{ github.event.inputs.tag_name }}"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}

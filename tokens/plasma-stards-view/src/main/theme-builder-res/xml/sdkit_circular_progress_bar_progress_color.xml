@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<color-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:sd_color="?sdkit_surfaceDefaultSolidDefault" app:sdkit_circularprogressbar_state_default="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultTransparentTertiary" app:sdkit_circularprogressbar_state_secondary="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultAccentMain" app:sdkit_circularprogressbar_state_accent="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultGradientMain" app:sdkit_circularprogressbar_state_gradient="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultInfo" app:sdkit_circularprogressbar_state_info="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultNegative" app:sdkit_circularprogressbar_state_negative="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultPositive" app:sdkit_circularprogressbar_state_positive="true"/>
+    <item app:sd_color="?sdkit_surfaceDefaultWarning" app:sdkit_circularprogressbar_state_warning="true"/>
+</color-selector>

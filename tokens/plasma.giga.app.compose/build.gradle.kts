@@ -27,6 +27,9 @@ themeBuilder {
     mode(THEME)
     outputLocation(SRC)
     autoGenerate(false)
+    dimensions {
+        variableFonts(true)
+    }
 }
 
 dependencies {

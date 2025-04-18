@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<drawable xmlns:app="http://schemas.android.com/apk/res-auto" app:sd_shaderAppearance="@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2E" class="com.sdds.uikit.shape.ShapeDrawable">
     <!--Drawable for dark_background_default_mobile_assistant_b2_e-->
-    <item android:drawable="@drawable/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0"/>
-    <item android:drawable="@drawable/sdkit_dark_background_default_mobile_assistant_b2_e_layer_1"/>
-    <item android:drawable="@drawable/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2"/>
-    <item android:drawable="@drawable/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3"/>
-    <item android:drawable="@drawable/sdkit_dark_background_default_mobile_assistant_b2_e_layer_4"/>
-</layer-list>
+</drawable>

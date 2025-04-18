@@ -18,11 +18,8 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
-import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -157,13 +154,11 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(true)
         .dimensions {
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_optional_padding_TextField))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_helper_text_padding_TextField))
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_chips_padding_TextField))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_optional_padding))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_helper_text_padding))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Outer)
         .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {

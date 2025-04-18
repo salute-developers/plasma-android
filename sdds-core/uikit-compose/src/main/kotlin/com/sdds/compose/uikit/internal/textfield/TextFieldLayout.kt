@@ -43,7 +43,6 @@ import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
-import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.LocalChipStyle
 import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
@@ -73,7 +72,6 @@ internal fun TextFieldLayout(
     counterText: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    chipStyle: ChipStyle,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
     dimensions: TextFieldDimensions,
@@ -82,7 +80,7 @@ internal fun TextFieldLayout(
     horizontalScrollState: ScrollState?,
 ) {
     val hasChips = chips != null
-    val chipHeight = chipStyle.dimensions.height
+    val chipHeight = chipGroupStyle.chipStyle.dimensions.height
     val alignmentLine = dimensions.alignmentLineHeight - dimensions.boxPaddingTop * 2
     val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
@@ -160,7 +158,6 @@ internal fun TextFieldLayout(
                 placeholder = placeholder,
                 chips = chips,
                 chipGroupStyle = chipGroupStyle,
-                chipStyle = chipStyle,
                 valueTextStyle = valueTextStyle,
                 dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
@@ -241,7 +238,6 @@ private fun CompositeTextFieldContent(
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    chipStyle: ChipStyle,
     dimensions: TextFieldDimensions,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
@@ -259,7 +255,6 @@ private fun CompositeTextFieldContent(
     CompositionLocalProvider(
         // Принудительно уменьшаем бордер, чтобы он был в границах чипов
         LocalFocusSelectorMode provides LocalFocusSelectorMode.current.reduceBorderPadding(),
-        LocalChipStyle provides chipStyle,
     ) {
         if (!singleLine) {
             TextAreaContent(
@@ -301,7 +296,7 @@ private fun TextAreaContent(
     scrollState: ScrollState?,
     valueTextStyle: TextStyle,
 ) {
-    val chipStyle = LocalChipStyle.current
+    val chipStyle = chipGroupStyle.chipStyle
     Column(
         modifier = modifier
             .fieldShapeDecoration(
@@ -313,7 +308,7 @@ private fun TextAreaContent(
             if (chips != null) {
                 val valueHeight = with(LocalDensity.current) { valueTextStyle.lineHeight.toDp() }
                 val chipHeight = chipStyle.dimensions.height
-                val chipSpacing = chipGroupStyle.dimensions.verticalSpacing
+                val chipSpacing = chipGroupStyle.dimensions.lineSpacing
                 val chipsBottomPadding = chipSpacing + (chipHeight - valueHeight) / 2
                 ChipGroup(
                     modifier = Modifier.padding(bottom = chipsBottomPadding),
@@ -349,7 +344,7 @@ private fun TextFieldContent(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(chipGroupStyle.dimensions.horizontalSpacing),
+        horizontalArrangement = Arrangement.spacedBy(chipGroupStyle.dimensions.gap),
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
@@ -360,7 +355,7 @@ private fun TextFieldContent(
             if (chips != null) {
                 ChipGroup(
                     modifier = Modifier
-                        .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.horizontalSpacing),
+                        .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.gap),
                     style = chipGroupStyle,
                     overflowMode = ChipGroupOverflowMode.Unlimited,
                 ) {

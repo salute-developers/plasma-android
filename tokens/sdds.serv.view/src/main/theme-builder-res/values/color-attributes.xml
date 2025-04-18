@@ -241,7 +241,6 @@
     <attr format="reference|color" name="serv_surfaceDefaultAccentMinorActive"/>
     <attr format="reference|color" name="serv_surfaceDefaultTransparentAccentHover"/>
     <attr format="reference|color" name="serv_surfaceDefaultTransparentAccentActive"/>
-    <attr format="reference|color" name="serv_surfaceDefaultTransparentAccent"/>
     <attr format="reference|color" name="serv_surfaceDefaultPromoHover"/>
     <attr format="reference|color" name="serv_surfaceDefaultPromoActive"/>
     <attr format="reference|color" name="serv_surfaceDefaultPromo"/>
@@ -289,6 +288,7 @@
     <attr format="reference|color" name="serv_surfaceDefaultTransparentNegative"/>
     <attr format="reference|color" name="serv_surfaceDefaultTransparentInfo"/>
     <attr format="reference|color" name="serv_surfaceDefaultTransparentPrimary"/>
+    <attr format="reference|color" name="serv_surfaceDefaultTransparentAccent"/>
     <attr format="reference|color" name="serv_surfaceOnDarkSolidPrimaryHover"/>
     <attr format="reference|color" name="serv_surfaceOnDarkSolidPrimaryActive"/>
     <attr format="reference|color" name="serv_surfaceOnDarkSolidPrimary"/>
@@ -885,4 +885,40 @@
     <attr format="reference|color" name="serv_outlineInverseTransparentTertiary"/>
     <attr format="reference|color" name="serv_outlineInverseSolidSecondary"/>
     <attr format="reference|color" name="serv_outlineInverseSolidTertiary"/>
+    <attr format="reference|color" name="serv_dataDefaultYellow"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowHover"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowActive"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowMinor"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowMinorHover"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowMinorActive"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowTransparent"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowTransparentHover"/>
+    <attr format="reference|color" name="serv_dataDefaultYellowTransparentActive"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellow"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowHover"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowActive"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowMinor"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowMinorHover"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowMinorActive"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowTransparent"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowTransparentHover"/>
+    <attr format="reference|color" name="serv_dataOnDarkYellowTransparentActive"/>
+    <attr format="reference|color" name="serv_dataOnLightYellow"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowHover"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowActive"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowMinor"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowMinorHover"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowMinorActive"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowTransparent"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowTransparentHover"/>
+    <attr format="reference|color" name="serv_dataOnLightYellowTransparentActive"/>
+    <attr format="reference|color" name="serv_dataInverseYellow"/>
+    <attr format="reference|color" name="serv_dataInverseYellowHover"/>
+    <attr format="reference|color" name="serv_dataInverseYellowActive"/>
+    <attr format="reference|color" name="serv_dataInverseYellowMinor"/>
+    <attr format="reference|color" name="serv_dataInverseYellowMinorHover"/>
+    <attr format="reference|color" name="serv_dataInverseYellowMinorActive"/>
+    <attr format="reference|color" name="serv_dataInverseYellowTransparent"/>
+    <attr format="reference|color" name="serv_dataInverseYellowTransparentHover"/>
+    <attr format="reference|color" name="serv_dataInverseYellowTransparentActive"/>
 </resources>

@@ -1678,6 +1678,78 @@
     <color name="plasma_dark_outline_inverse_solid_default_hover">#FFFFFFFF</color>
     <!--dark outline inverse outlineSolidDefaultActive-->
     <color name="plasma_dark_outline_inverse_solid_default_active">#FFC7C7C7</color>
+    <!--Желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_hover">#FFF4B22F</color>
+    <!--Желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_active">#FFEDA20C</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_minor">#FFA16B00</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_minor_hover">#FFB87A00</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_minor_active">#FF996600</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_transparent_hover">#ADF3A812</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="plasma_dark_data_default_yellow_transparent_active">#80F3A812</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_hover">#FFF4B22F</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_active">#FFEDA20C</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_minor">#FFA16B00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_minor_hover">#FFB87A00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_minor_active">#FF996600</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_transparent_hover">#ADF3A812</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="plasma_dark_data_on_dark_yellow_transparent_active">#80F3A812</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_hover">#FFF4B22F</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_active">#FFEDA20C</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_minor">#FFFFD37A</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_minor_active">#FFFFCF70</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_transparent_hover">#ADF3A812</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_dark_data_on_light_yellow_transparent_active">#80F3A812</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow">#FFF3A912</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_hover">#FFF4B22F</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_active">#FFEDA20C</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_minor">#FFFFD37A</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_minor_active">#FFFFCF70</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_transparent">#8EF3A912</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_transparent_hover">#ADF3A812</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="plasma_dark_data_inverse_yellow_transparent_active">#80F3A812</color>
     <!--Основной цвет текста-->
     <color name="plasma_light_text_default_primary">#F5080808</color>
     <!--Основной цвет текста-->
@@ -2880,30 +2952,30 @@
     <color name="plasma_light_outline_default_info_minor">#FF8BB2FC</color>
     <!--light outline default outlineTransparentInfo-->
     <color name="plasma_light_outline_default_transparent_info">#332A72F8</color>
-    <!--light outline default outlineSolidPrimary-->
-    <color name="plasma_light_outline_default_solid_primary">#FF262626</color>
     <!--light outline default outlineSolidPrimaryHover-->
-    <color name="plasma_light_outline_default_solid_primary_hover">#FF787878</color>
+    <color name="plasma_light_outline_default_solid_primary_hover">#FFFFFFFF</color>
     <!--light outline default outlineSolidPrimaryActive-->
-    <color name="plasma_light_outline_default_solid_primary_active">#FF4F4F4F</color>
-    <!--light outline default outlineSolidSecondary-->
-    <color name="plasma_light_outline_default_solid_secondary">#FF4E4E4E</color>
+    <color name="plasma_light_outline_default_solid_primary_active">#FFB3B3B3</color>
     <!--light outline default outlineSolidSecondaryHover-->
     <color name="plasma_light_outline_default_solid_secondary_hover">#FFFFFFFF</color>
     <!--light outline default outlineSolidSecondaryActive-->
-    <color name="plasma_light_outline_default_solid_secondary_active">#FF404040</color>
-    <!--light outline default outlineSolidTertiary-->
-    <color name="plasma_light_outline_default_solid_tertiary">#FF707070</color>
+    <color name="plasma_light_outline_default_solid_secondary_active">#FF757575</color>
     <!--light outline default outlineSolidTertiaryHover-->
     <color name="plasma_light_outline_default_solid_tertiary_hover">#FFFFFFFF</color>
     <!--light outline default outlineSolidTertiaryActive-->
     <color name="plasma_light_outline_default_solid_tertiary_active">#FF595959</color>
-    <!--light outline default outlineSolidDefault-->
-    <color name="plasma_light_outline_default_solid_default">#FFF9F9F9</color>
     <!--light outline default outlineSolidDefaultHover-->
-    <color name="plasma_light_outline_default_solid_default_hover">#FFFFFFFF</color>
+    <color name="plasma_light_outline_default_solid_default_hover">#FF595959</color>
     <!--light outline default outlineSolidDefaultActive-->
-    <color name="plasma_light_outline_default_solid_default_active">#FFC7C7C7</color>
+    <color name="plasma_light_outline_default_solid_default_active">#FF303030</color>
+    <!--light outline default outlineSolidPrimary-->
+    <color name="plasma_light_outline_default_solid_primary">#FFDDDDDD</color>
+    <!--light outline default outlineSolidSecondary-->
+    <color name="plasma_light_outline_default_solid_secondary">#FF949494</color>
+    <!--light outline default outlineSolidTertiary-->
+    <color name="plasma_light_outline_default_solid_tertiary">#FF707070</color>
+    <!--light outline default outlineSolidDefault-->
+    <color name="plasma_light_outline_default_solid_default">#FF080808</color>
     <!--light outline onDark outlineSecondaryHover-->
     <color name="plasma_light_outline_on_dark_secondary_hover">#FF636363</color>
     <!--light outline onDark outlineSecondaryActive-->
@@ -3176,30 +3248,30 @@
     <color name="plasma_light_outline_on_light_info_minor">#FF8BB2FC</color>
     <!--light outline onLight outlineTransparentInfo-->
     <color name="plasma_light_outline_on_light_transparent_info">#332A72F8</color>
-    <!--light outline onLight outlineSolidTertiary-->
-    <color name="plasma_light_outline_on_light_solid_tertiary">#FF707070</color>
     <!--light outline onLight outlineSolidTertiaryHover-->
     <color name="plasma_light_outline_on_light_solid_tertiary_hover">#FFFFFFFF</color>
     <!--light outline onLight outlineSolidTertiaryActive-->
     <color name="plasma_light_outline_on_light_solid_tertiary_active">#FF595959</color>
-    <!--light outline onLight outlineSolidDefault-->
-    <color name="plasma_light_outline_on_light_solid_default">#FF080808</color>
     <!--light outline onLight outlineSolidDefaultHover-->
     <color name="plasma_light_outline_on_light_solid_default_hover">#FF595959</color>
     <!--light outline onLight outlineSolidDefaultActive-->
     <color name="plasma_light_outline_on_light_solid_default_active">#FF303030</color>
-    <!--light outline onLight outlineSolidPrimary-->
-    <color name="plasma_light_outline_on_light_solid_primary">#FFDDDDDD</color>
     <!--light outline onLight outlineSolidPrimaryHover-->
     <color name="plasma_light_outline_on_light_solid_primary_hover">#FFFFFFFF</color>
     <!--light outline onLight outlineSolidPrimaryActive-->
     <color name="plasma_light_outline_on_light_solid_primary_active">#FFB3B3B3</color>
-    <!--light outline onLight outlineSolidSecondary-->
-    <color name="plasma_light_outline_on_light_solid_secondary">#FF949494</color>
     <!--light outline onLight outlineSolidSecondaryHover-->
     <color name="plasma_light_outline_on_light_solid_secondary_hover">#FFFFFFFF</color>
     <!--light outline onLight outlineSolidSecondaryActive-->
     <color name="plasma_light_outline_on_light_solid_secondary_active">#FF757575</color>
+    <!--light outline onLight outlineSolidPrimary-->
+    <color name="plasma_light_outline_on_light_solid_primary">#FFDDDDDD</color>
+    <!--light outline onLight outlineSolidSecondary-->
+    <color name="plasma_light_outline_on_light_solid_secondary">#FF949494</color>
+    <!--light outline onLight outlineSolidTertiary-->
+    <color name="plasma_light_outline_on_light_solid_tertiary">#FF707070</color>
+    <!--light outline onLight outlineSolidDefault-->
+    <color name="plasma_light_outline_on_light_solid_default">#FF080808</color>
     <!--light outline inverse outlinePrimaryHover-->
     <color name="plasma_light_outline_inverse_primary_hover">#FF787878</color>
     <!--light outline inverse outlinePrimaryActive-->
@@ -3330,28 +3402,100 @@
     <color name="plasma_light_outline_inverse_transparent_negative">#47FF293E</color>
     <!--light outline inverse outlineTransparentInfo-->
     <color name="plasma_light_outline_inverse_transparent_info">#473F81FD</color>
-    <!--light outline inverse outlineSolidPrimary-->
-    <color name="plasma_light_outline_inverse_solid_primary">#FFDDDDDD</color>
     <!--light outline inverse outlineSolidPrimaryHover-->
-    <color name="plasma_light_outline_inverse_solid_primary_hover">#FFFFFFFF</color>
+    <color name="plasma_light_outline_inverse_solid_primary_hover">#FF787878</color>
     <!--light outline inverse outlineSolidPrimaryActive-->
-    <color name="plasma_light_outline_inverse_solid_primary_active">#FFB3B3B3</color>
-    <!--light outline inverse outlineSolidSecondary-->
-    <color name="plasma_light_outline_inverse_solid_secondary">#FF949494</color>
+    <color name="plasma_light_outline_inverse_solid_primary_active">#FF4F4F4F</color>
     <!--light outline inverse outlineSolidSecondaryHover-->
     <color name="plasma_light_outline_inverse_solid_secondary_hover">#FFFFFFFF</color>
     <!--light outline inverse outlineSolidSecondaryActive-->
-    <color name="plasma_light_outline_inverse_solid_secondary_active">#FF757575</color>
-    <!--light outline inverse outlineSolidTertiary-->
-    <color name="plasma_light_outline_inverse_solid_tertiary">#FF707070</color>
+    <color name="plasma_light_outline_inverse_solid_secondary_active">#FF404040</color>
     <!--light outline inverse outlineSolidTertiaryHover-->
     <color name="plasma_light_outline_inverse_solid_tertiary_hover">#FFFFFFFF</color>
     <!--light outline inverse outlineSolidTertiaryActive-->
     <color name="plasma_light_outline_inverse_solid_tertiary_active">#FF595959</color>
-    <!--light outline inverse outlineSolidDefault-->
-    <color name="plasma_light_outline_inverse_solid_default">#FF080808</color>
     <!--light outline inverse outlineSolidDefaultHover-->
     <color name="plasma_light_outline_inverse_solid_default_hover">#FF595959</color>
     <!--light outline inverse outlineSolidDefaultActive-->
     <color name="plasma_light_outline_inverse_solid_default_active">#FF303030</color>
+    <!--light outline inverse outlineSolidPrimary-->
+    <color name="plasma_light_outline_inverse_solid_primary">#FF262626</color>
+    <!--light outline inverse outlineSolidSecondary-->
+    <color name="plasma_light_outline_inverse_solid_secondary">#FF4E4E4E</color>
+    <!--light outline inverse outlineSolidTertiary-->
+    <color name="plasma_light_outline_inverse_solid_tertiary">#FF707070</color>
+    <!--light outline inverse outlineSolidDefault-->
+    <color name="plasma_light_outline_inverse_solid_default">#FF080808</color>
+    <!--Желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_hover">#FFF5B638</color>
+    <!--Желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_active">#FFE49C0C</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_minor">#FFFFD37A</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_minor_active">#FFFFCC66</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_transparent_hover">#7AF3A812</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="plasma_light_data_default_yellow_transparent_active">#99F3A812</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_hover">#FFF5B638</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_active">#FFE49C0C</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_minor">#FFA16B00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_minor_hover">#FFB87A00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_minor_active">#FF8F5F00</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_transparent_hover">#7AF3A812</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="plasma_light_data_on_dark_yellow_transparent_active">#99F3A812</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_hover">#FFF5B638</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_active">#FFE49C0C</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_minor">#FFFFD37A</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_minor_active">#FFFFCC66</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_transparent_hover">#7AF3A812</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="plasma_light_data_on_light_yellow_transparent_active">#99F3A812</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow">#FFF3A912</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_hover">#FFF5B638</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_active">#FFE49C0C</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_minor">#FFA16B00</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_minor_hover">#FFB87A00</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_minor_active">#FF8F5F00</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_transparent">#8EF3A912</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_transparent_hover">#7AF3A812</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="plasma_light_data_inverse_yellow_transparent_active">#99F3A812</color>
 </resources>

@@ -1,9 +1,11 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.ChipGroupOverflowMode.Companion.toFlowRowLayoutMode
 import com.sdds.compose.uikit.internal.common.FlowRowLayout
 import com.sdds.compose.uikit.internal.common.FlowRowScope
 
@@ -17,24 +19,62 @@ import com.sdds.compose.uikit.internal.common.FlowRowScope
  */
 @Composable
 @NonRestartableComposable
+@Deprecated(
+    "Use ChipGroup() without overflowMode",
+    ReplaceWith("ChipGroup(modifier, style, content)"),
+)
 fun ChipGroup(
     modifier: Modifier = Modifier,
     style: ChipGroupStyle = LocalChipGroupStyle.current,
     overflowMode: ChipGroupOverflowMode = ChipGroupOverflowMode.Wrap,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
-    FlowRowLayout(
-        modifier = modifier,
-        horizontalSpacing = style.dimensions.horizontalSpacing,
-        verticalSpacing = style.dimensions.verticalSpacing,
-        mode = overflowMode.toFlowRowLayoutMode(),
+    val chipGroupModifier = when (overflowMode) {
+        ChipGroupOverflowMode.Wrap -> modifier
+        ChipGroupOverflowMode.Scrollable ->
+            Modifier
+                .horizontalScroll(rememberScrollState())
+                .then(modifier)
+        ChipGroupOverflowMode.Unlimited -> modifier
+    }
+    ChipGroup(
+        modifier = chipGroupModifier,
+        style = style,
         content = content,
     )
 }
 
 /**
+ * Компонент предназначен для группировки chip в строку с возможностью переноса или скролла
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param content контент (элементы группы)
+ */
+@Composable
+@NonRestartableComposable
+fun ChipGroup(
+    modifier: Modifier = Modifier,
+    style: ChipGroupStyle = LocalChipGroupStyle.current,
+    content: @Composable FlowRowScope.() -> Unit,
+) {
+    CompositionLocalProvider(
+        LocalChipStyle provides style.chipStyle,
+    ) {
+        FlowRowLayout(
+            modifier = modifier,
+            horizontalSpacing = style.dimensions.gap,
+            verticalSpacing = style.dimensions.lineSpacing,
+            mode = FlowRowLayout.Mode.Wrap,
+            content = content,
+        )
+    }
+}
+
+/**
  * Режим переполнения контейнера с чипами
  */
+@Deprecated("Don't use")
 enum class ChipGroupOverflowMode {
     /**
      * Чипы будут переноситься на другую строку

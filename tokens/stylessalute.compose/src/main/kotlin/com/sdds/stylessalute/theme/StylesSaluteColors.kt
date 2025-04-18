@@ -7680,6 +7680,194 @@ public class StylesSaluteColors(
         colors.obtain("outlineInverseTransparentAccentBrand")
 
     /**
+     * Желтый цвет для данных
+     */
+    public var dataDefaultYellow: Color by colors.obtain("dataDefaultYellow")
+
+    /**
+     * Желтый цвет для данных
+     */
+    public var dataDefaultYellowHover: Color by colors.obtain("dataDefaultYellowHover")
+
+    /**
+     * Желтый цвет для данных
+     */
+    public var dataDefaultYellowActive: Color by colors.obtain("dataDefaultYellowActive")
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public var dataDefaultYellowMinor: Color by colors.obtain("dataDefaultYellowMinor")
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public var dataDefaultYellowMinorHover: Color by colors.obtain("dataDefaultYellowMinorHover")
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public var dataDefaultYellowMinorActive: Color by colors.obtain("dataDefaultYellowMinorActive")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparent: Color by colors.obtain("dataDefaultYellowTransparent")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparentHover: Color by
+        colors.obtain("dataDefaultYellowTransparentHover")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparentActive: Color by
+        colors.obtain("dataDefaultYellowTransparentActive")
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellow: Color by colors.obtain("dataOnDarkYellow")
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowHover: Color by colors.obtain("dataOnDarkYellowHover")
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowActive: Color by colors.obtain("dataOnDarkYellowActive")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinor: Color by colors.obtain("dataOnDarkYellowMinor")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinorHover: Color by colors.obtain("dataOnDarkYellowMinorHover")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinorActive: Color by colors.obtain("dataOnDarkYellowMinorActive")
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowTransparent: Color by colors.obtain("dataOnDarkYellowTransparent")
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowTransparentHover: Color by
+        colors.obtain("dataOnDarkYellowTransparentHover")
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowTransparentActive: Color by
+        colors.obtain("dataOnDarkYellowTransparentActive")
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellow: Color by colors.obtain("dataOnLightYellow")
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowHover: Color by colors.obtain("dataOnLightYellowHover")
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowActive: Color by colors.obtain("dataOnLightYellowActive")
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowMinor: Color by colors.obtain("dataOnLightYellowMinor")
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowMinorHover: Color by colors.obtain("dataOnLightYellowMinorHover")
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowMinorActive: Color by colors.obtain("dataOnLightYellowMinorActive")
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowTransparent: Color by colors.obtain("dataOnLightYellowTransparent")
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowTransparentHover: Color by
+        colors.obtain("dataOnLightYellowTransparentHover")
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowTransparentActive: Color by
+        colors.obtain("dataOnLightYellowTransparentActive")
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public var dataInverseYellow: Color by colors.obtain("dataInverseYellow")
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public var dataInverseYellowHover: Color by colors.obtain("dataInverseYellowHover")
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public var dataInverseYellowActive: Color by colors.obtain("dataInverseYellowActive")
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public var dataInverseYellowMinor: Color by colors.obtain("dataInverseYellowMinor")
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public var dataInverseYellowMinorHover: Color by colors.obtain("dataInverseYellowMinorHover")
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public var dataInverseYellowMinorActive: Color by colors.obtain("dataInverseYellowMinorActive")
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public var dataInverseYellowTransparent: Color by colors.obtain("dataInverseYellowTransparent")
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public var dataInverseYellowTransparentHover: Color by
+        colors.obtain("dataInverseYellowTransparentHover")
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public var dataInverseYellowTransparentActive: Color by
+        colors.obtain("dataInverseYellowTransparentActive")
+
+    /**
      * dark surface inverse surfaceAccentJoy
      */
     public var surfaceInverseAccentJoy: Color by colors.obtain("surfaceInverseAccentJoy")
@@ -14826,6 +15014,186 @@ public class ColorOverrideScope {
     public val outlineInverseTransparentAccentBrand: String = "outlineInverseTransparentAccentBrand"
 
     /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellow: String = "dataDefaultYellow"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellowHover: String = "dataDefaultYellowHover"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellowActive: String = "dataDefaultYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinorHover: String = "dataDefaultYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinorActive: String = "dataDefaultYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparentHover: String = "dataDefaultYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparentActive: String = "dataDefaultYellowTransparentActive"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellow: String = "dataOnDarkYellow"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowHover: String = "dataOnDarkYellowHover"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowActive: String = "dataOnDarkYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinorHover: String = "dataOnDarkYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinorActive: String = "dataOnDarkYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparentHover: String = "dataOnDarkYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparentActive: String = "dataOnDarkYellowTransparentActive"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellow: String = "dataOnLightYellow"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowHover: String = "dataOnLightYellowHover"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowActive: String = "dataOnLightYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinor: String = "dataOnLightYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinorHover: String = "dataOnLightYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinorActive: String = "dataOnLightYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparent: String = "dataOnLightYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparentHover: String = "dataOnLightYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparentActive: String = "dataOnLightYellowTransparentActive"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellow: String = "dataInverseYellow"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellowHover: String = "dataInverseYellowHover"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellowActive: String = "dataInverseYellowActive"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinor: String = "dataInverseYellowMinor"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinorHover: String = "dataInverseYellowMinorHover"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinorActive: String = "dataInverseYellowMinorActive"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparent: String = "dataInverseYellowTransparent"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparentHover: String = "dataInverseYellowTransparentHover"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparentActive: String = "dataInverseYellowTransparentActive"
+
+    /**
      * dark surface inverse surfaceAccentJoy
      */
     public val surfaceInverseAccentJoy: String = "surfaceInverseAccentJoy"
@@ -16238,6 +16606,42 @@ internal fun StylesSaluteColors.updateColorsFrom(other: StylesSaluteColors) {
     outlineInverseTransparentAccentJoy = other.outlineInverseTransparentAccentJoy
     outlineInverseTransparentAccentB2E = other.outlineInverseTransparentAccentB2E
     outlineInverseTransparentAccentBrand = other.outlineInverseTransparentAccentBrand
+    dataDefaultYellow = other.dataDefaultYellow
+    dataDefaultYellowHover = other.dataDefaultYellowHover
+    dataDefaultYellowActive = other.dataDefaultYellowActive
+    dataDefaultYellowMinor = other.dataDefaultYellowMinor
+    dataDefaultYellowMinorHover = other.dataDefaultYellowMinorHover
+    dataDefaultYellowMinorActive = other.dataDefaultYellowMinorActive
+    dataDefaultYellowTransparent = other.dataDefaultYellowTransparent
+    dataDefaultYellowTransparentHover = other.dataDefaultYellowTransparentHover
+    dataDefaultYellowTransparentActive = other.dataDefaultYellowTransparentActive
+    dataOnDarkYellow = other.dataOnDarkYellow
+    dataOnDarkYellowHover = other.dataOnDarkYellowHover
+    dataOnDarkYellowActive = other.dataOnDarkYellowActive
+    dataOnDarkYellowMinor = other.dataOnDarkYellowMinor
+    dataOnDarkYellowMinorHover = other.dataOnDarkYellowMinorHover
+    dataOnDarkYellowMinorActive = other.dataOnDarkYellowMinorActive
+    dataOnDarkYellowTransparent = other.dataOnDarkYellowTransparent
+    dataOnDarkYellowTransparentHover = other.dataOnDarkYellowTransparentHover
+    dataOnDarkYellowTransparentActive = other.dataOnDarkYellowTransparentActive
+    dataOnLightYellow = other.dataOnLightYellow
+    dataOnLightYellowHover = other.dataOnLightYellowHover
+    dataOnLightYellowActive = other.dataOnLightYellowActive
+    dataOnLightYellowMinor = other.dataOnLightYellowMinor
+    dataOnLightYellowMinorHover = other.dataOnLightYellowMinorHover
+    dataOnLightYellowMinorActive = other.dataOnLightYellowMinorActive
+    dataOnLightYellowTransparent = other.dataOnLightYellowTransparent
+    dataOnLightYellowTransparentHover = other.dataOnLightYellowTransparentHover
+    dataOnLightYellowTransparentActive = other.dataOnLightYellowTransparentActive
+    dataInverseYellow = other.dataInverseYellow
+    dataInverseYellowHover = other.dataInverseYellowHover
+    dataInverseYellowActive = other.dataInverseYellowActive
+    dataInverseYellowMinor = other.dataInverseYellowMinor
+    dataInverseYellowMinorHover = other.dataInverseYellowMinorHover
+    dataInverseYellowMinorActive = other.dataInverseYellowMinorActive
+    dataInverseYellowTransparent = other.dataInverseYellowTransparent
+    dataInverseYellowTransparentHover = other.dataInverseYellowTransparentHover
+    dataInverseYellowTransparentActive = other.dataInverseYellowTransparentActive
     surfaceInverseAccentJoy = other.surfaceInverseAccentJoy
     surfaceInverseAccentJoyHover = other.surfaceInverseAccentJoyHover
     surfaceInverseAccentJoyActive = other.surfaceInverseAccentJoyActive
@@ -21609,6 +22013,122 @@ public fun lightStylesSaluteColors(overrideColors: ColorOverrideScope.() -> Unit
         LightColorTokens.OutlineInverseTransparentAccentBrand,
         overwrite,
     )
+    initial.add("dataDefaultYellow", LightColorTokens.DataDefaultYellow, overwrite)
+    initial.add("dataDefaultYellowHover", LightColorTokens.DataDefaultYellowHover, overwrite)
+    initial.add("dataDefaultYellowActive", LightColorTokens.DataDefaultYellowActive, overwrite)
+    initial.add("dataDefaultYellowMinor", LightColorTokens.DataDefaultYellowMinor, overwrite)
+    initial.add(
+        "dataDefaultYellowMinorHover",
+        LightColorTokens.DataDefaultYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowMinorActive",
+        LightColorTokens.DataDefaultYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparent",
+        LightColorTokens.DataDefaultYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentHover",
+        LightColorTokens.DataDefaultYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentActive",
+        LightColorTokens.DataDefaultYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkYellow", LightColorTokens.DataOnDarkYellow, overwrite)
+    initial.add("dataOnDarkYellowHover", LightColorTokens.DataOnDarkYellowHover, overwrite)
+    initial.add("dataOnDarkYellowActive", LightColorTokens.DataOnDarkYellowActive, overwrite)
+    initial.add("dataOnDarkYellowMinor", LightColorTokens.DataOnDarkYellowMinor, overwrite)
+    initial.add(
+        "dataOnDarkYellowMinorHover",
+        LightColorTokens.DataOnDarkYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowMinorActive",
+        LightColorTokens.DataOnDarkYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparent",
+        LightColorTokens.DataOnDarkYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentHover",
+        LightColorTokens.DataOnDarkYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentActive",
+        LightColorTokens.DataOnDarkYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnLightYellow", LightColorTokens.DataOnLightYellow, overwrite)
+    initial.add("dataOnLightYellowHover", LightColorTokens.DataOnLightYellowHover, overwrite)
+    initial.add("dataOnLightYellowActive", LightColorTokens.DataOnLightYellowActive, overwrite)
+    initial.add("dataOnLightYellowMinor", LightColorTokens.DataOnLightYellowMinor, overwrite)
+    initial.add(
+        "dataOnLightYellowMinorHover",
+        LightColorTokens.DataOnLightYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowMinorActive",
+        LightColorTokens.DataOnLightYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparent",
+        LightColorTokens.DataOnLightYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentHover",
+        LightColorTokens.DataOnLightYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentActive",
+        LightColorTokens.DataOnLightYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataInverseYellow", LightColorTokens.DataInverseYellow, overwrite)
+    initial.add("dataInverseYellowHover", LightColorTokens.DataInverseYellowHover, overwrite)
+    initial.add("dataInverseYellowActive", LightColorTokens.DataInverseYellowActive, overwrite)
+    initial.add("dataInverseYellowMinor", LightColorTokens.DataInverseYellowMinor, overwrite)
+    initial.add(
+        "dataInverseYellowMinorHover",
+        LightColorTokens.DataInverseYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowMinorActive",
+        LightColorTokens.DataInverseYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparent",
+        LightColorTokens.DataInverseYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentHover",
+        LightColorTokens.DataInverseYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentActive",
+        LightColorTokens.DataInverseYellowTransparentActive,
+        overwrite,
+    )
     initial.add("surfaceInverseAccentJoy", DarkColorTokens.SurfaceInverseAccentJoy, overwrite)
     initial.add(
         "surfaceInverseAccentJoyHover",
@@ -26667,6 +27187,118 @@ public fun darkStylesSaluteColors(overrideColors: ColorOverrideScope.() -> Unit 
     initial.add(
         "outlineInverseTransparentAccentBrand",
         DarkColorTokens.OutlineInverseTransparentAccentBrand,
+        overwrite,
+    )
+    initial.add("dataDefaultYellow", DarkColorTokens.DataDefaultYellow, overwrite)
+    initial.add("dataDefaultYellowHover", DarkColorTokens.DataDefaultYellowHover, overwrite)
+    initial.add("dataDefaultYellowActive", DarkColorTokens.DataDefaultYellowActive, overwrite)
+    initial.add("dataDefaultYellowMinor", DarkColorTokens.DataDefaultYellowMinor, overwrite)
+    initial.add(
+        "dataDefaultYellowMinorHover",
+        DarkColorTokens.DataDefaultYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowMinorActive",
+        DarkColorTokens.DataDefaultYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparent",
+        DarkColorTokens.DataDefaultYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentHover",
+        DarkColorTokens.DataDefaultYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentActive",
+        DarkColorTokens.DataDefaultYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkYellow", DarkColorTokens.DataOnDarkYellow, overwrite)
+    initial.add("dataOnDarkYellowHover", DarkColorTokens.DataOnDarkYellowHover, overwrite)
+    initial.add("dataOnDarkYellowActive", DarkColorTokens.DataOnDarkYellowActive, overwrite)
+    initial.add("dataOnDarkYellowMinor", DarkColorTokens.DataOnDarkYellowMinor, overwrite)
+    initial.add("dataOnDarkYellowMinorHover", DarkColorTokens.DataOnDarkYellowMinorHover, overwrite)
+    initial.add(
+        "dataOnDarkYellowMinorActive",
+        DarkColorTokens.DataOnDarkYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparent",
+        DarkColorTokens.DataOnDarkYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentHover",
+        DarkColorTokens.DataOnDarkYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentActive",
+        DarkColorTokens.DataOnDarkYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnLightYellow", DarkColorTokens.DataOnLightYellow, overwrite)
+    initial.add("dataOnLightYellowHover", DarkColorTokens.DataOnLightYellowHover, overwrite)
+    initial.add("dataOnLightYellowActive", DarkColorTokens.DataOnLightYellowActive, overwrite)
+    initial.add("dataOnLightYellowMinor", DarkColorTokens.DataOnLightYellowMinor, overwrite)
+    initial.add(
+        "dataOnLightYellowMinorHover",
+        DarkColorTokens.DataOnLightYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowMinorActive",
+        DarkColorTokens.DataOnLightYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparent",
+        DarkColorTokens.DataOnLightYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentHover",
+        DarkColorTokens.DataOnLightYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentActive",
+        DarkColorTokens.DataOnLightYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataInverseYellow", DarkColorTokens.DataInverseYellow, overwrite)
+    initial.add("dataInverseYellowHover", DarkColorTokens.DataInverseYellowHover, overwrite)
+    initial.add("dataInverseYellowActive", DarkColorTokens.DataInverseYellowActive, overwrite)
+    initial.add("dataInverseYellowMinor", DarkColorTokens.DataInverseYellowMinor, overwrite)
+    initial.add(
+        "dataInverseYellowMinorHover",
+        DarkColorTokens.DataInverseYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowMinorActive",
+        DarkColorTokens.DataInverseYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparent",
+        DarkColorTokens.DataInverseYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentHover",
+        DarkColorTokens.DataInverseYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentActive",
+        DarkColorTokens.DataInverseYellowTransparentActive,
         overwrite,
     )
     initial.add("surfaceInverseAccentJoy", DarkColorTokens.SurfaceInverseAccentJoy, overwrite)

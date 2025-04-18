@@ -173,7 +173,7 @@ open class ThemeBuilderExtension {
      */
     fun dimensions(dimensionsConfigBuilder: DimensionsConfigBuilder.() -> Unit) {
         val builder = DimensionsConfigBuilder().apply(dimensionsConfigBuilder)
-        this.dimensionsConfig = DimensionsConfig(builder.multiplier, builder.breakPoints, builder.fromResources)
+        this.dimensionsConfig = builder.build()
     }
 
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
@@ -284,6 +284,7 @@ class DimensionsConfigBuilder {
     internal var multiplier: Float = 1f
     internal var breakPoints: BreakPoints = BreakPoints()
     internal var fromResources: Boolean = false
+    internal var variableFonts: Boolean = false
 
     /**
      * Задает множитель [value] для всех генерируемых размеров
@@ -307,6 +308,20 @@ class DimensionsConfigBuilder {
     fun fromResources(fromResources: Boolean) {
         this.fromResources = fromResources
     }
+
+    /**
+     * Включает/выключает флаг поддержки вариативных шрифтов
+     */
+    fun variableFonts(variableFonts: Boolean) {
+        this.variableFonts = variableFonts
+    }
+
+    /**
+     * Возвращает [DimensionsConfig]
+     */
+    fun build(): DimensionsConfig {
+        return DimensionsConfig(multiplier, breakPoints, fromResources, variableFonts)
+    }
 }
 
 /**
@@ -314,11 +329,13 @@ class DimensionsConfigBuilder {
  * @property multiplier множитель для всех размеров
  * @property breakPoints брейкпоинты типографики
  * @property fromResources флаг использования размеров из ресурсов (только для Compose)
+ * @property variableFonts включает/выключает поддержку вариативных шрифтов
  */
 data class DimensionsConfig(
     val multiplier: Float = 1f,
     val breakPoints: BreakPoints = BreakPoints(),
     val fromResources: Boolean = false,
+    val variableFonts: Boolean = false,
 ) : Serializable
 
 /**

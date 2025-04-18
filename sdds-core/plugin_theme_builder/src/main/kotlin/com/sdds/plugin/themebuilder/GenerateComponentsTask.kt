@@ -89,25 +89,28 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     abstract val target: Property<ThemeBuilderTarget>
 
     @TaskAction
+    @Suppress("TooGenericExceptionCaught")
     fun generate() {
-        val deps = getGeneratorDependencies(themeName.get())
-        val target = target.get()
+        val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
 
         metaInfo.components.forEach { component ->
-            val configFile = componentsDir
-                .file(component.config)
-                .asFile
-            val componentDelegate = componentDelegates[component.componentName]
-            componentDelegate?.generate(
-                file = configFile,
-                deps = deps,
-                target = target,
-                component = component,
-            )
+            try {
+                val configFile = componentsDir
+                    .file(component.config)
+                    .asFile
+                val componentDelegate = componentDelegates[component.componentName]
+                componentDelegate?.generate(
+                    file = configFile,
+                    deps = deps,
+                    component = component,
+                )
+            } catch (e: Exception) {
+                logger.error("Style generating failed for component ${component.config}", e)
+            }
         }
 
-        if (target.isViewSystemOrAll || dimensionsConfig.get().fromResources) {
+        if (target.get().isViewSystemOrAll || dimensionsConfig.get().fromResources) {
             deps.dimensGenerator.generate()
         }
     }
@@ -120,7 +123,8 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
-    private fun getGeneratorDependencies(themeName: String): StyleGeneratorDependencies {
+    private fun getGeneratorDependencies(): StyleGeneratorDependencies {
+        val themeName = themeName.get()
         val packageResolver = PackageResolver(packageName.get())
         val outputDir: File = projectDir.get().dir(outputDirPath.get()).asFile
         val outputResDir: File = projectDir.get().dir(outputResDirPath.get()).asFile
@@ -141,6 +145,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         val colorStateListGeneratorFactory = ColorStateListGeneratorFactory(
             xmlBuilderFactory = xmlBuilderFactory,
             resourcePrefixConfig = resourcesPrefixConfig.get(),
+            outputResDir = outputResDir,
         )
 
         return StyleGeneratorDependencies(
@@ -160,6 +165,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
+            target = target.get(),
         )
     }
 

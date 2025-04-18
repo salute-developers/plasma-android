@@ -4,6 +4,8 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
+import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
 
 /**
@@ -28,9 +30,13 @@ fun Badge(
     val labelStyle = style.labelStyle
     val dimens = style.dimensions.toDimensionsSet()
     val colors = style.colors.toColorsSet()
+    val background = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
-        modifier = modifier,
-        shape = style.shape,
+        modifier = modifier.surface(
+            shape = style.shape,
+            backgroundColor = { SolidColor(background.value) },
+            interactionSource = interactionSource,
+        ),
         dimensionsSet = dimens,
         colorsSet = colors,
         labelContent = label,
@@ -62,9 +68,13 @@ fun Badge(
 ) {
     val dimens = style.dimensions.toDimensionsSet()
     val colors = style.colors.toColorsSet()
+    val background = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
-        modifier = modifier,
-        shape = style.shape,
+        modifier = modifier.surface(
+            shape = style.shape,
+            backgroundColor = { SolidColor(background.value) },
+            interactionSource = interactionSource,
+        ),
         dimensionsSet = dimens,
         colorsSet = colors,
         labelContent = label,
@@ -91,9 +101,13 @@ fun IconBadge(
 ) {
     val dimens = style.dimensions.toDimensionsSet()
     val colors = style.colors.toColorsSet()
+    val background = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
-        modifier = modifier,
-        shape = style.shape,
+        modifier = modifier.surface(
+            shape = style.shape,
+            backgroundColor = { SolidColor(background.value) },
+            interactionSource = interactionSource,
+        ),
         dimensionsSet = dimens,
         colorsSet = colors,
         startContent = content,
@@ -115,7 +129,6 @@ internal fun BadgeDimensions.toDimensionsSet(): BaseIconText.Dimensions {
 
 internal fun BadgeColors.toColorsSet(): BaseIconText.Colors {
     return BaseIconText.Colors(
-        backgroundColor = this.backgroundColor,
         contentColor = this.contentColor,
         labelColor = this.labelColor,
         startContentColor = this.startContentColor,

@@ -71,6 +71,11 @@ public object ShadowTokens {
         /**
          * shadow down soft s
          */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow down soft s
+         */
         public val color: Color = Color(0x0A000000)
     }
 
@@ -206,6 +211,11 @@ public object ShadowTokens {
         /**
          * shadow down hard s
          */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow down hard s
+         */
         public val color: Color = Color(0x14000000)
     }
 
@@ -306,6 +316,11 @@ public object ShadowTokens {
         /**
          * shadow up soft s
          */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow up soft s
+         */
         public val color: Color = Color(0x14080808)
     }
 
@@ -332,6 +347,11 @@ public object ShadowTokens {
          * shadow up soft s
          */
         public val blurRadius: Dp = 4.0.dp
+
+        /**
+         * shadow up soft s
+         */
+        public val fallbackElevation: Dp = 0.0.dp
 
         /**
          * shadow up soft s
@@ -366,6 +386,11 @@ public object ShadowTokens {
         /**
          * shadow up soft m
          */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow up soft m
+         */
         public val color: Color = Color(0x14000000)
     }
 
@@ -392,6 +417,11 @@ public object ShadowTokens {
          * shadow up soft l
          */
         public val blurRadius: Dp = 112.0.dp
+
+        /**
+         * shadow up soft l
+         */
+        public val fallbackElevation: Dp = 0.0.dp
 
         /**
          * shadow up soft l
@@ -426,6 +456,11 @@ public object ShadowTokens {
         /**
          * shadow up hard s
          */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow up hard s
+         */
         public val color: Color = Color(0x33080808)
     }
 
@@ -452,6 +487,11 @@ public object ShadowTokens {
          * shadow up hard s
          */
         public val blurRadius: Dp = 4.0.dp
+
+        /**
+         * shadow up hard s
+         */
+        public val fallbackElevation: Dp = 0.0.dp
 
         /**
          * shadow up hard s
@@ -486,6 +526,11 @@ public object ShadowTokens {
         /**
          * shadow up hard m
          */
+        public val fallbackElevation: Dp = 0.0.dp
+
+        /**
+         * shadow up hard m
+         */
         public val color: Color = Color(0x3D000000)
     }
 
@@ -512,6 +557,11 @@ public object ShadowTokens {
          * shadow up hard l
          */
         public val blurRadius: Dp = 112.0.dp
+
+        /**
+         * shadow up hard l
+         */
+        public val fallbackElevation: Dp = 0.0.dp
 
         /**
          * shadow up hard l

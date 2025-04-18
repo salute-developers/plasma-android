@@ -1,3 +1,10 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
 package com.sdds.plasma.giga.styles.chip
 
 import androidx.compose.foundation.shape.CircleShape
@@ -6,224 +13,435 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 /**
- * Стиль [Chip] размера L
+ * Базовый интерфейс для всех оберток этого стиля
  */
-val Chip.L: ChipStyleBuilder
+public interface WrapperChip : BuilderWrapper<ChipStyle, ChipStyleBuilder>
+
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperChipView : WrapperChip
+
+/**
+ * Терминальная обертка
+ */
+@JvmInline
+public value class WrapperChipTerminate(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChip
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperChipL(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации LPilled
+ */
+@JvmInline
+public value class WrapperChipLPilled(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperChipM(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации MPilled
+ */
+@JvmInline
+public value class WrapperChipMPilled(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperChipS(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации SPilled
+ */
+@JvmInline
+public value class WrapperChipSPilled(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации Xs
+ */
+@JvmInline
+public value class WrapperChipXs(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+/**
+ * Обертка для вариации XsPilled
+ */
+@JvmInline
+public value class WrapperChipXsPilled(
+    public override val builder: ChipStyleBuilder,
+) : WrapperChipView
+
+public val WrapperChipView.Default: WrapperChipTerminate
     @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
+            contentStartColor(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                ),
+            )
+            contentEndColor(
+                PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperChipTerminate)
+
+public val WrapperChipView.Accent: WrapperChipTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
+            contentStartColor(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                ),
+            )
+            contentEndColor(
+                PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textInverseSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textInversePrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperChipTerminate)
+
+public val WrapperChipView.Negative: WrapperChipTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultNegativeHover,
+                ),
+            )
+            contentStartColor(
+                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            contentEndColor(
+                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperChipTerminate)
+
+public val WrapperChipView.Positive: WrapperChipTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultPositiveHover,
+                ),
+            )
+            contentStartColor(
+                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            contentEndColor(
+                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperChipTerminate)
+
+public val WrapperChipView.Secondary: WrapperChipTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+            contentStartColor(
+                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            contentEndColor(
+                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textDefaultSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperChipTerminate)
+
+public val WrapperChipView.Warning: WrapperChipTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaGigaTheme.colors.surfaceDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.surfaceDefaultWarningHover,
+                ),
+            )
+            contentStartColor(
+                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            contentEndColor(
+                PlasmaGigaTheme.colors.textOnDarkSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkSecondaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaGigaTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperChipTerminate)
+
+private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
+    @Composable
+    get() = this
+        .disableAlpha(0.4f)
+
+public val Chip.L: WrapperChipL
+    @Composable
+    @JvmName("WrapperChipL")
+    get() = ChipStyle.builder(this)
+        .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM)
-        .dimensions {
-            height(48.dp)
-            startContentSize(24.dp)
-            endContentSize(24.dp)
-            startContentMargin(8.dp)
-            endContentMargin(8.dp)
-            startPadding(16.dp)
-            endPadding(16.dp)
-        }
-
-/**
- * Стиль [Chip] размера M
- */
-val Chip.M: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = (-2).dp))
-        .dimensions {
-            height(40.dp)
-            startContentSize(24.dp)
-            endContentSize(24.dp)
-            startContentMargin(6.dp)
-            endContentMargin(6.dp)
-            startPadding(14.dp)
-            endPadding(14.dp)
-        }
-
-/**
- * Стиль [Chip] размера S
- */
-val Chip.S: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .shape(PlasmaGigaTheme.shapes.roundS)
-        .dimensions {
-            height(32.dp)
-            startContentSize(16.dp)
-            endContentSize(16.dp)
-            startContentMargin(4.dp)
-            endContentMargin(4.dp)
-            startPadding(12.dp)
-            endPadding(12.dp)
-        }
-
-/**
- * Стиль [Chip] размера Xs
- */
-val Chip.Xs: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .shape(PlasmaGigaTheme.shapes.roundXs)
-        .dimensions {
-            height(24.dp)
-            startContentSize(12.dp)
-            endContentSize(12.dp)
-            startContentMargin(2.dp)
-            endContentMargin(2.dp)
-            startPadding(10.dp)
-            endPadding(10.dp)
-        }
-
-/**
- * Стиль [EmbeddedChip] размера L
- */
-val EmbeddedChip.L: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
         .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .shape(PlasmaGigaTheme.shapes.roundS)
         .dimensions {
-            height(44.dp)
-            startContentSize(24.dp)
-            endContentSize(24.dp)
-            startContentMargin(8.dp)
-            endContentMargin(10.dp)
-            startPadding(16.dp)
-            endPadding(12.dp)
+            height(48.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
+            contentStartPadding(8.0.dp)
+            contentEndPadding(8.0.dp)
+            contentStartSize(24.0.dp)
+            contentEndSize(24.0.dp)
         }
+        .wrap(::WrapperChipL)
 
-/**
- * Стиль [EmbeddedChip] размера M
- */
-val EmbeddedChip.M: ChipStyleBuilder
+public val WrapperChipL.Pilled: WrapperChipLPilled
     @Composable
-    get() = ChipStyle.builder()
+    @JvmName("WrapperChipLPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperChipLPilled)
+
+public val Chip.M: WrapperChipM
+    @Composable
+    @JvmName("WrapperChipM")
+    get() = ChipStyle.builder(this)
+        .invariantProps
+        .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .shape(PlasmaGigaTheme.shapes.roundXs)
         .dimensions {
-            height(36.dp)
-            startContentSize(24.dp)
-            endContentSize(24.dp)
-            startContentMargin(6.dp)
-            endContentMargin(8.dp)
-            startPadding(14.dp)
-            endPadding(10.dp)
+            height(40.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(14.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            contentStartSize(24.0.dp)
+            contentEndSize(24.0.dp)
         }
+        .wrap(::WrapperChipM)
 
-/**
- * Стиль [EmbeddedChip] размера S
- */
-val EmbeddedChip.S: ChipStyleBuilder
+public val WrapperChipM.Pilled: WrapperChipMPilled
     @Composable
-    get() = ChipStyle.builder()
+    @JvmName("WrapperChipMPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperChipMPilled)
+
+public val Chip.S: WrapperChipS
+    @Composable
+    @JvmName("WrapperChipS")
+    get() = ChipStyle.builder(this)
+        .invariantProps
+        .shape(PlasmaGigaTheme.shapes.roundS)
         .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .shape(PlasmaGigaTheme.shapes.roundXxs)
         .dimensions {
-            height(28.dp)
-            startContentSize(16.dp)
-            endContentSize(16.dp)
-            startContentMargin(4.dp)
-            endContentMargin(6.dp)
-            startPadding(12.dp)
-            endPadding(8.dp)
+            height(32.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
+            contentStartPadding(4.0.dp)
+            contentEndPadding(4.0.dp)
+            contentStartSize(16.0.dp)
+            contentEndSize(16.0.dp)
         }
+        .wrap(::WrapperChipS)
 
-/**
- * Стиль [EmbeddedChip] размера Xs
- */
-val EmbeddedChip.Xs: ChipStyleBuilder
+public val WrapperChipS.Pilled: WrapperChipSPilled
     @Composable
-    get() = ChipStyle.builder()
+    @JvmName("WrapperChipSPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperChipSPilled)
+
+public val Chip.Xs: WrapperChipXs
+    @Composable
+    @JvmName("WrapperChipXs")
+    get() = ChipStyle.builder(this)
+        .invariantProps
+        .shape(PlasmaGigaTheme.shapes.roundXs)
         .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .shape(PlasmaGigaTheme.shapes.roundXxs.adjustBy(all = (-2).dp))
         .dimensions {
-            height(20.dp)
-            startContentSize(12.dp)
-            endContentSize(12.dp)
-            startContentMargin(4.dp)
-            endContentMargin(4.dp)
-            startPadding(8.dp)
-            endPadding(4.dp)
+            height(24.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
+            contentStartPadding(2.0.dp)
+            contentEndPadding(2.0.dp)
+            contentStartSize(12.0.dp)
+            contentEndSize(12.0.dp)
         }
+        .wrap(::WrapperChipXs)
 
-/**
- * Вариация [Chip] со скругленными на 50% углами (figma: Pilled)
- */
-val ChipStyleBuilder.Pilled: ChipStyleBuilder
-    get() = this.shape(CircleShape)
-
-/**
- * Вариация [Chip] цвета Default
- */
-val ChipStyleBuilder.Default: ChipStyleBuilder
+public val WrapperChipXs.Pilled: WrapperChipXsPilled
     @Composable
-    get() = this.colors {
-        contentColor(
-            PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.textInversePrimaryActive,
-            ),
-        )
-        backgroundColor(
-            PlasmaGigaTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-                pressed = PlasmaGigaTheme.colors.surfaceDefaultSolidDefaultActive,
-            ),
-        )
-        endContentColor(
-            PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.textInverseSecondaryActive,
-            ),
-        )
-    }
-
-/**
- * Вариация [Chip] цвета Secondary
- */
-val ChipStyleBuilder.Secondary: ChipStyleBuilder
-    @Composable
-    get() = this.colors {
-        contentColor(
-            PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.textDefaultPrimaryActive,
-            ),
-        )
-        backgroundColor(
-            PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
-            ),
-        )
-        endContentColor(
-            PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.textDefaultSecondaryActive,
-            ),
-        )
-    }
-
-/**
- * Вариация [Chip] цвета Accent
- */
-val ChipStyleBuilder.Accent: ChipStyleBuilder
-    @Composable
-    get() = this.colors {
-        contentColor(
-            PlasmaGigaTheme.colors.textInversePrimary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.textOnDarkPrimaryActive,
-            ),
-        )
-        backgroundColor(
-            PlasmaGigaTheme.colors.surfaceDefaultAccent.asInteractive(
-                pressed = PlasmaGigaTheme.colors.surfaceDefaultAccentActive,
-            ),
-        )
-        endContentColor(
-            PlasmaGigaTheme.colors.textInverseSecondary.asInteractive(
-                pressed = PlasmaGigaTheme.colors.textOnDarkSecondaryActive,
-            ),
-        )
-    }
+    @JvmName("WrapperChipXsPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperChipXsPilled)

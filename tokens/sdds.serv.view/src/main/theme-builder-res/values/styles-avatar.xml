@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Avatar" parent="Sdds.Components.Avatar">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_background">@xml/serv_avatar_background</item>
+        <item name="sd_textColor">?serv_textDefaultAccentGradient</item>
+        <item name="sd_statusColor">@color/serv_avatar_status_color</item>
+    </style>
+    <style name="Serv.Sdds.Components.Avatar.Xxl">
+        <item name="android:minWidth">@dimen/serv_avatar_xxl_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_xxl_max_width</item>
+        <item name="android:minHeight">@dimen/serv_avatar_xxl_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_avatar_xxl_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/serv_avatar_xxl_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/serv_avatar_xxl_status_offset_y</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_statusStyle">@style/Serv.Sdds.Components.Indicator.L</item>
+        <item name="sd_extraBadgeStyle">@style/Serv.Sdds.Components.BadgeSolid.L.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Serv.Sdds.Components.Counter.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarXxl">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.Xxl</item>
+    </style>
+    <style name="Serv.Sdds.Components.Avatar.L">
+        <item name="android:minWidth">@dimen/serv_avatar_l_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_l_max_width</item>
+        <item name="android:minHeight">@dimen/serv_avatar_l_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_avatar_l_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/serv_avatar_l_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/serv_avatar_l_status_offset_y</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_statusStyle">@style/Serv.Sdds.Components.Indicator.M</item>
+        <item name="sd_extraBadgeStyle">@style/Serv.Sdds.Components.BadgeSolid.S.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Serv.Sdds.Components.Counter.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.Avatar.M">
+        <item name="android:minWidth">@dimen/serv_avatar_m_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_m_max_width</item>
+        <item name="android:minHeight">@dimen/serv_avatar_m_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_avatar_m_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/serv_avatar_m_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/serv_avatar_m_status_offset_y</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+        <item name="sd_statusStyle">@style/Serv.Sdds.Components.Indicator.M</item>
+        <item name="sd_extraBadgeStyle">@style/Serv.Sdds.Components.BadgeSolid.Xs.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Serv.Sdds.Components.Counter.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Avatar.S">
+        <item name="android:minWidth">@dimen/serv_avatar_s_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_avatar_s_max_width</item>
+        <item name="android:minHeight">@dimen/serv_avatar_s_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_avatar_s_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/serv_avatar_s_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/serv_avatar_s_status_offset_y</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsBold</item>
+        <item name="sd_statusStyle">@style/Serv.Sdds.Components.Indicator.S</item>
+        <item name="sd_extraCounterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.S</item>
+    </style>
+</resources>

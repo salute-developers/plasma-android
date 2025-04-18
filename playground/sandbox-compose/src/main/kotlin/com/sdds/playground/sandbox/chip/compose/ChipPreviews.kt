@@ -5,6 +5,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.style.style
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.styles.chip.Accent
@@ -65,7 +66,7 @@ internal fun ChipPreviewSizeLDefault() {
 internal fun ChipPreviewSizeMSecondaryPilled() {
     SandboxTheme {
         Chip(
-            style = Chip.M.Secondary.Pilled.style(),
+            style = Chip.M.Pilled.Secondary.style(),
             label = "Label",
             onClick = {},
             enabled = true,

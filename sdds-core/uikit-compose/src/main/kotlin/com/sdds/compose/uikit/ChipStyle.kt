@@ -71,34 +71,34 @@ interface ChipColorsBuilder {
         labelColor(labelColor.asInteractive())
 
     /**
-     * Устанавливает цвет дополнительного текста компонента [startContentColor]
-     * @see ChipColors.startContentColor
+     * Устанавливает цвет дополнительного текста компонента [contentStartColor]
+     * @see ChipColors.contentStartColor
      * @see InteractiveColor
      */
-    fun startContentColor(startContentColor: InteractiveColor): ChipColorsBuilder
+    fun contentStartColor(contentStartColor: InteractiveColor): ChipColorsBuilder
 
     /**
      * Устанавливает цвет дополнительного текста компонента [valueColor]
-     * @see ChipColors.startContentColor
+     * @see ChipColors.contentStartColor
      * @see InteractiveColor
      */
-    fun startContentColor(valueColor: Color): ChipColorsBuilder =
-        startContentColor(valueColor.asInteractive())
+    fun contentStartColor(valueColor: Color): ChipColorsBuilder =
+        contentStartColor(valueColor.asInteractive())
 
     /**
-     * Устанавливает цвет иконки компонента [endContentColor]
-     * @see ChipColors.endContentColor
+     * Устанавливает цвет иконки компонента [contentEndColor]
+     * @see ChipColors.contentEndColor
      * @see InteractiveColor
      */
-    fun endContentColor(endContentColor: InteractiveColor): ChipColorsBuilder
+    fun contentEndColor(contentEndColor: InteractiveColor): ChipColorsBuilder
 
     /**
-     * Устанавливает цвет иконки компонента [endContentColor]
-     * @see ChipColors.endContentColor
+     * Устанавливает цвет иконки компонента [contentEndColor]
+     * @see ChipColors.contentEndColor
      * @see InteractiveColor
      */
-    fun endContentColor(endContentColor: Color): ChipColorsBuilder =
-        endContentColor(endContentColor.asInteractive())
+    fun contentEndColor(contentEndColor: Color): ChipColorsBuilder =
+        contentEndColor(contentEndColor.asInteractive())
 
     /**
      * Возвращает готовый экземпляр [ChipColors]
@@ -187,7 +187,7 @@ interface ChipStyle : Style {
         /**
          * Возвращает экземпляр [ChipStyleBuilder]
          */
-        fun builder(): ChipStyleBuilder = DefaultChipStyle.Builder()
+        fun builder(receiver: Any? = null): ChipStyleBuilder = DefaultChipStyle.Builder()
     }
 }
 
@@ -205,32 +205,32 @@ interface ChipDimensions {
     /**
      * Размер контента в начале
      */
-    val startContentSize: Dp
+    val contentStartSize: Dp
 
     /**
      * Размер контента в окнце
      */
-    val endContentSize: Dp
+    val contentEndSize: Dp
 
     /**
      * Отступ от контента в начале
      */
-    val startContentMargin: Dp
+    val contentStartPadding: Dp
 
     /**
      * Отступ от контента в конце
      */
-    val endContentMargin: Dp
+    val contentEndPadding: Dp
 
     /**
      * Отступ в начале
      */
-    val startPadding: Dp
+    val paddingStart: Dp
 
     /**
      * Отступ в конце
      */
-    val endPadding: Dp
+    val paddingEnd: Dp
 
     companion object {
 
@@ -254,32 +254,32 @@ interface ChipDimensionsBuilder {
     /**
      * Устанавливает размер контента в начале
      */
-    fun startContentSize(startContentSize: Dp): ChipDimensionsBuilder
+    fun contentStartSize(contentStartSize: Dp): ChipDimensionsBuilder
 
     /**
      * Устанавливает размер контента в конце
      */
-    fun endContentSize(endContentSize: Dp): ChipDimensionsBuilder
+    fun contentEndSize(contentEndSize: Dp): ChipDimensionsBuilder
 
     /**
      * Устанавливает отступ от контента в начале
      */
-    fun startContentMargin(startContentMargin: Dp): ChipDimensionsBuilder
+    fun contentStartPadding(contentStartPadding: Dp): ChipDimensionsBuilder
 
     /**
      * Устанавливает отступ от контента в конце
      */
-    fun endContentMargin(endContentMargin: Dp): ChipDimensionsBuilder
+    fun contentEndPadding(contentEndPadding: Dp): ChipDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале
      */
-    fun startPadding(startPadding: Dp): ChipDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): ChipDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце
      */
-    fun endPadding(endPadding: Dp): ChipDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): ChipDimensionsBuilder
 
     /**
      * Возвращает экземпляр [ChipDimensions]
@@ -289,59 +289,59 @@ interface ChipDimensionsBuilder {
 
 private class DefaultChipDimensions(
     override val height: Dp,
-    override val startContentSize: Dp,
-    override val endContentSize: Dp,
-    override val startContentMargin: Dp,
-    override val endContentMargin: Dp,
-    override val startPadding: Dp,
-    override val endPadding: Dp,
+    override val contentStartSize: Dp,
+    override val contentEndSize: Dp,
+    override val contentStartPadding: Dp,
+    override val contentEndPadding: Dp,
+    override val paddingStart: Dp,
+    override val paddingEnd: Dp,
 ) : ChipDimensions {
 
     class Builder : ChipDimensionsBuilder {
         private var height: Dp? = null
-        private var startContentSize: Dp? = null
-        private var endContentSize: Dp? = null
-        private var startContentMargin: Dp? = null
-        private var endContentMargin: Dp? = null
-        private var startPadding: Dp? = null
-        private var endPadding: Dp? = null
+        private var contentStartSize: Dp? = null
+        private var contentEndSize: Dp? = null
+        private var contentStartPadding: Dp? = null
+        private var contentEndPadding: Dp? = null
+        private var paddingStart: Dp? = null
+        private var paddingEnd: Dp? = null
         override fun height(height: Dp) = apply {
             this.height = height
         }
 
-        override fun startContentSize(startContentSize: Dp) = apply {
-            this.startContentSize = startContentSize
+        override fun contentStartSize(contentStartSize: Dp) = apply {
+            this.contentStartSize = contentStartSize
         }
 
-        override fun endContentSize(endContentSize: Dp) = apply {
-            this.endContentSize = endContentSize
+        override fun contentEndSize(contentEndSize: Dp) = apply {
+            this.contentEndSize = contentEndSize
         }
 
-        override fun startContentMargin(startContentMargin: Dp) = apply {
-            this.startContentMargin = startContentMargin
+        override fun contentStartPadding(contentStartPadding: Dp) = apply {
+            this.contentStartPadding = contentStartPadding
         }
 
-        override fun endContentMargin(endContentMargin: Dp) = apply {
-            this.endContentMargin = endContentMargin
+        override fun contentEndPadding(contentEndPadding: Dp) = apply {
+            this.contentEndPadding = contentEndPadding
         }
 
-        override fun startPadding(startPadding: Dp) = apply {
-            this.startPadding = startPadding
+        override fun paddingStart(paddingStart: Dp) = apply {
+            this.paddingStart = paddingStart
         }
 
-        override fun endPadding(endPadding: Dp) = apply {
-            this.endPadding = endPadding
+        override fun paddingEnd(paddingEnd: Dp) = apply {
+            this.paddingEnd = paddingEnd
         }
 
         override fun build(): ChipDimensions {
             return DefaultChipDimensions(
                 height = height ?: 48.dp,
-                startContentSize = startContentSize ?: 24.dp,
-                endContentSize = endContentSize ?: 24.dp,
-                startContentMargin = startContentMargin ?: 16.dp,
-                endContentMargin = endContentMargin ?: 16.dp,
-                startPadding = startPadding ?: 16.dp,
-                endPadding = endPadding ?: 16.dp,
+                contentStartSize = contentStartSize ?: 24.dp,
+                contentEndSize = contentEndSize ?: 24.dp,
+                contentStartPadding = contentStartPadding ?: 16.dp,
+                contentEndPadding = contentEndPadding ?: 16.dp,
+                paddingStart = paddingStart ?: 16.dp,
+                paddingEnd = paddingEnd ?: 16.dp,
             )
         }
     }
@@ -375,13 +375,13 @@ interface ChipColors {
      * Цвет контента в начале (например, иконки)
      * @see InteractiveColor
      */
-    val startContentColor: InteractiveColor
+    val contentStartColor: InteractiveColor
 
     /**
      * Цвет контента в конце (например, иконки)
      * @see InteractiveColor
      */
-    val endContentColor: InteractiveColor
+    val contentEndColor: InteractiveColor
 
     companion object {
 
@@ -397,16 +397,16 @@ private class DefaultChipColors(
     override val contentColor: InteractiveColor,
     override val backgroundColor: InteractiveColor,
     override val labelColor: InteractiveColor,
-    override val startContentColor: InteractiveColor,
-    override val endContentColor: InteractiveColor,
+    override val contentStartColor: InteractiveColor,
+    override val contentEndColor: InteractiveColor,
 ) : ChipColors {
 
     class Builder : ChipColorsBuilder {
         private var contentColor: InteractiveColor? = null
         private var backgroundColor: InteractiveColor? = null
         private var labelColor: InteractiveColor? = null
-        private var startContentColor: InteractiveColor? = null
-        private var endContentColor: InteractiveColor? = null
+        private var contentStartColor: InteractiveColor? = null
+        private var contentEndColor: InteractiveColor? = null
 
         override fun contentColor(contentColor: InteractiveColor) = apply {
             this.contentColor = contentColor
@@ -420,12 +420,12 @@ private class DefaultChipColors(
             this.labelColor = labelColor
         }
 
-        override fun startContentColor(startContentColor: InteractiveColor) = apply {
-            this.startContentColor = startContentColor
+        override fun contentStartColor(contentStartColor: InteractiveColor) = apply {
+            this.contentStartColor = contentStartColor
         }
 
-        override fun endContentColor(endContentColor: InteractiveColor) = apply {
-            this.endContentColor = endContentColor
+        override fun contentEndColor(contentEndColor: InteractiveColor) = apply {
+            this.contentEndColor = contentEndColor
         }
 
         override fun build(): ChipColors {
@@ -434,8 +434,8 @@ private class DefaultChipColors(
                 contentColor = contentColor,
                 backgroundColor = backgroundColor ?: Color.White.asInteractive(),
                 labelColor = labelColor ?: contentColor,
-                startContentColor = startContentColor ?: contentColor,
-                endContentColor = endContentColor ?: contentColor,
+                contentStartColor = contentStartColor ?: contentColor,
+                contentEndColor = contentEndColor ?: contentColor,
             )
         }
     }

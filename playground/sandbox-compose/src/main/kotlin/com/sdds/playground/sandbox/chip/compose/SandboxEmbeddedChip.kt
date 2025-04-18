@@ -5,6 +5,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.EmbeddedChip

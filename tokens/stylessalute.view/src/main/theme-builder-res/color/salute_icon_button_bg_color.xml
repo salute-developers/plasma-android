@@ -20,8 +20,8 @@
     <item android:color="?salute_surfaceDefaultWarningActive" android:state_pressed="true" app:salute_iconbutton_state_warning="true"/>
     <item android:color="?salute_surfaceDefaultWarningHover" android:state_hovered="true" app:salute_iconbutton_state_warning="true"/>
     <item android:color="?salute_surfaceDefaultWarning" app:salute_iconbutton_state_warning="true"/>
-    <item android:color="?salute_surfaceDefaultClearActive" android:state_pressed="true" app:salute_iconbutton_state_clear="true"/>
-    <item android:color="?salute_surfaceDefaultClearHover" android:state_hovered="true" app:salute_iconbutton_state_clear="true"/>
+    <item android:color="?salute_surfaceDefaultTransparentSecondaryActive" android:state_pressed="true" app:salute_iconbutton_state_clear="true"/>
+    <item android:color="?salute_surfaceDefaultTransparentSecondaryHover" android:state_hovered="true" app:salute_iconbutton_state_clear="true"/>
     <item android:color="?salute_surfaceDefaultClear" app:salute_iconbutton_state_clear="true"/>
     <item android:color="?salute_surfaceOnLightTransparentDeepActive" android:state_pressed="true" app:salute_iconbutton_state_dark="true"/>
     <item android:color="?salute_surfaceOnLightTransparentDeepHover" android:state_hovered="true" app:salute_iconbutton_state_dark="true"/>

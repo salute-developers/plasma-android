@@ -105,13 +105,14 @@ internal fun RowScope.ButtonIcon(
     marginStart: Dp = 0.dp,
     marginEnd: Dp = 0.dp,
     iconColor: Color,
+    contentDescription: String? = null,
 ) {
     if (marginStart.value > 0) {
         Spacer(modifier = Modifier.width(marginStart))
     }
     Icon(
         painter = icon,
-        contentDescription = null,
+        contentDescription = contentDescription,
         modifier = Modifier.requiredSize(size),
         tint = iconColor,
     )

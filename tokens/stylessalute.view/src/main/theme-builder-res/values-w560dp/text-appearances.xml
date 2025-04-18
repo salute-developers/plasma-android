@@ -342,4 +342,174 @@
         <item name="android:textSize">@dimen/salute_screen_m_text_xs_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_text_xs_bold_line_height</item>
     </style>
+    <!--typography m display-l-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.DisplayLMedium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_display_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_display_l_medium_line_height</item>
+    </style>
+    <!--typography m display-m-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.DisplayMMedium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_display_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_display_m_medium_line_height</item>
+    </style>
+    <!--typography m display-s-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.DisplaySMedium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_display_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_display_s_medium_line_height</item>
+    </style>
+    <!--typography m header-h1-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.HeaderH1Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_header_h1_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_header_h1_medium_line_height</item>
+    </style>
+    <!--typography m header-h2-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.HeaderH2Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_header_h2_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_header_h2_medium_line_height</item>
+    </style>
+    <!--typography m header-h3-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.HeaderH3Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_header_h3_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_header_h3_medium_line_height</item>
+    </style>
+    <!--typography m header-h4-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.HeaderH4Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_header_h4_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_header_h4_medium_line_height</item>
+    </style>
+    <!--typography m header-h5-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.HeaderH5Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/salute_screen_m_header_h5_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_header_h5_medium_line_height</item>
+    </style>
+    <!--typography m body-l-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.BodyLMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_body_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_body_l_medium_line_height</item>
+    </style>
+    <!--typography m body-m-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.BodyMMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_body_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_body_m_medium_line_height</item>
+    </style>
+    <!--typography m body-s-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.BodySMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_body_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_body_s_medium_line_height</item>
+    </style>
+    <!--typography m body-xs-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.BodyXsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_body_xs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_body_xs_medium_line_height</item>
+    </style>
+    <!--typography m body-xxs-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.BodyXxsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_body_xxs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_body_xxs_medium_line_height</item>
+    </style>
+    <!--typography m text-l-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.TextLMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_text_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_text_l_medium_line_height</item>
+    </style>
+    <!--typography m text-m-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.TextMMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_text_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_text_m_medium_line_height</item>
+    </style>
+    <!--typography m text-s-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.TextSMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_text_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_text_s_medium_line_height</item>
+    </style>
+    <!--typography m text-xs-medium-->
+    <style name="Salute.StylesSalute.TextAppearance.TextXsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/salute_screen_m_text_xs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/salute_screen_m_text_xs_medium_line_height</item>
+    </style>
 </resources>

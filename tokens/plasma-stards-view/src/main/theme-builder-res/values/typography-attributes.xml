@@ -37,4 +37,21 @@
     <attr format="reference" name="sdkit_typographyTextSBold"/>
     <attr format="reference" name="sdkit_typographyTextXsNormal"/>
     <attr format="reference" name="sdkit_typographyTextXsBold"/>
+    <attr format="reference" name="sdkit_typographyDisplayLMedium"/>
+    <attr format="reference" name="sdkit_typographyDisplayMMedium"/>
+    <attr format="reference" name="sdkit_typographyDisplaySMedium"/>
+    <attr format="reference" name="sdkit_typographyHeaderH1Medium"/>
+    <attr format="reference" name="sdkit_typographyHeaderH2Medium"/>
+    <attr format="reference" name="sdkit_typographyHeaderH3Medium"/>
+    <attr format="reference" name="sdkit_typographyHeaderH4Medium"/>
+    <attr format="reference" name="sdkit_typographyHeaderH5Medium"/>
+    <attr format="reference" name="sdkit_typographyBodyLMedium"/>
+    <attr format="reference" name="sdkit_typographyBodyMMedium"/>
+    <attr format="reference" name="sdkit_typographyBodySMedium"/>
+    <attr format="reference" name="sdkit_typographyBodyXsMedium"/>
+    <attr format="reference" name="sdkit_typographyBodyXxsMedium"/>
+    <attr format="reference" name="sdkit_typographyTextLMedium"/>
+    <attr format="reference" name="sdkit_typographyTextMMedium"/>
+    <attr format="reference" name="sdkit_typographyTextSMedium"/>
+    <attr format="reference" name="sdkit_typographyTextXsMedium"/>
 </resources>

@@ -18,11 +18,8 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
-import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -162,12 +159,10 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(false)
         .dimensions {
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_optional_padding_TextArea))
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_chips_padding_TextArea))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_optional_padding))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Inner)
         .counterPlacement(TextFieldHelperTextPlacement.Inner)
         .colors {
@@ -237,10 +232,10 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             )
         }
         .scrollBar {
-            scrollBarThickness(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_thickness_TextArea))
-            scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_top_TextArea))
-            scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_bottom_TextArea))
-            scrollBarPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_end_TextArea))
+            scrollBarThickness(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_thickness))
+            scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_top))
+            scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_bottom))
+            scrollBarPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_end))
             scrollBarTrackColor(
                 StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )

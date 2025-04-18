@@ -27,4 +27,5 @@
     <item type="id" name="nav_card"/>
     <item type="id" name="nav_divider"/>
     <item type="id" name="nav_navigation_drawer"/>
+    <item type="id" name="nav_circular_progressbar"/>
 </resources>

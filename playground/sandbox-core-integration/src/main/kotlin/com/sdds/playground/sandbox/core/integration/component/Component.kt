@@ -144,6 +144,7 @@ data class ComponentKey(
         val Flow = ComponentKey("Flow", CoreComponent.FLOW)
         val NavigationDrawer = ComponentKey("NavigationDrawer", CoreComponent.NAVIGATION_DRAWER)
         val ProgressBar = ComponentKey("ProgressBar", CoreComponent.PROGRESS)
+        val CircularProgressBar = ComponentKey("CircularProgressBar", CoreComponent.CIRCULAR_PROGRESS)
 
         val RadioBox = ComponentKey("RadioBox", CoreComponent.RADIOBOX)
         val RadioBoxGroup = ComponentKey("RadioBoxGroup", CoreComponent.RADIOBOX_GROUP)
@@ -195,6 +196,7 @@ enum class CoreComponent {
     NAVIGATION_DRAWER,
 
     PROGRESS,
+    CIRCULAR_PROGRESS,
 
     RADIOBOX,
     RADIOBOX_GROUP,

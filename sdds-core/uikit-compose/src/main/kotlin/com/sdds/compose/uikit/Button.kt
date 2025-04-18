@@ -5,6 +5,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
@@ -29,6 +30,7 @@ import com.sdds.compose.uikit.internal.ButtonText
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
  */
 @Composable
+@NonRestartableComposable
 fun IconButton(
     icon: Painter,
     onClick: () -> Unit,
@@ -37,6 +39,46 @@ fun IconButton(
     enabled: Boolean = true,
     loading: Boolean = false,
     indication: Indication? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    IconButton(
+        icon = icon,
+        onClick = onClick,
+        modifier = modifier,
+        style = style,
+        enabled = enabled,
+        loading = loading,
+        indication = indication,
+        interactionSource = interactionSource,
+        iconContentDescription = null,
+    )
+}
+
+/**
+ * Кнопка с иконкой.
+ * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
+ * На время анимации загрузки контент будет скрыт или станет полупрозрачным
+ * в зависимости от стиля.
+ *
+ * @param icon иконка
+ * @param onClick обработчик нажатий
+ * @param modifier модификатор
+ * @param style стиль кнопки
+ * @param enabled флаг доступности кнопки
+ * @param loading флаг загрузки
+ * @param iconContentDescription описание иконки
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ */
+@Composable
+fun IconButton(
+    icon: Painter,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: ButtonStyle = LocalIconButtonStyle.current,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    indication: Indication? = null,
+    iconContentDescription: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dimensions = style.dimensions
@@ -55,6 +97,7 @@ fun IconButton(
     ) {
         ButtonIcon(
             icon = icon,
+            contentDescription = iconContentDescription,
             size = dimensions.iconSize,
             iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
         )
@@ -123,6 +166,7 @@ fun Button(
         if (icons?.start != null) {
             ButtonIcon(
                 icon = icons.start,
+                contentDescription = icons.startContentDescription,
                 size = dimensions.iconSize,
                 marginEnd = dimensions.iconMargin,
                 iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
@@ -144,6 +188,7 @@ fun Button(
         if (icons?.end != null) {
             ButtonIcon(
                 icon = icons.end,
+                contentDescription = icons.endContentDescription,
                 size = dimensions.iconSize,
                 marginStart = dimensions.iconMargin,
                 iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
@@ -200,10 +245,30 @@ enum class ButtonSpacing {
  * Иконки кнопки
  * @property start иконка, которая будет добавлена в начале
  * @property end иконка, которая будет добавлена в конце
+ * @property startContentDescription описание иконки в начале
+ * @property endContentDescription описание иконки в конце
  */
-data class ButtonIcons(
+class ButtonIcons(
     val start: Painter? = null,
     val end: Painter? = null,
-)
+    val startContentDescription: String? = null,
+    val endContentDescription: String? = null,
+) {
+
+    /**
+     * Создает [ButtonIcons] с указанными иконками вначале [start] и вконце [end]
+     */
+    constructor(start: Painter?, end: Painter?) : this(start, end, null, null)
+
+    /**
+     * Копирует [ButtonIcons]
+     */
+    fun copy(
+        start: Painter? = this.start,
+        end: Painter? = this.end,
+        startContentDescription: String? = this.startContentDescription,
+        endContentDescription: String? = this.endContentDescription,
+    ): ButtonIcons = ButtonIcons(start, end, startContentDescription, endContentDescription)
+}
 
 private val IconPaddingOffset = 2.dp

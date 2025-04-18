@@ -343,4 +343,174 @@
         <item name="android:textSize">@dimen/serv_screen_s_text_xs_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_text_xs_bold_line_height</item>
     </style>
+    <!--typography s display-l-medium-->
+    <style name="Serv.Sdds.TextAppearance.DisplayLMedium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_display_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_display_l_medium_line_height</item>
+    </style>
+    <!--typography s display-m-medium-->
+    <style name="Serv.Sdds.TextAppearance.DisplayMMedium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_display_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_display_m_medium_line_height</item>
+    </style>
+    <!--typography s display-s-medium-->
+    <style name="Serv.Sdds.TextAppearance.DisplaySMedium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_display_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_display_s_medium_line_height</item>
+    </style>
+    <!--typography s header-h1-medium-->
+    <style name="Serv.Sdds.TextAppearance.HeaderH1Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_header_h1_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_header_h1_medium_line_height</item>
+    </style>
+    <!--typography s header-h2-medium-->
+    <style name="Serv.Sdds.TextAppearance.HeaderH2Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_header_h2_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_header_h2_medium_line_height</item>
+    </style>
+    <!--typography s header-h3-medium-->
+    <style name="Serv.Sdds.TextAppearance.HeaderH3Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_header_h3_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_header_h3_medium_line_height</item>
+    </style>
+    <!--typography s header-h4-medium-->
+    <style name="Serv.Sdds.TextAppearance.HeaderH4Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_header_h4_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_header_h4_medium_line_height</item>
+    </style>
+    <!--typography s header-h5-medium-->
+    <style name="Serv.Sdds.TextAppearance.HeaderH5Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/serv_screen_s_header_h5_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_header_h5_medium_line_height</item>
+    </style>
+    <!--typography s body-l-medium-->
+    <style name="Serv.Sdds.TextAppearance.BodyLMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_body_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_body_l_medium_line_height</item>
+    </style>
+    <!--typography s body-m-medium-->
+    <style name="Serv.Sdds.TextAppearance.BodyMMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_body_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_body_m_medium_line_height</item>
+    </style>
+    <!--typography s body-s-medium-->
+    <style name="Serv.Sdds.TextAppearance.BodySMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_body_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_body_s_medium_line_height</item>
+    </style>
+    <!--typography s body-xs-medium-->
+    <style name="Serv.Sdds.TextAppearance.BodyXsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_body_xs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_body_xs_medium_line_height</item>
+    </style>
+    <!--typography s body-xxs-medium-->
+    <style name="Serv.Sdds.TextAppearance.BodyXxsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_body_xxs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_body_xxs_medium_line_height</item>
+    </style>
+    <!--typography s text-l-medium-->
+    <style name="Serv.Sdds.TextAppearance.TextLMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_text_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_text_l_medium_line_height</item>
+    </style>
+    <!--typography s text-m-medium-->
+    <style name="Serv.Sdds.TextAppearance.TextMMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_text_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_text_m_medium_line_height</item>
+    </style>
+    <!--typography s text-s-medium-->
+    <style name="Serv.Sdds.TextAppearance.TextSMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_text_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_text_s_medium_line_height</item>
+    </style>
+    <!--typography s text-xs-medium-->
+    <style name="Serv.Sdds.TextAppearance.TextXsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/serv_screen_s_text_xs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/serv_screen_s_text_xs_medium_line_height</item>
+    </style>
 </resources>

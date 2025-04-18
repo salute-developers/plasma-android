@@ -301,6 +301,23 @@ internal class KtFileBuilder(
     }
 
     /**
+     * Добавляет аннотацию OptIn для генерируемого файла
+     */
+    fun addOptInAnnotation(vararg optInType: ClassName) {
+        fileSpecBuilder.addAnnotation(
+            AnnotationSpec.builder(ClassName("kotlin", "OptIn"))
+                .apply {
+                    optInType.forEach {
+                        addImport(it)
+                        addMember("${it.simpleName}::class")
+                    }
+                }
+                .useSiteTarget(AnnotationSpec.UseSiteTarget.FILE)
+                .build(),
+        )
+    }
+
+    /**
      * Добавляет аннотацию Suppress для генерируемой функции
      * c подавлением ппредупреждения [warningName]
      */
@@ -625,6 +642,7 @@ internal class KtFileBuilder(
         val TypeFontWeight = ClassName("androidx.compose.ui.text.font", "FontWeight")
         val TypeFontStyle = ClassName("androidx.compose.ui.text.font", "FontStyle")
         val TypeFontFamily = ClassName("androidx.compose.ui.text.font", "FontFamily")
+        val TypeFontVariation = ClassName("androidx.compose.ui.text.font", "FontVariation")
         val TypeLineHeightStyle = ClassName("androidx.compose.ui.text.style", "LineHeightStyle")
         val TypePlatformTextStyle = ClassName("androidx.compose.ui.text", "PlatformTextStyle")
         val TypeSp = ClassName("androidx.compose.ui.unit", "sp")
@@ -669,6 +687,7 @@ internal class KtFileBuilder(
         val TypeDpOffset = ClassName("androidx.compose.ui.unit", "DpOffset")
         val TypeMutableStateOfColor = ClassName("androidx.compose.runtime", "MutableState")
             .parameterizedBy(TypeColor)
+        val TypeExperimentalTextApi = ClassName("androidx.compose.ui.text", "ExperimentalTextApi")
 
         /**
          * Возвращает [TypeName] как nullable тип
@@ -717,9 +736,11 @@ internal class KtFileBuilder(
                 if (initializers.size > 1) {
                     appendLine("(")
                     initializers.forEach {
-                        append(DEFAULT_FILE_INDENT)
-                        append(it)
-                        appendLine(",")
+                        if (it.isNotBlank()) {
+                            append(DEFAULT_FILE_INDENT)
+                            append(it)
+                            appendLine(",")
+                        }
                     }
                 } else {
                     append("(")

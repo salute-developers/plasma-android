@@ -55,6 +55,7 @@ internal fun String.fileNameFromUrl(): String =
 internal fun String.fontFileNameFromUrl(): String =
     fileNameFromUrl()
         .replace('-', '_')
+        .replace(',', '_')
         .camelToSnakeCase()
 
 /**

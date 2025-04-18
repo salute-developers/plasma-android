@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
@@ -12,12 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.internal.common.background
+import com.sdds.compose.uikit.internal.common.drawOutline
 
 /**
  * Компонент [Indicator]
@@ -30,9 +32,10 @@ fun Indicator(
     modifier: Modifier = Modifier,
     style: IndicatorStyle = LocalIndicatorStyle.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    stateSet: Set<ValueState> = emptySet(),
 ) {
     Box(
-        modifier = modifier.indicator(style, interactionSource),
+        modifier = modifier.indicator(style, interactionSource, stateSet),
     )
 }
 
@@ -47,16 +50,15 @@ fun Indicator(
 fun Modifier.indicator(
     style: IndicatorStyle = LocalIndicatorStyle.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    stateSet: Set<ValueState> = emptySet(),
 ): Modifier = composed {
-    val backgroundColor = style.color.backgroundColor.colorForInteraction(interactionSource)
+    val brush = style.color.backgroundBrush?.getValue(interactionSource, stateSet)
+    val color = style.color.backgroundColor.takeIf { brush == null }?.colorForInteraction(interactionSource, stateSet)
     val dimensions = style.dimensions
     this then Modifier
         .height(dimensions.height)
         .width(dimensions.width)
-        .background(
-            backgroundColor,
-            style.shape,
-        )
+        .background(brush, color, style.shape)
 }
 
 /**
@@ -83,8 +85,10 @@ fun Modifier.indicator(
     horizontalMode: IndicatorMode = IndicatorMode.Inner,
     verticalMode: IndicatorMode = IndicatorMode.Inner,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    stateSet: Set<ValueState> = emptySet(),
 ): Modifier = composed {
-    val color = style.color.backgroundColor.colorForInteraction(interactionSource)
+    val brush = style.color.backgroundBrush?.getValue(interactionSource, stateSet)
+    val color = style.color.backgroundColor.takeIf { brush == null }?.colorForInteraction(interactionSource, stateSet)
     val shape = style.shape
     this then Modifier
         .drawWithCache {
@@ -124,7 +128,7 @@ fun Modifier.indicator(
             onDrawWithContent {
                 drawContent()
                 translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
-                    drawOutline(outline, color)
+                    drawOutline(outline, brush, color)
                 }
             }
         }

@@ -139,4 +139,72 @@
     <style name="Salute.StylesSalute.Typography.TextXsBold">
         <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.TextXsBold</item>
     </style>
+    <!--typography s display-l-medium-->
+    <style name="Salute.StylesSalute.Typography.DisplayLMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.DisplayLMedium</item>
+    </style>
+    <!--typography s display-m-medium-->
+    <style name="Salute.StylesSalute.Typography.DisplayMMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.DisplayMMedium</item>
+    </style>
+    <!--typography s display-s-medium-->
+    <style name="Salute.StylesSalute.Typography.DisplaySMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.DisplaySMedium</item>
+    </style>
+    <!--typography s header-h1-medium-->
+    <style name="Salute.StylesSalute.Typography.HeaderH1Medium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH1Medium</item>
+    </style>
+    <!--typography s header-h2-medium-->
+    <style name="Salute.StylesSalute.Typography.HeaderH2Medium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH2Medium</item>
+    </style>
+    <!--typography s header-h3-medium-->
+    <style name="Salute.StylesSalute.Typography.HeaderH3Medium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH3Medium</item>
+    </style>
+    <!--typography s header-h4-medium-->
+    <style name="Salute.StylesSalute.Typography.HeaderH4Medium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH4Medium</item>
+    </style>
+    <!--typography s header-h5-medium-->
+    <style name="Salute.StylesSalute.Typography.HeaderH5Medium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH5Medium</item>
+    </style>
+    <!--typography s body-l-medium-->
+    <style name="Salute.StylesSalute.Typography.BodyLMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLMedium</item>
+    </style>
+    <!--typography s body-m-medium-->
+    <style name="Salute.StylesSalute.Typography.BodyMMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMMedium</item>
+    </style>
+    <!--typography s body-s-medium-->
+    <style name="Salute.StylesSalute.Typography.BodySMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySMedium</item>
+    </style>
+    <!--typography s body-xs-medium-->
+    <style name="Salute.StylesSalute.Typography.BodyXsMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsMedium</item>
+    </style>
+    <!--typography s body-xxs-medium-->
+    <style name="Salute.StylesSalute.Typography.BodyXxsMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsMedium</item>
+    </style>
+    <!--typography s text-l-medium-->
+    <style name="Salute.StylesSalute.Typography.TextLMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.TextLMedium</item>
+    </style>
+    <!--typography s text-m-medium-->
+    <style name="Salute.StylesSalute.Typography.TextMMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.TextMMedium</item>
+    </style>
+    <!--typography s text-s-medium-->
+    <style name="Salute.StylesSalute.Typography.TextSMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.TextSMedium</item>
+    </style>
+    <!--typography s text-xs-medium-->
+    <style name="Salute.StylesSalute.Typography.TextXsMedium">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.TextXsMedium</item>
+    </style>
 </resources>

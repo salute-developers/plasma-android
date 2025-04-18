@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar" parent="Sdds.Components.CircularProgressBar">
+        <item name="sd_progressValueEnabled">true</item>
+        <item name="sd_progressColor">@xml/sdkit_circular_progress_bar_progress_color</item>
+        <item name="sd_trackColor">?sdkit_surfaceDefaultTransparentSecondary</item>
+        <item name="sd_progressValueColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.CircularProgressBarColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_xxl_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_xxl_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_xxl_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_xxl_progress_thickness</item>
+        <item name="sd_progressValueAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxl">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxl.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxlWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxl.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_xl_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_xl_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_xl_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_xl_progress_thickness</item>
+        <item name="sd_progressValueAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXl">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xl.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXlWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xl.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_l_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_l_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_l_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_l_progress_thickness</item>
+        <item name="sd_progressValueEnabled">false</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarL">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.L.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarLWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.L.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_m_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_m_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_m_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_m_progress_thickness</item>
+        <item name="sd_progressValueEnabled">false</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarM">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.M.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarMWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_s_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_s_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_s_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_s_progress_thickness</item>
+        <item name="sd_progressValueEnabled">false</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarS">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.S.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarSWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.S.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_xs_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_xs_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_xs_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_xs_progress_thickness</item>
+        <item name="sd_progressValueEnabled">false</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXs">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xs.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXsWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xs.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs">
+        <item name="android:minWidth">@dimen/sdkit_circular_progress_bar_xxs_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_circular_progress_bar_xxs_min_height</item>
+        <item name="sd_trackThickness">@dimen/sdkit_circular_progress_bar_xxs_track_thickness</item>
+        <item name="sd_progressThickness">@dimen/sdkit_circular_progress_bar_xxs_progress_thickness</item>
+        <item name="sd_progressValueEnabled">false</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxs">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Default">
+        <item name="sdkit_circularprogressbarColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsDefault">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Secondary">
+        <item name="sdkit_circularprogressbarColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsSecondary">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Accent">
+        <item name="sdkit_circularprogressbarColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsAccent">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Gradient">
+        <item name="sdkit_circularprogressbarColors">state_gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsGradient">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Gradient</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Info">
+        <item name="sdkit_circularprogressbarColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsInfo">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Negative">
+        <item name="sdkit_circularprogressbarColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsNegative">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Positive">
+        <item name="sdkit_circularprogressbarColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsPositive">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CircularProgressBar.Xxs.Warning">
+        <item name="sdkit_circularprogressbarColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CircularProgressBarXxsWarning">
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.Xxs.Warning</item>
+    </style>
+</resources>

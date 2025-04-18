@@ -17,11 +17,8 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
-import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
-import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -208,17 +205,13 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(true)
         .dimensions {
-            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_start_TextFieldClear))
-            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_end_TextFieldClear))
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_optional_padding_TextFieldClear))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_helper_text_padding_TextFieldClear))
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_TextFieldClear))
-            chipsPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_start_TextFieldClear))
-            chipsPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_end_TextFieldClear))
+            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_start))
+            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_end))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_optional_padding))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_helper_text_padding))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Outer)
         .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {

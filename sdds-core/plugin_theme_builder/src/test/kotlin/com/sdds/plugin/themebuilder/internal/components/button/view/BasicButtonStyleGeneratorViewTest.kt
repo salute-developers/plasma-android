@@ -3,10 +3,10 @@ package com.sdds.plugin.themebuilder.internal.components.button.view
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
@@ -74,7 +74,9 @@ class BasicButtonStyleGeneratorViewTest {
             dimensAggregator = dimensAggregator,
             outputResDir = mockOutputResDir,
             resourcePrefix = "thmbldr",
-            colorStateListGeneratorFactory = ColorStateListGeneratorFactory(xmlBuilderFactory, resourcePrefixConfig),
+            colorStateListGeneratorFactory = ColorStateListGeneratorFactory(
+                xmlBuilderFactory, resourcePrefixConfig, mockOutputResDir,
+            ),
             viewColorStateGeneratorFactory = ViewColorStateGeneratorFactory(
                 ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
                 xmlBuilderFactory = xmlBuilderFactory,
@@ -128,7 +130,7 @@ class BasicButtonStyleGeneratorViewTest {
             view = mapOf(
                 "default" to ButtonView(
                     props = ButtonProperties(
-                        labelColor = Color(
+                        labelColor = SolidColor(
                             default = "textInversePrimary",
                             states = listOf(
                                 ColorState(
@@ -141,7 +143,7 @@ class BasicButtonStyleGeneratorViewTest {
                 ),
                 "warning" to ButtonView(
                     props = ButtonProperties(
-                        labelColor = Color(
+                        labelColor = SolidColor(
                             default = "textInverseWarning",
                             states = listOf(
                                 ColorState(

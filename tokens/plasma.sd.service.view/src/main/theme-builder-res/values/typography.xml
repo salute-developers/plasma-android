@@ -139,4 +139,72 @@
     <style name="Plasma.SdService.Typography.TextXsBold">
         <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextXsBold</item>
     </style>
+    <!--typography s display-l-medium-->
+    <style name="Plasma.SdService.Typography.DisplayLMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplayLMedium</item>
+    </style>
+    <!--typography s display-m-medium-->
+    <style name="Plasma.SdService.Typography.DisplayMMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplayMMedium</item>
+    </style>
+    <!--typography s display-s-medium-->
+    <style name="Plasma.SdService.Typography.DisplaySMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplaySMedium</item>
+    </style>
+    <!--typography s header-h1-medium-->
+    <style name="Plasma.SdService.Typography.HeaderH1Medium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH1Medium</item>
+    </style>
+    <!--typography s header-h2-medium-->
+    <style name="Plasma.SdService.Typography.HeaderH2Medium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH2Medium</item>
+    </style>
+    <!--typography s header-h3-medium-->
+    <style name="Plasma.SdService.Typography.HeaderH3Medium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH3Medium</item>
+    </style>
+    <!--typography s header-h4-medium-->
+    <style name="Plasma.SdService.Typography.HeaderH4Medium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH4Medium</item>
+    </style>
+    <!--typography s header-h5-medium-->
+    <style name="Plasma.SdService.Typography.HeaderH5Medium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH5Medium</item>
+    </style>
+    <!--typography s body-l-medium-->
+    <style name="Plasma.SdService.Typography.BodyLMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLMedium</item>
+    </style>
+    <!--typography s body-m-medium-->
+    <style name="Plasma.SdService.Typography.BodyMMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMMedium</item>
+    </style>
+    <!--typography s body-s-medium-->
+    <style name="Plasma.SdService.Typography.BodySMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySMedium</item>
+    </style>
+    <!--typography s body-xs-medium-->
+    <style name="Plasma.SdService.Typography.BodyXsMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsMedium</item>
+    </style>
+    <!--typography s body-xxs-medium-->
+    <style name="Plasma.SdService.Typography.BodyXxsMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsMedium</item>
+    </style>
+    <!--typography s text-l-medium-->
+    <style name="Plasma.SdService.Typography.TextLMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextLMedium</item>
+    </style>
+    <!--typography s text-m-medium-->
+    <style name="Plasma.SdService.Typography.TextMMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextMMedium</item>
+    </style>
+    <!--typography s text-s-medium-->
+    <style name="Plasma.SdService.Typography.TextSMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextSMedium</item>
+    </style>
+    <!--typography s text-xs-medium-->
+    <style name="Plasma.SdService.Typography.TextXsMedium">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextXsMedium</item>
+    </style>
 </resources>

@@ -27,8 +27,8 @@ import com.sdds.uikit.internal.base.AnimationUtils.blendColors
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.unsafeLazy
+import com.sdds.uikit.shader.GradientShader
 import com.sdds.uikit.shader.ShaderFactory
-import com.sdds.uikit.shaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import org.xmlpull.v1.XmlPullParser
 
@@ -341,9 +341,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             shaderAppearance = outTypedValue
         }
         val resId = shaderAppearance?.data ?: sdShaderAppearanceResFallback
-        val typedArray = t.obtainStyledAttributes(resId, R.styleable.SdShaderAppearance)
-        shaderFactory = typedArray.shaderFactory()
-        typedArray.recycle()
+        shaderFactory = GradientShader.obtain(t, resId)
     }
 
     private fun initPaint() {

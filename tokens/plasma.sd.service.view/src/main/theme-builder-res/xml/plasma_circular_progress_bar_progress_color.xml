@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<color-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:plasma_circularprogressbar_state_default="true" app:sd_color="?plasma_surfaceDefaultSolidDefault"/>
+    <item app:plasma_circularprogressbar_state_secondary="true" app:sd_color="?plasma_surfaceDefaultTransparentTertiary"/>
+    <item app:plasma_circularprogressbar_state_accent="true" app:sd_color="?plasma_surfaceDefaultAccent"/>
+    <item app:plasma_circularprogressbar_state_gradient="true" app:sd_color="?plasma_surfaceDefaultAccentGradient"/>
+    <item app:plasma_circularprogressbar_state_info="true" app:sd_color="?plasma_surfaceDefaultInfo"/>
+    <item app:plasma_circularprogressbar_state_negative="true" app:sd_color="?plasma_surfaceDefaultNegative"/>
+    <item app:plasma_circularprogressbar_state_positive="true" app:sd_color="?plasma_surfaceDefaultPositive"/>
+    <item app:plasma_circularprogressbar_state_warning="true" app:sd_color="?plasma_surfaceDefaultWarning"/>
+</color-selector>

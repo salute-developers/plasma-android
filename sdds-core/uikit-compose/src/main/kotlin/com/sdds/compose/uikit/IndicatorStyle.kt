@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -85,7 +85,12 @@ interface IndicatorColor {
     /**
      * Цвет фона [Indicator]
      */
-    val backgroundColor: InteractiveColor
+    val backgroundColor: InteractiveColor?
+
+    /**
+     * Фон [Indicator]
+     */
+    val backgroundBrush: StatefulValue<Brush>?
 }
 
 /**
@@ -115,6 +120,12 @@ interface IndicatorColorBuilder {
      * @see IndicatorColor.backgroundColor
      */
     fun backgroundColor(backgroundColor: InteractiveColor): IndicatorColorBuilder
+
+    /**
+     * Устанавливает кисть [backgroundBrush] в качестве фона компонента.
+     * @see IndicatorColor.backgroundBrush
+     */
+    fun backgroundColor(backgroundBrush: StatefulValue<Brush>): IndicatorColorBuilder
 
     /**
      * Создает экземпляр [IndicatorColor]
@@ -201,18 +212,26 @@ private class IndicatorStyleBuilderImpl(override val receiver: Any?) : Indicator
 
 @Immutable
 private class DefaultIndicatorColor(
-    override val backgroundColor: InteractiveColor,
+    override val backgroundColor: InteractiveColor?,
+    override val backgroundBrush: StatefulValue<Brush>?,
 ) : IndicatorColor {
+
     class Builder : IndicatorColorBuilder {
 
         private var backgroundColor: InteractiveColor? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
+        override fun backgroundColor(backgroundColor: InteractiveColor): IndicatorColorBuilder = apply {
             this.backgroundColor = backgroundColor
         }
 
+        override fun backgroundColor(backgroundBrush: StatefulValue<Brush>): IndicatorColorBuilder = apply {
+            this.backgroundBrush = backgroundBrush
+        }
+
         override fun build(): IndicatorColor = DefaultIndicatorColor(
-            backgroundColor = backgroundColor ?: Color.Black.asInteractive(),
+            backgroundColor = backgroundColor,
+            backgroundBrush = backgroundBrush,
         )
     }
 }

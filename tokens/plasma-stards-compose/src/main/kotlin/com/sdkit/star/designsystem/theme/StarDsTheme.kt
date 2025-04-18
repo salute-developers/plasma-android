@@ -25,9 +25,9 @@ import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.style
 import com.sdkit.star.designsystem.styles.avatar.Avatar
-import com.sdkit.star.designsystem.styles.avatar.AvatarGroup
 import com.sdkit.star.designsystem.styles.avatar.M
-import com.sdkit.star.designsystem.styles.avatar.S
+import com.sdkit.star.designsystem.styles.avatargroup.AvatarGroup
+import com.sdkit.star.designsystem.styles.avatargroup.S
 import com.sdkit.star.designsystem.styles.basicbutton.BasicButton
 import com.sdkit.star.designsystem.styles.basicbutton.M
 import com.sdkit.star.designsystem.styles.cell.Cell
