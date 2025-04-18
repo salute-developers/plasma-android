@@ -31,12 +31,11 @@ fun ChipGroup(
 ) {
     val chipGroupModifier = when (overflowMode) {
         ChipGroupOverflowMode.Wrap -> modifier
-        ChipGroupOverflowMode.Scrollable,
-        ChipGroupOverflowMode.Unlimited,
-        ->
+        ChipGroupOverflowMode.Scrollable ->
             Modifier
                 .horizontalScroll(rememberScrollState())
                 .then(modifier)
+        ChipGroupOverflowMode.Unlimited -> modifier
     }
     ChipGroup(
         modifier = chipGroupModifier,
