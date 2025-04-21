@@ -23,5 +23,6 @@ include(
     ":plugin_theme_builder",
     ":uikit",
     ":uikit-compose",
-    ":testing"
+    ":testing",
+    ":config-codec"
 )
