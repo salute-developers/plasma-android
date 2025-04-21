@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlFontFamilyDocumentBuilder
@@ -45,6 +46,7 @@ internal class FontTokenGenerator(
     private val resPrefix: String,
     private val fontTokenValues: Map<String, FontTokenValue>,
     private val fontsAggregator: FontsAggregator,
+    private val dimensionsConfig: DimensionsConfig,
 ) : TokenGenerator<FontToken, String>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
@@ -52,6 +54,9 @@ internal class FontTokenGenerator(
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(FONT_TOKENS_NAME).also {
             it.addSuppressAnnotation("ObjectPropertyNaming")
+            if (dimensionsConfig.variableFonts) {
+                it.addOptInAnnotation(KtFileBuilder.TypeExperimentalTextApi)
+            }
         }
     }
     private val ktFileRootObjectBuilder by unsafeLazy {
@@ -112,6 +117,10 @@ internal class FontTokenGenerator(
         ktFileBuilder.addImport(KtFileBuilder.TypeFontFamily)
         ktFileBuilder.addImport(KtFileBuilder.TypeFontStyle)
         ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
+        ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
+        if (dimensionsConfig.variableFonts) {
+            ktFileBuilder.addImport(KtFileBuilder.TypeFontVariation)
+        }
         ktFileBuilder.addImport(rFileImport)
         ktFileBuilder.build(outputLocation)
     }
@@ -126,9 +135,17 @@ internal class FontTokenGenerator(
                 url = it.link,
                 fontDir = outputResDir.fontDir(),
             )
-            "Font(R.font.${fontFile.nameWithoutExtension}," +
-                " FontWeight(${it.fontWeight}), " +
-                "FontStyle.${it.fontStyle.toComposeFontStyle()})"
+            val fontStyle = "FontStyle.${it.fontStyle.toComposeFontStyle()}"
+            val fontWeight = "FontWeight(${it.fontWeight})"
+            val variationSettings = "variationSettings = FontVariation.Settings($fontWeight, $fontStyle)"
+                .takeIf { dimensionsConfig.variableFonts }.orEmpty()
+            KtFileBuilder.createConstructorCall(
+                "Font",
+                "R.font.${fontFile.nameWithoutExtension}",
+                fontWeight,
+                fontStyle,
+                variationSettings,
+            )
         }
         val initializer = KtFileBuilder.createConstructorCall(
             constructorName = "FontFamily",

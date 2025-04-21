@@ -3302,11 +3302,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineDefaultTransparentInfo")
 
     /**
-     * light outline default outlineSolidPrimary
-     */
-    public var outlineDefaultSolidPrimary: Color by colors.obtain("outlineDefaultSolidPrimary")
-
-    /**
      * light outline default outlineSolidPrimaryHover
      */
     public var outlineDefaultSolidPrimaryHover: Color by
@@ -3317,11 +3312,6 @@ public class PlasmaSdServiceColors(
      */
     public var outlineDefaultSolidPrimaryActive: Color by
         colors.obtain("outlineDefaultSolidPrimaryActive")
-
-    /**
-     * light outline default outlineSolidSecondary
-     */
-    public var outlineDefaultSolidSecondary: Color by colors.obtain("outlineDefaultSolidSecondary")
 
     /**
      * light outline default outlineSolidSecondaryHover
@@ -3336,11 +3326,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineDefaultSolidSecondaryActive")
 
     /**
-     * light outline default outlineSolidTertiary
-     */
-    public var outlineDefaultSolidTertiary: Color by colors.obtain("outlineDefaultSolidTertiary")
-
-    /**
      * light outline default outlineSolidTertiaryHover
      */
     public var outlineDefaultSolidTertiaryHover: Color by
@@ -3353,11 +3338,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineDefaultSolidTertiaryActive")
 
     /**
-     * light outline default outlineSolidDefault
-     */
-    public var outlineDefaultSolidDefault: Color by colors.obtain("outlineDefaultSolidDefault")
-
-    /**
      * light outline default outlineSolidDefaultHover
      */
     public var outlineDefaultSolidDefaultHover: Color by
@@ -3368,6 +3348,26 @@ public class PlasmaSdServiceColors(
      */
     public var outlineDefaultSolidDefaultActive: Color by
         colors.obtain("outlineDefaultSolidDefaultActive")
+
+    /**
+     * light outline default outlineSolidPrimary
+     */
+    public var outlineDefaultSolidPrimary: Color by colors.obtain("outlineDefaultSolidPrimary")
+
+    /**
+     * light outline default outlineSolidSecondary
+     */
+    public var outlineDefaultSolidSecondary: Color by colors.obtain("outlineDefaultSolidSecondary")
+
+    /**
+     * light outline default outlineSolidTertiary
+     */
+    public var outlineDefaultSolidTertiary: Color by colors.obtain("outlineDefaultSolidTertiary")
+
+    /**
+     * light outline default outlineSolidDefault
+     */
+    public var outlineDefaultSolidDefault: Color by colors.obtain("outlineDefaultSolidDefault")
 
     /**
      * light outline onDark outlineSecondaryHover
@@ -4123,11 +4123,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineOnLightTransparentInfo")
 
     /**
-     * light outline onLight outlineSolidTertiary
-     */
-    public var outlineOnLightSolidTertiary: Color by colors.obtain("outlineOnLightSolidTertiary")
-
-    /**
      * light outline onLight outlineSolidTertiaryHover
      */
     public var outlineOnLightSolidTertiaryHover: Color by
@@ -4138,11 +4133,6 @@ public class PlasmaSdServiceColors(
      */
     public var outlineOnLightSolidTertiaryActive: Color by
         colors.obtain("outlineOnLightSolidTertiaryActive")
-
-    /**
-     * light outline onLight outlineSolidDefault
-     */
-    public var outlineOnLightSolidDefault: Color by colors.obtain("outlineOnLightSolidDefault")
 
     /**
      * light outline onLight outlineSolidDefaultHover
@@ -4157,11 +4147,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineOnLightSolidDefaultActive")
 
     /**
-     * light outline onLight outlineSolidPrimary
-     */
-    public var outlineOnLightSolidPrimary: Color by colors.obtain("outlineOnLightSolidPrimary")
-
-    /**
      * light outline onLight outlineSolidPrimaryHover
      */
     public var outlineOnLightSolidPrimaryHover: Color by
@@ -4174,11 +4159,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineOnLightSolidPrimaryActive")
 
     /**
-     * light outline onLight outlineSolidSecondary
-     */
-    public var outlineOnLightSolidSecondary: Color by colors.obtain("outlineOnLightSolidSecondary")
-
-    /**
      * light outline onLight outlineSolidSecondaryHover
      */
     public var outlineOnLightSolidSecondaryHover: Color by
@@ -4189,6 +4169,26 @@ public class PlasmaSdServiceColors(
      */
     public var outlineOnLightSolidSecondaryActive: Color by
         colors.obtain("outlineOnLightSolidSecondaryActive")
+
+    /**
+     * light outline onLight outlineSolidPrimary
+     */
+    public var outlineOnLightSolidPrimary: Color by colors.obtain("outlineOnLightSolidPrimary")
+
+    /**
+     * light outline onLight outlineSolidSecondary
+     */
+    public var outlineOnLightSolidSecondary: Color by colors.obtain("outlineOnLightSolidSecondary")
+
+    /**
+     * light outline onLight outlineSolidTertiary
+     */
+    public var outlineOnLightSolidTertiary: Color by colors.obtain("outlineOnLightSolidTertiary")
+
+    /**
+     * light outline onLight outlineSolidDefault
+     */
+    public var outlineOnLightSolidDefault: Color by colors.obtain("outlineOnLightSolidDefault")
 
     /**
      * light outline inverse outlinePrimaryHover
@@ -4553,11 +4553,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineInverseTransparentInfo")
 
     /**
-     * light outline inverse outlineSolidPrimary
-     */
-    public var outlineInverseSolidPrimary: Color by colors.obtain("outlineInverseSolidPrimary")
-
-    /**
      * light outline inverse outlineSolidPrimaryHover
      */
     public var outlineInverseSolidPrimaryHover: Color by
@@ -4568,11 +4563,6 @@ public class PlasmaSdServiceColors(
      */
     public var outlineInverseSolidPrimaryActive: Color by
         colors.obtain("outlineInverseSolidPrimaryActive")
-
-    /**
-     * light outline inverse outlineSolidSecondary
-     */
-    public var outlineInverseSolidSecondary: Color by colors.obtain("outlineInverseSolidSecondary")
 
     /**
      * light outline inverse outlineSolidSecondaryHover
@@ -4587,11 +4577,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineInverseSolidSecondaryActive")
 
     /**
-     * light outline inverse outlineSolidTertiary
-     */
-    public var outlineInverseSolidTertiary: Color by colors.obtain("outlineInverseSolidTertiary")
-
-    /**
      * light outline inverse outlineSolidTertiaryHover
      */
     public var outlineInverseSolidTertiaryHover: Color by
@@ -4604,11 +4589,6 @@ public class PlasmaSdServiceColors(
         colors.obtain("outlineInverseSolidTertiaryActive")
 
     /**
-     * light outline inverse outlineSolidDefault
-     */
-    public var outlineInverseSolidDefault: Color by colors.obtain("outlineInverseSolidDefault")
-
-    /**
      * light outline inverse outlineSolidDefaultHover
      */
     public var outlineInverseSolidDefaultHover: Color by
@@ -4619,6 +4599,214 @@ public class PlasmaSdServiceColors(
      */
     public var outlineInverseSolidDefaultActive: Color by
         colors.obtain("outlineInverseSolidDefaultActive")
+
+    /**
+     * light outline inverse outlineSolidPrimary
+     */
+    public var outlineInverseSolidPrimary: Color by colors.obtain("outlineInverseSolidPrimary")
+
+    /**
+     * light outline inverse outlineSolidSecondary
+     */
+    public var outlineInverseSolidSecondary: Color by colors.obtain("outlineInverseSolidSecondary")
+
+    /**
+     * light outline inverse outlineSolidTertiary
+     */
+    public var outlineInverseSolidTertiary: Color by colors.obtain("outlineInverseSolidTertiary")
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public var outlineInverseSolidDefault: Color by colors.obtain("outlineInverseSolidDefault")
+
+    /**
+     * Желтый цвет для данных
+     */
+    public var dataDefaultYellow: Color by colors.obtain("dataDefaultYellow")
+
+    /**
+     * Желтый цвет для данных
+     */
+    public var dataDefaultYellowHover: Color by colors.obtain("dataDefaultYellowHover")
+
+    /**
+     * Желтый цвет для данных
+     */
+    public var dataDefaultYellowActive: Color by colors.obtain("dataDefaultYellowActive")
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public var dataDefaultYellowMinor: Color by colors.obtain("dataDefaultYellowMinor")
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public var dataDefaultYellowMinorHover: Color by colors.obtain("dataDefaultYellowMinorHover")
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public var dataDefaultYellowMinorActive: Color by colors.obtain("dataDefaultYellowMinorActive")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparent: Color by colors.obtain("dataDefaultYellowTransparent")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparentHover: Color by
+        colors.obtain("dataDefaultYellowTransparentHover")
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public var dataDefaultYellowTransparentActive: Color by
+        colors.obtain("dataDefaultYellowTransparentActive")
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellow: Color by colors.obtain("dataOnDarkYellow")
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowHover: Color by colors.obtain("dataOnDarkYellowHover")
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowActive: Color by colors.obtain("dataOnDarkYellowActive")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinor: Color by colors.obtain("dataOnDarkYellowMinor")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinorHover: Color by colors.obtain("dataOnDarkYellowMinorHover")
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowMinorActive: Color by colors.obtain("dataOnDarkYellowMinorActive")
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowTransparent: Color by colors.obtain("dataOnDarkYellowTransparent")
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowTransparentHover: Color by
+        colors.obtain("dataOnDarkYellowTransparentHover")
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public var dataOnDarkYellowTransparentActive: Color by
+        colors.obtain("dataOnDarkYellowTransparentActive")
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellow: Color by colors.obtain("dataOnLightYellow")
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowHover: Color by colors.obtain("dataOnLightYellowHover")
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowActive: Color by colors.obtain("dataOnLightYellowActive")
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowMinor: Color by colors.obtain("dataOnLightYellowMinor")
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowMinorHover: Color by colors.obtain("dataOnLightYellowMinorHover")
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowMinorActive: Color by colors.obtain("dataOnLightYellowMinorActive")
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowTransparent: Color by colors.obtain("dataOnLightYellowTransparent")
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowTransparentHover: Color by
+        colors.obtain("dataOnLightYellowTransparentHover")
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public var dataOnLightYellowTransparentActive: Color by
+        colors.obtain("dataOnLightYellowTransparentActive")
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public var dataInverseYellow: Color by colors.obtain("dataInverseYellow")
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public var dataInverseYellowHover: Color by colors.obtain("dataInverseYellowHover")
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public var dataInverseYellowActive: Color by colors.obtain("dataInverseYellowActive")
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public var dataInverseYellowMinor: Color by colors.obtain("dataInverseYellowMinor")
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public var dataInverseYellowMinorHover: Color by colors.obtain("dataInverseYellowMinorHover")
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public var dataInverseYellowMinorActive: Color by colors.obtain("dataInverseYellowMinorActive")
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public var dataInverseYellowTransparent: Color by colors.obtain("dataInverseYellowTransparent")
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public var dataInverseYellowTransparentHover: Color by
+        colors.obtain("dataInverseYellowTransparentHover")
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public var dataInverseYellowTransparentActive: Color by
+        colors.obtain("dataInverseYellowTransparentActive")
 
     /**
      * Возвращает копию [PlasmaSdServiceColors]. Предоставляет возможность переопределять цвета.
@@ -7721,11 +7909,6 @@ public class ColorOverrideScope {
     public val outlineDefaultTransparentInfo: String = "outlineDefaultTransparentInfo"
 
     /**
-     * light outline default outlineSolidPrimary
-     */
-    public val outlineDefaultSolidPrimary: String = "outlineDefaultSolidPrimary"
-
-    /**
      * light outline default outlineSolidPrimaryHover
      */
     public val outlineDefaultSolidPrimaryHover: String = "outlineDefaultSolidPrimaryHover"
@@ -7734,11 +7917,6 @@ public class ColorOverrideScope {
      * light outline default outlineSolidPrimaryActive
      */
     public val outlineDefaultSolidPrimaryActive: String = "outlineDefaultSolidPrimaryActive"
-
-    /**
-     * light outline default outlineSolidSecondary
-     */
-    public val outlineDefaultSolidSecondary: String = "outlineDefaultSolidSecondary"
 
     /**
      * light outline default outlineSolidSecondaryHover
@@ -7751,11 +7929,6 @@ public class ColorOverrideScope {
     public val outlineDefaultSolidSecondaryActive: String = "outlineDefaultSolidSecondaryActive"
 
     /**
-     * light outline default outlineSolidTertiary
-     */
-    public val outlineDefaultSolidTertiary: String = "outlineDefaultSolidTertiary"
-
-    /**
      * light outline default outlineSolidTertiaryHover
      */
     public val outlineDefaultSolidTertiaryHover: String = "outlineDefaultSolidTertiaryHover"
@@ -7766,11 +7939,6 @@ public class ColorOverrideScope {
     public val outlineDefaultSolidTertiaryActive: String = "outlineDefaultSolidTertiaryActive"
 
     /**
-     * light outline default outlineSolidDefault
-     */
-    public val outlineDefaultSolidDefault: String = "outlineDefaultSolidDefault"
-
-    /**
      * light outline default outlineSolidDefaultHover
      */
     public val outlineDefaultSolidDefaultHover: String = "outlineDefaultSolidDefaultHover"
@@ -7779,6 +7947,26 @@ public class ColorOverrideScope {
      * light outline default outlineSolidDefaultActive
      */
     public val outlineDefaultSolidDefaultActive: String = "outlineDefaultSolidDefaultActive"
+
+    /**
+     * light outline default outlineSolidPrimary
+     */
+    public val outlineDefaultSolidPrimary: String = "outlineDefaultSolidPrimary"
+
+    /**
+     * light outline default outlineSolidSecondary
+     */
+    public val outlineDefaultSolidSecondary: String = "outlineDefaultSolidSecondary"
+
+    /**
+     * light outline default outlineSolidTertiary
+     */
+    public val outlineDefaultSolidTertiary: String = "outlineDefaultSolidTertiary"
+
+    /**
+     * light outline default outlineSolidDefault
+     */
+    public val outlineDefaultSolidDefault: String = "outlineDefaultSolidDefault"
 
     /**
      * light outline onDark outlineSecondaryHover
@@ -8484,11 +8672,6 @@ public class ColorOverrideScope {
     public val outlineOnLightTransparentInfo: String = "outlineOnLightTransparentInfo"
 
     /**
-     * light outline onLight outlineSolidTertiary
-     */
-    public val outlineOnLightSolidTertiary: String = "outlineOnLightSolidTertiary"
-
-    /**
      * light outline onLight outlineSolidTertiaryHover
      */
     public val outlineOnLightSolidTertiaryHover: String = "outlineOnLightSolidTertiaryHover"
@@ -8497,11 +8680,6 @@ public class ColorOverrideScope {
      * light outline onLight outlineSolidTertiaryActive
      */
     public val outlineOnLightSolidTertiaryActive: String = "outlineOnLightSolidTertiaryActive"
-
-    /**
-     * light outline onLight outlineSolidDefault
-     */
-    public val outlineOnLightSolidDefault: String = "outlineOnLightSolidDefault"
 
     /**
      * light outline onLight outlineSolidDefaultHover
@@ -8514,11 +8692,6 @@ public class ColorOverrideScope {
     public val outlineOnLightSolidDefaultActive: String = "outlineOnLightSolidDefaultActive"
 
     /**
-     * light outline onLight outlineSolidPrimary
-     */
-    public val outlineOnLightSolidPrimary: String = "outlineOnLightSolidPrimary"
-
-    /**
      * light outline onLight outlineSolidPrimaryHover
      */
     public val outlineOnLightSolidPrimaryHover: String = "outlineOnLightSolidPrimaryHover"
@@ -8529,11 +8702,6 @@ public class ColorOverrideScope {
     public val outlineOnLightSolidPrimaryActive: String = "outlineOnLightSolidPrimaryActive"
 
     /**
-     * light outline onLight outlineSolidSecondary
-     */
-    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
-
-    /**
      * light outline onLight outlineSolidSecondaryHover
      */
     public val outlineOnLightSolidSecondaryHover: String = "outlineOnLightSolidSecondaryHover"
@@ -8542,6 +8710,26 @@ public class ColorOverrideScope {
      * light outline onLight outlineSolidSecondaryActive
      */
     public val outlineOnLightSolidSecondaryActive: String = "outlineOnLightSolidSecondaryActive"
+
+    /**
+     * light outline onLight outlineSolidPrimary
+     */
+    public val outlineOnLightSolidPrimary: String = "outlineOnLightSolidPrimary"
+
+    /**
+     * light outline onLight outlineSolidSecondary
+     */
+    public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
+
+    /**
+     * light outline onLight outlineSolidTertiary
+     */
+    public val outlineOnLightSolidTertiary: String = "outlineOnLightSolidTertiary"
+
+    /**
+     * light outline onLight outlineSolidDefault
+     */
+    public val outlineOnLightSolidDefault: String = "outlineOnLightSolidDefault"
 
     /**
      * light outline inverse outlinePrimaryHover
@@ -8882,11 +9070,6 @@ public class ColorOverrideScope {
     public val outlineInverseTransparentInfo: String = "outlineInverseTransparentInfo"
 
     /**
-     * light outline inverse outlineSolidPrimary
-     */
-    public val outlineInverseSolidPrimary: String = "outlineInverseSolidPrimary"
-
-    /**
      * light outline inverse outlineSolidPrimaryHover
      */
     public val outlineInverseSolidPrimaryHover: String = "outlineInverseSolidPrimaryHover"
@@ -8895,11 +9078,6 @@ public class ColorOverrideScope {
      * light outline inverse outlineSolidPrimaryActive
      */
     public val outlineInverseSolidPrimaryActive: String = "outlineInverseSolidPrimaryActive"
-
-    /**
-     * light outline inverse outlineSolidSecondary
-     */
-    public val outlineInverseSolidSecondary: String = "outlineInverseSolidSecondary"
 
     /**
      * light outline inverse outlineSolidSecondaryHover
@@ -8912,11 +9090,6 @@ public class ColorOverrideScope {
     public val outlineInverseSolidSecondaryActive: String = "outlineInverseSolidSecondaryActive"
 
     /**
-     * light outline inverse outlineSolidTertiary
-     */
-    public val outlineInverseSolidTertiary: String = "outlineInverseSolidTertiary"
-
-    /**
      * light outline inverse outlineSolidTertiaryHover
      */
     public val outlineInverseSolidTertiaryHover: String = "outlineInverseSolidTertiaryHover"
@@ -8927,11 +9100,6 @@ public class ColorOverrideScope {
     public val outlineInverseSolidTertiaryActive: String = "outlineInverseSolidTertiaryActive"
 
     /**
-     * light outline inverse outlineSolidDefault
-     */
-    public val outlineInverseSolidDefault: String = "outlineInverseSolidDefault"
-
-    /**
      * light outline inverse outlineSolidDefaultHover
      */
     public val outlineInverseSolidDefaultHover: String = "outlineInverseSolidDefaultHover"
@@ -8940,6 +9108,206 @@ public class ColorOverrideScope {
      * light outline inverse outlineSolidDefaultActive
      */
     public val outlineInverseSolidDefaultActive: String = "outlineInverseSolidDefaultActive"
+
+    /**
+     * light outline inverse outlineSolidPrimary
+     */
+    public val outlineInverseSolidPrimary: String = "outlineInverseSolidPrimary"
+
+    /**
+     * light outline inverse outlineSolidSecondary
+     */
+    public val outlineInverseSolidSecondary: String = "outlineInverseSolidSecondary"
+
+    /**
+     * light outline inverse outlineSolidTertiary
+     */
+    public val outlineInverseSolidTertiary: String = "outlineInverseSolidTertiary"
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public val outlineInverseSolidDefault: String = "outlineInverseSolidDefault"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellow: String = "dataDefaultYellow"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellowHover: String = "dataDefaultYellowHover"
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val dataDefaultYellowActive: String = "dataDefaultYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinor: String = "dataDefaultYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinorHover: String = "dataDefaultYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val dataDefaultYellowMinorActive: String = "dataDefaultYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparent: String = "dataDefaultYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparentHover: String = "dataDefaultYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val dataDefaultYellowTransparentActive: String = "dataDefaultYellowTransparentActive"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellow: String = "dataOnDarkYellow"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowHover: String = "dataOnDarkYellowHover"
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowActive: String = "dataOnDarkYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinor: String = "dataOnDarkYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinorHover: String = "dataOnDarkYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowMinorActive: String = "dataOnDarkYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparent: String = "dataOnDarkYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparentHover: String = "dataOnDarkYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val dataOnDarkYellowTransparentActive: String = "dataOnDarkYellowTransparentActive"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellow: String = "dataOnLightYellow"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowHover: String = "dataOnLightYellowHover"
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowActive: String = "dataOnLightYellowActive"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinor: String = "dataOnLightYellowMinor"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinorHover: String = "dataOnLightYellowMinorHover"
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowMinorActive: String = "dataOnLightYellowMinorActive"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparent: String = "dataOnLightYellowTransparent"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparentHover: String = "dataOnLightYellowTransparentHover"
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val dataOnLightYellowTransparentActive: String = "dataOnLightYellowTransparentActive"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellow: String = "dataInverseYellow"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellowHover: String = "dataInverseYellowHover"
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val dataInverseYellowActive: String = "dataInverseYellowActive"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinor: String = "dataInverseYellowMinor"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinorHover: String = "dataInverseYellowMinorHover"
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val dataInverseYellowMinorActive: String = "dataInverseYellowMinorActive"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparent: String = "dataInverseYellowTransparent"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparentHover: String = "dataInverseYellowTransparentHover"
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val dataInverseYellowTransparentActive: String = "dataInverseYellowTransparentActive"
 
     /**
      * Переопределяет аттрибут цвета.
@@ -9557,18 +9925,18 @@ internal fun PlasmaSdServiceColors.updateColorsFrom(other: PlasmaSdServiceColors
     outlineDefaultInfo = other.outlineDefaultInfo
     outlineDefaultInfoMinor = other.outlineDefaultInfoMinor
     outlineDefaultTransparentInfo = other.outlineDefaultTransparentInfo
-    outlineDefaultSolidPrimary = other.outlineDefaultSolidPrimary
     outlineDefaultSolidPrimaryHover = other.outlineDefaultSolidPrimaryHover
     outlineDefaultSolidPrimaryActive = other.outlineDefaultSolidPrimaryActive
-    outlineDefaultSolidSecondary = other.outlineDefaultSolidSecondary
     outlineDefaultSolidSecondaryHover = other.outlineDefaultSolidSecondaryHover
     outlineDefaultSolidSecondaryActive = other.outlineDefaultSolidSecondaryActive
-    outlineDefaultSolidTertiary = other.outlineDefaultSolidTertiary
     outlineDefaultSolidTertiaryHover = other.outlineDefaultSolidTertiaryHover
     outlineDefaultSolidTertiaryActive = other.outlineDefaultSolidTertiaryActive
-    outlineDefaultSolidDefault = other.outlineDefaultSolidDefault
     outlineDefaultSolidDefaultHover = other.outlineDefaultSolidDefaultHover
     outlineDefaultSolidDefaultActive = other.outlineDefaultSolidDefaultActive
+    outlineDefaultSolidPrimary = other.outlineDefaultSolidPrimary
+    outlineDefaultSolidSecondary = other.outlineDefaultSolidSecondary
+    outlineDefaultSolidTertiary = other.outlineDefaultSolidTertiary
+    outlineDefaultSolidDefault = other.outlineDefaultSolidDefault
     outlineOnDarkSecondaryHover = other.outlineOnDarkSecondaryHover
     outlineOnDarkSecondaryActive = other.outlineOnDarkSecondaryActive
     outlineOnDarkTertiaryHover = other.outlineOnDarkTertiaryHover
@@ -9705,18 +10073,18 @@ internal fun PlasmaSdServiceColors.updateColorsFrom(other: PlasmaSdServiceColors
     outlineOnLightInfo = other.outlineOnLightInfo
     outlineOnLightInfoMinor = other.outlineOnLightInfoMinor
     outlineOnLightTransparentInfo = other.outlineOnLightTransparentInfo
-    outlineOnLightSolidTertiary = other.outlineOnLightSolidTertiary
     outlineOnLightSolidTertiaryHover = other.outlineOnLightSolidTertiaryHover
     outlineOnLightSolidTertiaryActive = other.outlineOnLightSolidTertiaryActive
-    outlineOnLightSolidDefault = other.outlineOnLightSolidDefault
     outlineOnLightSolidDefaultHover = other.outlineOnLightSolidDefaultHover
     outlineOnLightSolidDefaultActive = other.outlineOnLightSolidDefaultActive
-    outlineOnLightSolidPrimary = other.outlineOnLightSolidPrimary
     outlineOnLightSolidPrimaryHover = other.outlineOnLightSolidPrimaryHover
     outlineOnLightSolidPrimaryActive = other.outlineOnLightSolidPrimaryActive
-    outlineOnLightSolidSecondary = other.outlineOnLightSolidSecondary
     outlineOnLightSolidSecondaryHover = other.outlineOnLightSolidSecondaryHover
     outlineOnLightSolidSecondaryActive = other.outlineOnLightSolidSecondaryActive
+    outlineOnLightSolidPrimary = other.outlineOnLightSolidPrimary
+    outlineOnLightSolidSecondary = other.outlineOnLightSolidSecondary
+    outlineOnLightSolidTertiary = other.outlineOnLightSolidTertiary
+    outlineOnLightSolidDefault = other.outlineOnLightSolidDefault
     outlineInversePrimaryHover = other.outlineInversePrimaryHover
     outlineInversePrimaryActive = other.outlineInversePrimaryActive
     outlineInverseSecondaryHover = other.outlineInverseSecondaryHover
@@ -9782,18 +10150,54 @@ internal fun PlasmaSdServiceColors.updateColorsFrom(other: PlasmaSdServiceColors
     outlineInverseTransparentWarning = other.outlineInverseTransparentWarning
     outlineInverseTransparentNegative = other.outlineInverseTransparentNegative
     outlineInverseTransparentInfo = other.outlineInverseTransparentInfo
-    outlineInverseSolidPrimary = other.outlineInverseSolidPrimary
     outlineInverseSolidPrimaryHover = other.outlineInverseSolidPrimaryHover
     outlineInverseSolidPrimaryActive = other.outlineInverseSolidPrimaryActive
-    outlineInverseSolidSecondary = other.outlineInverseSolidSecondary
     outlineInverseSolidSecondaryHover = other.outlineInverseSolidSecondaryHover
     outlineInverseSolidSecondaryActive = other.outlineInverseSolidSecondaryActive
-    outlineInverseSolidTertiary = other.outlineInverseSolidTertiary
     outlineInverseSolidTertiaryHover = other.outlineInverseSolidTertiaryHover
     outlineInverseSolidTertiaryActive = other.outlineInverseSolidTertiaryActive
-    outlineInverseSolidDefault = other.outlineInverseSolidDefault
     outlineInverseSolidDefaultHover = other.outlineInverseSolidDefaultHover
     outlineInverseSolidDefaultActive = other.outlineInverseSolidDefaultActive
+    outlineInverseSolidPrimary = other.outlineInverseSolidPrimary
+    outlineInverseSolidSecondary = other.outlineInverseSolidSecondary
+    outlineInverseSolidTertiary = other.outlineInverseSolidTertiary
+    outlineInverseSolidDefault = other.outlineInverseSolidDefault
+    dataDefaultYellow = other.dataDefaultYellow
+    dataDefaultYellowHover = other.dataDefaultYellowHover
+    dataDefaultYellowActive = other.dataDefaultYellowActive
+    dataDefaultYellowMinor = other.dataDefaultYellowMinor
+    dataDefaultYellowMinorHover = other.dataDefaultYellowMinorHover
+    dataDefaultYellowMinorActive = other.dataDefaultYellowMinorActive
+    dataDefaultYellowTransparent = other.dataDefaultYellowTransparent
+    dataDefaultYellowTransparentHover = other.dataDefaultYellowTransparentHover
+    dataDefaultYellowTransparentActive = other.dataDefaultYellowTransparentActive
+    dataOnDarkYellow = other.dataOnDarkYellow
+    dataOnDarkYellowHover = other.dataOnDarkYellowHover
+    dataOnDarkYellowActive = other.dataOnDarkYellowActive
+    dataOnDarkYellowMinor = other.dataOnDarkYellowMinor
+    dataOnDarkYellowMinorHover = other.dataOnDarkYellowMinorHover
+    dataOnDarkYellowMinorActive = other.dataOnDarkYellowMinorActive
+    dataOnDarkYellowTransparent = other.dataOnDarkYellowTransparent
+    dataOnDarkYellowTransparentHover = other.dataOnDarkYellowTransparentHover
+    dataOnDarkYellowTransparentActive = other.dataOnDarkYellowTransparentActive
+    dataOnLightYellow = other.dataOnLightYellow
+    dataOnLightYellowHover = other.dataOnLightYellowHover
+    dataOnLightYellowActive = other.dataOnLightYellowActive
+    dataOnLightYellowMinor = other.dataOnLightYellowMinor
+    dataOnLightYellowMinorHover = other.dataOnLightYellowMinorHover
+    dataOnLightYellowMinorActive = other.dataOnLightYellowMinorActive
+    dataOnLightYellowTransparent = other.dataOnLightYellowTransparent
+    dataOnLightYellowTransparentHover = other.dataOnLightYellowTransparentHover
+    dataOnLightYellowTransparentActive = other.dataOnLightYellowTransparentActive
+    dataInverseYellow = other.dataInverseYellow
+    dataInverseYellowHover = other.dataInverseYellowHover
+    dataInverseYellowActive = other.dataInverseYellowActive
+    dataInverseYellowMinor = other.dataInverseYellowMinor
+    dataInverseYellowMinorHover = other.dataInverseYellowMinorHover
+    dataInverseYellowMinorActive = other.dataInverseYellowMinorActive
+    dataInverseYellowTransparent = other.dataInverseYellowTransparent
+    dataInverseYellowTransparentHover = other.dataInverseYellowTransparentHover
+    dataInverseYellowTransparentActive = other.dataInverseYellowTransparentActive
 }
 
 private fun MutableMap<String, Color>.add(
@@ -11947,11 +12351,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineDefaultSolidPrimary",
-        LightColorTokens.OutlineDefaultSolidPrimary,
-        overwrite,
-    )
-    initial.add(
         "outlineDefaultSolidPrimaryHover",
         LightColorTokens.OutlineDefaultSolidPrimaryHover,
         overwrite,
@@ -11959,11 +12358,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
     initial.add(
         "outlineDefaultSolidPrimaryActive",
         LightColorTokens.OutlineDefaultSolidPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultSolidSecondary",
-        LightColorTokens.OutlineDefaultSolidSecondary,
         overwrite,
     )
     initial.add(
@@ -11977,11 +12371,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineDefaultSolidTertiary",
-        LightColorTokens.OutlineDefaultSolidTertiary,
-        overwrite,
-    )
-    initial.add(
         "outlineDefaultSolidTertiaryHover",
         LightColorTokens.OutlineDefaultSolidTertiaryHover,
         overwrite,
@@ -11992,11 +12381,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineDefaultSolidDefault",
-        LightColorTokens.OutlineDefaultSolidDefault,
-        overwrite,
-    )
-    initial.add(
         "outlineDefaultSolidDefaultHover",
         LightColorTokens.OutlineDefaultSolidDefaultHover,
         overwrite,
@@ -12004,6 +12388,26 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
     initial.add(
         "outlineDefaultSolidDefaultActive",
         LightColorTokens.OutlineDefaultSolidDefaultActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidPrimary",
+        LightColorTokens.OutlineDefaultSolidPrimary,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidSecondary",
+        LightColorTokens.OutlineDefaultSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidTertiary",
+        LightColorTokens.OutlineDefaultSolidTertiary,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidDefault",
+        LightColorTokens.OutlineDefaultSolidDefault,
         overwrite,
     )
     initial.add(
@@ -12579,11 +12983,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineOnLightSolidTertiary",
-        LightColorTokens.OutlineOnLightSolidTertiary,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightSolidTertiaryHover",
         LightColorTokens.OutlineOnLightSolidTertiaryHover,
         overwrite,
@@ -12591,11 +12990,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
     initial.add(
         "outlineOnLightSolidTertiaryActive",
         LightColorTokens.OutlineOnLightSolidTertiaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidDefault",
-        LightColorTokens.OutlineOnLightSolidDefault,
         overwrite,
     )
     initial.add(
@@ -12609,11 +13003,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineOnLightSolidPrimary",
-        LightColorTokens.OutlineOnLightSolidPrimary,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightSolidPrimaryHover",
         LightColorTokens.OutlineOnLightSolidPrimaryHover,
         overwrite,
@@ -12624,11 +13013,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineOnLightSolidSecondary",
-        LightColorTokens.OutlineOnLightSolidSecondary,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightSolidSecondaryHover",
         LightColorTokens.OutlineOnLightSolidSecondaryHover,
         overwrite,
@@ -12636,6 +13020,26 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
     initial.add(
         "outlineOnLightSolidSecondaryActive",
         LightColorTokens.OutlineOnLightSolidSecondaryActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidPrimary",
+        LightColorTokens.OutlineOnLightSolidPrimary,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidSecondary",
+        LightColorTokens.OutlineOnLightSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidTertiary",
+        LightColorTokens.OutlineOnLightSolidTertiary,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidDefault",
+        LightColorTokens.OutlineOnLightSolidDefault,
         overwrite,
     )
     initial.add(
@@ -12924,11 +13328,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineInverseSolidPrimary",
-        LightColorTokens.OutlineInverseSolidPrimary,
-        overwrite,
-    )
-    initial.add(
         "outlineInverseSolidPrimaryHover",
         LightColorTokens.OutlineInverseSolidPrimaryHover,
         overwrite,
@@ -12936,11 +13335,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
     initial.add(
         "outlineInverseSolidPrimaryActive",
         LightColorTokens.OutlineInverseSolidPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseSolidSecondary",
-        LightColorTokens.OutlineInverseSolidSecondary,
         overwrite,
     )
     initial.add(
@@ -12954,11 +13348,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineInverseSolidTertiary",
-        LightColorTokens.OutlineInverseSolidTertiary,
-        overwrite,
-    )
-    initial.add(
         "outlineInverseSolidTertiaryHover",
         LightColorTokens.OutlineInverseSolidTertiaryHover,
         overwrite,
@@ -12969,11 +13358,6 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
         overwrite,
     )
     initial.add(
-        "outlineInverseSolidDefault",
-        LightColorTokens.OutlineInverseSolidDefault,
-        overwrite,
-    )
-    initial.add(
         "outlineInverseSolidDefaultHover",
         LightColorTokens.OutlineInverseSolidDefaultHover,
         overwrite,
@@ -12981,6 +13365,142 @@ public fun lightPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> U
     initial.add(
         "outlineInverseSolidDefaultActive",
         LightColorTokens.OutlineInverseSolidDefaultActive,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidPrimary",
+        LightColorTokens.OutlineInverseSolidPrimary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidSecondary",
+        LightColorTokens.OutlineInverseSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidTertiary",
+        LightColorTokens.OutlineInverseSolidTertiary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidDefault",
+        LightColorTokens.OutlineInverseSolidDefault,
+        overwrite,
+    )
+    initial.add("dataDefaultYellow", LightColorTokens.DataDefaultYellow, overwrite)
+    initial.add("dataDefaultYellowHover", LightColorTokens.DataDefaultYellowHover, overwrite)
+    initial.add("dataDefaultYellowActive", LightColorTokens.DataDefaultYellowActive, overwrite)
+    initial.add("dataDefaultYellowMinor", LightColorTokens.DataDefaultYellowMinor, overwrite)
+    initial.add(
+        "dataDefaultYellowMinorHover",
+        LightColorTokens.DataDefaultYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowMinorActive",
+        LightColorTokens.DataDefaultYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparent",
+        LightColorTokens.DataDefaultYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentHover",
+        LightColorTokens.DataDefaultYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentActive",
+        LightColorTokens.DataDefaultYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkYellow", LightColorTokens.DataOnDarkYellow, overwrite)
+    initial.add("dataOnDarkYellowHover", LightColorTokens.DataOnDarkYellowHover, overwrite)
+    initial.add("dataOnDarkYellowActive", LightColorTokens.DataOnDarkYellowActive, overwrite)
+    initial.add("dataOnDarkYellowMinor", LightColorTokens.DataOnDarkYellowMinor, overwrite)
+    initial.add(
+        "dataOnDarkYellowMinorHover",
+        LightColorTokens.DataOnDarkYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowMinorActive",
+        LightColorTokens.DataOnDarkYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparent",
+        LightColorTokens.DataOnDarkYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentHover",
+        LightColorTokens.DataOnDarkYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentActive",
+        LightColorTokens.DataOnDarkYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnLightYellow", LightColorTokens.DataOnLightYellow, overwrite)
+    initial.add("dataOnLightYellowHover", LightColorTokens.DataOnLightYellowHover, overwrite)
+    initial.add("dataOnLightYellowActive", LightColorTokens.DataOnLightYellowActive, overwrite)
+    initial.add("dataOnLightYellowMinor", LightColorTokens.DataOnLightYellowMinor, overwrite)
+    initial.add(
+        "dataOnLightYellowMinorHover",
+        LightColorTokens.DataOnLightYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowMinorActive",
+        LightColorTokens.DataOnLightYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparent",
+        LightColorTokens.DataOnLightYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentHover",
+        LightColorTokens.DataOnLightYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentActive",
+        LightColorTokens.DataOnLightYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataInverseYellow", LightColorTokens.DataInverseYellow, overwrite)
+    initial.add("dataInverseYellowHover", LightColorTokens.DataInverseYellowHover, overwrite)
+    initial.add("dataInverseYellowActive", LightColorTokens.DataInverseYellowActive, overwrite)
+    initial.add("dataInverseYellowMinor", LightColorTokens.DataInverseYellowMinor, overwrite)
+    initial.add(
+        "dataInverseYellowMinorHover",
+        LightColorTokens.DataInverseYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowMinorActive",
+        LightColorTokens.DataInverseYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparent",
+        LightColorTokens.DataInverseYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentHover",
+        LightColorTokens.DataInverseYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentActive",
+        LightColorTokens.DataInverseYellowTransparentActive,
         overwrite,
     )
     return PlasmaSdServiceColors(initial)
@@ -14976,7 +15496,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineDefaultTransparentInfo,
         overwrite,
     )
-    initial.add("outlineDefaultSolidPrimary", DarkColorTokens.OutlineDefaultSolidPrimary, overwrite)
     initial.add(
         "outlineDefaultSolidPrimaryHover",
         DarkColorTokens.OutlineDefaultSolidPrimaryHover,
@@ -14985,11 +15504,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
     initial.add(
         "outlineDefaultSolidPrimaryActive",
         DarkColorTokens.OutlineDefaultSolidPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineDefaultSolidSecondary",
-        DarkColorTokens.OutlineDefaultSolidSecondary,
         overwrite,
     )
     initial.add(
@@ -15003,11 +15517,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         overwrite,
     )
     initial.add(
-        "outlineDefaultSolidTertiary",
-        DarkColorTokens.OutlineDefaultSolidTertiary,
-        overwrite,
-    )
-    initial.add(
         "outlineDefaultSolidTertiaryHover",
         DarkColorTokens.OutlineDefaultSolidTertiaryHover,
         overwrite,
@@ -15017,7 +15526,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineDefaultSolidTertiaryActive,
         overwrite,
     )
-    initial.add("outlineDefaultSolidDefault", DarkColorTokens.OutlineDefaultSolidDefault, overwrite)
     initial.add(
         "outlineDefaultSolidDefaultHover",
         DarkColorTokens.OutlineDefaultSolidDefaultHover,
@@ -15028,6 +15536,18 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineDefaultSolidDefaultActive,
         overwrite,
     )
+    initial.add("outlineDefaultSolidPrimary", DarkColorTokens.OutlineDefaultSolidPrimary, overwrite)
+    initial.add(
+        "outlineDefaultSolidSecondary",
+        DarkColorTokens.OutlineDefaultSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidTertiary",
+        DarkColorTokens.OutlineDefaultSolidTertiary,
+        overwrite,
+    )
+    initial.add("outlineDefaultSolidDefault", DarkColorTokens.OutlineDefaultSolidDefault, overwrite)
     initial.add(
         "outlineOnDarkSecondaryHover",
         DarkColorTokens.OutlineOnDarkSecondaryHover,
@@ -15545,11 +16065,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         overwrite,
     )
     initial.add(
-        "outlineOnLightSolidTertiary",
-        DarkColorTokens.OutlineOnLightSolidTertiary,
-        overwrite,
-    )
-    initial.add(
         "outlineOnLightSolidTertiaryHover",
         DarkColorTokens.OutlineOnLightSolidTertiaryHover,
         overwrite,
@@ -15559,7 +16074,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineOnLightSolidTertiaryActive,
         overwrite,
     )
-    initial.add("outlineOnLightSolidDefault", DarkColorTokens.OutlineOnLightSolidDefault, overwrite)
     initial.add(
         "outlineOnLightSolidDefaultHover",
         DarkColorTokens.OutlineOnLightSolidDefaultHover,
@@ -15570,7 +16084,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineOnLightSolidDefaultActive,
         overwrite,
     )
-    initial.add("outlineOnLightSolidPrimary", DarkColorTokens.OutlineOnLightSolidPrimary, overwrite)
     initial.add(
         "outlineOnLightSolidPrimaryHover",
         DarkColorTokens.OutlineOnLightSolidPrimaryHover,
@@ -15579,11 +16092,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
     initial.add(
         "outlineOnLightSolidPrimaryActive",
         DarkColorTokens.OutlineOnLightSolidPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineOnLightSolidSecondary",
-        DarkColorTokens.OutlineOnLightSolidSecondary,
         overwrite,
     )
     initial.add(
@@ -15596,6 +16104,18 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineOnLightSolidSecondaryActive,
         overwrite,
     )
+    initial.add("outlineOnLightSolidPrimary", DarkColorTokens.OutlineOnLightSolidPrimary, overwrite)
+    initial.add(
+        "outlineOnLightSolidSecondary",
+        DarkColorTokens.OutlineOnLightSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidTertiary",
+        DarkColorTokens.OutlineOnLightSolidTertiary,
+        overwrite,
+    )
+    initial.add("outlineOnLightSolidDefault", DarkColorTokens.OutlineOnLightSolidDefault, overwrite)
     initial.add("outlineInversePrimaryHover", DarkColorTokens.OutlineInversePrimaryHover, overwrite)
     initial.add(
         "outlineInversePrimaryActive",
@@ -15861,7 +16381,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineInverseTransparentInfo,
         overwrite,
     )
-    initial.add("outlineInverseSolidPrimary", DarkColorTokens.OutlineInverseSolidPrimary, overwrite)
     initial.add(
         "outlineInverseSolidPrimaryHover",
         DarkColorTokens.OutlineInverseSolidPrimaryHover,
@@ -15870,11 +16389,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
     initial.add(
         "outlineInverseSolidPrimaryActive",
         DarkColorTokens.OutlineInverseSolidPrimaryActive,
-        overwrite,
-    )
-    initial.add(
-        "outlineInverseSolidSecondary",
-        DarkColorTokens.OutlineInverseSolidSecondary,
         overwrite,
     )
     initial.add(
@@ -15888,11 +16402,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         overwrite,
     )
     initial.add(
-        "outlineInverseSolidTertiary",
-        DarkColorTokens.OutlineInverseSolidTertiary,
-        overwrite,
-    )
-    initial.add(
         "outlineInverseSolidTertiaryHover",
         DarkColorTokens.OutlineInverseSolidTertiaryHover,
         overwrite,
@@ -15902,7 +16411,6 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
         DarkColorTokens.OutlineInverseSolidTertiaryActive,
         overwrite,
     )
-    initial.add("outlineInverseSolidDefault", DarkColorTokens.OutlineInverseSolidDefault, overwrite)
     initial.add(
         "outlineInverseSolidDefaultHover",
         DarkColorTokens.OutlineInverseSolidDefaultHover,
@@ -15911,6 +16419,130 @@ public fun darkPlasmaSdServiceColors(overrideColors: ColorOverrideScope.() -> Un
     initial.add(
         "outlineInverseSolidDefaultActive",
         DarkColorTokens.OutlineInverseSolidDefaultActive,
+        overwrite,
+    )
+    initial.add("outlineInverseSolidPrimary", DarkColorTokens.OutlineInverseSolidPrimary, overwrite)
+    initial.add(
+        "outlineInverseSolidSecondary",
+        DarkColorTokens.OutlineInverseSolidSecondary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidTertiary",
+        DarkColorTokens.OutlineInverseSolidTertiary,
+        overwrite,
+    )
+    initial.add("outlineInverseSolidDefault", DarkColorTokens.OutlineInverseSolidDefault, overwrite)
+    initial.add("dataDefaultYellow", DarkColorTokens.DataDefaultYellow, overwrite)
+    initial.add("dataDefaultYellowHover", DarkColorTokens.DataDefaultYellowHover, overwrite)
+    initial.add("dataDefaultYellowActive", DarkColorTokens.DataDefaultYellowActive, overwrite)
+    initial.add("dataDefaultYellowMinor", DarkColorTokens.DataDefaultYellowMinor, overwrite)
+    initial.add(
+        "dataDefaultYellowMinorHover",
+        DarkColorTokens.DataDefaultYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowMinorActive",
+        DarkColorTokens.DataDefaultYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparent",
+        DarkColorTokens.DataDefaultYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentHover",
+        DarkColorTokens.DataDefaultYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataDefaultYellowTransparentActive",
+        DarkColorTokens.DataDefaultYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnDarkYellow", DarkColorTokens.DataOnDarkYellow, overwrite)
+    initial.add("dataOnDarkYellowHover", DarkColorTokens.DataOnDarkYellowHover, overwrite)
+    initial.add("dataOnDarkYellowActive", DarkColorTokens.DataOnDarkYellowActive, overwrite)
+    initial.add("dataOnDarkYellowMinor", DarkColorTokens.DataOnDarkYellowMinor, overwrite)
+    initial.add("dataOnDarkYellowMinorHover", DarkColorTokens.DataOnDarkYellowMinorHover, overwrite)
+    initial.add(
+        "dataOnDarkYellowMinorActive",
+        DarkColorTokens.DataOnDarkYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparent",
+        DarkColorTokens.DataOnDarkYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentHover",
+        DarkColorTokens.DataOnDarkYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnDarkYellowTransparentActive",
+        DarkColorTokens.DataOnDarkYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataOnLightYellow", DarkColorTokens.DataOnLightYellow, overwrite)
+    initial.add("dataOnLightYellowHover", DarkColorTokens.DataOnLightYellowHover, overwrite)
+    initial.add("dataOnLightYellowActive", DarkColorTokens.DataOnLightYellowActive, overwrite)
+    initial.add("dataOnLightYellowMinor", DarkColorTokens.DataOnLightYellowMinor, overwrite)
+    initial.add(
+        "dataOnLightYellowMinorHover",
+        DarkColorTokens.DataOnLightYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowMinorActive",
+        DarkColorTokens.DataOnLightYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparent",
+        DarkColorTokens.DataOnLightYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentHover",
+        DarkColorTokens.DataOnLightYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataOnLightYellowTransparentActive",
+        DarkColorTokens.DataOnLightYellowTransparentActive,
+        overwrite,
+    )
+    initial.add("dataInverseYellow", DarkColorTokens.DataInverseYellow, overwrite)
+    initial.add("dataInverseYellowHover", DarkColorTokens.DataInverseYellowHover, overwrite)
+    initial.add("dataInverseYellowActive", DarkColorTokens.DataInverseYellowActive, overwrite)
+    initial.add("dataInverseYellowMinor", DarkColorTokens.DataInverseYellowMinor, overwrite)
+    initial.add(
+        "dataInverseYellowMinorHover",
+        DarkColorTokens.DataInverseYellowMinorHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowMinorActive",
+        DarkColorTokens.DataInverseYellowMinorActive,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparent",
+        DarkColorTokens.DataInverseYellowTransparent,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentHover",
+        DarkColorTokens.DataInverseYellowTransparentHover,
+        overwrite,
+    )
+    initial.add(
+        "dataInverseYellowTransparentActive",
+        DarkColorTokens.DataInverseYellowTransparentActive,
         overwrite,
     )
     return PlasmaSdServiceColors(initial)

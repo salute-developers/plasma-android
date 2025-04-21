@@ -18,9 +18,10 @@
         <item name="sd_actionScrimColor">#8F080808</item>
         <item name="sd_actionTint">#fff</item>
         <item name="sd_actionSize">16dp</item>
-        <item name="android:background">@drawable/sd_bg_avatar</item>
+<!--        <item name="android:background">@drawable/sd_bg_avatar</item>-->
         <item name="android:scaleType">centerCrop</item>
         <item name="sd_fsMode">none</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="Sdds.Components.AvatarGroup">
@@ -28,9 +29,5 @@
         <item name="sd_itemSpacing">2dp</item>
         <item name="sd_threshold">3</item>
         <item name="sd_counterEnabled">true</item>
-        <item name="sd_counterTextAppearance">@style/TextAppearance.AppCompat.Body2</item>
-        <item name="sd_counterBackground">@drawable/sd_bg_avatar</item>
-        <item name="sd_counterTextColorStart">#0D8523</item>
-        <item name="sd_counterTextColorEnd">#0DA8AB</item>
     </style>
 </resources>

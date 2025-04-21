@@ -3,6 +3,7 @@ package com.sdds.testing.vs
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.RoborazziRule
+import com.sdds.uikit.utils.TextAppearanceConfig
 import org.junit.Before
 import org.junit.Rule
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -21,6 +22,7 @@ open class RoborazziConfig(
     @Before
     fun setUpTheme() {
         RuntimeEnvironment.setQualifiers(theme)
+        TextAppearanceConfig.shouldLoadFontSynchronously = true
     }
 
     /**

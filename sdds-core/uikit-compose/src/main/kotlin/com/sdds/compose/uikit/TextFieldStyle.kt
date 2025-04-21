@@ -124,6 +124,7 @@ interface TextFieldStyle : Style {
     /**
      * Стиль чипов
      */
+    @Deprecated("Use chipGroupStyle")
     val chipStyle: ChipStyle
 
     companion object {

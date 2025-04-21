@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.avatar.compose
 
+import androidx.compose.ui.Alignment
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
@@ -11,16 +12,26 @@ import com.sdds.playground.sandbox.core.compose.UiState
  * @property status статус [AvatarStatus]
  * @property exampleMode режим отображения аватара
  * @property placeholder текст-заглушка
- * @property actionEnabled включен ли action у [Avatar]
  * @property threshold максимальное кол-во отображаемых [Avatar]
+ * @property extra обвесы (badge, counter)
+ * @property extraPlacement расположение обвесов
+ * @property badgeText текст badge
+ * @property badgeContentStart иконка badge вначале
+ * @property badgeContentEnd иконка badge вконце
+ * @property counterText текст счетчика
  */
 internal data class AvatarUiState(
     override val variant: String = "",
     val status: AvatarStatus = AvatarStatus.Active,
     val exampleMode: ExampleMode = ExampleMode.Local,
     val placeholder: AvatarPlaceholder? = AvatarPlaceholder.Name("Michael Scott"),
-    val actionEnabled: Boolean = false,
     val threshold: Int = DEFAULT_THRESHOLD,
+    val extra: AvatarExtra = AvatarExtra.None,
+    val extraPlacement: AvatarExtraPlacement = AvatarExtraPlacement.TopStart,
+    val badgeText: String = "Label",
+    val badgeContentStart: Boolean = false,
+    val badgeContentEnd: Boolean = false,
+    val counterText: String = "1",
 ) : UiState {
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)
@@ -46,6 +57,37 @@ internal enum class ExampleMode {
      * Аватар будет отображать заглушку
      */
     Placeholder,
+}
+
+/**
+ * Обвесы аватара
+ */
+enum class AvatarExtra {
+    /**
+     * Без обвеса
+     */
+    None,
+
+    /**
+     * Бейдж
+     */
+    Badge,
+
+    /**
+     * Счетчик
+     */
+    Counter,
+}
+
+/**
+ * Расположение обвесов [Avatar]
+ * @property alignment значение расположения
+ */
+enum class AvatarExtraPlacement(val alignment: Alignment) {
+    TopStart(Alignment.TopStart),
+    TopEnd(Alignment.TopEnd),
+    BottomEnd(Alignment.BottomEnd),
+    BottomStart(Alignment.BottomStart),
 }
 
 private const val DEFAULT_THRESHOLD = 3

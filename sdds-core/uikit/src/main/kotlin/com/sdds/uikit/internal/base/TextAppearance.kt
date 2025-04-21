@@ -17,8 +17,8 @@ import androidx.annotation.VisibleForTesting
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.content.res.ResourcesCompat.FontCallback
 import androidx.core.provider.FontsContractCompat
-import com.google.android.material.resources.TextAppearanceConfig
 import com.sdds.uikit.R
+import com.sdds.uikit.utils.TextAppearanceConfig
 import org.xmlpull.v1.XmlPullParser
 
 /**
@@ -313,7 +313,7 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
 
     @Suppress("ReturnCount")
     private fun maybeLoadFontSynchronously(context: Context): Boolean {
-        if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
+        if (TextAppearanceConfig.shouldLoadFontSynchronously) {
             getFont(context)
             return true
         }

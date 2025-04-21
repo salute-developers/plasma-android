@@ -26,6 +26,7 @@ import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
 import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
@@ -164,6 +165,10 @@ internal sealed class ComponentScreen(
     object NavigationDrawer : ComponentScreen(
         { item -> fragment<NavigationDrawerFragment>(item.route, item.defaultBuilder) },
     )
+
+    object CircularProgress : ComponentScreen(
+        { item -> fragment<CircularProgressBarFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -195,6 +200,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.CARD -> ComponentScreen.Card
         CoreComponent.DIVIDER -> ComponentScreen.Divider
         CoreComponent.NAVIGATION_DRAWER -> ComponentScreen.NavigationDrawer
+        CoreComponent.CIRCULAR_PROGRESS -> ComponentScreen.CircularProgress
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -228,6 +234,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.CARD -> R.id.nav_card
         CoreComponent.DIVIDER -> R.id.nav_divider
         CoreComponent.NAVIGATION_DRAWER -> R.id.nav_navigation_drawer
+        CoreComponent.CIRCULAR_PROGRESS -> R.id.nav_circular_progressbar
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }

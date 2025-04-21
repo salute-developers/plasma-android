@@ -3,15 +3,13 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Thmbldr.TestTheme.Gradient"/>
-    <!--region Accent Gradient Слой 0-->
+    <!--region Accent Gradient-->
     <style name="Thmbldr.TestTheme.Gradient.LightGradientAccentLayer0">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/light_gradient_accent_angle_layer_0</item>
         <item name="sd_colors">@array/light_gradient_accent_colors_layer_0</item>
         <item name="sd_stops">@array/light_gradient_accent_stops_layer_0</item>
     </style>
-    <!--endregion Accent Gradient Слой 0-->
-    <!--region Accent Gradient Слой 1-->
     <style name="Thmbldr.TestTheme.Gradient.LightGradientAccentLayer1">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/light_gradient_accent_radius_layer_1</item>
@@ -20,5 +18,12 @@
         <item name="sd_colors">@array/light_gradient_accent_colors_layer_1</item>
         <item name="sd_stops">@array/light_gradient_accent_stops_layer_1</item>
     </style>
-    <!--endregion Accent Gradient Слой 1-->
+    <integer-array name="thmbldr_shader_light_gradient_accent_layers">
+        <item>@style/Thmbldr.TestTheme.Gradient.LightGradientAccentLayer0</item>
+        <item>@style/Thmbldr.TestTheme.Gradient.LightGradientAccentLayer1</item>
+    </integer-array>
+    <style name="Thmbldr.TestTheme.Gradient.LightGradientAccent">
+        <item name="sd_shaderLayers">@array/thmbldr_shader_light_gradient_accent_layers</item>
+    </style>
+    <!--endregion Accent Gradient-->
 </resources>

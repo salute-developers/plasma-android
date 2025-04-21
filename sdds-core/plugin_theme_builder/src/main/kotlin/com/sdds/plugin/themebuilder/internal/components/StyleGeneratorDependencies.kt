@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -29,6 +30,7 @@ internal class StyleGeneratorDependencies(
     val resourcePrefixConfig: ResourcePrefixConfig,
     val viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     val colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
+    val target: ThemeBuilderTarget,
 ) {
     val dimensAggregator by unsafeLazy { DimensAggregator() }
     val dimensGenerator by unsafeLazy {

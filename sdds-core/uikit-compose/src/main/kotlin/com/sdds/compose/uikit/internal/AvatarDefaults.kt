@@ -16,7 +16,7 @@ internal object AvatarDefaults {
     val DefaultItemSpacing = 2.dp
 
     val defaultBrush: Brush = Brush.linearGradient(
-        0f to Color(0xFF1A9E32),
+        0f to Color(0xFF000000),
         1f to Color(0xFF04C6C9),
         start = Offset(0f, Float.POSITIVE_INFINITY),
         end = Offset(Float.POSITIVE_INFINITY, 0f),

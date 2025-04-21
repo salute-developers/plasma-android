@@ -1766,6 +1766,78 @@
     <color name="serv_dark_outline_inverse_transparent_tertiary">#8F080808</color>
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_secondary">#FFB3B3B3</color>
+    <!--Желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_hover">#FFF4B22F</color>
+    <!--Желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_active">#FFEDA20C</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_minor">#FFA16B00</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_minor_hover">#FFB87A00</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_minor_active">#FF996600</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_transparent_hover">#ADF3A812</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="serv_dark_data_default_yellow_transparent_active">#80F3A812</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_hover">#FFF4B22F</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_active">#FFEDA20C</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_minor">#FFA16B00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_minor_hover">#FFB87A00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_minor_active">#FF996600</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_transparent_hover">#ADF3A812</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="serv_dark_data_on_dark_yellow_transparent_active">#80F3A812</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_hover">#FFF4B22F</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_active">#FFEDA20C</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_minor">#FFFFD37A</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_minor_active">#FFFFCF70</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_transparent_hover">#ADF3A812</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="serv_dark_data_on_light_yellow_transparent_active">#80F3A812</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow">#FFF3A912</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_hover">#FFF4B22F</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_active">#FFEDA20C</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_minor">#FFFFD37A</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_minor_active">#FFFFCF70</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_transparent">#8EF3A912</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_transparent_hover">#ADF3A812</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="serv_dark_data_inverse_yellow_transparent_active">#80F3A812</color>
     <!--Основной цвет текста-->
     <color name="serv_light_text_default_primary_hover">#93171717</color>
     <!--Основной цвет текста-->
@@ -2239,11 +2311,9 @@
     <!--Акцентный минорный непрозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_accent_minor_active">#FF8BF99F</color>
     <!--Прозрачный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_accent_hover">#FFFFFFFF</color>
+    <color name="serv_light_surface_default_transparent_accent_hover">#0A108E25</color>
     <!--Прозрачный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_accent_active">#FFFFFFFF</color>
-    <!--Прозрачный акцентный фон поверхности/контрола-->
-    <color name="serv_light_surface_default_transparent_accent">#FFFFFFFF</color>
+    <color name="serv_light_surface_default_transparent_accent_active">#29108E25</color>
     <!--Промо фон поверхности/контрола-->
     <color name="serv_light_surface_default_promo_hover">#FFFFFFFF</color>
     <!--Промо фон поверхности/контрола-->
@@ -2338,6 +2408,8 @@
     <color name="serv_light_surface_default_transparent_info">#1F118CDF</color>
     <!--Основной прозрачный фон поверхности/контрола-->
     <color name="serv_light_surface_default_transparent_primary">#08080808</color>
+    <!--Прозрачный акцентный фон поверхности/контрола-->
+    <color name="serv_light_surface_default_transparent_accent">#1F108E26</color>
     <!--Основной непрозрачный фон поверхности/контрола на темном фоне-->
     <color name="serv_light_surface_on_dark_solid_primary_hover">#FF363636</color>
     <!--Основной непрозрачный фон поверхности/контрола на темном фоне-->
@@ -3530,4 +3602,76 @@
     <color name="serv_light_outline_inverse_solid_secondary">#FF4E4E4E</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
     <color name="serv_light_outline_inverse_solid_tertiary">#FF858585</color>
+    <!--Желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_hover">#FFF5B638</color>
+    <!--Желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_active">#FFE49C0C</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_minor">#FFFFD37A</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Минорный желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_minor_active">#FFFFCC66</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_transparent_hover">#7AF3A812</color>
+    <!--Прозрачный желтый цвет для данных-->
+    <color name="serv_light_data_default_yellow_transparent_active">#99F3A812</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_hover">#FFF5B638</color>
+    <!--Желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_active">#FFE49C0C</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_minor">#FFA16B00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_minor_hover">#FFB87A00</color>
+    <!--Минорный желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_minor_active">#FF8F5F00</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_transparent_hover">#7AF3A812</color>
+    <!--Прозрачный желтый цвет для данных на темном фоне-->
+    <color name="serv_light_data_on_dark_yellow_transparent_active">#99F3A812</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow">#FFF3A912</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_hover">#FFF5B638</color>
+    <!--Желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_active">#FFE49C0C</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_minor">#FFFFD37A</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_minor_hover">#FFFFDA8F</color>
+    <!--Минорный желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_minor_active">#FFFFCC66</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_transparent">#8EF3A912</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_transparent_hover">#7AF3A812</color>
+    <!--Прозрачный желтый цвет для данных на светлом фоне-->
+    <color name="serv_light_data_on_light_yellow_transparent_active">#99F3A812</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow">#FFF3A912</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_hover">#FFF5B638</color>
+    <!--Инвертированный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_active">#FFE49C0C</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_minor">#FFA16B00</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_minor_hover">#FFB87A00</color>
+    <!--Инвертированный минорный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_minor_active">#FF8F5F00</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_transparent">#8EF3A912</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_transparent_hover">#7AF3A812</color>
+    <!--Инвертированный прозрачный желтый цвет для данных-->
+    <color name="serv_light_data_inverse_yellow_transparent_active">#99F3A812</color>
 </resources>

@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
@@ -68,6 +69,7 @@ class FontTokenGeneratorTest {
             resPrefix = "thmbldr",
             fontTokenValues = fontTokenValues,
             fontsAggregator = FontsAggregator(),
+            dimensionsConfig = DimensionsConfig(),
         )
     }
 

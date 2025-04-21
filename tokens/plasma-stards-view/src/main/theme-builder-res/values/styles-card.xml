@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.CardContent" parent="Sdds.Components.CardContent">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_fsDuplicateParentState">true</item>
+        <item name="android:duplicateParentState">true</item>
+        <item name="sd_fsBorderMode">gradient_animated</item>
+        <item name="sd_fsStrokeInset">@dimen/sdkit_card_fs_stroke_inset</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContent">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card" parent="Sdds.Components.Card">
+        <item name="android:paddingStart">@dimen/sdkit_card_padding_start</item>
+        <item name="android:paddingTop">@dimen/sdkit_card_padding_top</item>
+        <item name="android:paddingEnd">@dimen/sdkit_card_padding_end</item>
+        <item name="android:paddingBottom">@dimen/sdkit_card_padding_bottom</item>
+        <item name="sd_fsEnabled">false</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContent</item>
+        <item name="android:backgroundTint">@color/sdkit_card_bg_color</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Horizontal"/>
+    <style name="Sdkit.StarDs.Components.Card.Horizontal"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardHorizontal">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Horizontal.S">
+        <item name="android:minWidth">@dimen/sdkit_card_horizontal_s_content_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_card_horizontal_s_content_min_height</item>
+        <item name="sd_fsScaleFactor">0.1</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContentHorizontalS">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card.Horizontal.S">
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContentHorizontalS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardHorizontalS">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal.S</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Horizontal.Xs">
+        <item name="android:minWidth">@dimen/sdkit_card_horizontal_xs_content_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_card_horizontal_xs_content_min_height</item>
+        <item name="sd_fsScaleFactor">0.15</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContentHorizontalXs">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card.Horizontal.Xs">
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContentHorizontalXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardHorizontalXs">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal.Xs</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Vertical"/>
+    <style name="Sdkit.StarDs.Components.Card.Vertical"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardVertical">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Vertical</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Vertical</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Vertical.M">
+        <item name="android:minWidth">@dimen/sdkit_card_vertical_m_content_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_card_vertical_m_content_min_height</item>
+        <item name="sd_fsScaleFactor">0.08</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContentVerticalM">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Vertical.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card.Vertical.M">
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContentVerticalM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardVerticalM">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Vertical.M</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Vertical.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Vertical.S">
+        <item name="android:minWidth">@dimen/sdkit_card_vertical_s_content_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_card_vertical_s_content_min_height</item>
+        <item name="sd_fsScaleFactor">0.15</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContentVerticalS">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Vertical.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card.Vertical.S">
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContentVerticalS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardVerticalS">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Vertical.S</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Vertical.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Square"/>
+    <style name="Sdkit.StarDs.Components.Card.Square"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardSquare">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Square</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Square</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Square.L">
+        <item name="android:minWidth">@dimen/sdkit_card_square_l_content_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_card_square_l_content_min_height</item>
+        <item name="sd_fsScaleFactor">0.08</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContentSquareL">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Square.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card.Square.L">
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContentSquareL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardSquareL">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Square.L</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Square.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.CardContent.Square.Xs">
+        <item name="android:minWidth">@dimen/sdkit_card_square_xs_content_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_card_square_xs_content_min_height</item>
+        <item name="sd_fsScaleFactor">0.15</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardContentSquareXs">
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Square.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Card.Square.Xs">
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CardContentSquareXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CardSquareXs">
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Square.Xs</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Square.Xs</item>
+    </style>
+</resources>

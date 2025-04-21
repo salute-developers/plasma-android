@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.gradient
 
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.GradientStyleGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -68,40 +69,30 @@ class GradientStyleGeneratorTest {
         every { xmlFile.fileWriter() } returns outputXml.writer()
         every { mockOutputResDir.gradientStylesXmlFile() } returns xmlFile
 
-        val firstStyleRef = underTest.addStyle(
-            nameSnakeCase = "light_gradient_accent_layer_0",
-            gradientParameters = mapOf(
-                "sd_gradientType" to "linear",
-                "sd_angle" to "@string/light_gradient_accent_angle_layer_0",
-                "sd_colors" to "@array/light_gradient_accent_colors_layer_0",
-                "sd_stops" to "@array/light_gradient_accent_stops_layer_0",
+        val styleRef = underTest.addStyle(
+            nameSnakeCase = "light_gradient_accent",
+            gradientLayers = listOf(
+                GradientTokenResult.ViewTokenData.Gradient.Layer.Linear(
+                    angle = "@string/light_gradient_accent_angle_layer_0",
+                    colors = "@array/light_gradient_accent_colors_layer_0",
+                    stops = "@array/light_gradient_accent_stops_layer_0",
+                ),
+                GradientTokenResult.ViewTokenData.Gradient.Layer.Radial(
+                    radius = "@string/light_gradient_accent_radius_layer_1",
+                    colors = "@array/light_gradient_accent_colors_layer_1",
+                    stops = "@array/light_gradient_accent_stops_layer_1",
+                    centerX = "@string/light_gradient_accent_center_x_layer_1",
+                    centerY = "@string/light_gradient_accent_center_y_layer_1",
+                ),
             ),
-            description = "Accent Gradient Слой 0",
-        )
-
-        val secondStyleRef = underTest.addStyle(
-            nameSnakeCase = "light_gradient_accent_layer_1",
-            gradientParameters = mapOf(
-                "sd_gradientType" to "radial",
-                "sd_radius" to "@string/light_gradient_accent_radius_layer_1",
-                "sd_centerX" to "@string/light_gradient_accent_center_x_layer_1",
-                "sd_centerY" to "@string/light_gradient_accent_center_y_layer_1",
-                "sd_colors" to "@array/light_gradient_accent_colors_layer_1",
-                "sd_stops" to "@array/light_gradient_accent_stops_layer_1",
-            ),
-            description = "Accent Gradient Слой 1",
+            description = "Accent Gradient",
         )
 
         underTest.generate()
 
         Assert.assertEquals(
-            "@style/Thmbldr.TestTheme.Gradient.LightGradientAccentLayer0",
-            firstStyleRef,
-        )
-
-        Assert.assertEquals(
-            "@style/Thmbldr.TestTheme.Gradient.LightGradientAccentLayer1",
-            secondStyleRef,
+            "@style/Thmbldr.TestTheme.Gradient.LightGradientAccent",
+            styleRef,
         )
 
         Assert.assertEquals(

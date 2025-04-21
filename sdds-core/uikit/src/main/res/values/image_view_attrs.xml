@@ -22,6 +22,7 @@
         <!-- Внутренний отступ контента снизу -->
         <attr name="sd_contentPaddingBottom" format="dimension" />
 
+        <attr name="sd_background" />
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />

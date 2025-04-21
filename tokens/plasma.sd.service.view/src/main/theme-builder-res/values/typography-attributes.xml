@@ -37,4 +37,21 @@
     <attr format="reference" name="plasma_typographyTextSBold"/>
     <attr format="reference" name="plasma_typographyTextXsNormal"/>
     <attr format="reference" name="plasma_typographyTextXsBold"/>
+    <attr format="reference" name="plasma_typographyDisplayLMedium"/>
+    <attr format="reference" name="plasma_typographyDisplayMMedium"/>
+    <attr format="reference" name="plasma_typographyDisplaySMedium"/>
+    <attr format="reference" name="plasma_typographyHeaderH1Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH2Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH3Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH4Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH5Medium"/>
+    <attr format="reference" name="plasma_typographyBodyLMedium"/>
+    <attr format="reference" name="plasma_typographyBodyMMedium"/>
+    <attr format="reference" name="plasma_typographyBodySMedium"/>
+    <attr format="reference" name="plasma_typographyBodyXsMedium"/>
+    <attr format="reference" name="plasma_typographyBodyXxsMedium"/>
+    <attr format="reference" name="plasma_typographyTextLMedium"/>
+    <attr format="reference" name="plasma_typographyTextMMedium"/>
+    <attr format="reference" name="plasma_typographyTextSMedium"/>
+    <attr format="reference" name="plasma_typographyTextXsMedium"/>
 </resources>

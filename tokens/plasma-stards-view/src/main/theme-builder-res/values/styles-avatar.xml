@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Avatar" parent="Sdds.Components.Avatar">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_background">@xml/sdkit_avatar_background</item>
+        <item name="sd_textColor">?sdkit_textDefaultGradientMain</item>
+        <item name="sd_statusColor">@color/sdkit_avatar_status_color</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Avatar.Xxl">
+        <item name="android:minWidth">@dimen/sdkit_avatar_xxl_min_width</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_xxl_max_width</item>
+        <item name="android:minHeight">@dimen/sdkit_avatar_xxl_min_height</item>
+        <item name="android:maxHeight">@dimen/sdkit_avatar_xxl_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/sdkit_avatar_xxl_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/sdkit_avatar_xxl_status_offset_y</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_statusStyle">@style/Sdkit.StarDs.Components.Indicator.L</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarXxl">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.Xxl</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Avatar.L">
+        <item name="android:minWidth">@dimen/sdkit_avatar_l_min_width</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_l_max_width</item>
+        <item name="android:minHeight">@dimen/sdkit_avatar_l_min_height</item>
+        <item name="android:maxHeight">@dimen/sdkit_avatar_l_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/sdkit_avatar_l_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/sdkit_avatar_l_status_offset_y</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_statusStyle">@style/Sdkit.StarDs.Components.Indicator.M</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Avatar.M">
+        <item name="android:minWidth">@dimen/sdkit_avatar_m_min_width</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_m_max_width</item>
+        <item name="android:minHeight">@dimen/sdkit_avatar_m_min_height</item>
+        <item name="android:maxHeight">@dimen/sdkit_avatar_m_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/sdkit_avatar_m_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/sdkit_avatar_m_status_offset_y</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+        <item name="sd_statusStyle">@style/Sdkit.StarDs.Components.Indicator.M</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Avatar.S">
+        <item name="android:minWidth">@dimen/sdkit_avatar_s_min_width</item>
+        <item name="android:maxWidth">@dimen/sdkit_avatar_s_max_width</item>
+        <item name="android:minHeight">@dimen/sdkit_avatar_s_min_height</item>
+        <item name="android:maxHeight">@dimen/sdkit_avatar_s_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/sdkit_avatar_s_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/sdkit_avatar_s_status_offset_y</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsBold</item>
+        <item name="sd_statusStyle">@style/Sdkit.StarDs.Components.Indicator.S</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.S</item>
+    </style>
+</resources>

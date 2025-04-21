@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AvatarGroup" parent="Sdds.Components.AvatarGroup"/>
+    <style name="Serv.Sdds.Components.AvatarGroup.S">
+        <item name="sd_itemSpacing">@dimen/serv_avatar_group_s_item_spacing</item>
+        <item name="sd_itemOffset">@dimen/serv_avatar_group_s_item_offset</item>
+        <item name="sd_avatarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AvatarS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AvatarGroupS">
+        <item name="sd_avatarGroupStyle">@style/Serv.Sdds.Components.AvatarGroup.S</item>
+    </style>
+</resources>

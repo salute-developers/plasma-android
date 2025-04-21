@@ -29,7 +29,6 @@ internal data class TextFieldProperties(
 
     // chips
     val chipGroupStyle: ComponentStyle<*>? = null,
-    val chipStyle: ComponentStyle<*>? = null,
     val chipsPadding: Dimension? = null,
     val chipsPaddingStart: Dimension? = null,
     val chipsPaddingEnd: Dimension? = null,
@@ -138,7 +137,6 @@ internal data class TextFieldProperties(
             boxMinHeight = boxMinHeight ?: otherProps.boxMinHeight,
             alignmentMinHeight = alignmentMinHeight ?: otherProps.alignmentMinHeight,
             chipGroupStyle = chipGroupStyle ?: otherProps.chipGroupStyle,
-            chipStyle = chipStyle ?: otherProps.chipStyle,
             chipsPadding = chipsPadding ?: otherProps.chipsPadding,
             chipsPaddingStart = chipsPaddingStart ?: otherProps.chipsPaddingStart,
             chipsPaddingEnd = chipsPaddingEnd ?: otherProps.chipsPaddingEnd,

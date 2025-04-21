@@ -26,7 +26,6 @@ internal class AvatarGroupViewModel(
             AvatarPropertyName.ExampleMode -> updateDisplayType(ExampleMode.valueOf(value?.toString() ?: return))
             AvatarPropertyName.Status -> updateStatus(Avatar.Status.valueOf(value?.toString() ?: return))
             AvatarPropertyName.Placeholder -> updatePlaceholder(value?.toString())
-            AvatarPropertyName.ActionEnabled -> updateActionEnabledState(value as Boolean)
             AvatarPropertyName.Threshold -> updateThreshold(value?.toString()?.toIntOrNull() ?: 0)
             else -> Unit
         }
@@ -42,10 +41,6 @@ internal class AvatarGroupViewModel(
 
     private fun updatePlaceholder(text: String?) {
         internalUiState.value = internalUiState.value.copy(fullName = text)
-    }
-
-    private fun updateActionEnabledState(enabled: Boolean) {
-        internalUiState.value = internalUiState.value.copy(actionEnabled = enabled)
     }
 
     private fun updateThreshold(threshold: Int) {
@@ -73,7 +68,6 @@ internal class AvatarGroupViewModel(
         ExampleMode("example mode"),
         Status("status"),
         Placeholder("placeholder"),
-        ActionEnabled("action enabled"),
         Threshold("threshold"),
     }
 }

@@ -1739,30 +1739,14 @@
         <item name="sd_stops">@array/sdkit_dark_surface_inverse_skeleton_deep_gradient_active_positions</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
-    <!--region Фон Афины на мобиле Слой 0-->
+    <!--region Фон Афины на мобиле-->
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer0">
-        <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_4_colors</item>
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_0_positions</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 0-->
-    <!--region Фон Афины на мобиле Слой 1-->
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 1-->
-    <!--region Фон Афины на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 2-->
-    <!--region Фон Афины на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_1_center_y</item>
@@ -1770,39 +1754,41 @@
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_1_positions</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 3-->
-    <!--region Фон Афины на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_2_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_3_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 4-->
-    <!--region Фон Джой на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_4_colors</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 0-->
-    <!--region Фон Джой на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_dark_background_default_mobile_assistant_athena_layers">
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthena">
+        <item name="sd_shaderLayers">@array/sdkit_shader_dark_background_default_mobile_assistant_athena_layers</item>
+    </style>
+    <!--endregion Фон Афины на мобиле-->
+    <!--region Фон Джой на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 1-->
-    <!--region Фон Джой на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 2-->
-    <!--region Фон Джой на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_1_center_y</item>
@@ -1810,39 +1796,41 @@
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_1_positions</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 3-->
-    <!--region Фон Джой на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_2_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_3_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 4-->
-    <!--region Фоновый градиент бренда на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_4_colors</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 0-->
-    <!--region Фоновый градиент бренда на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_dark_background_default_mobile_assistant_joy_layers">
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoy">
+        <item name="sd_shaderLayers">@array/sdkit_shader_dark_background_default_mobile_assistant_joy_layers</item>
+    </style>
+    <!--endregion Фон Джой на мобиле-->
+    <!--region Фоновый градиент бренда на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 1-->
-    <!--region Фоновый градиент бренда на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 2-->
-    <!--region Фоновый градиент бренда на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_1_center_y</item>
@@ -1850,53 +1838,60 @@
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 3-->
-    <!--region Фоновый градиент бренда на мобиле Слой 4-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4">
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_0_positions</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_2_positions</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 4-->
-    <!--region Фон для модальной шторки Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer0">
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_3_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_modal_sheet_layer_1_colors</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_4_colors</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 0-->
-    <!--region Фон для модальной шторки Слой 1-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer1">
+    <integer-array name="sdkit_shader_dark_background_default_mobile_assistant_brand_layers">
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrand">
+        <item name="sd_shaderLayers">@array/sdkit_shader_dark_background_default_mobile_assistant_brand_layers</item>
+    </style>
+    <!--endregion Фоновый градиент бренда на мобиле-->
+    <!--region Фон для модальной шторки-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer0">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_dark_background_default_modal_sheet_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_modal_sheet_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_modal_sheet_layer_0_positions</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer0">
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer1">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_modal_sheet_layer_1_colors</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_dark_background_default_modal_sheet_layers">
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer1</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheet">
+        <item name="sd_shaderLayers">@array/sdkit_shader_dark_background_default_modal_sheet_layers</item>
+    </style>
+    <!--endregion Фон для модальной шторки-->
+    <!--region Фоновый градиент B2E-ассистента на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_1_center_y</item>
@@ -1904,39 +1899,41 @@
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 4-->
-    <!--region Фон ассистента на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_4_colors</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 0-->
-    <!--region Фон ассистента на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_dark_background_default_mobile_assistant_b2_e_layers">
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2E">
+        <item name="sd_shaderLayers">@array/sdkit_shader_dark_background_default_mobile_assistant_b2_e_layers</item>
+    </style>
+    <!--endregion Фоновый градиент B2E-ассистента на мобиле-->
+    <!--region Фон ассистента на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_3_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 1-->
-    <!--region Фон ассистента на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_2_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 2-->
-    <!--region Фон ассистента на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_dark_background_default_mobile_assistant_main_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_1_center_y</item>
@@ -1944,15 +1941,33 @@
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_1_positions</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 3-->
-    <!--region Фон ассистента на мобиле Слой 4-->
-    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4">
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_0_positions</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_2_positions</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_3_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4">
+        <item name="sd_gradientType">solid</item>
+        <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_4_colors</item>
+    </style>
+    <integer-array name="sdkit_shader_dark_background_default_mobile_assistant_main_layers">
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMain">
+        <item name="sd_shaderLayers">@array/sdkit_shader_dark_background_default_mobile_assistant_main_layers</item>
+    </style>
+    <!--endregion Фон ассистента на мобиле-->
     <!--region Акцентный цвет обводки с градиентом-->
     <style name="Sdkit.StarDs.Gradient.DarkOutlineDefaultAccentGradientHover">
         <item name="sd_gradientType">linear</item>
@@ -4169,30 +4184,14 @@
         <item name="sd_stops">@array/sdkit_light_surface_inverse_skeleton_deep_gradient_active_positions</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
-    <!--region Фон Афины на мобиле Слой 0-->
+    <!--region Фон Афины на мобиле-->
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer0">
-        <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_4_colors</item>
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_0_positions</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 0-->
-    <!--region Фон Афины на мобиле Слой 1-->
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 1-->
-    <!--region Фон Афины на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 2-->
-    <!--region Фон Афины на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_light_background_default_mobile_assistant_athena_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_1_center_y</item>
@@ -4200,39 +4199,41 @@
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_1_positions</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 3-->
-    <!--region Фон Афины на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_2_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_3_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 4-->
-    <!--region Фон Джой на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_4_colors</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 0-->
-    <!--region Фон Джой на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_light_background_default_mobile_assistant_athena_layers">
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthena">
+        <item name="sd_shaderLayers">@array/sdkit_shader_light_background_default_mobile_assistant_athena_layers</item>
+    </style>
+    <!--endregion Фон Афины на мобиле-->
+    <!--region Фон Джой на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 1-->
-    <!--region Фон Джой на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 2-->
-    <!--region Фон Джой на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_light_background_default_mobile_assistant_joy_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_1_center_y</item>
@@ -4240,39 +4241,41 @@
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_1_positions</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 3-->
-    <!--region Фон Джой на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_2_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_3_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 4-->
-    <!--region Фоновый градиент бренда на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_4_colors</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 0-->
-    <!--region Фоновый градиент бренда на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_light_background_default_mobile_assistant_joy_layers">
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoy">
+        <item name="sd_shaderLayers">@array/sdkit_shader_light_background_default_mobile_assistant_joy_layers</item>
+    </style>
+    <!--endregion Фон Джой на мобиле-->
+    <!--region Фоновый градиент бренда на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 1-->
-    <!--region Фоновый градиент бренда на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 2-->
-    <!--region Фоновый градиент бренда на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_light_background_default_mobile_assistant_brand_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_1_center_y</item>
@@ -4280,53 +4283,60 @@
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 3-->
-    <!--region Фоновый градиент бренда на мобиле Слой 4-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4">
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_0_positions</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_2_positions</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 4-->
-    <!--region Фон для модальной шторки Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer0">
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_3_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_modal_sheet_layer_1_colors</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_4_colors</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 0-->
-    <!--region Фон для модальной шторки Слой 1-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer1">
+    <integer-array name="sdkit_shader_light_background_default_mobile_assistant_brand_layers">
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrand">
+        <item name="sd_shaderLayers">@array/sdkit_shader_light_background_default_mobile_assistant_brand_layers</item>
+    </style>
+    <!--endregion Фоновый градиент бренда на мобиле-->
+    <!--region Фон для модальной шторки-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer0">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_light_background_default_modal_sheet_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_modal_sheet_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_modal_sheet_layer_0_positions</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer0">
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer1">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_modal_sheet_layer_1_colors</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_light_background_default_modal_sheet_layers">
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer1</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheet">
+        <item name="sd_shaderLayers">@array/sdkit_shader_light_background_default_modal_sheet_layers</item>
+    </style>
+    <!--endregion Фон для модальной шторки-->
+    <!--region Фоновый градиент B2E-ассистента на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_1_center_y</item>
@@ -4334,39 +4344,41 @@
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 4-->
-    <!--region Фон ассистента на мобиле Слой 0-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_4_colors</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_4_colors</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 0-->
-    <!--region Фон ассистента на мобиле Слой 1-->
+    <integer-array name="sdkit_shader_light_background_default_mobile_assistant_b2_e_layers">
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2E">
+        <item name="sd_shaderLayers">@array/sdkit_shader_light_background_default_mobile_assistant_b2_e_layers</item>
+    </style>
+    <!--endregion Фоновый градиент B2E-ассистента на мобиле-->
+    <!--region Фон ассистента на мобиле-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_0_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_0_positions</item>
+    </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_3_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_3_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 1-->
-    <!--region Фон ассистента на мобиле Слой 2-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_2_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_2_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 2-->
-    <!--region Фон ассистента на мобиле Слой 3-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/sdkit_light_background_default_mobile_assistant_main_layer_1_radius</item>
         <item name="sd_centerX">@string/sdkit_light_background_default_mobile_assistant_main_layer_1_center_y</item>
@@ -4374,15 +4386,33 @@
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_1_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_1_positions</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 3-->
-    <!--region Фон ассистента на мобиле Слой 4-->
-    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4">
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_angle</item>
-        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_0_colors</item>
-        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_0_positions</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_2_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_2_positions</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 4-->
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_angle</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_3_colors</item>
+        <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_3_positions</item>
+    </style>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4">
+        <item name="sd_gradientType">solid</item>
+        <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_4_colors</item>
+    </style>
+    <integer-array name="sdkit_shader_light_background_default_mobile_assistant_main_layers">
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer0</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer1</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer2</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3</item>
+        <item>@style/Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4</item>
+    </integer-array>
+    <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMain">
+        <item name="sd_shaderLayers">@array/sdkit_shader_light_background_default_mobile_assistant_main_layers</item>
+    </style>
+    <!--endregion Фон ассистента на мобиле-->
     <!--region Акцентный цвет обводки с градиентом-->
     <style name="Sdkit.StarDs.Gradient.LightOutlineDefaultAccentGradientHover">
         <item name="sd_gradientType">linear</item>

@@ -14,6 +14,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.StarDsChec
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.group.StarDsCheckBoxGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.StarDsChipVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
@@ -93,6 +94,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.ProgressBar,
                 StarDsProgressBarVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CircularProgressBar,
+                StarDsCircularProgressBarVariationsView,
             ),
             ViewComponent(
                 ComponentKey.RadioBox,

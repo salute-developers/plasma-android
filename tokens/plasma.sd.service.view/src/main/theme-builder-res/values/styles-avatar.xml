@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Avatar" parent="Sdds.Components.Avatar">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_background">@xml/plasma_avatar_background</item>
+        <item name="sd_textColor">?plasma_textDefaultAccentGradient</item>
+        <item name="sd_statusColor">@color/plasma_avatar_status_color</item>
+    </style>
+    <style name="Plasma.SdService.Components.Avatar.Xxl">
+        <item name="android:minWidth">@dimen/plasma_avatar_xxl_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_xxl_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_avatar_xxl_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_avatar_xxl_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/plasma_avatar_xxl_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/plasma_avatar_xxl_status_offset_y</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_statusStyle">@style/Plasma.SdService.Components.Indicator.L</item>
+        <item name="sd_extraBadgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Plasma.SdService.Components.Counter.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarXxl">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.Xxl</item>
+    </style>
+    <style name="Plasma.SdService.Components.Avatar.L">
+        <item name="android:minWidth">@dimen/plasma_avatar_l_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_l_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_avatar_l_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_avatar_l_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/plasma_avatar_l_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/plasma_avatar_l_status_offset_y</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_statusStyle">@style/Plasma.SdService.Components.Indicator.M</item>
+        <item name="sd_extraBadgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Plasma.SdService.Components.Counter.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.Avatar.M">
+        <item name="android:minWidth">@dimen/plasma_avatar_m_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_m_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_avatar_m_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_avatar_m_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/plasma_avatar_m_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/plasma_avatar_m_status_offset_y</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+        <item name="sd_statusStyle">@style/Plasma.SdService.Components.Indicator.M</item>
+        <item name="sd_extraBadgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Plasma.SdService.Components.Counter.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Avatar.S">
+        <item name="android:minWidth">@dimen/plasma_avatar_s_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_avatar_s_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_avatar_s_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_avatar_s_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/plasma_avatar_s_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/plasma_avatar_s_status_offset_y</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsBold</item>
+        <item name="sd_statusStyle">@style/Plasma.SdService.Components.Indicator.S</item>
+        <item name="sd_extraCounterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.S</item>
+    </style>
+</resources>

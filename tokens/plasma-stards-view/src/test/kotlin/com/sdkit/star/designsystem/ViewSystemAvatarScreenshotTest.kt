@@ -18,7 +18,7 @@ class ViewSystemAvatarScreenshotTest : AvatarTestCases("+night") {
     @Test
     override fun testAvatarSizeXXL() {
         themedComponent {
-            avatarSizeXXL(R.style.Sdkit_StarDs_ComponentOverlays_AvatarXXL)
+            avatarSizeXXL(R.style.Sdkit_StarDs_ComponentOverlays_AvatarXxl)
         }
     }
 
@@ -48,7 +48,39 @@ class ViewSystemAvatarScreenshotTest : AvatarTestCases("+night") {
     @Test
     override fun testAvatarGroupSizeS() {
         themedComponent {
-            avatarGroupSizeS(R.style.Sdkit_StarDs_ComponentOverlays_AvatarGroup)
+            avatarGroupSizeS(R.style.Sdkit_StarDs_ComponentOverlays_AvatarGroupS)
         }
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeXXLCounterTopStart() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeLCounterTopEnd() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeMCounterBottomEnd() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeSCounterBottomStart() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeXXLBadgeTopStart() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeXXLBadgeBottomEnd() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeLBadgeTopEnd() {
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testAvatarSizeMBadgeBottomStart() {
     }
 }

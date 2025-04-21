@@ -22,14 +22,12 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.stylessalute.styles.chip.EmbeddedChip
-import com.sdds.stylessalute.styles.chip.L
-import com.sdds.stylessalute.styles.chip.M
-import com.sdds.stylessalute.styles.chip.S
-import com.sdds.stylessalute.styles.chip.Secondary
-import com.sdds.stylessalute.styles.chip.Xs
-import com.sdds.stylessalute.styles.chipgroup.ChipGroup
-import com.sdds.stylessalute.styles.chipgroup.Dense
+import com.sdds.stylessalute.styles.chipgroup.EmbeddedChipGroupDense
+import com.sdds.stylessalute.styles.chipgroup.L
+import com.sdds.stylessalute.styles.chipgroup.M
+import com.sdds.stylessalute.styles.chipgroup.S
+import com.sdds.stylessalute.styles.chipgroup.Secondary
+import com.sdds.stylessalute.styles.chipgroup.Xs
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -404,7 +402,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         }
         .captionStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .counterStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Outer)
         .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
@@ -479,7 +476,7 @@ public val TextField.Xs: WrapperTextFieldXs
         .prefixStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .suffixStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldXs)
 
@@ -580,7 +577,7 @@ public val TextField.S: WrapperTextFieldS
         .prefixStyle(StylesSaluteTheme.typography.bodySNormal)
         .suffixStyle(StylesSaluteTheme.typography.bodySNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldS)
 
@@ -724,7 +721,7 @@ public val TextField.M: WrapperTextFieldM
         .prefixStyle(StylesSaluteTheme.typography.bodyMNormal)
         .suffixStyle(StylesSaluteTheme.typography.bodyMNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldM)
 
@@ -868,7 +865,7 @@ public val TextField.L: WrapperTextFieldL
         .prefixStyle(StylesSaluteTheme.typography.bodyLNormal)
         .suffixStyle(StylesSaluteTheme.typography.bodyLNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldL)
 

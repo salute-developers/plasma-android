@@ -21,7 +21,10 @@ import com.sdds.playground.sandbox.stylessalute.integration.cell.compose.StylesS
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSaluteCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChipVariationsCompose
-import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
@@ -108,8 +111,20 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
                 StylesSaluteChipVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey.ChipGroup,
-                StylesSaluteChipGroupVariationsCompose,
+                ComponentKey("ChipGroupDense", CoreComponent.CHIP_GROUP),
+                StylesSaluteChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ChipGroupWide", CoreComponent.CHIP_GROUP),
+                StylesSaluteChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupDense", CoreComponent.CHIP_GROUP),
+                StylesSaluteEmbeddedChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
+                StylesSaluteEmbeddedChipGroupWideVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,
