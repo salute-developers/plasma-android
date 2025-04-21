@@ -69,13 +69,13 @@ internal fun RadioBoxControl(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .padding(dimensions.togglePadding)
             .wrapContentSize(Alignment.Center)
             .requiredWidth(dimensions.toggleWidth)
             .requiredHeight(dimensions.toggleHeight)
+            .padding(dimensions.togglePadding)
             .drawWithCache {
-                val toggleOutline = createToggleOutline(shape, dimensions)
-                val toggleBorderOutline = createBorderOutline(shape, dimensions, toggleBorderWidth, toggleBorderOffset)
+                val toggleOutline = createToggleOutline(shape)
+                val toggleBorderOutline = createBorderOutline(shape, toggleBorderWidth, toggleBorderOffset)
                 val toggleIconOutline = createIconOutline(CircleShape, iconWidth, iconHeight, iconContent)
 
                 onDrawBehind {
@@ -178,11 +178,11 @@ private fun IconContent(
 }
 
 private fun DrawScope.getIconHorizontalTranslate(dimensions: RadioBoxDimensionValues): Float {
-    return (dimensions.toggleWidth / 2 - dimensions.toggleIconWidth / 2).toPx()
+    return (size.width / 2 - dimensions.toggleIconWidth.toPx() / 2)
 }
 
 private fun DrawScope.getIconVerticalTranslate(dimensions: RadioBoxDimensionValues): Float {
-    return (dimensions.toggleHeight / 2 - dimensions.toggleIconHeight / 2).toPx()
+    return (size.width / 2 - dimensions.toggleIconHeight.toPx() / 2)
 }
 
 private fun DrawScope.getBorderOutlineTranslate(
@@ -194,13 +194,9 @@ private fun DrawScope.getBorderOutlineTranslate(
 
 private fun CacheDrawScope.createToggleOutline(
     shape: CornerBasedShape,
-    dimensions: RadioBoxDimensionValues,
 ): Outline {
     return shape.createOutline(
-        size = Size(
-            dimensions.toggleWidth.toPx(),
-            dimensions.toggleHeight.toPx(),
-        ),
+        size = size,
         layoutDirection = layoutDirection,
         density = this,
     )
@@ -208,16 +204,15 @@ private fun CacheDrawScope.createToggleOutline(
 
 private fun CacheDrawScope.createBorderOutline(
     shape: Shape,
-    dimensions: RadioBoxDimensionValues,
     toggleBorderWidth: Dp,
     toggleBorderOffset: Dp,
 ): Outline {
-    val borderBoundsWidth = dimensions.toggleWidth + toggleBorderOffset * 2 - toggleBorderWidth
-    val borderBoundsHeight = dimensions.toggleHeight + toggleBorderOffset * 2 - toggleBorderWidth
+    val borderBoundsWidth = size.width + toggleBorderOffset.toPx() * 2 - toggleBorderWidth.toPx()
+    val borderBoundsHeight = size.height + toggleBorderOffset.toPx() * 2 - toggleBorderWidth.toPx()
     return shape.createOutline(
         size = Size(
-            borderBoundsWidth.toPx(),
-            borderBoundsHeight.toPx(),
+            borderBoundsWidth,
+            borderBoundsHeight,
         ),
         layoutDirection = layoutDirection,
         density = this,
