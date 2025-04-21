@@ -19,7 +19,6 @@ concurrency:
 jobs:
   publish-tokens:
     runs-on: ubuntu-latest
-    if: github.event.action == 'publish-tokens'
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
