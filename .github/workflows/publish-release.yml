@@ -28,7 +28,7 @@ jobs:
         run: |
           DATE=$(date +'%d.%m.%Y')
           echo "DATE=$DATE" >> $GITHUB_ENV
-          echo "FROM_TAG=$(git merge-base --fork-point origin/main)" >> $GITHUB_ENV
+          echo "FROM_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Retrieve tag exists flag
         uses: mukunku/tag-exists-action@v1.0.0
