@@ -54,7 +54,7 @@ jobs:
           echo "📦 Publishing modules: ${{ steps.inputs.outputs.modules }}"
           for MODULE in ${{ steps.inputs.outputs.modules }}; do
             echo "🚀 Publishing $MODULE with tag ${{ steps.inputs.outputs.tag }}"
-            ./gradlew $MODULE:mavenPublishAll --info -PbranchName=main
+            ./gradlew $MODULE:mavenPublish --info -PbranchName=main
           done
 
       - name: Upload distributions
