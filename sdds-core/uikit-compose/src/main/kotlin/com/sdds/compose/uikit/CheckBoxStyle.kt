@@ -141,7 +141,7 @@ interface CheckBoxStyleBuilder : StyleBuilder<CheckBoxStyle> {
     /**
      * Устанавливает размеры и отступы контента [dimensions]
      * @see CheckBoxStyle.dimensionValues
-     * @see CheckBoxDimensions
+     * @see CheckBoxDimensionValues
      */
     @Composable
     fun dimensionValues(builder: @Composable CheckBoxDimensionsBuilder.() -> Unit): CheckBoxStyleBuilder
@@ -779,7 +779,7 @@ private class DefaultCheckBoxStyle(
             this.dimensionValuesBuilder.apply {
                 toggleWidth(dimensions.controlSize)
                 toggleHeight(dimensions.controlSize)
-                togglePadding(dimensions.checkedPadding)
+                togglePadding(0.dp)
                 toggleIconHeight(dimensions.innerDiameter)
                 toggleIconWidth(dimensions.innerDiameter)
                 textPadding(dimensions.horizontalSpacing)
