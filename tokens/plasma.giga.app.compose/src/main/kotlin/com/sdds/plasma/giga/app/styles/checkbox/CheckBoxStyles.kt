@@ -80,7 +80,7 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
                 ),
             )
             toggleIconColor(
-                PlasmaGigaAppTheme.colors.textOnDarkPrimary.asInteractive(),
+                PlasmaGigaAppTheme.colors.textInversePrimary.asInteractive(),
             )
             toggleBorderColor(
                 PlasmaGigaAppTheme.colors.outlineDefaultTransparentTertiary.asInteractive(

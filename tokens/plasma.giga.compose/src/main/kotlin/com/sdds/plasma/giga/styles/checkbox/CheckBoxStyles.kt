@@ -115,7 +115,7 @@ public val WrapperCheckBoxView.Negative: WrapperCheckBoxTerminate
                 ),
             )
             toggleIconColor(
-                PlasmaGigaTheme.colors.textOnDarkPrimary.asInteractive(),
+                PlasmaGigaTheme.colors.textInversePrimary.asInteractive(),
             )
             toggleBorderColor(
                 PlasmaGigaTheme.colors.outlineDefaultNegative.asInteractive(
