@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.internal.checkable
+package com.sdds.compose.uikit.internal.checkable.radiobox
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
@@ -105,7 +105,7 @@ internal fun RadioBoxControl(
                 }
             },
     ) {
-        iconContent?.let { IconContent(iconContent, iconWidth, iconHeight) }
+        iconContent?.let { if (checked) IconContent(iconContent, iconWidth, iconHeight) }
     }
 }
 
