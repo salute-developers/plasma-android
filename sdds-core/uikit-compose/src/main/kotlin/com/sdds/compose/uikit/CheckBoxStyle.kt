@@ -451,23 +451,23 @@ interface CheckBoxColorValuesBuilder {
 /**
  * Размеры и отступы [CheckBox]
  * @property controlSize размер заполняющего круга контрола
- * @property innerDiameter размер базового круга контрола
+ * @property controlRadius радиус скруглений контрола
  * @property verticalSpacing расстояние между названием и описанием
- * @property horizontalSpacing расстояние между контролом и текстом
- * @property strokeWidth ширина линии в состоянии checked = false
- * @property checkedStrokeWidth ширина линии в состоянии checked = true
- * @property checkedPadding отступ в состоянии checked = true
+ * @property horizontalSpacing расстояние между контролом и текстом ([label] или [description])
+ * @property strokeWidth ширина линий
+ * @property checkedStrokeWidth ширина линий границ в состоянии checked
+ * @property innerCheckBoxPadding внутренний отступ между фокусной границей и контролом
  */
 @Immutable
 @Deprecated("Use CheckBoxDimensionValues")
 data class CheckBoxDimensions(
     val controlSize: Dp = 24.dp,
-    val innerDiameter: Dp = 10.dp,
+    val controlRadius: Dp = 6.dp,
     val verticalSpacing: Dp = 2.dp,
     val horizontalSpacing: Dp = 10.dp,
     val strokeWidth: Dp = 2.dp,
     val checkedStrokeWidth: Dp = 1.dp,
-    val checkedPadding: Dp = 1.dp,
+    val innerCheckBoxPadding: Dp = 2.dp,
 )
 
 /**
@@ -779,13 +779,13 @@ private class DefaultCheckBoxStyle(
             this.dimensionValuesBuilder.apply {
                 toggleWidth(dimensions.controlSize)
                 toggleHeight(dimensions.controlSize)
-                togglePadding(0.dp)
-                toggleIconHeight(dimensions.innerDiameter)
-                toggleIconWidth(dimensions.innerDiameter)
+                togglePadding(1.dp)
+                toggleIconHeight(10.dp)
+                toggleIconWidth(10.dp)
                 textPadding(dimensions.horizontalSpacing)
                 descriptionPadding(dimensions.verticalSpacing)
                 toggleBorderWidth(dimensions.strokeWidth)
-                toggleBorderOffset(3.dp)
+                toggleBorderOffset(dimensions.innerCheckBoxPadding + dimensions.checkedStrokeWidth)
             }
         }
 

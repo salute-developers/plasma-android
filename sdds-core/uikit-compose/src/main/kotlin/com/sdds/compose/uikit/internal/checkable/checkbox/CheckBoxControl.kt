@@ -138,7 +138,6 @@ internal fun CheckBoxControl(
                             crossCenterGravitation = checkCenterGravitationShiftFraction,
                             strokeWidthPx = 2.dp.toPx(),
                             drawingCache = checkCache,
-                            padding = 0f,
                         )
                     }
                 }
@@ -165,10 +164,9 @@ private fun DrawScope.drawCheck(
     crossCenterGravitation: Float,
     strokeWidthPx: Float,
     drawingCache: CheckDrawingCache,
-    padding: Float,
 ) {
     val stroke = Stroke(width = strokeWidthPx, cap = StrokeCap.Round)
-    val width = size.width - 2 * padding
+    val width = size.width
     // M0.3,0.5L0.46,0.625,L0.71,0.375
     val checkCrossX = 0.46f
     val checkCrossY = 0.625f
@@ -191,9 +189,7 @@ private fun DrawScope.drawCheck(
         pathToDraw.reset()
         pathMeasure.getSegment(0f, pathMeasure.length * checkFraction, pathToDraw, true)
     }
-    translate(padding, padding) {
-        drawPath(drawingCache.pathToDraw, checkColor, style = stroke)
-    }
+    drawPath(drawingCache.pathToDraw, checkColor, style = stroke)
 }
 
 @Composable
