@@ -1,6 +1,7 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.checkbox.CheckBox
 import com.sdds.plasma.giga.app.styles.checkbox.M
 import com.sdds.plasma.giga.app.styles.checkbox.S

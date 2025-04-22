@@ -5,7 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyleBuilder
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.checkbox.CheckBox
+import com.sdds.plasma.sd.service.styles.checkbox.Default
 import com.sdds.plasma.sd.service.styles.checkbox.M
 import com.sdds.plasma.sd.service.styles.checkbox.S
 
@@ -17,7 +19,7 @@ val CheckBoxGroup.M: CheckBoxGroupStyleBuilder
     get() = CheckBoxGroupStyle.builder()
         .startIndent(36.dp)
         .verticalArrangement(Arrangement.spacedBy(12.dp))
-        .checkBoxStyle(CheckBox.M.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
 
 /**
  * Стиль [CheckBoxGroup] размера S
@@ -27,4 +29,4 @@ val CheckBoxGroup.S: CheckBoxGroupStyleBuilder
     get() = CheckBoxGroupStyle.builder()
         .startIndent(24.dp)
         .verticalArrangement(Arrangement.spacedBy(10.dp))
-        .checkBoxStyle(CheckBox.S.style())
+        .checkBoxStyle(CheckBox.S.Default.style())

@@ -22,6 +22,7 @@ import com.sdkit.star.designsystem.styles.avatar.L
 import com.sdkit.star.designsystem.styles.avatar.M
 import com.sdkit.star.designsystem.styles.avatar.S
 import com.sdkit.star.designsystem.styles.checkbox.CheckBox
+import com.sdkit.star.designsystem.styles.checkbox.Default
 import com.sdkit.star.designsystem.styles.checkbox.M
 import com.sdkit.star.designsystem.styles.checkbox.S
 import com.sdkit.star.designsystem.styles.iconbutton.IconButton
@@ -115,7 +116,7 @@ public val Cell.L: WrapperCellL
         }
         .avatarStyle(Avatar.L.style())
         .iconButtonStyle(IconButton.L.style())
-        .checkBoxStyle(CheckBox.M.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.L.style())
         .wrap(::WrapperCellL)
@@ -136,7 +137,7 @@ public val Cell.M: WrapperCellM
         }
         .avatarStyle(Avatar.M.style())
         .iconButtonStyle(IconButton.M.style())
-        .checkBoxStyle(CheckBox.M.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.M.style())
         .wrap(::WrapperCellM)
@@ -157,7 +158,7 @@ public val Cell.S: WrapperCellS
         }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.style())
-        .checkBoxStyle(CheckBox.S.style())
+        .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
         .wrap(::WrapperCellS)
@@ -178,7 +179,7 @@ public val Cell.Xs: WrapperCellXs
         }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.Xs.style())
-        .checkBoxStyle(CheckBox.S.style())
+        .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
         .wrap(::WrapperCellXs)
