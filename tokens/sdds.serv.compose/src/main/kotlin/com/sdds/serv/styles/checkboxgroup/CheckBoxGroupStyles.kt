@@ -5,7 +5,7 @@
     "ktlint:standard:max-line-length",
 )
 
-package com.sdds.stylessalute.styles.checkboxgroup
+package com.sdds.serv.styles.checkboxgroup
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
@@ -14,10 +14,11 @@ import com.sdds.compose.uikit.CheckBoxGroupStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.stylessalute.styles.checkbox.CheckBox
-import com.sdds.stylessalute.styles.checkbox.Default
-import com.sdds.stylessalute.styles.checkbox.M
-import com.sdds.stylessalute.styles.checkbox.S
+import com.sdds.serv.styles.checkbox.CheckBox
+import com.sdds.serv.styles.checkbox.Default
+import com.sdds.serv.styles.checkbox.L
+import com.sdds.serv.styles.checkbox.M
+import com.sdds.serv.styles.checkbox.S
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -27,6 +28,14 @@ import kotlin.jvm.JvmName
  */
 public interface WrapperCheckBoxGroup :
     BuilderWrapper<CheckBoxGroupStyle, CheckBoxGroupStyleBuilder>
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperCheckBoxGroupL(
+    public override val builder: CheckBoxGroupStyleBuilder,
+) : WrapperCheckBoxGroup
 
 /**
  * Обертка для вариации M
@@ -47,6 +56,18 @@ public value class WrapperCheckBoxGroupS(
 private val CheckBoxGroupStyleBuilder.invariantProps: CheckBoxGroupStyleBuilder
     @Composable
     get() = this
+
+public val CheckBoxGroup.L: WrapperCheckBoxGroupL
+    @Composable
+    @JvmName("WrapperCheckBoxGroupL")
+    get() = CheckBoxGroupStyle.builder(this)
+        .invariantProps
+        .checkBoxStyle(CheckBox.L.Default.style())
+        .dimensions {
+            itemSpacing(14.0.dp)
+            itemOffset(36.0.dp)
+        }
+        .wrap(::WrapperCheckBoxGroupL)
 
 public val CheckBoxGroup.M: WrapperCheckBoxGroupM
     @Composable

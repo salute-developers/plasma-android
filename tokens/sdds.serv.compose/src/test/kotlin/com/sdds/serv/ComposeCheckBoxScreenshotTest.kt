@@ -2,13 +2,13 @@ package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
-import com.sdds.serv.styles.checkbboxgroup.CheckBoxGroup
-import com.sdds.serv.styles.checkbboxgroup.M
-import com.sdds.serv.styles.checkbboxgroup.S
 import com.sdds.serv.styles.checkbox.CheckBox
 import com.sdds.serv.styles.checkbox.Default
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.S
+import com.sdds.serv.styles.checkboxgroup.CheckBoxGroup
+import com.sdds.serv.styles.checkboxgroup.M
+import com.sdds.serv.styles.checkboxgroup.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeM
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeMDisabled

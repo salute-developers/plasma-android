@@ -7,12 +7,12 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.serv.styles.checkbboxgroup.CheckBoxGroup
-import com.sdds.serv.styles.checkbboxgroup.M
-import com.sdds.serv.styles.checkbboxgroup.S
 import com.sdds.serv.styles.checkbox.CheckBox
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.S
+import com.sdds.serv.styles.checkboxgroup.CheckBoxGroup
+import com.sdds.serv.styles.checkboxgroup.M
+import com.sdds.serv.styles.checkboxgroup.S
 
 /**
  * Превью [CheckBox]
