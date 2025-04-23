@@ -136,7 +136,7 @@ internal fun CheckBoxControl(
                             checkColor = iconColor,
                             checkFraction = checkDrawFraction,
                             crossCenterGravitation = checkCenterGravitationShiftFraction,
-                            strokeWidthPx = 2.dp.toPx(),
+                            strokeWidthPx = DefaultCheckBoxLineWidth.dp.toPx(),
                             drawingCache = checkCache,
                         )
                     }
@@ -301,3 +301,5 @@ private class CheckDrawingCache(
     val pathMeasure: PathMeasure = PathMeasure(),
     val pathToDraw: Path = Path(),
 )
+
+private const val DefaultCheckBoxLineWidth = 2

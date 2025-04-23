@@ -32,7 +32,8 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.RadioBoxColorValues
 import com.sdds.compose.uikit.RadioBoxDimensionValues
 import com.sdds.compose.uikit.RadioBoxStates
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.getValueAsState
 
 /**
  * Control вида RadioBox для [BaseCheckableLayout]
@@ -60,8 +61,8 @@ internal fun RadioBoxControl(
     val iconWidth = iconWidth(checked, dimensions, animationDuration)
     val iconHeight = iconHeight(checked, dimensions, animationDuration)
 
-    val toggleBorderWidth = dimensions.toggleBorderWidth.getValue(interactionSource, stateSet)
-    val toggleBorderOffset = dimensions.toggleBorderOffset.getValue(interactionSource, stateSet)
+    val toggleBorderWidth = dimensions.toggleBorderWidth.getValueAsState(interactionSource, stateSet)
+    val toggleBorderOffset = dimensions.toggleBorderOffset.getValueAsState(interactionSource, stateSet)
     val toggleColor = colors.toggleColor.colorForInteraction(interactionSource, stateSet)
     val borderColor = colors.toggleBorderColor.colorForInteraction(interactionSource, stateSet)
     val iconColor = colors.toggleIconColor.colorForInteraction(interactionSource, stateSet)
@@ -87,7 +88,7 @@ internal fun RadioBoxControl(
                         drawOutline(
                             outline = toggleBorderOutline,
                             color = borderColor,
-                            style = Stroke(width = toggleBorderWidth.toPx()),
+                            style = Stroke(width = toggleBorderWidth.value.toPx()),
                         )
                     }
                     toggleIconOutline?.let {
@@ -186,10 +187,10 @@ private fun DrawScope.getIconVerticalTranslate(dimensions: RadioBoxDimensionValu
 }
 
 private fun DrawScope.getBorderOutlineTranslate(
-    toggleBorderWidth: Dp,
-    toggleBorderOffset: Dp,
+    toggleBorderWidth: State<Dp>,
+    toggleBorderOffset: State<Dp>,
 ): Float {
-    return -(toggleBorderOffset - toggleBorderWidth / 2).toPx()
+    return -(toggleBorderOffset.value - toggleBorderWidth.value / 2).toPx()
 }
 
 private fun CacheDrawScope.createToggleOutline(
@@ -203,13 +204,16 @@ private fun CacheDrawScope.createToggleOutline(
 }
 
 private fun CacheDrawScope.createBorderOutline(
-    shape: Shape,
-    toggleBorderWidth: Dp,
-    toggleBorderOffset: Dp,
+    shape: CornerBasedShape,
+    toggleBorderWidth: State<Dp>,
+    toggleBorderOffset: State<Dp>,
 ): Outline {
-    val borderBoundsWidth = size.width + toggleBorderOffset.toPx() * 2 - toggleBorderWidth.toPx()
-    val borderBoundsHeight = size.height + toggleBorderOffset.toPx() * 2 - toggleBorderWidth.toPx()
-    return shape.createOutline(
+    val toggleBorderWidthPx = toggleBorderWidth.value.toPx()
+    val toggleBorderOffsetPx = toggleBorderOffset.value.toPx()
+    val borderBoundsWidth = size.width + toggleBorderOffsetPx * 2f - toggleBorderWidthPx
+    val borderBoundsHeight = size.height + toggleBorderOffsetPx * 2f - toggleBorderWidthPx
+    val adjustedShape = shape.adjustBy(toggleBorderOffsetPx - toggleBorderWidthPx / 2f)
+    return adjustedShape.createOutline(
         size = Size(
             borderBoundsWidth,
             borderBoundsHeight,
