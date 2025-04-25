@@ -6,6 +6,8 @@ import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeM
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeMDisabled
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeS
+import com.sdds.testing.compose.checkbox.CheckBoxSizeLNegative
+import com.sdds.testing.compose.checkbox.CheckBoxSizeLNegativeUnchecked
 import com.sdds.testing.compose.checkbox.CheckBoxSizeM
 import com.sdds.testing.compose.checkbox.CheckBoxSizeMIndeterminate
 import com.sdds.testing.compose.checkbox.CheckBoxSizeMediumNoLabelAndDesc
@@ -14,7 +16,9 @@ import com.sdds.testing.compose.checkbox.CheckBoxSizeSUnchecked
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.checkbox.CheckBox
 import com.sdkit.star.designsystem.styles.checkbox.Default
+import com.sdkit.star.designsystem.styles.checkbox.L
 import com.sdkit.star.designsystem.styles.checkbox.M
+import com.sdkit.star.designsystem.styles.checkbox.Negative
 import com.sdkit.star.designsystem.styles.checkbox.S
 import com.sdkit.star.designsystem.styles.checkboxgroup.CheckBoxGroup
 import com.sdkit.star.designsystem.styles.checkboxgroup.M
@@ -83,6 +87,20 @@ class ComposeCheckBoxScreenshotTest : RoborazziConfigCompose("+night") {
     fun testCheckBoxGroupSizeMDisabled() {
         composeTestRule.content {
             CheckBoxGroupSizeMDisabled(style = CheckBoxGroup.M.style())
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegative() {
+        composeTestRule.content {
+            CheckBoxSizeLNegative(style = CheckBox.L.Negative.style())
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegativeUnchecked() {
+        composeTestRule.content {
+            CheckBoxSizeLNegativeUnchecked(style = CheckBox.L.Negative.style())
         }
     }
 }
