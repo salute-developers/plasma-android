@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
@@ -21,6 +22,7 @@ import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItem
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.kotlin.dsl.provideDelegate
 
 internal val componentDelegates by unsafeLazy {
     mapOf<String, ComponentConfigDelegate<*>>(
@@ -46,5 +48,6 @@ internal val componentDelegates by unsafeLazy {
         "radio-box" to RadioBoxConfigDelegate(),
         "radio-box-group" to RadioBoxGroupConfigDelegate(),
         "circular-progress-bar" to CircularProgressConfigDelegate(),
+        "progress-bar" to ProgressBarConfigDelegate(),
     )
 }
