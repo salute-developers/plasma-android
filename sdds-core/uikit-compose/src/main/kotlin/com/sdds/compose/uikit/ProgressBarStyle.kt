@@ -78,8 +78,14 @@ interface ProgressBarStyle : Style {
  */
 interface ProgressBarStyleBuilder : StyleBuilder<ProgressBarStyle> {
 
+    /**
+     * Устанавливает форму индикатора [indicatorShape]
+     */
     fun indicatorShape(indicatorShape: CornerBasedShape): ProgressBarStyleBuilder
 
+    /**
+     * Устанавливает форму фона [backgroundShape]
+     */
     fun backgroundShape(backgroundShape: CornerBasedShape): ProgressBarStyleBuilder
 
     /**
@@ -247,10 +253,24 @@ interface ProgressBarDimensionValues {
     }
 }
 
+/**
+ * Билдер для [ProgressBarDimensionValues]
+ */
 interface ProgressBarDimensionValuesBuilder {
+
+    /**
+     * Устанавливает высоту индикатора [indicatorHeight]
+     */
     fun indicatorHeight(indicatorHeight: Dp): ProgressBarDimensionValuesBuilder
+
+    /**
+     * Устанавливает высоту фона [backgroundHeight]
+     */
     fun backgroundHeight(backgroundHeight: Dp): ProgressBarDimensionValuesBuilder
 
+    /**
+     * Возвращает экземпляр [ProgressBarDimensionValues]
+     */
     fun build(): ProgressBarDimensionValues
 }
 

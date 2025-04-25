@@ -105,7 +105,7 @@ private fun CacheDrawScope.createBackgroundOutline(
 
 @Composable
 @Preview
-fun BaseProgressPreview() {
+private fun BaseProgressPreview() {
     BaseProgress(
         progress = 1f,
         modifier = Modifier.fillMaxWidth(),
