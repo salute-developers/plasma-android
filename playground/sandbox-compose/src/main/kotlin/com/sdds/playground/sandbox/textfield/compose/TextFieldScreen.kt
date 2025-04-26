@@ -22,8 +22,8 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
@@ -82,10 +82,10 @@ internal fun TextFieldScreen(componentKey: ComponentKey = ComponentKey.TextField
                         textFieldViewModel.onChipClosePressed(it)
                     },
                 ),
-                focusSelectorMode = if (isFocusSelectorOn) {
-                    LocalFocusSelectorMode.current
+                focusSelectorSettings = if (isFocusSelectorOn) {
+                    LocalFocusSelectorSettings.current
                 } else {
-                    FocusSelectorMode.None
+                    FocusSelectorSettings.None
                 },
             )
 

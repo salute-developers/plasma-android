@@ -21,6 +21,10 @@ import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.ProvideTextStyle
+import com.sdds.compose.uikit.fs.FocusSelectorBorders
+import com.sdds.compose.uikit.fs.FocusSelectorScales
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.style
@@ -138,6 +142,11 @@ public fun StarDsTheme(
         LocalStarDsSpacing provides spacing,
         LocalTextSelectionColors provides textSelectionColors,
         LocalFocusSelectorMode provides FocusSelectorMode.Scale(),
+        LocalFocusSelectorSettings provides FocusSelectorSettings
+            .builder()
+            .border(FocusSelectorBorders.none())
+            .scale(FocusSelectorScales.byFactor())
+            .build(),
         LocalSwitchStyle provides Switch.M.style(),
         LocalButtonStyle provides BasicButton.M.style(),
         LocalIconButtonStyle provides IconButton.M.style(),
