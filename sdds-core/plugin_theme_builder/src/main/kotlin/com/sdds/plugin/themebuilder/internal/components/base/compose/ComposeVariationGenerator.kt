@@ -123,13 +123,37 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             is SolidColor -> "colors"
         }
         val stateSuffix = when (color) {
-            is Gradient -> color.asStatefulFragment
+            is Gradient -> color.asStatefulFragment()
             is SolidColor -> color.asInteractiveFragment
         }
         val tokenValue = color.default.toKtTokenName()
         return """
             $colorName(
                 $themeClassName.$tokenGroup.$tokenValue$alphaString.$stateSuffix
+            )
+        """.trimIndent()
+    }
+
+    protected fun getGradientOrWrappedColor(colorName: String, color: Color): String {
+        val alphaString = when (color) {
+            is Gradient -> color.alpha?.let { ".asLayered(${it}f)" } ?: ".asLayered()"
+            is SolidColor -> color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        }
+        val tokenGroup = when (color) {
+            is Gradient -> "gradients"
+            is SolidColor -> "colors"
+        }
+        val stateSuffix = when (color) {
+            is Gradient -> color.asStatefulFragment()
+            is SolidColor -> color.asStatefulFragment(wrapColor = true)
+        }
+        val tokenValue = color.default.toKtTokenName()
+        val tokenRef = "$themeClassName.$tokenGroup.$tokenValue"
+        val wrappedTokenRef = if (color is SolidColor) "SolidColor($tokenRef)" else tokenRef
+        val colorValue = "$wrappedTokenRef$alphaString.$stateSuffix"
+        return """
+            $colorName(
+                $colorValue
             )
         """.trimIndent()
     }
@@ -556,12 +580,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private val Color.asStatefulFragment: String
-        get() = if (states.isNullOrEmpty()) {
+    private fun Color.asStatefulFragment(wrapColor: Boolean = false): String =
+        if (states.isNullOrEmpty()) {
             "asStatefulValue()"
         } else {
             """asStatefulValue·(
-                ${getAsInteractiveParameters()}
+                ${getAsInteractiveParameters(wrapColor)}
             )
             """.trimIndent()
         }
@@ -576,8 +600,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private fun Color?.getAsInteractiveParameters(): String {
-        return this?.states?.joinToString { it.getStateParameter(this is Gradient) }.orEmpty()
+    private fun Color?.getAsInteractiveParameters(wrapColor: Boolean = false): String {
+        return this?.states?.joinToString {
+            it.getStateParameter(isGradient = this is Gradient, wrapColor = wrapColor)
+        }.orEmpty()
     }
 
     private fun Dimension.getAsInteractiveParameters(dimensionName: String, dimensionResSuffix: String): String {
@@ -597,12 +623,14 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         """.trimIndent()
     }
 
-    private fun ColorState.getStateParameter(isGradient: Boolean): String {
+    private fun ColorState.getStateParameter(isGradient: Boolean, wrapColor: Boolean): String {
         val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
         val tokenGroupName = if (isGradient) "gradients" else "colors"
+        val valueFromState = "$themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString"
+        val finalValue = if (!isGradient && wrapColor) "SolidColor($valueFromState)" else valueFromState
         return """
             setOf(${state.toStateEnums()})
-                to $themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString
+                to $finalValue
         """.trimIndent()
     }
 
