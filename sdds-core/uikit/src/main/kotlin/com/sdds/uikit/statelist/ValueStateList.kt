@@ -22,6 +22,11 @@ open class ValueStateList<T> internal constructor(
 ) {
 
     /**
+     * Возвращает cписок всех значений.
+     */
+    fun allValues(): List<T> = values.toList()
+
+    /**
      * Возвращает значение, соответствующее переданному набору состояний.
      *
      * @param stateSet Набор состояний, для которого нужно найти значение.

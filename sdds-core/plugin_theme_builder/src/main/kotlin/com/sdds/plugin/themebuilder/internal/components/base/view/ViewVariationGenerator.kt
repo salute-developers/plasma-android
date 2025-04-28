@@ -65,12 +65,29 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         createVariations(rootVariation.children)
     }
 
-    protected abstract fun onCreateStyle(
+    protected open fun onCreateStyle(
         variation: String,
         rootDocument: XmlResourcesDocumentBuilder,
         styleElement: Element,
         variationNode: VariationNode<PO>,
-    )
+    ) {
+        onCreateStyle(
+            variation,
+            rootDocument,
+            styleElement,
+            variationNode,
+            variationNode.value.props,
+        )
+    }
+
+    protected open fun onCreateStyle(
+        variation: String,
+        rootDocument: XmlResourcesDocumentBuilder,
+        styleElement: Element,
+        variationNode: VariationNode<PO>,
+        props: PO,
+    ) {
+    }
 
     protected open fun onCreateOverlayStyle(
         variation: String,
@@ -83,13 +100,20 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         rootDocument: XmlResourcesDocumentBuilder,
         variationNode: VariationNode<PO>,
     ) {
-        variationNode.mergedViews(true).keys.mapNotNull {
-            getColorState(it)
-        }.forEach { colorStateAttr ->
+        variationNode.mergedViews(true).mapKeys {
+            getColorState(it.key) ?: registerColorState(it.key)
+        }.forEach { (colorStateAttr, viewVariation) ->
             rootDocument.variationStyle(
                 "${variationNode.camelCaseName()}.${colorStateAttr.name.capitalized()}",
                 true,
             ) {
+                onCreateStyle(
+                    variationNode.id.techToSnakeCase(),
+                    rootDocument,
+                    this,
+                    variationNode,
+                    viewVariation.props,
+                )
                 onCreateColorStateStyle(this, variationNode, colorStateAttr)
             }
         }
