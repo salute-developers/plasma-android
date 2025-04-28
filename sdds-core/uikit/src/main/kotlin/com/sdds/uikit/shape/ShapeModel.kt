@@ -8,7 +8,6 @@ import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
-import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import com.sdds.uikit.shape.ShapeModel.CornerFamily
 
 /**
@@ -79,7 +78,7 @@ data class ShapeModel(
          * Возвращает новую [ShapeModel] с измененными на некоторое значение пикселей [adjustmentPx] углами
          */
         fun ShapeModel.adjust(adjustmentPx: Float): ShapeModel {
-            if (adjustmentPx <= 0) return this
+            if (adjustmentPx == 0f) return this
             return this.copy(
                 cornerSizeTopLeft = cornerSizeTopLeft.adjust(adjustmentPx),
                 cornerSizeTopRight = cornerSizeTopRight.adjust(adjustmentPx),
