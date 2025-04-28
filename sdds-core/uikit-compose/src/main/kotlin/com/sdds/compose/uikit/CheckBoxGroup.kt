@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -27,16 +28,18 @@ fun CheckBoxGroup(
     content: CheckboxGroupScope.() -> Unit,
 ) {
     val scope = remember { CheckboxGroupScopeImpl() }
-    Column(modifier, style.verticalArrangement) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(style.dimensions.itemSpacing),
+    ) {
         CompositionLocalProvider(LocalCheckBoxStyle provides style.checkBoxStyle) {
             scope.content()
             val rootCheckBoxContent = scope.rootCheckbox
-            val childModifier: Modifier
-            if (rootCheckBoxContent != null) {
+            val childModifier = if (rootCheckBoxContent != null) {
                 CheckBoxGroupItemScopeImpl.rootCheckBoxContent()
-                childModifier = Modifier.padding(start = style.startIndent)
+                Modifier.padding(start = style.dimensions.itemOffset)
             } else {
-                childModifier = Modifier
+                Modifier
             }
             scope.checkboxes.forEach {
                 val itemContent = it

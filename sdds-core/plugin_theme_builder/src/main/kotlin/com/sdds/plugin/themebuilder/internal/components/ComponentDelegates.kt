@@ -8,6 +8,8 @@ import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDeleg
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.checkbox.group.CheckBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.ChipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
@@ -48,6 +50,8 @@ internal val componentDelegates by unsafeLazy {
         "radio-box" to RadioBoxConfigDelegate(),
         "radio-box-group" to RadioBoxGroupConfigDelegate(),
         "circular-progress-bar" to CircularProgressConfigDelegate(),
+        "check-box" to CheckBoxConfigDelegate(),
+        "check-box-group" to CheckBoxGroupConfigDelegate(),
         "progress-bar" to ProgressBarConfigDelegate(),
     )
 }
