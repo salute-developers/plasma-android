@@ -6,15 +6,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProgressBar
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.serv.styles.progress.Accent
-import com.sdds.serv.styles.progress.Default
-import com.sdds.serv.styles.progress.GradientAccent
-import com.sdds.serv.styles.progress.Negative
-import com.sdds.serv.styles.progress.Positive
-import com.sdds.serv.styles.progress.ProgressBar
-import com.sdds.serv.styles.progress.Secondary
-import com.sdds.serv.styles.progress.Warning
+import com.sdds.serv.styles.progressbar.Accent
+import com.sdds.serv.styles.progressbar.Default
+import com.sdds.serv.styles.progressbar.Gradient
+import com.sdds.serv.styles.progressbar.Negative
+import com.sdds.serv.styles.progressbar.Positive
+import com.sdds.serv.styles.progressbar.ProgressBar
+import com.sdds.serv.styles.progressbar.Secondary
+import com.sdds.serv.styles.progressbar.Warning
 
 @Composable
 @Preview(showBackground = true)
@@ -95,7 +96,7 @@ internal fun ProgressPreviewGradientAccent() {
         ProgressBar(
             progress = 0.5f,
             modifier = Modifier.width(240.dp),
-            style = ProgressBar.GradientAccent.style(),
+            style = ProgressBar.Gradient.style(),
         )
     }
 }

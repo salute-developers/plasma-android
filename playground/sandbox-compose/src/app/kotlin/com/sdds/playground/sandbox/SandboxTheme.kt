@@ -70,8 +70,8 @@ import com.sdds.serv.styles.iconbutton.IconButton
 import com.sdds.serv.styles.iconbutton.M
 import com.sdds.serv.styles.iconbutton.Pilled
 import com.sdds.serv.styles.iconbutton.Xs
-import com.sdds.serv.styles.progress.Default
-import com.sdds.serv.styles.progress.ProgressBar
+import com.sdds.serv.styles.progressbar.Default
+import com.sdds.serv.styles.progressbar.ProgressBar
 import com.sdds.serv.styles.radiobox.M
 import com.sdds.serv.styles.radiobox.RadioBox
 import com.sdds.serv.styles.radioboxgroup.M
