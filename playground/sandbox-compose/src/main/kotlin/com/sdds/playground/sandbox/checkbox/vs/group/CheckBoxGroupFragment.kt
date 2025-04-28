@@ -4,7 +4,6 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.checkbox.CheckBoxUiState
 import com.sdds.testing.vs.checkbox.applyState
@@ -26,7 +25,7 @@ internal class CheckBoxGroupFragment : ComponentFragment<CheckBoxUiState, CheckB
 
     override val defaultLayoutParams: FrameLayout.LayoutParams
         get() = FrameLayout.LayoutParams(
-            resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_80x),
+            ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT,
         )
 
