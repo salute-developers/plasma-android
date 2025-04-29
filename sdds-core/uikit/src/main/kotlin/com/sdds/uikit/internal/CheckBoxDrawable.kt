@@ -295,7 +295,7 @@ internal class CheckBoxDrawable(
     }
 
     private fun updateBorderBounds() {
-        val adjustedBounds = _commonBounds
+        val adjustedBounds = Rect(_commonBounds)
         adjustedBounds.inset(-_borderOffset.roundToInt(), -_borderOffset.roundToInt())
         if (_borderDrawable?.strokeWidth != _borderWidth) {
             _borderDrawable?.setStrokeWidth(_borderWidth)
@@ -312,15 +312,21 @@ internal class CheckBoxDrawable(
         val boxWidth = _toggleWidth - _padding * 2
         val boxHeight = _toggleHeight - _padding * 2
         val left = (bounds.width() - boxWidth) / 2
-        val top = (bounds.height() - boxWidth) / 2
+        val top = (bounds.height() - boxHeight) / 2
         val right = left + boxWidth
         val bottom = top + boxHeight
-        _commonBounds.set(
-            left,
-            top,
-            right,
-            bottom,
-        )
+        val needUpdate = _commonBounds.left != left ||
+            _commonBounds.right != right ||
+            _commonBounds.top != top ||
+            _commonBounds.bottom != bottom
+        if (needUpdate) {
+            _commonBounds.set(
+                left,
+                top,
+                right,
+                bottom,
+            )
+        }
     }
 
     override fun draw(canvas: Canvas) {
@@ -328,8 +334,8 @@ internal class CheckBoxDrawable(
         _borderDrawable?.draw(canvas)
         if (_checkedIcon == null) {
             canvas.withTranslation(
-                bounds.left.toFloat(),
-                bounds.top.toFloat(),
+                _commonBounds.left.toFloat(),
+                _commonBounds.top.toFloat(),
             ) {
                 drawMark(
                     checkColor = _checkMarkTintList.getColorForState(
@@ -492,8 +498,8 @@ internal class CheckBoxDrawable(
         strokeWidth: Float,
     ) {
         _paint.xfermode = XfermodeAdd
-        val width = intrinsicWidth
-        val height = intrinsicHeight
+        val width = _commonBounds.width()
+        val height = _commonBounds.height()
         // M0.3,0.5L0.46,0.625,L0.71,0.375
         val checkCrossX = 0.46f
         val checkCrossY = 0.625f
@@ -508,9 +514,9 @@ internal class CheckBoxDrawable(
         val gravitatedRightY = lerp(rightY, 0.5f, crossCenterGravitation)
 
         _checkPath.reset()
-        _checkPath.moveTo(height * leftX, width * gravitatedLeftY)
-        _checkPath.lineTo(height * gravitatedCrossX, width * gravitatedCrossY)
-        _checkPath.lineTo(height * rightX, width * gravitatedRightY)
+        _checkPath.moveTo(width * leftX, height * gravitatedLeftY)
+        _checkPath.lineTo(width * gravitatedCrossX, height * gravitatedCrossY)
+        _checkPath.lineTo(width * rightX, height * gravitatedRightY)
         _pathMeasure.setPath(_checkPath, false)
         _pathToDraw.reset()
         _pathMeasure.getSegment(0f, _pathMeasure.length * checkFraction, _pathToDraw, true)

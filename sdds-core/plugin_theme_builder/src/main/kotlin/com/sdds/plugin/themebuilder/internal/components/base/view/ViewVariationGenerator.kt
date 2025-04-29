@@ -86,8 +86,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         styleElement: Element,
         variationNode: VariationNode<PO>,
         props: PO,
-    ) {
-    }
+    ) = Unit
 
     protected open fun onCreateOverlayStyle(
         variation: String,

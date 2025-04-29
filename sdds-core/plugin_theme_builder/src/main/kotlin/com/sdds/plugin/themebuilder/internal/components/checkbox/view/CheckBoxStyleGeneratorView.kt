@@ -4,12 +4,10 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
-import com.sdds.plugin.themebuilder.internal.components.base.view.ColorValue
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.StateListAttribute
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
-import com.sdds.plugin.themebuilder.internal.components.base.view.isNullOrInherited
 import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -51,24 +49,24 @@ internal open class CheckBoxStyleGeneratorView(
         styleElement: Element,
         variationNode: VariationNode<CheckBoxProperties>,
     ) = with(styleElement) {
-        CheckBoxDimensionsProperty.values().forEach {
-            addDimensionProperty(it, variation, variationNode) {
-                if (it.state.contains("indeterminate")) {
-                    setOf(StateListAttribute("app:sd_state_indeterminate", "true"))
-                } else {
-                    emptySet()
-                }
+        CheckBoxDimensionsProperty.values().forEach { checkBoxDimensionsProperty ->
+            addDimensionProperty(checkBoxDimensionsProperty, variation, variationNode) {
+                containsState(it.state, "indeterminate")
             }
         }
         addProps(variation, variationNode)
-        CheckBoxColorProperty.values().forEach {
-            addColorProperty(it, variation, variationNode) {
-                if (it.state.contains("indeterminate")) {
-                    setOf(StateListAttribute("app:sd_state_indeterminate", "true"))
-                } else {
-                    emptySet()
-                }
+        CheckBoxColorProperty.values().forEach { checkBoxColorProperty ->
+            addColorProperty(checkBoxColorProperty, variation, variationNode) {
+                containsState(it.state, "indeterminate")
             }
+        }
+    }
+
+    private fun containsState(states: List<String>, stateName: String): Set<StateListAttribute> {
+        return if (states.contains(stateName)) {
+            setOf(StateListAttribute("app:sd_state_$stateName", "true"))
+        } else {
+            emptySet()
         }
     }
 
@@ -128,28 +126,6 @@ internal open class CheckBoxStyleGeneratorView(
                 it.value,
             )
         }
-    }
-
-    private fun Element.addColorProperties(
-        colorProperty: CheckBoxColorProperty,
-        variation: String,
-        variationNode: VariationNode<CheckBoxProperties>,
-    ) {
-        val colorValue = getColorProperty(colorProperty, variationNode)
-        if (colorValue.isNullOrInherited) {
-            return
-        }
-
-        when (colorValue) {
-            is ColorValue.SimpleValue -> addToStateList(colorProperty, colorValue.color, variation)
-            is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
-                addToStateList(colorProperty, color, variation, colorStateName)
-            }
-
-            else -> Unit
-        }
-
-        colorAttribute(colorProperty, variation)
     }
 
     private enum class CheckBoxDimensionsProperty(
