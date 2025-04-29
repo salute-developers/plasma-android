@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?plasma_textInverseSecondaryActive" android:state_pressed="true" app:plasma_chip_state_default="true"/>
+    <item android:color="?plasma_textInverseSecondaryHover" android:state_hovered="true" app:plasma_chip_state_default="true"/>
+    <item android:color="?plasma_textInverseSecondary" app:plasma_chip_state_default="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_chip_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_chip_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_chip_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_chip_state_negative="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_chip_state_negative="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_chip_state_negative="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_chip_state_positive="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_chip_state_positive="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_chip_state_positive="true"/>
+    <item android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_chip_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_chip_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_chip_state_secondary="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_chip_state_warning="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_chip_state_warning="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_chip_state_warning="true"/>
+</selector>

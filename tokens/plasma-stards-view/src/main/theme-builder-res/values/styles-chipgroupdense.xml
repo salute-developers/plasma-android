@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense" parent="Sdds.Components.ChipGroup">
+        <item name="sd_gap">@dimen/sdkit_chip_group_dense_gap</item>
+        <item name="sd_lineSpacing">@dimen/sdkit_chip_group_dense_line_spacing</item>
+        <item name="sd_disabledAlpha">0.4</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseL">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilled">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPilledDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPilledAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPilledNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPilledPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPilledSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipLPilledWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.L.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseM">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilled">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPilledDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPilledAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPilledNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPilledPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPilledSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipMPilledWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.M.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseS">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilled">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPilledDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPilledAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPilledNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPilledPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPilledSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipSPilledWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.S.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXs">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilled">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPilledDefault</item>
+        <item name="sdkit_chipgroupColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPilledAccent</item>
+        <item name="sdkit_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPilledNegative</item>
+        <item name="sdkit_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPilledPositive</item>
+        <item name="sdkit_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPilledSecondary</item>
+        <item name="sdkit_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ChipXsPilledWarning</item>
+        <item name="sdkit_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroupDense.Xs.Pilled.Warning</item>
+    </style>
+</resources>

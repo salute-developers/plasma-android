@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Chip" parent="Sdds.Components.Chip">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:backgroundTint">@color/salute_chip_bg_color</item>
+        <item name="android:textColor">@color/salute_chip_text_color</item>
+        <item name="sd_drawableStartTint">@color/salute_chip_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/salute_chip_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.ChipColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="android:minHeight">@dimen/salute_chip_l_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_chip_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_chip_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/salute_chip_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/salute_chip_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_chip_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_chip_l_content_end_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipL">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLPilled">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Pilled.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLPilledDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Pilled.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLPilledAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.L.Pilled.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipLPilledSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_chip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="android:minHeight">@dimen/salute_chip_m_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_chip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_chip_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/salute_chip_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/salute_chip_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_chip_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_chip_m_content_end_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipM">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMPilled">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Pilled.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMPilledDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Pilled.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMPilledAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.M.Pilled.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipMPilledSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/salute_chip_s_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_chip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_chip_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/salute_chip_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/salute_chip_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_chip_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_chip_s_content_end_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipS">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSPilled">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Pilled.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSPilledDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Pilled.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSPilledAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.S.Pilled.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipSPilledSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs">
+        <item name="sd_shapeAppearance">?salute_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/salute_chip_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_chip_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_chip_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/salute_chip_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/salute_chip_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_chip_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_chip_xs_content_end_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXs">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsPilled">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Pilled.Default">
+        <item name="salute_chipColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsPilledDefault">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Pilled.Accent">
+        <item name="salute_chipColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsPilledAccent">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Chip.Xs.Pilled.Secondary">
+        <item name="salute_chipColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipXsPilledSecondary">
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.Xs.Pilled.Secondary</item>
+    </style>
+</resources>

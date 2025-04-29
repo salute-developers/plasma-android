@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SaluteChipGroupColorState">
+        <attr format="boolean" name="salute_chipgroup_state_default"/>
+        <attr format="boolean" name="salute_chipgroup_state_accent"/>
+        <attr format="boolean" name="salute_chipgroup_state_secondary"/>
+    </declare-styleable>
+    <declare-styleable name="ChipGroup" tools:ignore="ResourceName">
+        <attr format="enum" name="salute_chipgroupColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+            <enum name="state_secondary" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

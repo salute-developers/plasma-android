@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ServChipGroupColorState">
+        <attr format="boolean" name="serv_chipgroup_state_default"/>
+        <attr format="boolean" name="serv_chipgroup_state_accent"/>
+        <attr format="boolean" name="serv_chipgroup_state_negative"/>
+        <attr format="boolean" name="serv_chipgroup_state_positive"/>
+        <attr format="boolean" name="serv_chipgroup_state_secondary"/>
+        <attr format="boolean" name="serv_chipgroup_state_warning"/>
+    </declare-styleable>
+    <declare-styleable name="ChipGroup" tools:ignore="ResourceName">
+        <attr format="enum" name="serv_chipgroupColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+            <enum name="state_negative" value="2"/>
+            <enum name="state_positive" value="3"/>
+            <enum name="state_secondary" value="4"/>
+            <enum name="state_warning" value="5"/>
+        </attr>
+    </declare-styleable>
+</resources>
