@@ -141,11 +141,7 @@ open class NavigationDrawer @JvmOverloads constructor(
         set(value) {
             if (_mode != value) {
                 _mode = value
-                when (mode) {
-                    MODE_EXPANDED -> moveToState(STATE_EXPANDED)
-                    MODE_COLLAPSED -> moveToState(STATE_COLLAPSED)
-                    else -> moveToState(if (hasFocus()) STATE_EXPANDED else STATE_COLLAPSED)
-                }
+                moveToState(getStateByMode(value))
             }
         }
 
@@ -240,8 +236,10 @@ open class NavigationDrawer @JvmOverloads constructor(
     /**
      * Загружает заголовок из XML-ресурса.
      */
-    fun inflateHeader(@LayoutRes headerRes: Int) {
-        setHeader(LayoutInflater.from(context).inflate(headerRes, _headerContainer, false))
+    fun inflateHeader(@LayoutRes headerRes: Int): View {
+        return LayoutInflater.from(context).inflate(headerRes, _headerContainer, false).also {
+            setHeader(it)
+        }
     }
 
     /**
@@ -545,7 +543,8 @@ open class NavigationDrawer @JvmOverloads constructor(
             _itemStyle = it.getResourceId(R.styleable.NavigationDrawer_sd_itemStyle, 0)
             _expandedMinWidth = it.getDimensionPixelSize(R.styleable.NavigationDrawer_sd_expandedMinWidth, 0)
             _collapsedItemWidth = it.getDimensionPixelSize(R.styleable.NavigationDrawer_sd_collapsedItemWidth, 0)
-            mode = it.getInt(R.styleable.NavigationDrawer_sd_mode, MODE_AUTO)
+            _mode = it.getInt(R.styleable.NavigationDrawer_sd_mode, MODE_AUTO)
+            moveToState(getStateByMode(_mode), false)
 
             if (_itemSelectorEnabled) {
                 selectorDecorator = ItemSelectorDecorator(this, _itemsRecyclerView, _itemSelectorTint)
@@ -740,6 +739,14 @@ open class NavigationDrawer @JvmOverloads constructor(
                 this.set(from)
             } else {
                 setEmpty()
+            }
+        }
+
+        private fun View.getStateByMode(mode: Int): Int {
+            return when (mode) {
+                MODE_EXPANDED -> STATE_EXPANDED
+                MODE_COLLAPSED -> STATE_COLLAPSED
+                else -> if (hasFocus()) STATE_EXPANDED else STATE_COLLAPSED
             }
         }
     }

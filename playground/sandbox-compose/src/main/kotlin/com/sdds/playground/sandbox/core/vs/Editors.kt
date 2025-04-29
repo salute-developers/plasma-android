@@ -4,12 +4,67 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isGone
+import androidx.core.view.updatePadding
+import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.core.vs.EditorFragment.Companion.CONFIRM_RESULT_KEY
 import com.sdds.playground.sandbox.databinding.FragmentEditorChoiceBinding
 import com.sdds.playground.sandbox.databinding.FragmentEditorTextBinding
-import com.sdds.uikit.RadioBox
+import com.sdds.uikit.TextView
+
+/**
+ * Базовый фрагмент редактора параметров компонентов
+ * @author Малышев Александр on 05.08.2024
+ */
+internal open class EditorFragment<T : Any> : Fragment() {
+
+    protected val componentViewModel: ComponentViewModel<*> by viewModels({ requireParentFragment() })
+
+    /**
+     * Название свойства
+     */
+    protected val propertyName: String by lazy {
+        arguments?.getString(ARG_PROPERTY_NAME).orEmpty()
+    }
+
+    /**
+     * Значение свойства
+     */
+    protected val currentValue: String by lazy {
+        arguments?.getString(ARG_PROPERTY_CURRENT_VALUE).orEmpty()
+    }
+
+    /**
+     * Сохраняет введенное в редактор значение [any] и закрывает редактор
+     */
+    protected fun confirm(any: T?) {
+        componentViewModel.updateProperty(propertyName, any)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)?.apply {
+            ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+                v.updatePadding(
+                    bottom = v.paddingBottom + insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom,
+                )
+                insets
+            }
+        }
+    }
+
+    companion object {
+        const val CONFIRM_RESULT_KEY = "EditorFragment_confirmResult"
+        const val CONFIRM_VALUE = "EditorFragment_confirmResult"
+        const val ARG_PROPERTY_NAME = "EditorFragment_propertyName"
+        const val ARG_PROPERTY_CURRENT_VALUE = "EditorFragment_propertyCurrentValue"
+        const val ARG_CONFIRM_RESULT_KEY = "EditorFragment_argConfirmResult"
+    }
+}
 
 /**
  * Редактор текстовых свойств компонентов
@@ -20,13 +75,21 @@ internal class TextEditorFragment : EditorFragment<String>() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentEditorTextBinding.inflate(inflater, container, false).apply {
-            textEditorField.label = "Параметр: $propertyName"
+            header.headerTitle.text = componentViewModel.componentKey.value
+            header.headerLabel.text = componentViewModel.componentKey.core.name
+            header.propertyValueReset.isGone = true
+            textEditorField.label = propertyName
             textEditorField.value = currentValue
-            textEditorConfirmButton.setOnClickListener {
+            textEditorField.editText.doAfterTextChanged {
                 confirm(textEditorField.value?.toString())
             }
         }
         return _binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding?.textEditorField?.editText?.requestFocus()
     }
 
     override fun onDestroyView() {
@@ -63,9 +126,17 @@ internal class ChoiceEditorFragment : EditorFragment<String>() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentEditorChoiceBinding.inflate(inflater, container, false).apply {
-            choiceEditorTitle.text = getString(R.string.sandbox_editor_title, propertyName)
+            header.headerTitle.text = componentViewModel.componentKey.value
+            header.headerLabel.text = componentViewModel.componentKey.core.name
+            header.propertyValueReset.isGone = true
+            choiceEditorTitle.text = propertyName
             choiceRecyclerView.adapter = adapter
             choiceRecyclerView.itemAnimator = null
+            choiceRecyclerView.addItemDecoration(
+                VerticalSpaceBetweenDecorator(
+                    resources.getDimensionPixelSize(R.dimen.sandbox_properties_choice_spacing),
+                ),
+            )
             adapter.setChoices(choices, currentValue)
             adapter.setSelectionListener { confirm(it) }
         }
@@ -101,7 +172,7 @@ internal class ChoiceEditorFragment : EditorFragment<String>() {
     }
 }
 
-private class ChoiceAdapter : RecyclerView.Adapter<ChoiceAdapter.ChoiceHolder>() {
+internal class ChoiceAdapter : RecyclerView.Adapter<ChoiceAdapter.ChoiceHolder>() {
 
     private val choices = mutableListOf<String>()
     private var selectedPosition: Int = -1
@@ -140,9 +211,9 @@ private class ChoiceAdapter : RecyclerView.Adapter<ChoiceAdapter.ChoiceHolder>()
     inner class ChoiceHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(choice: String) {
-            (itemView as RadioBox).apply {
+            (itemView as TextView).apply {
                 text = choice
-                isChecked = selectedPosition == adapterPosition
+                isSelected = selectedPosition == adapterPosition
                 setOnClickListener {
                     val oldSelected = selectedPosition
                     selectedPosition = adapterPosition

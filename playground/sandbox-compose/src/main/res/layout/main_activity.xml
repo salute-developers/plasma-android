@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<com.sdds.uikit.FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false">
 
     <include
-        android:id="@+id/app_bar_main"
-        layout="@layout/app_bar_main"
+        android:id="@+id/main_content"
+        layout="@layout/main_activity_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
-    <com.sdds.uikit.NavigationDrawer
-        style="@style/Theme.Sandbox.Components.NavigationView"
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="false" />
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</com.sdds.uikit.FrameLayout>

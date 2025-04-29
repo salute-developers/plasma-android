@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.customview.widget.Openable
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -21,7 +20,6 @@ import androidx.navigation.createGraph
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
@@ -29,10 +27,10 @@ import com.sdds.playground.sandbox.allViewThemes
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.EditorFragment
 import com.sdds.playground.sandbox.core.vs.MenuItem
-import com.sdds.playground.sandbox.core.vs.choiceEditor
+import com.sdds.playground.sandbox.core.vs.ThemeSwitcher
 import com.sdds.playground.sandbox.core.vs.getMenuItems
+import com.sdds.playground.sandbox.databinding.LayoutMainHeaderBinding
 import com.sdds.playground.sandbox.databinding.MainActivityBinding
 import com.sdds.playground.sandbox.viewTheme
 import com.sdds.uikit.NavigationDrawer
@@ -48,19 +46,21 @@ class SandboxActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     private val themeManager: ThemeManager = ThemeManager
     private var lastSelectedKey: ComponentKey? = null
+    private var _navHeaderBinding: LayoutMainHeaderBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        setSupportActionBar(binding.appBarMain.toolbar)
-        setUpFullscreen(binding.appBarMain.root)
+        setUpFullscreen(binding.root)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         themeManager.currentTheme
             .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
-            .onEach { updateNavigation(it, navController) }
+            .onEach {
+                updateNavigation(it, navController)
+                updateThemePicker(it)
+            }
             .launchIn(lifecycleScope)
 
         intent.extras?.let { extra ->
@@ -68,15 +68,29 @@ class SandboxActivity : AppCompatActivity() {
             val bundle = extra.getBundle(ComponentFragment.DESTINATION_MESSAGE_ARG)
             navController.navigate(destinationId, bundle)
         }
-        binding.appBarMain.bHome.setOnClickListener {
+        initViews()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _navHeaderBinding = null
+    }
+
+    private fun initViews() = binding.apply {
+        navView?.apply {
+            _navHeaderBinding = LayoutMainHeaderBinding.bind(inflateHeader(R.layout.layout_main_header))
+                .also {
+                    it.headerContent.isFocusable = allViewThemes.size > 1
+                    it.headerContent.minimumWidth = minimumWidth
+                    it.headerContent.setOnClickListener { showThemePicker() }
+                }
+        }
+        mainContent.bHome.setOnClickListener {
             toMainScreen()
         }
-        setupThemePicker()
     }
 
     private fun updateNavigation(theme: Theme, navController: NavController) {
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationDrawer = binding.navView
         val menuItems = viewTheme(theme).components.getMenuItems()
         val startDestination = menuItems.first()
         val graph = navController.createGraph(startDestination = startDestination.id) {
@@ -86,9 +100,9 @@ class SandboxActivity : AppCompatActivity() {
             }
         }
         navController.setGraph(graph, startDestination.componentKeyBundle)
+        appBarConfiguration = AppBarConfiguration(menuItems.map { it.id }.toSet())
+        val navView: NavigationDrawer = binding.navView ?: return
         navView.populateMenu(menuItems, navController)
-        appBarConfiguration = AppBarConfiguration(menuItems.map { it.id }.toSet(), drawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     private fun NavigationDrawer.populateMenu(items: List<MenuItem>, navController: NavController) {
@@ -141,28 +155,17 @@ class SandboxActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupThemePicker() {
+    private fun showThemePicker() {
         val themes = allViewThemes
-        binding.appBarMain.bSettings.apply {
-            isVisible = themes.size > 1
-            if (isVisible) {
-                setOnClickListener {
-                    EditorFragment.choiceEditor(
-                        propertyName = "Theme",
-                        currentValue = viewTheme(themeManager.currentTheme.value).theme.name,
-                        choices = allViewThemes.map(Theme::name),
-                        confirmKey = THEME_PICKER_RESULT_KEY,
-                    ).show(supportFragmentManager, "ThemePicker")
-                }
-                supportFragmentManager.setFragmentResultListener(
-                    THEME_PICKER_RESULT_KEY,
-                    this@SandboxActivity,
-                ) { requestKey, bundle ->
-                    if (requestKey != THEME_PICKER_RESULT_KEY) return@setFragmentResultListener
-                    val newValue = bundle.getString(EditorFragment.CONFIRM_VALUE).orEmpty()
-                    themeManager.updateTheme(Theme.valueOf(newValue))
-                }
-            }
+        if (themes.size <= 1) return
+        val anchorView = _navHeaderBinding?.headerContent ?: return
+        ThemeSwitcher(this).show(anchorView)
+    }
+
+    private fun updateThemePicker(currentTheme: Theme) {
+        _navHeaderBinding?.apply {
+            headerTitle.text = currentTheme.name
+            headerLabel.isVisible = false
         }
     }
 
@@ -189,6 +192,5 @@ class SandboxActivity : AppCompatActivity() {
          * Идентификатор начального экрана
          */
         const val DESTINATION_ID_ARG = "DESTINATION_ID_ARG"
-        private const val THEME_PICKER_RESULT_KEY = "THEME_PICKER_RESULT_KEY"
     }
 }
