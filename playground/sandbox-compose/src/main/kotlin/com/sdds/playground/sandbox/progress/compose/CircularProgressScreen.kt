@@ -38,7 +38,7 @@ internal fun CircularProgressScreen(componentKey: ComponentKey = ComponentKey.Ci
 
 @Composable
 @Preview(showBackground = true)
-private fun IndicatorsPreview() {
+private fun CircularProgressScreenPreview() {
     SandboxTheme {
         CircularProgressScreen()
     }

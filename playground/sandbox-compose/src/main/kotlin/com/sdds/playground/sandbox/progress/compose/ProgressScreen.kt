@@ -34,7 +34,7 @@ internal fun ProgressScreen(componentKey: ComponentKey = ComponentKey.ProgressBa
 
 @Composable
 @Preview(showBackground = true)
-private fun IndicatorsPreview() {
+private fun ProgressScreenPreview() {
     SandboxTheme {
         ProgressScreen()
     }
