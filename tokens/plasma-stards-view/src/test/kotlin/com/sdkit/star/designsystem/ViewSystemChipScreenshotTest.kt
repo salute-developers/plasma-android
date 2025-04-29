@@ -6,6 +6,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdds.testing.vs.chip.ChipTestCases
+import com.sdkit.star.designsystem.colorstate.ChipColorState
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -41,42 +42,54 @@ class ViewSystemChipScreenshotTest : ChipTestCases("+night") {
     @Test
     override fun testChipDisabled() {
         themedComponent {
-            chipDisabled(R.style.Sdkit_StarDs_ComponentOverlays_ChipLDefault)
+            chipDisabled(R.style.Sdkit_StarDs_ComponentOverlays_ChipL)
         }
     }
 
     @Test
     override fun testChipXsDefault() {
         themedComponent {
-            chipXsDefault(R.style.Sdkit_StarDs_ComponentOverlays_ChipXSDefault)
+            chipXsDefault(R.style.Sdkit_StarDs_ComponentOverlays_ChipXsDefault)
         }
     }
 
     @Test
     override fun testChipGroupLDefault() {
         themedComponent {
-            chipGroupLDefault(R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseL)
+            chipGroupLDefault(
+                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseLDefault,
+                ChipColorState.DEFAULT,
+            )
         }
     }
 
     @Test
     override fun testChipGroupMSecondary() {
         themedComponent {
-            chipGroupMSecondary(R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupWideMSecondary)
+            chipGroupMSecondary(
+                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupWideMSecondary,
+                ChipColorState.SECONDARY,
+            )
         }
     }
 
     @Test
     override fun testChipGroupSAccent() {
         themedComponent {
-            chipGroupSAccent(R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseSAccent)
+            chipGroupSAccent(
+                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseSAccent,
+                ChipColorState.ACCENT,
+            )
         }
     }
 
     @Test
     override fun testChipGroupXSDefault() {
         themedComponent {
-            chipGroupXSDefault(R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseXS)
+            chipGroupXSDefault(
+                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseXs,
+                ChipColorState.DEFAULT,
+            )
         }
     }
 
@@ -90,6 +103,7 @@ class ViewSystemChipScreenshotTest : ChipTestCases("+night") {
         ) {
             chipGroupLPilledSecondaryCheckedStateAccent(
                 R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseLPilledSecondary,
+                ChipColorState.ACCENT,
             )
         }
     }
@@ -102,7 +116,10 @@ class ViewSystemChipScreenshotTest : ChipTestCases("+night") {
                     .perform(click())
             },
         ) {
-            chipGroupMAccentCheckedStateSecondary(R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupWideMAccent)
+            chipGroupMAccentCheckedStateSecondary(
+                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupWideMAccent,
+                ChipColorState.SECONDARY,
+            )
         }
     }
 
@@ -118,6 +135,7 @@ class ViewSystemChipScreenshotTest : ChipTestCases("+night") {
         ) {
             chipGroupLSecondaryCheckedStateDefaultMultiple(
                 R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseLSecondary,
+                ChipColorState.DEFAULT,
             )
         }
     }
