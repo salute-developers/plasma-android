@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChip
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
@@ -136,6 +137,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
                 SddsServEmbeddedChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CircularProgressBar,
+                SddsServCircularProgressBarVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,

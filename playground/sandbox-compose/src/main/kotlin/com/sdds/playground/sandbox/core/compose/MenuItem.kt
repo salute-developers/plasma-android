@@ -21,6 +21,7 @@ import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
+import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
@@ -68,6 +69,7 @@ internal sealed class ComponentScreen(
     object RadioBoxGroup : ComponentScreen({ RadioBoxGroupScreen(it) })
     object Switch : ComponentScreen({ SwitchScreen(it) })
     object Progress : ComponentScreen({ ProgressScreen(it) })
+    object CircularProgress : ComponentScreen({ CircularProgressScreen(it) })
     object TextField : ComponentScreen({ TextFieldScreen(it) })
 
     object TextArea : ComponentScreen({ TextFieldScreen(it) })
@@ -103,6 +105,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.INDICATOR -> ComponentScreen.Indicator
         CoreComponent.COUNTER -> ComponentScreen.Counter
         CoreComponent.PROGRESS -> ComponentScreen.Progress
+        CoreComponent.CIRCULAR_PROGRESS -> ComponentScreen.CircularProgress
         CoreComponent.RADIOBOX -> ComponentScreen.RadioBox
         CoreComponent.RADIOBOX_GROUP -> ComponentScreen.RadioBoxGroup
         CoreComponent.SWITCH -> ComponentScreen.Switch

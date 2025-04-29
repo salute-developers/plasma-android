@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
@@ -140,6 +141,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
                 PlasmaSdServiceEmbeddedChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CircularProgressBar,
+                PlasmaSdServiceCircularProgressBarVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,

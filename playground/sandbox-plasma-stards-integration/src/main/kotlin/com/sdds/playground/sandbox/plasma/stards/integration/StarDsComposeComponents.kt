@@ -20,6 +20,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.group.Star
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.StarDsChipVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
@@ -100,6 +101,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("ChipGroupWide", CoreComponent.CHIP_GROUP),
                 StarDsChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CircularProgressBar,
+                StarDsCircularProgressBarVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,

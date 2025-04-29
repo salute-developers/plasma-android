@@ -6,27 +6,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.ProgressBar
+import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
- * Экран с компонентом [ProgressBar]
+ * Экран с компонентом [CircularProgressBar]
  */
 @Composable
-internal fun ProgressScreen(componentKey: ComponentKey = ComponentKey.ProgressBar) {
+internal fun CircularProgressScreen(componentKey: ComponentKey = ComponentKey.CircularProgressBar) {
     ComponentScaffold(
         key = componentKey,
-        viewModel = viewModel<ProgressViewModel>(
-            factory = ProgressViewModelFactory(defaultState = ProgressUiState(), componentKey = componentKey),
+        viewModel = viewModel<CircularProgressViewModel>(
+            factory = CircularProgressViewModelFactory(
+                defaultState = CircularProgressUiState(),
+                componentKey = componentKey,
+            ),
             key = componentKey.toString(),
         ),
         component = { progressUiState, style ->
-            ProgressBar(
+            CircularProgressBar(
                 progress = progressUiState.progress,
                 modifier = Modifier.width(240.dp),
                 style = style,
+                trackEnabled = progressUiState.trackEnabled,
             )
         },
     )
@@ -34,8 +38,8 @@ internal fun ProgressScreen(componentKey: ComponentKey = ComponentKey.ProgressBa
 
 @Composable
 @Preview(showBackground = true)
-private fun ProgressScreenPreview() {
+private fun CircularProgressScreenPreview() {
     SandboxTheme {
-        ProgressScreen()
+        CircularProgressScreen()
     }
 }
