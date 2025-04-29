@@ -14,8 +14,6 @@
         <item name="android:minWidth">@dimen/salute_counter_l_min_width</item>
         <item name="android:paddingLeft">@dimen/salute_counter_l_padding_left</item>
         <item name="android:paddingRight">@dimen/salute_counter_l_padding_right</item>
-        <item name="android:paddingTop">@dimen/salute_counter_l_padding_top</item>
-        <item name="android:paddingBottom">@dimen/salute_counter_l_padding_bottom</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.CounterL">
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L</item>
@@ -68,8 +66,6 @@
         <item name="android:minWidth">@dimen/salute_counter_m_min_width</item>
         <item name="android:paddingLeft">@dimen/salute_counter_m_padding_left</item>
         <item name="android:paddingRight">@dimen/salute_counter_m_padding_right</item>
-        <item name="android:paddingTop">@dimen/salute_counter_m_padding_top</item>
-        <item name="android:paddingBottom">@dimen/salute_counter_m_padding_bottom</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.CounterM">
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
@@ -122,8 +118,6 @@
         <item name="android:minWidth">@dimen/salute_counter_s_min_width</item>
         <item name="android:paddingLeft">@dimen/salute_counter_s_padding_left</item>
         <item name="android:paddingRight">@dimen/salute_counter_s_padding_right</item>
-        <item name="android:paddingTop">@dimen/salute_counter_s_padding_top</item>
-        <item name="android:paddingBottom">@dimen/salute_counter_s_padding_bottom</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.CounterS">
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S</item>
@@ -176,8 +170,6 @@
         <item name="android:minWidth">@dimen/salute_counter_xs_min_width</item>
         <item name="android:paddingLeft">@dimen/salute_counter_xs_padding_left</item>
         <item name="android:paddingRight">@dimen/salute_counter_xs_padding_right</item>
-        <item name="android:paddingTop">@dimen/salute_counter_xs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/salute_counter_xs_padding_bottom</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.CounterXs">
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs</item>
@@ -230,8 +222,6 @@
         <item name="android:minWidth">@dimen/salute_counter_xxs_min_width</item>
         <item name="android:paddingLeft">@dimen/salute_counter_xxs_padding_left</item>
         <item name="android:paddingRight">@dimen/salute_counter_xxs_padding_right</item>
-        <item name="android:paddingTop">@dimen/salute_counter_xxs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/salute_counter_xxs_padding_bottom</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.CounterXxs">
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs</item>
