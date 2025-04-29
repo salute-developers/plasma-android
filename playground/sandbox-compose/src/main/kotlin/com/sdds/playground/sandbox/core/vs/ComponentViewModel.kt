@@ -27,6 +27,9 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     protected val internalUiState = MutableStateFlow(defaultState)
 
+    protected open val colorVariantPropertyName: String
+        get() = COLOR_VARIANT_PROPERTY_NAME
+
     /**
      * Тема
      */
@@ -48,7 +51,7 @@ internal abstract class ComponentViewModel<State : UiState>(
             internalUiState.value =
                 internalUiState.value.updateVariant(valueString) as State
         }
-        if (name == COLOR_VARIANT_PROPERTY_NAME) {
+        if (name == colorVariantPropertyName) {
             internalUiState.value =
                 internalUiState.value.updateColorVariant(valueString) as State
         }
@@ -78,7 +81,7 @@ internal abstract class ComponentViewModel<State : UiState>(
             updateUiStateWithDefaultColorVariant()
             variantProperties.add(
                 Property.SingleChoiceProperty(
-                    COLOR_VARIANT_PROPERTY_NAME,
+                    colorVariantPropertyName,
                     variants = styleProvider.colorVariants,
                     value = state.colorVariant,
                 ),
