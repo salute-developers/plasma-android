@@ -31,7 +31,7 @@
         </activity>
         <!--        Activity for View-System -->
         <activity
-            android:name=".activities.vs.SandboxActivity"
+            android:name=".core.vs.SandboxActivity"
             android:exported="false"
             android:theme="@style/Theme.Sandbox.NoActionBar"
             android:windowSoftInputMode="adjustNothing"

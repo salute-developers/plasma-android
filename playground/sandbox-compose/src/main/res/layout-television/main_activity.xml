@@ -13,12 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.sdds.uikit.NavigationDrawer
-        style="@style/Theme.Sandbox.Components.NavigationView"
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="false" />
+        android:name="com.sdds.playground.sandbox.core.vs.ComponentListFragment"/>
 
 </com.sdds.playground.sandbox.core.vs.DrawerFrameLayout>

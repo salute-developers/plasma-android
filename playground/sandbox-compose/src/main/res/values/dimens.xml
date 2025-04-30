@@ -25,4 +25,5 @@
     <dimen name="sandbox_switch_thumb_size">16dp</dimen>
     <dimen name="sandbox_properties_choice_spacing">@dimen/serv_spacing_3x</dimen>
     <dimen name="sandbox_main_paddings">@dimen/serv_spacing_1x</dimen>
+    <dimen name="sandbox_component_list_spacing">@dimen/serv_spacing_1x</dimen>
 </resources>
