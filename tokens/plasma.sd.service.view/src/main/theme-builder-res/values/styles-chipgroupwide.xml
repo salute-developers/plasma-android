@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.ChipGroupWide" parent="Sdds.Components.ChipGroup">
+        <item name="sd_gap">@dimen/plasma_chip_group_wide_gap</item>
+        <item name="sd_lineSpacing">@dimen/plasma_chip_group_wide_line_spacing</item>
+        <item name="sd_disabledAlpha">0.4</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideL">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilled">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPilledDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPilledAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPilledNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPilledPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPilledSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.L.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLPilledWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideLPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.L.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideM">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilled">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPilledDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPilledAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPilledNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPilledPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPilledSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.M.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMPilledWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideMPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.M.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideS">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilled">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPilledDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPilledAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPilledNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPilledPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPilledSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.S.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSPilledWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideSPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.S.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXs">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled"/>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilled">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPilledDefault</item>
+        <item name="plasma_chipgroupColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPilledAccent</item>
+        <item name="plasma_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Negative">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPilledNegative</item>
+        <item name="plasma_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilledNegative">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Positive">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPilledPositive</item>
+        <item name="plasma_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilledPositive">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPilledSecondary</item>
+        <item name="plasma_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Warning">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXsPilledWarning</item>
+        <item name="plasma_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipGroupWideXsPilledWarning">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide.Xs.Pilled.Warning</item>
+    </style>
+</resources>

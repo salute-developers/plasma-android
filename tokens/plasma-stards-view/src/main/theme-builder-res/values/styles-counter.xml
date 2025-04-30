@@ -14,8 +14,6 @@
         <item name="android:minWidth">@dimen/sdkit_counter_l_min_width</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_l_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_l_padding_right</item>
-        <item name="android:paddingTop">@dimen/sdkit_counter_l_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_counter_l_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.CounterL">
         <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.L</item>
@@ -68,8 +66,6 @@
         <item name="android:minWidth">@dimen/sdkit_counter_m_min_width</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_m_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_m_padding_right</item>
-        <item name="android:paddingTop">@dimen/sdkit_counter_m_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_counter_m_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.CounterM">
         <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.M</item>
@@ -122,8 +118,6 @@
         <item name="android:minWidth">@dimen/sdkit_counter_s_min_width</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_s_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_s_padding_right</item>
-        <item name="android:paddingTop">@dimen/sdkit_counter_s_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_counter_s_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.CounterS">
         <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.S</item>
@@ -176,8 +170,6 @@
         <item name="android:minWidth">@dimen/sdkit_counter_xs_min_width</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_xs_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_xs_padding_right</item>
-        <item name="android:paddingTop">@dimen/sdkit_counter_xs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_counter_xs_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.CounterXs">
         <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.Xs</item>
@@ -230,8 +222,6 @@
         <item name="android:minWidth">@dimen/sdkit_counter_xxs_min_width</item>
         <item name="android:paddingLeft">@dimen/sdkit_counter_xxs_padding_left</item>
         <item name="android:paddingRight">@dimen/sdkit_counter_xxs_padding_right</item>
-        <item name="android:paddingTop">@dimen/sdkit_counter_xxs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/sdkit_counter_xxs_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.CounterXxs">
         <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.Xxs</item>

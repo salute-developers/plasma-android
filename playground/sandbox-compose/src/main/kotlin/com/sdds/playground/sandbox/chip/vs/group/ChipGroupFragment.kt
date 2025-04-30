@@ -48,6 +48,6 @@ internal class ChipGroupFragment : ComponentFragment<ChipUiState, ChipGroup>() {
     }
 
     override fun onComponentUpdate(component: ChipGroup?, state: ChipUiState) {
-        component?.applyState(state)
+        component?.applyState(state, componentViewModel.getStyleProvider().colorState(state.colorVariant))
     }
 }

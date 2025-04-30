@@ -62,6 +62,8 @@ open class TextDrawable(
     private var _drawableEnd: Drawable? = null
     private var _drawableEndTint: ColorStateList? = null
     private var _contentDrawableSize: Int = 0
+    private var _contentStartSize: Int = 0
+    private var _contentEndSize: Int = 0
 
     private var _paddingLeft: Int = 0
     private var _paddingRight: Int = 0
@@ -117,9 +119,9 @@ open class TextDrawable(
         set(value) {
             if (_drawableStart != value) {
                 _drawableStart?.callback = null
-                val oldWidth = drawableStart.safeWidth()
+                val oldWidth = drawableStart.safeWidth(_contentStartSize)
                 _drawableStart = value
-                val newWidth = drawableStart.safeWidth()
+                val newWidth = drawableStart.safeWidth(_contentStartSize)
                 _drawableStart.applyChild(_drawableStartTint)
                 onSizeChanged(oldWidth != newWidth)
                 invalidateSelf()
@@ -134,9 +136,9 @@ open class TextDrawable(
         set(value) {
             if (_drawableEnd != value) {
                 _drawableEnd?.callback = null
-                val oldWidth = _drawableEnd.safeWidth()
+                val oldWidth = _drawableEnd.safeWidth(_contentEndSize)
                 _drawableEnd = value
-                val newWidth = _drawableEnd.safeWidth()
+                val newWidth = _drawableEnd.safeWidth(_contentEndSize)
                 _drawableEnd.applyChild(_drawableEndTint)
                 onSizeChanged(oldWidth != newWidth)
                 invalidateSelf()
@@ -339,17 +341,17 @@ open class TextDrawable(
                 _paddingRight +
                 getTextPaddingStart() +
                 getTextPaddingEnd() +
-                _drawableStart.safeWidth() +
+                _drawableStart.safeWidth(_contentStartSize) +
                 _textWidth +
-                _drawableEnd.safeWidth()
+                _drawableEnd.safeWidth(_contentEndSize)
             )
     }
 
     override fun getIntrinsicHeight(): Int {
         return _paddingTop + _paddingBottom + maxOf(
-            _drawableStart.safeHeight(),
+            _drawableStart.safeHeight(_contentStartSize),
             textBounds.height(),
-            _drawableEnd.safeHeight(),
+            _drawableEnd.safeHeight(_contentEndSize),
         )
     }
 
@@ -373,11 +375,19 @@ open class TextDrawable(
         if (updateParent) _delegate?.onDrawableSizeChange()
     }
 
-    private fun Drawable?.safeWidth() =
-        if (_contentDrawableSize != 0 && this != null) _contentDrawableSize else this?.intrinsicWidth ?: 0
+    private fun Drawable?.safeWidth(drawableSize: Int = 0) =
+        when {
+            drawableSize != 0 && this != null -> drawableSize
+            _contentDrawableSize != 0 && this != null -> _contentDrawableSize
+            else -> this?.intrinsicWidth ?: 0
+        }
 
-    private fun Drawable?.safeHeight() =
-        if (_contentDrawableSize != 0 && this != null) _contentDrawableSize else this?.intrinsicHeight ?: 0
+    private fun Drawable?.safeHeight(drawableSize: Int = 0) =
+        when {
+            drawableSize != 0 && this != null -> drawableSize
+            _contentDrawableSize != 0 && this != null -> _contentDrawableSize
+            else -> this?.intrinsicHeight ?: 0
+        }
 
     private fun getTextPaddingStart(): Int =
         (_textPaddingStart.takeIf { drawableStart != null && _textWidth > 0 } ?: 0)
@@ -425,9 +435,9 @@ open class TextDrawable(
         if (_drawableStart != null) {
             contentStartBounds.set(
                 bounds.left + _paddingLeft,
-                bounds.centerY() - _drawableStart.safeHeight() / 2,
-                bounds.left + _paddingLeft + _drawableStart.safeWidth(),
-                bounds.centerY() + _drawableStart.safeHeight() / 2,
+                bounds.centerY() - _drawableStart.safeHeight(_contentStartSize) / 2,
+                bounds.left + _paddingLeft + _drawableStart.safeWidth(_contentStartSize),
+                bounds.centerY() + _drawableStart.safeHeight(_contentStartSize) / 2,
             )
             _drawableStart?.bounds = contentStartBounds
         } else {
@@ -439,20 +449,15 @@ open class TextDrawable(
         // Content end bounds
         if (_drawableEnd != null) {
             contentEndBounds.set(
-                bounds.right - _paddingRight - _drawableEnd.safeWidth(),
-                bounds.centerY() - _drawableEnd.safeHeight() / 2,
+                bounds.right - _paddingRight - _drawableEnd.safeWidth(_contentEndSize),
+                bounds.centerY() - _drawableEnd.safeHeight(_contentEndSize) / 2,
                 bounds.right - _paddingRight,
-                bounds.centerY() + _drawableEnd.safeHeight() / 2,
+                bounds.centerY() + _drawableEnd.safeHeight(_contentEndSize) / 2,
             )
             _drawableEnd?.bounds = contentEndBounds
         } else {
             contentEndBounds.set(0, 0, 0, 0)
         }
-    }
-
-    private fun getFontHeight(): Float {
-        val fontMetrics = textPaint.fontMetrics
-        return fontMetrics.descent - fontMetrics.ascent
     }
 
     private fun updateTextBounds() {
@@ -461,9 +466,6 @@ open class TextDrawable(
             return
         }
         _textLayout?.getLineBounds(0, textBounds)
-        val topOffSet = ((_lineHeight - getFontHeight()) / 2)
-        textBounds.top = (textBounds.top - topOffSet).toInt()
-        textBounds.bottom = (textBounds.bottom + topOffSet).toInt()
         val textPositionWithoutDrawable = when (textAlignment) {
             TextAlignment.START -> bounds.left + _paddingLeft
             TextAlignment.CENTER -> bounds.centerX() - textBounds.width() / 2
@@ -474,7 +476,6 @@ open class TextDrawable(
                 contentStartBounds.right + _textPaddingStart,
                 textPositionWithoutDrawable,
             )
-
             _drawableEnd != null -> minOf(
                 contentEndBounds.left - _textPaddingEnd - textBounds.width(),
                 textPositionWithoutDrawable,
@@ -489,16 +490,32 @@ open class TextDrawable(
     }
 
     @Suppress("PrivateResource")
-    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TextDrawable, defStyleAttr, defStyleRes)
+    private fun obtainAttributes(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int,
+    ) {
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.TextDrawable,
+            defStyleAttr,
+            defStyleRes,
+        )
         text = typedArray.getString(R.styleable.TextDrawable_android_text).orEmpty()
-        setTextAppearance(context, typedArray.getResourceId(R.styleable.TextDrawable_android_textAppearance, 0))
+        setTextAppearance(
+            context,
+            typedArray.getResourceId(R.styleable.TextDrawable_android_textAppearance, 0),
+        )
         val textColor = typedArray.getColorStateList(R.styleable.TextDrawable_android_textColor)
-        val sdTextColor = typedArray.getColorValueStateList(context, R.styleable.TextDrawable_sd_textColor)
-            ?: textColor?.let { ColorValueStateList.valueOf(it) }
+        val sdTextColor =
+            typedArray.getColorValueStateList(context, R.styleable.TextDrawable_sd_textColor)
+                ?: textColor?.let { ColorValueStateList.valueOf(it) }
         setTextColor(sdTextColor)
-        _textPaddingStart = typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_textPaddingStart, 0)
-        _textPaddingEnd = typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_textPaddingEnd, 0)
+        _textPaddingStart =
+            typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_textPaddingStart, 0)
+        _textPaddingEnd =
+            typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_textPaddingEnd, 0)
 
         drawableStart = typedArray.getDrawable(R.styleable.TextDrawable_android_drawableStart)
         drawableEnd = typedArray.getDrawable(R.styleable.TextDrawable_android_drawableEnd)
@@ -506,11 +523,23 @@ open class TextDrawable(
             typedArray.getColorStateList(R.styleable.TextDrawable_android_backgroundTint)
                 ?: typedArray.getColorStateList(R.styleable.TextDrawable_backgroundTint),
         )
-        setDrawableStartTint(typedArray.getColorStateList(R.styleable.TextDrawable_sd_drawableStartTint) ?: textColor)
-        setDrawableEndTint(typedArray.getColorStateList(R.styleable.TextDrawable_sd_drawableEndTint) ?: textColor)
-        _contentDrawableSize = typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_drawableSize, 0)
+        setDrawableStartTint(
+            typedArray.getColorStateList(R.styleable.TextDrawable_sd_drawableStartTint) ?: textColor,
+        )
+        setDrawableEndTint(
+            typedArray.getColorStateList(R.styleable.TextDrawable_sd_drawableEndTint) ?: textColor,
+        )
+        _contentDrawableSize =
+            typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_drawableSize, 0)
+        _contentStartSize =
+            typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_contentStartSize, 0)
+        _contentEndSize =
+            typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_contentEndSize, 0)
         _textAlignment = TextAlignment.values().getOrElse(
-            typedArray.getInt(R.styleable.TextDrawable_sd_textAlignment, TextAlignment.CENTER.ordinal),
+            typedArray.getInt(
+                R.styleable.TextDrawable_sd_textAlignment,
+                TextAlignment.CENTER.ordinal,
+            ),
         ) { TextAlignment.CENTER }
         typedArray.recycle()
     }

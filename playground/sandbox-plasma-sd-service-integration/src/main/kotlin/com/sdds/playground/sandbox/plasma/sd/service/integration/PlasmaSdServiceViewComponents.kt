@@ -22,7 +22,9 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.vs.PlasmaS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.PlasmaSdServiceCheckBoxVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.PlasmaSdServiceCheckBoxGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.PlasmaSdServiceChipVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.PlasmaSdServiceEmbeddedChipVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
@@ -117,8 +119,17 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
                 PlasmaSdServiceChipVariationsView,
             ),
             ViewComponent(
+                ComponentKey("ChipEmbedded", CoreComponent.CHIP),
+                PlasmaSdServiceEmbeddedChipVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.ChipGroup,
                 PlasmaSdServiceChipGroupVariationsView,
+            ),
+
+            ViewComponent(
+                ComponentKey("ChipGroupEmbedded", CoreComponent.CHIP_GROUP),
+                PlasmaSdServiceEmbeddedChipGroupVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Counter,

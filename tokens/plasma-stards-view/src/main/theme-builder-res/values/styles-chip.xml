@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Chip" parent="Sdds.Components.Chip">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:backgroundTint">@color/sdkit_chip_bg_color</item>
+        <item name="android:textColor">@color/sdkit_chip_text_color</item>
+        <item name="sd_drawableStartTint">@color/sdkit_chip_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/sdkit_chip_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.ChipColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_l_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_chip_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_chip_l_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipL">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilled">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.L.Pilled.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_chip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_m_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_chip_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_chip_m_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipM">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilled">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.M.Pilled.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_s_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_chip_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_chip_s_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipS">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilled">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.S.Pilled.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_chip_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_chip_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_chip_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_chip_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_chip_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_chip_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_chip_xs_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXs">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilled">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled.Default">
+        <item name="sdkit_chipColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilledDefault">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled.Accent">
+        <item name="sdkit_chipColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilledAccent">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled.Negative">
+        <item name="sdkit_chipColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilledNegative">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled.Positive">
+        <item name="sdkit_chipColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilledPositive">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled.Secondary">
+        <item name="sdkit_chipColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilledSecondary">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Chip.Xs.Pilled.Warning">
+        <item name="sdkit_chipColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipXsPilledWarning">
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Warning</item>
+    </style>
+</resources>

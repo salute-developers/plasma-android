@@ -1040,7 +1040,7 @@
         <item name="sd_checkBoxGroupStyle">@style/Plasma.SdService.Components.CheckBoxGroup.M</item>
         <item name="sd_radioBoxGroupStyle">@style/Plasma.SdService.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Wide</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide</item>
         <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M</item>
@@ -2090,7 +2090,7 @@
         <item name="sd_checkBoxGroupStyle">@style/Plasma.SdService.Components.CheckBoxGroup.M</item>
         <item name="sd_radioBoxGroupStyle">@style/Plasma.SdService.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Wide</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroupWide</item>
         <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M</item>

@@ -1240,7 +1240,7 @@
         <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.M</item>
         <item name="sd_radioBoxGroupStyle">@style/Serv.Sdds.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Wide</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroupWide</item>
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
         <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
@@ -2491,7 +2491,7 @@
         <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.M</item>
         <item name="sd_radioBoxGroupStyle">@style/Serv.Sdds.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Wide</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroupWide</item>
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
         <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
