@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip" parent="Sdds.Components.Chip">
+        <item name="android:backgroundTint">@color/sdkit_color_chip_bg</item>
+        <item name="android:textColor">@color/sdkit_color_chip_text</item>
+        <item name="sd_drawableStartTint">@color/sdkit_color_chip_drawable</item>
+        <item name="sd_drawableEndTint">@color/sdkit_color_chip_drawable</item>
+        <item name="sd_viewState">primary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.L">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="sd_textPaddingEnd">8dp</item>
+        <item name="sd_textPaddingStart">8dp</item>
+        <item name="sd_drawableSize">24dp</item>
+
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.M">
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="sd_textPaddingEnd">6dp</item>
+        <item name="sd_textPaddingStart">6dp</item>
+        <item name="sd_drawableSize">24dp</item>
+
+        <item name="sd_shapeAppearanceAdjustment">-2dp</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+
+        <item name="android:minHeight">36dp</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.S">
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="sd_textPaddingEnd">4dp</item>
+        <item name="sd_textPaddingStart">4dp</item>
+        <item name="sd_drawableSize">16dp</item>
+
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+
+        <item name="android:minHeight">28dp</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXxs</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
+
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.Xs">
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="sd_textPaddingEnd">2dp</item>
+        <item name="sd_textPaddingStart">2dp</item>
+        <item name="sd_drawableSize">16dp</item>
+
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+
+        <item name="android:minHeight">20dp</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXxs</item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
+
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.L.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.L.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.L.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.L.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.M.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.M.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.M.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.M.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.S.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.S.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.S.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.S.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.Xs.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.Xs.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.Xs.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+    <!--deprecated This component is no longer supported -->
+    <style name="Sdkit.StarDs.Components.EmbeddedChip.Xs.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+</resources>
