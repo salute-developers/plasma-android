@@ -87,7 +87,7 @@ class ViewSystemChipScreenshotTest : ChipTestCases("+night") {
     override fun testChipGroupXSDefault() {
         themedComponent {
             chipGroupXSDefault(
-                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseXs,
+                R.style.Sdkit_StarDs_ComponentOverlays_ChipGroupDenseXsDefault,
                 ChipColorState.DEFAULT,
             )
         }
