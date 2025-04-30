@@ -1,6 +1,7 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.switcher.L
 import com.sdds.plasma.giga.app.styles.switcher.M
 import com.sdds.plasma.giga.app.styles.switcher.S
