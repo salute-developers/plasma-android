@@ -96,6 +96,7 @@ internal class CheckBoxDrawable(
     private var _cornerRadius: Float = FallBackRadius.toFloat()
 
     private var _originalBorderShape: ShapeModel? = null
+    private var _needsToAdjust: Boolean = false
 
     private var _checkDrawFraction: Float = 0f
     private var _checkCenterGravitationShiftFraction: Float = 0f
@@ -123,7 +124,7 @@ internal class CheckBoxDrawable(
             .apply { callback = this@CheckBoxDrawable.callback }
         _borderDrawable = ShapeDrawable(context, attrs, defStyleAttr)
             .apply { callback = this@CheckBoxDrawable.callback }
-        _originalBorderShape = _borderDrawable?.shape
+        _originalBorderShape = _borderDrawable?.shape?.copy()
     }
 
     /**
@@ -282,16 +283,10 @@ internal class CheckBoxDrawable(
     override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         calculateCommonBounds()
-        updateBoxBounds()
+        _boxDrawable?.bounds = _commonBounds
         updateBorderBounds()
         updateIconBounds(_checkedIcon, _checkedIconBounds)
         updateIconBounds(_indeterminateIcon, _indeterminateIconBounds)
-    }
-
-    private fun updateBoxBounds() {
-        if (_boxDrawable?.bounds != _commonBounds) {
-            _boxDrawable?.bounds = _commonBounds
-        }
     }
 
     private fun updateBorderBounds() {
@@ -299,13 +294,14 @@ internal class CheckBoxDrawable(
         adjustedBounds.inset(-_borderOffset.roundToInt(), -_borderOffset.roundToInt())
         if (_borderDrawable?.strokeWidth != _borderWidth) {
             _borderDrawable?.setStrokeWidth(_borderWidth)
+        }
+        if (_needsToAdjust) {
             _originalBorderShape?.adjust(_borderOffset - _borderWidth / 2)?.let {
                 _borderDrawable?.setShapeModel(it)
             }
+            _needsToAdjust = false
         }
-        if (_borderDrawable?.bounds != adjustedBounds) {
-            _borderDrawable?.bounds = adjustedBounds
-        }
+        _borderDrawable?.bounds = adjustedBounds
     }
 
     private fun calculateCommonBounds() {
@@ -315,18 +311,12 @@ internal class CheckBoxDrawable(
         val top = (bounds.height() - boxHeight) / 2
         val right = left + boxWidth
         val bottom = top + boxHeight
-        val needUpdate = _commonBounds.left != left ||
-            _commonBounds.right != right ||
-            _commonBounds.top != top ||
-            _commonBounds.bottom != bottom
-        if (needUpdate) {
-            _commonBounds.set(
-                left,
-                top,
-                right,
-                bottom,
-            )
-        }
+        _commonBounds.set(
+            left,
+            top,
+            right,
+            bottom,
+        )
     }
 
     override fun draw(canvas: Canvas) {
@@ -402,6 +392,7 @@ internal class CheckBoxDrawable(
         val newWidth = _toggleBorderWidth?.getFloatForState(state) ?: 0f
         return if (_borderWidth != newWidth) {
             _borderWidth = newWidth
+            _needsToAdjust = true
             true
         } else {
             false
@@ -412,6 +403,7 @@ internal class CheckBoxDrawable(
         val newOffset = _toggleBorderOffset?.getFloatForState(state) ?: 0f
         return if (_borderOffset != newOffset) {
             _borderOffset = newOffset
+            _needsToAdjust = true
             true
         } else {
             false

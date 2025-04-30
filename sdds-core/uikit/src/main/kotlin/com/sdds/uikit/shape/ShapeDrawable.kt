@@ -19,7 +19,6 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.annotation.RequiresApi
-import androidx.core.content.withStyledAttributes
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.AnimationUtils
@@ -103,24 +102,20 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         defStyleAttr: Int = 0,
         defStyleRes: Int = 0,
     ) : this() {
-        context.withStyledAttributes(attributeSet, R.styleable.SdShape, defStyleAttr, defStyleRes) {
-            val adjustment = getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
-            _shapeModel =
-                ShapeModel.create(context, getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0))
-                    .adjust(adjustment)
-            _strokeTint = getColorStateList(R.styleable.SdShape_sd_strokeColor)
-            _strokeWidth = getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
-            _animationEnabled = getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
-            val hasShadowAppearance = hasValue(R.styleable.SdShape_sd_shadowAppearance)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
-                _shadowRenderer.setShadowModel(
-                    ShadowModel.obtain(
-                        context,
-                        getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0),
-                    ),
-                )
-            }
+        val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.SdShape, defStyleAttr, defStyleRes)
+        val adjustment = typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
+        _shapeModel = ShapeModel.create(context, typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0))
+            .adjust(adjustment)
+        _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
+        _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+        _animationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
+        val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
+            _shadowRenderer.setShadowModel(
+                ShadowModel.obtain(context, typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)),
+            )
         }
+        typedArray.recycle()
     }
 
     /**

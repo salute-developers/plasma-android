@@ -98,7 +98,10 @@ sealed class GradientShader : ShaderFactory {
             }
 
             fun Offset.round(): Offset =
-                Offset(x = x.roundToInt().toFloat(), y = y.roundToInt().toFloat())
+                Offset(
+                    x = x.takeIf { it.isFinite() }?.roundToInt()?.toFloat() ?: 0f,
+                    y = y.takeIf { it.isFinite() }?.roundToInt()?.toFloat() ?: 0f,
+                )
         }
     }
 
