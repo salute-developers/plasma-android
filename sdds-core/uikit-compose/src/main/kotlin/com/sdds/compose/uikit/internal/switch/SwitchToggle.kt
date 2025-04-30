@@ -111,11 +111,13 @@ private fun DrawScope.drawTrack(
         color = trackColor,
         style = Fill,
     )
-    drawOutline(
-        outline = trackOutline,
-        color = trackBorderColor,
-        style = trackBorderStroke,
-    )
+    if (trackBorderColor.alpha != 0f) {
+        drawOutline(
+            outline = trackOutline,
+            color = trackBorderColor,
+            style = trackBorderStroke,
+        )
+    }
 }
 
 private fun DrawScope.drawThumb(
