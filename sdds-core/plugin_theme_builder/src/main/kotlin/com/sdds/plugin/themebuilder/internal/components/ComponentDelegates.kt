@@ -21,6 +21,7 @@ import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigD
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -55,5 +56,6 @@ internal val componentDelegates by unsafeLazy {
         "check-box" to CheckBoxConfigDelegate(),
         "check-box-group" to CheckBoxGroupConfigDelegate(),
         "progress-bar" to ProgressBarConfigDelegate(),
+        "switch" to SwitchConfigDelegate(),
     )
 }

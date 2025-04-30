@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import com.sdds.compose.uikit.Text
 
 @Composable
@@ -15,10 +16,11 @@ internal fun StyledText(
     textStyle: TextStyle,
     textColor: Color,
     maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip,
 ) {
     if (text.isEmpty()) return
     val finalStyle = textStyle.copy(color = textColor)
-    Text(modifier = modifier, text = text, style = finalStyle, maxLines = maxLines)
+    Text(modifier = modifier, text = text, style = finalStyle, maxLines = maxLines, overflow = overflow)
 }
 
 @Composable
@@ -28,10 +30,11 @@ internal fun StyledText(
     textStyle: TextStyle,
     textColor: Brush,
     maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip,
 ) {
     if (text.isEmpty()) return
     val finalStyle = textStyle.copy(brush = textColor)
-    Text(modifier = modifier, text = text, style = finalStyle, maxLines = maxLines)
+    Text(modifier = modifier, text = text, style = finalStyle, maxLines = maxLines, overflow = overflow)
 }
 
 @Composable
@@ -41,8 +44,11 @@ internal fun StyledText(
     textStyle: TextStyle,
     textColor: Color,
     maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip,
 ) {
-    StyledText(modifier, AnnotatedString(text), textStyle, textColor, maxLines)
+    if (text.isEmpty()) return
+    val finalStyle = textStyle.copy(color = textColor)
+    Text(modifier = modifier, text = text, style = finalStyle, maxLines = maxLines, overflow = overflow)
 }
 
 @Composable
@@ -52,6 +58,9 @@ internal fun StyledText(
     textStyle: TextStyle,
     textColor: Brush,
     maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip,
 ) {
-    StyledText(modifier, AnnotatedString(text), textStyle, textColor, maxLines)
+    if (text.isEmpty()) return
+    val finalStyle = textStyle.copy(brush = textColor)
+    Text(modifier = modifier, text = text, style = finalStyle, maxLines = maxLines, overflow = overflow)
 }
