@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.Outline
 import android.graphics.Paint
@@ -57,7 +56,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private val _shadowRenderer = ShadowRenderer()
 
     private val drawStroke: Boolean
-        get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
+        get() = _strokeWidth > 0
 
     private var _overriddenAlpha: Int? = null
 
@@ -126,6 +125,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         get() = _shapeModel
 
     /**
+     * Возвращает ширину линии границы
+     */
+    val strokeWidth: Float
+        get() = _strokeWidth
+
+    /**
      * Фабрика для [Shader].
      * Может быть использована для отрисовки градиента.
      * @see GradientShader
@@ -146,6 +151,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     open fun setShapeModel(model: ShapeModel) {
         if (_shapeModel != model) {
             _shapeModel = model
+            onBoundsChange(bounds)
             invalidateSelf()
         }
     }
@@ -167,6 +173,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         if (_strokeWidth != width) {
             _strokeWidth = width
             _strokePaint.configure(strokeWidth = width)
+            onBoundsChange(bounds)
             invalidateSelf()
         }
     }
@@ -228,7 +235,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     override fun onBoundsChange(bounds: Rect) {
         _drawingBounds.set(bounds)
         if (drawStroke) {
-            _boundedOffset = (_strokeWidth).coerceAtMost(bounds.height() / 2f)
+            _boundedOffset = (_strokeWidth).coerceAtMost(bounds.height() / 2f) / 2f
             _drawingBounds.left += _boundedOffset
             _drawingBounds.top += _boundedOffset
             _drawingBounds.right -= _boundedOffset
@@ -237,10 +244,10 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         _shape = _shapeModel.getShape(_drawingBounds).apply {
             resize(_drawingBounds.width(), _drawingBounds.height())
         }
-
         if (_shaderFactory != null) {
             _shapePaint.color = -1
-            _shapePaint.shader = _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
+            _shapePaint.shader =
+                _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
             reapplyAlpha()
         }
     }
@@ -320,8 +327,10 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             R.styleable.SdShader,
         )
         val typedValue = TypedValue()
-        val getValueResult = themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)
-        sdShaderAppearanceResFallback = themeTypedArray.getResourceId(R.styleable.SdShader_sd_shaderAppearance, 0)
+        val getValueResult =
+            themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)
+        sdShaderAppearanceResFallback =
+            themeTypedArray.getResourceId(R.styleable.SdShader_sd_shaderAppearance, 0)
 
         if (getValueResult) sdShaderAppearanceRes = typedValue
 
@@ -373,9 +382,11 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             removeAllUpdateListeners()
             addUpdateListener {
                 if (fillColor != null) {
-                    _shapePaint.color = blendColors(currentFillColor, fillColor, it.animatedFraction)
+                    _shapePaint.color =
+                        blendColors(currentFillColor, fillColor, it.animatedFraction)
                 }
-                _strokePaint.color = blendColors(currentStrokeColor, borderColor, it.animatedFraction)
+                _strokePaint.color =
+                    blendColors(currentStrokeColor, borderColor, it.animatedFraction)
                 invalidateSelf()
             }
             start()

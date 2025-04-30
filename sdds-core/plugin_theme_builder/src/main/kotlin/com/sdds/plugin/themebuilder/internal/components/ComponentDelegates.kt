@@ -37,6 +37,8 @@ internal val componentDelegates by unsafeLazy {
         "indicator" to IndicatorConfigDelegate(),
         "divider" to DividerConfigDelegate(),
         "counter" to CounterConfigDelegate(),
+        "check-box" to CheckBoxConfigDelegate(),
+        "check-box-group" to CheckBoxGroupConfigDelegate(),
         "cell" to CellConfigDelegate(),
         "card" to CardConfigDelegate(),
         "basic-button" to ButtonConfigDelegate(ButtonType.Basic),

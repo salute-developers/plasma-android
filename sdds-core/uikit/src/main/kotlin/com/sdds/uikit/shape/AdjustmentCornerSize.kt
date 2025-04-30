@@ -22,7 +22,7 @@ data class AdjustmentCornerSize(
  * Корректирует [CornerSize] на значение [adjustmentPx].
  */
 fun CornerSize.adjust(adjustmentPx: Float): CornerSize =
-    if (adjustmentPx > 0) {
+    if (adjustmentPx != 0f) {
         AdjustmentCornerSize(this, adjustmentPx)
     } else {
         this

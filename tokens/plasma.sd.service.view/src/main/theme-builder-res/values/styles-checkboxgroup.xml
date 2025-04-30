@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.CheckBoxGroup" parent="Sdds.Components.CheckBoxGroup"/>
+    <style name="Plasma.SdService.Components.CheckBoxGroup.L">
+        <item name="sd_itemOffset">@dimen/plasma_check_box_group_l_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/plasma_check_box_group_l_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CheckBoxLDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CheckBoxGroupL">
+        <item name="sd_checkBoxGroupStyle">@style/Plasma.SdService.Components.CheckBoxGroup.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.CheckBoxGroup.M">
+        <item name="sd_itemOffset">@dimen/plasma_check_box_group_m_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/plasma_check_box_group_m_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CheckBoxGroupM">
+        <item name="sd_checkBoxGroupStyle">@style/Plasma.SdService.Components.CheckBoxGroup.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.CheckBoxGroup.S">
+        <item name="sd_itemOffset">@dimen/plasma_check_box_group_s_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/plasma_check_box_group_s_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CheckBoxSDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CheckBoxGroupS">
+        <item name="sd_checkBoxGroupStyle">@style/Plasma.SdService.Components.CheckBoxGroup.S</item>
+    </style>
+</resources>

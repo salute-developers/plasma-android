@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.combine
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
+import com.sdds.plugin.themebuilder.internal.components.base.view.StateListAttribute
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.view.camelCaseValue
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -53,7 +54,13 @@ internal class AvatarStyleGeneratorView(
         }
         addProps(variation, variationNode)
         AvatarColorProperty.values().forEach {
-            addColorProperty(it, variation, variationNode)
+            addColorProperty(it, variation, variationNode) { colorState ->
+                if (colorState.state.contains(STATUS_ACTIVE_STATE)) {
+                    setOf(StateListAttribute("app:sd_status_active", "true"))
+                } else {
+                    emptySet()
+                }
+            }
         }
     }
 
@@ -109,7 +116,7 @@ internal class AvatarStyleGeneratorView(
                 STATUS_COLOR ->
                     // Комбинируем два цвета в один ColorStateList, чтобы не заводить в API два поля
                     owner.inactiveStatusColor
-                        ?.combine(owner.activeStatusColor, withState = "app:sd_status_active")
+                        ?.combine(owner.activeStatusColor, withState = STATUS_ACTIVE_STATE)
             }
         }
     }
@@ -118,5 +125,6 @@ internal class AvatarStyleGeneratorView(
         const val CORE_COMPONENT_NAME = "Avatar"
         const val DEF_STYLE_ATTR = "sd_avatarStyle"
         const val COMPONENT_PARENT = "Sdds.Components.Avatar"
+        const val STATUS_ACTIVE_STATE = "active"
     }
 }

@@ -118,9 +118,9 @@ internal class ShapeHelper(
         val shapeModel = getShapeAppearanceModel()
         return this.apply {
             setShapeModel(shapeModel)
-            setStrokeTint(strokeColor)
-            setStrokeWidth(strokeWidth)
-            setColorAnimationEnabled(colorAnimationEnabled)
+            setStrokeTint(this@ShapeHelper.strokeColor)
+            setStrokeWidth(this@ShapeHelper.strokeWidth)
+            setColorAnimationEnabled(this@ShapeHelper.colorAnimationEnabled)
             if (shadowEnabled) setupShadow()
         }
     }
