@@ -4,7 +4,9 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.checkbox.CheckBox
 import com.sdds.serv.styles.checkbox.Default
+import com.sdds.serv.styles.checkbox.L
 import com.sdds.serv.styles.checkbox.M
+import com.sdds.serv.styles.checkbox.Negative
 import com.sdds.serv.styles.checkbox.S
 import com.sdds.serv.styles.checkboxgroup.CheckBoxGroup
 import com.sdds.serv.styles.checkboxgroup.M
@@ -13,6 +15,8 @@ import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeM
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeMDisabled
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeS
+import com.sdds.testing.compose.checkbox.CheckBoxSizeLNegative
+import com.sdds.testing.compose.checkbox.CheckBoxSizeLNegativeUnchecked
 import com.sdds.testing.compose.checkbox.CheckBoxSizeM
 import com.sdds.testing.compose.checkbox.CheckBoxSizeMIndeterminate
 import com.sdds.testing.compose.checkbox.CheckBoxSizeMediumNoLabelAndDesc
@@ -88,6 +92,20 @@ class ComposeCheckBoxScreenshotTest(
     fun testCheckBoxGroupSizeMDisabled() {
         composeTestRule.content {
             CheckBoxGroupSizeMDisabled(style = CheckBoxGroup.M.style())
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegative() {
+        composeTestRule.content {
+            CheckBoxSizeLNegative(style = CheckBox.L.Negative.style())
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegativeUnchecked() {
+        composeTestRule.content {
+            CheckBoxSizeLNegativeUnchecked(style = CheckBox.L.Negative.style())
         }
     }
 }
