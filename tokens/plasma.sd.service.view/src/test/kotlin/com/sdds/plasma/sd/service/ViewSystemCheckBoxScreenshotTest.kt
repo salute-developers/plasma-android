@@ -86,4 +86,18 @@ class ViewSystemCheckBoxScreenshotTest(
             checkBoxGroupMDisabled(R.style.Plasma_SdService_ComponentOverlays_CheckBoxGroupM)
         }
     }
+
+    @Test
+    fun testCheckBoxSizeLNegative() {
+        themedComponent {
+            checkBoxSizeLNegative(R.style.Plasma_SdService_ComponentOverlays_CheckBoxLNegative)
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegativeLabelDesc() {
+        themedComponent {
+            checkBoxSizeLNegativeLabelDesc(R.style.Plasma_SdService_ComponentOverlays_CheckBoxLNegative)
+        }
+    }
 }
