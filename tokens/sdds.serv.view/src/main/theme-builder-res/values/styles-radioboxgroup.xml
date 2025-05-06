@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.RadioBoxGroup" parent="Sdds.Components.RadioBoxGroup"/>
+    <style name="Serv.Sdds.Components.RadioBoxGroup.M">
+        <item name="sd_itemSpacing">@dimen/serv_radio_box_group_m_item_offset</item>
+        <item name="sd_radioBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.RadioBoxM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.RadioBoxGroupM">
+        <item name="sd_radioBoxGroupStyle">@style/Serv.Sdds.Components.RadioBoxGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.RadioBoxGroup.S">
+        <item name="sd_itemSpacing">@dimen/serv_radio_box_group_s_item_offset</item>
+        <item name="sd_radioBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.RadioBoxS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.RadioBoxGroupS">
+        <item name="sd_radioBoxGroupStyle">@style/Serv.Sdds.Components.RadioBoxGroup.S</item>
+    </style>
+</resources>
