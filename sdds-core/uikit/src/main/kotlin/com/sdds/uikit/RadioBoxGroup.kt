@@ -2,6 +2,7 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioGroup
@@ -21,7 +22,7 @@ open class RadioBoxGroup @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_radioBoxGroupStyle,
     defStyleRes: Int = R.style.Sdds_Components_RadioBoxGroup,
-) : RadioGroup(context, attrs) {
+) : RadioGroup(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs) {
 
     private var _itemSpacing: Int
 
@@ -45,6 +46,36 @@ open class RadioBoxGroup @JvmOverloads constructor(
                 val start = if (index == 0) marginStart else marginStart + _itemSpacing
                 updateMarginsRelative(start = start)
             }
+        }
+    }
+
+    companion object {
+        internal fun wrapper(
+            context: Context,
+            attrs: AttributeSet?,
+            defStyleAttr: Int,
+            defStyleRes: Int,
+        ): Context {
+            val typedArray =
+                context.obtainStyledAttributes(
+                    attrs,
+                    R.styleable.RadioBoxGroup,
+                    defStyleAttr,
+                    defStyleRes,
+                )
+            val radioBoxStyleOverlay =
+                typedArray.getResourceId(R.styleable.RadioBoxGroup_sd_radioBoxStyleOverlay, 0)
+            val themeOverlay =
+                if (radioBoxStyleOverlay != 0) {
+                    ContextThemeWrapper(
+                        context,
+                        radioBoxStyleOverlay,
+                    )
+                } else {
+                    context
+                }
+            typedArray.recycle()
+            return themeOverlay
         }
     }
 }
