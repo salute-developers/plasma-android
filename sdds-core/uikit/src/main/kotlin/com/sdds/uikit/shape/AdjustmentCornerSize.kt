@@ -14,7 +14,17 @@ data class AdjustmentCornerSize(
 ) : CornerSize {
 
     override fun getSize(bounds: RectF): Float {
-        return other.getSize(bounds) + adjustmentPx
+        val otherPx = other.getSize(bounds)
+        return if (isCircle(bounds, otherPx)) {
+            otherPx
+        } else {
+            otherPx + adjustmentPx
+        }
+    }
+
+    private fun isCircle(bounds: RectF, otherPx: Float): Boolean {
+        val half = minOf(bounds.width(), bounds.height()) / 2f
+        return otherPx == half
     }
 }
 
