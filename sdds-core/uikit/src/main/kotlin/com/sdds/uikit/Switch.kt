@@ -86,14 +86,26 @@ open class Switch @JvmOverloads constructor(
      * Устанавливает цвета для [getButtonDrawable].
      * @param track цвета неподвижной части
      * @param thumb цвета подвижной части
+     * @param border цвета бордера неподвижной части
      */
     open fun setSwitchColors(
         track: ColorStateList?,
         thumb: ColorStateList?,
+        border: ColorStateList?,
     ): Unit = _buttonDrawable?.run {
         setThumbColor(thumb)
         setTrackColor(track)
+        setTrackBorderColor(border)
     } ?: Unit
+
+    /**
+     * Устанавливает толщину бордера для [getButtonDrawable].
+     * @param borderWidth толщина бордера неподвижной части
+     */
+    open fun setSwitchBorderWidth(borderWidth: Float): Unit =
+        _buttonDrawable?.run {
+            setTrackBorderWidth(borderWidth)
+        } ?: Unit
 
     override fun setButtonDrawable(drawable: Drawable?) {
         super.setButtonDrawable(null)
@@ -140,6 +152,7 @@ open class Switch @JvmOverloads constructor(
         setSwitchColors(
             track = typedArray.getColorStateList(R.styleable.Switch_sd_buttonTrackColor),
             thumb = typedArray.getColorStateList(R.styleable.Switch_sd_buttonThumbColor),
+            border = typedArray.getColorStateList(R.styleable.Switch_sd_buttonTrackBorderColor),
         )
         typedArray.recycle()
     }
