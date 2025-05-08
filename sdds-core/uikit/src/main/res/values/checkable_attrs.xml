@@ -79,6 +79,8 @@
     <declare-styleable name="Switch" tools:ignore="ResourceName">
         <!-- Цвет неподвижной части переключателя -->
         <attr name="sd_buttonTrackColor" format="reference|color" />
+        <!-- Цвет бордера неподвижной части переключателя -->
+        <attr name="sd_buttonTrackBorderColor" format="reference|color" />
         <!-- Цвет подвижной части переключателя -->
         <attr name="sd_buttonThumbColor" format="reference|color" />
     </declare-styleable>
@@ -115,8 +117,10 @@
     <declare-styleable name="SdSwitchDrawable">
         <attr name="sd_switchWidth" format="dimension|float" />
         <attr name="sd_switchHeight" format="dimension|float" />
-        <attr name="sd_thumbSize" format="dimension|float" />
-        <attr name="sd_trackCornerRadius" format="dimension|float" />
+        <attr name="sd_thumbWidth" format="dimension|float" />
+        <attr name="sd_thumbHeight" format="dimension|float" />
+        <attr name="sd_thumbPadding" format="dimension|float" />
+        <attr name="sd_thumbShapeAppearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="CheckBoxGroup" tools:ignore="ResourceName">
