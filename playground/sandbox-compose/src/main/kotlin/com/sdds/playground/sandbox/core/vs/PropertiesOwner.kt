@@ -18,6 +18,11 @@ internal interface PropertiesOwner {
     fun updateProperty(name: String, value: Any?)
 
     /**
+     * Отправляет запрос на редактирование свойства [property]
+     */
+    fun sendEditPropertyRequest(property: Property<*>)
+
+    /**
      * Сбрасывает свойства к значениям по умолчанию
      */
     fun resetToDefault()

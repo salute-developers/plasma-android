@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.chip.vs
 
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.applyState
@@ -12,9 +12,9 @@ import com.sdds.uikit.Chip
  * Фрагмент с компонентом Chip
  * @author Малышев Александр on 22.08.2024
  */
-internal class ChipFragment : ComponentFragment<ChipUiState, Chip>() {
+internal class ChipFragment : ComponentFragment<ChipUiState, Chip, ChipParametersViewModel>() {
 
-    override val componentViewModel by viewModels<ChipParametersViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         ChipParametersViewModelFactory(
             defaultState = getState { ChipUiState() },
             componentKey = componentKey,

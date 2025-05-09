@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.sdds.playground.sandbox.activities.compose.SandboxActivityCompose
-import com.sdds.playground.sandbox.activities.vs.SandboxActivity
+import com.sdds.playground.sandbox.core.vs.SandboxActivity
 
 /**
  * Стартовая Активити демо-приложения

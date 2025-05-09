@@ -4,29 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Theme.Sandbox.Components.PropertyHeader"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/sandbox_property_height"
+    android:layout_height="@dimen/sandbox_properties_header_height"
     android:paddingHorizontal="@dimen/sandbox_property_paddings">
 
     <com.sdds.uikit.TextView
-        style="@style/Theme.Sandbox.Components.PropertyItemLabel"
-        android:id="@+id/property_name_header"
+        style="@style/Theme.Sandbox.Components.HeaderLabel"
+        android:id="@+id/header_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/sandbox_property_label_margin"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/sandbox_properties_header_name"
+        android:layout_gravity="start"
         app:layout_cellContent="center"/>
 
     <com.sdds.uikit.TextView
-        style="@style/Theme.Sandbox.Components.PropertyItemLabel"
-        android:id="@+id/property_value_header"
+        style="@style/Theme.Sandbox.Components.HeaderTitle"
+        android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/sandbox_properties_header_value"
-        app:layout_cellContent="end" />
+        android:layout_gravity="start"
+        app:layout_cellContent="center" />
 
     <com.sdds.uikit.Button
         style="@style/Theme.Sandbox.Components.ResetButton"

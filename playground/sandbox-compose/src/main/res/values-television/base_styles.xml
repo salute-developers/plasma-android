@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.TextAppearanceNormal" parent="Serv.Sdds.TextAppearance.BodyXsNormal"/>
+    <style name="Theme.Sandbox.TextAppearanceBold" parent="Serv.Sdds.TextAppearance.BodyXsBold"/>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.Card xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.sdds.uikit.TextView
+        android:id="@+id/component_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Component Name"/>
+
+    <com.sdds.uikit.FrameLayout
+        android:id="@+id/component_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:gravity="center"/>
+
+</com.sdds.uikit.Card>

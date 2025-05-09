@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.TextAppearanceNormal" parent="Serv.Sdds.TextAppearance.BodyMNormal"/>
+    <style name="Theme.Sandbox.TextAppearanceBold" parent="Serv.Sdds.TextAppearance.BodyMBold"/>
+
+    <style name="Theme.Sandbox.BaseComponents" />
+    <style name="Theme.Sandbox.BaseComponents.NavigationView" parent="Serv.Sdds.Components.NavigationDrawer" />
+    <style name="Theme.Sandbox.BaseComponents.NavigationViewItem" parent="Serv.Sdds.Components.NavigationDrawerItem" />
+    <style name="Theme.Sandbox.BaseComponents.PropertyItemSwitch" parent="Serv.Sdds.Components.Switch.M" />
+    <style name="Theme.Sandbox.BaseComponents.ToolbarButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear" />
+    <style name="Theme.Sandbox.BaseComponents.ResetButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear" />
+    <style name="Theme.Sandbox.BaseComponents.PropertyEditorField" parent="@style/Serv.Sdds.Components.TextField.S.InnerLabel" />
+</resources>

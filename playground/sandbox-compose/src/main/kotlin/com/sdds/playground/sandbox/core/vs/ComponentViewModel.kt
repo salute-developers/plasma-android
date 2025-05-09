@@ -11,12 +11,16 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 internal abstract class ComponentViewModel<State : UiState>(
     private val defaultState: State,
@@ -26,6 +30,7 @@ internal abstract class ComponentViewModel<State : UiState>(
 ) : ViewModel(), PropertiesOwner {
 
     protected val internalUiState = MutableStateFlow(defaultState)
+    private val _showEditor = MutableSharedFlow<Property<*>>()
 
     protected open val colorVariantPropertyName: String
         get() = COLOR_VARIANT_PROPERTY_NAME
@@ -41,6 +46,11 @@ internal abstract class ComponentViewModel<State : UiState>(
      */
     val uiState: StateFlow<State>
         get() = internalUiState.asStateFlow()
+
+    /**
+     * Отображает редактор свойста
+     */
+    val showEditor: SharedFlow<Property<*>> get() = _showEditor.asSharedFlow()
 
     @Suppress("UNCHECKED_CAST")
     @CallSuper
@@ -121,6 +131,12 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     final override fun resetToDefault() {
         internalUiState.value = defaultState
+    }
+
+    final override fun sendEditPropertyRequest(property: Property<*>) {
+        viewModelScope.launch {
+            _showEditor.emit(property)
+        }
     }
 
     private companion object {
