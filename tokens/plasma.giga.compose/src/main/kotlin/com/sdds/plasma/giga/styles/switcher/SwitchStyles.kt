@@ -180,7 +180,6 @@ public val WrapperSwitchS.ToggleS: WrapperSwitchSToggleS
     @Composable
     @JvmName("WrapperSwitchSToggleS")
     get() = builder
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensionValues {
             toggleTrackWidth(32.0.dp)
             toggleTrackHeight(20.0.dp)
