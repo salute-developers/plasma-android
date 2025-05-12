@@ -72,6 +72,20 @@ class ViewSystemCheckBoxScreenshotTest : CheckBoxTestCases("+night") {
         }
     }
 
+    @Test
+    fun testCheckBoxSizeLNegative() {
+        themedComponent {
+            checkBoxSizeLNegative(R.style.Sdkit_StarDs_ComponentOverlays_CheckBoxLNegative)
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegativeLabelDesc() {
+        themedComponent {
+            checkBoxSizeLNegativeLabelDesc(R.style.Sdkit_StarDs_ComponentOverlays_CheckBoxLNegative)
+        }
+    }
+
     @Ignore("Not yet implemented")
     override fun testCheckBoxGroupMDisabled() {
     }
