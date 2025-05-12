@@ -6,6 +6,7 @@ import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import kotlin.math.roundToInt
 
 /**
  * ViewModel компонента CircularProgress
@@ -25,7 +26,7 @@ internal class CircularProgressViewModel(
         return listOf(
             Property.IntProperty(
                 name = "progress",
-                value = (progress * MAX_PROGRESS).toInt(),
+                value = (progress * MAX_PROGRESS).roundToInt(),
                 onApply = { updateProgress(it.toFloat() / MAX_PROGRESS) },
             ),
             Property.BooleanProperty(
