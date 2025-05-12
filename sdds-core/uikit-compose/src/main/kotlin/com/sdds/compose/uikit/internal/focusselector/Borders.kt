@@ -149,6 +149,7 @@ internal data class FocusSelectorGradientAnimatedBorder(
                 val gradientBrush = brushForAnimation(path, phase, mainColor)
                 onDrawWithContent {
                     drawContent()
+                    if (!isFocused()) return@onDrawWithContent
                     translate(
                         -(strokePaddingPx + halfStrokeWidthPx),
                         -(strokePaddingPx + halfStrokeWidthPx),
