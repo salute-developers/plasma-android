@@ -286,7 +286,7 @@ private data class DefaultCircularProgressBarColors(
                 trackColor = trackColor ?: SolidColor(Color.LightGray).asStatefulValue(),
                 indicatorColor = indicatorColor ?: SolidColor(Color.Black).asStatefulValue(),
                 valueColor = valueColor ?: SolidColor(Color.Black).asStatefulValue(),
-                valueSuffixColor = valueSuffixColor ?: SolidColor(Color.Black).asStatefulValue(),
+                valueSuffixColor = valueSuffixColor ?: valueColor ?: SolidColor(Color.Black).asStatefulValue(),
             )
     }
 }
