@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.cell.vs
 import android.view.ContextThemeWrapper
 import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.databinding.LayoutComponentCellBinding
@@ -16,9 +16,9 @@ import com.sdds.uikit.CellLayout
  * Фрагмент с компонентом CellLayout
  * @author Малышев Александр on 14.10.2024
  */
-internal class CellFragment : ComponentFragment<CellUiState, CellLayout>() {
+internal class CellFragment : ComponentFragment<CellUiState, CellLayout, CellParametersViewModel>() {
 
-    override val componentViewModel by viewModels<CellParametersViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         CellParametersViewModelFactory(
             defaultState = getState { CellUiState() },
             componentKey = componentKey,

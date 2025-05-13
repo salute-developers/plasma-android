@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" tools:ignore="ResourceName">
-    <item android:color="?serv_textInverseSecondary" android:state_focused="true" />
-    <item android:color="?serv_textDefaultSecondary" />
+    <item android:color="?serv_textInversePrimary" android:state_focused="true" />
+    <item android:color="?serv_textDefaultPrimary" />
 </selector>

@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.counter.vs
 
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.counter.CounterUiState
 import com.sdds.testing.vs.counter.applyState
@@ -11,9 +11,9 @@ import com.sdds.uikit.Counter
 /**
  * Фрагмент с компонентом Counter
  */
-internal class CounterFragment : ComponentFragment<CounterUiState, Counter>() {
+internal class CounterFragment : ComponentFragment<CounterUiState, Counter, CounterParametersViewModel>() {
 
-    override val componentViewModel by viewModels<CounterParametersViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         CounterParametersViewModelFactory(
             defaultState = getState { CounterUiState() },
             componentKey = componentKey,

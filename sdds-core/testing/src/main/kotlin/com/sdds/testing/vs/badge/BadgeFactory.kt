@@ -28,12 +28,13 @@ fun badge(
 fun iconBadge(
     context: Context,
     style: Int? = null,
+    state: BadgeUiState? = null,
 ): IconBadge {
     val wrapper = style?.let { ContextThemeWrapper(context, style) } ?: context
     return IconBadge(wrapper).apply {
         id = R.id.icon_badge
         setDrawableStartRes(com.sdds.icons.R.drawable.ic_plasma_24)
-    }
+    }.applyState(state) as IconBadge
 }
 
 /**

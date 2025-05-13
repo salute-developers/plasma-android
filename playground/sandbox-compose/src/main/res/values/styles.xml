@@ -1,103 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Sandbox.Components.NavigationView" parent="Serv.Sdds.Components.NavigationDrawer">
-        <item name="android:backgroundTint">?serv_surfaceDefaultSolidPrimary</item>
+    <style name="Theme.Sandbox.Components.NavigationView" parent="Theme.Sandbox.BaseComponents.NavigationView">
+        <item name="android:backgroundTint">?colorPrimaryVariant</item>
         <item name="sd_mode">expanded</item>
+        <item name="sd_strokeWidth">0dp</item>
+        <item name="sd_itemStyle">@style/Theme.Sandbox.Components.NavigationViewItem</item>
+        <item name="sd_expandedMinWidth">@dimen/sandbox_nav_view_expanded_width</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.Toolbar" parent="Widget.MaterialComponents.Toolbar">
-        <item name="background">@null</item>
-        <item name="android:background">@null</item>
-        <item name="android:elevation">0dp</item>
-        <item name="elevation">0dp</item>
-        <item name="titleTextColor">?serv_textDefaultPrimary</item>
-        <item name="popupTheme">@style/Theme.Sandbox.ComponentOverlays.PopupOverlay</item>
+    <style name="Theme.Sandbox.Components.NavigationViewItem" parent="Theme.Sandbox.BaseComponents.NavigationViewItem">
+        <item name="android:minHeight">@dimen/sandbox_nav_item_height</item>
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingStart">@dimen/sandbox_properties_container_paddings</item>
+        <item name="android:paddingEnd">@dimen/sandbox_properties_container_paddings</item>
     </style>
 
-    <style name="Theme.Sandbox.ComponentOverlays.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
-
-    <style name="Theme.Sandbox.ComponentOverlays.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />
-
-    <style name="Toolbar.Button.Navigation.Tinted" parent="Widget.AppCompat.Toolbar.Button.Navigation">
-        <item name="tint">?serv_textDefaultPrimary</item>
-    </style>
-
-    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">?serv_textDefaultPrimary</item>
-    </style>
-
-    <style name="Theme.Sandbox.Components.ModalBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
-        <item name="backgroundTint">?android:colorBackground</item>
-        <item name="shapeAppearance">@style/Serv.Sdds.Shape.Round.M</item>
-    </style>
-
-    <style name="Theme.Sandbox.ComponentOverlays.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/Theme.Sandbox.Components.ModalBottomSheetDialog</item>
+    <style name="Theme.Sandbox.Components.EditorDialogContainer">
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundL</item>
+        <item name="android:backgroundTint">?colorSurface</item>
+        <item name="sd_clipToOutline">true</item>
+        <item name="android:padding">@dimen/sandbox_properties_container_paddings</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyHeader">
-        <item name="android:backgroundTint">?serv_surfaceDefaultSolidSecondary</item>
-        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
         <item name="android:focusable">false</item>
         <item name="android:clipChildren">false</item>
         <item name="android:clipToPadding">false</item>
     </style>
 
+    <style name="Theme.Sandbox.Components.NavHeader">
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:focusable">true</item>
+        <item name="sd_fsEnabled">false</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.ThemeSwitcher">
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="sd_fsEnabled">false</item>
+        <item name="android:backgroundTint">?colorSurface</item>
+        <item name="sd_strokeWidth">1dp</item>
+        <item name="sd_strokeColor">?colorSecondary</item>
+    </style>
+
     <style name="Theme.Sandbox.Components.PropertyItem">
         <item name="android:backgroundTint">@color/bg_property_item</item>
-        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
         <item name="sd_fsEnabled">false</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.HeaderTitle">
+        <item name="android:textColor">@color/color_property_item_value</item>
+        <item name="android:drawableTint">@color/color_property_item_value</item>
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.HeaderLabel">
+        <item name="android:textColor">@color/color_property_item_label</item>
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceBold</item>
+        <item name="android:duplicateParentState">true</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyItemLabel">
         <item name="android:textColor">@color/color_property_item_label</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
         <item name="android:duplicateParentState">true</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyItemValue">
         <item name="android:textColor">@color/color_property_item_value</item>
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="android:drawableTint">@color/color_property_item_label</item>
+        <item name="android:drawablePadding">@dimen/sandbox_property_value_icon_padding</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
         <item name="android:duplicateParentState">true</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.ToolbarButton" parent="@style/Serv.Sdds.Components.IconButton.M.Clear"/>
+    <style name="Theme.Sandbox.Components.ToolbarButton" parent="@style/Theme.Sandbox.BaseComponents.ToolbarButton"/>
 
-    <style name="Theme.Sandbox.Components.ResetButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear"/>
+    <style name="Theme.Sandbox.Components.ResetButton" parent="@style/Theme.Sandbox.BaseComponents.ResetButton"/>
 
-    <style name="Theme.Sandbox.Components.PropertyEditorField" parent="@style/Serv.Sdds.Components.TextField.M.OuterLabel">
-        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
-        <item name="sd_labelColor">?serv_textDefaultPrimary</item>
-        <item name="sd_labelPadding">?serv_spacing8x</item>
+    <style name="Theme.Sandbox.Components.PropertyEditorField" parent="@style/Theme.Sandbox.BaseComponents.PropertyEditorField">
+        <item name="sd_labelAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
+        <item name="sd_boxTint">@null</item>
+        <item name="sd_boxPaddingStart">0dp</item>
+        <item name="sd_boxPaddingEnd">0dp</item>
+        <item name="sd_valueAppearance">@style/Theme.Sandbox.TextAppearanceBold</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.PropertyConfirmButton" parent="@style/Serv.Sdds.Components.BasicButton.M.Default"/>
-
-    <style name="Theme.Sandbox.Components.PropertyChoiceTitle" parent="@style/Serv.Sdds.Typography.BodyLBold">
-        <item name="android:textColor">?serv_textDefaultPrimary</item>
+    <style name="Theme.Sandbox.Components.PropertyChoiceTitle">
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.ComponentCanvas">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="sd_strokeColor">?serv_surfaceDefaultSolidTertiary</item>
-        <item name="sd_strokeWidth">1dp</item>
         <item name="android:padding">0dp</item>
         <item name="android:clipChildren">true</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertiesList">
-        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="sd_strokeColor">?serv_surfaceDefaultSolidTertiary</item>
-        <item name="sd_strokeWidth">1dp</item>
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundL</item>
+        <item name="android:backgroundTint">?colorSurface</item>
         <item name="sd_clipToOutline">true</item>
+        <item name="android:padding">@dimen/sandbox_properties_container_paddings</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.EditorDialogContainer"/>
-
-    <style name="Theme.Sandbox.Components.PropertyItemSwitch" parent="Serv.Sdds.Components.Switch.M">
+    <style name="Theme.Sandbox.Components.PropertyItemSwitch" parent="Theme.Sandbox.BaseComponents.PropertyItemSwitch">
         <item name="sd_buttonTrackColor">@color/bg_color_property_switch_track</item>
         <item name="android:duplicateParentState">true</item>
+        <item name="sd_switchWidth">@dimen/sandbox_switch_width</item>
+        <item name="sd_switchHeight">@dimen/sandbox_switch_height</item>
+        <item name="sd_thumbSize">@dimen/sandbox_switch_thumb_size</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.PropertyChoiceItem">
+        <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
+        <item name="android:textColor">@color/color_property_item_value</item>
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
+        <item name="android:backgroundTint">@color/bg_property_choice_item</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/sandbox_property_paddings</item>
+        <item name="android:paddingEnd">@dimen/sandbox_property_paddings</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.ComponentItem">
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundL</item>
+        <item name="android:backgroundTint">?colorSurface</item>
+        <item name="android:minHeight">122dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingStart">@dimen/sandbox_component_item_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/sandbox_component_item_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/sandbox_component_item_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/sandbox_component_item_padding_vertical</item>
     </style>
 
 </resources>

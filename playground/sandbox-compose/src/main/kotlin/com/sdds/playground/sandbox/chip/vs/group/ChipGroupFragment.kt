@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.chip.vs.group
 import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.applyState
@@ -14,9 +14,9 @@ import com.sdds.uikit.ChipGroup
  * Фрагмент с компонентом [ChipGroup]
  * @author Малышев Александр on 30.08.2024
  */
-internal class ChipGroupFragment : ComponentFragment<ChipUiState, ChipGroup>() {
+internal class ChipGroupFragment : ComponentFragment<ChipUiState, ChipGroup, ChipGroupParametersViewModel>() {
 
-    override val componentViewModel by viewModels<ChipGroupParametersViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         ChipGroupParametersViewModelFactory(
             defaultState = getState { ChipUiState() },
             componentKey = componentKey,

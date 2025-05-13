@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.checkbox.vs.group
 import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.checkbox.CheckBoxUiState
 import com.sdds.testing.vs.checkbox.applyState
@@ -14,9 +14,9 @@ import com.sdds.uikit.CheckBoxGroup
  * Фрагмент с компонентом CheckBox
  * @author Малышев Александр on 15.08.2024
  */
-internal class CheckBoxGroupFragment : ComponentFragment<CheckBoxUiState, CheckBoxGroup>() {
+internal class CheckBoxGroupFragment : ComponentFragment<CheckBoxUiState, CheckBoxGroup, CheckBoxGroupViewModel>() {
 
-    override val componentViewModel by viewModels<CheckBoxGroupViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         CheckBoxGroupViewModelFactory(
             defaultState = getState { CheckBoxUiState() },
             componentKey = componentKey,

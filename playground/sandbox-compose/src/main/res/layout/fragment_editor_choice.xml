@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sdds.uikit.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/Theme.Sandbox.Components.EditorDialogContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/sandbox_editor_paddings">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header_property_item" />
 
     <com.sdds.uikit.TextView
         style="@style/Theme.Sandbox.Components.PropertyChoiceTitle"
         android:id="@+id/choice_editor_title"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="@string/sandbox_editor_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/sandbox_editor_margin_top"
+        android:paddingHorizontal="@dimen/sandbox_property_paddings"
+        tools:text="@string/sandbox_editor_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/choice_recycler_view"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/sandbox_editor_choice_list_margin_top"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/choice_editor_title"/>
+        android:layout_marginTop="@dimen/sandbox_editor_choice_list_margin_top" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.sdds.uikit.LinearLayout>
