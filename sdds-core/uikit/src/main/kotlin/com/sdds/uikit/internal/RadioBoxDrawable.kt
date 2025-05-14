@@ -220,8 +220,8 @@ internal class RadioBoxDrawable(
     private fun updateBorderBounds() {
         val adjustedBounds = Rect(_commonBounds)
         adjustedBounds.inset(
-            (-_borderOffset + _borderWidth / 2).toInt(),
-            (-_borderOffset + _borderWidth / 2).toInt(),
+            (-_borderOffset).toInt(),
+            (-_borderOffset).toInt(),
         )
         if (_borderDrawable?.strokeWidth != _borderWidth) {
             _borderDrawable?.setStrokeWidth(_borderWidth)
@@ -238,8 +238,8 @@ internal class RadioBoxDrawable(
     private fun calculateCommonBounds() {
         val boxWidth = _toggleWidth - _padding * 2
         val boxHeight = _toggleHeight - _padding * 2
-        val left = (bounds.width() - boxWidth) / 2
-        val top = (bounds.height() - boxHeight) / 2
+        val left = bounds.centerX() - boxWidth / 2
+        val top = bounds.centerY() - boxHeight / 2
         val right = left + boxWidth
         val bottom = top + boxHeight
         _commonBounds.set(
@@ -250,27 +250,23 @@ internal class RadioBoxDrawable(
         )
     }
 
-    override fun draw(canvas: Canvas) =
-        canvas.withTranslation(
-            _maxBorderWidth / 2f,
-            _maxBorderWidth / 2f,
-        ) {
-            _boxDrawable?.draw(canvas)
-            _borderDrawable?.draw(canvas)
-            if (_checkedIcon == null) {
-                canvas.withTranslation(
-                    _commonBounds.left.toFloat(),
-                    _commonBounds.top.toFloat(),
-                ) {
-                    drawMark(
-                        color = _checkMarkTintList.getColorForState(state, _checkMarkTintList.defaultColor),
-                        radius = _animatedMarkRadius,
-                    )
-                }
-            } else {
-                if (_checked) _checkedIcon?.draw(canvas)
+    override fun draw(canvas: Canvas) {
+        _boxDrawable?.draw(canvas)
+        _borderDrawable?.draw(canvas)
+        if (_checkedIcon == null) {
+            canvas.withTranslation(
+                _commonBounds.left.toFloat(),
+                _commonBounds.top.toFloat(),
+            ) {
+                drawMark(
+                    color = _checkMarkTintList.getColorForState(state, _checkMarkTintList.defaultColor),
+                    radius = _animatedMarkRadius,
+                )
             }
+        } else {
+            if (_checked) _checkedIcon?.draw(canvas)
         }
+    }
 
     override fun onStateChange(state: IntArray): Boolean {
         val focused = state.contains(android.R.attr.state_focused)
