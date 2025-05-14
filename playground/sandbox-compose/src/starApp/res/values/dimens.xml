@@ -24,4 +24,5 @@
     <dimen name="sandbox_switch_height">40dp</dimen>
     <dimen name="sandbox_switch_thumb_size">32dp</dimen>
     <dimen name="sandbox_main_paddings">@dimen/sdkit_spacing_1x</dimen>
+    <dimen name="sandbox_editor_text_label_padding">@dimen/sdkit_spacing_2x</dimen>
 </resources>

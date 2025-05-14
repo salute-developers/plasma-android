@@ -90,9 +90,13 @@
     <style name="Theme.Sandbox.Components.PropertyEditorField" parent="@style/Theme.Sandbox.BaseComponents.PropertyEditorField">
         <item name="sd_labelAppearance">@style/Theme.Sandbox.TextAppearanceNormal</item>
         <item name="sd_boxTint">@null</item>
+        <item name="sd_labelColor">?android:textColorSecondary</item>
+        <item name="sd_valueColor">?android:textColorPrimary</item>
         <item name="sd_boxPaddingStart">0dp</item>
         <item name="sd_boxPaddingEnd">0dp</item>
-        <item name="sd_valueAppearance">@style/Theme.Sandbox.TextAppearanceBold</item>
+        <item name="sd_valueAppearance">@style/Theme.Sandbox.TextAppearanceLargeBold</item>
+        <item name="sd_labelPadding">@dimen/sandbox_editor_text_label_padding</item>
+        <item name="sd_fsEnabled">false</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyChoiceTitle">

@@ -9,4 +9,7 @@
     <style name="Theme.Sandbox.BaseComponents.ResetButton" parent="@style/Sdkit.StarDs.Components.IconButton.Xs" />
     <style name="Theme.Sandbox.BaseComponents.PropertyEditorField" parent="@style/Sdkit.StarDs.Components.TextField.S.InnerLabel" />
     <style name="Theme.Sandbox.BaseComponents.CardItem" parent="@style/Sdkit.StarDs.Components.Card.Vertical.M" />
+    <style name="Theme.Sandbox.TextAppearanceNormal" parent="Sdkit.StarDs.TextAppearance.BodyXsNormal"/>
+    <style name="Theme.Sandbox.TextAppearanceBold" parent="Sdkit.StarDs.TextAppearance.BodyXsBold"/>
+    <style name="Theme.Sandbox.TextAppearanceLargeBold" parent="Sdkit.StarDs.TextAppearance.BodyMBold"/>
 </resources>

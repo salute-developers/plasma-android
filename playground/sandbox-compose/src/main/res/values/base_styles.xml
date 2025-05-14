@@ -3,6 +3,7 @@
 
     <style name="Theme.Sandbox.TextAppearanceNormal" parent="@style/Serv.Sdds.TextAppearance.BodyMNormal"/>
     <style name="Theme.Sandbox.TextAppearanceBold" parent="@style/Serv.Sdds.TextAppearance.BodyMBold"/>
+    <style name="Theme.Sandbox.TextAppearanceLargeBold" parent="Serv.Sdds.TextAppearance.BodyLBold"/>
 
     <style name="Theme.Sandbox.BaseComponents" />
     <style name="Theme.Sandbox.BaseComponents.NavigationView" parent="@style/Serv.Sdds.Components.NavigationDrawer" />
