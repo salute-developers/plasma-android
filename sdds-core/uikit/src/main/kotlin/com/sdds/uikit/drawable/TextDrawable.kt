@@ -15,6 +15,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.graphics.toRectF
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
@@ -363,8 +364,7 @@ open class TextDrawable(
     }
 
     private fun resetTextColor(): Boolean {
-        _shaderFactoryDelegate.updateBounds(textBounds)
-        return textPaint.setColorValue(_textColor, state, _shaderFactoryDelegate)
+        return textPaint.setColorValue(_textColor, state, _shaderFactoryDelegate, textBounds.toRectF())
     }
 
     private fun onSizeChanged(updateParent: Boolean) {

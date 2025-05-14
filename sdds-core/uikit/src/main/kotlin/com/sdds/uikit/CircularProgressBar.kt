@@ -20,6 +20,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toRectF
 import androidx.core.text.buildSpannedString
 import androidx.core.view.isVisible
 import androidx.dynamicanimation.animation.FloatPropertyCompat
@@ -79,6 +80,7 @@ open class CircularProgressBar @JvmOverloads constructor(
     private var _progressValueSuffix: String? = VALUE_SUFFIX
     private var _progressValueSuffixTint: ColorValueStateList? = null
     private val _progressValueSuffixSpan: ColorStateListSpan = ColorStateListSpan()
+    private val _valueSuffixTextBounds: Rect = Rect()
 
     /**
      * Текущий прогресс
@@ -385,7 +387,8 @@ open class CircularProgressBar @JvmOverloads constructor(
         override fun updateDrawState(tp: TextPaint?) {
             if (tp == null) return
             val colorState = _progressValueSuffixTint ?: return
-            tp.setColorValue(colorState, drawableState, _shaderFactoryDelegate)
+            _progressValueSuffix?.let { tp.getTextBounds(it, 0, it.length, _valueSuffixTextBounds) }
+            tp.setColorValue(colorState, drawableState, _shaderFactoryDelegate, _valueSuffixTextBounds.toRectF())
         }
     }
 
@@ -441,12 +444,12 @@ open class CircularProgressBar @JvmOverloads constructor(
                 cx + radius - halfStroke,
                 cy + radius - halfStroke,
             )
-            _shaderFactoryDelegate.updateBounds(_oval)
+            _paint.setColorValue(_tintList, state, _shaderFactoryDelegate, _oval)
         }
 
         override fun onStateChange(state: IntArray): Boolean {
             var changed = super.onStateChange(state)
-            if (_paint.setColorValue(_tintList, state, _shaderFactoryDelegate)) {
+            if (_paint.setColorValue(_tintList, state, _shaderFactoryDelegate, _oval)) {
                 changed = true
             }
             val newThickness = _thicknessList?.getFloatForState(state) ?: 0f

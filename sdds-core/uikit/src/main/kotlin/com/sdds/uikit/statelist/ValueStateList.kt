@@ -50,7 +50,7 @@ open class ValueStateList<T> internal constructor(
      *
      * @return `true`, если хотя бы один набор состояний не пустой.
      */
-    fun isStateful(): Boolean = states.any { it.isNotEmpty() }
+    open fun isStateful(): Boolean = states.any { it.isNotEmpty() }
 
     private fun indexOfDefault(): Int {
         for (i in states.indices) {

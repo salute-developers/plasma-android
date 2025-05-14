@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Paint
+import android.graphics.RectF
 import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
@@ -34,8 +35,12 @@ import org.xmlpull.v1.XmlPullParserException
  */
 class ColorValueStateList(
     states: Array<IntArray>,
-    values: Array<ColorValueHolder>,
+    private val values: Array<ColorValueHolder>,
 ) : ValueStateList<ColorValueHolder>(states, values) {
+
+    override fun isStateful(): Boolean {
+        return super.isStateful() || values.any { it.isStateful() }
+    }
 
     companion object {
 
@@ -275,8 +280,14 @@ fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
  * Применяет значение в зависимости от состояния View: цвет, drawable, tint или shader.
  *
  * @param colorValueStateList Список значений цвета для различных состояний.
+ * @param cachedShaderFactory делегат для кэширования [ShaderFactory]
+ * @param textBounds границы текста
  */
-fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?, cachedShaderFactory: CachedShaderFactory) {
+fun TextView.setTextColorValue(
+    colorValueStateList: ColorValueStateList?,
+    cachedShaderFactory: CachedShaderFactory,
+    textBounds: RectF = EmptyRectF,
+) {
     if (colorValueStateList == null) return
     val textColorValue = if (colorValueStateList.isStateful()) {
         colorValueStateList.getValueForState(drawableState)
@@ -289,7 +300,7 @@ fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?, cached
         is ColorValueHolder.ColorListValue -> setTextColor(textColorValue.value)
         is ColorValueHolder.ShaderValue -> {
             paint.color = -1
-            paint.shader = cachedShaderFactory.getShader(textColorValue.value)
+            paint.shader = cachedShaderFactory.getShader(textColorValue.value, textBounds)
         }
     }
 }
@@ -300,12 +311,14 @@ fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?, cached
  * @param colorValueStateList Список значений цвета/шейдера по состояниям.
  * @param state Текущее состояние (набор флагов состояния).
  * @param cachedShaderFactory Фабрика для создания [Shader], если используется [ShaderValue].
+ * @param bounds границы отрисовки
  * @return `true`, если цвет или shader были изменены.
  */
 fun Paint.setColorValue(
     colorValueStateList: ColorValueStateList?,
     state: IntArray,
     cachedShaderFactory: CachedShaderFactory,
+    bounds: RectF = EmptyRectF,
 ): Boolean {
     val oldColor = color
     val oldShader = shader
@@ -331,10 +344,10 @@ fun Paint.setColorValue(
                 is ShapeDrawable -> colorValue.value.shaderFactory
                 else -> throw IllegalArgumentException("Can't set drawable value to Paint object")
             }
-            shader = shapeShaderFactory?.let { cachedShaderFactory.getShader(it) }
+            shader = shapeShaderFactory?.let { cachedShaderFactory.getShader(it, bounds) }
         }
         is ColorValueHolder.ShaderValue -> {
-            shader = cachedShaderFactory.getShader(colorValue.value)
+            shader = cachedShaderFactory.getShader(colorValue.value, bounds)
         }
     }
     return oldColor != color || oldShader != shader
@@ -352,6 +365,11 @@ fun Paint.setColorValue(
 sealed class ColorValueHolder {
 
     /**
+     * Проверяет, содержит ли [ColorValueHolder] значение, зависящее от состояния.
+     */
+    open fun isStateful(): Boolean = false
+
+    /**
      * Представляет обычный цвет как целое число ARGB.
      *
      * @param value Цвет в формате Int (например, 0xFF0000 для красного).
@@ -363,7 +381,11 @@ sealed class ColorValueHolder {
      *
      * @param value Объект [ColorStateList].
      */
-    data class ColorListValue(val value: ColorStateList) : ColorValueHolder()
+    data class ColorListValue(val value: ColorStateList) : ColorValueHolder() {
+        override fun isStateful(): Boolean {
+            return value.isStateful
+        }
+    }
 
     /**
      * Представляет [Drawable], используемый как фоновое значение.
@@ -379,3 +401,5 @@ sealed class ColorValueHolder {
      */
     data class ShaderValue(val value: ShaderFactory) : ColorValueHolder()
 }
+
+private val EmptyRectF = RectF()
