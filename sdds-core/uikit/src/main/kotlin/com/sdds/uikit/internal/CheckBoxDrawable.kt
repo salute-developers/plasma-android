@@ -33,7 +33,6 @@ import com.sdds.uikit.statelist.NumberStateList
 import com.sdds.uikit.statelist.getFloatForState
 import com.sdds.uikit.statelist.getIntForState
 import com.sdds.uikit.statelist.getNumberStateList
-import kotlin.math.roundToInt
 
 /**
  * [Drawable] для [CheckBox]
@@ -84,9 +83,9 @@ internal class CheckBoxDrawable(
     private var _checkMarkTintList: ColorStateList = DefaultWhiteTint
 
     private var _checkedIcon: Drawable? = null
-    private var _checkIconTintList: ColorStateList = DefaultWhiteTint
+    private var _checkIconTintList: ColorStateList = DefaultMagentaTint
     private var _indeterminateIcon: Drawable? = null
-    private var _indeterminateIconTintList: ColorStateList = DefaultWhiteTint
+    private var _indeterminateIconTintList: ColorStateList = DefaultMagentaTint
     private var _checkedIconBounds = Rect()
     private var _indeterminateIconBounds = Rect()
 
@@ -168,20 +167,16 @@ internal class CheckBoxDrawable(
      * Устанавливает цвета границы
      */
     fun setBorderTintList(borderTintList: ColorStateList? = null) {
-        if (_borderTintList != borderTintList) {
-            _borderTintList = borderTintList ?: DefaultBlackTint
-            _borderDrawable?.setStrokeTint(borderTintList)
-        }
+        _borderTintList = borderTintList ?: DefaultBlackTint
+        _borderDrawable?.setStrokeTint(_borderTintList)
     }
 
     /**
      * Устанавливает цвета заливки
      */
     fun setBoxTintList(boxTintLists: ColorStateList? = null) {
-        if (_boxTintList != boxTintLists) {
-            _boxTintList = boxTintLists ?: DefaultBlackTint
-            _boxDrawable?.setTintList(boxTintLists)
-        }
+        _boxTintList = boxTintLists ?: DefaultBlackTint
+        _boxDrawable?.setTintList(_boxTintList)
     }
 
     /**
@@ -190,10 +185,9 @@ internal class CheckBoxDrawable(
     fun setCheckMarkTintList(checkMarkTintLists: ColorStateList? = null) {
         if (_checkMarkTintList != checkMarkTintLists) {
             _checkMarkTintList = checkMarkTintLists ?: DefaultWhiteTint
-            setTintList(_checkMarkTintList)
-            setCheckIconTintList(_checkMarkTintList)
-            setIndeterminateIconTintList(_checkMarkTintList)
         }
+        setCheckIconTintList(_checkMarkTintList)
+        setIndeterminateIconTintList(_checkMarkTintList)
     }
 
     /**
@@ -291,7 +285,10 @@ internal class CheckBoxDrawable(
 
     private fun updateBorderBounds() {
         val adjustedBounds = Rect(_commonBounds)
-        adjustedBounds.inset(-_borderOffset.roundToInt(), -_borderOffset.roundToInt())
+        adjustedBounds.inset(
+            (-_borderOffset).toInt(),
+            (-_borderOffset).toInt(),
+        )
         if (_borderDrawable?.strokeWidth != _borderWidth) {
             _borderDrawable?.setStrokeWidth(_borderWidth)
         }
@@ -307,8 +304,8 @@ internal class CheckBoxDrawable(
     private fun calculateCommonBounds() {
         val boxWidth = _toggleWidth - _padding * 2
         val boxHeight = _toggleHeight - _padding * 2
-        val left = (bounds.width() - boxWidth) / 2
-        val top = (bounds.height() - boxHeight) / 2
+        val left = bounds.centerX() - boxWidth / 2
+        val top = bounds.centerY() - boxHeight / 2
         val right = left + boxWidth
         val bottom = top + boxHeight
         _commonBounds.set(
@@ -320,8 +317,13 @@ internal class CheckBoxDrawable(
     }
 
     override fun draw(canvas: Canvas) {
-        _boxDrawable?.draw(canvas)
         _borderDrawable?.draw(canvas)
+        _boxDrawable?.draw(canvas)
+//        canvas.drawRect(bounds, Paint().apply {
+//            color = Color.RED
+//            strokeWidth = 1f
+//            style = Paint.Style.STROKE
+//        })
         if (_checkedIcon == null) {
             canvas.withTranslation(
                 _commonBounds.left.toFloat(),
@@ -433,11 +435,11 @@ internal class CheckBoxDrawable(
     override fun isStateful(): Boolean = true
 
     override fun getIntrinsicWidth(): Int {
-        return _toggleWidth + _maxBorderWidth / 2 + (_maxOffset - _padding) * 2
+        return _toggleWidth + (_maxOffset - _padding) * 2
     }
 
     override fun getIntrinsicHeight(): Int {
-        return _toggleHeight + _maxBorderWidth / 2 + (_maxOffset - _padding) * 2
+        return _toggleHeight + (_maxOffset - _padding) * 2
     }
 
     override fun setAlpha(alpha: Int) {
@@ -600,6 +602,7 @@ internal class CheckBoxDrawable(
         val FallBackRadius = 6.dp
         val DefaultBlackTint = ColorStateList.valueOf(Color.BLACK)
         val DefaultWhiteTint = ColorStateList.valueOf(Color.WHITE)
+        val DefaultMagentaTint = ColorStateList.valueOf(Color.MAGENTA)
         val DefaultCheckBoxSize = 26.dp
         val StrokeWidth = 2f.dp
         val CheckBoxPadding = 2.dp

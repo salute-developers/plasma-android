@@ -66,9 +66,9 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
             toggleColor(
                 StylesSaluteTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(CheckBoxStates.Checked)
-                        to StylesSaluteTheme.colors.surfaceDefaultAccent,
+                        to StylesSaluteTheme.colors.surfaceDefaultAccentMain,
                     setOf(CheckBoxStates.Indeterminate)
-                        to StylesSaluteTheme.colors.surfaceDefaultAccent,
+                        to StylesSaluteTheme.colors.surfaceDefaultAccentMain,
                 ),
             )
             toggleIconColor(
@@ -77,14 +77,14 @@ public val WrapperCheckBoxView.Default: WrapperCheckBoxTerminate
             toggleBorderColor(
                 StylesSaluteTheme.colors.outlineDefaultTransparentTertiary.asInteractive(
                     setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                        to StylesSaluteTheme.colors.outlineDefaultAccent,
+                        to StylesSaluteTheme.colors.outlineDefaultAccentMain,
                     setOf(
                         InteractiveState.Focused,
                         CheckBoxStates.Indeterminate,
                     )
-                        to StylesSaluteTheme.colors.outlineDefaultAccent,
+                        to StylesSaluteTheme.colors.outlineDefaultAccentMain,
                     setOf(InteractiveState.Focused)
-                        to StylesSaluteTheme.colors.outlineDefaultAccent,
+                        to StylesSaluteTheme.colors.outlineDefaultAccentMain,
                     setOf(CheckBoxStates.Checked)
                         to StylesSaluteTheme.colors.outlineDefaultClear,
                     setOf(CheckBoxStates.Indeterminate)

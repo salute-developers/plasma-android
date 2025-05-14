@@ -2,7 +2,7 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:color="?salute_surfaceDefaultAccent" android:state_checked="true" app:salute_checkbox_state_default="true"/>
-    <item android:color="?salute_surfaceDefaultAccent" app:salute_checkbox_state_default="true" app:sd_state_indeterminate="true"/>
+    <item android:color="?salute_surfaceDefaultAccentMain" android:state_checked="true" app:salute_checkbox_state_default="true"/>
+    <item android:color="?salute_surfaceDefaultAccentMain" app:salute_checkbox_state_default="true" app:sd_state_indeterminate="true"/>
     <item android:color="?salute_surfaceDefaultClear" app:salute_checkbox_state_default="true"/>
 </selector>
