@@ -61,7 +61,7 @@ class ViewSystemProgressScreenshotTest(
     @Test
     override fun testProgressGradientAccent() {
         themedComponent {
-            progressGradientAccent(R.style.Serv_Sdds_ComponentOverlays_ProgressBarGradientAccent)
+            progressGradientAccent(R.style.Serv_Sdds_ComponentOverlays_ProgressBarGradient)
         }
     }
 
@@ -69,6 +69,13 @@ class ViewSystemProgressScreenshotTest(
     override fun testProgressDefaultValueOne() {
         themedComponent {
             progressDefaultValueOne(R.style.Serv_Sdds_ComponentOverlays_ProgressBarDefault)
+        }
+    }
+
+    @Test
+    fun testProgressInfo() {
+        themedComponent {
+            progressInfo(R.style.Serv_Sdds_ComponentOverlays_ProgressBarInfo)
         }
     }
 }
