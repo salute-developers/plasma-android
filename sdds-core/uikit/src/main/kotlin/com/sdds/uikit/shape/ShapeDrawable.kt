@@ -12,6 +12,7 @@ import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
+import android.graphics.Xfermode
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
@@ -216,6 +217,14 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _animationEnabled = enabled
             invalidateSelf()
         }
+    }
+
+    /**
+     * Устанавливает [Xfermode] для объекта [Paint], который рисует форму и бордер
+     */
+    open fun setXfermode(mode: Xfermode) {
+        _shapePaint.xfermode = mode
+        _strokePaint.xfermode = mode
     }
 
     internal fun resizeShape(width: Float, height: Float) {
