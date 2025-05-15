@@ -82,6 +82,7 @@ import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
+import com.sdds.uikit.colorstate.ColorState
 
 internal class MenuItem(
     val id: Int,
@@ -89,6 +90,7 @@ internal class MenuItem(
     val componentKey: ComponentKey,
     val destination: ComponentScreen,
     val previewStyle: Int = 0,
+    val previewColorState: ColorState? = null,
 ) {
 
     val componentKeyBundle by lazy {
@@ -108,6 +110,11 @@ internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
             componentKey = item,
             destination = item.core.screen(),
             previewStyle = styleProvider.styleRes(key = value.styleProvider.defaultVariant as String),
+            previewColorState = if (value.styleProvider.hasColorVariations) {
+                styleProvider.colorState(key = value.styleProvider.defaultColorVariant as String)
+            } else {
+                null
+            },
         )
     }
 }
@@ -215,9 +222,11 @@ internal sealed class ComponentScreen(
     object Card : ComponentScreen(
         { item -> fragment<CardFragment>(item.route, item.defaultBuilder) },
     )
+
     object Divider : ComponentScreen(
         { item -> fragment<DividerFragment>(item.route, item.defaultBuilder) },
     )
+
     object NavigationDrawer : ComponentScreen(
         { item -> fragment<NavigationDrawerFragment>(item.route, item.defaultBuilder) },
     )
@@ -295,7 +304,7 @@ private fun ComponentKey.routeId(): Int {
     } + hashCode()
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 internal fun MenuItem.preview(context: Context, style: Int): View {
     return when (this.componentKey.core) {
         CoreComponent.AVATAR -> avatar(context, style, AvatarUiState())
@@ -311,6 +320,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
         }
+
         CoreComponent.CHECKBOX -> checkBox(context, style, CheckBoxUiState())
         CoreComponent.CHECKBOX_GROUP -> checkBoxGroup(context, style, CheckBoxUiState()).apply {
             layoutParams = ViewGroup.LayoutParams(
@@ -318,13 +328,15 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
         }
+
         CoreComponent.CHIP -> chip(context, style, ChipUiState())
-        CoreComponent.CHIP_GROUP -> chipGroup(context, style, state = ChipUiState())
+        CoreComponent.CHIP_GROUP -> chipGroup(context, style, state = ChipUiState(), colorState = previewColorState)
         CoreComponent.COUNTER -> counter(context, style, CounterUiState())
         CoreComponent.INDICATOR -> indicator(context, style)
         CoreComponent.PROGRESS -> progressBar(context, style, ProgressUiState()).apply {
             layoutParams?.height = context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_3x)
         }
+
         CoreComponent.RADIOBOX -> radioBox(context, style, RadioBoxUiState())
         CoreComponent.RADIOBOX_GROUP -> radioBoxGroup(context, style, RadioBoxUiState()).apply {
             layoutParams = ViewGroup.LayoutParams(
@@ -332,9 +344,16 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
         }
+
         CoreComponent.SWITCH -> switch(context, style, SwitchUiState())
-        CoreComponent.TEXT_FIELD -> textField(context, style, state = TextFieldUiState())
-        CoreComponent.TEXT_AREA -> textArea(context, style, state = TextFieldUiState())
+        CoreComponent.TEXT_FIELD -> textField(
+            context,
+            style,
+            state = TextFieldUiState(),
+            colorState = previewColorState,
+        )
+
+        CoreComponent.TEXT_AREA -> textArea(context, style, state = TextFieldUiState(), colorState = previewColorState)
         CoreComponent.SEGMENT -> segment(context, style, SegmentUiState())
         CoreComponent.SEGMENT_ITEM -> segmentItem(context, style, SegmentUiState())
         CoreComponent.FLOW -> flowLayout(context, style, FlowUiState()).apply {
@@ -343,6 +362,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
         }
+
         CoreComponent.CARD -> card(context, style, CardUiState())
         CoreComponent.DIVIDER -> divider(context, style).apply {
             layoutParams = ViewGroup.LayoutParams(
@@ -350,6 +370,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
         }
+
         CoreComponent.NAVIGATION_DRAWER -> navigationDrawer(context, style, NavigationDrawerUiState())
         CoreComponent.CIRCULAR_PROGRESS -> circularProgressBar(context, style, CircularProgressUiState())
         else -> throw NoSuchElementException("Component not implemented")

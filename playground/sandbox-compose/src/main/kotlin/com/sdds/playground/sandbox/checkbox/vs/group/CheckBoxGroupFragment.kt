@@ -11,7 +11,7 @@ import com.sdds.testing.vs.checkbox.checkBoxGroup
 import com.sdds.uikit.CheckBoxGroup
 
 /**
- * Фрагмент с компонентом CheckBox
+ * Фрагмент с компонентом CheckBoxGroup
  * @author Малышев Александр on 15.08.2024
  */
 internal class CheckBoxGroupFragment : ComponentFragment<CheckBoxUiState, CheckBoxGroup, CheckBoxGroupViewModel>() {

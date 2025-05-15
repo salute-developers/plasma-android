@@ -9,7 +9,7 @@ import com.sdds.testing.vs.button.linkButton
 import com.sdds.uikit.LinkButton
 
 /**
- * Фрагмент с компонентом BasicButton
+ * Фрагмент с компонентом LinkButton
  * @author Малышев Александр on 31.07.2024
  */
 internal class LinkButtonFragment : ComponentFragment<ButtonUiState, LinkButton, LinkButtonViewModel>() {

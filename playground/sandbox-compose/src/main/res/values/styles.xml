@@ -119,9 +119,6 @@
     <style name="Theme.Sandbox.Components.PropertyItemSwitch" parent="Theme.Sandbox.BaseComponents.PropertyItemSwitch">
         <item name="sd_buttonTrackColor">@color/bg_color_property_switch_track</item>
         <item name="android:duplicateParentState">true</item>
-        <item name="sd_switchWidth">@dimen/sandbox_switch_width</item>
-        <item name="sd_switchHeight">@dimen/sandbox_switch_height</item>
-        <item name="sd_thumbSize">@dimen/sandbox_switch_thumb_size</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyChoiceItem">

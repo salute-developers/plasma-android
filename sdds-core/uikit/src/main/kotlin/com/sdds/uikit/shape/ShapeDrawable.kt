@@ -277,7 +277,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
                 _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
             reapplyAlpha()
         } else if (_shapeTintValue != null) {
-            _shaderFactoryDelegate.updateBounds(bounds)
+            _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)
         }
     }
 
@@ -319,7 +319,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     override fun onStateChange(state: IntArray): Boolean {
         animator.cancel()
         val borderColor = _strokeTint.colorForState(state)
-        var stateChanged = _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate)
+        var stateChanged = _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)
         if (borderColor != _strokePaint.color) {
             stateChanged = true
         }

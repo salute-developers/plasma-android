@@ -9,7 +9,7 @@ import com.sdds.testing.vs.avatar.avatarGroup
 import com.sdds.uikit.AvatarGroup
 
 /**
- * Фрагмент с компонентом ProgressBar
+ * Фрагмент с компонентом AvatarGroup
  * @author Малышев Александр on 19.08.2024
  */
 internal class AvatarGroupFragment : ComponentFragment<AvatarUiState, AvatarGroup, AvatarViewModel>() {

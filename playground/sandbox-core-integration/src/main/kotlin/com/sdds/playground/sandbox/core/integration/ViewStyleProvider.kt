@@ -35,6 +35,12 @@ abstract class ViewStyleProvider<K : Any> {
         get() = colorVariations.entries.first().key
 
     /**
+     * Возвращает true, если у компонента есть вариации цвета
+     */
+    val hasColorVariations: Boolean
+        get() = colorVariations.isNotEmpty()
+
+    /**
      * Вернёт ресурс стиля компонента для ключа вариации [key]
      */
     @StyleRes

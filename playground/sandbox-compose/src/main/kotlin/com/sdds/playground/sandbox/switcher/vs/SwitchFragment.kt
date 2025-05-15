@@ -12,7 +12,7 @@ import com.sdds.testing.vs.switcher.switch
 import com.sdds.uikit.Switch
 
 /**
- * Фрагмент с компонентом ProgressBar
+ * Фрагмент с компонентом Switch
  * @author Малышев Александр on 19.08.2024
  */
 internal class SwitchFragment : ComponentFragment<SwitchUiState, Switch, SwitchViewModel>() {

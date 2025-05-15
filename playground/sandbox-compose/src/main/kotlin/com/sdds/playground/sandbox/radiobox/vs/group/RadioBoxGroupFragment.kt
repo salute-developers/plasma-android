@@ -12,7 +12,7 @@ import com.sdds.testing.vs.radiobox.radioBoxGroup
 import com.sdds.uikit.RadioBoxGroup
 
 /**
- * Фрагмент с компонентом RadioBox
+ * Фрагмент с компонентом RadioBoxGroup
  * @author Малышев Александр on 15.08.2024
  */
 internal class RadioBoxGroupFragment : ComponentFragment<RadioBoxUiState, RadioBoxGroup, RadioBoxGroupViewModel>() {
