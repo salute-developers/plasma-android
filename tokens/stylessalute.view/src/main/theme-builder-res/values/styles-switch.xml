@@ -70,7 +70,6 @@
         <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.S</item>
     </style>
     <style name="Salute.StylesSalute.Components.Switch.S.ToggleS">
-        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
         <item name="sd_switchWidth">@dimen/salute_switch_s_toggle_s_switch_width</item>
         <item name="sd_switchHeight">@dimen/salute_switch_s_toggle_s_switch_height</item>
         <item name="sd_thumbWidth">@dimen/salute_switch_s_toggle_s_thumb_width</item>

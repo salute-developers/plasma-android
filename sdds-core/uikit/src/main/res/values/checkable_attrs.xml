@@ -116,6 +116,7 @@
 
     <declare-styleable name="SdSwitchDrawable">
         <attr name="sd_switchWidth" format="dimension|float" />
+        <attr name="sd_switchBorderWidth" format="dimension|float" />
         <attr name="sd_switchHeight" format="dimension|float" />
         <attr name="sd_thumbWidth" format="dimension|float" />
         <attr name="sd_thumbHeight" format="dimension|float" />

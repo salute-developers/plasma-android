@@ -6,21 +6,21 @@ import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ColorFilter
-import android.graphics.Paint
 import android.graphics.PixelFormat
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.graphics.Rect
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
+import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.dp
-import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.lerp
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
-import kotlin.math.roundToInt
 
 /**
  * [Drawable] переключателя компонента Switch
@@ -46,12 +46,9 @@ internal class SwitchDrawable(
         }
     }
 
-    private var _paint: Paint = Paint().configure(
-        isAntiAlias = true,
-        style = Paint.Style.FILL,
-    )
     private var _trackColorList: ColorStateList = DefaultBlackTint
-    private var _thumbColorList: ColorStateList = DefaultWhiteTint
+    private var _trackBorderColorList: ColorStateList? = null
+    private var _thumbColorList: ColorStateList = DefaultGrayTint
     private var _thumbPosition: Float = 0f
     private var _checked: Boolean = false
     private var _focused: Boolean = false
@@ -67,7 +64,10 @@ internal class SwitchDrawable(
 
     init {
         obtainAttributes(context, attrs, defStyleAttr)
-        _trackDrawable = ShapeDrawable(context, attrs, defStyleAttr).apply { callback = this@SwitchDrawable.callback }
+        _trackDrawable = ShapeDrawable(context, attrs, defStyleAttr).apply {
+            callback = this@SwitchDrawable.callback
+            setStrokeWidth(_strokeWidth)
+        }
     }
 
     /**
@@ -75,10 +75,8 @@ internal class SwitchDrawable(
      * @param trackColor цвет фона переключателя
      */
     fun setTrackColor(trackColor: ColorStateList?) {
-        if (_trackColorList != trackColor) {
-            _trackColorList = trackColor ?: DefaultBlackTint
-            _trackDrawable?.setTintList(_trackColorList)
-        }
+        _trackColorList = trackColor ?: DefaultBlackTint
+        _trackDrawable?.setTintList(_trackColorList)
     }
 
     /**
@@ -86,10 +84,8 @@ internal class SwitchDrawable(
      * @param trackBorderColor цвет бордера переключателя
      */
     fun setTrackBorderColor(trackBorderColor: ColorStateList?) {
-        if (_trackColorList != trackBorderColor) {
-            _trackColorList = trackBorderColor ?: DefaultBlackTint
-            _trackDrawable?.setStrokeTint(_trackColorList)
-        }
+        _trackBorderColorList = trackBorderColor ?: DefaultBlackTint
+        _trackDrawable?.setStrokeTint(_trackBorderColorList)
     }
 
     /**
@@ -97,10 +93,8 @@ internal class SwitchDrawable(
      * @param borderWidth толщина бордера переключателя
      */
     fun setTrackBorderWidth(borderWidth: Float) {
-        if (_strokeWidth != borderWidth) {
-            _strokeWidth = borderWidth
-            _trackDrawable?.setStrokeWidth(_strokeWidth)
-        }
+        _strokeWidth = borderWidth
+        _trackDrawable?.setStrokeWidth(_strokeWidth)
     }
 
     /**
@@ -108,48 +102,53 @@ internal class SwitchDrawable(
      * @param thumbColor цвета подвижного элемента
      */
     fun setThumbColor(thumbColor: ColorStateList?) {
-        if (_thumbColorList != thumbColor) {
-            _thumbColorList = thumbColor ?: DefaultWhiteTint
-            _thumbDrawable?.setTintList(thumbColor)
-        }
+        _thumbColorList = thumbColor ?: DefaultGrayTint
+        _thumbDrawable?.setTintList(_thumbColorList)
     }
 
     override fun draw(canvas: Canvas) {
         _trackDrawable?.draw(canvas)
-        _thumbDrawable?.draw(canvas)
-    }
-
-    override fun onBoundsChange(bounds: Rect) {
-        _trackDrawable?.setBounds(0, 0, _switchWidth, _switchHeight)
-        updateThumbBounds()
-        super.onBoundsChange(bounds)
-    }
-
-    private fun updateThumbBounds() {
-        _thumbPosition = if (_checked) 1f else 0f
-        val left = lerp(
+        val translation = lerp(
             bounds.left + _thumbPadding,
             bounds.right - _thumbWidth - _thumbPadding,
             _thumbPosition,
         )
+        canvas.withTranslation(translation) {
+            _thumbDrawable?.draw(this)
+        }
+    }
+
+    private fun setThumbBlendMode() {
+        _thumbDrawable?.setColorFilter(
+            PorterDuffColorFilter(
+                _thumbColorList.getColorForState(state, Color.WHITE),
+                PorterDuff.Mode.ADD,
+            ),
+        )
+    }
+
+    override fun onBoundsChange(bounds: Rect) {
+        _trackDrawable?.setBounds(0, 0, _switchWidth, _switchHeight)
+        val left = bounds.left
         val top = bounds.centerY() - _thumbHeight / 2
         _thumbDrawable?.setBounds(
-            left.roundToInt(),
+            left,
             top,
-            (left + _thumbWidth).roundToInt(),
+            left + _thumbWidth,
             top + _thumbHeight,
         )
+        super.onBoundsChange(bounds)
     }
 
     override fun onStateChange(state: IntArray): Boolean {
         var invalidate = super.onStateChange(state)
         _thumbDrawable?.setState(state)
+        setThumbBlendMode()
         _trackDrawable?.setState(state)
         val checked = state.contains(android.R.attr.state_checked)
         if (_checked != checked) {
             _checked = checked
             resetAnimator()
-            updateThumbBounds()
             start()
             invalidate = true
         }
@@ -168,7 +167,8 @@ internal class SwitchDrawable(
     override fun isStateful(): Boolean = true
 
     override fun setAlpha(alpha: Int) {
-        _paint.alpha = alpha
+        _trackDrawable?.alpha = alpha
+        _thumbDrawable?.alpha = alpha
     }
 
     override fun setColorFilter(colorFilter: ColorFilter?) = Unit
@@ -195,13 +195,9 @@ internal class SwitchDrawable(
 
     override fun isRunning(): Boolean = _animator.isRunning
 
-    override fun getIntrinsicWidth(): Int {
-        return _switchWidth
-    }
+    override fun getIntrinsicWidth() = _switchWidth
 
-    override fun getIntrinsicHeight(): Int {
-        return _switchHeight
-    }
+    override fun getIntrinsicHeight() = _switchHeight
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SdSwitchDrawable, defStyleAttr, 0)
@@ -209,6 +205,7 @@ internal class SwitchDrawable(
         _switchHeight = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_switchHeight, SwitchHeight)
         _thumbWidth = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_thumbWidth, ThumbDiameter)
         _thumbHeight = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_thumbHeight, ThumbDiameter)
+        _strokeWidth = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_switchBorderWidth, 0).toFloat()
         _thumbPadding =
             typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_thumbPadding, DefaultSwitchPadding)
                 .toFloat()
@@ -216,7 +213,9 @@ internal class SwitchDrawable(
             context,
             typedArray.getResourceId(R.styleable.SdSwitchDrawable_sd_thumbShapeAppearance, 0),
         )
-        _thumbDrawable = ShapeDrawable(thumbShape).apply { callback = this@SwitchDrawable.callback }
+        _thumbDrawable = ShapeDrawable(thumbShape).apply {
+            callback = this@SwitchDrawable.callback
+        }
         typedArray.recycle()
     }
 
@@ -224,14 +223,14 @@ internal class SwitchDrawable(
         _animator.cancel()
         _animator.setFloatValues(
             if (_checked) 0f else 1f,
-            if (!_checked) 1f else 0f,
+            if (_checked) 1f else 0f,
         )
     }
 
     private companion object {
         const val ANIMATION_DURATION = 100L
         val DefaultBlackTint = ColorStateList.valueOf(Color.BLACK)
-        val DefaultWhiteTint = ColorStateList.valueOf(Color.WHITE)
+        val DefaultGrayTint = ColorStateList.valueOf(Color.LTGRAY)
         val DefaultSwitchPadding = 2.dp
         val ThumbDiameter = 24.dp
         val SwitchWidth = 44.dp

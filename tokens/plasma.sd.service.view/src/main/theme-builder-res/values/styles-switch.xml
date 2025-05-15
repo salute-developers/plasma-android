@@ -70,7 +70,6 @@
         <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.S</item>
     </style>
     <style name="Plasma.SdService.Components.Switch.S.ToggleS">
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_switchWidth">@dimen/plasma_switch_s_toggle_s_switch_width</item>
         <item name="sd_switchHeight">@dimen/plasma_switch_s_toggle_s_switch_height</item>
         <item name="sd_thumbWidth">@dimen/plasma_switch_s_toggle_s_thumb_width</item>
