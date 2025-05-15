@@ -26,9 +26,12 @@ import com.sdds.uikit.internal.base.AnimationUtils.blendColors
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.unsafeLazy
+import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.shader.GradientShader
 import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.setColorValue
 import org.xmlpull.v1.XmlPullParser
 
 /**
@@ -47,7 +50,10 @@ open class ShapeDrawable() : Drawable(), Shapeable {
 
     private val _shapePaint = Paint().configure(color = 0)
     private var _shapeTint: ColorStateList? = null
+    private var _shapeTintValue: ColorValueStateList? = null
     private var _shape: Shape? = null
+
+    private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
 
     private var _shaderFactory: ShaderFactory? = null
     private var sdShaderAppearanceRes: TypedValue? = null
@@ -191,6 +197,18 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     /**
+     * Устанавливает цвета текста
+     * @param colors цвета текста
+     */
+    open fun setTintValue(colors: ColorValueStateList?) {
+        if (_shapeTintValue != colors) {
+            _shapeTintValue = colors
+            onBoundsChange(bounds)
+            invalidateSelf()
+        }
+    }
+
+    /**
      * Включает/выключает анимацию цвета заливки и границы формы
      */
     open fun setColorAnimationEnabled(enabled: Boolean) {
@@ -249,6 +267,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _shapePaint.shader =
                 _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
             reapplyAlpha()
+        } else if (_shapeTintValue != null) {
+            _shaderFactoryDelegate.updateBounds(bounds)
         }
     }
 
@@ -265,7 +285,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     override fun isStateful(): Boolean {
-        return _shaderFactory == null && (_shapeTint != null || _strokeTint != null)
+        return (_shaderFactory == null && (_shapeTint != null || _strokeTint != null)) ||
+            _shapeTintValue?.isStateful() == true
     }
 
     @Deprecated("Deprecated in Java")
@@ -289,13 +310,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     override fun onStateChange(state: IntArray): Boolean {
         animator.cancel()
         val borderColor = _strokeTint.colorForState(state)
-        var stateChanged = false
+        var stateChanged = _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate)
         if (borderColor != _strokePaint.color) {
             stateChanged = true
         }
-
         var fillColor: Int? = null
-        if (_shaderFactory == null) {
+        if (_shaderFactory == null && _shapeTintValue == null) {
             fillColor = _shapeTint.colorForState(state)
             if (fillColor != _shapePaint.color) {
                 stateChanged = true
