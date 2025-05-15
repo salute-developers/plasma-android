@@ -83,9 +83,9 @@ internal class CheckBoxDrawable(
     private var _checkMarkTintList: ColorStateList = DefaultWhiteTint
 
     private var _checkedIcon: Drawable? = null
-    private var _checkIconTintList: ColorStateList = DefaultMagentaTint
+    private var _checkIconTintList: ColorStateList? = null
     private var _indeterminateIcon: Drawable? = null
-    private var _indeterminateIconTintList: ColorStateList = DefaultMagentaTint
+    private var _indeterminateIconTintList: ColorStateList? = null
     private var _checkedIconBounds = Rect()
     private var _indeterminateIconBounds = Rect()
 
@@ -319,11 +319,6 @@ internal class CheckBoxDrawable(
     override fun draw(canvas: Canvas) {
         _borderDrawable?.draw(canvas)
         _boxDrawable?.draw(canvas)
-//        canvas.drawRect(bounds, Paint().apply {
-//            color = Color.RED
-//            strokeWidth = 1f
-//            style = Paint.Style.STROKE
-//        })
         if (_checkedIcon == null) {
             canvas.withTranslation(
                 _commonBounds.left.toFloat(),
@@ -602,7 +597,6 @@ internal class CheckBoxDrawable(
         val FallBackRadius = 6.dp
         val DefaultBlackTint = ColorStateList.valueOf(Color.BLACK)
         val DefaultWhiteTint = ColorStateList.valueOf(Color.WHITE)
-        val DefaultMagentaTint = ColorStateList.valueOf(Color.MAGENTA)
         val DefaultCheckBoxSize = 26.dp
         val StrokeWidth = 2f.dp
         val CheckBoxPadding = 2.dp
