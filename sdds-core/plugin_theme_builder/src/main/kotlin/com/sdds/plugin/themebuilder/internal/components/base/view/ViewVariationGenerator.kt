@@ -62,6 +62,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         baseStyle(withOverlay = rootVariation.children.isEmpty()) {
             onCreateStyle("", xmlResourcesBuilder, this, rootVariation)
         }
+        if (rootVariation.children.isEmpty()) createColorStateStyles(xmlResourcesBuilder, rootVariation)
         createVariations(rootVariation.children)
     }
 
@@ -102,17 +103,24 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         variationNode.mergedViews(true).mapKeys {
             getColorState(it.key) ?: registerColorState(it.key)
         }.forEach { (colorStateAttr, viewVariation) ->
+            val variationStyleName = if (variationNode.name.isNotEmpty()) {
+                "${variationNode.camelCaseName()}.${colorStateAttr.name.capitalized()}"
+            } else {
+                colorStateAttr.name.capitalized()
+            }
             rootDocument.variationStyle(
-                "${variationNode.camelCaseName()}.${colorStateAttr.name.capitalized()}",
+                variationStyleName,
                 true,
             ) {
-                onCreateStyle(
-                    variationNode.id.techToSnakeCase(),
-                    rootDocument,
-                    this,
-                    variationNode,
-                    viewVariation.props,
-                )
+                if (variationNode.parent != null) {
+                    onCreateStyle(
+                        variationNode.id.techToSnakeCase(),
+                        rootDocument,
+                        this,
+                        variationNode,
+                        viewVariation.props,
+                    )
+                }
                 onCreateColorStateStyle(this, variationNode, colorStateAttr)
             }
         }
