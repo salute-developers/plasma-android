@@ -39,8 +39,8 @@ glide = "4.16.0"
 
 koilVersion-compose = "2.2.0"
 
-sdds-uikit = "0.16.0"
-sdds-uikit-compose = "0.18.0"
+sdds-uikit = "0.17.0"
+sdds-uikit-compose = "0.19.0"
 sdds-icons = "0.8.0"
 
 plugin-androidCacheFix = "3.0.1"
