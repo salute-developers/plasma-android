@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
+        <item name="android:minHeight">@dimen/serv_progress_bar_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_progress_bar_max_height</item>
+        <item name="sd_trackHeight">@dimen/serv_progress_bar_track_height</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/serv_progress_bar_bg_color</item>
+        <item name="sd_progressColor">@xml/serv_progress_bar_progress_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ProgressBarColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBar">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Default">
+        <item name="serv_progressbarColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarDefault">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Secondary">
+        <item name="serv_progressbarColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarSecondary">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Accent">
+        <item name="serv_progressbarColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarAccent">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Gradient">
+        <item name="serv_progressbarColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarGradient">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Info">
+        <item name="serv_progressbarColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarInfo">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Negative">
+        <item name="serv_progressbarColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarNegative">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Positive">
+        <item name="serv_progressbarColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarPositive">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.ProgressBar.Warning">
+        <item name="serv_progressbarColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarWarning">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Warning</item>
+    </style>
+</resources>
