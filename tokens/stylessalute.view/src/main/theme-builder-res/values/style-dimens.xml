@@ -283,6 +283,9 @@
     <dimen name="salute_radio_box_s_toggle_height">18.0dp</dimen>
     <dimen name="salute_radio_box_group_m_item_offset">12.0dp</dimen>
     <dimen name="salute_radio_box_group_s_item_offset">10.0dp</dimen>
+    <dimen name="salute_progress_bar_min_height">4.0dp</dimen>
+    <dimen name="salute_progress_bar_max_height">4.0dp</dimen>
+    <dimen name="salute_progress_bar_track_height">4.0dp</dimen>
     <dimen name="salute_text_field_helper_padding">4.0dp</dimen>
     <dimen name="salute_text_field_chips_padding">6.0dp</dimen>
     <dimen name="salute_text_field_prefix_padding">6.0dp</dimen>

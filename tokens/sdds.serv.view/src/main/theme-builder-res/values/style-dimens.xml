@@ -351,6 +351,9 @@
     <dimen name="serv_indicator_m_max_width">8.0dp</dimen>
     <dimen name="serv_indicator_s_max_height">6.0dp</dimen>
     <dimen name="serv_indicator_s_max_width">6.0dp</dimen>
+    <dimen name="serv_progress_bar_min_height">4.0dp</dimen>
+    <dimen name="serv_progress_bar_max_height">4.0dp</dimen>
+    <dimen name="serv_progress_bar_track_height">4.0dp</dimen>
     <dimen name="serv_circular_progress_bar_xxl_min_width">128.0dp</dimen>
     <dimen name="serv_circular_progress_bar_xxl_min_height">128.0dp</dimen>
     <dimen name="serv_circular_progress_bar_xxl_track_thickness">4.0dp</dimen>

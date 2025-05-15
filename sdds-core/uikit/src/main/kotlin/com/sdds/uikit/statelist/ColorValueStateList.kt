@@ -312,7 +312,7 @@ fun Paint.setColorValue(
     color = -1
     shader = null
     if (colorValueStateList == null) {
-        return true
+        return oldColor != color || oldShader != shader
     }
 
     when (val colorValue = colorValueStateList.getValueForState(state)) {

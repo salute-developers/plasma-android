@@ -8,7 +8,7 @@ internal object StylesSaluteProgressBarVariationsView : ViewStyleProvider<String
         "Default" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarDefault,
         "Secondary" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarSecondary,
         "Accent" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarAccent,
-        "GradientAccent" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarGradientAccent,
+        "GradientAccent" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarGradient,
         "Positive" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarPositive,
         "Warning" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarWarning,
         "Negative" to s.Salute_StylesSalute_ComponentOverlays_ProgressBarNegative,

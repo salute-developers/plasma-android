@@ -218,6 +218,9 @@
     <dimen name="sdkit_indicator_m_max_width">16.0dp</dimen>
     <dimen name="sdkit_indicator_s_max_height">12.0dp</dimen>
     <dimen name="sdkit_indicator_s_max_width">12.0dp</dimen>
+    <dimen name="sdkit_progress_bar_min_height">8.0dp</dimen>
+    <dimen name="sdkit_progress_bar_max_height">8.0dp</dimen>
+    <dimen name="sdkit_progress_bar_track_height">8.0dp</dimen>
     <dimen name="sdkit_circular_progress_bar_xxl_min_width">256.0dp</dimen>
     <dimen name="sdkit_circular_progress_bar_xxl_min_height">256.0dp</dimen>
     <dimen name="sdkit_circular_progress_bar_xxl_track_thickness">8.0dp</dimen>
