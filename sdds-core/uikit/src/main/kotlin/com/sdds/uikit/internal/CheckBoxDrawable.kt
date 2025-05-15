@@ -191,7 +191,7 @@ internal class CheckBoxDrawable(
     }
 
     /**
-     * Устанавливает цвета иконки маркера
+     * Устанавливает цвета иконки для checked
      */
     fun setCheckIconTintList(checkIconTintLists: ColorStateList? = null) {
         if (_checkIconTintList != checkIconTintLists) {
@@ -201,7 +201,7 @@ internal class CheckBoxDrawable(
     }
 
     /**
-     * Устанавливает цвета иконки маркера
+     * Устанавливает цвета иконки для indeterminate
      */
     fun setIndeterminateIconTintList(indeterminateIconTintLists: ColorStateList? = null) {
         if (_indeterminateIconTintList != indeterminateIconTintLists) {

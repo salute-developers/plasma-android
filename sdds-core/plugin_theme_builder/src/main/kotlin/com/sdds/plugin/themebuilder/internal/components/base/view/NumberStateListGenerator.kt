@@ -36,6 +36,10 @@ internal class NumberStateListGenerator<T : Number, S : State<T>, V : Stateful<T
         addItem(createItem(index, rawValue, value, states))
     }
 
+    override fun sortStateList(stateList: Set<StateListItem>): List<StateListItem> {
+        return stateList.sortedByDescending { it.states.size }
+    }
+
     private fun createItem(
         index: Int,
         rawValue: T,

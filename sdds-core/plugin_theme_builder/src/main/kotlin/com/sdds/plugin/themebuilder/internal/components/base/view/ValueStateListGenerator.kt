@@ -32,6 +32,10 @@ internal abstract class ValueStateListGenerator<Raw : Any, S : State<Raw>, Value
         _stateListItems.add(item)
     }
 
+    protected open fun sortStateList(stateList: Set<StateListItem>): List<StateListItem> {
+        return stateList.toList()
+    }
+
     fun addValue(
         value: Value,
         stateAttrs: Set<StateListAttribute> = emptySet(),
@@ -77,14 +81,13 @@ internal abstract class ValueStateListGenerator<Raw : Any, S : State<Raw>, Value
     }
 
     private fun XmlResourcesDocumentBuilder.prepareStateList(valueAttrName: String) {
-        _stateListItems
+        sortStateList(_stateListItems)
             .forEach { stateListItem ->
                 appendBaseElement(
                     elementName = ElementName.ITEM.value,
                     attrs = mutableMapOf<String, String>().apply {
                         stateListItem.extraAttr.forEach { put(it.name, it.value) }
                         put(valueAttrName, stateListItem.value)
-
                         stateListItem.states.forEach {
                             put(it.name, it.value)
                         }

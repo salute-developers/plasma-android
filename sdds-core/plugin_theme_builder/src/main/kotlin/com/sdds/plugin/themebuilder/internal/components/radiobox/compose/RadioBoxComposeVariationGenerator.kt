@@ -1,13 +1,14 @@
-package com.sdds.plugin.themebuilder.internal.components.checkbox
+package com.sdds.plugin.themebuilder.internal.components.radiobox.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
-internal class CheckBoxComposeVariationGenerator(
+internal class RadioBoxComposeVariationGenerator(
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -18,7 +19,7 @@ internal class CheckBoxComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
-) : ComposeVariationGenerator<CheckBoxProperties>(
+) : ComposeVariationGenerator<RadioBoxProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
     dimensionsConfig = dimensionsConfig,
@@ -33,18 +34,17 @@ internal class CheckBoxComposeVariationGenerator(
 
     override fun getCustomState(state: String): String {
         return when (state) {
-            "checked" -> "CheckBoxStates.Checked"
-            "indeterminate" -> "CheckBoxStates.Indeterminate"
-            else -> throw IllegalStateException("Unknown state $state for CheckBox")
+            "checked" -> "RadioBoxStates.Checked"
+            else -> throw IllegalStateException("Unknown state $state for Radiobox")
         }
     }
 
     override fun KtFileBuilder.onAddImports() {
-        addImport("com.sdds.compose.uikit", listOf("CheckBoxStates"))
+        addImport("com.sdds.compose.uikit", listOf("RadioBoxStates"))
     }
 
     override fun propsToBuilderCalls(
-        props: CheckBoxProperties,
+        props: RadioBoxProperties,
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ): List<String> = listOfNotNull(
@@ -56,31 +56,31 @@ internal class CheckBoxComposeVariationGenerator(
         disableAlphaCall(props),
     )
 
-    private fun shapeCall(props: CheckBoxProperties, variationId: String): String? {
+    private fun shapeCall(props: RadioBoxProperties, variationId: String): String? {
         return props.shape?.let {
             getShape(it, variationId)
         }
     }
 
-    private fun labelStyleCall(props: CheckBoxProperties): String? {
+    private fun labelStyleCall(props: RadioBoxProperties): String? {
         return props.labelStyle?.let {
             getTypography("labelStyle", it)
         }
     }
 
-    private fun descriptionStyleCall(props: CheckBoxProperties): String? {
+    private fun descriptionStyleCall(props: RadioBoxProperties): String? {
         return props.descriptionStyle?.let {
             getTypography("descriptionStyle", it)
         }
     }
 
-    private fun disableAlphaCall(props: CheckBoxProperties): String? {
+    private fun disableAlphaCall(props: RadioBoxProperties): String? {
         return props.disableAlpha?.let {
             ".disableAlpha(${it.value}f)"
         }
     }
 
-    private fun colorsCall(props: CheckBoxProperties): String? {
+    private fun colorsCall(props: RadioBoxProperties): String? {
         return if (props.hasColors()) {
             buildString {
                 appendLine(".colorValues {")
@@ -107,7 +107,7 @@ internal class CheckBoxComposeVariationGenerator(
     }
 
     private fun dimensionsCall(
-        props: CheckBoxProperties,
+        props: RadioBoxProperties,
         variationId: String,
     ): String? {
         return if (props.hasDimensions()) {
@@ -147,7 +147,7 @@ internal class CheckBoxComposeVariationGenerator(
         }
     }
 
-    private fun CheckBoxProperties.hasDimensions(): Boolean {
+    private fun RadioBoxProperties.hasDimensions(): Boolean {
         return toggleBorderOffset != null ||
             togglePadding != null ||
             textPadding != null ||
@@ -158,7 +158,7 @@ internal class CheckBoxComposeVariationGenerator(
             toggleIconHeight != null
     }
 
-    private fun CheckBoxProperties.hasColors(): Boolean {
+    private fun RadioBoxProperties.hasColors(): Boolean {
         return toggleColor != null ||
             toggleBorderColor != null ||
             toggleIconColor != null ||

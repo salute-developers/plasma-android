@@ -5,6 +5,7 @@
     <attr name="sd_checkBoxGroupStyle" format="reference" />
     <attr name="sd_radioBoxGroupStyle" format="reference" />
     <attr name="sd_checkBoxStyleOverlay" format="reference" />
+    <attr name="sd_radioBoxStyleOverlay" format="reference" />
 
     <declare-styleable name="SdCheckable">
         <!-- Дополнительный текст  -->
@@ -99,10 +100,16 @@
     </declare-styleable>
 
     <declare-styleable name="SdRadioBoxDrawable">
-        <attr name="sd_buttonSize" format="dimension|float"/>
-        <attr name="sd_buttonMarkSize" format="dimension|float" />
+        <attr name="sd_toggleWidth" />
+        <attr name="sd_toggleHeight" />
         <attr name="sd_buttonPadding" />
         <attr name="sd_focusBorderEnabled" />
+        <attr name="sd_checkedIcon" />
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_toggleBorderWidth" />
+        <attr name="sd_toggleIconWidth" />
+        <attr name="sd_toggleIconHeight" />
+        <attr name="sd_toggleBorderOffset" />
     </declare-styleable>
 
     <declare-styleable name="SdSwitchDrawable">
@@ -120,6 +127,7 @@
     </declare-styleable>
 
     <declare-styleable name="RadioBoxGroup" tools:ignore="ResourceName">
+        <attr name="sd_radioBoxStyleOverlay" />
         <attr name="sd_itemSpacing" />
     </declare-styleable>
 </resources>

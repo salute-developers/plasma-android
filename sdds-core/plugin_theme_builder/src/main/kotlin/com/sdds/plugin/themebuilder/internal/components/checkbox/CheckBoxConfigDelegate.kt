@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
+import com.sdds.plugin.themebuilder.internal.components.checkbox.compose.CheckBoxComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.checkbox.view.CheckBoxStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
