@@ -61,7 +61,7 @@ class ViewSystemProgressScreenshotTest(
     @Test
     override fun testProgressGradientAccent() {
         themedComponent {
-            progressGradientAccent(R.style.Salute_StylesSalute_ComponentOverlays_ProgressBarGradientAccent)
+            progressGradientAccent(R.style.Salute_StylesSalute_ComponentOverlays_ProgressBarGradient)
         }
     }
 
