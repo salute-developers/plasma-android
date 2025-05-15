@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sdds.uikit.CellLayout
+<com.sdds.uikit.LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Theme.Sandbox.Components.PropertyItem"
     android:layout_width="match_parent"
     android:layout_height="@dimen/sandbox_property_height"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingHorizontal="@dimen/sandbox_property_paddings">
+    android:paddingHorizontal="@dimen/sandbox_property_paddings"
+    android:gravity="center_vertical">
 
     <com.sdds.uikit.TextView
         style="@style/Theme.Sandbox.Components.PropertyItemLabel"
         android:id="@+id/property_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/sandbox_property_label_margin"
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Property name"
-        app:layout_cellContent="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/property_value"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +31,8 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Value"
-        app:layout_cellContent="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</com.sdds.uikit.CellLayout>
+</com.sdds.uikit.LinearLayout>

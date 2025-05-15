@@ -5,16 +5,17 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.core.view.setMargins
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.applyState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
 import com.sdds.uikit.NavigationDrawer
 
-internal class NavigationDrawerFragment : ComponentFragment<NavigationDrawerUiState, NavigationDrawer>() {
+internal class NavigationDrawerFragment :
+    ComponentFragment<NavigationDrawerUiState, NavigationDrawer, NavigationDrawerViewModel>() {
 
-    override val componentViewModel by viewModels<NavigationDrawerViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         NavigationDrawerViewModelFactory(
             defaultState = getState { NavigationDrawerUiState() },
             componentKey = componentKey,

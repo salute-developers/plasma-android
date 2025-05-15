@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.flow.vs
 
 import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.flow.FlowUiState
@@ -14,9 +14,9 @@ import com.sdds.uikit.FlowLayout
  * Фрагмент с компонентом FlowLayout
  * @author Малышев Александр on 13.03.2025
  */
-internal class FlowFragment : ComponentFragment<FlowUiState, FlowLayout>() {
+internal class FlowFragment : ComponentFragment<FlowUiState, FlowLayout, FlowViewModel>() {
 
-    override val componentViewModel by viewModels<FlowViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         FlowViewModelFactory(
             defaultState = getState { FlowUiState() },
             componentKey = componentKey,

@@ -9,6 +9,7 @@ import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.use
+import androidx.core.graphics.toRectF
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
@@ -132,11 +133,11 @@ open class TextView @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        setTextColorValue(_textTint, _textShaderFactory)
+        setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF())
     }
 
     private fun updateBounds() {
         paint.getTextBounds(text.toString(), 0, text.length, _textBounds)
-        _textShaderFactory.updateBounds(_textBounds)
+        setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF())
     }
 }

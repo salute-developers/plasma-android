@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.card.vs
 
 import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.card.CardUiState
@@ -14,9 +14,9 @@ import com.sdds.uikit.Card
  * Фрагмент с компонентом Card
  * @author Малышев Александр on 14.03.2025
  */
-internal class CardFragment : ComponentFragment<CardUiState, Card>() {
+internal class CardFragment : ComponentFragment<CardUiState, Card, CardViewModel>() {
 
-    override val componentViewModel by viewModels<CardViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         CardViewModelFactory(
             defaultState = getState { CardUiState() },
             componentKey = componentKey,

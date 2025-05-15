@@ -1,16 +1,16 @@
 package com.sdds.playground.sandbox.segment.vs
 
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.segement.SegmentUiState
 import com.sdds.testing.vs.segement.applyState
 import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.uikit.SegmentItem
 
-internal class SegmentItemFragment : ComponentFragment<SegmentUiState, SegmentItem>() {
+internal class SegmentItemFragment : ComponentFragment<SegmentUiState, SegmentItem, SegmentItemViewModel>() {
 
-    override val componentViewModel by viewModels<SegmentItemViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         SegmentItemViewModelFactory(
             defaultState = getState { SegmentUiState() },
             componentKey = componentKey,

@@ -1,38 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<com.sdds.uikit.LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Theme.Sandbox.Components.EditorDialogContainer"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/sandbox_editor_paddings"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:clipChildren="false"
     android:clipToPadding="false">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header_property_item" />
 
     <com.sdds.uikit.TextField
         style="@style/Theme.Sandbox.Components.PropertyEditorField"
         android:id="@+id/text_editor_field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:sd_label="@string/sandbox_editor_title"
+        android:layout_marginTop="@dimen/sandbox_editor_margin_top"
         app:sd_placeholder="@string/sandbox_editor_placeholder"
+        android:layout_marginHorizontal="@dimen/sandbox_property_paddings"
         android:imeOptions="actionDone"/>
 
-    <com.sdds.uikit.Button
-        style="@style/Theme.Sandbox.Components.PropertyConfirmButton"
-        android:id="@+id/text_editor_confirm_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sandbox_confirm_button_margin_top"
-        android:text="@string/sandbox_editor_confirm_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_editor_field" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.sdds.uikit.LinearLayout>

@@ -300,7 +300,7 @@ open class ChipGroup @JvmOverloads constructor(
                 chip.state = state
 
                 _checkedItemsColorState[chip.id] = chip.colorState
-                chip.colorState = colorState
+                colorState.takeIf { it != ColorState.Undefined }?.let { chip.colorState = it }
             } else {
                 chip.state = _checkedItems[chip.id]
                 _checkedItems.remove(chip.id)

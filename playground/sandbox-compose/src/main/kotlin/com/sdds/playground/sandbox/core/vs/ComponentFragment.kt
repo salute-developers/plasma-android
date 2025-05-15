@@ -12,18 +12,22 @@ import android.widget.FrameLayout.LayoutParams
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
 import androidx.annotation.StyleRes
+import androidx.core.view.OnApplyWindowInsetsListener
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.flowWithLifecycle
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.HasDefaultViewModelProviderFactory
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
 import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
-import com.sdds.uikit.Divider
 import com.sdds.uikit.FrameLayout
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -32,18 +36,19 @@ import kotlinx.coroutines.flow.onEach
  * Базовый фрагмент для отображения компонента
  * @author Малышев Александр on 31.07.2024
  */
-internal abstract class ComponentFragment<State : UiState, Component : View> :
-    Fragment(), PropertiesAdapter.InteractionListener {
+internal abstract class ComponentFragment<State : UiState, Component : View, VM : ComponentViewModel<State>> :
+    Fragment(), HasDefaultViewModelProviderFactory {
 
+    private var _sheetBehavior: BottomSheetBehavior<ViewGroup>? = null
     private var _binding: FragmentComponentScaffoldBinding? = null
-    private val propertiesAdapter: PropertiesAdapter = PropertiesAdapter()
-    private var currentProperty: Property<*>? = null
     private var verticalScrollView: ScrollView? = null
     private var horizontalScrollView: HorizontalScrollView? = null
     private var currentVariant = ""
     protected var componentRef: Component? = null
     private val componentContainer
         get() = _binding?.root?.findViewById<FrameLayout>(R.id.component_container_id)
+
+    private var _propsBottomSheetDelegate: PropertiesBottomSheetDelegate? = null
 
     protected open val defaultLayoutParams: LayoutParams =
         LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
@@ -70,7 +75,15 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
         }
         key ?: throw IllegalArgumentException("ComponentKey has to be provided")
     }
-    abstract val componentViewModel: ComponentViewModel<State>
+    protected abstract val viewModelFactory: ViewModelProvider.Factory
+
+    private val _componentViewModel: ComponentViewModel<State> by viewModels(factoryProducer = { viewModelFactory })
+
+    @Suppress("UNCHECKED_CAST")
+    protected val componentViewModel: VM get() = _componentViewModel as VM
+
+    override val defaultViewModelProviderFactory: ViewModelProvider.Factory
+        get() = viewModelFactory
 
     protected open val scrollMode
         get() = ScrollMode.NONE
@@ -98,27 +111,6 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
     ): View? {
         _binding = FragmentComponentScaffoldBinding.inflate(inflater, container, false)
         dispatchComponentStyleChanged()
-        _binding?.apply {
-            propertiesRecyclerView.itemAnimator = null
-            propertiesRecyclerView.adapter = propertiesAdapter
-            propertiesRecyclerView.addItemDecoration(
-                Divider.recyclerViewDecoration(
-                    requireContext(),
-                    RecyclerView.VERTICAL,
-                ),
-            )
-            propertiesAdapter.setInteractionListener(this@ComponentFragment)
-            header.propertyValueReset.setOnClickListener { componentViewModel.resetToDefault() }
-        }
-        requireActivity().supportFragmentManager.setFragmentResultListener(
-            EditorFragment.CONFIRM_RESULT_KEY,
-            viewLifecycleOwner,
-        ) { requestKey, bundle ->
-            if (requestKey != EditorFragment.CONFIRM_RESULT_KEY) return@setFragmentResultListener
-            val editedProperty = currentProperty ?: return@setFragmentResultListener
-            val newValue = bundle.getString(EditorFragment.CONFIRM_VALUE).orEmpty()
-            componentViewModel.updateProperty(editedProperty.name, newValue)
-        }
         return _binding?.root
     }
 
@@ -128,15 +120,30 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
                 id = R.id.component_container_id
                 isFocusable = false
                 clipChildren = false
-                setOnClickListener { view?.findFocus()?.clearFocus() }
+                setOnClickListener {
+                    _sheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
+                    view?.findFocus()?.clearFocus()
+                }
             }
+
+    private fun createProperties() = _binding?.run {
+        val behavior = runCatching { BottomSheetBehavior.from<ViewGroup>(componentPropsSheet) }.getOrNull()
+
+        _sheetBehavior = behavior
+        if (behavior != null) {
+            behavior.peekHeight = resources.getDimensionPixelSize(R.dimen.sandbox_properties_header_height)
+            behavior.isFitToContents = false
+            behavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            _propsBottomSheetDelegate = PropertiesBottomSheetDelegate(behavior).also {
+                behavior.addBottomSheetCallback(it)
+            }
+            ViewCompat.setOnApplyWindowInsetsListener(root, _propsBottomSheetDelegate)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        componentViewModel.properties
-            .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
-            .onEach { propertiesAdapter.updateProperties(it) }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
+        createProperties()
         componentViewModel.theme
             .onEach {
                 dispatchThemeChanged(it)
@@ -156,6 +163,10 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
                 onComponentUpdate(componentRef, it)
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)
+
+        componentViewModel.showEditor
+            .onEach { showEditor(it) }
+            .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
     private fun dispatchThemeChanged(theme: Theme) {
@@ -166,6 +177,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
                 createComponentContainer(viewTheme(theme).themeRes),
                 LayoutParams(MATCH_PARENT, MATCH_PARENT),
             )
+            _propsBottomSheetDelegate?.run { offsetComponentLayout(currentOffset) }
         }
     }
 
@@ -182,44 +194,50 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
                     }
                 }
             addView(wrappedComponent, layoutParams)
+            wrappedComponent.doOnPreDraw {
+                _propsBottomSheetDelegate?.run { offsetComponentLayout(currentOffset) }
+            }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        propertiesAdapter.setInteractionListener(null)
-        currentProperty = null
         verticalScrollView = null
         horizontalScrollView = null
-        _binding?.propertiesRecyclerView?.adapter = null
         _binding = null
         componentRef = null
     }
 
-    override fun onSelect(property: Property<*>) {
-        currentProperty = property
-        when (property) {
-            is Property.BooleanProperty -> componentViewModel.updateProperty(
-                property.name,
-                !property.value,
-            )
-
+    private fun showEditor(property: Property<*>) {
+        val editor = when (property) {
             is Property.SingleChoiceProperty -> EditorFragment.choiceEditor(
                 propertyName = property.name,
                 currentValue = property.value,
                 choices = property.variants,
-            ).show(childFragmentManager, "SingleChoicePropertyEditor")
+            )
 
             is Property.IntProperty -> EditorFragment.textEditor(
                 propertyName = property.name,
                 currentValue = property.value.toString(),
-            ).show(childFragmentManager, "IntPropertyEditor")
+            )
 
             is Property.StringProperty -> EditorFragment.textEditor(
                 propertyName = property.name,
                 currentValue = property.value,
-            ).show(childFragmentManager, "StringPropertyEditor")
+            )
+
+            else -> return
         }
+        childFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right,
+            )
+            .replace(R.id.component_props_container, editor)
+            .addToBackStack(property.name)
+            .commit()
     }
 
     private fun getVerticalScrollView(): ScrollView =
@@ -269,6 +287,38 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
         VERTICAL,
         HORIZONTAL,
         NONE,
+    }
+
+    private inner class PropertiesBottomSheetDelegate(
+        private val behavior: BottomSheetBehavior<ViewGroup>,
+    ) : BottomSheetBehavior.BottomSheetCallback(), OnApplyWindowInsetsListener {
+
+        var currentOffset: Float = 0f
+        var previousState: Int? = null
+
+        override fun onStateChanged(bottomSheet: View, newState: Int) = Unit
+
+        override fun onSlide(bottomSheet: View, slideOffset: Float) {
+            currentOffset = (slideOffset * bottomSheet.height)
+            offsetComponentLayout(currentOffset)
+        }
+
+        fun offsetComponentLayout(offset: Float) {
+            val component = componentRef ?: return
+            component.translationY = -offset.coerceAtMost(component.top.toFloat())
+        }
+
+        override fun onApplyWindowInsets(v: View, insets: WindowInsetsCompat): WindowInsetsCompat {
+            val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
+            if (imeVisible) {
+                previousState = behavior.state
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            } else if (previousState != null) {
+                behavior.state = previousState ?: return insets
+                previousState = null
+            }
+            return insets
+        }
     }
 
     companion object {
