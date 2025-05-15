@@ -9,7 +9,7 @@ internal object PlasmaSdServiceProgressBarVariationsView : ViewStyleProvider<Str
             "Default" to s.Plasma_SdService_ComponentOverlays_ProgressBarDefault,
             "Secondary" to s.Plasma_SdService_ComponentOverlays_ProgressBarSecondary,
             "Accent" to s.Plasma_SdService_ComponentOverlays_ProgressBarAccent,
-            "GradientAccent" to s.Plasma_SdService_ComponentOverlays_ProgressBarGradientAccent,
+            "GradientAccent" to s.Plasma_SdService_ComponentOverlays_ProgressBarGradient,
             "Positive" to s.Plasma_SdService_ComponentOverlays_ProgressBarPositive,
             "Warning" to s.Plasma_SdService_ComponentOverlays_ProgressBarWarning,
             "Negative" to s.Plasma_SdService_ComponentOverlays_ProgressBarNegative,

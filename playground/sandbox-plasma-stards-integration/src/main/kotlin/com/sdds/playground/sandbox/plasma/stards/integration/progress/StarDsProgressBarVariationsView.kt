@@ -9,7 +9,7 @@ internal object StarDsProgressBarVariationsView : ViewStyleProvider<String>() {
             "Default" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarDefault,
             "Secondary" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarSecondary,
             "Accent" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarAccent,
-            "GradientAccent" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarGradientAccent,
+            "GradientAccent" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarGradient,
             "Positive" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarPositive,
             "Warning" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarWarning,
             "Negative" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarNegative,
