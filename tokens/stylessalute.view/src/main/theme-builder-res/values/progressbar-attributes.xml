@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SaluteProgressBarColorState">
+        <attr format="boolean" name="salute_progressbar_state_default"/>
+        <attr format="boolean" name="salute_progressbar_state_secondary"/>
+        <attr format="boolean" name="salute_progressbar_state_accent"/>
+        <attr format="boolean" name="salute_progressbar_state_gradient"/>
+        <attr format="boolean" name="salute_progressbar_state_negative"/>
+        <attr format="boolean" name="salute_progressbar_state_positive"/>
+        <attr format="boolean" name="salute_progressbar_state_warning"/>
+    </declare-styleable>
+    <declare-styleable name="ProgressBar" tools:ignore="ResourceName">
+        <attr format="enum" name="salute_progressbarColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_secondary" value="1"/>
+            <enum name="state_accent" value="2"/>
+            <enum name="state_gradient" value="3"/>
+            <enum name="state_negative" value="4"/>
+            <enum name="state_positive" value="5"/>
+            <enum name="state_warning" value="6"/>
+        </attr>
+    </declare-styleable>
+</resources>
