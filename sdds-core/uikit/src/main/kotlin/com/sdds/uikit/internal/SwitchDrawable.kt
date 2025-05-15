@@ -8,7 +8,7 @@ import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.PixelFormat
 import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
+import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
@@ -118,15 +118,6 @@ internal class SwitchDrawable(
         }
     }
 
-    private fun setThumbBlendMode() {
-        _thumbDrawable?.setColorFilter(
-            PorterDuffColorFilter(
-                _thumbColorList.getColorForState(state, Color.WHITE),
-                PorterDuff.Mode.ADD,
-            ),
-        )
-    }
-
     override fun onBoundsChange(bounds: Rect) {
         _trackDrawable?.setBounds(0, 0, _switchWidth, _switchHeight)
         val left = bounds.left
@@ -142,9 +133,8 @@ internal class SwitchDrawable(
 
     override fun onStateChange(state: IntArray): Boolean {
         var invalidate = super.onStateChange(state)
-        _thumbDrawable?.setState(state)
-        setThumbBlendMode()
-        _trackDrawable?.setState(state)
+        invalidate = _thumbDrawable?.setState(state) == true || invalidate
+        invalidate = _trackDrawable?.setState(state) == true || invalidate
         val checked = state.contains(android.R.attr.state_checked)
         if (_checked != checked) {
             _checked = checked
@@ -215,6 +205,7 @@ internal class SwitchDrawable(
         )
         _thumbDrawable = ShapeDrawable(thumbShape).apply {
             callback = this@SwitchDrawable.callback
+            setXfermode(PorterDuffXfermode(PorterDuff.Mode.ADD))
         }
         typedArray.recycle()
     }
