@@ -2,88 +2,16 @@
 <resources>
 
     <!--region Chip Overlays  -->
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipLDefault">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipLSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipLAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledDefault">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipLPilledAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipMDefault">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipMSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipMAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledDefault">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipMPilledAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Pilled.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipSDefault">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipSSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipSAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledDefault">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipSPilledAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Pilled.Accent</item>
-    </style>
-
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXSDefault">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS</item>
     </style>
 
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXSSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Secondary</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Secondary</item>
     </style>
 
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXSAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Accent</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Accent</item>
     </style>
 
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXSPilledDefault">
@@ -91,59 +19,61 @@
     </style>
 
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXSPilledSecondary">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Pilled.Secondary</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Secondary</item>
     </style>
 
     <style name="Sdkit.StarDs.ComponentOverlays.ChipXSPilledAccent">
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Pilled.Accent</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.Xs.Pilled.Accent</item>
     </style>
     <!--endregion Chip Overlays  -->
 
     <!--region Embedded Chip Overlays  -->
+
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedLDefault">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Embedded</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedLSecondary">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Embedded.Secondary</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedLAccent">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Embedded.Accent</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedMDefault">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Embedded</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedMSecondary">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Embedded.Secondary</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedMAccent">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Embedded.Accent</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedSDefault">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Embedded</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedSSecondary">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Embedded.Secondary</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedSAccent">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Embedded.Accent</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedXSDefault">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Embedded</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedXSSecondary">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Embedded.Secondary</item>
     </style>
-
+    <!--deprecated This component is no longer supported -->
     <style name="Sdkit.StarDs.ComponentOverlays.ChipEmbeddedXSAccent">
         <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Embedded.Accent</item>
     </style>
@@ -157,133 +87,21 @@
         <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
     </style>
 
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseL">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.L</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L</item>
-    </style>
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.ChipGroupDenseXs -->
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXS" parent="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXs"/>
 
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.L.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Secondary</item>
-    </style>
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.ChipGroupDenseXsSecondary -->
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXSSecondary" parent="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsSecondary"/>
 
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLPilledSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Pilled.Secondary</item>
-    </style>
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.ChipGroupDenseXsAccent -->
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXSAccent" parent="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXsAccent"/>
 
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseLAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.L.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Accent</item>
-    </style>
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.ChipGroupWideXs -->
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXS" parent="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXs"/>
 
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseM">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.M</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
-    </style>
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.ChipGroupWideXsSecondary -->
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXSSecondary" parent="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXsSecondary"/>
 
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.M.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseMAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.M.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseS">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.S</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.S.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseSAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.S.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXS">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.XS</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXSSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.XS.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDenseXSAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense.XS.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Accent</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideL">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.L</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideLSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.L.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideLAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.L.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.L.Accent</item>
-
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideM">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.M</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideMSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.M.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideMAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.M.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Accent</item>
-
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideS">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.S</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S</item>
-
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideSSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.S.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Secondary</item>
-
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideSAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.S.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.S.Accent</item>
-
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXS">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.XS</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXSSecondary">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.XS.Secondary</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Secondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXSAccent">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.XS.Accent</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.XS.Accent</item>
-    </style>
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.ChipGroupWideXsAccent -->
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXSAccent" parent="Sdkit.StarDs.ComponentOverlays.ChipGroupWideXsAccent"/>
 </resources>

@@ -22,8 +22,13 @@ data class AdjustmentCornerSize(
 
     override fun toPx(shapeSize: Size, density: Density): Float {
         val otherPx = other.toPx(shapeSize, density)
+        if (isCircle(shapeSize, otherPx)) return otherPx
         val result = otherPx + adjustmentPx
         return if (result > 0) result else otherPx
+    }
+
+    private fun isCircle(shapeSize: Size, otherPx: Float): Boolean {
+        return shapeSize.minDimension / 2 == otherPx
     }
 }
 

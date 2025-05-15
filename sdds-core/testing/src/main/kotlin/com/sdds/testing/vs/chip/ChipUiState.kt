@@ -23,6 +23,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ChipUiState(
     override val variant: String = "",
+    override val colorVariant: String = "",
     val label: String = "Label",
     val contentLeft: Boolean = true,
     val hasClose: Boolean = true,
@@ -30,23 +31,15 @@ data class ChipUiState(
     val isWrapped: Boolean = false,
     val quantity: Int = 3,
     val gravityMode: GravityMode = GravityMode.Start,
-    val checkedState: CheckedState = CheckedState.Accent,
     val selectionMode: ChipGroup.SelectionMode = ChipGroup.SelectionMode.Single,
 ) : Parcelable, UiState {
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)
     }
-}
 
-/**
- * Состояния выбранного Chip
- * @property viewState состояние цветового стиля
- */
-@Parcelize
-enum class CheckedState(val viewState: ViewState) : Parcelable {
-    Default(ViewState.PRIMARY),
-    Secondary(ViewState.SECONDARY),
-    Accent(ViewState.ACCENT),
+    override fun updateColorVariant(colorVariant: String): UiState {
+        return copy(colorVariant = colorVariant)
+    }
 }
 
 /**

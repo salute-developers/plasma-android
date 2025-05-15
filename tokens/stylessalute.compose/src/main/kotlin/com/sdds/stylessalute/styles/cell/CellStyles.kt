@@ -21,6 +21,7 @@ import com.sdds.stylessalute.styles.avatar.L
 import com.sdds.stylessalute.styles.avatar.M
 import com.sdds.stylessalute.styles.avatar.S
 import com.sdds.stylessalute.styles.checkbox.CheckBox
+import com.sdds.stylessalute.styles.checkbox.Default
 import com.sdds.stylessalute.styles.checkbox.M
 import com.sdds.stylessalute.styles.checkbox.S
 import com.sdds.stylessalute.styles.iconbutton.Clear
@@ -115,7 +116,7 @@ public val Cell.L: WrapperCellL
         }
         .avatarStyle(Avatar.L.style())
         .iconButtonStyle(IconButton.L.Clear.style())
-        .checkBoxStyle(CheckBox.M.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.L.style())
         .wrap(::WrapperCellL)
@@ -136,7 +137,7 @@ public val Cell.M: WrapperCellM
         }
         .avatarStyle(Avatar.M.style())
         .iconButtonStyle(IconButton.M.Clear.style())
-        .checkBoxStyle(CheckBox.M.style())
+        .checkBoxStyle(CheckBox.M.Default.style())
         .radioBoxStyle(RadioBox.M.style())
         .switchStyle(Switch.M.style())
         .wrap(::WrapperCellM)
@@ -157,7 +158,7 @@ public val Cell.S: WrapperCellS
         }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.S.Clear.style())
-        .checkBoxStyle(CheckBox.S.style())
+        .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
         .wrap(::WrapperCellS)
@@ -178,7 +179,7 @@ public val Cell.Xs: WrapperCellXs
         }
         .avatarStyle(Avatar.S.style())
         .iconButtonStyle(IconButton.Xs.Clear.style())
-        .checkBoxStyle(CheckBox.S.style())
+        .checkBoxStyle(CheckBox.S.Default.style())
         .radioBoxStyle(RadioBox.S.style())
         .switchStyle(Switch.S.style())
         .wrap(::WrapperCellXs)

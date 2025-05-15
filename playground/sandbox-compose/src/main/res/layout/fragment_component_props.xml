@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.Sandbox.Components.PropertiesList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:targetApi="s">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/layout_header_property_item" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/properties_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:paddingBottom="@dimen/sandbox_properties_container_paddings"
+        android:clipToPadding="false"/>
+
+</com.sdds.uikit.LinearLayout>

@@ -22,7 +22,9 @@ import com.sdds.playground.sandbox.sdds.serv.integration.cell.vs.SddsServCellVar
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.SddsServCheckBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServCheckBoxGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServEmbeddedChipVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
@@ -113,8 +115,16 @@ object SddsServViewComponents : ComponentsProviderView {
                 SddsServChipVariationsView,
             ),
             ViewComponent(
+                ComponentKey("ChipEmbedded", CoreComponent.CHIP),
+                SddsServEmbeddedChipVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.ChipGroup,
                 SddsServChipGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ChipGroupEmbedded", CoreComponent.CHIP_GROUP),
+                SddsServEmbeddedChipGroupVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Counter,

@@ -3,6 +3,7 @@
 package com.sdds.compose.uikit.internal.switch
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,13 +15,14 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
-import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.internal.common.StyledText
 import kotlin.math.max
 
 /**
@@ -67,43 +69,19 @@ internal fun BaseSwitchLayout(
  * Возвращает null, если [value] - null
  * @param value название
  */
-internal fun switchLabel(
+internal fun switchText(
     value: String?,
     textStyle: TextStyle,
-    color: Color,
+    color: State<Color>,
     maxLines: Int,
 ): @Composable ((Modifier) -> Unit)? =
     if (value != null) {
         {
-            Text(
-                text = value,
+            StyledText(
                 modifier = it,
-                style = textStyle.copy(color = color),
-                maxLines = maxLines,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
-    } else {
-        null
-    }
-
-/**
- * Создает Composable для описания (description) в [BaseSwitchLayout].
- * Возвращает null, если [value] - null
- * @param value название
- */
-internal fun switchDescription(
-    value: String?,
-    textStyle: TextStyle,
-    color: Color,
-    maxLines: Int,
-): @Composable ((Modifier) -> Unit)? =
-    if (value != null) {
-        {
-            Text(
-                text = value,
-                modifier = it,
-                style = textStyle.copy(color = color),
+                text = AnnotatedString(value),
+                textStyle = textStyle,
+                textColor = color.value,
                 maxLines = maxLines,
                 overflow = TextOverflow.Ellipsis,
             )

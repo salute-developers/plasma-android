@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.buttons.vs
 
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.button.ButtonUiState
 import com.sdds.testing.vs.button.applyState
@@ -9,12 +9,12 @@ import com.sdds.testing.vs.button.linkButton
 import com.sdds.uikit.LinkButton
 
 /**
- * Фрагмент с компонентом BasicButton
+ * Фрагмент с компонентом LinkButton
  * @author Малышев Александр on 31.07.2024
  */
-internal class LinkButtonFragment : ComponentFragment<ButtonUiState, LinkButton>() {
+internal class LinkButtonFragment : ComponentFragment<ButtonUiState, LinkButton, LinkButtonViewModel>() {
 
-    override val componentViewModel by viewModels<LinkButtonViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         LinkButtonViewModelFactory(
             defaultState = getState { ButtonUiState() },
             componentKey = componentKey,

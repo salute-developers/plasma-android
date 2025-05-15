@@ -11,6 +11,10 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.core.content.withStyledAttributes
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.CheckBoxDrawable
 import com.sdds.uikit.internal.CheckableDelegate
 import com.sdds.uikit.internal.base.ViewAlphaHelper
@@ -27,7 +31,7 @@ open class CheckBox @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.checkboxStyle,
-) : AppCompatCheckBox(context, attrs, defStyleAttr) {
+) : AppCompatCheckBox(context, attrs, defStyleAttr), ColorStateHolder {
 
     @Suppress("LeakingThis")
     private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr)
@@ -78,6 +82,7 @@ open class CheckBox @JvmOverloads constructor(
     init {
         background = null
         buttonDrawable = CheckBoxDrawable(context, attrs, defStyleAttr).apply {
+            callback = this@CheckBox
             isInEditMode = this@CheckBox.isInEditMode
         }
         obtainAttributes(attrs, defStyleAttr)
@@ -100,6 +105,17 @@ open class CheckBox @JvmOverloads constructor(
             if (_toggleState != value) {
                 _toggleState = value
                 notifyToggleStateChanged()
+            }
+        }
+
+    /**
+     * @see ColorStateHolder.colorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
             }
         }
 
@@ -199,14 +215,20 @@ open class CheckBox @JvmOverloads constructor(
         }
     }
 
+    override fun verifyDrawable(who: Drawable): Boolean {
+        return super.verifyDrawable(who) || who == _buttonDrawable
+    }
+
     @Suppress("UNNECESSARY_SAFE_CALL")
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        val drawableState = super.onCreateDrawableState(extraSpace + 2)
         // Проверяем на null, так как onCreateDrawableState может выполняться до инициализации _toggleState
         if (toggleState?.isIndeterminate == true) {
             mergeDrawableStates(drawableState, IndeterminateState)
         }
-
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
         return drawableState
     }
 
@@ -223,18 +245,19 @@ open class CheckBox @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         _checkableDelegate.updateDescriptionColor()
+        _buttonDrawable?.state = drawableState
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CheckBox, defStyleAttr, 0)
-        setCheckBoxColors(
-            borderColors = typedArray.getColorStateList(R.styleable.CheckBox_sd_buttonBorderColor),
-            boxColors = typedArray.getColorStateList(R.styleable.CheckBox_sd_buttonBoxColor),
-            checkMarkColors = typedArray.getColorStateList(R.styleable.CheckBox_sd_buttonMarkColor),
-        )
-        _toggleState = ToggleableState.values()[typedArray.getInt(R.styleable.CheckBox_sd_toggleState, 0)]
-        notifyToggleStateChanged()
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.CheckBox, defStyleAttr, 0) {
+            setCheckBoxColors(
+                borderColors = getColorStateList(R.styleable.CheckBox_sd_buttonBorderColor),
+                boxColors = getColorStateList(R.styleable.CheckBox_sd_buttonBoxColor),
+                checkMarkColors = getColorStateList(R.styleable.CheckBox_sd_buttonMarkColor),
+            )
+            _toggleState = ToggleableState.values()[getInt(R.styleable.CheckBox_sd_toggleState, 0)]
+            notifyToggleStateChanged()
+        }
     }
 
     private fun notifyToggleStateChanged() {

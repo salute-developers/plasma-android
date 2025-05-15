@@ -36,6 +36,10 @@ internal class NumberStateListGenerator<T : Number, S : State<T>, V : Stateful<T
         addItem(createItem(index, rawValue, value, states))
     }
 
+    override fun sortStateList(stateList: Set<StateListItem>): List<StateListItem> {
+        return stateList.sortedByDescending { it.states.size }
+    }
+
     private fun createItem(
         index: Int,
         rawValue: T,
@@ -46,7 +50,7 @@ internal class NumberStateListGenerator<T : Number, S : State<T>, V : Stateful<T
             is Dimension -> {
                 val dimen = DimenData(
                     name = "${fileName}_value_$index",
-                    value = value.value,
+                    value = rawValue,
                     type = DimenData.Type.DP,
                 )
                 dimensAggregator.addDimen(dimen)

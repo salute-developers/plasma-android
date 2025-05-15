@@ -2,9 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
-    <style name="Serv.Sdds.ComponentOverlays.TextAreaChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
-    </style>
     <style name="Serv.Sdds.Components.TextArea" parent="Sdds.Components.TextArea">
         <item name="sd_scrollBarThickness">@dimen/serv_text_area_scrollbar_thickness</item>
         <item name="sd_scrollBarPaddingTop">@dimen/serv_text_area_scrollbar_padding_top</item>
@@ -18,7 +15,6 @@
         <item name="sd_counterAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
         <item name="sd_prefixTextPadding">@dimen/serv_text_area_prefix_padding</item>
         <item name="sd_suffixTextPadding">@dimen/serv_text_area_suffix_padding</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldChips</item>
         <item name="sd_valueColor">@color/serv_text_area_value_color</item>
         <item name="sd_captionColor">@color/serv_text_area_caption_color</item>
         <item name="sd_iconTint">@color/serv_text_area_icon_color</item>
@@ -31,8 +27,7 @@
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.TextAreaColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXsChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xs.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.Xs.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.Xs">
         <item name="sd_requirementMode">optional</item>
@@ -100,8 +95,7 @@
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.S.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.S.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.S">
         <item name="sd_requirementMode">optional</item>
@@ -193,8 +187,7 @@
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.M.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.M.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.M">
         <item name="sd_requirementMode">optional</item>
@@ -285,8 +278,7 @@
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.L">
         <item name="sd_requirementMode">optional</item>
@@ -378,8 +370,7 @@
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.Xl">
         <item name="sd_requirementMode">optional</item>

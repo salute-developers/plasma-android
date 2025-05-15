@@ -1,14 +1,15 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.plasma.sd.service.styles.progress.Accent
-import com.sdds.plasma.sd.service.styles.progress.Default
-import com.sdds.plasma.sd.service.styles.progress.GradientAccent
-import com.sdds.plasma.sd.service.styles.progress.Negative
-import com.sdds.plasma.sd.service.styles.progress.Positive
-import com.sdds.plasma.sd.service.styles.progress.ProgressBar
-import com.sdds.plasma.sd.service.styles.progress.Secondary
-import com.sdds.plasma.sd.service.styles.progress.Warning
+import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.progressbar.Accent
+import com.sdds.plasma.sd.service.styles.progressbar.Default
+import com.sdds.plasma.sd.service.styles.progressbar.Gradient
+import com.sdds.plasma.sd.service.styles.progressbar.Negative
+import com.sdds.plasma.sd.service.styles.progressbar.Positive
+import com.sdds.plasma.sd.service.styles.progressbar.ProgressBar
+import com.sdds.plasma.sd.service.styles.progressbar.Secondary
+import com.sdds.plasma.sd.service.styles.progressbar.Warning
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.progress.ProgressBarAccent
 import com.sdds.testing.compose.progress.ProgressBarDefault
@@ -80,7 +81,7 @@ class ComposeProgressScreenshotTest(
     @Test
     fun testProgressBarGradientAccent() {
         composeTestRule.content {
-            ProgressBarGradientAccent(style = ProgressBar.GradientAccent.style())
+            ProgressBarGradientAccent(style = ProgressBar.Gradient.style())
         }
     }
 

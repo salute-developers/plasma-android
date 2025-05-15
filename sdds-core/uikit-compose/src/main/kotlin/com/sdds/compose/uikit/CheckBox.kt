@@ -1,7 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -9,11 +9,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.state.ToggleableState
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
-import com.sdds.compose.uikit.internal.checkable.CheckBoxControl
 import com.sdds.compose.uikit.internal.checkable.checkableDescription
 import com.sdds.compose.uikit.internal.checkable.checkableLabel
-import com.sdds.compose.uikit.internal.checkable.checked
+import com.sdds.compose.uikit.internal.checkable.checkbox.CheckBoxControl
+import com.sdds.compose.uikit.internal.checkable.checkbox.checked
 
 /**
  * Компонент CheckBox
@@ -75,7 +78,6 @@ fun CheckBox(
     description: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val focusState = interactionSource.collectIsFocusedAsState()
     val selectableModifier = if (onClick != null) {
         Modifier.selectable(
             selected = state.checked,
@@ -89,6 +91,9 @@ fun CheckBox(
         Modifier
     }
 
+    val descriptionColor = style.colorValues.descriptionColor.colorForInteraction(interactionSource)
+    val labelColor = style.colorValues.labelColor.colorForInteraction(interactionSource)
+
     BaseCheckableLayout(
         modifier = modifier
             .then(selectableModifier)
@@ -96,24 +101,60 @@ fun CheckBox(
         control = {
             CheckBoxControl(
                 state = state,
-                focused = focusState.value,
+                shape = style.shape,
                 modifier = it,
-                colors = style.colors,
-                dimensions = style.dimensions,
+                colors = style.colorValues,
+                dimensions = style.dimensionValues,
                 animationDuration = style.animationDuration,
+                icons = null,
+                interactionSource = interactionSource,
             )
         },
         label = checkableLabel(
             value = label,
             textStyle = style.labelStyle,
-            color = style.colors.labelColor,
+            color = labelColor,
         ),
         description = checkableDescription(
             value = description,
             textStyle = style.descriptionStyle,
-            color = style.colors.descriptionColor,
+            color = descriptionColor,
         ),
-        verticalSpacing = style.dimensions.verticalSpacing,
-        horizontalSpacing = style.dimensions.horizontalSpacing,
+        verticalSpacing = style.dimensionValues.descriptionPadding,
+        horizontalSpacing = style.dimensionValues.textPadding,
+    )
+}
+
+/**
+ * Состояния CheckBox
+ */
+enum class CheckBoxStates : ValueState {
+    /**
+     * CheckBox выбран
+     */
+    Checked,
+
+    /**
+     * Indeterminate состояние
+     */
+    Indeterminate,
+}
+
+@Composable
+@Preview
+private fun CheckBoxPreview() {
+    CheckBox(
+        modifier = Modifier.padding(8.dp),
+        state = ToggleableState.Indeterminate,
+        label = "label",
+        style = CheckBoxStyle
+            .builder()
+            .dimensionValues {
+                togglePadding(0.dp)
+                toggleIconWidth(10.dp)
+                toggleIconHeight(10.dp)
+            }
+            .style(),
+        description = "description",
     )
 }

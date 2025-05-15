@@ -1,6 +1,7 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.switcher.L
 import com.sdds.plasma.sd.service.styles.switcher.M
 import com.sdds.plasma.sd.service.styles.switcher.S

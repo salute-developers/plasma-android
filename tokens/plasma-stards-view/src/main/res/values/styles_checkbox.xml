@@ -1,51 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <dimen name="sdkit_checkbox_m_button_size">48dp</dimen> <!-- 24dp -->
-    <dimen name="sdkit_checkbox_m_boxCornerRadius">12dp</dimen> <!-- 6dp -->
-    <dimen name="sdkit_checkbox_m_button_padding">4dp</dimen> <!-- 2dp -->
-    <dimen name="sdkit_checkbox_m_description_padding">4dp</dimen> <!-- 2dp -->
-    <dimen name="sdkit_checkbox_m_drawable_padding">24dp</dimen> <!-- 12dp -->
-
-    <dimen name="sdkit_checkbox_s_button_size">32dp</dimen> <!-- 16dp -->
-    <dimen name="sdkit_checkbox_s_boxCornerRadius">8dp</dimen> <!-- 4dp -->
-    <dimen name="sdkit_checkbox_s_button_padding">2dp</dimen> <!-- 1dp -->
-    <dimen name="sdkit_checkbox_s_description_padding">4dp</dimen> <!-- 2dp -->
-    <dimen name="sdkit_checkbox_s_drawable_padding">24dp</dimen> <!-- 12dp -->
-
+    <!--DEPRECATED: This component is no longer supported.-->
     <dimen name="sdkit_checkbox_group_m_item_offset">72dp</dimen> <!-- 36dp -->
     <dimen name="sdkit_checkbox_group_m_item_spacing">24dp</dimen> <!-- 12dp -->
 
     <dimen name="sdkit_checkbox_group_s_item_offset">48dp</dimen> <!-- 24dp -->
     <dimen name="sdkit_checkbox_group_s_item_spacing">20dp</dimen> <!-- 10dp -->
-
-    <style name="Sdkit.StarDs.Components.CheckBox" parent="Sdds.Components.CheckBox">
-        <item name="sd_buttonBorderColor">@color/sdkit_color_checkable_border</item>
-        <item name="sd_buttonBoxColor">?sdkit_surfaceDefaultAccent</item>
-        <item name="sd_buttonMarkColor">#fff</item>
-        <item name="android:textColor">?sdkit_textDefaultPrimary</item>
-        <item name="sd_descriptionTextColor">?sdkit_textDefaultSecondary</item>
-    </style>
-
-    <style name="Sdkit.StarDs.Components.CheckBox.M">
-        <item name="sd_buttonSize">@dimen/sdkit_checkbox_m_button_size</item>
-        <item name="sd_boxCornerRadius">@dimen/sdkit_checkbox_m_boxCornerRadius</item>
-        <item name="sd_buttonPadding">@dimen/sdkit_checkbox_m_button_padding</item>
-        <item name="sd_descriptionPadding">@dimen/sdkit_checkbox_m_description_padding</item>
-        <item name="android:drawablePadding">@dimen/sdkit_checkbox_m_drawable_padding</item>
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-    </style>
-
-    <style name="Sdkit.StarDs.Components.CheckBox.S">
-        <item name="sd_buttonSize">@dimen/sdkit_checkbox_s_button_size</item>
-        <item name="sd_buttonPadding">@dimen/sdkit_checkbox_s_button_padding</item>
-        <item name="sd_boxCornerRadius">@dimen/sdkit_checkbox_s_boxCornerRadius</item>
-        <item name="sd_descriptionPadding">@dimen/sdkit_checkbox_s_description_padding</item>
-        <item name="android:drawablePadding">@dimen/sdkit_checkbox_s_drawable_padding</item>
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
-    </style>
 
     <style name="Sdkit.StarDs.Components.CheckBoxGroup" parent="Sdds.Components.CheckBoxGroup">
         <item name="sd_hasMain">true</item>
@@ -55,12 +15,12 @@
     <style name="Sdkit.StarDs.Components.CheckBoxGroup.M">
         <item name="sd_itemOffset">@dimen/sdkit_checkbox_group_m_item_offset</item>
         <item name="sd_itemSpacing">@dimen/sdkit_checkbox_group_m_item_spacing</item>
-        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CheckBoxM</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CheckBoxM</item>
     </style>
 
     <style name="Sdkit.StarDs.Components.CheckBoxGroup.S">
         <item name="sd_itemOffset">@dimen/sdkit_checkbox_group_s_item_offset</item>
         <item name="sd_itemSpacing">@dimen/sdkit_checkbox_group_s_item_spacing</item>
-        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CheckBoxS</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CheckBoxS</item>
     </style>
 </resources>

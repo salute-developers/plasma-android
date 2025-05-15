@@ -85,6 +85,15 @@ internal class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.Proper
         private val binding: LayoutValuePropertyItemBinding,
     ) : PropertyHolder<Property.SingleChoiceProperty>(binding.root) {
 
+        init {
+            binding.propertyValue.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                0,
+                com.sdds.icons.R.drawable.ic_disclosure_right_outline_16,
+                0,
+            )
+        }
+
         override fun bind(property: Property.SingleChoiceProperty, interactionListener: InteractionListener?) {
             super.bind(property, interactionListener)
             binding.apply {
@@ -97,6 +106,15 @@ internal class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.Proper
     class StringPropertyHolder(
         private val binding: LayoutValuePropertyItemBinding,
     ) : PropertyHolder<Property.StringProperty>(binding.root) {
+
+        init {
+            binding.propertyValue.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                0,
+                com.sdds.icons.R.drawable.ic_keyboard_outline_16,
+                0,
+            )
+        }
 
         override fun bind(property: Property.StringProperty, interactionListener: InteractionListener?) {
             super.bind(property, interactionListener)
@@ -112,6 +130,16 @@ internal class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.Proper
         private val binding: LayoutValuePropertyItemBinding,
     ) : PropertyHolder<Property.IntProperty>(binding.root) {
 
+        init {
+            binding.propertyValue.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0,
+                0,
+                com.sdds.icons.R.drawable.ic_keyboard_outline_16,
+                0,
+            )
+        }
+
+        @Suppress("SetTextI18n")
         override fun bind(property: Property.IntProperty, interactionListener: InteractionListener?) {
             super.bind(property, interactionListener)
             binding.apply {

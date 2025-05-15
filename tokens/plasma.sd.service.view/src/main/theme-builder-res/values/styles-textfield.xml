@@ -2,9 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
-    <style name="Plasma.SdService.ComponentOverlays.TextFieldChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
-    </style>
     <style name="Plasma.SdService.Components.TextField" parent="Sdds.Components.TextField">
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
@@ -15,7 +12,6 @@
         <item name="sd_counterAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_prefixTextPadding">@dimen/plasma_text_field_prefix_padding</item>
         <item name="sd_suffixTextPadding">@dimen/plasma_text_field_suffix_padding</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldChips</item>
         <item name="sd_valueColor">@color/plasma_text_field_value_color</item>
         <item name="sd_captionColor">@color/plasma_text_field_caption_color</item>
         <item name="sd_iconTint">@color/plasma_text_field_icon_color</item>
@@ -26,8 +22,7 @@
         <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.TextFieldColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.Xs.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.Xs.Secondary</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.Xs">
         <item name="sd_requirementMode">optional</item>
@@ -94,8 +89,7 @@
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.S.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.S.Secondary</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.S">
         <item name="sd_requirementMode">optional</item>
@@ -186,8 +180,7 @@
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.M.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.M.Secondary</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.M">
         <item name="sd_requirementMode">optional</item>
@@ -277,8 +270,7 @@
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.L.Secondary</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.L">
         <item name="sd_requirementMode">optional</item>
@@ -369,8 +361,7 @@
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlChips">
-        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.L.Secondary</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.Xl">
         <item name="sd_requirementMode">optional</item>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.CellLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.Sandbox.Components.NavHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/sandbox_nav_view_header_margin"
+    android:padding="@dimen/sandbox_property_paddings">
+
+    <com.sdds.uikit.TextView
+        style="@style/Theme.Sandbox.Components.HeaderTitle"
+        android:id="@+id/header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="@string/sandbox_properties_header_value"
+        android:layout_gravity="start"
+        app:layout_cellContent="center" />
+
+    <com.sdds.uikit.TextView
+        style="@style/Theme.Sandbox.Components.HeaderLabel"
+        android:id="@+id/header_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="@string/sandbox_properties_header_name"
+        android:layout_gravity="start"
+        app:layout_cellContent="center"/>
+
+</com.sdds.uikit.CellLayout>

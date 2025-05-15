@@ -86,4 +86,18 @@ class ViewSystemCheckBoxScreenshotTest(
             checkBoxGroupMDisabled(R.style.Serv_Sdds_ComponentOverlays_CheckBoxGroupM)
         }
     }
+
+    @Test
+    fun testCheckBoxSizeLNegative() {
+        themedComponent {
+            checkBoxSizeLNegative(R.style.Serv_Sdds_ComponentOverlays_CheckBoxLNegative)
+        }
+    }
+
+    @Test
+    fun testCheckBoxSizeLNegativeLabelDesc() {
+        themedComponent {
+            checkBoxSizeLNegativeLabelDesc(R.style.Serv_Sdds_ComponentOverlays_CheckBoxLNegative)
+        }
+    }
 }

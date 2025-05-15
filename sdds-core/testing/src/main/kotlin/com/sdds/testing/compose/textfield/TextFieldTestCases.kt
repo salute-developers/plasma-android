@@ -17,7 +17,7 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.icons.R
 
 /**
@@ -39,7 +39,7 @@ fun TextFieldLDefaultInnerLeft(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -71,7 +71,7 @@ fun TextFieldMSuccessOuterLabel(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         endContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_shazam_24),
@@ -97,7 +97,7 @@ fun TextFieldWarningInnerRight(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -122,7 +122,7 @@ fun TextFieldXSErrorInner(style: TextFieldStyle) {
         onValueChange = {},
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
     )
 }
 
@@ -143,7 +143,7 @@ fun TextFieldLSuccessRequiredLeftOuter(style: TextFieldStyle) {
             onValueChange = { value = it },
             enabled = true,
             readOnly = false,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -176,7 +176,7 @@ fun TextFieldMWarningInnerLabelOptional(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -207,7 +207,7 @@ fun TextFieldSReadOnly(style: TextFieldStyle) {
         onValueChange = {},
         enabled = true,
         readOnly = true,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -238,7 +238,7 @@ fun TextFieldXSSuccessOuterLabelOptional(style: TextFieldStyle) {
         onValueChange = {},
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_16),
@@ -269,7 +269,7 @@ fun TextFieldLDisabled(style: TextFieldStyle) {
         onValueChange = {},
         enabled = false,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -300,7 +300,7 @@ fun TextFieldMErrorOuterLabelOptional(style: TextFieldStyle) {
         onValueChange = {},
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -334,7 +334,7 @@ fun TextFieldSWarningInnerLabelRightFocused(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -366,7 +366,7 @@ fun TextFieldMSuccessInnerLabelChips(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -418,7 +418,7 @@ fun TextFieldSOuterLabelRightChips(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         endContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_shazam_24),
@@ -464,7 +464,7 @@ fun TextFieldLInputText(style: TextFieldStyle) {
         onValueChange = { value = it },
         enabled = true,
         readOnly = false,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -493,7 +493,7 @@ fun TextFieldLSuffixPrefix(style: TextFieldStyle) {
             onValueChange = { value = it },
             enabled = true,
             readOnly = false,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -526,7 +526,7 @@ fun TextFieldClearLErrorInnerOptional(style: TextFieldStyle) {
         onValueChange = { value = it },
         readOnly = false,
         enabled = true,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -559,7 +559,7 @@ fun TextFieldClearMWarningInnerRequiredLeft(style: TextFieldStyle) {
             onValueChange = { value = it },
             readOnly = false,
             enabled = true,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -592,7 +592,7 @@ fun TextFieldClearSDefaultOuterOptional(style: TextFieldStyle) {
         onValueChange = { value = it },
         readOnly = false,
         enabled = true,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -624,7 +624,7 @@ fun TextFieldClearXSSuccessOuterRequiredRightFocused(style: TextFieldStyle) {
         onValueChange = { value = it },
         readOnly = false,
         enabled = true,
-        focusSelectorMode = FocusSelectorMode.None,
+        focusSelectorSettings = FocusSelectorSettings.None,
         startContent = {
             Icon(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -660,7 +660,7 @@ fun TextFieldClearLDefaultInnerRequiredRight(style: TextFieldStyle) {
             onValueChange = { value = it },
             readOnly = false,
             enabled = true,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -694,7 +694,7 @@ fun TextFieldClearMErrorInnerRequiredLeft(style: TextFieldStyle) {
             onValueChange = { value = it },
             readOnly = false,
             enabled = true,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -730,7 +730,7 @@ fun TextFieldLSuffixPrefixCyrillic(style: TextFieldStyle) {
             onValueChange = { value = it },
             enabled = true,
             readOnly = false,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -766,7 +766,7 @@ fun TextFieldLDisabledOuterLeft(style: TextFieldStyle) {
             onValueChange = { value = it },
             enabled = false,
             readOnly = false,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -805,7 +805,7 @@ fun TextFieldClearLErrorTBTA(style: TextFieldStyle) {
             onValueChange = { value = it },
             readOnly = false,
             enabled = true,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -841,7 +841,7 @@ fun TextFieldLSuffixPrefixNoValue(style: TextFieldStyle) {
             onValueChange = { value = it },
             enabled = true,
             readOnly = false,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -875,7 +875,7 @@ fun TextFieldXlDefault(style: TextFieldStyle) {
             onValueChange = { value = it },
             enabled = true,
             readOnly = false,
-            focusSelectorMode = FocusSelectorMode.None,
+            focusSelectorSettings = FocusSelectorSettings.None,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),

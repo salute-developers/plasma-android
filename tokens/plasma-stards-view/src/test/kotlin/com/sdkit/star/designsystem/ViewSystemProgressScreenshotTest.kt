@@ -59,7 +59,7 @@ class ViewSystemProgressScreenshotTest : ProgressBarTestCases("+night") {
     @Test
     override fun testProgressGradientAccent() {
         themedComponent {
-            progressGradientAccent(R.style.Sdkit_StarDs_ComponentOverlays_ProgressBarGradientAccent)
+            progressGradientAccent(R.style.Sdkit_StarDs_ComponentOverlays_ProgressBarGradient)
         }
     }
 
@@ -67,6 +67,13 @@ class ViewSystemProgressScreenshotTest : ProgressBarTestCases("+night") {
     override fun testProgressDefaultValueOne() {
         themedComponent {
             progressDefaultValueOne(R.style.Sdkit_StarDs_ComponentOverlays_ProgressBarDefault)
+        }
+    }
+
+    @Test
+    fun testProgressInfo() {
+        themedComponent {
+            progressInfo(R.style.Sdkit_StarDs_ComponentOverlays_ProgressBarInfo)
         }
     }
 }

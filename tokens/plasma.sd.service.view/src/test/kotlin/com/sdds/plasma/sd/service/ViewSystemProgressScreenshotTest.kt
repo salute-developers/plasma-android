@@ -61,7 +61,7 @@ class ViewSystemProgressScreenshotTest(
     @Test
     override fun testProgressGradientAccent() {
         themedComponent {
-            progressGradientAccent(R.style.Plasma_SdService_ComponentOverlays_ProgressBarGradientAccent)
+            progressGradientAccent(R.style.Plasma_SdService_ComponentOverlays_ProgressBarGradient)
         }
     }
 
@@ -69,6 +69,13 @@ class ViewSystemProgressScreenshotTest(
     override fun testProgressDefaultValueOne() {
         themedComponent {
             progressDefaultValueOne(R.style.Plasma_SdService_ComponentOverlays_ProgressBarDefault)
+        }
+    }
+
+    @Test
+    fun testProgressInfo() {
+        themedComponent {
+            progressInfo(R.style.Plasma_SdService_ComponentOverlays_ProgressBarInfo)
         }
     }
 }

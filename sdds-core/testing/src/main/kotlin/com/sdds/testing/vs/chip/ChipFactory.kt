@@ -5,6 +5,7 @@ import com.sdds.testing.R
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Chip
 import com.sdds.uikit.ChipGroup
+import com.sdds.uikit.colorstate.ColorState
 
 /**
  * Фабрика для создания [Chip]
@@ -27,11 +28,12 @@ fun chip(
 fun chipGroup(
     context: Context,
     style: Int? = null,
+    colorState: ColorState? = null,
     state: ChipUiState? = null,
 ): ChipGroup {
     return ChipGroup(context.styleWrapper(style))
         .apply { id = R.id.chip_group }
-        .applyState(state)
+        .applyState(state, colorState)
 }
 
 /**
@@ -57,15 +59,19 @@ fun Chip.applyState(state: ChipUiState?): Chip = apply {
 /**
  * Применяет [ChipUiState] к [ChipGroup]
  */
-fun ChipGroup.applyState(state: ChipUiState?): ChipGroup = apply {
+fun ChipGroup.applyState(state: ChipUiState?, colorState: ColorState?): ChipGroup = apply {
     state ?: return@apply
+    if (colorState != null) {
+        this.colorState = colorState
+    }
     arrangement = state.gravityMode.arrangement
-    this.state = state.checkedState.viewState
     this.selectionMode = state.selectionMode
     removeAllViews()
     repeat(state.quantity) {
         addView(
-            chip(context, state = state).apply { id = it },
+            chip(context, state = state).apply {
+                id = it
+            },
         )
     }
 }

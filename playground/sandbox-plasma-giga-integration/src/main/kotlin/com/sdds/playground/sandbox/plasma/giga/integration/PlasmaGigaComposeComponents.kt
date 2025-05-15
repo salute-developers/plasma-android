@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGiga
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.PlasmaGigaCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
@@ -136,6 +137,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
                 PlasmaGigaEmbeddedChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CircularProgressBar,
+                PlasmaGigaCircularProgressBarVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,

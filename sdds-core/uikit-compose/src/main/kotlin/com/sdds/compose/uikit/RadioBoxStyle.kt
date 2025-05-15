@@ -58,7 +58,7 @@ interface RadioBoxStyle : Style {
 
     /**
      * Цвета компонента
-     * @see ButtonColors
+     * @see RadioBoxColorValues
      */
     val colorValues: RadioBoxColorValues
 
@@ -124,7 +124,7 @@ interface RadioBoxStyleBuilder : StyleBuilder<RadioBoxStyle> {
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
-     * @see RadioBoxStyle.colors
+     * @see RadioBoxStyle.colorValues
      * @see [RadioBoxColorValuesBuilder]
      */
     @Composable
@@ -140,7 +140,7 @@ interface RadioBoxStyleBuilder : StyleBuilder<RadioBoxStyle> {
 
     /**
      * Устанавливает размеры и отступы контента [dimensions]
-     * @see RadioBoxStyle.dimensions
+     * @see RadioBoxStyle.dimensionValues
      * @see RadioBoxDimensions
      */
     @Composable
@@ -161,7 +161,7 @@ interface RadioBoxStyleBuilder : StyleBuilder<RadioBoxStyle> {
 
     /**
      * Устанавливает форму контрола [shape]
-     * @see RadioBoxStyle.disableAlpha
+     * @see RadioBoxStyle.shape
      */
     fun shape(shape: CornerBasedShape): RadioBoxStyleBuilder
 }

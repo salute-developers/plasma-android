@@ -62,15 +62,32 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         baseStyle(withOverlay = rootVariation.children.isEmpty()) {
             onCreateStyle("", xmlResourcesBuilder, this, rootVariation)
         }
+        if (rootVariation.children.isEmpty()) createColorStateStyles(xmlResourcesBuilder, rootVariation)
         createVariations(rootVariation.children)
     }
 
-    protected abstract fun onCreateStyle(
+    protected open fun onCreateStyle(
         variation: String,
         rootDocument: XmlResourcesDocumentBuilder,
         styleElement: Element,
         variationNode: VariationNode<PO>,
-    )
+    ) {
+        onCreateStyle(
+            variation,
+            rootDocument,
+            styleElement,
+            variationNode,
+            variationNode.value.props,
+        )
+    }
+
+    protected open fun onCreateStyle(
+        variation: String,
+        rootDocument: XmlResourcesDocumentBuilder,
+        styleElement: Element,
+        variationNode: VariationNode<PO>,
+        props: PO,
+    ) = Unit
 
     protected open fun onCreateOverlayStyle(
         variation: String,
@@ -83,13 +100,27 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         rootDocument: XmlResourcesDocumentBuilder,
         variationNode: VariationNode<PO>,
     ) {
-        variationNode.mergedViews(true).keys.mapNotNull {
-            getColorState(it)
-        }.forEach { colorStateAttr ->
+        variationNode.mergedViews(true).mapKeys {
+            getColorState(it.key) ?: registerColorState(it.key)
+        }.forEach { (colorStateAttr, viewVariation) ->
+            val variationStyleName = if (variationNode.name.isNotEmpty()) {
+                "${variationNode.camelCaseName()}.${colorStateAttr.name.capitalized()}"
+            } else {
+                colorStateAttr.name.capitalized()
+            }
             rootDocument.variationStyle(
-                "${variationNode.camelCaseName()}.${colorStateAttr.name.capitalized()}",
+                variationStyleName,
                 true,
             ) {
+                if (variationNode.parent != null) {
+                    onCreateStyle(
+                        variationNode.id.techToSnakeCase(),
+                        rootDocument,
+                        this,
+                        variationNode,
+                        viewVariation.props,
+                    )
+                }
                 onCreateColorStateStyle(this, variationNode, colorStateAttr)
             }
         }

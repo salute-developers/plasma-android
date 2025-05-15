@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Chip" parent="Sdds.Components.Chip">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:backgroundTint">@color/plasma_chip_bg_color</item>
+        <item name="android:textColor">@color/plasma_chip_text_color</item>
+        <item name="sd_drawableStartTint">@color/plasma_chip_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/plasma_chip_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ChipColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="android:minHeight">@dimen/plasma_chip_l_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_chip_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_chip_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_chip_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_chip_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_chip_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_chip_l_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipL">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilled">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilledDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilledAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilledNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilledPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilledSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.L.Pilled.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipLPilledWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.L.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_chip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="android:minHeight">@dimen/plasma_chip_m_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_chip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_chip_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_chip_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_chip_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_chip_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_chip_m_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipM">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilled">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilledDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilledAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilledNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilledPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilledSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.M.Pilled.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipMPilledWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.M.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/plasma_chip_s_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_chip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_chip_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_chip_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_chip_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_chip_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_chip_s_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipS">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilled">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilledDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilledAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilledNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilledPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilledSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.S.Pilled.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipSPilledWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.S.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_chip_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_chip_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_chip_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_chip_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_chip_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_chip_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_chip_xs_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXs">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilled">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled.Default">
+        <item name="plasma_chipColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilledDefault">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled.Accent">
+        <item name="plasma_chipColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilledAccent">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled.Negative">
+        <item name="plasma_chipColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilledNegative">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled.Positive">
+        <item name="plasma_chipColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilledPositive">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled.Secondary">
+        <item name="plasma_chipColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilledSecondary">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Chip.Xs.Pilled.Warning">
+        <item name="plasma_chipColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ChipXsPilledWarning">
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.Chip.Xs.Pilled.Warning</item>
+    </style>
+</resources>

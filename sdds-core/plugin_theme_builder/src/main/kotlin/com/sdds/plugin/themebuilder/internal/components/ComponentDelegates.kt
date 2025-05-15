@@ -8,19 +8,24 @@ import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDeleg
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.checkbox.group.CheckBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.ChipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.kotlin.dsl.provideDelegate
 
 internal val componentDelegates by unsafeLazy {
     mapOf<String, ComponentConfigDelegate<*>>(
@@ -33,6 +38,8 @@ internal val componentDelegates by unsafeLazy {
         "indicator" to IndicatorConfigDelegate(),
         "divider" to DividerConfigDelegate(),
         "counter" to CounterConfigDelegate(),
+        "check-box" to CheckBoxConfigDelegate(),
+        "check-box-group" to CheckBoxGroupConfigDelegate(),
         "cell" to CellConfigDelegate(),
         "card" to CardConfigDelegate(),
         "basic-button" to ButtonConfigDelegate(ButtonType.Basic),
@@ -46,5 +53,9 @@ internal val componentDelegates by unsafeLazy {
         "radio-box" to RadioBoxConfigDelegate(),
         "radio-box-group" to RadioBoxGroupConfigDelegate(),
         "circular-progress-bar" to CircularProgressConfigDelegate(),
+        "check-box" to CheckBoxConfigDelegate(),
+        "check-box-group" to CheckBoxGroupConfigDelegate(),
+        "progress-bar" to ProgressBarConfigDelegate(),
+        "switch" to SwitchConfigDelegate(),
     )
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Switch" parent="Sdds.Components.Switch">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_thumbShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:textColor">?salute_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?salute_textDefaultSecondary</item>
+        <item name="sd_buttonTrackColor">@color/salute_switch_button_track_color</item>
+        <item name="sd_buttonTrackBorderColor">?salute_surfaceDefaultClear</item>
+        <item name="sd_buttonThumbColor">?salute_surfaceOnDarkSolidDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Switch.L">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="android:drawablePadding">@dimen/salute_switch_l_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/salute_switch_l_description_padding</item>
+        <item name="sd_switchWidth">@dimen/salute_switch_l_switch_width</item>
+        <item name="sd_switchHeight">@dimen/salute_switch_l_switch_height</item>
+        <item name="sd_thumbWidth">@dimen/salute_switch_l_thumb_width</item>
+        <item name="sd_thumbHeight">@dimen/salute_switch_l_thumb_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SwitchL">
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Switch.L.ToggleS">
+        <item name="sd_switchWidth">@dimen/salute_switch_l_toggle_s_switch_width</item>
+        <item name="sd_switchHeight">@dimen/salute_switch_l_toggle_s_switch_height</item>
+        <item name="sd_thumbWidth">@dimen/salute_switch_l_toggle_s_thumb_width</item>
+        <item name="sd_thumbHeight">@dimen/salute_switch_l_toggle_s_thumb_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SwitchLToggleS">
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.L.ToggleS</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Switch.M">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="android:drawablePadding">@dimen/salute_switch_m_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/salute_switch_m_description_padding</item>
+        <item name="sd_switchWidth">@dimen/salute_switch_m_switch_width</item>
+        <item name="sd_switchHeight">@dimen/salute_switch_m_switch_height</item>
+        <item name="sd_thumbWidth">@dimen/salute_switch_m_thumb_width</item>
+        <item name="sd_thumbHeight">@dimen/salute_switch_m_thumb_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SwitchM">
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Switch.M.ToggleS">
+        <item name="sd_switchWidth">@dimen/salute_switch_m_toggle_s_switch_width</item>
+        <item name="sd_switchHeight">@dimen/salute_switch_m_toggle_s_switch_height</item>
+        <item name="sd_thumbWidth">@dimen/salute_switch_m_toggle_s_thumb_width</item>
+        <item name="sd_thumbHeight">@dimen/salute_switch_m_toggle_s_thumb_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SwitchMToggleS">
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.M.ToggleS</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Switch.S">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="android:drawablePadding">@dimen/salute_switch_s_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/salute_switch_s_description_padding</item>
+        <item name="sd_switchWidth">@dimen/salute_switch_s_switch_width</item>
+        <item name="sd_switchHeight">@dimen/salute_switch_s_switch_height</item>
+        <item name="sd_thumbWidth">@dimen/salute_switch_s_thumb_width</item>
+        <item name="sd_thumbHeight">@dimen/salute_switch_s_thumb_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SwitchS">
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Switch.S.ToggleS">
+        <item name="sd_switchWidth">@dimen/salute_switch_s_toggle_s_switch_width</item>
+        <item name="sd_switchHeight">@dimen/salute_switch_s_toggle_s_switch_height</item>
+        <item name="sd_thumbWidth">@dimen/salute_switch_s_toggle_s_thumb_width</item>
+        <item name="sd_thumbHeight">@dimen/salute_switch_s_toggle_s_thumb_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SwitchSToggleS">
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.S.ToggleS</item>
+    </style>
+</resources>

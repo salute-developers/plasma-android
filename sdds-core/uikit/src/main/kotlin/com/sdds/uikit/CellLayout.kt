@@ -577,7 +577,7 @@ open class CellLayout @JvmOverloads constructor(
         /**
          * Выравнивание [View] внутри [CellLayout]
          */
-        var gravity: Int = Gravity.CENTER
+        var gravity: Int = Gravity.NO_GRAVITY
 
         /**
          * Контролирует установку параметра [isDuplicateParentStateEnabled] для [View]
@@ -591,7 +591,7 @@ open class CellLayout @JvmOverloads constructor(
                     .let { CellContent.values().getOrElse(it) { START } }
             this.gravity = typedArray.getInt(
                 R.styleable.CellLayout_Layout_android_layout_gravity,
-                Gravity.CENTER,
+                Gravity.NO_GRAVITY,
             )
             this.forceDuplicateParentState = typedArray.getBoolean(
                 R.styleable.CellLayout_Layout_sd_layout_forceDuplicateParentState,

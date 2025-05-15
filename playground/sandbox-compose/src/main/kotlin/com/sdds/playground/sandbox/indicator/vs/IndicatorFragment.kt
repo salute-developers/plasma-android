@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.indicator.vs
 
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.indicator.IndicatorUiState
 import com.sdds.testing.vs.indicator.indicator
@@ -10,9 +10,9 @@ import com.sdds.uikit.Indicator
 /**
  * Фрагмент с компонентом Indicator
  */
-internal class IndicatorFragment : ComponentFragment<IndicatorUiState, Indicator>() {
+internal class IndicatorFragment : ComponentFragment<IndicatorUiState, Indicator, IndicatorParametersViewModel>() {
 
-    override val componentViewModel by viewModels<IndicatorParametersViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         IndicatorParametersViewModelFactory(
             defaultState = getState { IndicatorUiState() },
             componentKey = componentKey,

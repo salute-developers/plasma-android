@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
+        <item name="android:minHeight">@dimen/plasma_progress_bar_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_progress_bar_max_height</item>
+        <item name="sd_trackHeight">@dimen/plasma_progress_bar_track_height</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/plasma_progress_bar_bg_color</item>
+        <item name="sd_progressColor">@xml/plasma_progress_bar_progress_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ProgressBarColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBar">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Default">
+        <item name="plasma_progressbarColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarDefault">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Secondary">
+        <item name="plasma_progressbarColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarSecondary">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Accent">
+        <item name="plasma_progressbarColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarAccent">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Gradient">
+        <item name="plasma_progressbarColors">state_gradient</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarGradient">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Gradient</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Info">
+        <item name="plasma_progressbarColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarInfo">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Negative">
+        <item name="plasma_progressbarColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarNegative">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Positive">
+        <item name="plasma_progressbarColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarPositive">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.ProgressBar.Warning">
+        <item name="plasma_progressbarColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarWarning">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Warning</item>
+    </style>
+</resources>

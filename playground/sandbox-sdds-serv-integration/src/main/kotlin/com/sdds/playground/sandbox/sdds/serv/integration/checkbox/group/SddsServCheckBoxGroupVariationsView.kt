@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.s
 internal object SddsServCheckBoxGroupVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
+            "L" to s.Serv_Sdds_ComponentOverlays_CheckBoxGroupL,
             "M" to s.Serv_Sdds_ComponentOverlays_CheckBoxGroupM,
             "S" to s.Serv_Sdds_ComponentOverlays_CheckBoxGroupS,
         )

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<number-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_checked="true" app:sd_number="@dimen/sdkit_check_box_l_toggle_icon_width_value_0"/>
+    <item app:sd_number="@dimen/sdkit_check_box_l_toggle_icon_width_value_1" app:sd_state_indeterminate="true"/>
+    <item app:sd_number="@dimen/sdkit_check_box_l_toggle_icon_width_value_2"/>
+</number-selector>

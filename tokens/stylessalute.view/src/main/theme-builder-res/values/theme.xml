@@ -1821,7 +1821,7 @@
         <item name="sd_checkBoxGroupStyle">@style/Salute.StylesSalute.Components.CheckBoxGroup.M</item>
         <item name="sd_radioBoxGroupStyle">@style/Salute.StylesSalute.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide</item>
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide</item>
         <item name="sd_cellStyle">@style/Salute.StylesSalute.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Salute.StylesSalute.Components.Segment.M</item>
@@ -3648,7 +3648,7 @@
         <item name="sd_checkBoxGroupStyle">@style/Salute.StylesSalute.Components.CheckBoxGroup.M</item>
         <item name="sd_radioBoxGroupStyle">@style/Salute.StylesSalute.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide</item>
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide</item>
         <item name="sd_cellStyle">@style/Salute.StylesSalute.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Salute.StylesSalute.Components.Segment.M</item>

@@ -14,7 +14,17 @@ data class AdjustmentCornerSize(
 ) : CornerSize {
 
     override fun getSize(bounds: RectF): Float {
-        return other.getSize(bounds) + adjustmentPx
+        val otherPx = other.getSize(bounds)
+        return if (isCircle(bounds, otherPx)) {
+            otherPx
+        } else {
+            otherPx + adjustmentPx
+        }
+    }
+
+    private fun isCircle(bounds: RectF, otherPx: Float): Boolean {
+        val half = minOf(bounds.width(), bounds.height()) / 2f
+        return otherPx == half
     }
 }
 
@@ -22,7 +32,7 @@ data class AdjustmentCornerSize(
  * Корректирует [CornerSize] на значение [adjustmentPx].
  */
 fun CornerSize.adjust(adjustmentPx: Float): CornerSize =
-    if (adjustmentPx > 0) {
+    if (adjustmentPx != 0f) {
         AdjustmentCornerSize(this, adjustmentPx)
     } else {
         this

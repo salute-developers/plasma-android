@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.CheckBoxGroup" parent="Sdds.Components.CheckBoxGroup"/>
+    <style name="Salute.StylesSalute.Components.CheckBoxGroup.M">
+        <item name="sd_itemOffset">@dimen/salute_check_box_group_m_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/salute_check_box_group_m_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CheckBoxGroupM">
+        <item name="sd_checkBoxGroupStyle">@style/Salute.StylesSalute.Components.CheckBoxGroup.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CheckBoxGroup.S">
+        <item name="sd_itemOffset">@dimen/salute_check_box_group_s_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/salute_check_box_group_s_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.CheckBoxSDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CheckBoxGroupS">
+        <item name="sd_checkBoxGroupStyle">@style/Salute.StylesSalute.Components.CheckBoxGroup.S</item>
+    </style>
+</resources>

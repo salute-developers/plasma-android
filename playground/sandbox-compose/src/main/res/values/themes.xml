@@ -1,15 +1,22 @@
 <resources>
+
+    <attr name="sandbox_shapeRoundXxs" format="reference"/>
+    <attr name="sandbox_shapeRoundL" format="reference"/>
+
     <!-- Base application theme. -->
     <style name="Theme.SddsSandbox" parent="Theme.AppCompat.Light.NoActionBar" />
     <style name="Theme.Sandbox" parent="Serv.Sdds.MaterialComponents.DayNight">
         <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
-        <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
+        <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorOnPrimary">?serv_textDefaultPrimary</item>
         <item name="colorSurface">?serv_surfaceDefaultSolidCard</item>
         <item name="colorOnSurface">?serv_textDefaultPrimary</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlActivated">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="colorSecondary">?serv_surfaceDefaultSolidSecondary</item>
+        <item name="android:textColorPrimary">?serv_textDefaultPrimary</item>
+        <item name="android:textColorSecondary">?serv_textDefaultSecondary</item>
 
         <item name="android:colorBackground">?serv_backgroundDefaultPrimary</item>
 
@@ -17,16 +24,12 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
 
-        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
-        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        <item name="android:toolbarStyle">@style/Theme.Sandbox.Components.Toolbar</item>
-        <item name="toolbarStyle">@style/Theme.Sandbox.Components.Toolbar</item>
-
-        <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
         <item name="testingShape">@style/Serv.Sdds.Shape.Round.M</item>
         <item name="testingShapeTint">?serv_surfaceDefaultSolidTertiary</item>
         <item name="sd_fsEnabled">true</item>
 
+        <item name="sandbox_shapeRoundL">?serv_shapeRoundL</item>
+        <item name="sandbox_shapeRoundXxs">?serv_shapeRoundXxs</item>
     </style>
 
     <style name="Theme.Sandbox.NoActionBar">

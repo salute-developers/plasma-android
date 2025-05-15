@@ -17,9 +17,13 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.wrapWithInset
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.statelist.getColorValueStateList
 import kotlin.math.min
 import kotlin.math.roundToInt
 
@@ -35,7 +39,7 @@ open class ProgressBar @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.progressBarStyle,
     defStyleRes: Int = R.style.Sdds_Components_ProgressBar,
-) : View(context, attrs, defStyleAttr) {
+) : View(context, attrs, defStyleAttr), ColorStateHolder {
 
     private lateinit var _progressDrawable: LineDrawable
     private lateinit var _backgroundDrawable: Drawable
@@ -65,6 +69,7 @@ open class ProgressBar @JvmOverloads constructor(
     private var _insetBottom: Int = 0
     private var _maxWidth: Int = 0
     private var _maxHeight: Int = 0
+    private var _trackHeight: Int = 0
 
     /**
      * Текущий прогресс
@@ -173,6 +178,18 @@ open class ProgressBar @JvmOverloads constructor(
         backgroundTintList = ColorStateList.valueOf(color)
     }
 
+    /**
+     * Состояние внешнего вида ProgressBar
+     * @see ColorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val newWidth = if (MeasureSpec.getMode(widthMeasureSpec) != MeasureSpec.EXACTLY) {
@@ -196,13 +213,30 @@ open class ProgressBar @JvmOverloads constructor(
             w - paddingEnd,
             h - paddingBottom,
         )
+        val top: Int
+        val bottom: Int
+        if (_insetTop == 0 && _insetBottom == 0 && _trackHeight > 0) {
+            top = h / 2 - _trackHeight / 2
+            bottom = h / 2 + _trackHeight / 2
+        } else {
+            top = paddingTop
+            bottom = h - paddingBottom
+        }
         _backgroundDrawable.setBounds(
             paddingStart,
-            paddingTop,
+            top,
             w - paddingEnd,
-            h - paddingBottom,
+            bottom,
         )
         _progressAnimator.minimumVisibleChange = 1f / _progressDrawable.bounds.width()
+    }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        return drawableState
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -235,26 +269,33 @@ open class ProgressBar @JvmOverloads constructor(
         _insetBottom = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_insetBottom, _inset)
 
         _maxHeight = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_maxHeight, 0)
-        val shapeModel = ShapeModel.create(context, attrs, defStyleAttr, defStyleRes)
+        _trackHeight = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_sd_trackHeight, 0)
+        val backgroundShape = typedArray.getResourceId(R.styleable.ProgressBar_sd_shapeAppearance, 0)
+        var indicatorShape = typedArray.getResourceId(R.styleable.ProgressBar_sd_indicatorShapeAppearance, 0)
+        if (indicatorShape == 0) indicatorShape = backgroundShape
 
+        val backgroundShapeModel = ShapeModel.create(context, backgroundShape)
+        val indicatorShapeModel = ShapeModel.create(context, indicatorShape)
         val background = typedArray.getDrawable(R.styleable.ProgressBar_android_background)
-            ?.maybeShapeable(shapeModel)
-            ?: ShapeDrawable(shapeModel)
+            ?.maybeShapeable(backgroundShapeModel)
+            ?: ShapeDrawable(backgroundShapeModel)
+                .apply { callback = this@ProgressBar }
         _backgroundDrawable = background
             .wrapLine(this)
             .wrapWithInset(
-                _insetLeft,
-                _insetTop,
-                _insetRight,
-                _insetBottom,
+                left = _insetLeft,
+                top = _insetTop,
+                right = _insetRight,
+                bottom = _insetBottom,
             )
         _backgroundDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_backgroundTint))
-
+        val tintValue = typedArray.getColorValueStateList(context, R.styleable.ProgressBar_sd_progressColor)
         val progressDrawable = typedArray.getDrawable(R.styleable.ProgressBar_android_progressDrawable)
-            ?.maybeShapeable(shapeModel)
-            ?: ShapeDrawable(shapeModel)
+            ?.maybeShapeable(indicatorShapeModel)
+            ?: ShapeDrawable(indicatorShapeModel)
+        (progressDrawable as? ShapeDrawable)?.setTintValue(tintValue)
+        progressDrawable.apply { callback = this@ProgressBar }
         _progressDrawable = progressDrawable.wrapLine(this)
-        _progressDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_android_progressTint))
         typedArray.recycle()
         updateProgress()
     }

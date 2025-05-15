@@ -4,7 +4,7 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout.LayoutParams
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.segement.SegmentOrientation
 import com.sdds.testing.vs.segement.SegmentUiState
@@ -12,9 +12,9 @@ import com.sdds.testing.vs.segement.applyState
 import com.sdds.testing.vs.segement.segment
 import com.sdds.uikit.Segment
 
-internal class SegmentFragment : ComponentFragment<SegmentUiState, Segment>() {
+internal class SegmentFragment : ComponentFragment<SegmentUiState, Segment, SegmentViewModel>() {
 
-    override val componentViewModel by viewModels<SegmentViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         SegmentViewModelFactory(
             defaultState = getState { SegmentUiState() },
             componentKey = componentKey,

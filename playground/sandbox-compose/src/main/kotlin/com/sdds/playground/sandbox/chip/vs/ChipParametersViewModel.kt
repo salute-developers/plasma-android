@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.testing.vs.chip.CheckedState
 import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.GravityMode
 import com.sdds.uikit.ChipGroup
@@ -32,7 +31,6 @@ internal class ChipParametersViewModel(
             ChipPropertyName.Wrapped -> updateWrapped(value as Boolean)
             ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toInt() ?: 0)
             ChipPropertyName.GravityMode -> updateGravity(GravityMode.valueOf(value?.toString() ?: return))
-            ChipPropertyName.CheckedState -> updateCheckedState(CheckedState.valueOf(value?.toString() ?: return))
             ChipPropertyName.SelectionMode -> updateSelectionMode(
                 ChipGroup.SelectionMode.valueOf(
                     value?.toString() ?: return,
@@ -68,10 +66,6 @@ internal class ChipParametersViewModel(
 
     private fun updateGravity(gravityMode: GravityMode) {
         internalUiState.value = internalUiState.value.copy(gravityMode = gravityMode)
-    }
-
-    private fun updateCheckedState(checkedState: CheckedState) {
-        internalUiState.value = internalUiState.value.copy(checkedState = checkedState)
     }
 
     private fun updateSelectionMode(selectionMode: ChipGroup.SelectionMode) {
@@ -111,7 +105,6 @@ internal class ChipParametersViewModel(
         Wrapped("isWrapped"),
         Quantity("Quantity"),
         GravityMode("Gravity"),
-        CheckedState("CheckedState"),
         SelectionMode("SelectionMode"),
     }
 }

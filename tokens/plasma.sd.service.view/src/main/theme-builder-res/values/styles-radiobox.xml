@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.RadioBox" parent="Sdds.Components.RadioBox">
+        <item name="sd_toggleBorderOffset">@xml/plasma_radio_box_toggle_border_offset</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:textColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?plasma_textDefaultSecondary</item>
+        <item name="sd_buttonBorderColor">@color/plasma_radio_box_button_border_color</item>
+        <item name="sd_buttonBoxColor">@color/plasma_radio_box_button_box_color</item>
+        <item name="sd_buttonMarkColor">?plasma_surfaceOnDarkSolidDefault</item>
+    </style>
+    <style name="Plasma.SdService.Components.RadioBox.L">
+        <item name="sd_toggleBorderWidth">@xml/plasma_radio_box_l_toggle_border_width</item>
+        <item name="sd_toggleIconWidth">@dimen/plasma_radio_box_l_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@dimen/plasma_radio_box_l_toggle_icon_height</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_buttonPadding">@dimen/plasma_radio_box_l_button_padding</item>
+        <item name="android:drawablePadding">@dimen/plasma_radio_box_l_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/plasma_radio_box_l_description_padding</item>
+        <item name="sd_toggleWidth">@dimen/plasma_radio_box_l_toggle_width</item>
+        <item name="sd_toggleHeight">@dimen/plasma_radio_box_l_toggle_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.RadioBoxL">
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.RadioBox.M">
+        <item name="sd_toggleBorderWidth">@xml/plasma_radio_box_m_toggle_border_width</item>
+        <item name="sd_toggleIconWidth">@dimen/plasma_radio_box_m_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@dimen/plasma_radio_box_m_toggle_icon_height</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_buttonPadding">@dimen/plasma_radio_box_m_button_padding</item>
+        <item name="android:drawablePadding">@dimen/plasma_radio_box_m_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/plasma_radio_box_m_description_padding</item>
+        <item name="sd_toggleWidth">@dimen/plasma_radio_box_m_toggle_width</item>
+        <item name="sd_toggleHeight">@dimen/plasma_radio_box_m_toggle_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.RadioBoxM">
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.RadioBox.S">
+        <item name="sd_toggleBorderWidth">@xml/plasma_radio_box_s_toggle_border_width</item>
+        <item name="sd_toggleIconWidth">@dimen/plasma_radio_box_s_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@dimen/plasma_radio_box_s_toggle_icon_height</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_buttonPadding">@dimen/plasma_radio_box_s_button_padding</item>
+        <item name="android:drawablePadding">@dimen/plasma_radio_box_s_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/plasma_radio_box_s_description_padding</item>
+        <item name="sd_toggleWidth">@dimen/plasma_radio_box_s_toggle_width</item>
+        <item name="sd_toggleHeight">@dimen/plasma_radio_box_s_toggle_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.RadioBoxS">
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.S</item>
+    </style>
+</resources>

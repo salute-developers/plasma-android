@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_default="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_secondary="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_accent="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_gradient="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_info="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_negative="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_positive="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" app:plasma_progressbar_state_warning="true"/>
+</selector>

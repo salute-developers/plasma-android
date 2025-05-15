@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_textInversePrimaryActive" android:state_pressed="true" app:serv_chip_state_default="true"/>
+    <item android:color="?serv_textInversePrimaryHover" android:state_hovered="true" app:serv_chip_state_default="true"/>
+    <item android:color="?serv_textInversePrimary" app:serv_chip_state_default="true"/>
+    <item android:color="?serv_textOnDarkPrimaryActive" android:state_pressed="true" app:serv_chip_state_accent="true"/>
+    <item android:color="?serv_textOnDarkPrimaryHover" android:state_hovered="true" app:serv_chip_state_accent="true"/>
+    <item android:color="?serv_textOnDarkPrimary" app:serv_chip_state_accent="true"/>
+    <item android:color="?serv_textOnDarkPrimaryActive" android:state_pressed="true" app:serv_chip_state_negative="true"/>
+    <item android:color="?serv_textOnDarkPrimaryHover" android:state_hovered="true" app:serv_chip_state_negative="true"/>
+    <item android:color="?serv_textOnDarkPrimary" app:serv_chip_state_negative="true"/>
+    <item android:color="?serv_textOnDarkPrimaryActive" android:state_pressed="true" app:serv_chip_state_positive="true"/>
+    <item android:color="?serv_textOnDarkPrimaryHover" android:state_hovered="true" app:serv_chip_state_positive="true"/>
+    <item android:color="?serv_textOnDarkPrimary" app:serv_chip_state_positive="true"/>
+    <item android:color="?serv_textDefaultPrimaryActive" android:state_pressed="true" app:serv_chip_state_secondary="true"/>
+    <item android:color="?serv_textDefaultPrimaryHover" android:state_hovered="true" app:serv_chip_state_secondary="true"/>
+    <item android:color="?serv_textDefaultPrimary" app:serv_chip_state_secondary="true"/>
+    <item android:color="?serv_textOnDarkPrimaryActive" android:state_pressed="true" app:serv_chip_state_warning="true"/>
+    <item android:color="?serv_textOnDarkPrimaryHover" android:state_hovered="true" app:serv_chip_state_warning="true"/>
+    <item android:color="?serv_textOnDarkPrimary" app:serv_chip_state_warning="true"/>
+</selector>

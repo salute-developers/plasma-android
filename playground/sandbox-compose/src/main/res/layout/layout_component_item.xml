@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Theme.Sandbox.Components.ComponentItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.sdds.uikit.TextView
+        android:id="@+id/component_name"
+        android:textAppearance="@style/Theme.Sandbox.TextAppearanceBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_romb_outline_16"
+        android:textColor="?android:textColorPrimary"
+        android:drawableTint="?android:textColorPrimary"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        tools:text="Component Name"/>
+
+    <com.sdds.uikit.FrameLayout
+        android:id="@+id/component_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/component_name" />
+
+</com.sdds.uikit.ConstraintLayout>

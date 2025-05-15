@@ -7,8 +7,10 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.chip.group.compose.ChipGroupComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.chip.group.vs.ChipGroupStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
@@ -20,7 +22,18 @@ internal class ChipGroupConfigDelegate : ComponentConfigDelegate<ChipGroupConfig
     override fun createViewGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ) = null
+    ): ComponentStyleGenerator<ChipGroupConfig>? {
+        return ChipGroupStyleGeneratorView(
+            xmlBuilderFactory = deps.xmlBuilderFactory,
+            resourceReferenceProvider = deps.resourceReferenceProvider,
+            dimensAggregator = deps.dimensAggregator,
+            outputResDir = deps.outputResDir,
+            styleComponentName = component.styleName.techToCamelCase(),
+            resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+        )
+    }
 
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,

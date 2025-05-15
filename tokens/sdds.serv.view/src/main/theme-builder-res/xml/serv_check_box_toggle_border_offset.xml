@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<number-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_checked="true" android:state_focused="true" app:sd_number="@dimen/serv_check_box_toggle_border_offset_value_1"/>
+    <item android:state_focused="true" app:sd_number="@dimen/serv_check_box_toggle_border_offset_value_2" app:sd_state_indeterminate="true"/>
+    <item android:state_focused="true" app:sd_number="@dimen/serv_check_box_toggle_border_offset_value_0"/>
+    <item app:sd_number="@dimen/serv_check_box_toggle_border_offset_value_3"/>
+</number-selector>

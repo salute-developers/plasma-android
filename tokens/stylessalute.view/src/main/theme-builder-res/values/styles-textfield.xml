@@ -2,9 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
-    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldChips">
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
-    </style>
     <style name="Salute.StylesSalute.Components.TextField" parent="Sdds.Components.TextField">
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
@@ -15,7 +12,6 @@
         <item name="sd_counterAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
         <item name="sd_prefixTextPadding">@dimen/salute_text_field_prefix_padding</item>
         <item name="sd_suffixTextPadding">@dimen/salute_text_field_suffix_padding</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.TextFieldChips</item>
         <item name="sd_valueColor">@color/salute_text_field_value_color</item>
         <item name="sd_captionColor">@color/salute_text_field_caption_color</item>
         <item name="sd_iconTint">@color/salute_text_field_icon_color</item>
@@ -26,8 +22,7 @@
         <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.TextFieldColorStateProvider</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsChips">
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.Xs.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.Xs.Secondary</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.Xs">
         <item name="sd_requirementMode">optional</item>
@@ -94,8 +89,7 @@
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSChips">
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.S.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.S.Secondary</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.S">
         <item name="sd_requirementMode">optional</item>
@@ -186,8 +180,7 @@
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMChips">
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.M.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.M.Secondary</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.M">
         <item name="sd_requirementMode">optional</item>
@@ -277,8 +270,7 @@
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLChips">
-        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.L.Secondary</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.L">
         <item name="sd_requirementMode">optional</item>

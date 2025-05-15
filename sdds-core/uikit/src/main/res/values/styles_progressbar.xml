@@ -6,12 +6,13 @@
         <item name="sd_maxProgress">1.0</item>
 
         <item name="android:maxHeight">6dp</item>
-        <item name="android:insetTop">1dp</item>
-        <item name="android:insetBottom">1dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
 
         <item name="backgroundTint">#aaa</item>
         <item name="android:progressTint">#000</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
     </style>
 
     <style name="Sdds.Components.CircularProgressBar">

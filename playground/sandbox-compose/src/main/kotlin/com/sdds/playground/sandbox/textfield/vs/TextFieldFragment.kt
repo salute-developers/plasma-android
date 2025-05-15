@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.textfield.vs
 import android.view.ContextThemeWrapper
 import android.view.KeyEvent
 import androidx.core.widget.doAfterTextChanged
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.applyState
@@ -14,9 +14,9 @@ import com.sdds.uikit.TextField
  * Фрагмент с компонентом TextField
  * @author Малышев Александр on 19.08.2024
  */
-internal class TextFieldFragment : ComponentFragment<TextFieldUiState, TextField>() {
+internal class TextFieldFragment : ComponentFragment<TextFieldUiState, TextField, TextFieldViewModel>() {
 
-    override val componentViewModel by viewModels<TextFieldViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         TextFieldViewModelFactory(
             defaultState = getState { TextFieldUiState() },
             componentKey = componentKey,

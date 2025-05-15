@@ -57,10 +57,10 @@ import com.sdds.serv.styles.card.CardSolid
 import com.sdds.serv.styles.card.M
 import com.sdds.serv.styles.cell.Cell
 import com.sdds.serv.styles.cell.M
-import com.sdds.serv.styles.checkbboxgroup.CheckBoxGroup
-import com.sdds.serv.styles.checkbboxgroup.M
 import com.sdds.serv.styles.checkbox.CheckBox
 import com.sdds.serv.styles.checkbox.M
+import com.sdds.serv.styles.checkboxgroup.CheckBoxGroup
+import com.sdds.serv.styles.checkboxgroup.M
 import com.sdds.serv.styles.chip.Chip
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.M
@@ -70,8 +70,8 @@ import com.sdds.serv.styles.iconbutton.IconButton
 import com.sdds.serv.styles.iconbutton.M
 import com.sdds.serv.styles.iconbutton.Pilled
 import com.sdds.serv.styles.iconbutton.Xs
-import com.sdds.serv.styles.progress.Default
-import com.sdds.serv.styles.progress.ProgressBar
+import com.sdds.serv.styles.progressbar.Default
+import com.sdds.serv.styles.progressbar.ProgressBar
 import com.sdds.serv.styles.radiobox.M
 import com.sdds.serv.styles.radiobox.RadioBox
 import com.sdds.serv.styles.radioboxgroup.M
@@ -153,7 +153,10 @@ fun SandboxTheme(
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
-                    sheetShape = SddsServTheme.shapes.roundS.copy(CornerSize(0.dp), CornerSize(0.dp)),
+                    sheetShape = SddsServTheme.shapes.roundS.copy(
+                        CornerSize(0.dp),
+                        CornerSize(0.dp),
+                    ),
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
                     itemTextStyle = SddsServTheme.typography.bodyMBold,

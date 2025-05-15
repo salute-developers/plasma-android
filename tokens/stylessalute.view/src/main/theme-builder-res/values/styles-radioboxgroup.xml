@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.RadioBoxGroup" parent="Sdds.Components.RadioBoxGroup"/>
+    <style name="Salute.StylesSalute.Components.RadioBoxGroup.M">
+        <item name="sd_itemSpacing">@dimen/salute_radio_box_group_m_item_offset</item>
+        <item name="sd_radioBoxStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.RadioBoxM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.RadioBoxGroupM">
+        <item name="sd_radioBoxGroupStyle">@style/Salute.StylesSalute.Components.RadioBoxGroup.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.RadioBoxGroup.S">
+        <item name="sd_itemSpacing">@dimen/salute_radio_box_group_s_item_offset</item>
+        <item name="sd_radioBoxStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.RadioBoxS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.RadioBoxGroupS">
+        <item name="sd_radioBoxGroupStyle">@style/Salute.StylesSalute.Components.RadioBoxGroup.S</item>
+    </style>
+</resources>

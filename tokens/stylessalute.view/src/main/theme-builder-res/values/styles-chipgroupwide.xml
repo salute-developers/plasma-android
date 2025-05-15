@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide" parent="Sdds.Components.ChipGroup">
+        <item name="sd_gap">@dimen/salute_chip_group_wide_gap</item>
+        <item name="sd_lineSpacing">@dimen/salute_chip_group_wide_line_spacing</item>
+        <item name="sd_disabledAlpha">0.4</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideL">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipLDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipLAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipLSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Pilled"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLPilled">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipLPilledDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipLPilledAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.L.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipLPilledSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.L.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideM">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipMDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipMAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipMSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Pilled"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMPilled">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipMPilledDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipMPilledAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.M.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipMPilledSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.M.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideS">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipSDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipSAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipSSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Pilled"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSPilled">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipSPilledDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipSPilledAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.S.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipSPilledSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.S.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXs">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipXsDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipXsAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipXsSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled"/>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsPilled">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled.Default">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipXsPilledDefault</item>
+        <item name="salute_chipgroupColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsPilledDefault">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled.Accent">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipXsPilledAccent</item>
+        <item name="salute_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsPilledAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ChipXsPilledSecondary</item>
+        <item name="salute_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXsPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroupWide.Xs.Pilled.Secondary</item>
+    </style>
+</resources>

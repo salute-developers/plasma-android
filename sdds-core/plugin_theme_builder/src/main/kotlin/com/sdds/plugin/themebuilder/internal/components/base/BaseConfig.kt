@@ -90,6 +90,10 @@ internal class FloatState(
     override fun clone(value: Float, state: List<String>): State<Float> {
         return FloatState(state, value)
     }
+
+    override fun toString(): String {
+        return "FloatState(state=$state, value=$value)"
+    }
 }
 
 @Serializable

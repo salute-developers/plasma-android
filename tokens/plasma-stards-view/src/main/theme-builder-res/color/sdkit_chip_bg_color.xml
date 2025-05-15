@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_surfaceDefaultSolidDefaultActive" android:state_pressed="true" app:sdkit_chip_state_default="true"/>
+    <item android:color="?sdkit_surfaceDefaultSolidDefaultHover" android:state_hovered="true" app:sdkit_chip_state_default="true"/>
+    <item android:color="?sdkit_surfaceDefaultSolidDefault" app:sdkit_chip_state_default="true"/>
+    <item android:color="?sdkit_surfaceDefaultAccentMainActive" android:state_pressed="true" app:sdkit_chip_state_accent="true"/>
+    <item android:color="?sdkit_surfaceDefaultAccentMainHover" android:state_hovered="true" app:sdkit_chip_state_accent="true"/>
+    <item android:color="?sdkit_surfaceDefaultAccentMain" app:sdkit_chip_state_accent="true"/>
+    <item android:color="?sdkit_surfaceDefaultNegativeActive" android:state_pressed="true" app:sdkit_chip_state_negative="true"/>
+    <item android:color="?sdkit_surfaceDefaultNegativeHover" android:state_hovered="true" app:sdkit_chip_state_negative="true"/>
+    <item android:color="?sdkit_surfaceDefaultNegative" app:sdkit_chip_state_negative="true"/>
+    <item android:color="?sdkit_surfaceDefaultPositiveActive" android:state_pressed="true" app:sdkit_chip_state_positive="true"/>
+    <item android:color="?sdkit_surfaceDefaultPositiveHover" android:state_hovered="true" app:sdkit_chip_state_positive="true"/>
+    <item android:color="?sdkit_surfaceDefaultPositive" app:sdkit_chip_state_positive="true"/>
+    <item android:color="?sdkit_surfaceDefaultTransparentSecondaryActive" android:state_pressed="true" app:sdkit_chip_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultTransparentSecondaryHover" android:state_hovered="true" app:sdkit_chip_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultTransparentSecondary" app:sdkit_chip_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultWarningActive" android:state_pressed="true" app:sdkit_chip_state_warning="true"/>
+    <item android:color="?sdkit_surfaceDefaultWarningHover" android:state_hovered="true" app:sdkit_chip_state_warning="true"/>
+    <item android:color="?sdkit_surfaceDefaultWarning" app:sdkit_chip_state_warning="true"/>
+</selector>

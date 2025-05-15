@@ -4,6 +4,7 @@ import com.sdds.testing.vs.ComponentScope
 import com.sdds.testing.vs.RoborazziConfig
 import com.sdds.uikit.Chip
 import com.sdds.uikit.ChipGroup
+import com.sdds.uikit.colorstate.ColorState
 
 /**
  * Тест-кейсы для [Chip] и [ChipGroup]
@@ -96,11 +97,12 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
             ),
         )
 
-    fun ComponentScope.chipGroupLDefault(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupLDefault(style: Int, colorState: ColorState): ChipGroup =
         horizontalScroll {
             chipGroup(
                 context,
                 style,
+                colorState,
                 ChipUiState(
                     label = "Label",
                     contentLeft = false,
@@ -109,16 +111,16 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                     isWrapped = false,
                     quantity = 5,
                     gravityMode = GravityMode.Start,
-                    checkedState = CheckedState.Accent,
                     selectionMode = ChipGroup.SelectionMode.Single,
                 ),
             )
         }
 
-    fun ComponentScope.chipGroupMSecondary(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupMSecondary(style: Int, colorState: ColorState): ChipGroup =
         chipGroup(
             context,
             style,
+            colorState,
             ChipUiState(
                 label = "Label",
                 contentLeft = false,
@@ -127,16 +129,16 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                 isWrapped = true,
                 quantity = 20,
                 gravityMode = GravityMode.Start,
-                checkedState = CheckedState.Accent,
                 selectionMode = ChipGroup.SelectionMode.Single,
             ),
         )
 
-    fun ComponentScope.chipGroupSAccent(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupSAccent(style: Int, colorState: ColorState): ChipGroup =
         horizontalScroll {
             chipGroup(
                 context,
                 style,
+                colorState,
                 ChipUiState(
                     label = "Label",
                     contentLeft = false,
@@ -145,17 +147,17 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                     isWrapped = false,
                     quantity = 5,
                     gravityMode = GravityMode.Start,
-                    checkedState = CheckedState.Accent,
                     selectionMode = ChipGroup.SelectionMode.Single,
                 ),
             )
         }
 
-    fun ComponentScope.chipGroupXSDefault(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupXSDefault(style: Int, colorState: ColorState): ChipGroup =
         horizontalScroll {
             chipGroup(
                 context,
                 style,
+                colorState,
                 ChipUiState(
                     label = "Label",
                     contentLeft = false,
@@ -164,17 +166,17 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                     isWrapped = false,
                     quantity = 5,
                     gravityMode = GravityMode.Start,
-                    checkedState = CheckedState.Accent,
                     selectionMode = ChipGroup.SelectionMode.Single,
                 ),
             )
         }
 
-    fun ComponentScope.chipGroupLPilledSecondaryCheckedStateAccent(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupLPilledSecondaryCheckedStateAccent(style: Int, colorState: ColorState): ChipGroup =
         horizontalScroll {
             chipGroup(
                 context,
                 style,
+                colorState,
                 ChipUiState(
                     label = "Label",
                     contentLeft = true,
@@ -183,17 +185,17 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                     isWrapped = false,
                     quantity = 5,
                     gravityMode = GravityMode.Start,
-                    checkedState = CheckedState.Accent,
                     selectionMode = ChipGroup.SelectionMode.Single,
                 ),
             )
         }
 
-    fun ComponentScope.chipGroupMAccentCheckedStateSecondary(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupMAccentCheckedStateSecondary(style: Int, colorState: ColorState): ChipGroup =
         horizontalScroll {
             chipGroup(
                 context,
                 style,
+                colorState,
                 ChipUiState(
                     label = "Label",
                     contentLeft = false,
@@ -202,16 +204,16 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                     isWrapped = false,
                     quantity = 5,
                     gravityMode = GravityMode.Start,
-                    checkedState = CheckedState.Secondary,
                     selectionMode = ChipGroup.SelectionMode.Single,
                 ),
             )
         }
 
-    fun ComponentScope.chipGroupLSecondaryCheckedStateDefaultMultiple(style: Int): ChipGroup =
+    fun ComponentScope.chipGroupLSecondaryCheckedStateDefaultMultiple(style: Int, colorState: ColorState): ChipGroup =
         chipGroup(
             context,
             style,
+            colorState,
             ChipUiState(
                 label = "Label",
                 contentLeft = true,
@@ -220,7 +222,6 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                 isWrapped = true,
                 quantity = 5,
                 gravityMode = GravityMode.End,
-                checkedState = CheckedState.Default,
                 selectionMode = ChipGroup.SelectionMode.Multiple,
             ),
         )

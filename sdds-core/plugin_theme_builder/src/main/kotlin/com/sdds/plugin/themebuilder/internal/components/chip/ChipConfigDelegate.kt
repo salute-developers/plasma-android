@@ -6,8 +6,10 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.chip.compose.ChipComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.chip.vs.ChipStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
@@ -19,7 +21,16 @@ internal class ChipConfigDelegate : ComponentConfigDelegate<ChipConfig>() {
     override fun createViewGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ) = null
+    ) = ChipStyleGeneratorView(
+        xmlBuilderFactory = deps.xmlBuilderFactory,
+        resourceReferenceProvider = deps.resourceReferenceProvider,
+        dimensAggregator = deps.dimensAggregator,
+        outputResDir = deps.outputResDir,
+        styleComponentName = component.styleName.techToCamelCase(),
+        resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+        colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+        viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
+    )
 
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.CheckBoxGroup" parent="Sdds.Components.CheckBoxGroup"/>
+    <style name="Serv.Sdds.Components.CheckBoxGroup.L">
+        <item name="sd_itemOffset">@dimen/serv_check_box_group_l_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/serv_check_box_group_l_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxLDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxGroupL">
+        <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.CheckBoxGroup.M">
+        <item name="sd_itemOffset">@dimen/serv_check_box_group_m_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/serv_check_box_group_m_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxGroupM">
+        <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.CheckBoxGroup.S">
+        <item name="sd_itemOffset">@dimen/serv_check_box_group_s_item_spacing</item>
+        <item name="sd_itemSpacing">@dimen/serv_check_box_group_s_item_offset</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxSDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxGroupS">
+        <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.S</item>
+    </style>
+</resources>

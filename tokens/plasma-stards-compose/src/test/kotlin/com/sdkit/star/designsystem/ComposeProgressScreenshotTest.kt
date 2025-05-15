@@ -1,6 +1,7 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.progress.ProgressBarAccent
 import com.sdds.testing.compose.progress.ProgressBarDefault
@@ -13,7 +14,7 @@ import com.sdds.testing.compose.progress.ProgressBarWarning
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.progressbar.Accent
 import com.sdkit.star.designsystem.styles.progressbar.Default
-import com.sdkit.star.designsystem.styles.progressbar.GradientAccent
+import com.sdkit.star.designsystem.styles.progressbar.Gradient
 import com.sdkit.star.designsystem.styles.progressbar.Negative
 import com.sdkit.star.designsystem.styles.progressbar.Positive
 import com.sdkit.star.designsystem.styles.progressbar.ProgressBar
@@ -75,7 +76,7 @@ class ComposeProgressScreenshotTest : RoborazziConfigCompose("+night") {
     @Test
     fun testProgressBarGradientAccent() {
         composeTestRule.content {
-            ProgressBarGradientAccent(style = ProgressBar.GradientAccent.style())
+            ProgressBarGradientAccent(style = ProgressBar.Gradient.style())
         }
     }
 

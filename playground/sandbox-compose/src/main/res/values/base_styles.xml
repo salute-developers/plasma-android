@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.TextAppearanceNormal" parent="@style/Serv.Sdds.TextAppearance.BodyMNormal"/>
+    <style name="Theme.Sandbox.TextAppearanceBold" parent="@style/Serv.Sdds.TextAppearance.BodyMBold"/>
+    <style name="Theme.Sandbox.TextAppearanceLargeBold" parent="Serv.Sdds.TextAppearance.BodyLBold"/>
+
+    <style name="Theme.Sandbox.BaseComponents" />
+    <style name="Theme.Sandbox.BaseComponents.NavigationView" parent="@style/Serv.Sdds.Components.NavigationDrawer" />
+    <style name="Theme.Sandbox.BaseComponents.CardItem" parent="@style/Serv.Sdds.Components.CardSolid.L" />
+    <style name="Theme.Sandbox.BaseComponents.NavigationViewItem" parent="@style/Serv.Sdds.Components.NavigationDrawerItem" />
+    <style name="Theme.Sandbox.BaseComponents.PropertyItemSwitch" parent="@style/Serv.Sdds.Components.Switch.M.ToggleS" />
+    <style name="Theme.Sandbox.BaseComponents.ToolbarButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear" />
+    <style name="Theme.Sandbox.BaseComponents.ResetButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear" />
+    <style name="Theme.Sandbox.BaseComponents.PropertyEditorField" parent="@style/Serv.Sdds.Components.TextField.S.InnerLabel" />
+</resources>

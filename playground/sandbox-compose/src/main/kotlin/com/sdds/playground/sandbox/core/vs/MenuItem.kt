@@ -1,5 +1,8 @@
 package com.sdds.playground.sandbox.core.vs
 
+import android.content.Context
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
@@ -18,6 +21,7 @@ import com.sdds.playground.sandbox.checkbox.vs.CheckBoxFragment
 import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
 import com.sdds.playground.sandbox.chip.vs.ChipFragment
 import com.sdds.playground.sandbox.chip.vs.group.ChipGroupFragment
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
@@ -35,12 +39,58 @@ import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
+import com.sdds.testing.vs.avatar.AvatarUiState
+import com.sdds.testing.vs.avatar.avatar
+import com.sdds.testing.vs.avatar.avatarGroup
+import com.sdds.testing.vs.badge.BadgeUiState
+import com.sdds.testing.vs.badge.badge
+import com.sdds.testing.vs.badge.iconBadge
+import com.sdds.testing.vs.button.ButtonUiState
+import com.sdds.testing.vs.button.basicButton
+import com.sdds.testing.vs.button.iconButton
+import com.sdds.testing.vs.button.linkButton
+import com.sdds.testing.vs.card.CardUiState
+import com.sdds.testing.vs.card.card
+import com.sdds.testing.vs.cell.CellUiState
+import com.sdds.testing.vs.cell.cellLayout
+import com.sdds.testing.vs.checkbox.CheckBoxUiState
+import com.sdds.testing.vs.checkbox.checkBox
+import com.sdds.testing.vs.checkbox.checkBoxGroup
+import com.sdds.testing.vs.chip.ChipUiState
+import com.sdds.testing.vs.chip.chip
+import com.sdds.testing.vs.chip.chipGroup
+import com.sdds.testing.vs.counter.CounterUiState
+import com.sdds.testing.vs.counter.counter
+import com.sdds.testing.vs.divider.divider
+import com.sdds.testing.vs.flow.FlowUiState
+import com.sdds.testing.vs.flow.flowLayout
+import com.sdds.testing.vs.indicator.indicator
+import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
+import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.progress.CircularProgressUiState
+import com.sdds.testing.vs.progress.ProgressUiState
+import com.sdds.testing.vs.progress.circularProgressBar
+import com.sdds.testing.vs.progress.progressBar
+import com.sdds.testing.vs.radiobox.RadioBoxUiState
+import com.sdds.testing.vs.radiobox.radioBox
+import com.sdds.testing.vs.radiobox.radioBoxGroup
+import com.sdds.testing.vs.segement.SegmentUiState
+import com.sdds.testing.vs.segement.segment
+import com.sdds.testing.vs.segement.segmentItem
+import com.sdds.testing.vs.switcher.SwitchUiState
+import com.sdds.testing.vs.switcher.switch
+import com.sdds.testing.vs.textfield.TextFieldUiState
+import com.sdds.testing.vs.textfield.textArea
+import com.sdds.testing.vs.textfield.textField
+import com.sdds.uikit.colorstate.ColorState
 
 internal class MenuItem(
     val id: Int,
     val title: String,
     val componentKey: ComponentKey,
     val destination: ComponentScreen,
+    val previewStyle: Int = 0,
+    val previewColorState: ColorState? = null,
 ) {
 
     val componentKeyBundle by lazy {
@@ -50,9 +100,22 @@ internal class MenuItem(
     val route: Int = id
 }
 
+@Suppress("UNCHECKED_CAST")
 internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
     return all.toList().mapIndexed { index, (item, value) ->
-        MenuItem(item.routeId(), value.name, item, item.core.screen())
+        val styleProvider = value.styleProvider as ViewStyleProvider<String>
+        MenuItem(
+            id = item.routeId(),
+            title = value.name,
+            componentKey = item,
+            destination = item.core.screen(),
+            previewStyle = styleProvider.styleRes(key = value.styleProvider.defaultVariant as String),
+            previewColorState = if (value.styleProvider.hasColorVariations) {
+                styleProvider.colorState(key = value.styleProvider.defaultColorVariant as String)
+            } else {
+                null
+            },
+        )
     }
 }
 
@@ -159,9 +222,11 @@ internal sealed class ComponentScreen(
     object Card : ComponentScreen(
         { item -> fragment<CardFragment>(item.route, item.defaultBuilder) },
     )
+
     object Divider : ComponentScreen(
         { item -> fragment<DividerFragment>(item.route, item.defaultBuilder) },
     )
+
     object NavigationDrawer : ComponentScreen(
         { item -> fragment<NavigationDrawerFragment>(item.route, item.defaultBuilder) },
     )
@@ -237,4 +302,77 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.CIRCULAR_PROGRESS -> R.id.nav_circular_progressbar
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
+}
+
+@Suppress("CyclomaticComplexMethod", "LongMethod")
+internal fun MenuItem.preview(context: Context, style: Int): View {
+    return when (this.componentKey.core) {
+        CoreComponent.AVATAR -> avatar(context, style, AvatarUiState())
+        CoreComponent.AVATAR_GROUP -> avatarGroup(context, style, AvatarUiState())
+        CoreComponent.BADGE -> badge(context, style, BadgeUiState())
+        CoreComponent.ICON_BADGE -> iconBadge(context, style, BadgeUiState())
+        CoreComponent.BASIC_BUTTON -> basicButton(context, style, ButtonUiState())
+        CoreComponent.ICON_BUTTON -> iconButton(context, style, ButtonUiState())
+        CoreComponent.LINK_BUTTON -> linkButton(context, style, ButtonUiState())
+        CoreComponent.CELL -> cellLayout(context, style, CellUiState()).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        }
+
+        CoreComponent.CHECKBOX -> checkBox(context, style, CheckBoxUiState())
+        CoreComponent.CHECKBOX_GROUP -> checkBoxGroup(context, style, CheckBoxUiState()).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        }
+
+        CoreComponent.CHIP -> chip(context, style, ChipUiState())
+        CoreComponent.CHIP_GROUP -> chipGroup(context, style, state = ChipUiState(), colorState = previewColorState)
+        CoreComponent.COUNTER -> counter(context, style, CounterUiState())
+        CoreComponent.INDICATOR -> indicator(context, style)
+        CoreComponent.PROGRESS -> progressBar(context, style, ProgressUiState()).apply {
+            layoutParams?.height = context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_3x)
+        }
+
+        CoreComponent.RADIOBOX -> radioBox(context, style, RadioBoxUiState())
+        CoreComponent.RADIOBOX_GROUP -> radioBoxGroup(context, style, RadioBoxUiState()).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        }
+
+        CoreComponent.SWITCH -> switch(context, style, SwitchUiState())
+        CoreComponent.TEXT_FIELD -> textField(
+            context,
+            style,
+            state = TextFieldUiState(),
+            colorState = previewColorState,
+        )
+
+        CoreComponent.TEXT_AREA -> textArea(context, style, state = TextFieldUiState(), colorState = previewColorState)
+        CoreComponent.SEGMENT -> segment(context, style, SegmentUiState())
+        CoreComponent.SEGMENT_ITEM -> segmentItem(context, style, SegmentUiState())
+        CoreComponent.FLOW -> flowLayout(context, style, FlowUiState()).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        }
+
+        CoreComponent.CARD -> card(context, style, CardUiState())
+        CoreComponent.DIVIDER -> divider(context, style).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_108x),
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        }
+
+        CoreComponent.NAVIGATION_DRAWER -> navigationDrawer(context, style, NavigationDrawerUiState())
+        CoreComponent.CIRCULAR_PROGRESS -> circularProgressBar(context, style, CircularProgressUiState())
+        else -> throw NoSuchElementException("Component not implemented")
+    }
 }

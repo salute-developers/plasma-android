@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.buttons.vs
 import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.button.ButtonUiState
@@ -15,11 +15,11 @@ import com.sdds.uikit.Button
  * Фрагмент с компонентом BasicButton
  * @author Малышев Александр on 31.07.2024
  */
-internal class BasicButtonFragment : ComponentFragment<ButtonUiState, Button>() {
+internal class BasicButtonFragment : ComponentFragment<ButtonUiState, Button, BasicButtonViewModel>() {
 
     private var isFixedSize: Boolean = false
 
-    override val componentViewModel by viewModels<BasicButtonViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         BasicButtonViewModelFactory(
             defaultState = getState { ButtonUiState() },
             componentKey = componentKey,

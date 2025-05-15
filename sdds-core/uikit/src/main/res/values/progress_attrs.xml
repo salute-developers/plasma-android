@@ -19,8 +19,11 @@
         <attr name="sd_minProgress" format="float" />
 
         <attr name="sd_shapeAppearance"/>
+        <attr name="sd_indicatorShapeAppearance" format="reference"/>
+        <attr name="sd_trackHeight" format="dimension"/>
         <attr name="backgroundTint" />
         <attr name="android:progressTint" />
+        <attr name="sd_progressColor" />
         <attr name="android:progressDrawable"/>
         <attr name="android:background"/>
 

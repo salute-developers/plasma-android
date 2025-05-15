@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.avatar.vs
 
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.applyState
@@ -9,12 +9,12 @@ import com.sdds.testing.vs.avatar.avatarGroup
 import com.sdds.uikit.AvatarGroup
 
 /**
- * Фрагмент с компонентом ProgressBar
+ * Фрагмент с компонентом AvatarGroup
  * @author Малышев Александр on 19.08.2024
  */
-internal class AvatarGroupFragment : ComponentFragment<AvatarUiState, AvatarGroup>() {
+internal class AvatarGroupFragment : ComponentFragment<AvatarUiState, AvatarGroup, AvatarViewModel>() {
 
-    override val componentViewModel by viewModels<AvatarGroupViewModel> {
+    override val viewModelFactory: ViewModelProvider.Factory by lazy {
         AvatarGroupViewModelFactory(
             defaultState = getState { AvatarUiState() },
             componentKey = componentKey,
