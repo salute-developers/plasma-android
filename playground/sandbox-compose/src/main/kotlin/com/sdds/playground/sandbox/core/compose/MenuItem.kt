@@ -21,6 +21,7 @@ import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
+import com.sdds.playground.sandbox.popover.PopoverScreen
 import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
@@ -81,6 +82,7 @@ internal sealed class ComponentScreen(
     object SegmentItem : ComponentScreen({ SegmentItemScreen(it) })
     object Segment : ComponentScreen({ SegmentScreen(it) })
     object Divider : ComponentScreen({ DividerScreen(it) })
+    object Popover : ComponentScreen({ PopoverScreen() })
 
     object Empty : ComponentScreen({})
 }
@@ -114,6 +116,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
         CoreComponent.SEGMENT -> ComponentScreen.Segment
         CoreComponent.DIVIDER -> ComponentScreen.Divider
+        CoreComponent.POPOVER -> ComponentScreen.Popover
         else -> ComponentScreen.Empty
     }
 }
