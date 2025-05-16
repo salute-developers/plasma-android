@@ -5,7 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.core.compose.MainContent
+import com.sdds.playground.sandbox.popover.PopoverScreen
 
 /**
  * Активити демо-приложения на compose
@@ -16,7 +16,7 @@ class SandboxActivityCompose : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SandboxTheme {
-                MainContent()
+                PopoverScreen()
             }
         }
     }
