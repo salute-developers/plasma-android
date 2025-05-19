@@ -130,6 +130,17 @@ internal data class Shape(
 }
 
 @Serializable
+internal data class Shadow(
+    override val value: String,
+    override val states: List<StringState>? = null,
+) : Stateful<String, StringState> {
+
+    override fun clone(value: String, states: List<StringState>?): Stateful<String, StringState> {
+        return this.copy(value = value, states = states)
+    }
+}
+
+@Serializable
 internal data class Typography(
     override val value: String,
     override val states: List<StringState>? = null,

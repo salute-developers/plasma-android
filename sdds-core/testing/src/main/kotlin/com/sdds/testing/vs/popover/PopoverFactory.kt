@@ -6,6 +6,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
 import android.widget.LinearLayout
+import androidx.core.view.setPadding
 import com.sdds.testing.R
 import com.sdds.testing.vs.button.basicButton
 import com.sdds.testing.vs.styleWrapper
@@ -35,6 +36,7 @@ fun popover(
         isFocusable = true
         contentView = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
+            setPadding(context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_4x))
             TextView(context)
                 .apply {
                     text = "Content"
