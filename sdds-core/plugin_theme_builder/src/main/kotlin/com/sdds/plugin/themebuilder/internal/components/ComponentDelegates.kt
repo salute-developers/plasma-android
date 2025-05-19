@@ -52,7 +52,6 @@ internal val componentDelegates by unsafeLazy {
         "bottom-sheet" to BottomSheetConfigDelegate(),
         "chip" to ChipConfigDelegate(),
         "chip-group" to ChipGroupConfigDelegate(),
-        "popover" to PopoverConfigDelegate(),
         "radio-box" to RadioBoxConfigDelegate(),
         "radio-box-group" to RadioBoxGroupConfigDelegate(),
         "circular-progress-bar" to CircularProgressConfigDelegate(),
@@ -60,6 +59,7 @@ internal val componentDelegates by unsafeLazy {
         "check-box-group" to CheckBoxGroupConfigDelegate(),
         "progress-bar" to ProgressBarConfigDelegate(),
         "switch" to SwitchConfigDelegate(),
+        "popover" to PopoverConfigDelegate(),
         "tooltip" to TooltipConfigDelegate(),
     )
 }
