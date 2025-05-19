@@ -53,6 +53,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private var _shapeTint: ColorStateList? = null
     private var _shapeTintValue: ColorValueStateList? = null
     private var _shape: Shape? = null
+    private var _tailConfig: TailConfig? = null
 
     private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
 
@@ -75,6 +76,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             interpolator = AnimationUtils.ACCELERATE_DECELERATE_INTERPOLATOR
         }
     }
+    private var _tailEnabled: Boolean = false
 
     init {
         initPaint()
@@ -116,6 +118,15 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         _animationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
+        setTail(
+            TailConfig(
+                placement = typedArray.getInt(R.styleable.SdShape_sd_shapeTailPlacement, 0),
+                alignment = typedArray.getInt(R.styleable.SdShape_sd_shapeTailAlignment, 0),
+                tailWidth = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailWidth, 0f),
+                tailHeight = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailHeight, 0f),
+                tailOffset = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailOffset, 0f),
+            ),
+        )
         val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
             _shadowRenderer.setShadowModel(
@@ -227,6 +238,17 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         _strokePaint.xfermode = mode
     }
 
+    /**
+     * Устанавливает конфигурацию хвоста формы [TailConfig]
+     */
+    fun setTail(config: TailConfig?) {
+        if (_tailConfig != config) {
+            _tailConfig = config
+            _shape = _shapeModel.getShape(_drawingBounds, config)
+            resizeShape(_drawingBounds.width(), _drawingBounds.height())
+        }
+    }
+
     internal fun resizeShape(width: Float, height: Float) {
         _shape?.resize(width, height)
         invalidateSelf()
@@ -268,7 +290,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _drawingBounds.right -= _boundedOffset
             _drawingBounds.bottom -= _boundedOffset
         }
-        _shape = _shapeModel.getShape(_drawingBounds).apply {
+        _shape = _shapeModel.getShape(_drawingBounds, _tailConfig).apply {
             resize(_drawingBounds.width(), _drawingBounds.height())
         }
         if (_shaderFactory != null) {

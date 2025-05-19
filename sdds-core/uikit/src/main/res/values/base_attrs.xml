@@ -73,6 +73,21 @@
         <attr name="sd_shapeAppearanceBaseline"/>
         <attr name="sd_shadowAppearance"/>
         <attr name="sd_shapeColorAnimationEnabled"/>
+        <attr name="sd_shapeTailWidth" format="dimension"/>
+        <attr name="sd_shapeTailHeight" format="dimension"/>
+        <attr name="sd_shapeTailOffset" format="dimension"/>
+        <attr name="sd_shapeTailEnabled" format="boolean"/>
+        <attr name="sd_shapeTailPlacement" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="end" value="2"/>
+            <enum name="bottom" value="3"/>
+        </attr>
+        <attr name="sd_shapeTailAlignment" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="end" value="2"/>
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="SdShapeAppearance">

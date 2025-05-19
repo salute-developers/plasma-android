@@ -31,4 +31,5 @@
     <item type="id" name="navigation_drawer_header" />
     <item type="id" name="navigation_drawer_footer" />
     <item type="id" name="circular_progress_bar"/>
+    <item type="id" name="popover_trigger"/>
 </resources>

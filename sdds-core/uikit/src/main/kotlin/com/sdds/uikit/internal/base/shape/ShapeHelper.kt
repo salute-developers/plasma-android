@@ -14,6 +14,7 @@ import com.sdds.uikit.shape.ShadowModel
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
+import com.sdds.uikit.shape.TailConfig
 
 /**
  * Делегат для установки [ShapeDrawable] в качестве фона [View]
@@ -41,6 +42,9 @@ internal class ShapeHelper(
     private var insetBottom: Int = 0
 
     private var shadowModel: ShadowModel? = null
+    private var _shapeDrawable: ShapeDrawable? = null
+
+    private var _tailConfig: TailConfig? = null
 
     init {
         obtainAttrs(attrs, defStyleAttr, defStyleRes)
@@ -51,6 +55,19 @@ internal class ShapeHelper(
      */
     override val shape: ShapeModel?
         get() = shapeModel
+
+    val shadow: ShadowModel?
+        get() = shadowModel
+
+    val shapeDrawable: ShapeDrawable?
+        get() = _shapeDrawable
+
+    var tail: TailConfig?
+        get() = _tailConfig
+        set(value) {
+            _tailConfig = value
+            _shapeDrawable?.setTail(value)
+        }
 
     fun setShape(shapeModel: ShapeModel) {
         if (!canCreateShapeBackground()) return
@@ -74,6 +91,10 @@ internal class ShapeHelper(
         }
     }
 
+    fun updateTailPlacement(placement: Int, alignment: Int) {
+        tail = _tailConfig?.copy(placement = placement, alignment = alignment)
+    }
+
     private fun getShapeAppearanceModel(): ShapeModel =
         this.shapeModel ?: throw IllegalStateException("background was overwritten")
 
@@ -94,15 +115,6 @@ internal class ShapeHelper(
     private fun createBackground(): Drawable {
         return when (val bg = view.background) {
             is ShapeDrawable -> bg.setupBackground()
-
-            is LayerDrawable -> {
-                bg.apply {
-                    for (i in 0 until bg.numberOfLayers) {
-                        (bg.getDrawable(i) as? ShapeDrawable)?.setupBackground(shadowEnabled = i == 0)
-                    }
-                }
-            }
-
             else -> ShapeDrawable().setupBackground()
         }
             .apply {
@@ -111,6 +123,7 @@ internal class ShapeHelper(
                     DrawableCompat.setTintMode(this, tintMode)
                 }
             }
+            .also { _shapeDrawable = it }
             .wrapWithInset(insetLeft, insetTop, insetRight, insetBottom)
     }
 
@@ -121,6 +134,7 @@ internal class ShapeHelper(
             setStrokeTint(this@ShapeHelper.strokeColor)
             setStrokeWidth(this@ShapeHelper.strokeWidth)
             setColorAnimationEnabled(this@ShapeHelper.colorAnimationEnabled)
+            setTail(_tailConfig)
             if (shadowEnabled) setupShadow()
         }
     }
@@ -155,7 +169,16 @@ internal class ShapeHelper(
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         colorAnimationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
-
+        val tailEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeTailEnabled, false)
+        if (tailEnabled) {
+            _tailConfig = TailConfig(
+                placement = typedArray.getInt(R.styleable.SdShape_sd_shapeTailPlacement, 0),
+                alignment = typedArray.getInt(R.styleable.SdShape_sd_shapeTailAlignment, 0),
+                tailWidth = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailWidth, 0f),
+                tailHeight = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailHeight, 0f),
+                tailOffset = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailOffset, 0f),
+            )
+        }
         val shadowAppearance = typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)
         if (shadowAppearance != 0) {
             shadowModel = ShadowModel.obtain(view.context, shadowAppearance)
