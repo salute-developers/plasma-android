@@ -5,7 +5,6 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.State
 import com.sdds.plugin.themebuilder.internal.components.base.Stateful
 import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.asAndroidStates
-import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.excludeAndroidStates
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import java.io.File
@@ -33,6 +32,10 @@ internal abstract class ValueStateListGenerator<Raw : Any, S : State<Raw>, Value
         _stateListItems.add(item)
     }
 
+    protected open fun sortStateList(stateList: Set<StateListItem>): List<StateListItem> {
+        return stateList.toList()
+    }
+
     fun addValue(
         value: Value,
         stateAttrs: Set<StateListAttribute> = emptySet(),
@@ -40,12 +43,10 @@ internal abstract class ValueStateListGenerator<Raw : Any, S : State<Raw>, Value
     ) {
         value.states?.forEach { valueState ->
             val androidStates = valueState.state.asAndroidStates()
-            val customStateAttrs = valueState.state.excludeAndroidStates()
-                .map { StateListAttribute(it, "true") }
             val extraStateAttrs = extraStateAttrsBuilder?.invoke(valueState) ?: emptySet()
             val androidStateAttrs = androidStates.map { it.toStateListAttribute() }
                 .filter { !extraStateAttrs.contains(it) }
-            val states = stateAttrs + androidStateAttrs + extraStateAttrs + customStateAttrs
+            val states = stateAttrs + androidStateAttrs + extraStateAttrs
             onAddItemState(items.size, valueState.value, value, valueState, states)
         }
         onAddItem(items.size, value.value, value, stateAttrs)
@@ -80,14 +81,13 @@ internal abstract class ValueStateListGenerator<Raw : Any, S : State<Raw>, Value
     }
 
     private fun XmlResourcesDocumentBuilder.prepareStateList(valueAttrName: String) {
-        _stateListItems
+        sortStateList(_stateListItems)
             .forEach { stateListItem ->
                 appendBaseElement(
                     elementName = ElementName.ITEM.value,
                     attrs = mutableMapOf<String, String>().apply {
                         stateListItem.extraAttr.forEach { put(it.name, it.value) }
                         put(valueAttrName, stateListItem.value)
-
                         stateListItem.states.forEach {
                             put(it.name, it.value)
                         }
@@ -116,6 +116,7 @@ internal enum class AndroidState(val key: String, private val attribute: String)
     PRESSED("pressed", "android:state_pressed"),
     HOVERED("hovered", "android:state_hovered"),
     ACTIVATED("activated", "android:state_activated"),
+    CHECKED("checked", "android:state_checked"),
     ;
 
     /**

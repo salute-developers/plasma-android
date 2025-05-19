@@ -1,7 +1,9 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.checkbox.CheckBox
+import com.sdds.stylessalute.styles.checkbox.Default
 import com.sdds.stylessalute.styles.checkbox.M
 import com.sdds.stylessalute.styles.checkbox.S
 import com.sdds.stylessalute.styles.checkboxgroup.CheckBoxGroup
@@ -36,35 +38,35 @@ class ComposeCheckBoxScreenshotTest(
     @Test
     fun testCheckBoxSizeM() {
         composeTestRule.content {
-            CheckBoxSizeM(style = CheckBox.M.style())
+            CheckBoxSizeM(style = CheckBox.M.Default.style())
         }
     }
 
     @Test
     fun testCheckBoxSizeSUnchecked() {
         composeTestRule.content {
-            CheckBoxSizeSUnchecked(style = CheckBox.S.style())
+            CheckBoxSizeSUnchecked(style = CheckBox.S.Default.style())
         }
     }
 
     @Test
     fun testCheckBoxSizeSDisabled() {
         composeTestRule.content {
-            CheckBoxSizeSDisabled(style = CheckBox.S.style())
+            CheckBoxSizeSDisabled(style = CheckBox.S.Default.style())
         }
     }
 
     @Test
     fun testCheckBoxSizeMIndeterminate() {
         composeTestRule.content {
-            CheckBoxSizeMIndeterminate(style = CheckBox.M.style())
+            CheckBoxSizeMIndeterminate(style = CheckBox.M.Default.style())
         }
     }
 
     @Test
     fun testCheckBoxSizeMediumNoLabelAndDesc() {
         composeTestRule.content {
-            CheckBoxSizeMediumNoLabelAndDesc(style = CheckBox.M.style())
+            CheckBoxSizeMediumNoLabelAndDesc(style = CheckBox.M.Default.style())
         }
     }
 

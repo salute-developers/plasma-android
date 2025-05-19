@@ -19,9 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
-import com.sdds.compose.uikit.internal.checkable.RadioBoxControl
 import com.sdds.compose.uikit.internal.checkable.checkableDescription
 import com.sdds.compose.uikit.internal.checkable.checkableLabel
+import com.sdds.compose.uikit.internal.checkable.radiobox.RadioBoxControl
 
 /**
  * Компонент RadioBox

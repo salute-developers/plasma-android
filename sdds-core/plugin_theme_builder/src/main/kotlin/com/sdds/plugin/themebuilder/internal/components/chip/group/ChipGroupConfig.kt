@@ -8,13 +8,14 @@ import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.chip.ChipProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class ChipGroupProperties(
     val gap: Dimension? = null,
     val lineSpacing: Dimension? = null,
-    val chipStyle: ComponentStyle<*>? = null,
+    val chipStyle: ComponentStyle<ChipProperties>? = null,
     val disableAlpha: FloatValue? = null,
 ) : PropertyOwner {
 

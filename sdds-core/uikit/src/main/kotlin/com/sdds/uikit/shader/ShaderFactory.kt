@@ -1,6 +1,5 @@
 package com.sdds.uikit.shader
 
-import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
 
@@ -23,20 +22,10 @@ interface ShaderFactory {
 interface CachedShaderFactory {
 
     /**
-     * Обновляет границы [bounds] для [Shader]
-     */
-    fun updateBounds(bounds: RectF): Boolean
-
-    /**
-     * Обновляет границы [bounds] для [Shader]
-     */
-    fun updateBounds(bounds: Rect): Boolean
-
-    /**
      * Возвращает [Shader], если в кэше есть значение для текущих границ,
      * иначе создает [Shader] при помощи [shaderFactory]
      */
-    fun getShader(shaderFactory: ShaderFactory): Shader?
+    fun getShader(shaderFactory: ShaderFactory, bounds: RectF): Shader?
 
     companion object {
 
@@ -51,25 +40,11 @@ private class CachedShaderFactoryImpl : CachedShaderFactory {
     private var _shaderFactory: ShaderFactory? = null
     private var _shader: Shader? = null
     private var _shaderBounds: RectF = RectF()
-    private var _tempBounds: RectF = RectF()
 
-    override fun updateBounds(bounds: RectF): Boolean {
-        if (_shaderBounds != bounds) {
+    override fun getShader(shaderFactory: ShaderFactory, bounds: RectF): Shader? {
+        if (bounds.isEmpty) return null
+        if (_shaderFactory != shaderFactory || _shader == null || _shaderBounds != bounds) {
             _shaderBounds.set(bounds)
-            _shader = null
-            return true
-        }
-        return false
-    }
-
-    override fun updateBounds(bounds: Rect): Boolean {
-        _tempBounds.set(bounds)
-        return updateBounds(_tempBounds)
-    }
-
-    override fun getShader(shaderFactory: ShaderFactory): Shader? {
-        if (_shaderBounds.isEmpty) return null
-        if (_shaderFactory != shaderFactory || _shader == null) {
             _shaderFactory = shaderFactory
             return shaderFactory.resize(_shaderBounds.width(), _shaderBounds.height()).also {
                 _shader = it

@@ -123,13 +123,37 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             is SolidColor -> "colors"
         }
         val stateSuffix = when (color) {
-            is Gradient -> color.asStatefulFragment
+            is Gradient -> color.asStatefulFragment()
             is SolidColor -> color.asInteractiveFragment
         }
         val tokenValue = color.default.toKtTokenName()
         return """
             $colorName(
                 $themeClassName.$tokenGroup.$tokenValue$alphaString.$stateSuffix
+            )
+        """.trimIndent()
+    }
+
+    protected fun getGradientOrWrappedColor(colorName: String, color: Color): String {
+        val alphaString = when (color) {
+            is Gradient -> color.alpha?.let { ".asLayered(${it}f)" } ?: ".asLayered()"
+            is SolidColor -> color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        }
+        val tokenGroup = when (color) {
+            is Gradient -> "gradients"
+            is SolidColor -> "colors"
+        }
+        val stateSuffix = when (color) {
+            is Gradient -> color.asStatefulFragment()
+            is SolidColor -> color.asStatefulFragment(wrapColor = true)
+        }
+        val tokenValue = color.default.toKtTokenName()
+        val tokenRef = "$themeClassName.$tokenGroup.$tokenValue"
+        val wrappedTokenRef = if (color is SolidColor) "SolidColor($tokenRef)" else tokenRef
+        val colorValue = "$wrappedTokenRef$alphaString.$stateSuffix"
+        return """
+            $colorName(
+                $colorValue
             )
         """.trimIndent()
     }
@@ -239,7 +263,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             val rootVariation = config.asVariationTree(camelComponentName)
             createVariation(
                 variation = rootVariation,
-                isRoot = true,
+                isRootVariation = true,
                 viewExtensionReceiverName = baseWrapperInterfaceName,
             )
             build(outputLocation)
@@ -280,24 +304,22 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     private fun KtFileBuilder.createVariation(
         variation: VariationNode<PO>,
-        isRoot: Boolean = false,
+        isRootVariation: Boolean = false,
         viewExtensionReceiverName: String,
     ) {
         val hasViewVariations = variation.value.view.isNotEmpty()
         val newViewExtensionReceiverName: String
         if (hasViewVariations) {
-            val variationId = variation.id.toCamelCase()
-            val viewWrapperName = if (isRoot) variationId else "$camelComponentName$variationId"
-            newViewExtensionReceiverName = "Wrapper${viewWrapperName}View"
-            addVariationWrapperInterface(
-                interfaceName = newViewExtensionReceiverName,
-                superTypeName = viewExtensionReceiverName,
-                description = variation.getDescription(),
-            )
-            addViewExtensions(
-                variation = variation,
-                receiverName = newViewExtensionReceiverName,
-            )
+            val areViewVariationsTheOnlyVariations = isRootVariation && variation.children.isEmpty()
+            newViewExtensionReceiverName = if (areViewVariationsTheOnlyVariations) {
+                addOnlyViewExtensions(variation)
+            } else {
+                addViewExtensionsAndWrapperInterface(
+                    variation = variation,
+                    isRootVariation = isRootVariation,
+                    currentViewExtensionReceiverName = viewExtensionReceiverName,
+                )
+            }
         } else {
             newViewExtensionReceiverName = viewExtensionReceiverName
         }
@@ -307,7 +329,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             ktFileBuilder = this,
             variationId = variation.id.techToSnakeCase(),
         )
-        if (isRoot) {
+        if (isRootVariation) {
             if (variation.value.view.isEmpty() && variation.children.isEmpty()) {
                 variation.addChild(VariationNode("Default", variation.value))
                 shouldAddInvariantPropsCall = false
@@ -329,6 +351,35 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 viewExtensionReceiverName = newViewExtensionReceiverName,
             )
         }
+    }
+
+    private fun KtFileBuilder.addOnlyViewExtensions(variation: VariationNode<PO>): String {
+        addViewExtensions(
+            variation = variation,
+            receiverName = camelComponentName,
+            isWrapperScope = false,
+        )
+        return camelComponentName
+    }
+
+    private fun KtFileBuilder.addViewExtensionsAndWrapperInterface(
+        variation: VariationNode<PO>,
+        isRootVariation: Boolean,
+        currentViewExtensionReceiverName: String,
+    ): String {
+        val variationId = variation.id.toCamelCase()
+        val viewWrapperName = if (isRootVariation) variationId else "$camelComponentName$variationId"
+        val newViewExtensionReceiverName = "Wrapper${viewWrapperName}View"
+        addVariationWrapperInterface(
+            interfaceName = newViewExtensionReceiverName,
+            superTypeName = currentViewExtensionReceiverName,
+            description = variation.getDescription(),
+        )
+        addViewExtensions(
+            variation = variation,
+            receiverName = newViewExtensionReceiverName,
+        )
+        return newViewExtensionReceiverName
     }
 
     private fun KtFileBuilder.addVariationWrapperInterface(
@@ -363,6 +414,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private fun KtFileBuilder.addViewExtensions(
         variation: VariationNode<PO>,
         receiverName: String,
+        isWrapperScope: Boolean = true,
     ) {
         val receiverType = getInternalClassType(receiverName)
         val mergedViews = variation.mergedViews()
@@ -392,12 +444,21 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                         },
                     ),
                     body = buildString {
-                        appendLine("return builder")
+                        appendLine("return ${getBuilderRef(isWrapperScope)}")
+                        if (!isWrapperScope) appendLine(".invariantProps")
                         extensionBody.forEach { appendLine(it) }
                         appendLine(".wrap(::${outType.simpleName})")
                     },
                 ),
             )
+        }
+    }
+
+    private fun getBuilderRef(isWrapperScope: Boolean): String {
+        return if (isWrapperScope) {
+            "builder"
+        } else {
+            "$componentStyleName.$styleBuilderFactoryFunName(this)"
         }
     }
 
@@ -415,7 +476,6 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         val builderRef: String
         val extensionBody: String
         if (isParentRoot) {
-            builderRef = "$componentStyleName.$styleBuilderFactoryFunName(this)"
             outType = getOrGenerateWrapper(
                 wrapperSuffix = "$camelComponentName$variationName",
                 superTypeName = wrapperSuperTypeName,
@@ -423,7 +483,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             )
             receiverType = componentRootObjectType
             extensionBody = buildString {
-                appendLine("return $builderRef")
+                appendLine("return ${getBuilderRef(isWrapperScope = false)}")
                 if (shouldAddInvariantPropsCall) appendLine(".invariantProps")
                 builderCalls.forEach { appendLine(it) }
                 appendLine(".wrap(::${outType.simpleName})")
@@ -520,12 +580,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private val Color.asStatefulFragment: String
-        get() = if (states.isNullOrEmpty()) {
+    private fun Color.asStatefulFragment(wrapColor: Boolean = false): String =
+        if (states.isNullOrEmpty()) {
             "asStatefulValue()"
         } else {
             """asStatefulValue·(
-                ${getAsInteractiveParameters()}
+                ${getAsInteractiveParameters(wrapColor)}
             )
             """.trimIndent()
         }
@@ -540,8 +600,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private fun Color?.getAsInteractiveParameters(): String {
-        return this?.states?.joinToString { it.getStateParameter(this is Gradient) }.orEmpty()
+    private fun Color?.getAsInteractiveParameters(wrapColor: Boolean = false): String {
+        return this?.states?.joinToString {
+            it.getStateParameter(isGradient = this is Gradient, wrapColor = wrapColor)
+        }.orEmpty()
     }
 
     private fun Dimension.getAsInteractiveParameters(dimensionName: String, dimensionResSuffix: String): String {
@@ -561,12 +623,14 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         """.trimIndent()
     }
 
-    private fun ColorState.getStateParameter(isGradient: Boolean): String {
+    private fun ColorState.getStateParameter(isGradient: Boolean, wrapColor: Boolean): String {
         val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
         val tokenGroupName = if (isGradient) "gradients" else "colors"
+        val valueFromState = "$themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString"
+        val finalValue = if (!isGradient && wrapColor) "SolidColor($valueFromState)" else valueFromState
         return """
             setOf(${state.toStateEnums()})
-                to $themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString
+                to $finalValue
         """.trimIndent()
     }
 

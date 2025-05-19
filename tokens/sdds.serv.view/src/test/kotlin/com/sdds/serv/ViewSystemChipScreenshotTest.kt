@@ -4,6 +4,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.serv.colorstate.ChipColorState
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdds.testing.vs.chip.ChipTestCases
 import org.junit.Test
@@ -43,42 +44,54 @@ class ViewSystemChipScreenshotTest(
     @Test
     override fun testChipXsDefault() {
         themedComponent {
-            chipXsDefault(R.style.Serv_Sdds_ComponentOverlays_ChipXSDefault)
+            chipXsDefault(R.style.Serv_Sdds_ComponentOverlays_ChipXsDefault)
         }
     }
 
     @Test
     override fun testChipDisabled() {
         themedComponent {
-            chipDisabled((R.style.Serv_Sdds_ComponentOverlays_ChipLDefault))
+            chipDisabled((R.style.Serv_Sdds_ComponentOverlays_ChipL))
         }
     }
 
     @Test
     override fun testChipGroupLDefault() {
         themedComponent {
-            chipGroupLDefault(R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseL)
+            chipGroupLDefault(
+                R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseLDefault,
+                ChipColorState.DEFAULT,
+            )
         }
     }
 
     @Test
     override fun testChipGroupMSecondary() {
         themedComponent {
-            chipGroupMSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipGroupWideMSecondary)
+            chipGroupMSecondary(
+                R.style.Serv_Sdds_ComponentOverlays_ChipGroupWideMSecondary,
+                ChipColorState.SECONDARY,
+            )
         }
     }
 
     @Test
     override fun testChipGroupSAccent() {
         themedComponent {
-            chipGroupSAccent(R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseSAccent)
+            chipGroupSAccent(
+                R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseSAccent,
+                ChipColorState.ACCENT,
+            )
         }
     }
 
     @Test
     override fun testChipGroupXSDefault() {
         themedComponent {
-            chipGroupXSDefault(R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseXS)
+            chipGroupXSDefault(
+                R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseXsDefault,
+                ChipColorState.DEFAULT,
+            )
         }
     }
 
@@ -92,6 +105,7 @@ class ViewSystemChipScreenshotTest(
         ) {
             chipGroupLPilledSecondaryCheckedStateAccent(
                 R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseLPilledSecondary,
+                ChipColorState.ACCENT,
             )
         }
     }
@@ -104,7 +118,10 @@ class ViewSystemChipScreenshotTest(
                     .perform(click())
             },
         ) {
-            chipGroupMAccentCheckedStateSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipGroupWideMAccent)
+            chipGroupMAccentCheckedStateSecondary(
+                R.style.Serv_Sdds_ComponentOverlays_ChipGroupWideMAccent,
+                ChipColorState.SECONDARY,
+            )
         }
     }
 
@@ -118,7 +135,10 @@ class ViewSystemChipScreenshotTest(
                     .perform(click())
             },
         ) {
-            chipGroupLSecondaryCheckedStateDefaultMultiple(R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseLSecondary)
+            chipGroupLSecondaryCheckedStateDefaultMultiple(
+                R.style.Serv_Sdds_ComponentOverlays_ChipGroupDenseLSecondary,
+                ChipColorState.DEFAULT,
+            )
         }
     }
 }

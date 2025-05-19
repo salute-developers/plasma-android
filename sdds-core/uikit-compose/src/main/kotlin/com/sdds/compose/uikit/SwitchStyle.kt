@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.interaction.InteractionSource
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -11,6 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -26,14 +30,36 @@ val LocalSwitchStyle = compositionLocalOf { SwitchStyle.builder().style() }
 interface SwitchStyle : Style {
 
     /**
+     * Форма неподвижной части компонента
+     */
+    val toggleTrackShape: CornerBasedShape
+
+    /**
+     * Форма подвижной части компонента
+     */
+    val toggleThumbShape: CornerBasedShape
+
+    /**
      * Размеры и отступы
      */
+    @Deprecated("Use dimensionValues instead")
     val dimensions: SwitchDimensions
+
+    /**
+     * Размеры и отступы
+     */
+    val dimensionValues: SwitchDimensionValues
 
     /**
      * Цвета
      */
+    @Deprecated("Use colorValues instead")
     val colors: SwitchColors
+
+    /**
+     * Цвета
+     */
+    val colorValues: SwitchColorValues
 
     /**
      * Стиль основного текста
@@ -48,14 +74,20 @@ interface SwitchStyle : Style {
     /**
      * Длительность анимации в миллисекундах
      */
+    @Deprecated("Don't use")
     val animationDurationMillis: Int
+
+    /**
+     * Альфа в состоянии disabled
+     */
+    val disableAlpha: Float
 
     companion object {
 
         /**
          * Возвращает экземпляр [SwitchStyleBuilder]
          */
-        fun builder(): SwitchStyleBuilder = DefaultSwitchStyle.Builder()
+        fun builder(receiver: Any? = null): SwitchStyleBuilder = DefaultSwitchStyle.Builder()
     }
 }
 
@@ -68,7 +100,15 @@ interface SwitchStyleBuilder : StyleBuilder<SwitchStyle> {
      * Устанавливает размеры и отступы контента [dimensions].
      * @see SwitchDimensions
      */
+    @Deprecated("Use dimensionValues instead")
     fun dimensions(dimensions: SwitchDimensions): SwitchStyleBuilder
+
+    /**
+     * Устанавливает размеры и отступы контента при помощи [builder].
+     * @see SwitchDimensions
+     */
+    @Composable
+    fun dimensionValues(builder: @Composable SwitchDimensionValuesBuilder.() -> Unit): SwitchStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -76,7 +116,16 @@ interface SwitchStyleBuilder : StyleBuilder<SwitchStyle> {
      * @see [SwitchColorsBuilder]
      */
     @Composable
+    @Deprecated("Use colorValues instead")
     fun colors(builder: @Composable SwitchColorsBuilder.() -> Unit): SwitchStyleBuilder
+
+    /**
+     * Устанавливает цвета компонента при помощи [builder]
+     * @see SwitchStyle.colors
+     * @see [SwitchColorsBuilder]
+     */
+    @Composable
+    fun colorValues(builder: @Composable SwitchColorValuesBuilder.() -> Unit): SwitchStyleBuilder
 
     /**
      * Устанавливает стиль основного текста [labelStyle]
@@ -94,13 +143,30 @@ interface SwitchStyleBuilder : StyleBuilder<SwitchStyle> {
      * Устанавливает длительность анимации переключения контрола [animationDuration]
      * @see SwitchStyle.animationDurationMillis
      */
+    @Deprecated("Don't use")
     fun animationDuration(durationMillis: Int): SwitchStyleBuilder
+
+    /**
+     * Устанавливает форму неподвижной части [toggleTrackShape]
+     */
+    fun toggleTrackShape(toggleTrackShape: CornerBasedShape): SwitchStyleBuilder
+
+    /**
+     * Устанавливает форму подвижной части [toggleThumbShape]
+     */
+    fun toggleThumbShape(toggleThumbShape: CornerBasedShape): SwitchStyleBuilder
+
+    /**
+     * Устанавливает альфу [disableAlpha] в состоянии disabled
+     */
+    fun disableAlpha(disableAlpha: Float): SwitchStyleBuilder
 }
 
 /**
  * Цветовая схема компонента [Switch]
  */
 @Stable
+@Deprecated("Use SwitchColorValues instead")
 interface SwitchColors {
 
     /**
@@ -147,6 +213,161 @@ interface SwitchColors {
          * Создает экземпляр [SwitchColorsBuilder].
          */
         fun builder(): SwitchColorsBuilder = DefaultSwitchColors.Builder()
+    }
+}
+
+/**
+ * Цветовая схема компонента [Switch]
+ */
+@Immutable
+interface SwitchColorValues {
+
+    /**
+     * Цвет основного текста.
+     */
+    val labelColor: InteractiveColor
+
+    /**
+     * Цвет дополнительного текста.
+     */
+    val descriptionColor: InteractiveColor
+
+    /**
+     * Цвет подвижного элемента переключателя (thumb).
+     */
+    val toggleThumbColor: InteractiveColor
+
+    /**
+     * Цвет неподвижного элемента переключателя (track).
+     */
+    val toggleTrackColor: InteractiveColor
+
+    /**
+     * Цвет бордера неподвижной части
+     */
+    val toggleTrackBorderColor: InteractiveColor
+
+    companion object {
+
+        /**
+         * Создает экземпляр [SwitchColorsBuilder].
+         */
+        fun builder(): SwitchColorValuesBuilder = DefaultSwitchColorValues.Builder()
+    }
+}
+
+/**
+ * Builder цветов [SwitchColorValues]
+ */
+interface SwitchColorValuesBuilder {
+    /**
+     * Устанавливает цвет надписи [labelColor]
+     */
+    fun labelColor(labelColor: InteractiveColor): SwitchColorValuesBuilder
+
+    /**
+     * Устанавливает цвет надписи [labelColor]
+     */
+    fun labelColor(labelColor: Color): SwitchColorValuesBuilder =
+        labelColor(labelColor.asInteractive())
+
+    /**
+     * Устанавливает цвет дополнительной надписи [descriptionColor]
+     */
+    fun descriptionColor(descriptionColor: InteractiveColor): SwitchColorValuesBuilder
+
+    /**
+     * Устанавливает цвет дополнительной надписи [descriptionColor]
+     */
+    fun descriptionColor(descriptionColor: Color): SwitchColorValuesBuilder =
+        descriptionColor(descriptionColor.asInteractive())
+
+    /**
+     * Устанавливает цвет подвижной части [toggleThumbColor]
+     */
+    fun toggleThumbColor(toggleThumbColor: InteractiveColor): SwitchColorValuesBuilder
+
+    /**
+     * Устанавливает цвет подвижной части [toggleThumbColor]
+     */
+    fun toggleThumbColor(toggleThumbColor: Color): SwitchColorValuesBuilder =
+        toggleThumbColor(toggleThumbColor.asInteractive())
+
+    /**
+     * Устанавливает цвет неподвижной части [toggleTrackColor]
+     */
+    fun toggleTrackColor(toggleTrackColor: InteractiveColor): SwitchColorValuesBuilder
+
+    /**
+     * Устанавливает цвет неподвижной части [toggleTrackColor]
+     */
+    fun toggleTrackColor(toggleTrackColor: Color): SwitchColorValuesBuilder =
+        toggleTrackColor(toggleTrackColor.asInteractive())
+
+    /**
+     * Устанавливает цвет бордера неподвижной части [toggleTrackBorderColor]
+     */
+    fun toggleTrackBorderColor(toggleTrackBorderColor: InteractiveColor): SwitchColorValuesBuilder
+
+    /**
+     * Устанавливает цвет бордера неподвижной части [toggleTrackBorderColor]
+     */
+    fun toggleTrackBorderColor(toggleTrackBorderColor: Color): SwitchColorValuesBuilder =
+        toggleTrackBorderColor(toggleTrackBorderColor.asInteractive())
+
+    /**
+     * Возвращает экземпляр [SwitchColorValues]
+     */
+    fun build(): SwitchColorValues
+}
+
+@Immutable
+private class DefaultSwitchColorValues(
+    override val labelColor: InteractiveColor,
+    override val descriptionColor: InteractiveColor,
+    override val toggleThumbColor: InteractiveColor,
+    override val toggleTrackColor: InteractiveColor,
+    override val toggleTrackBorderColor: InteractiveColor,
+) : SwitchColorValues {
+
+    class Builder : SwitchColorValuesBuilder {
+        private var labelColor: InteractiveColor? = null
+        private var descriptionColor: InteractiveColor? = null
+        private var toggleThumbColor: InteractiveColor? = null
+        private var toggleTrackColor: InteractiveColor? = null
+        private var toggleTrackBorderColor: InteractiveColor? = null
+
+        override fun labelColor(labelColor: InteractiveColor) = apply {
+            this.labelColor = labelColor
+        }
+
+        override fun descriptionColor(descriptionColor: InteractiveColor) = apply {
+            this.descriptionColor = descriptionColor
+        }
+
+        override fun toggleThumbColor(toggleThumbColor: InteractiveColor) = apply {
+            this.toggleThumbColor = toggleThumbColor
+        }
+
+        override fun toggleTrackColor(toggleTrackColor: InteractiveColor) = apply {
+            this.toggleTrackColor = toggleTrackColor
+        }
+
+        override fun toggleTrackBorderColor(toggleTrackBorderColor: InteractiveColor) = apply {
+            this.toggleTrackBorderColor = toggleTrackBorderColor
+        }
+
+        override fun build(): SwitchColorValues {
+            return DefaultSwitchColorValues(
+                labelColor = labelColor ?: Color.Black.asInteractive(),
+                descriptionColor = descriptionColor ?: Color.Black.asInteractive(),
+                toggleThumbColor = toggleThumbColor ?: Color.White.asInteractive(),
+                toggleTrackColor = toggleTrackColor ?: Color.Gray.asInteractive(
+                    setOf(SwitchStates.Checked) to Color.Green,
+                ),
+                toggleTrackBorderColor = toggleTrackBorderColor ?: Color.Transparent.asInteractive(),
+            )
+        }
     }
 }
 
@@ -202,6 +423,7 @@ interface SwitchColorsBuilder {
  * @param horizontalSpacing расстояние между переключателем и текстом
  */
 @Immutable
+@Deprecated("Use SwitchDimensionValues instead")
 data class SwitchDimensions(
     val toggleWidth: Dp = 44.dp,
     val toggleHeight: Dp = 28.dp,
@@ -212,34 +434,215 @@ data class SwitchDimensions(
     val horizontalSpacing: Dp = 12.dp,
 )
 
+/**
+ * Размеры и отступы Switch
+ */
+@Immutable
+interface SwitchDimensionValues {
+
+    /**
+     * Ширина неподвижной части
+     */
+    val toggleTrackWidth: Dp
+
+    /**
+     * Высота неподвижной части
+     */
+    val toggleTrackHeight: Dp
+
+    /**
+     * Ширина подвижной части
+     */
+    val toggleThumbWidth: Dp
+
+    /**
+     * Высота подвижной части
+     */
+    val toggleThumbHeight: Dp
+
+    /**
+     * Горизонтальный отступ подвижной части
+     */
+    val toggleThumbPadding: Dp
+
+    /**
+     * Отступ до текста
+     */
+    val textPadding: Dp
+
+    /**
+     * Отступ дополнительного текста
+     */
+    val descriptionPadding: Dp
+
+    companion object {
+
+        /**
+         * Возвращает экземпляр [SwitchDimensionValuesBuilder]
+         */
+        fun builder(): SwitchDimensionValuesBuilder = DefaultSwitchDimensionValues.Builder()
+    }
+}
+
+/**
+ * Билдер размеров и отступов [SwitchDimensionValues]
+ */
+interface SwitchDimensionValuesBuilder {
+
+    /**
+     * Устанавливает ширину неподвижной части
+     */
+    fun toggleTrackWidth(toggleTrackWidth: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает высоту неподвижной части
+     */
+    fun toggleTrackHeight(toggleTrackHeight: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает ширину подвижной части
+     */
+    fun toggleThumbWidth(toggleThumbWidth: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает высоту подвижной части
+     */
+    fun toggleThumbHeight(toggleThumbHeight: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает горизонтальный отступ до подвижной части
+     */
+    fun toggleThumbPadding(toggleThumbPadding: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает отступ до текста
+     */
+    fun textPadding(textPadding: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает отступ дополнительного текста
+     */
+    fun descriptionPadding(descriptionPadding: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Возвращает экземпляр [SwitchDimensionValues]
+     */
+    fun build(): SwitchDimensionValues
+}
+
+@Immutable
+private class DefaultSwitchDimensionValues(
+    override val toggleTrackWidth: Dp,
+    override val toggleTrackHeight: Dp,
+    override val toggleThumbWidth: Dp,
+    override val toggleThumbPadding: Dp,
+    override val toggleThumbHeight: Dp,
+    override val textPadding: Dp,
+    override val descriptionPadding: Dp,
+) : SwitchDimensionValues {
+
+    class Builder : SwitchDimensionValuesBuilder {
+        private var toggleTrackWidth: Dp? = null
+        private var toggleTrackHeight: Dp? = null
+        private var toggleThumbWidth: Dp? = null
+        private var toggleThumbHeight: Dp? = null
+        private var toggleThumbPadding: Dp? = null
+        private var textPadding: Dp? = null
+        private var descriptionPadding: Dp? = null
+
+        override fun toggleTrackWidth(toggleTrackWidth: Dp) = apply {
+            this.toggleTrackWidth = toggleTrackWidth
+        }
+
+        override fun toggleTrackHeight(toggleTrackHeight: Dp) = apply {
+            this.toggleTrackHeight = toggleTrackHeight
+        }
+
+        override fun toggleThumbWidth(toggleThumbWidth: Dp) = apply {
+            this.toggleThumbWidth = toggleThumbWidth
+        }
+
+        override fun toggleThumbHeight(toggleThumbHeight: Dp) = apply {
+            this.toggleThumbHeight = toggleThumbHeight
+        }
+
+        override fun toggleThumbPadding(toggleThumbPadding: Dp) = apply {
+            this.toggleThumbPadding = toggleThumbPadding
+        }
+
+        override fun textPadding(textPadding: Dp) = apply {
+            this.textPadding = textPadding
+        }
+
+        override fun descriptionPadding(descriptionPadding: Dp) = apply {
+            this.descriptionPadding = descriptionPadding
+        }
+
+        override fun build(): SwitchDimensionValues {
+            return DefaultSwitchDimensionValues(
+                toggleTrackWidth = toggleTrackWidth ?: 44.dp,
+                toggleTrackHeight = toggleTrackHeight ?: 28.dp,
+                toggleThumbWidth = toggleThumbWidth ?: 24.dp,
+                toggleThumbHeight = toggleThumbHeight ?: 24.dp,
+                toggleThumbPadding = toggleThumbPadding ?: 2.dp,
+                textPadding = textPadding ?: 12.dp,
+                descriptionPadding = descriptionPadding ?: 2.dp,
+            )
+        }
+    }
+}
+
 @Immutable
 private class DefaultSwitchStyle(
+    @Deprecated("Use colorValues instead")
     override val colors: SwitchColors,
+    @Deprecated("Use dimensionValues instead")
     override val dimensions: SwitchDimensions,
     override val labelStyle: TextStyle,
     override val descriptionStyle: TextStyle,
+    @Deprecated("Don't use")
     override val animationDurationMillis: Int,
+    override val toggleTrackShape: CornerBasedShape,
+    override val toggleThumbShape: CornerBasedShape,
+    override val dimensionValues: SwitchDimensionValues,
+    override val colorValues: SwitchColorValues,
+    override val disableAlpha: Float,
 ) : SwitchStyle {
 
     class Builder : SwitchStyleBuilder {
 
-        private var colorsBuilder: SwitchColorsBuilder = SwitchColors.builder()
+        private val colorsBuilder: SwitchColorsBuilder = SwitchColors.builder()
+        private val colorValuesBuilder = SwitchColorValues.builder()
         private var dimensions: SwitchDimensions? = null
+        private val dimensionsBuilder = SwitchDimensionValues.builder()
         private var labelStyle: TextStyle? = null
         private var descriptionStyle: TextStyle? = null
         private var animationDurationMillis: Int? = null
+        private var toggleTrackShape: CornerBasedShape? = null
+        private var toggleThumbShape: CornerBasedShape? = null
+        private var disableAlpha: Float? = null
 
+        @Deprecated("Use dimensionValues instead")
         override fun dimensions(dimensions: SwitchDimensions) = apply {
             this.dimensions = dimensions
         }
 
         @Composable
+        override fun dimensionValues(builder: @Composable (SwitchDimensionValuesBuilder.() -> Unit)) = apply {
+            this.dimensionsBuilder.builder()
+        }
+
+        @Deprecated("Use colorValues instead")
+        @Composable
         override fun colors(
-            builder:
-            @Composable()
-            (SwitchColorsBuilder.() -> Unit),
+            builder: @Composable (SwitchColorsBuilder.() -> Unit),
         ): SwitchStyleBuilder = apply {
             this.colorsBuilder.builder()
+        }
+
+        @Composable
+        override fun colorValues(builder: @Composable (SwitchColorValuesBuilder.() -> Unit)) = apply {
+            this.colorValuesBuilder.builder()
         }
 
         override fun labelStyle(labelStyle: TextStyle) = apply {
@@ -250,8 +653,21 @@ private class DefaultSwitchStyle(
             this.descriptionStyle = descriptionStyle
         }
 
+        @Deprecated("Don't use")
         override fun animationDuration(durationMillis: Int) = apply {
             animationDurationMillis = durationMillis
+        }
+
+        override fun toggleTrackShape(toggleTrackShape: CornerBasedShape) = apply {
+            this.toggleTrackShape = toggleTrackShape
+        }
+
+        override fun toggleThumbShape(toggleThumbShape: CornerBasedShape) = apply {
+            this.toggleThumbShape = toggleThumbShape
+        }
+
+        override fun disableAlpha(disableAlpha: Float) = apply {
+            this.disableAlpha = disableAlpha
         }
 
         override fun style(): SwitchStyle {
@@ -261,6 +677,11 @@ private class DefaultSwitchStyle(
                 labelStyle = labelStyle ?: TextStyle.Default,
                 descriptionStyle = descriptionStyle ?: TextStyle.Default,
                 animationDurationMillis = animationDurationMillis ?: DEFAULT_ANIMATION_DURATION,
+                toggleTrackShape = toggleTrackShape ?: CircleShape,
+                toggleThumbShape = toggleThumbShape ?: CircleShape,
+                colorValues = colorValuesBuilder.build(),
+                dimensionValues = dimensionsBuilder.build(),
+                disableAlpha = disableAlpha ?: 0.4f,
             )
         }
     }
@@ -276,7 +697,11 @@ private class DefaultSwitchColors(
 ) : SwitchColors {
 
     @Composable
-    override fun trackColor(enabled: Boolean, active: Boolean, interactionSource: InteractionSource): State<Color> {
+    override fun trackColor(
+        enabled: Boolean,
+        active: Boolean,
+        interactionSource: InteractionSource,
+    ): State<Color> {
         return rememberUpdatedState(
             if (active) {
                 activeTrackColor

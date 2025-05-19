@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Chip" parent="Sdds.Components.Chip">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:backgroundTint">@color/serv_chip_bg_color</item>
+        <item name="android:textColor">@color/serv_chip_text_color</item>
+        <item name="sd_drawableStartTint">@color/serv_chip_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/serv_chip_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ChipColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="android:minHeight">@dimen/serv_chip_l_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_chip_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_chip_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_chip_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_chip_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_chip_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_chip_l_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipL">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilled">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilledDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilledAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilledNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilledPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilledSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.L.Pilled.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipLPilledWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.L.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_chip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="android:minHeight">@dimen/serv_chip_m_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_chip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_chip_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_chip_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_chip_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_chip_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_chip_m_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipM">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilled">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilledDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilledAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilledNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilledPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilledSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.M.Pilled.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipMPilledWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/serv_chip_s_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_chip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_chip_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_chip_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_chip_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_chip_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_chip_s_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipS">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilled">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilledDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilledAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilledNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilledPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilledSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.S.Pilled.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipSPilledWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.S.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs">
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/serv_chip_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_chip_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_chip_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_chip_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_chip_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_chip_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_chip_xs_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXs">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilled">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilledDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilledAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilledNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilledPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilledSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Chip.Xs.Pilled.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ChipXsPilledWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.Xs.Pilled.Warning</item>
+    </style>
+</resources>

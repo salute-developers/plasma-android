@@ -2,6 +2,7 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Checkable
@@ -28,7 +29,7 @@ open class CheckBoxGroup @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_checkBoxGroupStyle,
     defStyleRes: Int = R.style.Sdds_Components_CheckBoxGroup,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : LinearLayout(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr, defStyleRes) {
 
     private val _passThroughListener: PassThroughHierarchyChangeListener = PassThroughHierarchyChangeListener()
     private var _hasMainCheckBox: Boolean
@@ -140,6 +141,36 @@ open class CheckBoxGroup @JvmOverloads constructor(
                 child.setOnCheckedChangeListener(null)
             }
             onHierarchyChangeListener?.onChildViewRemoved(parent, child)
+        }
+    }
+
+    companion object {
+        internal fun wrapper(
+            context: Context,
+            attrs: AttributeSet?,
+            defStyleAttr: Int,
+            defStyleRes: Int,
+        ): Context {
+            val typedArray =
+                context.obtainStyledAttributes(
+                    attrs,
+                    R.styleable.CheckBoxGroup,
+                    defStyleAttr,
+                    defStyleRes,
+                )
+            val checkBoxStyleOverlay =
+                typedArray.getResourceId(R.styleable.CheckBoxGroup_sd_checkBoxStyleOverlay, 0)
+            val themeOverlay =
+                if (checkBoxStyleOverlay != 0) {
+                    ContextThemeWrapper(
+                        context,
+                        checkBoxStyleOverlay,
+                    )
+                } else {
+                    context
+                }
+            typedArray.recycle()
+            return themeOverlay
         }
     }
 }

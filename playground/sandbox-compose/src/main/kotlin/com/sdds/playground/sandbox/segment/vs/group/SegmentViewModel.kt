@@ -28,7 +28,7 @@ internal class SegmentViewModel(
         var counter = currentState.counter
         var icon = currentState.icon
         internalUiState.value = when (propertyName) {
-            PropertyName.Amount -> currentState.copy(amount = valueString.toInt())
+            PropertyName.Amount -> currentState.copy(amount = valueString.toIntOrNull() ?: 0)
             PropertyName.Icon -> currentState.copy(
                 icon = when {
                     valueString == SegmentItemIcon.Start::class.simpleName -> SegmentItemIcon.Start

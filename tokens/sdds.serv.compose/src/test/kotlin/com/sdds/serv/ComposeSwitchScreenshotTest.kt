@@ -1,6 +1,7 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.switcher.L
 import com.sdds.serv.styles.switcher.M
 import com.sdds.serv.styles.switcher.S

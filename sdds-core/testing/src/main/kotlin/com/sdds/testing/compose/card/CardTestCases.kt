@@ -17,6 +17,8 @@ import com.sdds.compose.uikit.CardContent
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.testing.R
 
 /**
@@ -30,6 +32,7 @@ fun CardVertical(style: CardStyle) {
             .width(100.dp)
             .height(150.dp),
         style = style,
+        focusSelectorSettings = LocalFocusSelectorSettings.current,
     ) {
         Column {
             Box(
@@ -48,6 +51,7 @@ fun CardVertical(style: CardStyle) {
                     .weight(2f)
                     .align(Alignment.CenterHorizontally),
                 style = style,
+                focusSelectorSettings = FocusSelectorSettings.None,
             ) {
                 Image(
                     contentScale = ContentScale.Crop,
@@ -73,6 +77,7 @@ fun CardHorizontal(style: CardStyle) {
             .width(200.dp)
             .height(100.dp),
         style = style,
+        focusSelectorSettings = LocalFocusSelectorSettings.current,
     ) {
         Row {
             Box(
@@ -91,6 +96,7 @@ fun CardHorizontal(style: CardStyle) {
                     .align(Alignment.CenterVertically)
                     .weight(1f),
                 style = style,
+                focusSelectorSettings = FocusSelectorSettings.None,
             ) {
                 Image(
                     contentScale = ContentScale.Crop,

@@ -63,8 +63,6 @@ internal open class CounterStyleGeneratorView(
         props.minWidth?.let { dimenAttribute(variation, "android:minWidth", "min_width", it.value) }
         props.paddingLeft?.let { dimenAttribute(variation, "android:paddingLeft", "padding_left", it.value) }
         props.paddingRight?.let { dimenAttribute(variation, "android:paddingRight", "padding_right", it.value) }
-        props.paddingTop?.let { dimenAttribute(variation, "android:paddingTop", "padding_top", it.value) }
-        props.paddingBottom?.let { dimenAttribute(variation, "android:paddingBottom", "padding_bottom", it.value) }
     }
 
     private fun Element.addColorProperties(

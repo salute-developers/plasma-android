@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.CheckBox" parent="Sdds.Components.CheckBox">
+        <item name="sd_toggleBorderOffset">@xml/salute_check_box_toggle_border_offset</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="android:textColor">?salute_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?salute_textDefaultSecondary</item>
+        <item name="sd_buttonBorderColor">@color/salute_check_box_button_border_color</item>
+        <item name="sd_buttonBoxColor">@color/salute_check_box_button_box_color</item>
+        <item name="sd_buttonMarkColor">@color/salute_check_box_button_mark_color</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.CheckBoxColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CheckBox.M">
+        <item name="sd_toggleBorderWidth">@xml/salute_check_box_m_toggle_border_width</item>
+        <item name="sd_toggleIconWidth">@xml/salute_check_box_m_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@xml/salute_check_box_m_toggle_icon_height</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_buttonPadding">@dimen/salute_check_box_m_button_padding</item>
+        <item name="android:drawablePadding">@dimen/salute_check_box_m_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/salute_check_box_m_description_padding</item>
+        <item name="sd_toggleWidth">@dimen/salute_check_box_m_toggle_width</item>
+        <item name="sd_toggleHeight">@dimen/salute_check_box_m_toggle_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CheckBoxM">
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CheckBox.M.Default">
+        <item name="salute_checkboxColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CheckBoxMDefault">
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CheckBox.S">
+        <item name="sd_toggleBorderWidth">@xml/salute_check_box_s_toggle_border_width</item>
+        <item name="sd_toggleIconWidth">@xml/salute_check_box_s_toggle_icon_width</item>
+        <item name="sd_toggleIconHeight">@xml/salute_check_box_s_toggle_icon_height</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundXxs</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_buttonPadding">@dimen/salute_check_box_s_button_padding</item>
+        <item name="android:drawablePadding">@dimen/salute_check_box_s_drawable_padding</item>
+        <item name="sd_descriptionPadding">@dimen/salute_check_box_s_description_padding</item>
+        <item name="sd_toggleWidth">@dimen/salute_check_box_s_toggle_width</item>
+        <item name="sd_toggleHeight">@dimen/salute_check_box_s_toggle_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CheckBoxS">
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CheckBox.S.Default">
+        <item name="salute_checkboxColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CheckBoxSDefault">
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.S.Default</item>
+    </style>
+</resources>

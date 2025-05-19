@@ -6,7 +6,6 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.chip.CheckedState
 import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.GravityMode
 import com.sdds.uikit.ChipGroup
@@ -30,9 +29,8 @@ internal class ChipGroupParametersViewModel(
             ChipPropertyName.ContentLeft -> updateStartIcon(value as Boolean)
             ChipPropertyName.HasClose -> updateEndIcon(value as Boolean)
             ChipPropertyName.Wrapped -> updateWrapped(value as Boolean)
-            ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toInt() ?: 0)
+            ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toIntOrNull() ?: 0)
             ChipPropertyName.GravityMode -> updateGravity(GravityMode.valueOf(value?.toString() ?: return))
-            ChipPropertyName.CheckedState -> updateCheckedState(CheckedState.valueOf(value?.toString() ?: return))
             ChipPropertyName.SelectionMode -> updateSelectionMode(
                 ChipGroup.SelectionMode.valueOf(
                     value?.toString() ?: return,
@@ -41,6 +39,9 @@ internal class ChipGroupParametersViewModel(
             else -> Unit
         }
     }
+
+    override val colorVariantPropertyName: String
+        get() = "checkedState"
 
     private fun updateLabel(text: String) {
         internalUiState.value = internalUiState.value.copy(label = text)
@@ -64,10 +65,6 @@ internal class ChipGroupParametersViewModel(
 
     private fun updateGravity(gravityMode: GravityMode) {
         internalUiState.value = internalUiState.value.copy(gravityMode = gravityMode)
-    }
-
-    private fun updateCheckedState(checkedState: CheckedState) {
-        internalUiState.value = internalUiState.value.copy(checkedState = checkedState)
     }
 
     private fun updateSelectionMode(selectionMode: ChipGroup.SelectionMode) {
@@ -105,12 +102,6 @@ internal class ChipGroupParametersViewModel(
                 name = ChipPropertyName.Quantity.value,
                 value = quantity,
             ),
-
-            enumProperty(
-                name = ChipPropertyName.CheckedState.value,
-                value = checkedState,
-            ),
-
             enumProperty(
                 name = ChipPropertyName.SelectionMode.value,
                 value = selectionMode,
@@ -126,7 +117,6 @@ internal class ChipGroupParametersViewModel(
         Wrapped("isWrapped"),
         Quantity("Quantity"),
         GravityMode("Gravity"),
-        CheckedState("CheckedState"),
         SelectionMode("SelectionMode"),
     }
 }

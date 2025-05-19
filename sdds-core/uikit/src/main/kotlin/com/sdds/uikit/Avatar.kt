@@ -681,7 +681,9 @@ open class Avatar @JvmOverloads constructor(
                 .split(' ')
                 .mapNotNull { it.firstOrNull()?.toString() }
                 .take(2)
-                .reduce { acc, s -> acc + s }
+                .takeIf { it.isNotEmpty() }
+                ?.reduce { acc, s -> acc + s }
+                .orEmpty()
 
         private val Int.gravity: Int
             get() = when (this) {

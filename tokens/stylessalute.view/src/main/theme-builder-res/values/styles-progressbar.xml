@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
+        <item name="android:minHeight">@dimen/salute_progress_bar_min_height</item>
+        <item name="android:maxHeight">@dimen/salute_progress_bar_max_height</item>
+        <item name="sd_trackHeight">@dimen/salute_progress_bar_track_height</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/salute_progress_bar_bg_color</item>
+        <item name="sd_progressColor">@xml/salute_progress_bar_progress_color</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.ProgressBarColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBar">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Default">
+        <item name="salute_progressbarColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarDefault">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Secondary">
+        <item name="salute_progressbarColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarSecondary">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Accent">
+        <item name="salute_progressbarColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarAccent">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Gradient">
+        <item name="salute_progressbarColors">state_gradient</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarGradient">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Gradient</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Negative">
+        <item name="salute_progressbarColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarNegative">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Positive">
+        <item name="salute_progressbarColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarPositive">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ProgressBar.Warning">
+        <item name="salute_progressbarColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ProgressBarWarning">
+        <item name="android:progressBarStyle">@style/Salute.StylesSalute.Components.ProgressBar.Warning</item>
+    </style>
+</resources>

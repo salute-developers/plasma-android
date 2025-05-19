@@ -68,11 +68,12 @@ fun TextArea.applyState(state: TextFieldUiState?, colorState: ColorState?): Text
 
 private fun <T : TextField> T.applyCommonState(state: TextFieldUiState?, colorState: ColorState?): T = apply {
     state ?: return@apply
-    colorState ?: return@apply
 
     (chipAdapter as? ChipAdapter)?.updateState(state.chipData)
 
-    this.colorState = colorState
+    if (colorState != null) {
+        this.colorState = colorState
+    }
     label = state.labelText
     placeholder = state.placeholderText
     state.valueText?.let { this.value = it }

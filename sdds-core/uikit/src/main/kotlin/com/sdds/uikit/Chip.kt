@@ -12,6 +12,9 @@ import android.widget.Checkable
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.drawable.ChipDrawable
 import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
@@ -38,6 +41,7 @@ open class Chip @JvmOverloads constructor(
     defStyleRes: Int = R.style.Sdds_Components_Chip,
 ) : View(context, attrs, defStyleAttr),
     ViewStateHolder,
+    ColorStateHolder,
     TextDrawable.Delegate,
     Checkable,
     Shapeable,
@@ -91,7 +95,20 @@ open class Chip @JvmOverloads constructor(
      * Состояние внешнего вида компонента [Chip]
      * @see ViewState
      */
+    @Deprecated("Использовать Chip.colorState")
     override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * Состояние внешнего вида компонента [Chip]
+     * @see ColorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
         set(value) {
             if (field != value) {
                 field = value
@@ -285,9 +302,12 @@ open class Chip @JvmOverloads constructor(
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val drawableState = super.onCreateDrawableState(extraSpace + 2)
+        val drawableState = super.onCreateDrawableState(extraSpace + 3)
         if (state?.isDefined() == true) {
             mergeDrawableStates(drawableState, state?.attr)
+        }
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
         }
         if (isChecked) {
             mergeDrawableStates(drawableState, intArrayOf(android.R.attr.state_checked))

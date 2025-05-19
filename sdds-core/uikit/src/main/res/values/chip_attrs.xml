@@ -3,15 +3,17 @@
 
     <attr name="sd_chipStyle" format="reference" />
     <attr name="sd_chipGroupStyle" format="reference" />
-    <attr name="sd_chipStyleOverlay" format="reference"/>
-    <attr name="sd_chipGroupStyleOverlay" format="reference"/>
+    <attr name="sd_chipStyleOverlay" format="reference" />
+    <attr name="sd_chipGroupStyleOverlay" format="reference" />
 
     <declare-styleable name="Chip" tools:ignore="ResourceName">
         <attr name="android:drawableStart" />
         <attr name="android:drawableEnd" />
         <attr name="sd_drawableStartTint" />
         <attr name="sd_drawableEndTint" />
-        <attr name="sd_drawableSize"  />
+        <attr name="sd_drawableSize" />
+        <attr name="sd_contentStartSize" />
+        <attr name="sd_contentEndSize" />
 
         <attr name="android:text" />
         <attr name="android:textAppearance" />
@@ -19,14 +21,14 @@
         <attr name="sd_textPaddingStart" />
         <attr name="sd_textPaddingEnd" />
 
-        <attr name="android:backgroundTint"/>
-        <attr name="backgroundTint"/>
+        <attr name="android:backgroundTint" />
+        <attr name="backgroundTint" />
         <attr name="sd_shapeAppearance" />
-        <attr name="sd_viewState"/>
-        <attr name="sd_strokeColor"/>
-        <attr name="sd_strokeWidth"/>
-        <attr name="android:checkable"/>
-        <attr name="android:checked"/>
+        <attr name="sd_viewState" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
+        <attr name="android:checkable" />
+        <attr name="android:checked" />
         <attr name="sd_fsAdditionalColor" />
         <attr name="sd_fsMainColor" />
         <attr name="sd_fsMode" />
@@ -41,16 +43,16 @@
         <attr name="sd_chipStyleOverlay" />
         <attr name="sd_gap" />
         <attr name="sd_lineSpacing" />
-        <attr name="android:gravity"/>
+        <attr name="android:gravity" />
 
-        <attr name="sd_shapeAppearance"/>
-        <attr name="sd_shapeAppearanceAdjustment"/>
-        <attr name="sd_strokeWidth"/>
-        <attr name="sd_strokeColor"/>
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearanceAdjustment" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
         <attr name="sd_viewState" />
     </declare-styleable>
 
     <declare-styleable name="ChipGroup_Layout" tools:ignore="ResourceName">
-        <attr name="android:layout_gravity"/>
+        <attr name="android:layout_gravity" />
     </declare-styleable>
 </resources>

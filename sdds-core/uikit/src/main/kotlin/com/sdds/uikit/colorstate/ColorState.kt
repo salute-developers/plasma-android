@@ -20,7 +20,10 @@ interface ColorState {
 
     companion object {
 
-        private val Undefined = object : ColorState {
+        /**
+         * Неопределенный [ColorState]
+         */
+        val Undefined = object : ColorState {
             override val attrs: IntArray = intArrayOf()
         }
         private val sConstructorMap = SimpleArrayMap<String, Constructor<out ColorStateProvider?>>()

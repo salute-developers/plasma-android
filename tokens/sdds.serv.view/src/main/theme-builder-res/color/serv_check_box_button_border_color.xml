@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_outlineDefaultAccent" android:state_checked="true" android:state_focused="true" app:serv_checkbox_state_default="true"/>
+    <item android:color="?serv_outlineDefaultAccent" android:state_focused="true" app:sd_state_indeterminate="true" app:serv_checkbox_state_default="true"/>
+    <item android:color="?serv_outlineDefaultAccent" android:state_focused="true" app:serv_checkbox_state_default="true"/>
+    <item android:color="?serv_outlineDefaultClear" android:state_checked="true" app:serv_checkbox_state_default="true"/>
+    <item android:color="?serv_outlineDefaultClear" app:sd_state_indeterminate="true" app:serv_checkbox_state_default="true"/>
+    <item android:color="?serv_outlineDefaultTransparentTertiary" app:serv_checkbox_state_default="true"/>
+    <item android:color="?serv_outlineDefaultNegative" android:state_checked="true" android:state_focused="true" app:serv_checkbox_state_negative="true"/>
+    <item android:color="?serv_outlineDefaultNegative" android:state_focused="true" app:sd_state_indeterminate="true" app:serv_checkbox_state_negative="true"/>
+    <item android:color="?serv_outlineDefaultNegative" android:state_focused="true" app:serv_checkbox_state_negative="true"/>
+    <item android:color="?serv_outlineDefaultClear" android:state_checked="true" app:serv_checkbox_state_negative="true"/>
+    <item android:color="?serv_outlineDefaultClear" app:sd_state_indeterminate="true" app:serv_checkbox_state_negative="true"/>
+    <item android:color="?serv_outlineDefaultNegative" app:serv_checkbox_state_negative="true"/>
+</selector>

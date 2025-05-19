@@ -120,4 +120,28 @@ abstract class CheckBoxTestCases(mode: String) : RoborazziConfig(mode) {
                 enabled = false,
             ),
         )
+
+    fun ComponentScope.checkBoxSizeLNegative(style: Int): CheckBox =
+        checkBox(
+            context,
+            style,
+            CheckBoxUiState(
+                state = CheckBox.ToggleableState.OFF,
+                label = "",
+                description = "",
+                enabled = true,
+            ),
+        )
+
+    fun ComponentScope.checkBoxSizeLNegativeLabelDesc(style: Int): CheckBox =
+        checkBox(
+            context,
+            style,
+            CheckBoxUiState(
+                state = CheckBox.ToggleableState.ON,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
 }

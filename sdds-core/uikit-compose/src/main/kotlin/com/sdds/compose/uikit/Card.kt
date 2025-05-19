@@ -13,10 +13,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
+import com.sdds.compose.uikit.internal.focusselector.toFocusSelectorSettings
 
 /**
  * Компонент Карточка [Card]
@@ -42,14 +44,50 @@ fun Card(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit),
 ) {
+    val focusSelector = focusSelectorMode.toFocusSelectorSettings()
+    Card(
+        modifier = modifier,
+        style = style,
+        onClick = onClick,
+        enabled = enabled,
+        indication = indication,
+        focusSelectorSettings = focusSelector,
+        interactionSource = interactionSource,
+        content = content,
+    )
+}
+
+/**
+ * Компонент Карточка [Card]
+ *
+ * @param modifier модификатор
+ * @param style стиль карточки
+ * @param onClick обработчик нажатий
+ * @param enabled флаг доступности карточки
+ * @param indication [Indication]
+ * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
+ * когда [FocusSelectorSettings] != None
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param content контент
+ */
+@Composable
+fun Card(
+    modifier: Modifier = Modifier,
+    style: CardStyle = LocalCardStyle.current,
+    onClick: () -> Unit = {},
+    enabled: Boolean = true,
+    indication: Indication? = null,
+    focusSelectorSettings: FocusSelectorSettings,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: (@Composable () -> Unit),
+) {
     val isFocused by interactionSource.collectIsFocusedAsState()
     val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
     val shape = style.shape
-
     CompositionLocalProvider(LocalCardStyle provides style) {
         Box(
             modifier = modifier
-                .applyFocusSelector(focusSelectorMode, shape) { isFocused }
+                .focusSelector(focusSelectorSettings, shape) { isFocused }
                 .surface(
                     backgroundColor = { SolidColor(backgroundColor) },
                     shape = shape,
@@ -89,11 +127,42 @@ fun CardContent(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit),
 ) {
+    val focusSelector = focusSelectorMode.toFocusSelectorSettings()
+    CardContent(
+        modifier = modifier,
+        style = style,
+        focusSelectorSettings = focusSelector,
+        interactionSource = interactionSource,
+        content = content,
+    )
+}
+
+/**
+ * Контент карточки.
+ *
+ * @param modifier модификатор
+ * @param style стиль карточки
+ * @param focusSelectorSettings режим отображения фокуса контента [FocusSelectorSettings]
+ * когда [FocusSelectorSettings] != None
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param content контент
+ */
+@Composable
+fun CardContent(
+    modifier: Modifier,
+    style: CardStyle = LocalCardStyle.current,
+    focusSelectorSettings: FocusSelectorSettings,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: (@Composable () -> Unit),
+) {
     val isFocused by interactionSource.collectIsFocusedAsState()
     val shape = style.contentShape
     Box(
         modifier = Modifier
-            .applyFocusSelector(focusSelectorMode, shape) { isFocused }
+            .focusSelector(
+                focusSelectorSettings,
+                shape = shape,
+            ) { isFocused }
             .clip(shape)
             .then(modifier),
         contentAlignment = Alignment.Center,

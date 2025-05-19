@@ -98,4 +98,13 @@ abstract class ProgressBarTestCases(mode: String) : RoborazziConfig(mode) {
                 progress = 0.01f,
             ),
         )
+
+    fun ComponentScope.progressInfo(style: Int): ProgressBar =
+        progressBar(
+            context,
+            style,
+            ProgressUiState(
+                progress = 0.5f,
+            ),
+        )
 }

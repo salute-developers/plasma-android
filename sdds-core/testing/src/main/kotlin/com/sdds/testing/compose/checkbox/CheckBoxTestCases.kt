@@ -181,3 +181,31 @@ fun CheckBoxGroupSizeMDisabled(style: CheckBoxGroupStyle) {
         }
     }
 }
+
+/**
+ * PLASMA-T1999
+ */
+@Composable
+fun CheckBoxSizeLNegative(style: CheckBoxStyle) {
+    CheckBox(
+        style = style,
+        state = ToggleableState.On,
+        enabled = true,
+        label = "Label",
+        description = "Description",
+        onClick = {},
+    )
+}
+
+/**
+ * PLASMA-T2000
+ */
+@Composable
+fun CheckBoxSizeLNegativeUnchecked(style: CheckBoxStyle) {
+    CheckBox(
+        style = style,
+        state = ToggleableState.Off,
+        enabled = true,
+        onClick = {},
+    )
+}
