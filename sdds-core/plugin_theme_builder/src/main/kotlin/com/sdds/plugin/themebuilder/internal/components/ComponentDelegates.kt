@@ -16,6 +16,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
@@ -57,5 +58,6 @@ internal val componentDelegates by unsafeLazy {
         "check-box-group" to CheckBoxGroupConfigDelegate(),
         "progress-bar" to ProgressBarConfigDelegate(),
         "switch" to SwitchConfigDelegate(),
+        "popover" to PopoverConfigDelegate(),
     )
 }

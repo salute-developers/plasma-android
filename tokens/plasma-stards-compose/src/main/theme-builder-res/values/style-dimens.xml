@@ -319,6 +319,12 @@
     <dimen name="sdkit_cmp_circular_progress_bar_height_xxs">32.0dp</dimen>
     <dimen name="sdkit_cmp_circular_progress_bar_track_thickness_xxs">4.0dp</dimen>
     <dimen name="sdkit_cmp_circular_progress_bar_progress_thickness_xxs">4.0dp</dimen>
+    <dimen name="sdkit_cmp_popover_width">364.0dp</dimen>
+    <dimen name="sdkit_cmp_popover_offset">0.0dp</dimen>
+    <dimen name="sdkit_cmp_popover_tail_width">40.0dp</dimen>
+    <dimen name="sdkit_cmp_popover_tail_height">16.0dp</dimen>
+    <dimen name="sdkit_cmp_popover_tail_padding_m">40.0dp</dimen>
+    <dimen name="sdkit_cmp_popover_tail_padding_s">32.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_offset_0">6.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_offset_1">6.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_toggle_border_offset">0.0dp</dimen>

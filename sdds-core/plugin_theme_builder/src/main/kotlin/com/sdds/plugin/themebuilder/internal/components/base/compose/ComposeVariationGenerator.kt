@@ -13,6 +13,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.FloatState
 import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
@@ -170,6 +171,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 shape.shapeAdjustment(suffix = variationId)
             })"
         }
+    }
+
+    protected fun getShadow(shadow: Shadow, shadowName: String = "shadow"): String {
+        return ".$shadowName($themeClassName.shadows.${shadow.value.toKtAttrName()})"
     }
 
     protected fun getTypography(styleName: String, typography: Typography): String {
