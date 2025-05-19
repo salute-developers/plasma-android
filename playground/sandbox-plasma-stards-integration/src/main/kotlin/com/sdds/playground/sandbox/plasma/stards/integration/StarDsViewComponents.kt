@@ -21,8 +21,6 @@ import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNav
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
-import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsView
-import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
@@ -106,14 +104,6 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.RadioBoxGroup,
                 StarDsRadioBoxGroupVariationsView,
-            ),
-            ViewComponent(
-                ComponentKey.Segment,
-                StarDsSegmentVariationsView,
-            ),
-            ViewComponent(
-                ComponentKey.SegmentItem,
-                StarDsSegmentItemVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Switch,

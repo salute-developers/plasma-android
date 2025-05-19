@@ -327,6 +327,7 @@ open class Segment @JvmOverloads constructor(
     private fun adjustShape() {
         val firstChild = getChildAt(0)
         val lastChild = getChildAt(childCount - 1)
+        if (firstChild == null || lastChild == null) return
 
         if (orientation == VERTICAL) {
             val firstTopLeftCorner = firstChild.getSize(Corner.TopLeft) + paddingTop
