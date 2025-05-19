@@ -30,7 +30,7 @@ internal class FlowViewModel(
             FlowPropertyName.Arrangement -> currentState.copy(arrangement = FlowArrangement.valueOf(valueString))
             FlowPropertyName.Alignment -> currentState.copy(alignment = FlowAlignment.valueOf(valueString))
             FlowPropertyName.Orientation -> currentState.copy(orientation = FlowOrientation.valueOf(valueString))
-            FlowPropertyName.ItemsPerLine -> currentState.copy(itemsPerLine = valueString.toInt())
+            FlowPropertyName.ItemsPerLine -> currentState.copy(itemsPerLine = valueString.toIntOrNull() ?: 0)
             else -> currentState
         }
     }

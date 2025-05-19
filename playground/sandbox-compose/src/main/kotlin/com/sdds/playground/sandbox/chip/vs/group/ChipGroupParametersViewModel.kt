@@ -29,7 +29,7 @@ internal class ChipGroupParametersViewModel(
             ChipPropertyName.ContentLeft -> updateStartIcon(value as Boolean)
             ChipPropertyName.HasClose -> updateEndIcon(value as Boolean)
             ChipPropertyName.Wrapped -> updateWrapped(value as Boolean)
-            ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toInt() ?: 0)
+            ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toIntOrNull() ?: 0)
             ChipPropertyName.GravityMode -> updateGravity(GravityMode.valueOf(value?.toString() ?: return))
             ChipPropertyName.SelectionMode -> updateSelectionMode(
                 ChipGroup.SelectionMode.valueOf(
