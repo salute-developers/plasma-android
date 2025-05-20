@@ -9,12 +9,12 @@ import com.sdds.playground.sandbox.core.compose.UiState
 internal data class PopoverUiState(
     override val variant: String = "",
     val triggerPlacement: TriggerPlacement = TriggerPlacement.Center,
-    val tailAlignment: PopoverAlignment = PopoverAlignment.Center,
+    val alignment: PopoverAlignment = PopoverAlignment.Start,
     val placement: PopoverPlacement = PopoverPlacement.Top,
     val placementMode: PopoverPlacementMode = PopoverPlacementMode.Loose,
     val triggerCentered: Boolean = false,
     val tailEnabled: Boolean = true,
-    val hideMode: HideMode = HideMode.OnTapOnly,
+    val autoHide: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(variant: String): UiState {
@@ -52,7 +52,4 @@ internal enum class HideMode {
     AutoHide, OnTapOnly
 }
 
-internal fun HideMode.toMs(): Long? = when (this) {
-    HideMode.AutoHide -> 3000L
-    HideMode.OnTapOnly -> null
-}
+internal fun Boolean.autoHideToMs(): Long? = if (this) 3000L else null

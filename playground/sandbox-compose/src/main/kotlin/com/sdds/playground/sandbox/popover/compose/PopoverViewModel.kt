@@ -26,10 +26,10 @@ internal class PopoverViewModel(
                 },
             ),
             enumProperty(
-                name = "tailAlignment",
-                value = tailAlignment,
+                name = "alignment",
+                value = alignment,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(tailAlignment = it)
+                    internalUiState.value = internalUiState.value.copy(alignment = it)
                 },
             ),
             enumProperty(
@@ -46,11 +46,11 @@ internal class PopoverViewModel(
                     internalUiState.value = internalUiState.value.copy(placementMode = it)
                 },
             ),
-            enumProperty(
-                name = "hideMode",
-                value = hideMode,
+            Property.BooleanProperty(
+                name = "autoHide",
+                value = autoHide,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(hideMode = it)
+                    internalUiState.value = internalUiState.value.copy(autoHide = it)
                 },
             ),
             Property.BooleanProperty(

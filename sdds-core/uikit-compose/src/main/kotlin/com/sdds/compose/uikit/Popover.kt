@@ -43,6 +43,10 @@ import androidx.compose.ui.unit.round
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
+import com.sdds.compose.uikit.PopoverPlacement.Companion.BottomFallbacks
+import com.sdds.compose.uikit.PopoverPlacement.Companion.EndFallbacks
+import com.sdds.compose.uikit.PopoverPlacement.Companion.StartFallbacks
+import com.sdds.compose.uikit.PopoverPlacement.Companion.TopFallbacks
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.plus
 import com.sdds.compose.uikit.shadow.ShadowAppearance
@@ -80,7 +84,7 @@ fun Popover(
     placement: PopoverPlacement = PopoverPlacement.Top,
     placementMode: PopoverPlacementMode = PopoverPlacementMode.Loose,
     triggerCentered: Boolean = false,
-    alignment: PopoverAlignment = PopoverAlignment.Center,
+    alignment: PopoverAlignment = PopoverAlignment.Start,
     tailEnabled: Boolean = true,
     duration: Long? = null,
     enterTransition: EnterTransition = fadeIn(),
@@ -112,7 +116,7 @@ fun Popover(
     val tailPaddings = tailCompensationPaddings(
         tailEnabled = tailEnabled,
         tailHeight = tailHeight,
-        placement = positionProvider.safePlacement,
+        placement = positionProvider.innerPlacement,
     )
 
     val visibleState = remember { MutableTransitionState(false) }
@@ -148,9 +152,8 @@ fun Popover(
                         .drawPopover(
                             shape = shape,
                             backgroundColor = backgroundColor,
-                            tailCorrection = positionProvider.tailCorrection,
-                            popoverAlignment = positionProvider.safeTailAlignment,
-                            placement = positionProvider.safePlacement,
+                            popoverAlignment = positionProvider.innerTailAlignment,
+                            placement = positionProvider.innerPlacement,
                             tailEnabled = tailEnabled,
                             tailHeight = tailHeight,
                             tailWidth = tailWidth,
@@ -201,7 +204,6 @@ private fun CacheDrawScope.createTailPath(
     tailWidthPx: Float,
     tailHeightPx: Float,
     tailPaddingPx: Float,
-    tailCorrection: Int,
 ): Path {
     val tailPath = Path().apply {
         addArc(
@@ -225,9 +227,9 @@ private fun CacheDrawScope.createTailPath(
     }
 
     val tailTranslationY =
-        getTailTranslationY(placement, tailAlignment, tailCorrection, tailWidthPx, tailPaddingPx)
+        getTailTranslationY(placement, tailAlignment, tailWidthPx, tailPaddingPx)
     val tailTranslationX =
-        getTailTranslationX(placement, tailAlignment, tailCorrection, tailWidthPx, tailPaddingPx)
+        getTailTranslationX(placement, tailAlignment, tailWidthPx, tailPaddingPx)
     val rotation = getTailRotationAngle(placement)
     val tailMatrix = Matrix().apply {
         translate(x = tailTranslationX, y = tailTranslationY)
@@ -239,18 +241,13 @@ private fun CacheDrawScope.createTailPath(
 private fun CacheDrawScope.getTailTranslationX(
     placement: PopoverPlacement,
     tailAlignment: PopoverAlignment,
-    tailCorrection: Int,
     tailWidthPx: Float,
     tailPaddingPx: Float,
 ): Float {
-    val horizontalAlignment = if (tailCorrection == 0) {
-        when (tailAlignment) {
-            PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
-            PopoverAlignment.End -> size.width - tailPaddingPx - tailWidthPx / 2
-            PopoverAlignment.Center -> size.width / 2
-        }
-    } else {
-        size.width / 2 + tailCorrection
+    val horizontalAlignment = when (tailAlignment) {
+        PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
+        PopoverAlignment.End -> size.width - tailPaddingPx - tailWidthPx / 2
+        PopoverAlignment.Center -> size.width / 2
     }
     return when (placement) {
         PopoverPlacement.Start -> size.width
@@ -264,18 +261,13 @@ private fun CacheDrawScope.getTailTranslationX(
 private fun CacheDrawScope.getTailTranslationY(
     placement: PopoverPlacement,
     tailAlignment: PopoverAlignment,
-    tailCorrection: Int,
     tailWidthPx: Float,
     tailPaddingPx: Float,
 ): Float {
-    val verticalAlignment = if (tailCorrection == 0) {
-        when (tailAlignment) {
-            PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
-            PopoverAlignment.End -> size.height - tailPaddingPx - tailWidthPx / 2
-            PopoverAlignment.Center -> size.height / 2
-        }
-    } else {
-        size.height / 2 + tailCorrection
+    val verticalAlignment = when (tailAlignment) {
+        PopoverAlignment.Start -> tailPaddingPx + tailWidthPx / 2
+        PopoverAlignment.End -> size.height - tailPaddingPx - tailWidthPx / 2
+        PopoverAlignment.Center -> size.height / 2
     }
     return when (placement) {
         PopoverPlacement.Top -> size.height
@@ -290,7 +282,6 @@ private fun Modifier.drawPopover(
     shape: CornerBasedShape,
     backgroundColor: Brush,
     tailEnabled: Boolean,
-    tailCorrection: Int,
     popoverAlignment: PopoverAlignment,
     placement: PopoverPlacement,
     tailHeight: Dp,
@@ -313,7 +304,6 @@ private fun Modifier.drawPopover(
                 tailWidthPx = tailWidthPx,
                 tailHeightPx = tailHeightPx,
                 tailPaddingPx = tailPaddingPx,
-                tailCorrection = tailCorrection,
             )
             Path().apply { op(backgroundPath, tailPath, PathOperation.Union) }
         }
@@ -381,11 +371,15 @@ private class PopoverPositionProvider(
     private val shadowPaddings: ShadowPaddings,
 ) : PopupPositionProvider {
 
-    var tailCorrection: Int = 0
-    private var horizontalAlignmentCorrectionWasMade = false
-    private var verticalAlignmentCorrectionWasMade = false
-    var safePlacement = placement
-    var safeTailAlignment = tailAlignment
+    private var popoverOffsetWhenTriggerCentered: Offset = Offset.Zero
+    var innerPlacement = placement
+    var innerTailAlignment = tailAlignment
+
+    private fun reset() {
+        innerPlacement = placement
+        innerTailAlignment = tailAlignment
+        popoverOffsetWhenTriggerCentered = Offset.Zero
+    }
 
     override fun calculatePosition(
         anchorBounds: IntRect,
@@ -393,6 +387,7 @@ private class PopoverPositionProvider(
         layoutDirection: LayoutDirection,
         popupContentSize: IntSize,
     ): IntOffset {
+        reset()
         val triggerLC = triggerLayoutCoordinates.value ?: return IntOffset.Zero
         val triggerSize = triggerLC.size
         val triggerPositionInRoot = triggerLC.positionInRoot().round()
@@ -400,26 +395,22 @@ private class PopoverPositionProvider(
             triggerPositionInRoot = triggerPositionInRoot,
             popupContentSize = popupContentSize,
             triggerSize = triggerSize,
-        )
+        ) + popoverOffsetWhenTriggerCentered(triggerSize)
 
         val finalPopupPosition = when (placementMode) {
-            PopoverPlacementMode.Strict ->
-                desiredPopupPosition
-                    .also {
-                        safePlacement = placement
-                        safeTailAlignment = tailAlignment
-                    }
+            PopoverPlacementMode.Strict -> desiredPopupPosition
 
             PopoverPlacementMode.Loose -> {
-                val shouldRecalculatePosition = desiredPopupPosition
-                    .verifyOrCorrectPlacement(popupContentSize, windowSize)
+                val shouldRecalculatePosition =
+                    !desiredPopupPosition.hasEnoughSpace(popupContentSize, windowSize)
                 if (shouldRecalculatePosition) {
-                    centerTailIfNeed(popupContentSize, triggerSize)
-                    calculatePopupPosition(
-                        triggerPositionInRoot = triggerPositionInRoot,
-                        popupContentSize = popupContentSize,
-                        triggerSize = triggerSize,
-                    )
+                    desiredPopupPosition
+                        .tryToCorrectPlacement(
+                            popupSize = popupContentSize,
+                            windowSize = windowSize,
+                            triggerPositionInRoot = triggerPositionInRoot,
+                            triggerSize = triggerSize,
+                        )
                 } else {
                     desiredPopupPosition
                 }
@@ -429,33 +420,128 @@ private class PopoverPositionProvider(
         return finalPopupPosition
     }
 
-    private fun centerTailIfNeed(popupSize: IntSize, triggerSize: IntSize) {
-        val shouldCenterTail = triggerCentered &&
-            (horizontalAlignmentCorrectionWasMade || verticalAlignmentCorrectionWasMade)
-        if (!shouldCenterTail) return
-        val verticalTailCorrection =
-            (popupSize.height / 2 - triggerSize.height) + triggerSize.height / 2
-        val horizontalTailCorrection =
-            (popupSize.width / 2 - triggerSize.width) + triggerSize.width / 2
-        tailCorrection = when (safePlacement) {
+    private fun IntOffset.tryToCorrectAlignment(
+        popupSize: IntSize,
+        windowSize: IntSize,
+        triggerPositionInRoot: IntOffset,
+        triggerSize: IntSize,
+    ): IntOffset {
+        fun checkOrCorrectVerticalAlignment() {
+            if (notEnoughSpaceOnTop()) {
+                innerTailAlignment = PopoverAlignment.Start
+            }
+            if (notEnoughSpaceOnBottom(popupSize, windowSize)) {
+                innerTailAlignment = PopoverAlignment.End
+            }
+        }
+
+        fun checkOrCorrectHorizontalAlignment() {
+            if (notEnoughSpaceOnStart()) {
+                innerTailAlignment = PopoverAlignment.Start
+            }
+            if (notEnoughSpaceOnEnd(popupSize, windowSize)) {
+                innerTailAlignment = PopoverAlignment.End
+            }
+        }
+
+        when (innerPlacement) {
+            PopoverPlacement.Start -> checkOrCorrectVerticalAlignment()
+            PopoverPlacement.End -> checkOrCorrectVerticalAlignment()
+            PopoverPlacement.Top -> checkOrCorrectHorizontalAlignment()
+            PopoverPlacement.Bottom -> checkOrCorrectHorizontalAlignment()
+        }
+
+        return calculatePopupPosition(
+            triggerPositionInRoot = triggerPositionInRoot,
+            popupContentSize = popupSize,
+            triggerSize = triggerSize,
+        ) + popoverOffsetWhenTriggerCentered(triggerSize)
+    }
+
+    @Suppress("ReturnCount")
+    private fun IntOffset.tryToCorrectPlacement(
+        popupSize: IntSize,
+        windowSize: IntSize,
+        triggerPositionInRoot: IntOffset,
+        triggerSize: IntSize,
+    ): IntOffset {
+        if (hasEnoughSpaceForPlacement(popupSize, windowSize)) {
+            return tryToCorrectAlignment(
+                popupSize = popupSize,
+                windowSize = windowSize,
+                triggerPositionInRoot = triggerPositionInRoot,
+                triggerSize = triggerSize,
+            )
+        }
+        for (i in 0 until placement.fallbacks.size) {
+            innerPlacement = placement.fallbacks[i]
+            val newPosition = calculatePopupPosition(
+                triggerPositionInRoot = triggerPositionInRoot,
+                popupContentSize = popupSize,
+                triggerSize = triggerSize,
+            ) + popoverOffsetWhenTriggerCentered(triggerSize)
+            if (newPosition.hasEnoughSpace(popupSize, windowSize)) {
+                return newPosition
+            } else {
+                val positionWithNewAlignment = newPosition
+                    .tryToCorrectAlignment(
+                        popupSize = popupSize,
+                        windowSize = windowSize,
+                        triggerPositionInRoot = triggerPositionInRoot,
+                        triggerSize = triggerSize,
+                    )
+
+                if (positionWithNewAlignment.hasEnoughSpace(popupSize, windowSize)) {
+                    return positionWithNewAlignment
+                }
+            }
+        }
+        innerPlacement = placement
+        innerTailAlignment = tailAlignment
+        return this
+    }
+
+    private val PopoverPlacement.fallbacks: Array<PopoverPlacement>
+        get() = when (this) {
+            PopoverPlacement.Start -> StartFallbacks
+            PopoverPlacement.Top -> TopFallbacks
+            PopoverPlacement.End -> EndFallbacks
+            PopoverPlacement.Bottom -> BottomFallbacks
+        }
+
+    private fun popoverOffsetWhenTriggerCentered(triggerSize: IntSize): IntOffset {
+        if (!triggerCentered) return IntOffset.Zero
+        return when (innerPlacement) {
             PopoverPlacement.Start,
             PopoverPlacement.End,
-            -> {
-                when (safeTailAlignment) {
-                    PopoverAlignment.Start -> verticalTailCorrection
-                    PopoverAlignment.End -> -verticalTailCorrection
-                    else -> 0
-                }
+            -> when (innerTailAlignment) {
+                PopoverAlignment.Start -> IntOffset(
+                    0,
+                    triggerSize.height / 2 - tailPadding - tailWidth / 2,
+                )
+
+                PopoverAlignment.End -> IntOffset(
+                    0,
+                    -triggerSize.height / 2 + tailPadding + tailWidth / 2,
+                )
+
+                else -> IntOffset.Zero
             }
 
             PopoverPlacement.Top,
             PopoverPlacement.Bottom,
-            -> {
-                when (safeTailAlignment) {
-                    PopoverAlignment.Start -> -horizontalTailCorrection
-                    PopoverAlignment.End -> horizontalTailCorrection
-                    else -> 0
-                }
+            -> when (innerTailAlignment) {
+                PopoverAlignment.Start -> IntOffset(
+                    triggerSize.width / 2 - tailPadding - tailWidth / 2,
+                    0,
+                )
+
+                PopoverAlignment.End -> IntOffset(
+                    -triggerSize.width / 2 + tailPadding + tailWidth / 2,
+                    0,
+                )
+
+                else -> IntOffset.Zero
             }
         }
     }
@@ -468,7 +554,7 @@ private class PopoverPositionProvider(
         val horizontalAlignment = getHorizontalAlignment(triggerSize, popupContentSize)
         val verticalAlignment = getVerticalAlignment(triggerSize, popupContentSize)
 
-        return when (safePlacement) {
+        return when (innerPlacement) {
             PopoverPlacement.Start -> IntOffset(
                 x = triggerPositionInRoot.x - offset - popupContentSize.width + shadowPaddings.end,
                 y = triggerPositionInRoot.y + verticalAlignment,
@@ -491,87 +577,15 @@ private class PopoverPositionProvider(
         }
     }
 
-    @Suppress("CyclomaticComplexMethod")
-    private fun IntOffset.verifyOrCorrectPlacement(
-        popupSize: IntSize,
-        windowSize: IntSize,
-    ): Boolean {
-        val notEnoughSpaceOnTop = this.y < 0
-        val notEnoughSpaceOnBottom = this.y + popupSize.height > windowSize.height
-        val notEnoughSpaceOnStart = this.x < 0
-        val notEnoughSpaceOnEnd = this.x + popupSize.width > windowSize.width
-        val shouldRecalculatePosition = notEnoughSpaceOnStart ||
-            notEnoughSpaceOnEnd ||
-            notEnoughSpaceOnTop ||
-            notEnoughSpaceOnBottom
-
-        if (!shouldRecalculatePosition) return false
-
-        fun checkOrCorrectVerticalAlignment() {
-            if (notEnoughSpaceOnTop) {
-                safeTailAlignment = PopoverAlignment.Start
-                verticalAlignmentCorrectionWasMade = true
-            }
-            if (notEnoughSpaceOnBottom) {
-                safeTailAlignment = PopoverAlignment.End
-                verticalAlignmentCorrectionWasMade = true
-            }
-        }
-
-        fun checkOrCorrectHorizontalAlignment() {
-            if (notEnoughSpaceOnStart) {
-                safeTailAlignment = PopoverAlignment.Start
-                horizontalAlignmentCorrectionWasMade = true
-            }
-            if (notEnoughSpaceOnEnd) {
-                safeTailAlignment = PopoverAlignment.End
-                horizontalAlignmentCorrectionWasMade = true
-            }
-        }
-
-        when (placement) {
-            PopoverPlacement.Start -> {
-                if (notEnoughSpaceOnStart) safePlacement = PopoverPlacement.End
-                checkOrCorrectVerticalAlignment()
-            }
-
-            PopoverPlacement.End -> {
-                if (notEnoughSpaceOnEnd) safePlacement = PopoverPlacement.Start
-                checkOrCorrectVerticalAlignment()
-            }
-
-            PopoverPlacement.Top -> {
-                if (notEnoughSpaceOnTop) safePlacement = PopoverPlacement.Bottom
-                checkOrCorrectHorizontalAlignment()
-            }
-
-            PopoverPlacement.Bottom -> {
-                if (notEnoughSpaceOnBottom) safePlacement = PopoverPlacement.Top
-                checkOrCorrectHorizontalAlignment()
-            }
-        }
-
-        return true
-    }
-
     private fun getVerticalAlignment(
         triggerSize: IntSize,
         popupSize: IntSize,
     ): Int {
         val centerAlignment = -(popupSize.height - triggerSize.height) / 2
-        return if (triggerCentered && !verticalAlignmentCorrectionWasMade) {
-            val tailOffset = when (tailAlignment) {
-                PopoverAlignment.Start -> -tailPadding - tailWidth / 2 - shadowPaddings.top
-                PopoverAlignment.Center -> -popupSize.height / 2 - (shadowPaddings.top - shadowPaddings.bottom) / 2
-                PopoverAlignment.End -> -popupSize.height + tailPadding + tailWidth / 2 + shadowPaddings.bottom
-            }
-            triggerSize.height / 2 + tailOffset
-        } else {
-            when (safeTailAlignment) {
-                PopoverAlignment.Start -> -shadowPaddings.top
-                PopoverAlignment.Center -> centerAlignment - (shadowPaddings.top - shadowPaddings.bottom) / 2
-                PopoverAlignment.End -> -(popupSize.height - triggerSize.height) + shadowPaddings.bottom
-            }
+        return when (innerTailAlignment) {
+            PopoverAlignment.Start -> -shadowPaddings.top
+            PopoverAlignment.Center -> centerAlignment - (shadowPaddings.top - shadowPaddings.bottom) / 2
+            PopoverAlignment.End -> -(popupSize.height - triggerSize.height) + shadowPaddings.bottom
         }
     }
 
@@ -580,21 +594,50 @@ private class PopoverPositionProvider(
         popupSize: IntSize,
     ): Int {
         val centerAlignment = -(popupSize.width - triggerSize.width) / 2
-        return if (triggerCentered && !horizontalAlignmentCorrectionWasMade) {
-            val tailOffset = when (tailAlignment) {
-                PopoverAlignment.Start -> -tailPadding - tailWidth / 2 - shadowPaddings.start
-                PopoverAlignment.Center -> -popupSize.width / 2 - (shadowPaddings.start - shadowPaddings.end) / 2
-                PopoverAlignment.End -> -popupSize.width + tailPadding + tailWidth / 2 + shadowPaddings.end
-            }
-            triggerSize.width / 2 + tailOffset
-        } else {
-            when (safeTailAlignment) {
-                PopoverAlignment.Start -> -shadowPaddings.start
-                PopoverAlignment.Center -> centerAlignment - (shadowPaddings.start - shadowPaddings.end) / 2
-                PopoverAlignment.End -> -(popupSize.width - triggerSize.width) + shadowPaddings.end
-            }
+        return when (innerTailAlignment) {
+            PopoverAlignment.Start -> -shadowPaddings.start
+            PopoverAlignment.Center -> centerAlignment - (shadowPaddings.start - shadowPaddings.end) / 2
+            PopoverAlignment.End -> -(popupSize.width - triggerSize.width) + shadowPaddings.end
         }
     }
+
+    private fun IntOffset.hasEnoughSpace(
+        popupSize: IntSize,
+        windowSize: IntSize,
+    ): Boolean {
+        return !(
+            notEnoughSpaceOnStart() ||
+                notEnoughSpaceOnEnd(popupSize, windowSize) ||
+                notEnoughSpaceOnTop() ||
+                notEnoughSpaceOnBottom(popupSize, windowSize)
+            )
+    }
+
+    private fun IntOffset.hasEnoughSpaceForPlacement(
+        popupSize: IntSize,
+        windowSize: IntSize,
+    ): Boolean {
+        return when (innerPlacement) {
+            PopoverPlacement.Start -> !notEnoughSpaceOnStart()
+            PopoverPlacement.Top -> !notEnoughSpaceOnTop()
+            PopoverPlacement.End -> !notEnoughSpaceOnEnd(popupSize, windowSize)
+            PopoverPlacement.Bottom -> !notEnoughSpaceOnBottom(popupSize, windowSize)
+        }
+    }
+
+    private fun IntOffset.notEnoughSpaceOnTop(): Boolean = this.y < 0
+
+    private fun IntOffset.notEnoughSpaceOnBottom(
+        popupSize: IntSize,
+        windowSize: IntSize,
+    ): Boolean = this.y + popupSize.height > windowSize.height
+
+    private fun IntOffset.notEnoughSpaceOnStart(): Boolean = this.x < 0
+
+    private fun IntOffset.notEnoughSpaceOnEnd(
+        popupSize: IntSize,
+        windowSize: IntSize,
+    ): Boolean = this.x + popupSize.width > windowSize.width
 }
 
 /**
@@ -641,6 +684,15 @@ enum class PopoverPlacement {
      * Снизу от триггера
      */
     Bottom,
+
+    ;
+
+    internal companion object {
+        val StartFallbacks = arrayOf(End, Top, Bottom)
+        val EndFallbacks = arrayOf(Start, Top, Bottom)
+        val TopFallbacks = arrayOf(Bottom, Start, End)
+        val BottomFallbacks = arrayOf(Top, Start, End)
+    }
 }
 
 /**
