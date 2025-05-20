@@ -57,13 +57,13 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
                 placement = popoverUiState.placement,
                 placementMode = popoverUiState.placementMode,
                 triggerCentered = popoverUiState.triggerCentered,
-                alignment = popoverUiState.tailAlignment,
+                alignment = popoverUiState.alignment,
                 style = style,
                 tailEnabled = popoverUiState.tailEnabled,
                 onDismissRequest = {
                     showPopover.value = false
                 },
-                duration = popoverUiState.hideMode.toMs(),
+                duration = popoverUiState.autoHide.autoHideToMs(),
             ) {
                 Column(
                     modifier = Modifier
