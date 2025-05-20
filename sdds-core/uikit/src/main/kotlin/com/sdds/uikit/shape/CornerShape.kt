@@ -73,7 +73,6 @@ open class CornerShape(
 
     override fun getOutline(outline: Outline) {
         super.getOutline(outline)
-        outline.setEmpty()
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
             outline.setPath(combinedPath)
         } else {
