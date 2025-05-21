@@ -319,14 +319,18 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     override fun onStateChange(state: IntArray): Boolean {
         animator.cancel()
         val borderColor = _strokeTint.colorForState(state)
-        var stateChanged = _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)
+        var stateChanged = false
         if (borderColor != _strokePaint.color) {
             stateChanged = true
         }
         var fillColor: Int? = null
-        if (_shaderFactory == null && _shapeTintValue == null) {
-            fillColor = _shapeTint.colorForState(state)
-            if (fillColor != _shapePaint.color) {
+        if (_shaderFactory == null) {
+            if (_shapeTintValue == null) {
+                fillColor = _shapeTint.colorForState(state)
+                if (fillColor != _shapePaint.color) {
+                    stateChanged = true
+                }
+            } else if (_shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)) {
                 stateChanged = true
             }
         }
