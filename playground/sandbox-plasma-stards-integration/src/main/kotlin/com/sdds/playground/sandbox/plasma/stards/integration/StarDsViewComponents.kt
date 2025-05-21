@@ -18,6 +18,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.St
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.overlay.vs.StarDsOverlayVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPopoverVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsView
@@ -90,6 +91,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.NavigationDrawer,
                 StarDsNavDrawerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Overlay,
+                StarDsOverlayVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Popover,

@@ -3,5 +3,8 @@
 
     <style name="Sdds.Components.OverlayView">
         <item name="sd_background">#060A0C0F</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:focusable">false</item>
     </style>
 </resources>

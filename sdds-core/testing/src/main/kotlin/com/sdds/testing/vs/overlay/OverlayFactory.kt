@@ -7,9 +7,8 @@ import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import com.sdds.testing.R
 import com.sdds.testing.vs.button.basicButton
-import com.sdds.testing.vs.button.linkButton
+import com.sdds.testing.vs.button.iconButton
 import com.sdds.testing.vs.styleWrapper
-import com.sdds.uikit.Button
 import com.sdds.uikit.OverlayView
 
 /**
@@ -43,10 +42,8 @@ fun overlayWithTrigger(
 ): ViewGroup {
     val overlayView = overlayView(context, style, state).apply {
         val overlay = this
-        val hideButton = linkButton(context).apply {
-            text = "Hide Overlay"
+        val hideButton = iconButton(context).apply {
             setIconResource(com.sdds.icons.R.drawable.ic_close_24)
-            iconPosition = Button.IconPosition.TextEnd
             setOnClickListener { overlay.isVisible = false }
         }
         setOnClickListener { overlay.isVisible = false }
@@ -54,6 +51,8 @@ fun overlayWithTrigger(
             hideButton,
             FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 gravity = Gravity.TOP or Gravity.END
+                val margin = resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_2x)
+                setMargins(margin, margin, margin, margin)
             },
         )
     }
