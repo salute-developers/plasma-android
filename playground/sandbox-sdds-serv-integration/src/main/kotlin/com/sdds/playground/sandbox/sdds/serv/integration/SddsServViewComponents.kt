@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.overlay.vs.SddsServOverlayVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.popover.vs.SddsServPopoverVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
@@ -143,6 +144,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Flow,
                 ViewStyleProvider.Empty,
+            ),
+            ViewComponent(
+                ComponentKey.Overlay,
+                SddsServOverlayVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Popover,

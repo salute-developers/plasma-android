@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.OverlayView">
+        <item name="sd_background">#060A0C0F</item>
+    </style>
+</resources>

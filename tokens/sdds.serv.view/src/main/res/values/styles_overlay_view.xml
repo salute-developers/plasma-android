@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.Components.OverlayView" parent="Sdds.Components.OverlayView">
+        <item name="sd_background">?serv_overlayDefaultHard</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.OverlayView">
+        <item name="sd_overlayViewStyle">@style/Serv.Sdds.Components.OverlayView</item>
+    </style>
+</resources>
