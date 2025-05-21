@@ -145,6 +145,7 @@ data class ComponentKey(
         val NavigationDrawer = ComponentKey("NavigationDrawer", CoreComponent.NAVIGATION_DRAWER)
         val ProgressBar = ComponentKey("ProgressBar", CoreComponent.PROGRESS)
         val Popover = ComponentKey("Popover", CoreComponent.POPOVER)
+        val Tooltip = ComponentKey("Tooltip", CoreComponent.TOOLTIP)
         val CircularProgressBar = ComponentKey("CircularProgressBar", CoreComponent.CIRCULAR_PROGRESS)
 
         val RadioBox = ComponentKey("RadioBox", CoreComponent.RADIOBOX)
@@ -210,4 +211,5 @@ enum class CoreComponent {
 
     TEXT_FIELD,
     TEXT_AREA,
+    TOOLTIP,
 }

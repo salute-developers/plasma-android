@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.textarea.PlasmaGigaTe
 import com.sdds.playground.sandbox.plasma.giga.integration.textarea.clear.PlasmaGigaTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.PlasmaGigaTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.clear.PlasmaGigaTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.tooltip.PlasmaGigaTooltipVariationsCompose
 
 /**
  *
@@ -158,6 +159,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Popover,
                 PlasmaGigaPopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                PlasmaGigaTooltipVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,
