@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.compose.PlasmaSdServiceOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.PlasmaSdServicePopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
@@ -203,6 +204,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Segment,
                 PlasmaSdServiceSegmentVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Overlay,
+                PlasmaSdServiceOverlayVariationsCompose,
             ),
         ).associateBy { it.key }
 }
