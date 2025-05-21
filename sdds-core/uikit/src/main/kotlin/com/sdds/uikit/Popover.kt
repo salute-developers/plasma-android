@@ -146,7 +146,7 @@ open class Popover @JvmOverloads constructor(
         val shadowPaddings = _content.getShadowSafePaddings()
         val visibleDisplayFrame = getVisibleDisplayFrame(trigger)
 
-        val popoverLocation = PopoverLocation(placement, alignment)
+        val popoverLocation = PopoverLocation(placement, alignment, tailEnabled = tailEnabled)
             .calculateLocation(triggerRect, triggerCentered)
             .run {
                 if (placementMode == PLACEMENT_MODE_LOOSE) {
@@ -214,7 +214,7 @@ open class Popover @JvmOverloads constructor(
         triggerRect: Rect,
         triggerCentered: Boolean,
     ): PopoverLocation {
-        val tailCorrection = _content.getTailCorrectionPadding()
+        val tailCorrection = _content.getTailCorrectionPadding(tailEnabled)
         val popupWidth = _content.measuredWidth
         val popupHeight = _content.measuredHeight
         var x = 0
@@ -313,6 +313,7 @@ open class Popover @JvmOverloads constructor(
     private data class PopoverLocation(
         val placement: Int,
         val alignment: Int,
+        val tailEnabled: Boolean,
         val bounds: Rect = Rect(),
     )
 
@@ -336,6 +337,10 @@ open class Popover @JvmOverloads constructor(
                 }
             }
 
+        init {
+            isFocusable = false
+        }
+
         fun getShadowSafePaddings(): Rect {
             val shadow = _shapeHelper.shadow ?: return Rect()
             val biggestLayer = shadow.layers.maxBy { it.spreadRadius }
@@ -352,8 +357,8 @@ open class Popover @JvmOverloads constructor(
             )
         }
 
-        fun getTailCorrectionPadding(): Int {
-            return _shapeHelper.tail?.tailHeight?.toInt() ?: 0
+        fun getTailCorrectionPadding(tailEnabled: Boolean): Int {
+            return _shapeHelper.tail?.tailHeight.takeIf { tailEnabled }?.toInt() ?: 0
         }
 
         fun resolveAlignedPosition(

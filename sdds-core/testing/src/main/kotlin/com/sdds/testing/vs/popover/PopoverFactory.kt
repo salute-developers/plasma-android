@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.core.view.setPadding
 import com.sdds.testing.R
 import com.sdds.testing.vs.button.basicButton
+import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Popover
 import com.sdds.uikit.TextView
@@ -36,10 +37,14 @@ fun popover(
         isFocusable = true
         contentView = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
+            clipToPadding = false
+            clipChildren = false
+            isFocusable = false
             setPadding(context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_4x))
             TextView(context)
                 .apply {
                     text = "Content"
+                    setTextColor(context.getTextColorPrimary())
                 }.also {
                     val lp = MarginLayoutParams(MarginLayoutParams.WRAP_CONTENT, MarginLayoutParams.WRAP_CONTENT)
                     lp.bottomMargin = context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_10x)
