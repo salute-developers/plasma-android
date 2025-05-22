@@ -15,7 +15,6 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
@@ -27,15 +26,12 @@ import androidx.compose.ui.graphics.Matrix
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.addOutline
-import androidx.compose.ui.layout.LayoutCoordinates
-import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntRect
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.round
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
@@ -48,19 +44,21 @@ import com.sdds.compose.uikit.PopoverPlacement.Companion.EndFallbacks
 import com.sdds.compose.uikit.PopoverPlacement.Companion.StartFallbacks
 import com.sdds.compose.uikit.PopoverPlacement.Companion.TopFallbacks
 import com.sdds.compose.uikit.PopoverPlacementMode
+import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.plus
 import com.sdds.compose.uikit.px
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.shadow.shadow
 import kotlinx.coroutines.delay
+import kotlin.math.roundToInt
 
 @Composable
 @Suppress("LongMethod")
 internal fun BasePopover(
     show: Boolean,
     onDismissRequest: () -> Unit,
-    triggerLayoutCoordinates: State<LayoutCoordinates?>,
+    triggerInfo: TriggerInfo,
     shape: CornerBasedShape,
     shadow: ShadowAppearance,
     dimensions: PopoverDimensions,
@@ -71,6 +69,7 @@ internal fun BasePopover(
     alignment: PopoverAlignment,
     tailEnabled: Boolean,
     duration: Long?,
+    popupProperties: PopupProperties,
     enterTransition: EnterTransition,
     exitTransition: ExitTransition,
     interactionSource: MutableInteractionSource,
@@ -89,7 +88,7 @@ internal fun BasePopover(
         placementMode = placementMode,
         triggerCentered = triggerCentered,
         tailAlignment = alignment,
-        triggerLayoutCoordinates = triggerLayoutCoordinates,
+        triggerInfo = triggerInfo,
         offset = offset.px,
         tailPadding = tailPadding.px,
         tailWidth = tailWidth.px,
@@ -116,9 +115,7 @@ internal fun BasePopover(
     if (visibleState.currentState || visibleState.targetState || !visibleState.isIdle) {
         Popup(
             popupPositionProvider = positionProvider,
-            properties = PopupProperties(
-                clippingEnabled = false,
-            ),
+            properties = popupProperties,
             onDismissRequest = onDismissRequest,
         ) {
             AnimatedVisibility(
@@ -148,6 +145,11 @@ internal fun BasePopover(
         }
     }
 }
+
+internal val DefaultPopupProperties = PopupProperties(
+    clippingEnabled = false,
+    focusable = true,
+)
 
 private fun ShadowAppearance.getShadowSafePaddings(): PaddingValues {
     val shadow = this
@@ -312,7 +314,7 @@ private fun rememberPopoverPositionProvider(
     placementMode: PopoverPlacementMode,
     triggerCentered: Boolean,
     tailAlignment: PopoverAlignment,
-    triggerLayoutCoordinates: State<LayoutCoordinates?>,
+    triggerInfo: TriggerInfo,
     offset: Int,
     tailPadding: Int,
     tailWidth: Int,
@@ -322,7 +324,7 @@ private fun rememberPopoverPositionProvider(
     placementMode,
     triggerCentered,
     tailAlignment,
-    triggerLayoutCoordinates,
+    triggerInfo,
     offset,
     tailPadding,
     tailWidth,
@@ -333,7 +335,7 @@ private fun rememberPopoverPositionProvider(
         placementMode,
         triggerCentered,
         tailAlignment,
-        triggerLayoutCoordinates,
+        triggerInfo,
         offset,
         tailPadding,
         tailWidth,
@@ -346,7 +348,7 @@ private class PopoverPositionProvider(
     private val placementMode: PopoverPlacementMode,
     private val triggerCentered: Boolean,
     private val tailAlignment: PopoverAlignment,
-    private val triggerLayoutCoordinates: State<LayoutCoordinates?>,
+    private val triggerInfo: TriggerInfo,
     private val offset: Int,
     private val tailPadding: Int,
     private val tailWidth: Int,
@@ -370,14 +372,15 @@ private class PopoverPositionProvider(
         popupContentSize: IntSize,
     ): IntOffset {
         reset()
-        val triggerLC = triggerLayoutCoordinates.value ?: return IntOffset.Zero
-        val triggerSize = triggerLC.size
-        val triggerPositionInRoot = triggerLC.positionInRoot().round()
+        val triggerScaleFactor = triggerInfo.focusScaleFactor
+        val triggerSize = triggerInfo.size
+        val triggerPositionInRoot = triggerInfo.positionInRoot
+        val scaledTriggerSize = triggerSize.calculateScaledSize(triggerScaleFactor)
         val desiredPopupPosition = calculatePopupPosition(
             triggerPositionInRoot = triggerPositionInRoot,
             popupContentSize = popupContentSize,
-            triggerSize = triggerSize,
-        ) + popoverOffsetWhenTriggerCentered(triggerSize)
+            triggerSize = scaledTriggerSize,
+        ) + popoverOffsetWhenTriggerCentered(scaledTriggerSize)
 
         val finalPopupPosition = when (placementMode) {
             PopoverPlacementMode.Strict -> desiredPopupPosition
@@ -391,7 +394,7 @@ private class PopoverPositionProvider(
                             popupSize = popupContentSize,
                             windowSize = windowSize,
                             triggerPositionInRoot = triggerPositionInRoot,
-                            triggerSize = triggerSize,
+                            triggerSize = scaledTriggerSize,
                         )
                 } else {
                     desiredPopupPosition
@@ -400,6 +403,17 @@ private class PopoverPositionProvider(
         }
 
         return finalPopupPosition
+    }
+
+    private fun IntSize.calculateScaledSize(scaleFactor: Float): IntSize {
+        return if (scaleFactor == 0f) {
+            this
+        } else {
+            IntSize(
+                width = (this.width * (1f + scaleFactor)).roundToInt(),
+                height = (this.height * (1f + scaleFactor)).roundToInt(),
+            )
+        }
     }
 
     private fun IntOffset.tryToCorrectAlignment(

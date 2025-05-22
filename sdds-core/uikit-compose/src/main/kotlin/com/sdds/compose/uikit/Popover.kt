@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.round
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.internal.popover.BasePopover
+import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
 
 /**
  * Компонент Popover.

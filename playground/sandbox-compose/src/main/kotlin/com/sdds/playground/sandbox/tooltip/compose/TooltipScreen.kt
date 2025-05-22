@@ -1,12 +1,11 @@
 package com.sdds.playground.sandbox.tooltip.compose
 
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
@@ -15,6 +14,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Tooltip
+import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
@@ -40,18 +40,18 @@ internal fun TooltipScreen(componentKey: ComponentKey = ComponentKey.Tooltip) {
         backgroundColor = Color.LightGray.copy(0.3f),
         component = { tooltipUiState, style ->
             val showTooltip = remember { mutableStateOf(false) }
-            val triggerLC = remember { mutableStateOf<LayoutCoordinates?>(null) }
+            val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
             Button(
                 modifier = Modifier
                     .align(tooltipUiState.triggerPlacement.toAlignment())
-                    .popoverTrigger(triggerLC),
+                    .popoverTrigger(triggerInfo),
                 label = "show",
                 onClick = { showTooltip.value = true },
             )
             Tooltip(
                 show = showTooltip.value,
-                modifier = Modifier.width(160.dp),
-                triggerLayoutCoordinates = triggerLC,
+                modifier = Modifier.widthIn(0.dp, 160.dp),
+                triggerInfo = triggerInfo.value,
                 placement = tooltipUiState.placement,
                 placementMode = tooltipUiState.placementMode,
                 triggerCentered = tooltipUiState.triggerCentered,

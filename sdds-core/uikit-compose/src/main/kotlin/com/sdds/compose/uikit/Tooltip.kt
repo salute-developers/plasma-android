@@ -10,16 +10,15 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.popover.BasePopover
+import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
 
 /**
  * Компонент Tooltip.
@@ -28,7 +27,7 @@ import com.sdds.compose.uikit.internal.popover.BasePopover
  * @param show будет ли показан Tooltip
  * @param modifier модификатор для контейнера Tooltip
  * @param onDismissRequest колбэк, который будет вызван при нажатии вне Tooltip либо по истечении [duration]
- * @param triggerLayoutCoordinates информация о размерах и размещении триггера
+ * @param triggerInfo информация о размерах и размещении триггера
  * @param style стиль компонента
  * @param contentStart контент в начале
  * @param text текст
@@ -49,7 +48,7 @@ fun Tooltip(
     show: Boolean,
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
-    triggerLayoutCoordinates: State<LayoutCoordinates?>,
+    triggerInfo: TriggerInfo,
     style: TooltipStyle = LocalTooltipStyle.current,
     contentStart: (@Composable () -> Unit)? = null,
     text: AnnotatedString = AnnotatedString(""),
@@ -63,10 +62,11 @@ fun Tooltip(
     exitTransition: ExitTransition = fadeOut(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    if (text.isEmpty() && contentStart == null) return
     BasePopover(
         show = show,
         onDismissRequest = onDismissRequest,
-        triggerLayoutCoordinates = triggerLayoutCoordinates,
+        triggerInfo = triggerInfo,
         dimensions = style.dimensions.toPopoverDimensions(),
         colors = style.colors.toPopoverColors(),
         shape = style.shape,
@@ -77,6 +77,7 @@ fun Tooltip(
         alignment = alignment,
         tailEnabled = tailEnabled,
         duration = duration,
+        popupProperties = DefaultPopupProperties,
         enterTransition = enterTransition,
         exitTransition = exitTransition,
         interactionSource = interactionSource,
@@ -111,7 +112,7 @@ fun Tooltip(
 
 private fun TooltipDimensions.toPopoverDimensions(): PopoverDimensions {
     return object : PopoverDimensions {
-        override val width = 160.dp
+        override val width = 0.dp
         override val offset = this@toPopoverDimensions.offset
         override val tailWidth = this@toPopoverDimensions.tailWidth
         override val tailHeight = this@toPopoverDimensions.tailHeight
