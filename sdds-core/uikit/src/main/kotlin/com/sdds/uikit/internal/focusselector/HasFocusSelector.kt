@@ -49,6 +49,77 @@ interface HasFocusSelector {
      * Обрабатывает изменение состояния [View.isPressed]
      */
     fun handlePressedChange(view: View, isPressed: Boolean)
+
+    /**
+     * Добавляет слушатель анимации изменения масштаба при фокусе.
+     */
+    fun addScaleAnimationListener(listener: ScaleAnimationListener)
+
+    /**
+     * Добавляет слушатель анимации изменения масштаба при фокусе.
+     */
+    fun removeScaleAnimationListener(listener: ScaleAnimationListener)
+}
+
+/**
+ * Слушатель анимации масштабирования, связанной с фокусом.
+ *
+ * Позволяет отслеживать ключевые события анимации изменения масштаба при получении или потере фокуса.
+ */
+interface ScaleAnimationListener {
+
+    /**
+     * Вызывается в начале анимации масштабирования.
+     */
+    fun onStart()
+
+    /**
+     * Вызывается при обновлении анимации.
+     *
+     * @param startX начальное значение анимации масштабирования по оси X
+     * @param startY начальное значение анимации масштабирования по оси Y
+     * @param endX конечное значение анимации масштабирования по оси X
+     * @param endY конечное значение анимации масштабирования по оси Y
+     * @param fraction прогресс анимации от 0.0 до 1.0
+     */
+    fun onUpdate(startX: Float, startY: Float, endX: Float, endY: Float, fraction: Float)
+
+    /**
+     * Вызывается в конце анимации масштабирования.
+     */
+    fun onEnd()
+}
+
+/**
+ * Добавляет [ScaleAnimationListener] к текущему [HasFocusSelector] с удобной реализацией через лямбды.
+ *
+ * Позволяет легко обработать события начала, прогресса и завершения анимации масштабирования.
+ *
+ * @param onStart вызывается в начале анимации (опционально)
+ * @param onEnd вызывается в конце анимации (опционально)
+ * @param onUpdate вызывается при каждом обновлении прогресса анимации.
+ * @return созданный [ScaleAnimationListener]
+ */
+fun HasFocusSelector.doOnScaleAnimation(
+    onStart: (() -> Unit)? = null,
+    onEnd: (() -> Unit)? = null,
+    onUpdate: (Float, Float, Float, Float, Float) -> Unit,
+): ScaleAnimationListener {
+    val listener = object : ScaleAnimationListener {
+        override fun onStart() {
+            onStart?.invoke()
+        }
+
+        override fun onUpdate(startX: Float, startY: Float, endX: Float, endY: Float, fraction: Float) {
+            onUpdate(startX, startY, endX, endY, fraction)
+        }
+
+        override fun onEnd() {
+            onEnd?.invoke()
+        }
+    }
+    addScaleAnimationListener(listener)
+    return listener
 }
 
 /**
@@ -107,6 +178,14 @@ constructor() : HasFocusSelector {
         if (settings?.scaleEnabled == true) {
             scaleAnimationHelper?.animatePressedState(view, isPressed)
         }
+    }
+
+    override fun addScaleAnimationListener(listener: ScaleAnimationListener) {
+        scaleAnimationHelper?.addScaleAnimationListener(listener)
+    }
+
+    override fun removeScaleAnimationListener(listener: ScaleAnimationListener) {
+        scaleAnimationHelper?.removeScaleAnimationListener(listener)
     }
 
     private fun View.canBeFocusable(duplicateStateEnabled: Boolean): Boolean {

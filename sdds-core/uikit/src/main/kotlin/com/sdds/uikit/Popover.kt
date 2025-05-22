@@ -15,10 +15,14 @@ import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.doOnLayout
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.shape.ShapeHelper
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.focusselector.ScaleAnimationListener
+import com.sdds.uikit.internal.focusselector.doOnScaleAnimation
 import com.sdds.uikit.shape.CornerShape
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
@@ -26,6 +30,7 @@ import com.sdds.uikit.shape.shapeHelper
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
+import java.lang.ref.WeakReference
 import kotlin.math.max
 
 /**
@@ -48,6 +53,9 @@ open class Popover @JvmOverloads constructor(
     private var _backgroundList: ColorValueStateList? = null
     private val _timeoutHandler: Handler = Handler(Looper.getMainLooper())
     private val _timeoutDismissAction: Runnable = Runnable { dismiss() }
+    private var _scaleAnimationListener: ScaleAnimationListener? = null
+    private var _triggerRef: WeakReference<View>? = null
+    private var _currentLocation: PopoverLocation = PopoverLocation()
 
     override val shape: ShapeModel?
         get() = _content.shape
@@ -96,17 +104,19 @@ open class Popover @JvmOverloads constructor(
         triggerCentered: Boolean = false,
         duration: Long? = null,
     ) {
+        _triggerRef = WeakReference(trigger)
+        _currentLocation = PopoverLocation(
+            placement = placement,
+            alignment = alignment,
+            tailEnabled = tailEnabled,
+            triggerCentered = triggerCentered,
+            placementMode = placementMode,
+        )
+        _scaleAnimationListener = (trigger as? HasFocusSelector)
+            ?.doOnScaleAnimation { _, _, _, _, _ -> updateLocationPoint() }
         trigger.post {
-            val initialLocation =
-                getLocation(
-                    trigger = trigger,
-                    placement = placement,
-                    placementMode = placementMode,
-                    alignment = alignment,
-                    tailEnabled = tailEnabled,
-                    triggerCentered = triggerCentered,
-                )
-            showAtLocation(trigger, Gravity.NO_GRAVITY, initialLocation.x, initialLocation.y)
+            _content.doOnLayout { updateLocationPoint() }
+            showAtLocation(trigger, Gravity.NO_GRAVITY, INITIAL_POSITION, INITIAL_POSITION)
         }
 
         // Автоматическое скрытие
@@ -119,59 +129,41 @@ open class Popover @JvmOverloads constructor(
     override fun dismiss() {
         super.dismiss()
         _timeoutHandler.removeCallbacks(_timeoutDismissAction)
+        _scaleAnimationListener?.let {
+            (_triggerRef?.get() as? HasFocusSelector)
+                ?.removeScaleAnimationListener(it)
+        }
+        _triggerRef = null
     }
 
-    private fun getLocation(
-        trigger: View,
-        placement: Int,
-        placementMode: Int,
-        alignment: Int,
-        tailEnabled: Boolean,
-        triggerCentered: Boolean,
-    ): Point {
-        val location = IntArray(2)
-        trigger.getLocationOnScreen(location)
-        val triggerRect = Rect(
-            location[0],
-            location[1],
-            location[0] + trigger.width,
-            location[1] + trigger.height,
-        )
+    private fun updateLocationPoint() {
+        val updateLocation = getLocationPoint()
+        _content.updateTailPlacement()
+        update(updateLocation.x, updateLocation.y, width, height)
+    }
 
-        _content.measure(
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-        )
-
+    private fun getLocationPoint(): Point {
+        val trigger = _triggerRef?.get() ?: return Point(INITIAL_POSITION, INITIAL_POSITION)
+        val triggerRect = trigger.getScreenRect()
         val shadowPaddings = _content.getShadowSafePaddings()
         val visibleDisplayFrame = getVisibleDisplayFrame(trigger)
 
-        val popoverLocation = PopoverLocation(placement, alignment, tailEnabled = tailEnabled)
-            .calculateLocation(triggerRect, triggerCentered)
-            .run {
-                if (placementMode == PLACEMENT_MODE_LOOSE) {
-                    this.ensureEnoughSpace(visibleDisplayFrame, triggerRect, triggerCentered)
-                } else {
-                    this
-                }
-            }
-
-        _content.updateLocation(popoverLocation.placement, popoverLocation.alignment, tailEnabled)
-        return popoverLocation.bounds.let {
-            Point(it.left - shadowPaddings.left, it.top - shadowPaddings.top)
-        }
+        return _currentLocation.calculateLocation(triggerRect)
+            .ensureEnoughSpace(visibleDisplayFrame, triggerRect)
+            .also { _currentLocation = it }
+            .bounds.let { Point(it.left - shadowPaddings.left, it.top - shadowPaddings.top) }
     }
 
     @Suppress("CyclomaticComplexMethod")
     private fun PopoverLocation.ensureEnoughSpace(
         visibleDisplayFrame: Rect,
         triggerRect: Rect,
-        triggerCentered: Boolean,
     ): PopoverLocation {
-        val enoughTopSpace = triggerRect.top - bounds.height() >= visibleDisplayFrame.top
-        val enoughBottomSpace = triggerRect.bottom + bounds.height() <= visibleDisplayFrame.bottom
-        val enoughStartSpace = triggerRect.left - bounds.width() >= visibleDisplayFrame.left
-        val enoughEndSpace = triggerRect.right + bounds.width() <= visibleDisplayFrame.right
+        if (placementMode == PLACEMENT_MODE_STRICT) return this
+        val enoughTopSpace = triggerRect.top - bounds.height() - _offset >= visibleDisplayFrame.top
+        val enoughBottomSpace = triggerRect.bottom + bounds.height() + _offset <= visibleDisplayFrame.bottom
+        val enoughStartSpace = triggerRect.left - bounds.width() - _offset >= visibleDisplayFrame.left
+        val enoughEndSpace = triggerRect.right + bounds.width() + _offset <= visibleDisplayFrame.right
 
         val safePlacement = when {
             placement == PLACEMENT_TOP && enoughTopSpace -> PLACEMENT_TOP
@@ -207,12 +199,11 @@ open class Popover @JvmOverloads constructor(
             else -> alignment
         }
         return copy(placement = safePlacement, alignment = safeAlignment)
-            .calculateLocation(triggerRect, triggerCentered)
+            .calculateLocation(triggerRect)
     }
 
     private fun PopoverLocation.calculateLocation(
         triggerRect: Rect,
-        triggerCentered: Boolean,
     ): PopoverLocation {
         val tailCorrection = _content.getTailCorrectionPadding(tailEnabled)
         val popupWidth = _content.measuredWidth
@@ -268,7 +259,7 @@ open class Popover @JvmOverloads constructor(
         return Rect().apply {
             val insets = WindowInsetsCompat.toWindowInsetsCompat(trigger.rootWindowInsets)
                 .getInsets(WindowInsetsCompat.Type.systemBars())
-            _content.rootView.getWindowVisibleDisplayFrame(this)
+            trigger.rootView.getWindowVisibleDisplayFrame(this)
             left += insets.left
             top += insets.top
             right -= insets.right
@@ -311,9 +302,11 @@ open class Popover @JvmOverloads constructor(
     }
 
     private data class PopoverLocation(
-        val placement: Int,
-        val alignment: Int,
-        val tailEnabled: Boolean,
+        val placement: Int = PLACEMENT_TOP,
+        val alignment: Int = ALIGNMENT_START,
+        val tailEnabled: Boolean = true,
+        val triggerCentered: Boolean = false,
+        val placementMode: Int = PLACEMENT_MODE_LOOSE,
         val bounds: Rect = Rect(),
     )
 
@@ -381,9 +374,9 @@ open class Popover @JvmOverloads constructor(
             }
         }
 
-        fun updateLocation(placement: Int, alignment: Int, tailEnabled: Boolean) {
-            val tailPlacement = if (tailEnabled) {
-                when (placement) {
+        fun updateTailPlacement() {
+            val tailPlacement = if (_currentLocation.tailEnabled) {
+                when (_currentLocation.placement) {
                     PLACEMENT_START -> CornerShape.TAIL_PLACEMENT_END
                     PLACEMENT_TOP -> CornerShape.TAIL_PLACEMENT_BOTTOM
                     PLACEMENT_END -> CornerShape.TAIL_PLACEMENT_START
@@ -393,7 +386,7 @@ open class Popover @JvmOverloads constructor(
             } else {
                 CornerShape.TAIL_PLACEMENT_NONE
             }
-            _shapeHelper.updateTailPlacement(tailPlacement, alignment)
+            _shapeHelper.updateTailPlacement(tailPlacement, _currentLocation.alignment)
         }
 
         override fun onCreateDrawableState(extraSpace: Int): IntArray {
@@ -475,8 +468,25 @@ open class Popover @JvmOverloads constructor(
             PLACEMENT_START,
         )
 
+        /**
+         * До показа Popover невозможно корректно рассчитать его позицию, так как контент еще не прошел фазу measure,
+         * поэтому делаем начальную позицию где-то далеко за границами экрана, а потом обновляем на реальную позицию
+         */
+        private const val INITIAL_POSITION = -Int.MAX_VALUE
+
         private fun Rect.isZeroRect(): Boolean {
             return left == 0 && top == 0 && right == 0 && bottom == 0
+        }
+
+        private fun View.getScreenRect(): Rect {
+            val location = IntArray(2)
+            getLocationOnScreen(location)
+            return Rect(
+                location[0],
+                location[1],
+                (location[0] + width * scaleX).toInt(),
+                (location[1] + height * scaleY).toInt(),
+            )
         }
 
         private fun getNextAvailablePlacementClockwise(
