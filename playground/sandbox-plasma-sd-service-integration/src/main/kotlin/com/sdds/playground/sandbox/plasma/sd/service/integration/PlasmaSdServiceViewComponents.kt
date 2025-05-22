@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.vs.PlasmaSdServicePopoverVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsView
@@ -142,6 +143,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Indicator,
                 PlasmaSdServiceIndicatorVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Popover,
+                PlasmaSdServicePopoverVariationsView,
             ),
             ViewComponent(
                 ComponentKey.ProgressBar,

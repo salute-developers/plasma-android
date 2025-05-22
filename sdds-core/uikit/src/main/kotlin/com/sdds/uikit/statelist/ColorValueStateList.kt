@@ -267,7 +267,7 @@ fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
         colorValueStateList.getDefaultValue()
     }
     when (backgroundValue) {
-        is ColorValueHolder.ColorValue -> setBackgroundColor(backgroundValue.value)
+        is ColorValueHolder.ColorValue -> backgroundTintList = ColorStateList.valueOf(backgroundValue.value)
         is ColorValueHolder.DrawableValue -> background = backgroundValue.value
         is ColorValueHolder.ColorListValue -> backgroundTintList = backgroundValue.value
         is ColorValueHolder.ShaderValue -> {}

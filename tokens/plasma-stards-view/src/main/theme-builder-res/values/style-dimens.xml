@@ -249,6 +249,12 @@
     <dimen name="sdkit_circular_progress_bar_xxs_min_height">32.0dp</dimen>
     <dimen name="sdkit_circular_progress_bar_xxs_track_thickness">4.0dp</dimen>
     <dimen name="sdkit_circular_progress_bar_xxs_progress_thickness">4.0dp</dimen>
+    <dimen name="sdkit_popover_min_width">364.0dp</dimen>
+    <dimen name="sdkit_popover_offset">0.0dp</dimen>
+    <dimen name="sdkit_popover_tail_width">40.0dp</dimen>
+    <dimen name="sdkit_popover_tail_height">16.0dp</dimen>
+    <dimen name="sdkit_popover_m_tail_offset">40.0dp</dimen>
+    <dimen name="sdkit_popover_s_tail_offset">32.0dp</dimen>
     <dimen name="sdkit_radio_box_toggle_border_offset_value_0">6.0dp</dimen>
     <dimen name="sdkit_radio_box_toggle_border_offset_value_1">6.0dp</dimen>
     <dimen name="sdkit_radio_box_toggle_border_offset_value_2">0.0dp</dimen>

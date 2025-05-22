@@ -382,6 +382,12 @@
     <dimen name="plasma_circular_progress_bar_xxs_min_height">16.0dp</dimen>
     <dimen name="plasma_circular_progress_bar_xxs_track_thickness">2.0dp</dimen>
     <dimen name="plasma_circular_progress_bar_xxs_progress_thickness">2.0dp</dimen>
+    <dimen name="plasma_popover_min_width">182.0dp</dimen>
+    <dimen name="plasma_popover_offset">0.0dp</dimen>
+    <dimen name="plasma_popover_tail_width">20.0dp</dimen>
+    <dimen name="plasma_popover_tail_height">8.0dp</dimen>
+    <dimen name="plasma_popover_m_tail_offset">20.0dp</dimen>
+    <dimen name="plasma_popover_s_tail_offset">16.0dp</dimen>
     <dimen name="plasma_radio_box_toggle_border_offset_value_0">3.0dp</dimen>
     <dimen name="plasma_radio_box_toggle_border_offset_value_1">3.0dp</dimen>
     <dimen name="plasma_radio_box_toggle_border_offset_value_2">0.0dp</dimen>

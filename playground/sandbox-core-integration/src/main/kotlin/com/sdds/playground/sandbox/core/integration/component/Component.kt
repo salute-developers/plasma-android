@@ -156,6 +156,7 @@ data class ComponentKey(
 
         val TextField = ComponentKey("TextField", CoreComponent.TEXT_FIELD)
         val TextArea = ComponentKey("TextArea", CoreComponent.TEXT_AREA)
+        val Popover = ComponentKey("Popover", CoreComponent.POPOVER)
     }
 }
 
@@ -208,4 +209,5 @@ enum class CoreComponent {
 
     TEXT_FIELD,
     TEXT_AREA,
+    POPOVER,
 }

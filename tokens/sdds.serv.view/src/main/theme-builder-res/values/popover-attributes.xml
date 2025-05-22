@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ServPopoverColorState">
+        <attr format="boolean" name="serv_popover_state_default"/>
+        <attr format="boolean" name="serv_popover_state_accent"/>
+    </declare-styleable>
+    <declare-styleable name="Popover" tools:ignore="ResourceName">
+        <attr format="enum" name="serv_popoverColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

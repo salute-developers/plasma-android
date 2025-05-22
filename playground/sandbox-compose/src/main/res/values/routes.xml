@@ -29,4 +29,5 @@
     <item type="id" name="nav_navigation_drawer"/>
     <item type="id" name="nav_circular_progressbar"/>
     <item type="id" name="nav_components_list"/>
+    <item type="id" name="nav_popover"/>
 </resources>

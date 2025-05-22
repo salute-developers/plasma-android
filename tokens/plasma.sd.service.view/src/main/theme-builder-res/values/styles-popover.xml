@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Popover" parent="Sdds.Components.Popover">
+        <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
+        <item name="android:minWidth">@dimen/plasma_popover_min_width</item>
+        <item name="sd_offset">@dimen/plasma_popover_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/plasma_popover_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/plasma_popover_tail_height</item>
+        <item name="sd_background">@color/plasma_popover_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.PopoverColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.Popover.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeTailOffset">@dimen/plasma_popover_m_tail_offset</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.PopoverM">
+        <item name="sd_popoverStyle">@style/Plasma.SdService.Components.Popover.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Popover.M.Default">
+        <item name="plasma_popoverColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.PopoverMDefault">
+        <item name="sd_popoverStyle">@style/Plasma.SdService.Components.Popover.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Popover.M.Accent">
+        <item name="plasma_popoverColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.PopoverMAccent">
+        <item name="sd_popoverStyle">@style/Plasma.SdService.Components.Popover.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Popover.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeTailOffset">@dimen/plasma_popover_s_tail_offset</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.PopoverS">
+        <item name="sd_popoverStyle">@style/Plasma.SdService.Components.Popover.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.Popover.S.Default">
+        <item name="plasma_popoverColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.PopoverSDefault">
+        <item name="sd_popoverStyle">@style/Plasma.SdService.Components.Popover.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Popover.S.Accent">
+        <item name="plasma_popoverColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.PopoverSAccent">
+        <item name="sd_popoverStyle">@style/Plasma.SdService.Components.Popover.S.Accent</item>
+    </style>
+</resources>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.FrameLayout.LayoutParams
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
@@ -16,6 +17,8 @@ import androidx.core.view.OnApplyWindowInsetsListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnPreDraw
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updateMargins
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
@@ -134,6 +137,9 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
             behavior.peekHeight = resources.getDimensionPixelSize(R.dimen.sandbox_properties_header_height)
             behavior.isFitToContents = false
             behavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            componentCanvas.updateLayoutParams<MarginLayoutParams> {
+                updateMargins(bottom = bottomMargin + behavior.peekHeight)
+            }
             _propsBottomSheetDelegate = PropertiesBottomSheetDelegate(behavior).also {
                 behavior.addBottomSheetCallback(it)
             }
