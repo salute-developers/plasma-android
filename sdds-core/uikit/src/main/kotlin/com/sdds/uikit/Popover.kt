@@ -77,7 +77,6 @@ open class Popover @JvmOverloads constructor(
 
     override fun setContentView(contentView: View?) {
         if (contentView != null) {
-            contentView.minimumWidth = _content.minimumWidth
             _content.addView(contentView)
             super.setContentView(_content.wrapWithShadows())
         } else {
@@ -95,7 +94,7 @@ open class Popover @JvmOverloads constructor(
      * @param triggerCentered Если `true`, хвост всегда будет расположен в центре [trigger]
      * @param duration время отображения [Popover] в миллисекундах
      */
-    fun showWithTrigger(
+    open fun showWithTrigger(
         trigger: View,
         placement: Int = PLACEMENT_TOP,
         placementMode: Int = PLACEMENT_MODE_LOOSE,

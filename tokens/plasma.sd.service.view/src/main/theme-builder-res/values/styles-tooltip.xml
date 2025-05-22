@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Tooltip" parent="Sdds.Components.Tooltip">
+        <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
+        <item name="sd_contentStartSize">@dimen/plasma_tooltip_content_start_size</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_textColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_contentStartTint">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Tooltip.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_tooltip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_contentStartPadding">@dimen/plasma_tooltip_m_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_tooltip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_tooltip_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_tooltip_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_tooltip_m_padding_bottom</item>
+        <item name="sd_offset">@dimen/plasma_tooltip_m_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/plasma_tooltip_m_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/plasma_tooltip_m_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/plasma_tooltip_m_tail_offset</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TooltipM">
+        <item name="sd_tooltipStyle">@style/Plasma.SdService.Components.Tooltip.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Tooltip.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_contentStartPadding">@dimen/plasma_tooltip_s_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_tooltip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_tooltip_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_tooltip_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_tooltip_s_padding_bottom</item>
+        <item name="sd_offset">@dimen/plasma_tooltip_s_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/plasma_tooltip_s_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/plasma_tooltip_s_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/plasma_tooltip_s_tail_offset</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TooltipS">
+        <item name="sd_tooltipStyle">@style/Plasma.SdService.Components.Tooltip.S</item>
+    </style>
+</resources>

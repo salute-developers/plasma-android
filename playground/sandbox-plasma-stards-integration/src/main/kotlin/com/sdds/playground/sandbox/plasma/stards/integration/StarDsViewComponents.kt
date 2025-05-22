@@ -25,6 +25,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.Star
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.tooltip.vs.StarDsTooltipVariationsView
 
 /**
  *
@@ -121,6 +122,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 StarDsTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Tooltip,
+                StarDsTooltipVariationsView,
             ),
         ).associateBy { it.key }
 }

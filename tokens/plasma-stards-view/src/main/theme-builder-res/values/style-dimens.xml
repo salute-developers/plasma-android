@@ -401,4 +401,24 @@
     <dimen name="sdkit_text_area_m_inner_label_box_padding_top">12.0dp</dimen>
     <dimen name="sdkit_text_area_m_inner_label_box_padding_bottom">24.0dp</dimen>
     <dimen name="sdkit_text_area_m_inner_label_label_padding">4.0dp</dimen>
+    <dimen name="sdkit_tooltip_content_start_size">32.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_shape_adjustment">-4.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_content_start_padding">12.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_padding_start">28.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_padding_end">28.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_padding_top">22.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_padding_bottom">22.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_offset">16.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_tail_width">40.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_tail_height">16.0dp</dimen>
+    <dimen name="sdkit_tooltip_m_tail_offset">20.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_content_start_padding">8.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_padding_start">24.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_padding_end">24.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_padding_top">16.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_padding_bottom">16.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_offset">12.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_tail_width">28.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_tail_height">12.0dp</dimen>
+    <dimen name="sdkit_tooltip_s_tail_offset">18.0dp</dimen>
 </resources>

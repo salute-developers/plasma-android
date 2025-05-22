@@ -2,7 +2,6 @@
 <resources>
 
     <style name="Sdds.Components.Popover">
-        <item name="android:minWidth">182dp</item>
         <item name="sd_clipToOutline">false</item>
         <item name="android:clipChildren">false</item>
         <item name="android:clipToPadding">false</item>

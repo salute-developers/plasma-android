@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Tooltip" parent="Sdds.Components.Tooltip">
+        <item name="sd_shadowAppearance">?serv_shadowDownHardM</item>
+        <item name="sd_contentStartSize">@dimen/serv_tooltip_content_start_size</item>
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+        <item name="sd_textColor">?serv_textDefaultPrimary</item>
+        <item name="sd_contentStartTint">?serv_textDefaultSecondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Tooltip.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_tooltip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_contentStartPadding">@dimen/serv_tooltip_m_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/serv_tooltip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_tooltip_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_tooltip_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_tooltip_m_padding_bottom</item>
+        <item name="sd_offset">@dimen/serv_tooltip_m_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/serv_tooltip_m_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/serv_tooltip_m_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/serv_tooltip_m_tail_offset</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TooltipM">
+        <item name="sd_tooltipStyle">@style/Serv.Sdds.Components.Tooltip.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Tooltip.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_contentStartPadding">@dimen/serv_tooltip_s_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/serv_tooltip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_tooltip_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_tooltip_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_tooltip_s_padding_bottom</item>
+        <item name="sd_offset">@dimen/serv_tooltip_s_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/serv_tooltip_s_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/serv_tooltip_s_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/serv_tooltip_s_tail_offset</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TooltipS">
+        <item name="sd_tooltipStyle">@style/Serv.Sdds.Components.Tooltip.S</item>
+    </style>
+</resources>
