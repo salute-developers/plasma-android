@@ -9,7 +9,11 @@ import android.graphics.RectF
 import android.graphics.drawable.shapes.RectShape
 import android.os.Build
 import com.sdds.uikit.shape.CornerShape.Companion.TAIL_ALIGNMENT_START
+import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_BOTTOM
+import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_END
 import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_NONE
+import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_START
+import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_TOP
 import com.sdds.uikit.shape.ShapeModel.CornerFamily
 
 /**
@@ -29,6 +33,20 @@ data class TailConfig(
     val tailHeight: Float = 0f,
     val tailOffset: Float = 0f,
 )
+
+/**
+ * Возвращает `true`, если хвост располагается вначале или вконце [CornerShape]
+ */
+fun TailConfig.isHorizontalPlacement(): Boolean {
+    return placement == TAIL_PLACEMENT_START || placement == TAIL_PLACEMENT_END
+}
+
+/**
+ * Возвращает `true`, если хвост располагается сверху или снизу [CornerShape]
+ */
+fun TailConfig.isVerticalPlacement(): Boolean {
+    return placement == TAIL_PLACEMENT_TOP || placement == TAIL_PLACEMENT_BOTTOM
+}
 
 /**
  * Кастомная фигура, основанная на [RectShape], с возможностью скругления углов и добавления "хвоста".
@@ -136,6 +154,9 @@ open class CornerShape(
     }
 
     private fun resolveAlignedPosition(total: Float, tailConfig: TailConfig): Float {
+        if (tailConfig.tailOffset + tailConfig.tailWidth >= total) {
+            return total / 2
+        }
         return when (tailConfig.alignment) {
             TAIL_ALIGNMENT_CENTER -> total / 2f
             TAIL_ALIGNMENT_END -> total - tailConfig.tailOffset - tailConfig.tailWidth / 2

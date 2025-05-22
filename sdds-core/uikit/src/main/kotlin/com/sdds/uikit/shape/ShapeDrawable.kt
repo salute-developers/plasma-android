@@ -34,6 +34,7 @@ import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.setColorValue
 import org.xmlpull.v1.XmlPullParser
+import kotlin.math.roundToInt
 
 /**
  * Drawable рисующий форму согласно [ShapeModel].
@@ -335,6 +336,22 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         } else {
             super.getOutline(outline)
         }
+    }
+
+    override fun getIntrinsicWidth(): Int {
+        return _tailConfig
+            ?.takeIf { it.isVerticalPlacement() }
+            ?.run { tailWidth + tailOffset * 2 }
+            ?.roundToInt()
+            ?: super.getIntrinsicWidth()
+    }
+
+    override fun getIntrinsicHeight(): Int {
+        return _tailConfig
+            ?.takeIf { it.isHorizontalPlacement() }
+            ?.run { tailWidth + tailOffset * 2 }
+            ?.roundToInt()
+            ?: super.getIntrinsicHeight()
     }
 
     override fun onStateChange(state: IntArray): Boolean {

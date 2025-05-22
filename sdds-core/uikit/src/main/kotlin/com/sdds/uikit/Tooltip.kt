@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
@@ -47,6 +48,7 @@ open class Tooltip @JvmOverloads constructor(
         get() = _tooltipContent.text
         set(value) {
             _tooltipContent.text = value ?: ""
+            _tooltipContent.resetContentStartPadding()
         }
 
     /**
@@ -106,6 +108,19 @@ open class Tooltip @JvmOverloads constructor(
         setContentStartColors(ColorStateList.valueOf(color))
     }
 
+    override fun showWithTrigger(
+        trigger: View,
+        placement: Int,
+        placementMode: Int,
+        alignment: Int,
+        tailEnabled: Boolean,
+        triggerCentered: Boolean,
+        duration: Long?,
+    ) {
+        if (text.isNullOrBlank() && contentStart == null) return
+        super.showWithTrigger(trigger, placement, placementMode, alignment, tailEnabled, triggerCentered, duration)
+    }
+
     @Suppress("UseCompatTextViewDrawableApis", "PrivateResource")
     private inner class TooltipContent(
         context: Context,
@@ -115,6 +130,7 @@ open class Tooltip @JvmOverloads constructor(
     ) : TextView(context) {
 
         private var _contentStartSize: Int = 0
+        private var _contentStartPadding: Int = 0
 
         var contentStart: Drawable? = null
             set(value) {
@@ -139,7 +155,7 @@ open class Tooltip @JvmOverloads constructor(
                     getColorValueStateList(context, R.styleable.Tooltip_sd_textColor)
                         ?: textColor?.let { ColorValueStateList.valueOf(it) }
                 setTextColor(sdTextColor)
-                compoundDrawablePadding = getDimensionPixelSize(R.styleable.Tooltip_sd_contentStartPadding, 0)
+                _contentStartPadding = getDimensionPixelSize(R.styleable.Tooltip_sd_contentStartPadding, 0)
                 contentStart = getDrawable(R.styleable.Tooltip_sd_contentStart)
                 compoundDrawableTintList = getColorStateList(R.styleable.Tooltip_sd_contentStartTint) ?: textColor
 
@@ -147,6 +163,7 @@ open class Tooltip @JvmOverloads constructor(
 
                 setMaxLines(getInt(R.styleable.Tooltip_android_maxLines, Int.MAX_VALUE))
             }
+            resetContentStartPadding()
         }
 
         fun setContentStartRes(@DrawableRes drawableRes: Int) {
@@ -155,6 +172,10 @@ open class Tooltip @JvmOverloads constructor(
 
         fun setContentStartColors(colors: ColorStateList?) {
             _tooltipContent.compoundDrawableTintList = colors
+        }
+
+        fun resetContentStartPadding() {
+            compoundDrawablePadding = if (text.isNullOrBlank()) 0 else _contentStartPadding
         }
 
         private fun resetCompoundDrawable() {
