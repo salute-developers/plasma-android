@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.circularprogress.
 import com.sdds.playground.sandbox.plasma.giga.app.integration.counter.PlasmaGigaAppCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.divider.compose.PlasmaGigaAppDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.indicator.compose.PlasmaGigaAppIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.popover.PlasmaGigaAppPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.progress.PlasmaGigaAppProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.PlasmaGigaAppRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.group.PlasmaGigaRadioBoxGroupVariationsCompose
@@ -41,6 +42,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.PlasmaGi
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.clear.PlasmaGigaAppTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textfield.PlasmaGigaAppTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textfield.clear.PlasmaGigaAppTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tooltip.PlasmaGigaAppTooltipVariationsCompose
 
 /**
  *
@@ -149,6 +151,14 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ProgressBar,
                 PlasmaGigaAppProgressVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Popover,
+                PlasmaGigaAppPopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                PlasmaGigaAppTooltipVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,

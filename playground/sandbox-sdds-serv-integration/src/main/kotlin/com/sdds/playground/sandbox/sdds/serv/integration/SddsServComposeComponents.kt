@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.popover.SddsServPopoverVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
@@ -41,6 +42,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAr
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.clear.SddsServTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tooltip.SddsServTooltipVariationsCompose
 
 /**
  *
@@ -157,6 +159,14 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ProgressBar,
                 SddsServProgressVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Popover,
+                SddsServPopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                SddsServTooltipVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,

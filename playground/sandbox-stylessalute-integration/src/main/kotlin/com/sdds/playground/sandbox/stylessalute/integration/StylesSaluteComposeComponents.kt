@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.popover.StylesSalutePopoverVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
@@ -37,6 +38,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.clear.StylesSaluteTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.StylesSaluteTextFieldVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.clear.StylesSaluteTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.tooltip.StylesSaluteTooltipVariationsCompose
 
 /**
  *
@@ -137,6 +139,14 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ProgressBar,
                 StylesSaluteProgressVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Popover,
+                StylesSalutePopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                StylesSaluteTooltipVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,

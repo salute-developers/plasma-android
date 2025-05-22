@@ -23,6 +23,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsCh
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.popover.StarDsPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
@@ -33,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsText
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.StarDsTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.clear.StarDsTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.tooltip.StarDsTooltipVariationsCompose
 
 /**
  *
@@ -117,6 +119,14 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ProgressBar,
                 StarDsProgressVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Popover,
+                StarDsPopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                StarDsTooltipVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,

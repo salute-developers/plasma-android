@@ -28,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.Style
@@ -49,6 +50,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
     key: ComponentKey,
     viewModel: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
+    backgroundColor: Color = SddsServTheme.colors.surfaceDefaultSolidCard,
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
@@ -88,7 +90,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
                     .requiredHeight(230.dp)
                     .clip(SddsServTheme.shapes.roundM)
                     .border(1.dp, SddsServTheme.colors.surfaceDefaultSolidTertiary, SddsServTheme.shapes.roundM)
-                    .background(SddsServTheme.colors.surfaceDefaultSolidCard)
+                    .background(backgroundColor)
                     .padding(16.dp),
 
                 contentAlignment = Alignment.Center,
