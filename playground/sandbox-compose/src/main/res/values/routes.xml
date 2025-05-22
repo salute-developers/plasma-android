@@ -31,4 +31,5 @@
     <item type="id" name="nav_components_list"/>
     <item type="id" name="nav_popover"/>
     <item type="id" name="nav_tooltip"/>
+    <item type="id" name="nav_overlay"/>
 </resources>

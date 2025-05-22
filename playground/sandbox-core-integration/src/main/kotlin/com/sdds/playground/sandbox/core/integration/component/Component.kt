@@ -158,6 +158,7 @@ data class ComponentKey(
         val TextArea = ComponentKey("TextArea", CoreComponent.TEXT_AREA)
         val Popover = ComponentKey("Popover", CoreComponent.POPOVER)
         val Tooltip = ComponentKey("Tooltip", CoreComponent.TOOLTIP)
+        val Overlay = ComponentKey("Overlay", CoreComponent.OVERLAY)
     }
 }
 
@@ -212,4 +213,5 @@ enum class CoreComponent {
     TEXT_AREA,
     POPOVER,
     TOOLTIP,
+    OVERLAY,
 }

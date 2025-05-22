@@ -30,6 +30,7 @@ import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
@@ -69,6 +70,7 @@ import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.overlay.overlayWithTrigger
 import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
 import com.sdds.testing.vs.progress.ProgressUiState
@@ -246,6 +248,10 @@ internal sealed class ComponentScreen(
     object Tooltip : ComponentScreen(
         { item -> fragment<TooltipFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Overlay : ComponentScreen(
+        { item -> fragment<OverlayFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -280,6 +286,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.CIRCULAR_PROGRESS -> ComponentScreen.CircularProgress
         CoreComponent.POPOVER -> ComponentScreen.Popover
         CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
+        CoreComponent.OVERLAY -> ComponentScreen.Overlay
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -316,6 +323,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.CIRCULAR_PROGRESS -> R.id.nav_circular_progressbar
         CoreComponent.POPOVER -> R.id.nav_popover
         CoreComponent.TOOLTIP -> R.id.nav_tooltip
+        CoreComponent.OVERLAY -> R.id.nav_overlay
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -391,6 +399,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.CIRCULAR_PROGRESS -> circularProgressBar(context, style, CircularProgressUiState())
         CoreComponent.POPOVER -> popoverWithTrigger(context, style).trigger
         CoreComponent.TOOLTIP -> tooltipWithTrigger(context, style).trigger
+        CoreComponent.OVERLAY -> overlayWithTrigger(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
