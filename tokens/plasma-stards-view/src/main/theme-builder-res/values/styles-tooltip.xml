@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Tooltip" parent="Sdds.Components.Tooltip">
+        <item name="sd_shadowAppearance">?sdkit_shadowDownHardM</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_tooltip_content_start_size</item>
+        <item name="sd_background">?sdkit_surfaceOnDarkSolidSecondary</item>
+        <item name="sd_textColor">?sdkit_textOnDarkPrimary</item>
+        <item name="sd_contentStartTint">?sdkit_textOnDarkSecondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Tooltip.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_tooltip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_contentStartPadding">@dimen/sdkit_tooltip_m_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_tooltip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_tooltip_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_tooltip_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_tooltip_m_padding_bottom</item>
+        <item name="sd_offset">@dimen/sdkit_tooltip_m_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/sdkit_tooltip_m_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/sdkit_tooltip_m_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/sdkit_tooltip_m_tail_offset</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TooltipM">
+        <item name="sd_tooltipStyle">@style/Sdkit.StarDs.Components.Tooltip.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Tooltip.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_contentStartPadding">@dimen/sdkit_tooltip_s_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_tooltip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_tooltip_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_tooltip_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_tooltip_s_padding_bottom</item>
+        <item name="sd_offset">@dimen/sdkit_tooltip_s_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/sdkit_tooltip_s_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/sdkit_tooltip_s_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/sdkit_tooltip_s_tail_offset</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TooltipS">
+        <item name="sd_tooltipStyle">@style/Sdkit.StarDs.Components.Tooltip.S</item>
+    </style>
+</resources>

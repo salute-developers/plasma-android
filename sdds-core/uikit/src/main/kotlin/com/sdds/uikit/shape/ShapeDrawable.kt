@@ -179,7 +179,6 @@ open class ShapeDrawable() : Drawable(), Shapeable {
      */
     @RequiresApi(Build.VERSION_CODES.P)
     open fun setShadowModel(model: ShadowModel?) {
-        if (model == null) return
         _shadowRenderer.setShadowModel(model)
     }
 

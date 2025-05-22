@@ -527,4 +527,24 @@
     <dimen name="salute_text_area_l_inner_label_label_padding">2.0dp</dimen>
     <dimen name="salute_text_area_l_inner_label_required_start_indicator_size">8.0dp</dimen>
     <dimen name="salute_text_area_l_inner_label_required_end_indicator_size">8.0dp</dimen>
+    <dimen name="salute_tooltip_content_start_size">16.0dp</dimen>
+    <dimen name="salute_tooltip_m_shape_adjustment">-2.0dp</dimen>
+    <dimen name="salute_tooltip_m_content_start_padding">6.0dp</dimen>
+    <dimen name="salute_tooltip_m_padding_start">14.0dp</dimen>
+    <dimen name="salute_tooltip_m_padding_end">14.0dp</dimen>
+    <dimen name="salute_tooltip_m_padding_top">11.0dp</dimen>
+    <dimen name="salute_tooltip_m_padding_bottom">11.0dp</dimen>
+    <dimen name="salute_tooltip_m_offset">8.0dp</dimen>
+    <dimen name="salute_tooltip_m_tail_width">20.0dp</dimen>
+    <dimen name="salute_tooltip_m_tail_height">8.0dp</dimen>
+    <dimen name="salute_tooltip_m_tail_offset">10.0dp</dimen>
+    <dimen name="salute_tooltip_s_content_start_padding">4.0dp</dimen>
+    <dimen name="salute_tooltip_s_padding_start">12.0dp</dimen>
+    <dimen name="salute_tooltip_s_padding_end">12.0dp</dimen>
+    <dimen name="salute_tooltip_s_padding_top">8.0dp</dimen>
+    <dimen name="salute_tooltip_s_padding_bottom">8.0dp</dimen>
+    <dimen name="salute_tooltip_s_offset">6.0dp</dimen>
+    <dimen name="salute_tooltip_s_tail_width">14.0dp</dimen>
+    <dimen name="salute_tooltip_s_tail_height">6.0dp</dimen>
+    <dimen name="salute_tooltip_s_tail_offset">9.0dp</dimen>
 </resources>

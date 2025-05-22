@@ -19,8 +19,8 @@ import com.sdds.uikit.TextView
  * @property popover всплывающее окно
  * @property trigger [View] рядом с которым отображается [popover]
  */
-data class PopoverTrigger(
-    val popover: Popover,
+data class PopoverTrigger<P : Popover>(
+    val popover: P,
     val trigger: View,
 )
 
@@ -71,7 +71,7 @@ fun popoverWithTrigger(
     context: Context,
     style: Int? = null,
     state: PopoverUiState = PopoverUiState(),
-): PopoverTrigger {
+): PopoverTrigger<Popover> {
     val popover = popover(context, style)
     val trigger = basicButton(context).apply {
         id = R.id.popover_trigger

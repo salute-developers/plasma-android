@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesS
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSaluteTextAreaVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.StylesSaluteTextFieldVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.tooltip.vs.StylesSaluteTooltipVariationsView
 
 /**
  *
@@ -162,6 +163,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 StylesSaluteTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Tooltip,
+                StylesSaluteTooltipVariationsView,
             ),
         ).associateBy { it.key }
 }
