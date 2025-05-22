@@ -10,13 +10,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Popover
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.SandboxTheme
@@ -43,17 +43,17 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
         backgroundColor = Color.LightGray.copy(0.3f),
         component = { popoverUiState, style ->
             val showPopover = remember { mutableStateOf(false) }
-            val triggerLC = remember { mutableStateOf<LayoutCoordinates?>(null) }
+            val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
             Button(
                 modifier = Modifier
                     .align(popoverUiState.triggerPlacement.toAlignment())
-                    .popoverTrigger(triggerLC),
+                    .popoverTrigger(triggerInfo),
                 label = "show",
                 onClick = { showPopover.value = true },
             )
             Popover(
                 show = showPopover.value,
-                triggerLayoutCoordinates = triggerLC,
+                triggerInfo = triggerInfo.value,
                 placement = popoverUiState.placement,
                 placementMode = popoverUiState.placementMode,
                 triggerCentered = popoverUiState.triggerCentered,
