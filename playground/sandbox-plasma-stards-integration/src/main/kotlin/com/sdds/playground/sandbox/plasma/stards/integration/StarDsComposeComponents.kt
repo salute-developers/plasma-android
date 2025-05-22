@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsText
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.StarDsTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.clear.StarDsTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.tooltip.StarDsTooltipVariationsCompose
 
 /**
  *
@@ -122,6 +123,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Popover,
                 StarDsPopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                StarDsTooltipVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,

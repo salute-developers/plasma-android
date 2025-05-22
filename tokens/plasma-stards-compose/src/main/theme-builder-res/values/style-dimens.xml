@@ -651,4 +651,24 @@
     <dimen name="sdkit_cmp_text_area_clear_box_padding_top_l_inner_label">18.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_box_padding_bottom_l_inner_label">18.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_label_padding_l_inner_label">4.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_content_start_size">32.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_shapeAdjustment_m">-4.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_content_start_padding_m">12.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_start_m">28.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_end_m">28.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_top_m">22.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_bottom_m">22.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_offset_m">16.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_tail_width_m">40.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_tail_height_m">16.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_tail_padding_m">20.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_content_start_padding_s">8.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_start_s">24.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_end_s">24.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_top_s">16.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_padding_bottom_s">16.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_offset_s">12.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_tail_width_s">28.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_tail_height_s">12.0dp</dimen>
+    <dimen name="sdkit_cmp_tooltip_tail_padding_s">18.0dp</dimen>
 </resources>
