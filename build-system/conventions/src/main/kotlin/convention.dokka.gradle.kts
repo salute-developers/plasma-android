@@ -11,12 +11,12 @@ withVersionCatalogs {
 tasks.withType<DokkaTask>().configureEach {
     pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
         val images =
-             file("$projectDir/docs_assets/")
+            file("$projectDir/docs_assets/")
                 .takeIf { it.exists() && it.isDirectory }
                 ?.walk()
                 ?.filter { it.isFile }
                 ?.toList()
-        if ( images != null) {
+        if (images != null) {
             customAssets = images
         }
     }
