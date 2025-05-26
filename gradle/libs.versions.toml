@@ -31,7 +31,7 @@ test-paparazzi = "1.1.0"
 test-robolectric = "4.10"
 test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
-test-roborazzi = "1.8.0"
+test-roborazzi = "1.9.0"
 
 kotlinSerialization = "1.4.0"
 kotlinPoet = "1.12.0"
