@@ -26,6 +26,7 @@ import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItem
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.kotlin.dsl.provideDelegate
@@ -63,5 +64,6 @@ internal val componentDelegates by unsafeLazy {
         "popover" to PopoverConfigDelegate(),
         "tooltip" to TooltipConfigDelegate(),
         "overlay" to OverlayConfigDelegate(),
+        "toast" to ToastConfigDelegate(),
     )
 }

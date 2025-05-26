@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.asInteractive
 
 /**
  * Базовый компонент для отрисовки
@@ -49,16 +50,17 @@ internal fun BaseIconText(
     val measurePolicy = remember { IconTextMeasurePolicy() }
     Layout(
         modifier = modifier
-            .height(dimensionsSet.height)
+            .then(dimensionsSet.height?.let { Modifier.height(it) } ?: Modifier)
             .padding(start = dimensionsSet.startPadding, end = dimensionsSet.endPadding),
         measurePolicy = measurePolicy,
         content = {
+            val contentColor = colorsSet.contentColor.colorForInteraction(interactionSource)
             val startContentColor =
-                colorsSet.startContentColor.colorForInteraction(interactionSource)
+                colorsSet.startContentColor?.colorForInteraction(interactionSource) ?: contentColor
             val endContentColor =
-                colorsSet.endContentColor.colorForInteraction(interactionSource)
+                colorsSet.endContentColor?.colorForInteraction(interactionSource) ?: contentColor
             val labelColor =
-                colorsSet.labelColor.colorForInteraction(interactionSource)
+                colorsSet.labelColor?.colorForInteraction(interactionSource) ?: contentColor
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
@@ -91,16 +93,17 @@ internal fun BaseIconText(
     val measurePolicy = remember { IconTextMeasurePolicy() }
     Layout(
         modifier = modifier
-            .height(dimensionsSet.height)
+            .then(dimensionsSet.height?.let { Modifier.height(it) } ?: Modifier)
             .padding(start = dimensionsSet.startPadding, end = dimensionsSet.endPadding),
         measurePolicy = measurePolicy,
         content = {
+            val contentColor = colorsSet.contentColor.colorForInteraction(interactionSource)
             val startContentColor =
-                colorsSet.startContentColor.colorForInteraction(interactionSource)
+                colorsSet.startContentColor?.colorForInteraction(interactionSource) ?: contentColor
             val endContentColor =
-                colorsSet.endContentColor.colorForInteraction(interactionSource)
+                colorsSet.endContentColor?.colorForInteraction(interactionSource) ?: contentColor
             val labelColor =
-                colorsSet.labelColor.colorForInteraction(interactionSource)
+                colorsSet.labelColor?.colorForInteraction(interactionSource) ?: contentColor
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
@@ -296,13 +299,13 @@ internal object BaseIconText {
      */
     @Immutable
     data class Dimensions(
-        val height: Dp,
-        val startContentSize: Dp,
-        val endContentSize: Dp,
-        val startContentMargin: Dp,
-        val endContentMargin: Dp,
-        val startPadding: Dp,
-        val endPadding: Dp,
+        val height: Dp? = null,
+        val startContentSize: Dp = 16.dp,
+        val endContentSize: Dp = 16.dp,
+        val startContentMargin: Dp = 0.dp,
+        val endContentMargin: Dp = 0.dp,
+        val startPadding: Dp = 0.dp,
+        val endPadding: Dp = 0.dp,
     )
 
     /**
@@ -315,10 +318,10 @@ internal object BaseIconText {
      */
     @Immutable
     data class Colors(
-        val contentColor: InteractiveColor,
-        val labelColor: InteractiveColor,
-        val startContentColor: InteractiveColor,
-        val endContentColor: InteractiveColor,
+        val contentColor: InteractiveColor = Color.Black.asInteractive(),
+        val labelColor: InteractiveColor? = contentColor,
+        val startContentColor: InteractiveColor? = contentColor,
+        val endContentColor: InteractiveColor? = contentColor,
     )
 }
 

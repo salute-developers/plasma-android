@@ -159,6 +159,7 @@ data class ComponentKey(
         val Popover = ComponentKey("Popover", CoreComponent.POPOVER)
         val Tooltip = ComponentKey("Tooltip", CoreComponent.TOOLTIP)
         val Overlay = ComponentKey("Overlay", CoreComponent.OVERLAY)
+        val Toast = ComponentKey("Toast", CoreComponent.TOAST)
     }
 }
 
@@ -214,4 +215,5 @@ enum class CoreComponent {
     POPOVER,
     TOOLTIP,
     OVERLAY,
+    TOAST,
 }

@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
+import com.sdds.playground.sandbox.toast.compose.ToastScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
 
 /**
@@ -87,6 +88,7 @@ internal sealed class ComponentScreen(
     object Overlay : ComponentScreen({ OverlayScreen(it) })
     object Popover : ComponentScreen({ PopoverScreen(it) })
     object Tooltip : ComponentScreen({ TooltipScreen(it) })
+    object Toast : ComponentScreen({ ToastScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -123,6 +125,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.OVERLAY -> ComponentScreen.Overlay
         CoreComponent.POPOVER -> ComponentScreen.Popover
         CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
+        CoreComponent.TOAST -> ComponentScreen.Toast
         else -> ComponentScreen.Empty
     }
 }
