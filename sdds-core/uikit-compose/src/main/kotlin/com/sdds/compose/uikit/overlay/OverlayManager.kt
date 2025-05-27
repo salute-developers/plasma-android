@@ -195,10 +195,10 @@ fun OverlayManager.showToast(
 /**
  * Показывает notification
  *
- * @param position размещение toast
- * @param durationMillis время жизни toast
+ * @param position размещение notification
+ * @param durationMillis время жизни notification
  * @param animationSpec настройки анимации
- * @param content контент toast
+ * @param content контент notification
  */
 fun OverlayManager.showNotification(
     position: OverlayPosition = OverlayPosition.BottomEnd,
