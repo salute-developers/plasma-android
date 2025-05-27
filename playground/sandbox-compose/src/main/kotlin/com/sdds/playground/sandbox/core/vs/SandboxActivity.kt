@@ -89,7 +89,13 @@ class SandboxActivity : AppCompatActivity() {
 
     private fun setUpFullscreen(root: View) {
         ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
-            v.updatePadding(top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top)
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(
+                top = systemBars.top,
+                bottom = systemBars.bottom,
+                left = systemBars.left,
+                right = systemBars.right,
+            )
             insets
         }
     }

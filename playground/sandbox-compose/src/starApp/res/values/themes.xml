@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.Sandbox" parent="Sdkit.AppTheme">
+    <style name="Theme.SandboxBase" parent="Sdkit.AppTheme">
         <item name="colorPrimary">?sdkit_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?sdkit_surfaceDefaultSolidPrimary</item>
         <item name="colorOnPrimary">?sdkit_textDefaultPrimary</item>
