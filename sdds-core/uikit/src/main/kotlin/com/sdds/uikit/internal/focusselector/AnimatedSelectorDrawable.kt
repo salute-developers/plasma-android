@@ -83,7 +83,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         borderPaint.applyStroke(strokeWidth)
         animationPaint.applyStroke(strokeWidth)
         offset = strokeWidth / 2f + insets
-        this.shapeModel = shapeModel.adjust(-offset)
+        this.shapeModel = shapeModel.adjust(offset)
     }
 
     override fun start() {
@@ -124,7 +124,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         drawingRect.set(bounds)
-        drawingRect.offset(-offset)
+        drawingRect.inset(-offset, -offset)
         shapePath.reset()
         shapeModel.toPath(drawingRect, shapePath)
         shapePath.close()
@@ -191,13 +191,6 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         const val ANIMATION_DURATION = 2500L
         const val LENGTH_COEFFICIENT = 0.45f
         const val MAX_RATION = 4
-
-        fun RectF.offset(offset: Float) {
-            left += offset
-            top += offset
-            right -= offset
-            bottom -= offset
-        }
 
         fun Paint.applyStroke(strokeWidth: Float) {
             isAntiAlias = true
