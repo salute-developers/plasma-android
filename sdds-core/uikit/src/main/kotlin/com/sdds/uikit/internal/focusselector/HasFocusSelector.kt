@@ -19,6 +19,11 @@ import com.sdds.uikit.shape.Shapeable
 interface HasFocusSelector {
 
     /**
+     * Текущие настройки селектора фокуса
+     */
+    val settings: FocusSelectorSettings
+
+    /**
      * Устанавливает селектор фокуса для [view]
      * @param view [View], в который устанавливает селектор
      * @param context контекст
@@ -39,6 +44,11 @@ interface HasFocusSelector {
      */
     @Suppress("DEPRECATION")
     fun applySelector(view: View): Unit = applySelector(view, view.context)
+
+    /**
+     * Обновляет настройки селектора фокуса [settings] для [view]
+     */
+    fun updateSettings(view: View, settings: FocusSelectorSettings)
 
     /**
      * Обновляет селектор фокуса при изменении состояния [focus] у [view]
@@ -130,16 +140,17 @@ internal class FocusSelectorDelegate
 constructor() : HasFocusSelector {
 
     private var scaleAnimationHelper: FocusScaleAnimationHelper? = null
-    var settings: FocusSelectorSettings? = null
-        private set
+    private lateinit var _settings: FocusSelectorSettings
+
+    override val settings: FocusSelectorSettings get() = _settings
 
     internal val isEnabled: Boolean
-        get() = settings?.let {
+        get() = settings.let {
             it.isEnabled && (it.border.borderMode.isBorderEnabled() || it.scaleEnabled)
-        } == true
+        }
 
     constructor(settings: FocusSelectorSettings) : this() {
-        this.settings = settings
+        _settings = settings
     }
 
     constructor(
@@ -150,7 +161,6 @@ constructor() : HasFocusSelector {
     ) : this(FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr, defStyleRes))
 
     override fun applySelector(view: View) {
-        val settings = this.settings ?: return
         if (!isEnabled || !view.canBeFocusable(settings.duplicateParentStateEnabled)) return
         if (settings.scaleEnabled) {
             scaleAnimationHelper = FocusScaleAnimationHelper(settings.scaleFactor)
@@ -158,24 +168,29 @@ constructor() : HasFocusSelector {
         view.tryApplySelectorBorder(settings)
     }
 
+    override fun updateSettings(view: View, settings: FocusSelectorSettings) {
+        _settings = settings
+        applySelector(view)
+    }
+
     @Deprecated("Use applySelector(View)", replaceWith = ReplaceWith("applySelector(view)"))
     override fun applySelector(view: View, context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
-        this.settings = FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr)
+        _settings = FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr)
         applySelector(view)
     }
 
     override fun updateFocusSelector(view: View, focus: Boolean) {
         if (!isEnabled) return
-        if (settings?.scaleEnabled == true) {
+        if (settings.scaleEnabled) {
             scaleAnimationHelper?.animateFocusChange(view, focus)
         }
-        if (settings?.border?.borderMode?.isBorderEnabled() == true) {
+        if (settings.border.borderMode.isBorderEnabled()) {
             view.foreground?.invalidateSelf()
         }
     }
 
     override fun handlePressedChange(view: View, isPressed: Boolean) {
-        if (settings?.scaleEnabled == true) {
+        if (settings.scaleEnabled) {
             scaleAnimationHelper?.animatePressedState(view, isPressed)
         }
     }

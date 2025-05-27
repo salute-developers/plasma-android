@@ -316,7 +316,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
 
         override fun onApplyWindowInsets(v: View, insets: WindowInsetsCompat): WindowInsetsCompat {
             val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
-            if (imeVisible) {
+            val currentFragment = childFragmentManager.findFragmentById(R.id.component_props_container)
+            if (imeVisible && currentFragment is TextEditorFragment && currentFragment.view?.hasFocus() == true) {
                 previousState = behavior.state
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
             } else if (previousState != null) {

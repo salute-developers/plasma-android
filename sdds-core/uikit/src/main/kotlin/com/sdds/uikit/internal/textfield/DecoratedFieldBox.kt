@@ -54,6 +54,7 @@ import com.sdds.uikit.internal.base.fullWidth
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
@@ -79,6 +80,7 @@ internal class DecoratedFieldBox(
             override fun onDown(e: MotionEvent): Boolean {
                 return true
             }
+
             override fun onSingleTapUp(e: MotionEvent): Boolean {
                 handleTap()
                 return true
@@ -963,6 +965,18 @@ internal class DecoratedFieldBox(
                 if (it != editText) {
                     it.isEnabled = _childrenWasEnabled && !readonly
                 }
+            }
+        }
+
+        override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
+            super.addView(child, index, params)
+            (child as? HasFocusSelector)?.apply {
+                val border = settings.border
+                val chipFsSettings = settings.copy(
+                    border = border.copy(strokeInsets = -border.strokeWidth.roundToInt(), shapeAdjustment = 0f),
+                    scaleFactor = 0f,
+                )
+                updateSettings(child, chipFsSettings)
             }
         }
 
