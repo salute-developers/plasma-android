@@ -16,6 +16,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
@@ -65,5 +66,6 @@ internal val componentDelegates by unsafeLazy {
         "tooltip" to TooltipConfigDelegate(),
         "overlay" to OverlayConfigDelegate(),
         "toast" to ToastConfigDelegate(),
+        "modal" to ModalConfigDelegate(),
     )
 }
