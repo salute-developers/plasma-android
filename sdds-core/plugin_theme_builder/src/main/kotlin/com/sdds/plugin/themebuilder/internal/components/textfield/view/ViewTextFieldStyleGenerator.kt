@@ -279,7 +279,7 @@ internal open class ViewTextFieldStyleGenerator(
         override fun provide(owner: TextFieldProperties): Color? {
             return when (this) {
                 LABEL_READ_ONLY -> owner.labelColorReadOnly
-                VALUE_READ_ONLY -> owner.valueColor
+                VALUE_READ_ONLY -> owner.valueColorReadOnly
                 CAPTION_READ_ONLY -> owner.captionColorReadOnly
                 PLACEHOLDER_READ_ONLY -> owner.placeholderColorReadOnly
                 BACKGROUND_READ_ONLY -> owner.backgroundColorReadOnly
