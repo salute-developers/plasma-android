@@ -13,6 +13,7 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import com.sdds.uikit.internal.CheckableDelegate
 import com.sdds.uikit.internal.SwitchDrawable
+import com.sdds.uikit.internal.base.TextHelper
 import com.sdds.uikit.internal.base.ViewAlphaHelper
 
 /**
@@ -26,21 +27,23 @@ open class Switch @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_switchStyle,
-) : CompoundButton(context, attrs, defStyleAttr) {
+    defStyleRes: Int = R.style.Sdds_Components_Switch,
+) : CompoundButton(context, attrs, defStyleAttr, defStyleRes) {
 
     @Suppress("LeakingThis")
-    private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr)
+    private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr, defStyleRes)
     private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
     private var _buttonDrawable: SwitchDrawable? = null
     private var _offsetY = 0f
 
     init {
+
         background = null
-        buttonDrawable = SwitchDrawable(context, attrs, defStyleAttr).apply {
+        buttonDrawable = SwitchDrawable(context, attrs, defStyleAttr, defStyleRes).apply {
             isInEditMode = this@Switch.isInEditMode
         }
 
-        obtainAttributes(attrs, defStyleAttr)
+        obtainAttributes(attrs, defStyleAttr, defStyleRes)
     }
 
     /**
@@ -147,13 +150,15 @@ open class Switch @JvmOverloads constructor(
         _checkableDelegate.drawDescription(canvas)
     }
 
-    private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Switch, defStyleAttr, 0)
+    private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Switch, defStyleAttr, defStyleRes)
         setSwitchColors(
             track = typedArray.getColorStateList(R.styleable.Switch_sd_buttonTrackColor),
             thumb = typedArray.getColorStateList(R.styleable.Switch_sd_buttonThumbColor),
             border = typedArray.getColorStateList(R.styleable.Switch_sd_buttonTrackBorderColor),
         )
+        val textHelper = TextHelper(this)
+        textHelper.loadFromAttributes(attrs, defStyleAttr, defStyleRes)
         typedArray.recycle()
     }
 }

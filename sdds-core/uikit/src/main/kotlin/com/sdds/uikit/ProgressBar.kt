@@ -246,7 +246,14 @@ open class ProgressBar @JvmOverloads constructor(
     }
 
     override fun verifyDrawable(who: Drawable): Boolean {
-        return super.verifyDrawable(who) || who == _progressDrawable || who == _backgroundDrawable
+        var result = super.verifyDrawable(who)
+        if (::_progressDrawable.isInitialized) {
+            result = who == _progressDrawable || result
+        }
+        if (::_backgroundDrawable.isInitialized) {
+            result = who == _backgroundDrawable || result
+        }
+        return result
     }
 
     override fun drawableStateChanged() {
