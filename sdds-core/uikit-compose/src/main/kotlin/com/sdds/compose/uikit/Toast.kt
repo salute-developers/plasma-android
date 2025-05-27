@@ -2,8 +2,6 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -31,6 +29,7 @@ fun Toast(
     contentEnd: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    if (text.isEmpty() && contentStart == null && contentEnd == null) return
     val textStyle = style.textStyle
     val shape = style.shape
     val dimensions = style.dimensions
@@ -67,13 +66,5 @@ fun Toast(
 @Composable
 @Preview(showBackground = true)
 private fun ToastPreview() {
-    Toast(
-        text = "Toast asdaldaslkdj alksjd",
-        contentStart = {
-            Box(modifier = Modifier.fillMaxSize())
-        },
-        contentEnd = {
-            Box(modifier = Modifier.fillMaxSize())
-        },
-    )
+    Toast(text = "Toast text")
 }
