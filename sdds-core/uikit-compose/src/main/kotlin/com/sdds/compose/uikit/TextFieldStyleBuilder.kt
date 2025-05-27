@@ -1132,7 +1132,7 @@ private class DefaultTextFieldColors(
                     ?: Color.Black.asInteractive(),
                 backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
                 backgroundColorReadOnly = backgroundColorReadOnly
-                    ?: backgroundColor ?: Color.LightGray.asInteractive(),
+                    ?: backgroundColor ?: Color.Transparent.asInteractive(),
                 placeholderColor = placeholderColor ?: Color.Gray.asInteractive(),
                 placeholderColorReadOnly = placeholderColorReadOnly ?: placeholderColor
                     ?: Color.Gray.asInteractive(),
