@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.popover.StylesSalutePopoverVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
@@ -188,6 +189,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Toast,
                 StylesSaluteToastVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Modal,
+                StylesSaluteModalVariationsCompose,
             ),
         ).associateBy { it.key }
 }

@@ -160,6 +160,7 @@ data class ComponentKey(
         val Tooltip = ComponentKey("Tooltip", CoreComponent.TOOLTIP)
         val Overlay = ComponentKey("Overlay", CoreComponent.OVERLAY)
         val Toast = ComponentKey("Toast", CoreComponent.TOAST)
+        val Modal = ComponentKey("Modal", CoreComponent.MODAL)
     }
 }
 
@@ -216,4 +217,5 @@ enum class CoreComponent {
     TOOLTIP,
     OVERLAY,
     TOAST,
+    MODAL,
 }

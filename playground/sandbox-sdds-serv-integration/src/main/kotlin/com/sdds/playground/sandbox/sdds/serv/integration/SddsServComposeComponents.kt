@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.overlay.compose.SddsServOverlayVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.popover.SddsServPopoverVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
@@ -213,6 +214,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Toast,
                 SddsServToastVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Modal,
+                SddsServModalVariationsCompose,
             ),
         ).associateBy { it.key }
 }
