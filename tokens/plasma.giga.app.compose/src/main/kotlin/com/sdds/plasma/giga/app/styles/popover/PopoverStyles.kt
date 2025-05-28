@@ -83,7 +83,7 @@ private val PopoverStyleBuilder.invariantProps: PopoverStyleBuilder
         .shadow(PlasmaGigaAppTheme.shadows.downHardM)
         .dimensions {
             width(182.0.dp)
-            offset(0.0.dp)
+            offset(8.0.dp)
             tailWidth(20.0.dp)
             tailHeight(8.0.dp)
         }

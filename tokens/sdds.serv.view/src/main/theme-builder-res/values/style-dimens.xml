@@ -383,7 +383,7 @@
     <dimen name="serv_circular_progress_bar_xxs_track_thickness">2.0dp</dimen>
     <dimen name="serv_circular_progress_bar_xxs_progress_thickness">2.0dp</dimen>
     <dimen name="serv_popover_min_width">182.0dp</dimen>
-    <dimen name="serv_popover_offset">0.0dp</dimen>
+    <dimen name="serv_popover_offset">8.0dp</dimen>
     <dimen name="serv_popover_tail_width">20.0dp</dimen>
     <dimen name="serv_popover_tail_height">8.0dp</dimen>
     <dimen name="serv_popover_m_tail_offset">20.0dp</dimen>
