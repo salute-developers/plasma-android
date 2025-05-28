@@ -26,6 +26,7 @@
 
         <item name="testingShape">@style/Serv.Sdds.Shape.Round.M</item>
         <item name="testingShapeTint">?serv_surfaceDefaultSolidTertiary</item>
+        <item name="testingTextColorPrimary">?serv_textDefaultPrimary</item>
         <item name="sd_fsEnabled">true</item>
 
         <item name="sandbox_shapeRoundL">?serv_shapeRoundL</item>

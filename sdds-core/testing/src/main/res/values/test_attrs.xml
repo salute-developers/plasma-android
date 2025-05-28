@@ -3,4 +3,5 @@
 
     <attr name="testingShape" format="reference" />
     <attr name="testingShapeTint" format="color" />
+    <attr name="testingTextColorPrimary" format="color" />
 </resources>
