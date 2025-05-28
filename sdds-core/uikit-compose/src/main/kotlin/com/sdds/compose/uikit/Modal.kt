@@ -83,6 +83,7 @@ fun Modal(
             }
             Box(
                 modifier = modifier
+                    .clickable(enabled = false) {}
                     .then(shadowModifier)
                     .background(
                         brush = style.colors.backgroundColor.getValue(interactionSource),
