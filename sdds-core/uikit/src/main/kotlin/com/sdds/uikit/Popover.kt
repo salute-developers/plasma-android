@@ -9,8 +9,10 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
+import android.view.View.MeasureSpec
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
+import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
@@ -77,7 +79,12 @@ open class Popover @JvmOverloads constructor(
 
     override fun setContentView(contentView: View?) {
         if (contentView != null) {
-            _content.addView(contentView)
+            contentView.minimumWidth = _content.minimumWidth
+            contentView.minimumHeight = _content.minimumHeight
+            _content.addView(
+                contentView,
+                FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT),
+            )
             super.setContentView(_content.wrapWithShadows())
         } else {
             super.setContentView(null)
@@ -115,7 +122,7 @@ open class Popover @JvmOverloads constructor(
             ?.doOnScaleAnimation { _, _, _, _, _ -> updateLocationPoint() }
         trigger.post {
             _content.doOnLayout { updateLocationPoint() }
-            showAtLocation(trigger, Gravity.NO_GRAVITY, INITIAL_POSITION, INITIAL_POSITION)
+            updateLocationPoint()
         }
 
         // Автоматическое скрытие
@@ -136,21 +143,40 @@ open class Popover @JvmOverloads constructor(
     }
 
     private fun updateLocationPoint() {
+        val trigger = _triggerRef?.get() ?: return
+        if (!isShowing) {
+            // Делаем принудительное измерение контента, чтобы точнее расположить Popover при первом показе.
+            _content.measure(
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+            )
+        }
         val updateLocation = getLocationPoint()
         _content.updateTailPlacement()
-        update(updateLocation.x, updateLocation.y, width, height)
+        if (isShowing) {
+            update(updateLocation.x, updateLocation.y, width, height)
+        } else {
+            showAtLocation(trigger, Gravity.NO_GRAVITY, updateLocation.x, updateLocation.y)
+        }
+        _content.post { _content.invalidateOutline() }
     }
 
     private fun getLocationPoint(): Point {
         val trigger = _triggerRef?.get() ?: return Point(INITIAL_POSITION, INITIAL_POSITION)
         val triggerRect = trigger.getScreenRect()
         val shadowPaddings = _content.getShadowSafePaddings()
+        val rootRect = trigger.rootView.getScreenRect()
         val visibleDisplayFrame = getVisibleDisplayFrame(trigger)
 
         return _currentLocation.calculateLocation(triggerRect)
             .ensureEnoughSpace(visibleDisplayFrame, triggerRect)
             .also { _currentLocation = it }
-            .bounds.let { Point(it.left - shadowPaddings.left, it.top - shadowPaddings.top) }
+            .bounds.let {
+                Point(
+                    it.left - shadowPaddings.left - rootRect.left,
+                    it.top - shadowPaddings.top - rootRect.top,
+                )
+            }
     }
 
     @Suppress("CyclomaticComplexMethod")
@@ -331,6 +357,7 @@ open class Popover @JvmOverloads constructor(
 
         init {
             isFocusable = false
+            outlineProvider = ViewOutlineProvider.BACKGROUND
         }
 
         fun getShadowSafePaddings(): Rect {

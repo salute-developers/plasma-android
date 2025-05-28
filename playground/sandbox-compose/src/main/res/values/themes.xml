@@ -1,11 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sandbox_shapeRoundXxs" format="reference"/>
     <attr name="sandbox_shapeRoundL" format="reference"/>
 
     <!-- Base application theme. -->
     <style name="Theme.SddsSandbox" parent="Theme.AppCompat.Light.NoActionBar" />
-    <style name="Theme.Sandbox" parent="Serv.Sdds.MaterialComponents.DayNight">
+    <style name="Theme.SandboxBase" parent="Serv.Sdds.MaterialComponents.DayNight">
         <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorOnPrimary">?serv_textDefaultPrimary</item>
@@ -26,10 +26,16 @@
 
         <item name="testingShape">@style/Serv.Sdds.Shape.Round.M</item>
         <item name="testingShapeTint">?serv_surfaceDefaultSolidTertiary</item>
+        <item name="testingTextColorPrimary">?serv_textDefaultPrimary</item>
         <item name="sd_fsEnabled">true</item>
 
         <item name="sandbox_shapeRoundL">?serv_shapeRoundL</item>
         <item name="sandbox_shapeRoundXxs">?serv_shapeRoundXxs</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <style name="Theme.Sandbox" parent="Theme.SandboxBase">
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
     </style>
 
     <style name="Theme.Sandbox.NoActionBar">
