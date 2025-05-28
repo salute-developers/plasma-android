@@ -43,6 +43,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.textarea.PlasmaGigaTe
 import com.sdds.playground.sandbox.plasma.giga.integration.textarea.clear.PlasmaGigaTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.PlasmaGigaTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.clear.PlasmaGigaTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.toast.PlasmaGigaToastVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.tooltip.PlasmaGigaTooltipVariationsCompose
 
 /**
@@ -208,6 +209,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Overlay,
                 PlasmaGigaOverlayVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Toast,
+                PlasmaGigaToastVariationsCompose,
             ),
         ).associateBy { it.key }
 }
