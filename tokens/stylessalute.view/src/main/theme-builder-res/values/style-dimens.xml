@@ -547,4 +547,12 @@
     <dimen name="salute_tooltip_s_tail_width">14.0dp</dimen>
     <dimen name="salute_tooltip_s_tail_height">6.0dp</dimen>
     <dimen name="salute_tooltip_s_tail_offset">9.0dp</dimen>
+    <dimen name="salute_toast_content_start_size">16.0dp</dimen>
+    <dimen name="salute_toast_content_start_padding">6.0dp</dimen>
+    <dimen name="salute_toast_content_end_size">16.0dp</dimen>
+    <dimen name="salute_toast_content_end_padding">8.0dp</dimen>
+    <dimen name="salute_toast_padding_start">10.0dp</dimen>
+    <dimen name="salute_toast_padding_end">12.0dp</dimen>
+    <dimen name="salute_toast_padding_top">8.0dp</dimen>
+    <dimen name="salute_toast_padding_bottom">8.0dp</dimen>
 </resources>

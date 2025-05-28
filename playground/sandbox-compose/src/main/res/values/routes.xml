@@ -32,4 +32,5 @@
     <item type="id" name="nav_popover"/>
     <item type="id" name="nav_tooltip"/>
     <item type="id" name="nav_overlay"/>
+    <item type="id" name="nav_toast"/>
 </resources>

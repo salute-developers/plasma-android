@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.Pl
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.toast.PlasmaSdServiceToastVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.tooltip.vs.PlasmaSdServiceTooltipVariationsView
 
 /**
@@ -189,6 +190,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 PlasmaSdServiceTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Toast,
+                PlasmaSdServiceToastVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Tooltip,

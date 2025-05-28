@@ -41,6 +41,7 @@ import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
+import com.sdds.playground.sandbox.toast.vs.ToastFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
@@ -87,6 +88,7 @@ import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
+import com.sdds.testing.vs.toast.toastTrigger
 import com.sdds.testing.vs.tooltip.tooltipWithTrigger
 import com.sdds.uikit.colorstate.ColorState
 
@@ -252,6 +254,10 @@ internal sealed class ComponentScreen(
     object Overlay : ComponentScreen(
         { item -> fragment<OverlayFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Toast : ComponentScreen(
+        { item -> fragment<ToastFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -287,6 +293,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.POPOVER -> ComponentScreen.Popover
         CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
         CoreComponent.OVERLAY -> ComponentScreen.Overlay
+        CoreComponent.TOAST -> ComponentScreen.Toast
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -324,6 +331,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.POPOVER -> R.id.nav_popover
         CoreComponent.TOOLTIP -> R.id.nav_tooltip
         CoreComponent.OVERLAY -> R.id.nav_overlay
+        CoreComponent.TOAST -> R.id.nav_toast
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -400,6 +408,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.POPOVER -> popoverWithTrigger(context, style).trigger
         CoreComponent.TOOLTIP -> tooltipWithTrigger(context, style).trigger
         CoreComponent.OVERLAY -> overlayWithTrigger(context, style)
+        CoreComponent.TOAST -> toastTrigger(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

@@ -1,8 +1,11 @@
 package com.sdds.uikit.internal.base
 
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.res.ColorStateList
 import android.graphics.Paint
+import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
@@ -11,6 +14,7 @@ import android.util.Size
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isGone
 
 /**
@@ -128,6 +132,45 @@ internal fun View.fullSize(): Size {
         measuredWidth + lp.leftMargin + lp.rightMargin,
         measuredHeight + lp.topMargin + lp.bottomMargin,
     )
+}
+
+internal fun Context.findDecorView(): View? {
+    val activity = findActivity() ?: return null
+    return activity.window?.decorView?.rootView
+}
+
+internal fun Context.findActivity(): Activity? {
+    if (this is Activity) return this
+
+    var ctx = this
+    while (ctx is ContextWrapper) {
+        if (ctx is Activity) return ctx
+        ctx = ctx.baseContext
+    }
+    return null
+}
+
+internal fun View.getScreenRect(): Rect {
+    val location = IntArray(2)
+    getLocationOnScreen(location)
+    return Rect(
+        location[0],
+        location[1],
+        (location[0] + width * scaleX).toInt(),
+        (location[1] + height * scaleY).toInt(),
+    )
+}
+
+internal fun View.getVisibleDisplayFrame(): Rect {
+    return Rect().apply {
+        val insets = WindowInsetsCompat.toWindowInsetsCompat(rootWindowInsets)
+            .getInsets(WindowInsetsCompat.Type.systemBars())
+        rootView.getWindowVisibleDisplayFrame(this)
+        left += insets.left
+        top += insets.top
+        right -= insets.right
+        bottom -= insets.bottom
+    }
 }
 
 internal val ZeroSize = Size(0, 0)
