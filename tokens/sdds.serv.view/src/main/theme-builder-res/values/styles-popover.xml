@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Popover" parent="Sdds.Components.Popover">
+        <item name="sd_shadowAppearance">?serv_shadowDownHardM</item>
+        <item name="android:minWidth">@dimen/serv_popover_min_width</item>
+        <item name="sd_offset">@dimen/serv_popover_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/serv_popover_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/serv_popover_tail_height</item>
+        <item name="sd_background">@color/serv_popover_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.PopoverColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.Popover.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeTailOffset">@dimen/serv_popover_m_tail_offset</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PopoverM">
+        <item name="sd_popoverStyle">@style/Serv.Sdds.Components.Popover.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Popover.M.Default">
+        <item name="serv_popoverColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PopoverMDefault">
+        <item name="sd_popoverStyle">@style/Serv.Sdds.Components.Popover.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Popover.M.Accent">
+        <item name="serv_popoverColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PopoverMAccent">
+        <item name="sd_popoverStyle">@style/Serv.Sdds.Components.Popover.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Popover.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeTailOffset">@dimen/serv_popover_s_tail_offset</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PopoverS">
+        <item name="sd_popoverStyle">@style/Serv.Sdds.Components.Popover.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.Popover.S.Default">
+        <item name="serv_popoverColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PopoverSDefault">
+        <item name="sd_popoverStyle">@style/Serv.Sdds.Components.Popover.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Popover.S.Accent">
+        <item name="serv_popoverColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PopoverSAccent">
+        <item name="sd_popoverStyle">@style/Serv.Sdds.Components.Popover.S.Accent</item>
+    </style>
+</resources>

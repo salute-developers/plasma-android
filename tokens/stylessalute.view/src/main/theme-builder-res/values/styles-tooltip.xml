@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Tooltip" parent="Sdds.Components.Tooltip">
+        <item name="sd_shadowAppearance">?salute_shadowDownHardM</item>
+        <item name="sd_contentStartSize">@dimen/salute_tooltip_content_start_size</item>
+        <item name="sd_background">?salute_surfaceDefaultSolidCard</item>
+        <item name="sd_textColor">?salute_textDefaultPrimary</item>
+        <item name="sd_contentStartTint">?salute_textDefaultSecondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Tooltip.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_tooltip_m_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_contentStartPadding">@dimen/salute_tooltip_m_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/salute_tooltip_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_tooltip_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_tooltip_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_tooltip_m_padding_bottom</item>
+        <item name="sd_offset">@dimen/salute_tooltip_m_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/salute_tooltip_m_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/salute_tooltip_m_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/salute_tooltip_m_tail_offset</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TooltipM">
+        <item name="sd_tooltipStyle">@style/Salute.StylesSalute.Components.Tooltip.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Tooltip.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_contentStartPadding">@dimen/salute_tooltip_s_content_start_padding</item>
+        <item name="android:paddingStart">@dimen/salute_tooltip_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_tooltip_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_tooltip_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_tooltip_s_padding_bottom</item>
+        <item name="sd_offset">@dimen/salute_tooltip_s_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/salute_tooltip_s_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/salute_tooltip_s_tail_height</item>
+        <item name="sd_shapeTailOffset">@dimen/salute_tooltip_s_tail_offset</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TooltipS">
+        <item name="sd_tooltipStyle">@style/Salute.StylesSalute.Components.Tooltip.S</item>
+    </style>
+</resources>

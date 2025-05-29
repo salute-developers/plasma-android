@@ -175,11 +175,17 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to StarDsTheme.colors.textOnLightPrimary,
                 ),
             )
+            valueColorReadOnly(
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
             placeholderColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textOnLightSecondary,
                 ),
+            )
+            placeholderColorReadOnly(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
             indicatorColor(
                 StarDsTheme.colors.surfaceDefaultNegative.asInteractive(),
@@ -189,6 +195,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textOnLightSecondary,
                 ),
+            )
+            startContentColorReadOnly(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
             endContentColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -212,6 +221,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to StarDsTheme.colors.textInverseSecondary,
                 ),
             )
+            counterColorReadOnly(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColorReadOnly(
                 StarDsTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
             )
@@ -229,6 +241,12 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textOnLightTertiary,
                 ),
+            )
+            prefixColorReadOnly(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColorReadOnly(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
             )
         }
         .scrollBar {

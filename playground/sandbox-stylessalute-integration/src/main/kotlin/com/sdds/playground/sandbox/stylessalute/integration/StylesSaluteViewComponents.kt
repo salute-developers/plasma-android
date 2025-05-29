@@ -25,6 +25,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.popover.vs.StylesSalutePopoverVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsView
@@ -33,6 +34,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesS
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSaluteTextAreaVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.StylesSaluteTextFieldVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.tooltip.vs.StylesSaluteTooltipVariationsView
 
 /**
  *
@@ -127,6 +129,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
                 StylesSaluteIndicatorVariationsView,
             ),
             ViewComponent(
+                ComponentKey.Popover,
+                StylesSalutePopoverVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.ProgressBar,
                 StylesSaluteProgressBarVariationsView,
             ),
@@ -157,6 +163,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 StylesSaluteTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Tooltip,
+                StylesSaluteTooltipVariationsView,
             ),
         ).associateBy { it.key }
 }

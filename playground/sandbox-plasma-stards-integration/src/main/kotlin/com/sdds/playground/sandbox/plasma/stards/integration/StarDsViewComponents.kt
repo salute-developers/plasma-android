@@ -18,12 +18,15 @@ import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.St
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.overlay.vs.StarDsOverlayVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPopoverVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.tooltip.vs.StarDsTooltipVariationsView
 
 /**
  *
@@ -90,6 +93,14 @@ object StarDsViewComponents : ComponentsProviderView {
                 StarDsNavDrawerVariationsView,
             ),
             ViewComponent(
+                ComponentKey.Overlay,
+                StarDsOverlayVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Popover,
+                StarDsPopoverVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.ProgressBar,
                 StarDsProgressBarVariationsView,
             ),
@@ -116,6 +127,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 StarDsTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Tooltip,
+                StarDsTooltipVariationsView,
             ),
         ).associateBy { it.key }
 }

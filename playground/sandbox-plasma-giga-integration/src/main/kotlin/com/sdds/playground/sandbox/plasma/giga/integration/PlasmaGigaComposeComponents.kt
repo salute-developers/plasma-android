@@ -31,6 +31,9 @@ import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.Plas
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.modal.PlasmaGigaModalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.overlay.compose.PlasmaGigaOverlayVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.popover.PlasmaGigaPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.progress.PlasmaGigaProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.radiobox.PlasmaGigaRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.radiobox.group.PlasmaGigaRadioBoxGroupVariationsCompose
@@ -41,6 +44,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.textarea.PlasmaGigaTe
 import com.sdds.playground.sandbox.plasma.giga.integration.textarea.clear.PlasmaGigaTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.PlasmaGigaTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.clear.PlasmaGigaTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.toast.PlasmaGigaToastVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.tooltip.PlasmaGigaTooltipVariationsCompose
 
 /**
  *
@@ -155,6 +160,14 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
                 PlasmaGigaProgressVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.Popover,
+                PlasmaGigaPopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                PlasmaGigaTooltipVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.RadioBox,
                 PlasmaGigaRadioBoxVariationsCompose,
             ),
@@ -193,6 +206,18 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Divider,
                 PlasmaGigaDividerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Overlay,
+                PlasmaGigaOverlayVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Toast,
+                PlasmaGigaToastVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Modal,
+                PlasmaGigaModalVariationsCompose,
             ),
         ).associateBy { it.key }
 }

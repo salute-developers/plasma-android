@@ -156,6 +156,11 @@ data class ComponentKey(
 
         val TextField = ComponentKey("TextField", CoreComponent.TEXT_FIELD)
         val TextArea = ComponentKey("TextArea", CoreComponent.TEXT_AREA)
+        val Popover = ComponentKey("Popover", CoreComponent.POPOVER)
+        val Tooltip = ComponentKey("Tooltip", CoreComponent.TOOLTIP)
+        val Overlay = ComponentKey("Overlay", CoreComponent.OVERLAY)
+        val Toast = ComponentKey("Toast", CoreComponent.TOAST)
+        val Modal = ComponentKey("Modal", CoreComponent.MODAL)
     }
 }
 
@@ -208,4 +213,9 @@ enum class CoreComponent {
 
     TEXT_FIELD,
     TEXT_AREA,
+    POPOVER,
+    TOOLTIP,
+    OVERLAY,
+    TOAST,
+    MODAL,
 }

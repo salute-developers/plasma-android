@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_tooltipStyle" format="reference" />
+
+    <declare-styleable name="Tooltip" tools:ignore="ResourceName">
+        <attr name="sd_offset" />
+        <attr name="sd_shadowAppearance" />
+        <attr name="sd_background" />
+
+        <attr name="sd_contentStart" format="reference" />
+        <attr name="sd_contentStartTint" format="reference|color" />
+        <attr name="sd_contentStartSize"  />
+        <attr name="sd_contentStartPadding"  />
+
+        <attr name="android:text" />
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor" />
+        <attr name="sd_textColor" />
+        <attr name="android:maxLines" />
+
+        <attr name="android:paddingStart"/>
+        <attr name="android:paddingEnd"/>
+        <attr name="android:paddingTop"/>
+        <attr name="android:paddingBottom"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
+
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearanceAdjustment" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_clipToOutline" />
+        <attr name="sd_shapeTailWidth" />
+        <attr name="sd_shapeTailHeight" />
+        <attr name="sd_shapeTailOffset" />
+        <attr name="sd_shapeTailEnabled" />
+        <attr name="sd_shapeTailPlacement" />
+        <attr name="sd_shapeTailAlignment" />
+    </declare-styleable>
+</resources>

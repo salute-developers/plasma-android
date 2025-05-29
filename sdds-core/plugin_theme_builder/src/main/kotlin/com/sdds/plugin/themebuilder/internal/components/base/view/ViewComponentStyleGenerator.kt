@@ -18,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.factory.NumberStateListGeneratorFac
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
+import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.componentStyleXmlFile
@@ -215,6 +216,20 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         )
         val normalizedAdjustment = adjustment.takeIf { it != 0f } ?: return@with
         dimenAttribute(variation, "sd_shapeAppearanceAdjustment", "shape_adjustment", normalizedAdjustment)
+    }
+
+    /**
+     * Добавляет атрибут типа shadowAppearance со значением ?prefix_shadowAttr,
+     * где shapeAttr - это преобразованный [tokenName].
+     */
+    protected fun Element.shadowAttribute(tokenName: String) = with(xmlResourceBuilder) {
+        val shadowValue = "?${resourcePrefix}_${ShadowToken.getAttrName(tokenName)}"
+        this@shadowAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = "sd_shadowAppearance",
+            value = shadowValue,
+            usePrefix = false,
+        )
     }
 
     /**

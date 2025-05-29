@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Popover" parent="Sdds.Components.Popover">
+        <item name="sd_shadowAppearance">?salute_shadowDownHardM</item>
+        <item name="android:minWidth">@dimen/salute_popover_min_width</item>
+        <item name="sd_offset">@dimen/salute_popover_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/salute_popover_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/salute_popover_tail_height</item>
+        <item name="sd_background">@color/salute_popover_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.PopoverColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Popover.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeTailOffset">@dimen/salute_popover_m_tail_offset</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.PopoverM">
+        <item name="sd_popoverStyle">@style/Salute.StylesSalute.Components.Popover.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Popover.M.Default">
+        <item name="salute_popoverColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.PopoverMDefault">
+        <item name="sd_popoverStyle">@style/Salute.StylesSalute.Components.Popover.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Popover.M.Accent">
+        <item name="salute_popoverColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.PopoverMAccent">
+        <item name="sd_popoverStyle">@style/Salute.StylesSalute.Components.Popover.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Popover.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeTailOffset">@dimen/salute_popover_s_tail_offset</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.PopoverS">
+        <item name="sd_popoverStyle">@style/Salute.StylesSalute.Components.Popover.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Popover.S.Default">
+        <item name="salute_popoverColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.PopoverSDefault">
+        <item name="sd_popoverStyle">@style/Salute.StylesSalute.Components.Popover.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Popover.S.Accent">
+        <item name="salute_popoverColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.PopoverSAccent">
+        <item name="sd_popoverStyle">@style/Salute.StylesSalute.Components.Popover.S.Accent</item>
+    </style>
+</resources>

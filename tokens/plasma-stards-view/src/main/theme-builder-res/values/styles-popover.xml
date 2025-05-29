@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Popover" parent="Sdds.Components.Popover">
+        <item name="sd_shadowAppearance">?sdkit_shadowDownHardM</item>
+        <item name="android:minWidth">@dimen/sdkit_popover_min_width</item>
+        <item name="sd_offset">@dimen/sdkit_popover_offset</item>
+        <item name="sd_shapeTailWidth">@dimen/sdkit_popover_tail_width</item>
+        <item name="sd_shapeTailHeight">@dimen/sdkit_popover_tail_height</item>
+        <item name="sd_background">@color/sdkit_popover_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.PopoverColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Popover.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeTailOffset">@dimen/sdkit_popover_m_tail_offset</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.PopoverM">
+        <item name="sd_popoverStyle">@style/Sdkit.StarDs.Components.Popover.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Popover.M.Default">
+        <item name="sdkit_popoverColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.PopoverMDefault">
+        <item name="sd_popoverStyle">@style/Sdkit.StarDs.Components.Popover.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Popover.M.Accent">
+        <item name="sdkit_popoverColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.PopoverMAccent">
+        <item name="sd_popoverStyle">@style/Sdkit.StarDs.Components.Popover.M.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Popover.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeTailOffset">@dimen/sdkit_popover_s_tail_offset</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.PopoverS">
+        <item name="sd_popoverStyle">@style/Sdkit.StarDs.Components.Popover.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Popover.S.Default">
+        <item name="sdkit_popoverColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.PopoverSDefault">
+        <item name="sd_popoverStyle">@style/Sdkit.StarDs.Components.Popover.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Popover.S.Accent">
+        <item name="sdkit_popoverColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.PopoverSAccent">
+        <item name="sd_popoverStyle">@style/Sdkit.StarDs.Components.Popover.S.Accent</item>
+    </style>
+</resources>

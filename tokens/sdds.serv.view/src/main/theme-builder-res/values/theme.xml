@@ -1223,7 +1223,6 @@
         <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
 
@@ -2474,7 +2473,6 @@
         <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
 

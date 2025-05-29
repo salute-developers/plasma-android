@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Popover">
+        <item name="sd_clipToOutline">true</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="sd_shapeTailWidth">20dp</item>
+        <item name="sd_shapeTailHeight">8dp</item>
+        <item name="sd_shapeTailEnabled">true</item>
+        <item name="sd_shapeTailOffset">20dp</item>
+    </style>
+</resources>

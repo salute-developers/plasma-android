@@ -1,6 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import utils.componentsVersion
+import utils.themeUrl
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -21,8 +22,6 @@ android {
 
 themeBuilder {
     themeSource {
-        val themeUrl = properties["theme-url"]?.toString()
-            ?: throw GradleException("theme-url must be specified for ThemeBuilder to work")
         url(themeUrl)
         name("StarDs")
     }

@@ -19,6 +19,11 @@ import com.sdds.uikit.shape.Shapeable
 interface HasFocusSelector {
 
     /**
+     * Текущие настройки селектора фокуса
+     */
+    val settings: FocusSelectorSettings
+
+    /**
      * Устанавливает селектор фокуса для [view]
      * @param view [View], в который устанавливает селектор
      * @param context контекст
@@ -41,6 +46,11 @@ interface HasFocusSelector {
     fun applySelector(view: View): Unit = applySelector(view, view.context)
 
     /**
+     * Обновляет настройки селектора фокуса [settings] для [view]
+     */
+    fun updateSettings(view: View, settings: FocusSelectorSettings)
+
+    /**
      * Обновляет селектор фокуса при изменении состояния [focus] у [view]
      */
     fun updateFocusSelector(view: View, focus: Boolean)
@@ -49,6 +59,77 @@ interface HasFocusSelector {
      * Обрабатывает изменение состояния [View.isPressed]
      */
     fun handlePressedChange(view: View, isPressed: Boolean)
+
+    /**
+     * Добавляет слушатель анимации изменения масштаба при фокусе.
+     */
+    fun addScaleAnimationListener(listener: ScaleAnimationListener)
+
+    /**
+     * Добавляет слушатель анимации изменения масштаба при фокусе.
+     */
+    fun removeScaleAnimationListener(listener: ScaleAnimationListener)
+}
+
+/**
+ * Слушатель анимации масштабирования, связанной с фокусом.
+ *
+ * Позволяет отслеживать ключевые события анимации изменения масштаба при получении или потере фокуса.
+ */
+interface ScaleAnimationListener {
+
+    /**
+     * Вызывается в начале анимации масштабирования.
+     */
+    fun onStart()
+
+    /**
+     * Вызывается при обновлении анимации.
+     *
+     * @param startX начальное значение анимации масштабирования по оси X
+     * @param startY начальное значение анимации масштабирования по оси Y
+     * @param endX конечное значение анимации масштабирования по оси X
+     * @param endY конечное значение анимации масштабирования по оси Y
+     * @param fraction прогресс анимации от 0.0 до 1.0
+     */
+    fun onUpdate(startX: Float, startY: Float, endX: Float, endY: Float, fraction: Float)
+
+    /**
+     * Вызывается в конце анимации масштабирования.
+     */
+    fun onEnd()
+}
+
+/**
+ * Добавляет [ScaleAnimationListener] к текущему [HasFocusSelector] с удобной реализацией через лямбды.
+ *
+ * Позволяет легко обработать события начала, прогресса и завершения анимации масштабирования.
+ *
+ * @param onStart вызывается в начале анимации (опционально)
+ * @param onEnd вызывается в конце анимации (опционально)
+ * @param onUpdate вызывается при каждом обновлении прогресса анимации.
+ * @return созданный [ScaleAnimationListener]
+ */
+fun HasFocusSelector.doOnScaleAnimation(
+    onStart: (() -> Unit)? = null,
+    onEnd: (() -> Unit)? = null,
+    onUpdate: (Float, Float, Float, Float, Float) -> Unit,
+): ScaleAnimationListener {
+    val listener = object : ScaleAnimationListener {
+        override fun onStart() {
+            onStart?.invoke()
+        }
+
+        override fun onUpdate(startX: Float, startY: Float, endX: Float, endY: Float, fraction: Float) {
+            onUpdate(startX, startY, endX, endY, fraction)
+        }
+
+        override fun onEnd() {
+            onEnd?.invoke()
+        }
+    }
+    addScaleAnimationListener(listener)
+    return listener
 }
 
 /**
@@ -59,16 +140,17 @@ internal class FocusSelectorDelegate
 constructor() : HasFocusSelector {
 
     private var scaleAnimationHelper: FocusScaleAnimationHelper? = null
-    var settings: FocusSelectorSettings? = null
-        private set
+    private lateinit var _settings: FocusSelectorSettings
+
+    override val settings: FocusSelectorSettings get() = _settings
 
     internal val isEnabled: Boolean
-        get() = settings?.let {
+        get() = settings.let {
             it.isEnabled && (it.border.borderMode.isBorderEnabled() || it.scaleEnabled)
-        } == true
+        }
 
     constructor(settings: FocusSelectorSettings) : this() {
-        this.settings = settings
+        _settings = settings
     }
 
     constructor(
@@ -79,7 +161,6 @@ constructor() : HasFocusSelector {
     ) : this(FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr, defStyleRes))
 
     override fun applySelector(view: View) {
-        val settings = this.settings ?: return
         if (!isEnabled || !view.canBeFocusable(settings.duplicateParentStateEnabled)) return
         if (settings.scaleEnabled) {
             scaleAnimationHelper = FocusScaleAnimationHelper(settings.scaleFactor)
@@ -87,26 +168,39 @@ constructor() : HasFocusSelector {
         view.tryApplySelectorBorder(settings)
     }
 
+    override fun updateSettings(view: View, settings: FocusSelectorSettings) {
+        _settings = settings
+        applySelector(view)
+    }
+
     @Deprecated("Use applySelector(View)", replaceWith = ReplaceWith("applySelector(view)"))
     override fun applySelector(view: View, context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
-        this.settings = FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr)
+        _settings = FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr)
         applySelector(view)
     }
 
     override fun updateFocusSelector(view: View, focus: Boolean) {
         if (!isEnabled) return
-        if (settings?.scaleEnabled == true) {
+        if (settings.scaleEnabled) {
             scaleAnimationHelper?.animateFocusChange(view, focus)
         }
-        if (settings?.border?.borderMode?.isBorderEnabled() == true) {
+        if (settings.border.borderMode.isBorderEnabled()) {
             view.foreground?.invalidateSelf()
         }
     }
 
     override fun handlePressedChange(view: View, isPressed: Boolean) {
-        if (settings?.scaleEnabled == true) {
+        if (settings.scaleEnabled) {
             scaleAnimationHelper?.animatePressedState(view, isPressed)
         }
+    }
+
+    override fun addScaleAnimationListener(listener: ScaleAnimationListener) {
+        scaleAnimationHelper?.addScaleAnimationListener(listener)
+    }
+
+    override fun removeScaleAnimationListener(listener: ScaleAnimationListener) {
+        scaleAnimationHelper?.removeScaleAnimationListener(listener)
     }
 
     private fun View.canBeFocusable(duplicateStateEnabled: Boolean): Boolean {

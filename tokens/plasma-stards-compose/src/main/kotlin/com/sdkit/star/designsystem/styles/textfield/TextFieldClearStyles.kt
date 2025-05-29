@@ -252,6 +252,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
+            counterColorReadOnly(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             cursorColor(
                 StarDsTheme.colors.textDefaultAccentMain.asInteractive(),
             )
@@ -269,6 +272,12 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textDefaultPrimary,
                 ),
+            )
+            prefixColorReadOnly(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColorReadOnly(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
             )
         }
 

@@ -21,6 +21,9 @@ import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
+import com.sdds.playground.sandbox.modal.compose.ModalScreen
+import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
+import com.sdds.playground.sandbox.popover.compose.PopoverScreen
 import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
@@ -29,6 +32,8 @@ import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
+import com.sdds.playground.sandbox.toast.compose.ToastScreen
+import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
 
 /**
  *
@@ -81,6 +86,11 @@ internal sealed class ComponentScreen(
     object SegmentItem : ComponentScreen({ SegmentItemScreen(it) })
     object Segment : ComponentScreen({ SegmentScreen(it) })
     object Divider : ComponentScreen({ DividerScreen(it) })
+    object Overlay : ComponentScreen({ OverlayScreen(it) })
+    object Popover : ComponentScreen({ PopoverScreen(it) })
+    object Tooltip : ComponentScreen({ TooltipScreen(it) })
+    object Toast : ComponentScreen({ ToastScreen(it) })
+    object Modal : ComponentScreen({ ModalScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -114,6 +124,11 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
         CoreComponent.SEGMENT -> ComponentScreen.Segment
         CoreComponent.DIVIDER -> ComponentScreen.Divider
+        CoreComponent.OVERLAY -> ComponentScreen.Overlay
+        CoreComponent.POPOVER -> ComponentScreen.Popover
+        CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
+        CoreComponent.TOAST -> ComponentScreen.Toast
+        CoreComponent.MODAL -> ComponentScreen.Modal
         else -> ComponentScreen.Empty
     }
 }

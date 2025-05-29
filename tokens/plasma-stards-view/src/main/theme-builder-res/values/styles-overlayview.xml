@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.OverlayView" parent="Sdds.Components.OverlayView">
+        <item name="sd_background">?sdkit_overlayOnDarkSoft</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.OverlayView">
+        <item name="sd_overlayViewStyle">@style/Sdkit.StarDs.Components.OverlayView</item>
+    </style>
+</resources>

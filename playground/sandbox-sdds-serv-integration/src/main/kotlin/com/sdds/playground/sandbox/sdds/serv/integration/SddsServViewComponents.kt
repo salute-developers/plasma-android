@@ -29,6 +29,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.overlay.vs.SddsServOverlayVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.popover.vs.SddsServPopoverVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsView
@@ -37,6 +39,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSe
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tooltip.vs.SddsServTooltipVariationsView
 
 /**
  *
@@ -143,6 +146,14 @@ object SddsServViewComponents : ComponentsProviderView {
                 ViewStyleProvider.Empty,
             ),
             ViewComponent(
+                ComponentKey.Overlay,
+                SddsServOverlayVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Popover,
+                SddsServPopoverVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.ProgressBar,
                 SddsServProgressBarVariationsView,
             ),
@@ -177,6 +188,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 SddsServTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Tooltip,
+                SddsServTooltipVariationsView,
             ),
         ).associateBy { it.key }
 }

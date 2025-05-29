@@ -15,6 +15,7 @@
         <attr name="sd_fsStrokeInset" />
         <attr name="sd_fsShapeAppearance" />
         <attr name="sd_fsShapeAdjustment" />
+        <attr name="sd_background"/>
     </declare-styleable>
 
     <declare-styleable name="LinearLayout" tools:ignore="ResourceName">

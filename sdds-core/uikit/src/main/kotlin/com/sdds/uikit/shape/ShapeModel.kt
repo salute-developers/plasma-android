@@ -28,19 +28,23 @@ data class ShapeModel(
 ) {
     private var _currentBounds: RectF = RectF()
     private var _currentShape: Shape = NullShape
+    private var _currentTailConfig: TailConfig? = null
 
     /**
      * Возвращает [Shape] согласно границам [bounds]
      */
-    fun getShape(bounds: RectF): Shape {
-        if (bounds == _currentBounds && _currentShape != NullShape) return _currentShape
+    fun getShape(bounds: RectF, tail: TailConfig? = null): Shape {
+        if (bounds == _currentBounds && _currentShape != NullShape && tail == _currentTailConfig) return _currentShape
         _currentBounds.set(bounds)
+        _currentTailConfig = tail
         val topLeft = cornerSizeTopLeft.getSize(bounds)
         val topRight = cornerSizeTopRight.getSize(bounds)
         val bottomRight = cornerSizeBottomRight.getSize(bounds)
         val bottomLeft = cornerSizeBottomLeft.getSize(bounds)
-        return RoundRectShape(
-            floatArrayOf(
+        return CornerShape(
+            cornerFamily = cornerFamily,
+            tailConfig = tail,
+            corners = floatArrayOf(
                 topLeft,
                 topLeft,
                 topRight,
@@ -50,8 +54,6 @@ data class ShapeModel(
                 bottomLeft,
                 bottomLeft,
             ),
-            null,
-            null,
         ).also { _currentShape = it }
     }
 
@@ -127,7 +129,6 @@ data class ShapeModel(
             context: Context,
             @StyleRes shapeAppearanceResId: Int,
             cornerSizeBaseline: CornerSizeBaseline = CornerSizeBaseline.AUTO,
-
         ): ShapeModel {
             val typedArray =
                 context.obtainStyledAttributes(shapeAppearanceResId, R.styleable.SdShapeAppearance)

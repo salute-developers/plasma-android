@@ -3,12 +3,16 @@ package com.sdds.uikit
 import android.content.Context
 import android.graphics.Rect
 import android.util.AttributeSet
+import androidx.core.content.withStyledAttributes
 import com.sdds.uikit.internal.base.isClippedToOutline
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.setBackgroundValueList
 import android.widget.FrameLayout as AndroidFrameLayout
 
 /**
@@ -33,6 +37,7 @@ open class FrameLayout @JvmOverloads constructor(
     HasFocusSelector by FocusSelectorDelegate() {
 
     private val _shapeable: Shapeable = shapeable(attrs, defStyleAttr, defStyleRes)
+    private var _backgroundList: ColorValueStateList? = null
 
     /**
      * @see Shapeable.shape
@@ -42,6 +47,9 @@ open class FrameLayout @JvmOverloads constructor(
 
     init {
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
+        context.withStyledAttributes(attrs, R.styleable.FrameLayout, defStyleAttr, defStyleRes) {
+            _backgroundList = getColorValueStateList(context, R.styleable.FrameLayout_sd_background)
+        }
         @Suppress("LeakingThis")
         applySelector(this, context, attrs, defStyleAttr)
     }
@@ -56,5 +64,10 @@ open class FrameLayout @JvmOverloads constructor(
             handlePressedChange(this, pressed)
         }
         super.setPressed(pressed)
+    }
+
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        setBackgroundValueList(_backgroundList)
     }
 }

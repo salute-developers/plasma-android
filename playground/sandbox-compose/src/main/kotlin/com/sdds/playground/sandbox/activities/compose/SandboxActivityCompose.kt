@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentActivity
+import com.sdds.compose.uikit.overlay.OverlayHost
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.MainContent
 
@@ -16,7 +17,9 @@ class SandboxActivityCompose : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SandboxTheme {
-                MainContent()
+                OverlayHost {
+                    MainContent()
+                }
             }
         }
     }

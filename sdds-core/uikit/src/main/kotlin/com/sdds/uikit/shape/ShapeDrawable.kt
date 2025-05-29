@@ -34,6 +34,7 @@ import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.setColorValue
 import org.xmlpull.v1.XmlPullParser
+import kotlin.math.roundToInt
 
 /**
  * Drawable рисующий форму согласно [ShapeModel].
@@ -53,6 +54,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private var _shapeTint: ColorStateList? = null
     private var _shapeTintValue: ColorValueStateList? = null
     private var _shape: Shape? = null
+    private var _tailConfig: TailConfig? = null
 
     private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
 
@@ -75,6 +77,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             interpolator = AnimationUtils.ACCELERATE_DECELERATE_INTERPOLATOR
         }
     }
+    private var _tailEnabled: Boolean = false
 
     init {
         initPaint()
@@ -116,6 +119,15 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         _animationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
+        setTail(
+            TailConfig(
+                placement = typedArray.getInt(R.styleable.SdShape_sd_shapeTailPlacement, 0),
+                alignment = typedArray.getInt(R.styleable.SdShape_sd_shapeTailAlignment, 0),
+                tailWidth = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailWidth, 0f),
+                tailHeight = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailHeight, 0f),
+                tailOffset = typedArray.getDimension(R.styleable.SdShape_sd_shapeTailOffset, 0f),
+            ),
+        )
         val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
             _shadowRenderer.setShadowModel(
@@ -168,7 +180,6 @@ open class ShapeDrawable() : Drawable(), Shapeable {
      */
     @RequiresApi(Build.VERSION_CODES.P)
     open fun setShadowModel(model: ShadowModel?) {
-        if (model == null) return
         _shadowRenderer.setShadowModel(model)
     }
 
@@ -227,6 +238,17 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         _strokePaint.xfermode = mode
     }
 
+    /**
+     * Устанавливает конфигурацию хвоста формы [TailConfig]
+     */
+    fun setTail(config: TailConfig?) {
+        if (_tailConfig != config) {
+            _tailConfig = config
+            _shape = _shapeModel.getShape(_drawingBounds, config)
+            resizeShape(_drawingBounds.width(), _drawingBounds.height())
+        }
+    }
+
     internal fun resizeShape(width: Float, height: Float) {
         _shape?.resize(width, height)
         invalidateSelf()
@@ -268,7 +290,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _drawingBounds.right -= _boundedOffset
             _drawingBounds.bottom -= _boundedOffset
         }
-        _shape = _shapeModel.getShape(_drawingBounds).apply {
+        _shape = _shapeModel.getShape(_drawingBounds, _tailConfig).apply {
             resize(_drawingBounds.width(), _drawingBounds.height())
         }
         if (_shaderFactory != null) {
@@ -316,17 +338,37 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         }
     }
 
+    override fun getIntrinsicWidth(): Int {
+        return _tailConfig
+            ?.takeIf { it.isVerticalPlacement() }
+            ?.run { tailWidth + tailOffset * 2 }
+            ?.roundToInt()
+            ?: super.getIntrinsicWidth()
+    }
+
+    override fun getIntrinsicHeight(): Int {
+        return _tailConfig
+            ?.takeIf { it.isHorizontalPlacement() }
+            ?.run { tailWidth + tailOffset * 2 }
+            ?.roundToInt()
+            ?: super.getIntrinsicHeight()
+    }
+
     override fun onStateChange(state: IntArray): Boolean {
         animator.cancel()
         val borderColor = _strokeTint.colorForState(state)
-        var stateChanged = _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)
+        var stateChanged = false
         if (borderColor != _strokePaint.color) {
             stateChanged = true
         }
         var fillColor: Int? = null
-        if (_shaderFactory == null && _shapeTintValue == null) {
-            fillColor = _shapeTint.colorForState(state)
-            if (fillColor != _shapePaint.color) {
+        if (_shaderFactory == null) {
+            if (_shapeTintValue == null) {
+                fillColor = _shapeTint.colorForState(state)
+                if (fillColor != _shapePaint.color) {
+                    stateChanged = true
+                }
+            } else if (_shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)) {
                 stateChanged = true
             }
         }

@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
@@ -43,6 +44,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
     key: ComponentKey,
     viewModel: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
+    backgroundColor: Color = StarDsTheme.colors.surfaceDefaultSolidCard,
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     var currentProperty: Property<*>? by remember { mutableStateOf(null) }
@@ -66,7 +68,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
                     StarDsTheme.colors.surfaceDefaultSolidTertiary,
                     StarDsTheme.shapes.roundM,
                 )
-                .background(StarDsTheme.colors.surfaceDefaultSolidCard)
+                .background(backgroundColor)
                 .padding(16.dp),
 
             contentAlignment = Alignment.Center,

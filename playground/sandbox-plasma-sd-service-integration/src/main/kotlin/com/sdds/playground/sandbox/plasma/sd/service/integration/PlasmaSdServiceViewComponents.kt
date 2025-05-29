@@ -29,6 +29,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.vs.PlasmaSdServiceOverlayVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.vs.PlasmaSdServicePopoverVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsView
@@ -37,6 +39,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.Pl
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tooltip.vs.PlasmaSdServiceTooltipVariationsView
 
 /**
  *
@@ -144,6 +147,14 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
                 PlasmaSdServiceIndicatorVariationsView,
             ),
             ViewComponent(
+                ComponentKey.Overlay,
+                PlasmaSdServiceOverlayVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Popover,
+                PlasmaSdServicePopoverVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.ProgressBar,
                 PlasmaSdServiceProgressBarVariationsView,
             ),
@@ -178,6 +189,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 PlasmaSdServiceTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Tooltip,
+                PlasmaSdServiceTooltipVariationsView,
             ),
         ).associateBy { it.key }
 }

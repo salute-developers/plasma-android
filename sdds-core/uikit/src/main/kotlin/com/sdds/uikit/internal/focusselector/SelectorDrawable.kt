@@ -62,7 +62,7 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
             intArrayOf(mainColor)
         }
         offset = strokeWidth / 2f + insets
-        this.shapeModel = shapeModel.adjust(-offset)
+        this.shapeModel = shapeModel.adjust(offset)
         borderPaint.strokeWidth = strokeWidth
     }
 
@@ -87,7 +87,7 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         drawingRect.set(bounds)
-        drawingRect.offset(-offset)
+        drawingRect.inset(-offset, -offset)
         shapePath.reset()
         shapeModel.toPath(drawingRect, shapePath)
         shapePath.close()
@@ -118,14 +118,5 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     override fun onScrollChange(v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         this.scrollX = scrollX.toFloat()
         this.scrollY = scrollY.toFloat()
-    }
-
-    private companion object {
-        fun RectF.offset(offset: Float) {
-            left += offset
-            top += offset
-            right -= offset
-            bottom -= offset
-        }
     }
 }

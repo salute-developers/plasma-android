@@ -8,6 +8,7 @@ import org.hamcrest.Matcher
 internal fun themedComponent(
     viewMatcherFactory: ((View) -> Matcher<View>)? = null,
     action: ((View) -> Unit)? = null,
+    skipDefaultCaptureRoboImage: Boolean = false,
     factory: ComponentScope.() -> View,
 ) {
     component(
@@ -15,6 +16,7 @@ internal fun themedComponent(
         R.attr.serv_backgroundDefaultPrimary,
         viewMatcherFactory,
         action,
+        skipDefaultCaptureRoboImage,
         factory,
     )
 }

@@ -30,6 +30,8 @@ import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
+import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
@@ -39,6 +41,7 @@ import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
+import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
 import com.sdds.testing.vs.avatar.avatarGroup
@@ -67,6 +70,8 @@ import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.overlay.overlayWithTrigger
+import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
 import com.sdds.testing.vs.progress.ProgressUiState
 import com.sdds.testing.vs.progress.circularProgressBar
@@ -82,6 +87,7 @@ import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
+import com.sdds.testing.vs.tooltip.tooltipWithTrigger
 import com.sdds.uikit.colorstate.ColorState
 
 internal class MenuItem(
@@ -234,6 +240,18 @@ internal sealed class ComponentScreen(
     object CircularProgress : ComponentScreen(
         { item -> fragment<CircularProgressBarFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Popover : ComponentScreen(
+        { item -> fragment<PopoverFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object Tooltip : ComponentScreen(
+        { item -> fragment<TooltipFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object Overlay : ComponentScreen(
+        { item -> fragment<OverlayFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -266,6 +284,9 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DIVIDER -> ComponentScreen.Divider
         CoreComponent.NAVIGATION_DRAWER -> ComponentScreen.NavigationDrawer
         CoreComponent.CIRCULAR_PROGRESS -> ComponentScreen.CircularProgress
+        CoreComponent.POPOVER -> ComponentScreen.Popover
+        CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
+        CoreComponent.OVERLAY -> ComponentScreen.Overlay
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -300,6 +321,9 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.DIVIDER -> R.id.nav_divider
         CoreComponent.NAVIGATION_DRAWER -> R.id.nav_navigation_drawer
         CoreComponent.CIRCULAR_PROGRESS -> R.id.nav_circular_progressbar
+        CoreComponent.POPOVER -> R.id.nav_popover
+        CoreComponent.TOOLTIP -> R.id.nav_tooltip
+        CoreComponent.OVERLAY -> R.id.nav_overlay
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -373,6 +397,9 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
 
         CoreComponent.NAVIGATION_DRAWER -> navigationDrawer(context, style, NavigationDrawerUiState())
         CoreComponent.CIRCULAR_PROGRESS -> circularProgressBar(context, style, CircularProgressUiState())
+        CoreComponent.POPOVER -> popoverWithTrigger(context, style).trigger
+        CoreComponent.TOOLTIP -> tooltipWithTrigger(context, style).trigger
+        CoreComponent.OVERLAY -> overlayWithTrigger(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

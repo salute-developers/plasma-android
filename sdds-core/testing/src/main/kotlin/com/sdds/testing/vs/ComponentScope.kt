@@ -72,6 +72,7 @@ fun component(
     backgroundColorAttr: Int = 0,
     viewMatcherFactory: ((View) -> Matcher<View>)? = null,
     action: ((View) -> Unit)? = null,
+    skipDefaultCaptureRoboImage: Boolean = false,
     factory: ComponentScope.() -> View,
 ) {
     val controller = Robolectric.buildActivity(ComponentActivity::class.java)
@@ -102,8 +103,10 @@ fun component(
     action?.invoke(view)
     val matcher: Matcher<View> = viewMatcherFactory?.invoke(view)
         ?: ViewMatchers.withId(if (componentScope.hasMargins) container.id else view.id)
-    onView(matcher)
-        .captureRoboImage()
+    if (!skipDefaultCaptureRoboImage) {
+        onView(matcher)
+            .captureRoboImage()
+    }
 }
 
 /**

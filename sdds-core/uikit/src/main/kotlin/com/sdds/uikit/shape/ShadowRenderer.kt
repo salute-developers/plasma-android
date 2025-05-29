@@ -17,9 +17,11 @@ internal class ShadowRenderer {
 
     private var shadowLayerRenderers: Array<ShadowLayerRenderer>? = null
 
-    fun setShadowModel(shadowModel: ShadowModel) {
-        this.shadowLayerRenderers = Array(shadowModel.layers.size) {
-            ShadowLayerRenderer(shadowModel.layers[it])
+    fun setShadowModel(shadowModel: ShadowModel?) {
+        this.shadowLayerRenderers = shadowModel?.let { model ->
+            Array(model.layers.size) {
+                ShadowLayerRenderer(model.layers[it])
+            }
         }
     }
 

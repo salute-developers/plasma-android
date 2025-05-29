@@ -33,6 +33,7 @@ internal class SwitchDrawable(
     context: Context,
     attrs: AttributeSet?,
     defStyleAttr: Int,
+    defStyleRes: Int,
 ) : Drawable(), Animatable {
 
     private val _animator by unsafeLazy {
@@ -63,7 +64,7 @@ internal class SwitchDrawable(
     private var _thumbPadding: Float = 0f
 
     init {
-        obtainAttributes(context, attrs, defStyleAttr)
+        obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         _trackDrawable = ShapeDrawable(context, attrs, defStyleAttr).apply {
             callback = this@SwitchDrawable.callback
             setStrokeWidth(_strokeWidth)
@@ -189,8 +190,8 @@ internal class SwitchDrawable(
 
     override fun getIntrinsicHeight() = _switchHeight
 
-    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SdSwitchDrawable, defStyleAttr, 0)
+    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SdSwitchDrawable, defStyleAttr, defStyleRes)
         _switchWidth = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_switchWidth, SwitchWidth)
         _switchHeight = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_switchHeight, SwitchHeight)
         _thumbWidth = typedArray.getDimensionPixelSize(R.styleable.SdSwitchDrawable_sd_thumbWidth, ThumbDiameter)

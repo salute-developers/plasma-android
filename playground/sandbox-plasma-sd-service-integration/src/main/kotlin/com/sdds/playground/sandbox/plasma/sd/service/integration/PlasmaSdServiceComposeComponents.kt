@@ -31,6 +31,9 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.compose.PlasmaSdServiceOverlayVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.PlasmaSdServicePopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsCompose
@@ -41,6 +44,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.Plasma
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear.PlasmaSdServiceTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.clear.PlasmaSdServiceTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.toast.PlasmaSdServiceToastVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tooltip.PlasmaSdServiceTooltipVariationsCompose
 
 /**
  *
@@ -159,6 +164,14 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
                 PlasmaSdServiceProgressVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.Popover,
+                PlasmaSdServicePopoverVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                PlasmaSdServiceTooltipVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.RadioBox,
                 PlasmaSdServiceRadioBoxVariationsCompose,
             ),
@@ -193,6 +206,18 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Segment,
                 PlasmaSdServiceSegmentVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Overlay,
+                PlasmaSdServiceOverlayVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Toast,
+                PlasmaSdServiceToastVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Modal,
+                PlasmaSdServiceModalVariationsCompose,
             ),
         ).associateBy { it.key }
 }

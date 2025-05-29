@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.OverlayView" parent="Sdds.Components.OverlayView">
+        <item name="sd_background">?plasma_overlayDefaultSoft</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.OverlayView">
+        <item name="sd_overlayViewStyle">@style/Plasma.SdService.Components.OverlayView</item>
+    </style>
+</resources>

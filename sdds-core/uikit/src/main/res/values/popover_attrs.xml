@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_popoverStyle" format="reference" />
+
+    <declare-styleable name="Popover" tools:ignore="ResourceName">
+        <attr name="sd_offset" format="dimension" />
+        <attr name="sd_shadowAppearance" />
+        <attr name="sd_background" />
+
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearanceAdjustment" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_clipToOutline" />
+        <attr name="sd_shapeTailWidth" />
+        <attr name="sd_shapeTailHeight" />
+        <attr name="sd_shapeTailOffset" />
+        <attr name="sd_shapeTailEnabled" />
+        <attr name="sd_shapeTailPlacement" />
+        <attr name="sd_shapeTailAlignment" />
+    </declare-styleable>
+</resources>
