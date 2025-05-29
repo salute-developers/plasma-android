@@ -732,4 +732,9 @@
     <dimen name="serv_toast_padding_end">12.0dp</dimen>
     <dimen name="serv_toast_padding_top">8.0dp</dimen>
     <dimen name="serv_toast_padding_bottom">8.0dp</dimen>
+    <dimen name="serv_modal_padding_start">32.0dp</dimen>
+    <dimen name="serv_modal_padding_end">32.0dp</dimen>
+    <dimen name="serv_modal_padding_top">32.0dp</dimen>
+    <dimen name="serv_modal_padding_bottom">32.0dp</dimen>
+    <dimen name="serv_modal_close_icon_size">24.0dp</dimen>
 </resources>

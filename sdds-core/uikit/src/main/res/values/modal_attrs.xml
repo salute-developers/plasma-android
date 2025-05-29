@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_modalStyle" format="reference"/>
+
+    <declare-styleable name="ModalView" tools:ignore="ResourceName">
+        <attr name="sd_closeIcon" format="reference"/>
+        <attr name="sd_closeIconTint" format="color"/>
+        <attr name="sd_closeIconSize" format="dimension"/>
+
+    </declare-styleable>
+</resources>

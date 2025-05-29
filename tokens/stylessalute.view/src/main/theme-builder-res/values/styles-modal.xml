@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Modal" parent="Sdds.Components.Modal">
+        <item name="sd_shapeAppearance">?salute_shapeRoundXl</item>
+        <item name="sd_shadowAppearance">?salute_shadowDownSoftL</item>
+        <item name="android:paddingStart">@dimen/salute_modal_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_modal_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_modal_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_modal_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/salute_modal_close_icon_size</item>
+        <item name="sd_background">?salute_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?salute_textDefaultSecondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.Modal">
+        <item name="sd_modalStyle">@style/Salute.StylesSalute.Components.Modal</item>
+    </style>
+</resources>
