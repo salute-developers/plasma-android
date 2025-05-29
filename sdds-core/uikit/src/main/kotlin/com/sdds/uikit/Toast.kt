@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewTreeViewModelStoreOwner
 import com.sdds.uikit.colorstate.ColorState
@@ -42,6 +43,7 @@ class Toast private constructor(
     }
 
     private var overlayManagerRef: WeakReference<OverlayManager> = WeakReference(overlayManager)
+    internal var isValid: Boolean = true
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -60,10 +62,12 @@ class Toast private constructor(
     }
 
     override fun show() {
+        if (!isValid) return
         overlayManagerRef.get()?.show(this)
     }
 
     override fun hide() {
+        if (!isValid) return
         overlayManagerRef.get()?.remove(id)
     }
 
@@ -135,6 +139,8 @@ class Toast private constructor(
                         setContentEndClickListener { entry.hide() }
                     }
                 }
+            }.apply {
+                isValid = message.isNotEmpty() || contentStart != null || contentEnd != null
             }
         }
     }
@@ -168,6 +174,7 @@ class ToastView @JvmOverloads constructor(
         get() = contentStartView.drawable
         set(value) {
             contentStartView.setImageDrawable(value)
+            contentStartView.isVisible = value != null
         }
 
     /**
@@ -177,6 +184,7 @@ class ToastView @JvmOverloads constructor(
         get() = contentEndView.drawable
         set(value) {
             contentEndView.setImageDrawable(value)
+            contentEndView.isVisible = value != null
         }
 
     /**
