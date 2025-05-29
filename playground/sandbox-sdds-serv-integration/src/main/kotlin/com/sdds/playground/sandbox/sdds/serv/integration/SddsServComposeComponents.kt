@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.popover.SddsServPopover
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsCompose
@@ -228,6 +229,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 SddsServNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                SddsServRectSkeletonVariationsCompose,
             ),
         ).associateBy { it.key }
 }

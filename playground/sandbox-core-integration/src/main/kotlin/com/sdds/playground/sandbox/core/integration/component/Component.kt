@@ -162,6 +162,7 @@ data class ComponentKey(
         val Toast = ComponentKey("Toast", CoreComponent.TOAST)
         val Modal = ComponentKey("Modal", CoreComponent.MODAL)
         val Notification = ComponentKey("Notification", CoreComponent.NOTIFICATION)
+        val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
     }
 }
 
@@ -220,4 +221,5 @@ enum class CoreComponent {
     TOAST,
     MODAL,
     NOTIFICATION,
+    RECT_SKELETON,
 }

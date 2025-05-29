@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
+import com.sdds.playground.sandbox.rectskeleton.compose.RectSkeletonScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
@@ -93,6 +94,7 @@ internal sealed class ComponentScreen(
     object Toast : ComponentScreen({ ToastScreen(it) })
     object Modal : ComponentScreen({ ModalScreen(it) })
     object Notification : ComponentScreen({ NotificationScreen(it) })
+    object RectSkeleton : ComponentScreen({ RectSkeletonScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -132,6 +134,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOAST -> ComponentScreen.Toast
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
+        CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         else -> ComponentScreen.Empty
     }
 }

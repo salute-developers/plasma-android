@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.PlasmaS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsCompose
@@ -228,6 +229,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 PlasmaSdServiceNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                PlasmaSdServiceRectSkeletonVariationsCompose,
             ),
         ).associateBy { it.key }
 }
