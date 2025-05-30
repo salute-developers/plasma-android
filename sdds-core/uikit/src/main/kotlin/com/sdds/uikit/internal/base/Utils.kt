@@ -135,16 +135,16 @@ internal fun View.fullSize(): Size {
 }
 
 internal fun Context.findDecorView(): View? {
-    val activity = findActivity() ?: return null
+    val activity = findActivity<Activity>() ?: return null
     return activity.window?.decorView?.rootView
 }
 
-internal fun Context.findActivity(): Activity? {
-    if (this is Activity) return this
+internal inline fun <reified T : Activity> Context.findActivity(): T? {
+    if (this is T) return this
 
     var ctx = this
     while (ctx is ContextWrapper) {
-        if (ctx is Activity) return ctx
+        if (ctx is T) return ctx
         ctx = ctx.baseContext
     }
     return null

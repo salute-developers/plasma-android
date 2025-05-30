@@ -144,7 +144,7 @@ internal class OverlayEntryListView(context: Context, position: OverlayPosition)
         overlayAdapter.submitList(listOf(dummyOverlayEntry))
     }
 
-    fun setListener(listener: Listener) {
+    fun setListener(listener: Listener?) {
         _listener = listener
     }
 
@@ -208,12 +208,12 @@ internal class OverlayEntryListView(context: Context, position: OverlayPosition)
 }
 
 @Suppress("ClickableViewAccessibility")
-internal class OverlayEntryList(rootView: View, private val position: OverlayPosition) : OverlayManager {
+internal class OverlayEntryList(private val position: OverlayPosition) : OverlayManager {
     private val _timeoutHandle: Handler = Handler(Looper.getMainLooper())
-    private val _timeoutActions: MutableMap<Long, Runnable> = mutableMapOf()
-    private val anchorViewRef: WeakReference<View> = WeakReference(rootView)
+    private val _timeoutActions: MutableMap<OverlayEntry, Runnable> = mutableMapOf()
+    private var anchorViewRef: WeakReference<View>? = null
     private val passThroughTouchListener: OnTouchListener = OnTouchListener { v, event ->
-        val rView = anchorViewRef.get() ?: return@OnTouchListener false
+        val rView = anchorViewRef?.get() ?: return@OnTouchListener false
         val anchorLocation = rView.getScreenRect()
         val listLocation = v.getScreenRect()
         val offsetX = (listLocation.left - anchorLocation.left).toFloat()
@@ -226,16 +226,11 @@ internal class OverlayEntryList(rootView: View, private val position: OverlayPos
             popupWindow.dismiss()
         }
     }
-    private val overlayEntryListView: OverlayEntryListView = OverlayEntryListView(rootView.context, position).apply {
-        setOnTouchListener(passThroughTouchListener)
-        setListener(overlayEntryListViewListener)
-    }
+    private var overlayEntryListView: OverlayEntryListView? = null
     private val overlayEntries = mutableListOf<OverlayEntry>()
     private val popupWindow = PopupWindow(
-        overlayEntryListView,
         ViewGroup.LayoutParams.WRAP_CONTENT,
         ViewGroup.LayoutParams.WRAP_CONTENT,
-        false,
     ).apply {
         isClippingEnabled = true
         isFocusable = false
@@ -246,44 +241,67 @@ internal class OverlayEntryList(rootView: View, private val position: OverlayPos
         isAttachedInDecor = true
     }
 
+    override fun bind(rootView: View) {
+        if (anchorViewRef != null) return
+        anchorViewRef = WeakReference(rootView)
+        overlayEntryListView = OverlayEntryListView(rootView.context, position).apply {
+            setOnTouchListener(passThroughTouchListener)
+            setListener(overlayEntryListViewListener)
+        }
+        popupWindow.contentView = overlayEntryListView
+        overlayEntryListView?.submitEntries(overlayEntries.toList())
+        showIfNeed()
+    }
+
     override fun show(overlayEntry: OverlayEntry) {
         overlayEntries.add(overlayEntry)
-        overlayEntryListView.submitEntries(overlayEntries.toList())
+        overlayEntryListView?.submitEntries(overlayEntries.toList())
 
         showIfNeed()
 
         val duration = overlayEntry.durationMillis
         if (duration != null) {
             val action = Runnable { remove(overlayEntry.id) }
-            _timeoutActions[overlayEntry.id] = action
+            _timeoutActions[overlayEntry] = action
             _timeoutHandle.postDelayed(action, duration)
         }
     }
 
     override fun remove(id: Long) {
-        overlayEntries.removeIf { it.id == id }
-        _timeoutActions.remove(id)?.let { _timeoutHandle.removeCallbacks(it) }
+        val toRemoveIndex = overlayEntries.indexOfFirst { it.id == id }
+            .takeIf { it in overlayEntries.indices } ?: return
+        val entry = overlayEntries.removeAt(toRemoveIndex)
+        _timeoutActions.remove(entry)?.let { _timeoutHandle.removeCallbacks(it) }
         if (overlayEntries.isNotEmpty()) {
-            overlayEntryListView.submitEntries(overlayEntries.toList())
+            overlayEntryListView?.submitEntries(overlayEntries.toList())
         } else {
-            overlayEntryListView.setEmpty()
+            overlayEntryListView?.setEmpty()
         }
+    }
+
+    override fun unbind() {
+        overlayEntryListView?.setListener(null)
+        overlayEntryListView?.setOnTouchListener(null)
+        overlayEntryListView?.clear()
+        anchorViewRef?.clear()
+        anchorViewRef = null
+        popupWindow.dismiss()
     }
 
     override fun clear() {
         overlayEntries.clear()
-        overlayEntryListView.clear()
         _timeoutHandle.removeCallbacksAndMessages(null)
         _timeoutActions.clear()
     }
 
     private fun showIfNeed() {
-        val anchorView = anchorViewRef.get() ?: return
+        val anchorView = anchorViewRef?.get() ?: return
         if (popupWindow.isShowing) {
+            popupWindow.update()
             return
         }
 
-        overlayEntryListView.measure(
+        overlayEntryListView?.measure(
             MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
             MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
         )

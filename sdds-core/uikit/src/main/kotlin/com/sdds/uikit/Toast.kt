@@ -9,13 +9,11 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewTreeViewModelStoreOwner
+import com.sdds.uikit.Toast.Companion.makeToast
+import com.sdds.uikit.Toast.Companion.simpleToast
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateHolder
-import com.sdds.uikit.internal.base.findDecorView
-import com.sdds.uikit.internal.overlays.OverlayEntryList
-import com.sdds.uikit.internal.overlays.ToastManager
+import com.sdds.uikit.internal.overlays.getOverlayManager
 import com.sdds.uikit.overlays.OverlayEntry
 import com.sdds.uikit.overlays.OverlayManager
 import com.sdds.uikit.overlays.OverlayPosition
@@ -76,6 +74,8 @@ class Toast private constructor(
         /** Положение тоста по умолчанию — снизу по центру. */
         internal val DefaultToastPosition = OverlayPosition.BottomCenter
 
+        private const val TOAST_MANAGER_TAG = "com.sdds.uikit.ToastManager"
+
         /**
          * Создаёт настраиваемый экземпляр [Toast] с заданными параметрами.
          *
@@ -91,11 +91,7 @@ class Toast private constructor(
             duration: Long? = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS,
             factory: (Context, OverlayEntry) -> View,
         ): Toast {
-            val rootView = context.findDecorView()?.rootView ?: error("context must be Activity's context")
-            val viewModelStoreOwner = ViewTreeViewModelStoreOwner.get(rootView)
-                ?: error("context must be Activity's context")
-            val toastManager = ViewModelProvider(viewModelStoreOwner)[ToastManager::class.java]
-            val overlayManager = toastManager.getOverlayManager(position) { OverlayEntryList(rootView, position) }
+            val overlayManager = context.getOverlayManager(position, TOAST_MANAGER_TAG)
             return Toast(
                 context = context,
                 overlayManager = overlayManager,
