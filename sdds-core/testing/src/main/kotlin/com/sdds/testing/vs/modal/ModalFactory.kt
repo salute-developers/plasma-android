@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentActivity
 import com.sdds.testing.R
 import com.sdds.testing.vs.button.basicButton
 import com.sdds.testing.vs.findActivity
-import com.sdds.uikit.overlays.ModalFragment
-import com.sdds.uikit.overlays.ModalOptions
 import com.sdds.uikit.TextView
 import com.sdds.uikit.dp
+import com.sdds.uikit.overlays.ModalFragment
+import com.sdds.uikit.overlays.ModalOptions
 
 /**
  * Создает [ModalFragment]
