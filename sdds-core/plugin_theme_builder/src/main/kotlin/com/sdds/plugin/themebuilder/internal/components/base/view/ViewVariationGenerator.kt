@@ -315,7 +315,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
      * Добавляет [ProvidableProperty] типа [FloatValue]
      * Поддерживает состояния.
      */
-    protected fun Element.adFloatProperty(
+    protected fun Element.addFloatProperty(
         property: ProvidableProperty<PO, Float, FloatValue>,
         variation: String,
         variationNode: VariationNode<PO>,

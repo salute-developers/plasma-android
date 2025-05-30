@@ -121,10 +121,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_default_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_default_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_default_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_default_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_default_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_default_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_default_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины-->
     <!--region Градиент Джой-->
@@ -149,10 +145,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_default_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_default_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_default_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_default_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_default_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_default_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_default_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой-->
     <!--region Градиент бренда-->
@@ -177,10 +169,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_default_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_default_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_default_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_default_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_default_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_default_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_default_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда-->
     <!--region Градиент B2E-ассистента-->
@@ -205,10 +193,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_default_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_default_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_default_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_default_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_default_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_default_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_default_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента-->
     <!--region Градиент-->
@@ -233,10 +217,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_default_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_default_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_default_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_default_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_default_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_default_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент-->
     <!--region Акцентный цвет с градиентом на темном фоне-->
@@ -357,10 +337,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_dark_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_dark_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_dark_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_dark_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_dark_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_dark_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_dark_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на темном фоне-->
     <!--region Градиент Джой на темном фоне-->
@@ -385,10 +361,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_dark_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_dark_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_dark_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_dark_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_dark_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_dark_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_dark_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на темном фоне-->
     <!--region Градиент B2E-ассистента на темном фоне-->
@@ -413,10 +385,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_dark_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_dark_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_dark_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_dark_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_dark_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_dark_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_dark_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на темном фоне-->
     <!--region Градиент бренда на темном фоне-->
@@ -441,10 +409,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_dark_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_dark_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_dark_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_dark_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_dark_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_dark_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_dark_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда на темном фоне-->
     <!--region Градиент на темном фоне-->
@@ -469,10 +433,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_dark_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_dark_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_dark_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_dark_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на темном фоне-->
     <!--region Акцентный цвет с градиентом на светлом фоне-->
@@ -593,10 +553,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_light_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_light_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_light_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_light_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_light_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_light_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_light_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на светлом фоне-->
     <!--region Градиент Джой на светлом фоне-->
@@ -621,10 +577,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_light_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_light_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_light_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_light_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_light_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_light_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_light_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на светлом фоне-->
     <!--region Градиент B2E-ассистента на светлом фоне-->
@@ -649,10 +601,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_light_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_light_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_light_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_light_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_light_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_light_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_light_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на светлом фоне-->
     <!--region Акцентный цвет бренда на светлом фоне-->
@@ -677,10 +625,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_light_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_light_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_light_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_light_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_light_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_light_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_light_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Акцентный цвет бренда на светлом фоне-->
     <!--region Градиент на светлом фоне-->
@@ -705,10 +649,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_on_light_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_on_light_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_on_light_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_on_light_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на светлом фоне-->
     <!--region Инвертированный акцентный цвет с градиентом-->
@@ -893,10 +833,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_inverse_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_inverse_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_inverse_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_inverse_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientMain-->
     <!--region dark text inverse textGradientAthena-->
@@ -905,10 +841,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_inverse_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_inverse_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_inverse_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_inverse_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_inverse_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_inverse_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_inverse_gradient_athena_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientAthena-->
     <!--region dark text inverse textGradientJoy-->
@@ -917,10 +849,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_inverse_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_inverse_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_inverse_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_inverse_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_inverse_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_inverse_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_inverse_gradient_joy_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientJoy-->
     <!--region dark text inverse textGradientB2E-->
@@ -929,10 +857,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_inverse_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_inverse_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_inverse_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_inverse_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_inverse_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_inverse_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_inverse_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientB2E-->
     <!--region dark text inverse textGradientBrand-->
@@ -941,10 +865,6 @@
         <item name="sd_angle">@string/sdkit_dark_text_inverse_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_dark_text_inverse_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_dark_text_inverse_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_text_inverse_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_text_inverse_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_text_inverse_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_text_inverse_gradient_brand_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientBrand-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
@@ -1097,10 +1017,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_default_skeleton_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_default_skeleton_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_default_skeleton_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_default_skeleton_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_default_skeleton_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_default_skeleton_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_default_skeleton_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region dark surface default surfaceGradientMainHover-->
@@ -1125,10 +1041,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_default_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_default_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_default_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_default_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_default_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_default_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface default surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1137,10 +1049,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_default_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_default_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_default_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_default_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_default_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_default_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_default_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1165,10 +1073,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_default_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_default_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_default_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_default_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_default_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_default_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_default_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1353,10 +1257,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_on_dark_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_on_dark_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_on_dark_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_on_dark_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface onDark surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1365,10 +1265,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_on_dark_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_on_dark_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_on_dark_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_on_dark_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_on_dark_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_on_dark_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_on_dark_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1393,10 +1289,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_on_dark_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_on_dark_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_on_dark_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_on_dark_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_on_dark_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_on_dark_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_on_dark_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1581,10 +1473,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_on_light_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_on_light_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_on_light_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_on_light_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface onLight surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1593,10 +1481,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_on_light_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_on_light_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_on_light_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_on_light_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_on_light_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_on_light_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_on_light_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1621,10 +1505,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_on_light_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_on_light_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_on_light_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_on_light_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_on_light_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_on_light_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_on_light_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1809,10 +1689,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_inverse_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_inverse_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_inverse_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_inverse_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface inverse surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1821,10 +1697,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_inverse_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_inverse_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_inverse_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_inverse_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_inverse_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_inverse_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_inverse_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1849,10 +1721,6 @@
         <item name="sd_angle">@string/sdkit_dark_surface_inverse_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_dark_surface_inverse_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_dark_surface_inverse_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_surface_inverse_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_surface_inverse_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_surface_inverse_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_surface_inverse_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1877,10 +1745,6 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer1">
         <item name="sd_gradientType">radial</item>
@@ -1895,20 +1759,12 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_athena_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_athena_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer4">
         <item name="sd_gradientType">solid</item>
@@ -1931,10 +1787,6 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer1">
         <item name="sd_gradientType">radial</item>
@@ -1949,20 +1801,12 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_joy_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_joy_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer4">
         <item name="sd_gradientType">solid</item>
@@ -1985,10 +1829,6 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer1">
         <item name="sd_gradientType">radial</item>
@@ -2003,20 +1843,12 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_brand_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_brand_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4">
         <item name="sd_gradientType">solid</item>
@@ -2039,10 +1871,6 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_modal_sheet_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_modal_sheet_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_modal_sheet_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_modal_sheet_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_modal_sheet_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_modal_sheet_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_modal_sheet_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultModalSheetLayer1">
         <item name="sd_gradientType">solid</item>
@@ -2062,10 +1890,6 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer1">
         <item name="sd_gradientType">radial</item>
@@ -2080,20 +1904,12 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_b2_e_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer4">
         <item name="sd_gradientType">solid</item>
@@ -2116,10 +1932,6 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_main_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer1">
         <item name="sd_gradientType">radial</item>
@@ -2134,20 +1946,12 @@
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_main_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_dark_background_default_mobile_assistant_main_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_dark_background_default_mobile_assistant_main_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_dark_background_default_mobile_assistant_main_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4">
         <item name="sd_gradientType">solid</item>
@@ -2762,10 +2566,6 @@
         <item name="sd_angle">@string/sdkit_light_text_default_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_default_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_default_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_default_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_default_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_default_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_default_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины-->
     <!--region Градиент Джой-->
@@ -2790,10 +2590,6 @@
         <item name="sd_angle">@string/sdkit_light_text_default_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_default_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_default_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_default_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_default_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_default_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_default_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой-->
     <!--region Градиент бренда-->
@@ -2818,10 +2614,6 @@
         <item name="sd_angle">@string/sdkit_light_text_default_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_default_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_default_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_default_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_default_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_default_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_default_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда-->
     <!--region Градиент B2E-ассистента-->
@@ -2846,10 +2638,6 @@
         <item name="sd_angle">@string/sdkit_light_text_default_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_default_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_default_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_default_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_default_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_default_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_default_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента-->
     <!--region Градиент-->
@@ -2874,10 +2662,6 @@
         <item name="sd_angle">@string/sdkit_light_text_default_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_default_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_default_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_default_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_default_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_default_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент-->
     <!--region Акцентный цвет с градиентом на темном фоне-->
@@ -2998,10 +2782,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_dark_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_dark_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_dark_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_dark_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_dark_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_dark_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_dark_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на темном фоне-->
     <!--region Градиент Джой на темном фоне-->
@@ -3026,10 +2806,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_dark_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_dark_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_dark_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_dark_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_dark_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_dark_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_dark_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на темном фоне-->
     <!--region Градиент B2E-ассистента на темном фоне-->
@@ -3054,10 +2830,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_dark_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_dark_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_dark_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_dark_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_dark_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_dark_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_dark_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на темном фоне-->
     <!--region Градиент бренда на темном фоне-->
@@ -3082,10 +2854,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_dark_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_dark_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_dark_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_dark_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_dark_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_dark_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_dark_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда на темном фоне-->
     <!--region Градиент на темном фоне-->
@@ -3110,10 +2878,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_dark_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_dark_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_dark_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_dark_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на темном фоне-->
     <!--region Акцентный цвет с градиентом на светлом фоне-->
@@ -3234,10 +2998,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_light_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_light_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_light_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_light_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_light_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_light_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_light_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на светлом фоне-->
     <!--region Градиент Джой на светлом фоне-->
@@ -3262,10 +3022,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_light_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_light_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_light_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_light_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_light_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_light_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_light_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на светлом фоне-->
     <!--region Градиент B2E-ассистента на светлом фоне-->
@@ -3290,10 +3046,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_light_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_light_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_light_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_light_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_light_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_light_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_light_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на светлом фоне-->
     <!--region Акцентный цвет бренда на светлом фоне-->
@@ -3318,10 +3070,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_light_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_light_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_light_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_light_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_light_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_light_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_light_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Акцентный цвет бренда на светлом фоне-->
     <!--region Градиент на светлом фоне-->
@@ -3346,10 +3094,6 @@
         <item name="sd_angle">@string/sdkit_light_text_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_on_light_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_on_light_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_on_light_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_on_light_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на светлом фоне-->
     <!--region Инвертированный акцентный цвет с градиентом-->
@@ -3534,10 +3278,6 @@
         <item name="sd_angle">@string/sdkit_light_text_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_inverse_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_inverse_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_inverse_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_inverse_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientMain-->
     <!--region light text inverse textGradientAthena-->
@@ -3546,10 +3286,6 @@
         <item name="sd_angle">@string/sdkit_light_text_inverse_gradient_athena_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_inverse_gradient_athena_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_inverse_gradient_athena_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_inverse_gradient_athena_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_inverse_gradient_athena_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_inverse_gradient_athena_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_inverse_gradient_athena_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientAthena-->
     <!--region light text inverse textGradientJoy-->
@@ -3558,10 +3294,6 @@
         <item name="sd_angle">@string/sdkit_light_text_inverse_gradient_joy_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_inverse_gradient_joy_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_inverse_gradient_joy_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_inverse_gradient_joy_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_inverse_gradient_joy_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_inverse_gradient_joy_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_inverse_gradient_joy_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientJoy-->
     <!--region light text inverse textGradientB2E-->
@@ -3570,10 +3302,6 @@
         <item name="sd_angle">@string/sdkit_light_text_inverse_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_inverse_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_inverse_gradient_b2_e_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_inverse_gradient_b2_e_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_inverse_gradient_b2_e_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_inverse_gradient_b2_e_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_inverse_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientB2E-->
     <!--region light text inverse textGradientBrand-->
@@ -3582,10 +3310,6 @@
         <item name="sd_angle">@string/sdkit_light_text_inverse_gradient_brand_angle</item>
         <item name="sd_colors">@array/sdkit_light_text_inverse_gradient_brand_colors</item>
         <item name="sd_stops">@array/sdkit_light_text_inverse_gradient_brand_positions</item>
-        <item name="sd_startX">@string/sdkit_light_text_inverse_gradient_brand_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_text_inverse_gradient_brand_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_text_inverse_gradient_brand_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_text_inverse_gradient_brand_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientBrand-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
@@ -3738,10 +3462,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_default_skeleton_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_default_skeleton_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_default_skeleton_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_default_skeleton_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_default_skeleton_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_default_skeleton_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_default_skeleton_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region light surface default surfaceGradientMainHover-->
@@ -3766,10 +3486,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_default_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_default_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_default_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_default_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_default_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_default_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface default surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -3778,10 +3494,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_default_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_default_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_default_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_default_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_default_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_default_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_default_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -3806,10 +3518,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_default_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_default_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_default_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_default_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_default_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_default_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_default_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -3994,10 +3702,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_on_dark_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_on_dark_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_on_dark_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_on_dark_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface onDark surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -4006,10 +3710,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_on_dark_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_on_dark_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_on_dark_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_on_dark_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_on_dark_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_on_dark_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_on_dark_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -4034,10 +3734,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_on_dark_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_on_dark_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_on_dark_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_on_dark_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_on_dark_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_on_dark_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_on_dark_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -4222,10 +3918,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_on_light_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_on_light_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_on_light_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_on_light_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface onLight surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -4234,10 +3926,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_on_light_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_on_light_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_on_light_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_on_light_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_on_light_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_on_light_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_on_light_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -4262,10 +3950,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_on_light_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_on_light_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_on_light_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_on_light_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_on_light_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_on_light_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_on_light_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -4450,10 +4134,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_inverse_gradient_main_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_inverse_gradient_main_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_inverse_gradient_main_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_inverse_gradient_main_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface inverse surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -4462,10 +4142,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_inverse_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_inverse_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_inverse_skeleton_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_inverse_skeleton_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_inverse_skeleton_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_inverse_skeleton_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_inverse_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -4490,10 +4166,6 @@
         <item name="sd_angle">@string/sdkit_light_surface_inverse_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/sdkit_light_surface_inverse_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/sdkit_light_surface_inverse_skeleton_deep_gradient_positions</item>
-        <item name="sd_startX">@string/sdkit_light_surface_inverse_skeleton_deep_gradient_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_surface_inverse_skeleton_deep_gradient_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_surface_inverse_skeleton_deep_gradient_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_surface_inverse_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -4518,10 +4190,6 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_athena_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer1">
         <item name="sd_gradientType">radial</item>
@@ -4536,20 +4204,12 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_athena_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_athena_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_athena_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_athena_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer4">
         <item name="sd_gradientType">solid</item>
@@ -4572,10 +4232,6 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_joy_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer1">
         <item name="sd_gradientType">radial</item>
@@ -4590,20 +4246,12 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_joy_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_joy_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_joy_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_joy_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer4">
         <item name="sd_gradientType">solid</item>
@@ -4626,10 +4274,6 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_brand_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer1">
         <item name="sd_gradientType">radial</item>
@@ -4644,20 +4288,12 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_brand_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_brand_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_brand_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_brand_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4">
         <item name="sd_gradientType">solid</item>
@@ -4680,10 +4316,6 @@
         <item name="sd_angle">@string/sdkit_light_background_default_modal_sheet_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_modal_sheet_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_modal_sheet_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_modal_sheet_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_modal_sheet_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_modal_sheet_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_modal_sheet_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultModalSheetLayer1">
         <item name="sd_gradientType">solid</item>
@@ -4703,10 +4335,6 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer1">
         <item name="sd_gradientType">radial</item>
@@ -4721,20 +4349,12 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_b2_e_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer4">
         <item name="sd_gradientType">solid</item>
@@ -4757,10 +4377,6 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_0_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_0_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_main_layer_0_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer1">
         <item name="sd_gradientType">radial</item>
@@ -4775,20 +4391,12 @@
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_2_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_2_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_main_layer_2_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_angle</item>
         <item name="sd_colors">@array/sdkit_light_background_default_mobile_assistant_main_layer_3_colors</item>
         <item name="sd_stops">@array/sdkit_light_background_default_mobile_assistant_main_layer_3_positions</item>
-        <item name="sd_startX">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_start_point_x</item>
-        <item name="sd_startY">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_start_point_y</item>
-        <item name="sd_endX">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_end_point_x</item>
-        <item name="sd_endY">@string/sdkit_light_background_default_mobile_assistant_main_layer_3_end_point_y</item>
     </style>
     <style name="Sdkit.StarDs.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4">
         <item name="sd_gradientType">solid</item>

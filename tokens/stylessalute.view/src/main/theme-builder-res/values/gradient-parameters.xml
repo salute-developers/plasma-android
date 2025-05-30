@@ -191,11 +191,7 @@
         <item>@color/salute_dark_text_default_gradient_athena_color_0</item>
         <item>@color/salute_dark_text_default_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_default_gradient_athena_angle">0.0</string>
-    <string name="salute_dark_text_default_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_dark_text_default_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_dark_text_default_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_dark_text_default_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_dark_text_default_gradient_athena_angle">93.97</string>
     <string-array name="salute_dark_text_default_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -234,11 +230,7 @@
         <item>@color/salute_dark_text_default_gradient_joy_color_0</item>
         <item>@color/salute_dark_text_default_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_default_gradient_joy_angle">0.0</string>
-    <string name="salute_dark_text_default_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_dark_text_default_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_dark_text_default_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_dark_text_default_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_dark_text_default_gradient_joy_angle">93.97</string>
     <string-array name="salute_dark_text_default_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -277,11 +269,7 @@
         <item>@color/salute_dark_text_default_gradient_b2_e_color_0</item>
         <item>@color/salute_dark_text_default_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_default_gradient_b2_e_angle">0.0</string>
-    <string name="salute_dark_text_default_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_dark_text_default_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_dark_text_default_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_dark_text_default_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_dark_text_default_gradient_b2_e_angle">89.83</string>
     <string-array name="salute_dark_text_default_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -320,11 +308,7 @@
         <item>@color/salute_dark_text_default_gradient_brand_color_0</item>
         <item>@color/salute_dark_text_default_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_default_gradient_brand_angle">0.0</string>
-    <string name="salute_dark_text_default_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_dark_text_default_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_dark_text_default_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_dark_text_default_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_dark_text_default_gradient_brand_angle">89.83</string>
     <string-array name="salute_dark_text_default_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -363,11 +347,7 @@
         <item>@color/salute_dark_text_default_gradient_main_color_0</item>
         <item>@color/salute_dark_text_default_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_default_gradient_main_angle">0.0</string>
-    <string name="salute_dark_text_default_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_text_default_gradient_main_start_point_y">0.5</string>
-    <string name="salute_dark_text_default_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_text_default_gradient_main_end_point_y">0.5</string>
+    <string name="salute_dark_text_default_gradient_main_angle">89.83</string>
     <string-array name="salute_dark_text_default_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -562,11 +542,7 @@
         <item>@color/salute_dark_text_on_dark_gradient_athena_color_0</item>
         <item>@color/salute_dark_text_on_dark_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_dark_gradient_athena_angle">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_dark_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_dark_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_dark_gradient_athena_angle">93.97</string>
     <string-array name="salute_dark_text_on_dark_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -605,11 +581,7 @@
         <item>@color/salute_dark_text_on_dark_gradient_joy_color_0</item>
         <item>@color/salute_dark_text_on_dark_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_dark_gradient_joy_angle">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_dark_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_dark_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_dark_gradient_joy_angle">93.97</string>
     <string-array name="salute_dark_text_on_dark_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -648,11 +620,7 @@
         <item>@color/salute_dark_text_on_dark_gradient_b2_e_color_0</item>
         <item>@color/salute_dark_text_on_dark_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_dark_gradient_b2_e_angle">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_dark_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_dark_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_dark_gradient_b2_e_angle">89.83</string>
     <string-array name="salute_dark_text_on_dark_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -691,11 +659,7 @@
         <item>@color/salute_dark_text_on_dark_gradient_brand_color_0</item>
         <item>@color/salute_dark_text_on_dark_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_dark_gradient_brand_angle">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_dark_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_dark_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_dark_gradient_brand_angle">89.83</string>
     <string-array name="salute_dark_text_on_dark_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -734,11 +698,7 @@
         <item>@color/salute_dark_text_on_dark_gradient_main_color_0</item>
         <item>@color/salute_dark_text_on_dark_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_dark_gradient_main_angle">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_dark_gradient_main_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_dark_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_dark_gradient_main_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_dark_gradient_main_angle">89.83</string>
     <string-array name="salute_dark_text_on_dark_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -933,11 +893,7 @@
         <item>@color/salute_dark_text_on_light_gradient_athena_color_0</item>
         <item>@color/salute_dark_text_on_light_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_light_gradient_athena_angle">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_light_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_light_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_light_gradient_athena_angle">89.83</string>
     <string-array name="salute_dark_text_on_light_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -976,11 +932,7 @@
         <item>@color/salute_dark_text_on_light_gradient_joy_color_0</item>
         <item>@color/salute_dark_text_on_light_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_light_gradient_joy_angle">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_light_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_light_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_light_gradient_joy_angle">89.83</string>
     <string-array name="salute_dark_text_on_light_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1019,11 +971,7 @@
         <item>@color/salute_dark_text_on_light_gradient_b2_e_color_0</item>
         <item>@color/salute_dark_text_on_light_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_light_gradient_b2_e_angle">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_light_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_light_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_light_gradient_b2_e_angle">89.83</string>
     <string-array name="salute_dark_text_on_light_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1062,11 +1010,7 @@
         <item>@color/salute_dark_text_on_light_gradient_brand_color_0</item>
         <item>@color/salute_dark_text_on_light_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_light_gradient_brand_angle">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_light_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_light_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_light_gradient_brand_angle">93.97</string>
     <string-array name="salute_dark_text_on_light_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1105,11 +1049,7 @@
         <item>@color/salute_dark_text_on_light_gradient_main_color_0</item>
         <item>@color/salute_dark_text_on_light_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_on_light_gradient_main_angle">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_text_on_light_gradient_main_start_point_y">0.5</string>
-    <string name="salute_dark_text_on_light_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_text_on_light_gradient_main_end_point_y">0.5</string>
+    <string name="salute_dark_text_on_light_gradient_main_angle">89.83</string>
     <string-array name="salute_dark_text_on_light_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1408,11 +1348,7 @@
         <item>@color/salute_dark_text_inverse_gradient_main_color_0</item>
         <item>@color/salute_dark_text_inverse_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_inverse_gradient_main_angle">357.71</string>
-    <string name="salute_dark_text_inverse_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_main_start_point_y">0.52</string>
-    <string name="salute_dark_text_inverse_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_text_inverse_gradient_main_end_point_y">0.48</string>
+    <string name="salute_dark_text_inverse_gradient_main_angle">88.0</string>
     <string-array name="salute_dark_text_inverse_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1425,11 +1361,7 @@
         <item>@color/salute_dark_text_inverse_gradient_athena_color_0</item>
         <item>@color/salute_dark_text_inverse_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_inverse_gradient_athena_angle">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_dark_text_inverse_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_dark_text_inverse_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_dark_text_inverse_gradient_athena_angle">90.0</string>
     <string-array name="salute_dark_text_inverse_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1442,11 +1374,7 @@
         <item>@color/salute_dark_text_inverse_gradient_joy_color_0</item>
         <item>@color/salute_dark_text_inverse_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_inverse_gradient_joy_angle">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_dark_text_inverse_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_dark_text_inverse_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_dark_text_inverse_gradient_joy_angle">90.0</string>
     <string-array name="salute_dark_text_inverse_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1459,11 +1387,7 @@
         <item>@color/salute_dark_text_inverse_gradient_b2_e_color_0</item>
         <item>@color/salute_dark_text_inverse_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_inverse_gradient_b2_e_angle">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_dark_text_inverse_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_dark_text_inverse_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_dark_text_inverse_gradient_b2_e_angle">90.0</string>
     <string-array name="salute_dark_text_inverse_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1476,11 +1400,7 @@
         <item>@color/salute_dark_text_inverse_gradient_brand_color_0</item>
         <item>@color/salute_dark_text_inverse_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_dark_text_inverse_gradient_brand_angle">4.57</string>
-    <string name="salute_dark_text_inverse_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_dark_text_inverse_gradient_brand_start_point_y">0.46</string>
-    <string name="salute_dark_text_inverse_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_dark_text_inverse_gradient_brand_end_point_y">0.54</string>
+    <string name="salute_dark_text_inverse_gradient_brand_angle">94.0</string>
     <string-array name="salute_dark_text_inverse_gradient_brand_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -1737,11 +1657,7 @@
         <item>@color/salute_dark_surface_default_skeleton_color_5</item>
         <item>@color/salute_dark_surface_default_skeleton_color_6</item>
     </integer-array>
-    <string name="salute_dark_surface_default_skeleton_angle">0.0</string>
-    <string name="salute_dark_surface_default_skeleton_start_point_x">0.0</string>
-    <string name="salute_dark_surface_default_skeleton_start_point_y">0.5</string>
-    <string name="salute_dark_surface_default_skeleton_end_point_x">1.0</string>
-    <string name="salute_dark_surface_default_skeleton_end_point_y">0.5</string>
+    <string name="salute_dark_surface_default_skeleton_angle">90.0</string>
     <string-array name="salute_dark_surface_default_skeleton_positions">
         <item>0.0</item>
         <item>0.17</item>
@@ -1785,11 +1701,7 @@
         <item>@color/salute_dark_surface_default_gradient_main_color_0</item>
         <item>@color/salute_dark_surface_default_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_surface_default_gradient_main_angle">0.0</string>
-    <string name="salute_dark_surface_default_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_surface_default_gradient_main_start_point_y">0.5</string>
-    <string name="salute_dark_surface_default_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_surface_default_gradient_main_end_point_y">0.5</string>
+    <string name="salute_dark_surface_default_gradient_main_angle">89.83</string>
     <string-array name="salute_dark_surface_default_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1825,10 +1737,6 @@
         <item>@color/salute_dark_surface_default_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_default_skeleton_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_default_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_default_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_default_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_default_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_default_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1901,10 +1809,6 @@
         <item>@color/salute_dark_surface_default_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_default_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_default_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_default_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_default_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_default_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_default_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2214,11 +2118,7 @@
         <item>@color/salute_dark_surface_on_dark_gradient_main_color_0</item>
         <item>@color/salute_dark_surface_on_dark_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_surface_on_dark_gradient_main_angle">0.0</string>
-    <string name="salute_dark_surface_on_dark_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_surface_on_dark_gradient_main_start_point_y">0.5</string>
-    <string name="salute_dark_surface_on_dark_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_surface_on_dark_gradient_main_end_point_y">0.5</string>
+    <string name="salute_dark_surface_on_dark_gradient_main_angle">89.83</string>
     <string-array name="salute_dark_surface_on_dark_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2254,10 +2154,6 @@
         <item>@color/salute_dark_surface_on_dark_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_on_dark_skeleton_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_on_dark_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_on_dark_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_on_dark_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_on_dark_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_on_dark_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2330,10 +2226,6 @@
         <item>@color/salute_dark_surface_on_dark_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_on_dark_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_on_dark_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_on_dark_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_on_dark_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_on_dark_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2643,11 +2535,7 @@
         <item>@color/salute_dark_surface_on_light_gradient_main_color_0</item>
         <item>@color/salute_dark_surface_on_light_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_surface_on_light_gradient_main_angle">0.0</string>
-    <string name="salute_dark_surface_on_light_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_surface_on_light_gradient_main_start_point_y">0.5</string>
-    <string name="salute_dark_surface_on_light_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_surface_on_light_gradient_main_end_point_y">0.5</string>
+    <string name="salute_dark_surface_on_light_gradient_main_angle">89.83</string>
     <string-array name="salute_dark_surface_on_light_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2683,10 +2571,6 @@
         <item>@color/salute_dark_surface_on_light_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_on_light_skeleton_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_on_light_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_on_light_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_on_light_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_on_light_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_on_light_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2759,10 +2643,6 @@
         <item>@color/salute_dark_surface_on_light_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_on_light_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_on_light_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_on_light_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_on_light_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_on_light_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -3072,11 +2952,7 @@
         <item>@color/salute_dark_surface_inverse_gradient_main_color_0</item>
         <item>@color/salute_dark_surface_inverse_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_dark_surface_inverse_gradient_main_angle">357.71</string>
-    <string name="salute_dark_surface_inverse_gradient_main_start_point_x">0.0</string>
-    <string name="salute_dark_surface_inverse_gradient_main_start_point_y">0.52</string>
-    <string name="salute_dark_surface_inverse_gradient_main_end_point_x">1.0</string>
-    <string name="salute_dark_surface_inverse_gradient_main_end_point_y">0.48</string>
+    <string name="salute_dark_surface_inverse_gradient_main_angle">88.0</string>
     <string-array name="salute_dark_surface_inverse_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3112,10 +2988,6 @@
         <item>@color/salute_dark_surface_inverse_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_inverse_skeleton_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_inverse_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_inverse_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_inverse_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_inverse_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_inverse_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -3188,10 +3060,6 @@
         <item>@color/salute_dark_surface_inverse_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_dark_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_dark_surface_inverse_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_dark_surface_inverse_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_dark_surface_inverse_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_dark_surface_inverse_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_dark_surface_inverse_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -3241,11 +3109,7 @@
         <item>@color/salute_dark_background_default_modal_sheet_layer_0_color_0</item>
         <item>@color/salute_dark_background_default_modal_sheet_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_modal_sheet_layer_0_angle">90.0</string>
-    <string name="salute_dark_background_default_modal_sheet_layer_0_start_point_x">0.5</string>
-    <string name="salute_dark_background_default_modal_sheet_layer_0_start_point_y">0.0</string>
-    <string name="salute_dark_background_default_modal_sheet_layer_0_end_point_x">0.5</string>
-    <string name="salute_dark_background_default_modal_sheet_layer_0_end_point_y">0.5</string>
+    <string name="salute_dark_background_default_modal_sheet_layer_0_angle">180.0</string>
     <string-array name="salute_dark_background_default_modal_sheet_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3264,11 +3128,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_athena_layer_0_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_athena_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_0_angle">68.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_0_start_point_x">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_0_start_point_y">0.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_0_end_point_x">0.9</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_0_end_point_y">1.2</string>
+    <string name="salute_dark_background_default_mobile_assistant_athena_layer_0_angle">336.9</string>
     <string-array name="salute_dark_background_default_mobile_assistant_athena_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3296,11 +3156,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_athena_layer_2_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_athena_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_2_angle">90.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_2_start_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_2_start_point_y">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_2_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_2_end_point_y">1.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_athena_layer_2_angle">180.03</string>
     <string-array name="salute_dark_background_default_mobile_assistant_athena_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3313,11 +3169,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_athena_layer_3_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_athena_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_3_angle">180.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_3_start_point_x">1.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_3_start_point_y">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_3_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_athena_layer_3_end_point_y">0.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_athena_layer_3_angle">270.0</string>
     <string-array name="salute_dark_background_default_mobile_assistant_athena_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3336,11 +3188,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_joy_layer_0_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_joy_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_0_angle">68.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_0_start_point_x">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_0_start_point_y">0.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_0_end_point_x">0.9</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_0_end_point_y">1.2</string>
+    <string name="salute_dark_background_default_mobile_assistant_joy_layer_0_angle">336.9</string>
     <string-array name="salute_dark_background_default_mobile_assistant_joy_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3368,11 +3216,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_joy_layer_2_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_joy_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_2_angle">90.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_2_start_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_2_start_point_y">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_2_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_2_end_point_y">1.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_joy_layer_2_angle">180.03</string>
     <string-array name="salute_dark_background_default_mobile_assistant_joy_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3385,11 +3229,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_joy_layer_3_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_joy_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_3_angle">180.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_3_start_point_x">1.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_3_start_point_y">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_3_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_joy_layer_3_end_point_y">0.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_joy_layer_3_angle">270.0</string>
     <string-array name="salute_dark_background_default_mobile_assistant_joy_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3408,11 +3248,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_b2_e_layer_0_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_b2_e_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_angle">68.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_start_point_x">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_start_point_y">0.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_end_point_x">0.9</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_end_point_y">1.2</string>
+    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_angle">336.84</string>
     <string-array name="salute_dark_background_default_mobile_assistant_b2_e_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3440,11 +3276,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_b2_e_layer_2_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_b2_e_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_angle">90.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_start_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_start_point_y">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_end_point_y">1.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_angle">180.0</string>
     <string-array name="salute_dark_background_default_mobile_assistant_b2_e_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3457,11 +3289,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_b2_e_layer_3_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_b2_e_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_angle">180.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_start_point_x">1.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_start_point_y">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_end_point_y">0.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_angle">270.0</string>
     <string-array name="salute_dark_background_default_mobile_assistant_b2_e_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3480,11 +3308,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_brand_layer_0_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_brand_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_0_angle">68.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_0_start_point_x">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_0_start_point_y">0.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_0_end_point_x">0.9</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_0_end_point_y">1.2</string>
+    <string name="salute_dark_background_default_mobile_assistant_brand_layer_0_angle">336.9</string>
     <string-array name="salute_dark_background_default_mobile_assistant_brand_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3512,11 +3336,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_brand_layer_2_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_brand_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_2_angle">90.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_2_start_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_2_start_point_y">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_2_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_2_end_point_y">1.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_brand_layer_2_angle">180.03</string>
     <string-array name="salute_dark_background_default_mobile_assistant_brand_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3529,11 +3349,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_brand_layer_3_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_brand_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_3_angle">180.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_3_start_point_x">1.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_3_start_point_y">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_3_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_brand_layer_3_end_point_y">0.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_brand_layer_3_angle">269.47</string>
     <string-array name="salute_dark_background_default_mobile_assistant_brand_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3552,11 +3368,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_main_layer_0_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_main_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_0_angle">68.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_0_start_point_x">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_0_start_point_y">0.2</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_0_end_point_x">0.9</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_0_end_point_y">1.2</string>
+    <string name="salute_dark_background_default_mobile_assistant_main_layer_0_angle">336.84</string>
     <string-array name="salute_dark_background_default_mobile_assistant_main_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3584,11 +3396,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_main_layer_2_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_main_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_2_angle">90.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_2_start_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_2_start_point_y">0.5</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_2_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_2_end_point_y">1.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_main_layer_2_angle">180.0</string>
     <string-array name="salute_dark_background_default_mobile_assistant_main_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3601,11 +3409,7 @@
         <item>@color/salute_dark_background_default_mobile_assistant_main_layer_3_color_0</item>
         <item>@color/salute_dark_background_default_mobile_assistant_main_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_3_angle">180.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_3_start_point_x">1.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_3_start_point_y">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_3_end_point_x">0.0</string>
-    <string name="salute_dark_background_default_mobile_assistant_main_layer_3_end_point_y">0.0</string>
+    <string name="salute_dark_background_default_mobile_assistant_main_layer_3_angle">270.0</string>
     <string-array name="salute_dark_background_default_mobile_assistant_main_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4586,11 +4390,7 @@
         <item>@color/salute_light_text_default_gradient_athena_color_0</item>
         <item>@color/salute_light_text_default_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_light_text_default_gradient_athena_angle">0.0</string>
-    <string name="salute_light_text_default_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_light_text_default_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_light_text_default_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_light_text_default_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_light_text_default_gradient_athena_angle">89.83</string>
     <string-array name="salute_light_text_default_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4629,11 +4429,7 @@
         <item>@color/salute_light_text_default_gradient_joy_color_0</item>
         <item>@color/salute_light_text_default_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_light_text_default_gradient_joy_angle">0.0</string>
-    <string name="salute_light_text_default_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_light_text_default_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_light_text_default_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_light_text_default_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_light_text_default_gradient_joy_angle">89.83</string>
     <string-array name="salute_light_text_default_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4672,11 +4468,7 @@
         <item>@color/salute_light_text_default_gradient_brand_color_0</item>
         <item>@color/salute_light_text_default_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_light_text_default_gradient_brand_angle">0.0</string>
-    <string name="salute_light_text_default_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_light_text_default_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_light_text_default_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_light_text_default_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_light_text_default_gradient_brand_angle">93.97</string>
     <string-array name="salute_light_text_default_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4715,11 +4507,7 @@
         <item>@color/salute_light_text_default_gradient_b2_e_color_0</item>
         <item>@color/salute_light_text_default_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_light_text_default_gradient_b2_e_angle">0.0</string>
-    <string name="salute_light_text_default_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_light_text_default_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_light_text_default_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_light_text_default_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_light_text_default_gradient_b2_e_angle">89.83</string>
     <string-array name="salute_light_text_default_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4758,11 +4546,7 @@
         <item>@color/salute_light_text_default_gradient_main_color_0</item>
         <item>@color/salute_light_text_default_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_text_default_gradient_main_angle">0.0</string>
-    <string name="salute_light_text_default_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_text_default_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_text_default_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_text_default_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_text_default_gradient_main_angle">89.83</string>
     <string-array name="salute_light_text_default_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4957,11 +4741,7 @@
         <item>@color/salute_light_text_on_dark_gradient_athena_color_0</item>
         <item>@color/salute_light_text_on_dark_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_dark_gradient_athena_angle">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_light_text_on_dark_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_light_text_on_dark_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_light_text_on_dark_gradient_athena_angle">93.97</string>
     <string-array name="salute_light_text_on_dark_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5000,11 +4780,7 @@
         <item>@color/salute_light_text_on_dark_gradient_joy_color_0</item>
         <item>@color/salute_light_text_on_dark_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_dark_gradient_joy_angle">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_light_text_on_dark_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_light_text_on_dark_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_light_text_on_dark_gradient_joy_angle">93.97</string>
     <string-array name="salute_light_text_on_dark_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5043,11 +4819,7 @@
         <item>@color/salute_light_text_on_dark_gradient_b2_e_color_0</item>
         <item>@color/salute_light_text_on_dark_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_dark_gradient_b2_e_angle">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_light_text_on_dark_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_light_text_on_dark_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_light_text_on_dark_gradient_b2_e_angle">89.83</string>
     <string-array name="salute_light_text_on_dark_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5086,11 +4858,7 @@
         <item>@color/salute_light_text_on_dark_gradient_brand_color_0</item>
         <item>@color/salute_light_text_on_dark_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_dark_gradient_brand_angle">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_light_text_on_dark_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_light_text_on_dark_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_light_text_on_dark_gradient_brand_angle">89.83</string>
     <string-array name="salute_light_text_on_dark_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5129,11 +4897,7 @@
         <item>@color/salute_light_text_on_dark_gradient_main_color_0</item>
         <item>@color/salute_light_text_on_dark_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_dark_gradient_main_angle">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_text_on_dark_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_text_on_dark_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_text_on_dark_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_text_on_dark_gradient_main_angle">89.83</string>
     <string-array name="salute_light_text_on_dark_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5328,11 +5092,7 @@
         <item>@color/salute_light_text_on_light_gradient_athena_color_0</item>
         <item>@color/salute_light_text_on_light_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_light_gradient_athena_angle">0.0</string>
-    <string name="salute_light_text_on_light_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_light_text_on_light_gradient_athena_start_point_y">0.5</string>
-    <string name="salute_light_text_on_light_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_light_text_on_light_gradient_athena_end_point_y">0.5</string>
+    <string name="salute_light_text_on_light_gradient_athena_angle">89.83</string>
     <string-array name="salute_light_text_on_light_gradient_athena_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5371,11 +5131,7 @@
         <item>@color/salute_light_text_on_light_gradient_joy_color_0</item>
         <item>@color/salute_light_text_on_light_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_light_gradient_joy_angle">0.0</string>
-    <string name="salute_light_text_on_light_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_light_text_on_light_gradient_joy_start_point_y">0.5</string>
-    <string name="salute_light_text_on_light_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_light_text_on_light_gradient_joy_end_point_y">0.5</string>
+    <string name="salute_light_text_on_light_gradient_joy_angle">89.83</string>
     <string-array name="salute_light_text_on_light_gradient_joy_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5414,11 +5170,7 @@
         <item>@color/salute_light_text_on_light_gradient_b2_e_color_0</item>
         <item>@color/salute_light_text_on_light_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_light_gradient_b2_e_angle">0.0</string>
-    <string name="salute_light_text_on_light_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_light_text_on_light_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_light_text_on_light_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_light_text_on_light_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_light_text_on_light_gradient_b2_e_angle">89.83</string>
     <string-array name="salute_light_text_on_light_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5457,11 +5209,7 @@
         <item>@color/salute_light_text_on_light_gradient_brand_color_0</item>
         <item>@color/salute_light_text_on_light_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_light_gradient_brand_angle">0.0</string>
-    <string name="salute_light_text_on_light_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_light_text_on_light_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_light_text_on_light_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_light_text_on_light_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_light_text_on_light_gradient_brand_angle">93.97</string>
     <string-array name="salute_light_text_on_light_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5500,11 +5248,7 @@
         <item>@color/salute_light_text_on_light_gradient_main_color_0</item>
         <item>@color/salute_light_text_on_light_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_text_on_light_gradient_main_angle">0.0</string>
-    <string name="salute_light_text_on_light_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_text_on_light_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_text_on_light_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_text_on_light_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_text_on_light_gradient_main_angle">89.83</string>
     <string-array name="salute_light_text_on_light_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5803,11 +5547,7 @@
         <item>@color/salute_light_text_inverse_gradient_main_color_0</item>
         <item>@color/salute_light_text_inverse_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_text_inverse_gradient_main_angle">0.0</string>
-    <string name="salute_light_text_inverse_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_text_inverse_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_text_inverse_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_text_inverse_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_text_inverse_gradient_main_angle">90.0</string>
     <string-array name="salute_light_text_inverse_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5820,11 +5560,7 @@
         <item>@color/salute_light_text_inverse_gradient_athena_color_0</item>
         <item>@color/salute_light_text_inverse_gradient_athena_color_1</item>
     </integer-array>
-    <string name="salute_light_text_inverse_gradient_athena_angle">4.57</string>
-    <string name="salute_light_text_inverse_gradient_athena_start_point_x">0.0</string>
-    <string name="salute_light_text_inverse_gradient_athena_start_point_y">0.46</string>
-    <string name="salute_light_text_inverse_gradient_athena_end_point_x">1.0</string>
-    <string name="salute_light_text_inverse_gradient_athena_end_point_y">0.54</string>
+    <string name="salute_light_text_inverse_gradient_athena_angle">94.0</string>
     <string-array name="salute_light_text_inverse_gradient_athena_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -5837,11 +5573,7 @@
         <item>@color/salute_light_text_inverse_gradient_joy_color_0</item>
         <item>@color/salute_light_text_inverse_gradient_joy_color_1</item>
     </integer-array>
-    <string name="salute_light_text_inverse_gradient_joy_angle">4.57</string>
-    <string name="salute_light_text_inverse_gradient_joy_start_point_x">0.0</string>
-    <string name="salute_light_text_inverse_gradient_joy_start_point_y">0.46</string>
-    <string name="salute_light_text_inverse_gradient_joy_end_point_x">1.0</string>
-    <string name="salute_light_text_inverse_gradient_joy_end_point_y">0.54</string>
+    <string name="salute_light_text_inverse_gradient_joy_angle">94.0</string>
     <string-array name="salute_light_text_inverse_gradient_joy_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -5854,11 +5586,7 @@
         <item>@color/salute_light_text_inverse_gradient_b2_e_color_0</item>
         <item>@color/salute_light_text_inverse_gradient_b2_e_color_1</item>
     </integer-array>
-    <string name="salute_light_text_inverse_gradient_b2_e_angle">0.0</string>
-    <string name="salute_light_text_inverse_gradient_b2_e_start_point_x">0.0</string>
-    <string name="salute_light_text_inverse_gradient_b2_e_start_point_y">0.5</string>
-    <string name="salute_light_text_inverse_gradient_b2_e_end_point_x">1.0</string>
-    <string name="salute_light_text_inverse_gradient_b2_e_end_point_y">0.5</string>
+    <string name="salute_light_text_inverse_gradient_b2_e_angle">90.0</string>
     <string-array name="salute_light_text_inverse_gradient_b2_e_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5871,11 +5599,7 @@
         <item>@color/salute_light_text_inverse_gradient_brand_color_0</item>
         <item>@color/salute_light_text_inverse_gradient_brand_color_1</item>
     </integer-array>
-    <string name="salute_light_text_inverse_gradient_brand_angle">0.0</string>
-    <string name="salute_light_text_inverse_gradient_brand_start_point_x">0.0</string>
-    <string name="salute_light_text_inverse_gradient_brand_start_point_y">0.5</string>
-    <string name="salute_light_text_inverse_gradient_brand_end_point_x">1.0</string>
-    <string name="salute_light_text_inverse_gradient_brand_end_point_y">0.5</string>
+    <string name="salute_light_text_inverse_gradient_brand_angle">90.0</string>
     <string-array name="salute_light_text_inverse_gradient_brand_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -6132,11 +5856,7 @@
         <item>@color/salute_light_surface_default_skeleton_color_5</item>
         <item>@color/salute_light_surface_default_skeleton_color_6</item>
     </integer-array>
-    <string name="salute_light_surface_default_skeleton_angle">0.0</string>
-    <string name="salute_light_surface_default_skeleton_start_point_x">0.0</string>
-    <string name="salute_light_surface_default_skeleton_start_point_y">0.5</string>
-    <string name="salute_light_surface_default_skeleton_end_point_x">1.0</string>
-    <string name="salute_light_surface_default_skeleton_end_point_y">0.5</string>
+    <string name="salute_light_surface_default_skeleton_angle">90.0</string>
     <string-array name="salute_light_surface_default_skeleton_positions">
         <item>0.0</item>
         <item>0.17</item>
@@ -6180,11 +5900,7 @@
         <item>@color/salute_light_surface_default_gradient_main_color_0</item>
         <item>@color/salute_light_surface_default_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_surface_default_gradient_main_angle">0.0</string>
-    <string name="salute_light_surface_default_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_surface_default_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_surface_default_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_surface_default_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_surface_default_gradient_main_angle">89.83</string>
     <string-array name="salute_light_surface_default_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -6220,10 +5936,6 @@
         <item>@color/salute_light_surface_default_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_default_skeleton_gradient_angle">90.0</string>
-    <string name="salute_light_surface_default_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_default_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_default_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_default_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_default_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -6296,10 +6008,6 @@
         <item>@color/salute_light_surface_default_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_default_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_light_surface_default_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_default_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_default_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_default_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_default_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -6609,11 +6317,7 @@
         <item>@color/salute_light_surface_on_dark_gradient_main_color_0</item>
         <item>@color/salute_light_surface_on_dark_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_surface_on_dark_gradient_main_angle">0.0</string>
-    <string name="salute_light_surface_on_dark_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_surface_on_dark_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_surface_on_dark_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_surface_on_dark_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_surface_on_dark_gradient_main_angle">89.83</string>
     <string-array name="salute_light_surface_on_dark_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -6649,10 +6353,6 @@
         <item>@color/salute_light_surface_on_dark_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_on_dark_skeleton_gradient_angle">90.0</string>
-    <string name="salute_light_surface_on_dark_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_on_dark_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_on_dark_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_on_dark_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_on_dark_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -6725,10 +6425,6 @@
         <item>@color/salute_light_surface_on_dark_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_light_surface_on_dark_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_on_dark_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_on_dark_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_on_dark_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_on_dark_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -7038,11 +6734,7 @@
         <item>@color/salute_light_surface_on_light_gradient_main_color_0</item>
         <item>@color/salute_light_surface_on_light_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_surface_on_light_gradient_main_angle">0.0</string>
-    <string name="salute_light_surface_on_light_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_surface_on_light_gradient_main_start_point_y">0.5</string>
-    <string name="salute_light_surface_on_light_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_surface_on_light_gradient_main_end_point_y">0.5</string>
+    <string name="salute_light_surface_on_light_gradient_main_angle">89.83</string>
     <string-array name="salute_light_surface_on_light_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7078,10 +6770,6 @@
         <item>@color/salute_light_surface_on_light_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_on_light_skeleton_gradient_angle">90.0</string>
-    <string name="salute_light_surface_on_light_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_on_light_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_on_light_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_on_light_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_on_light_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -7154,10 +6842,6 @@
         <item>@color/salute_light_surface_on_light_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_light_surface_on_light_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_on_light_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_on_light_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_on_light_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_on_light_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -7467,11 +7151,7 @@
         <item>@color/salute_light_surface_inverse_gradient_main_color_0</item>
         <item>@color/salute_light_surface_inverse_gradient_main_color_1</item>
     </integer-array>
-    <string name="salute_light_surface_inverse_gradient_main_angle">357.71</string>
-    <string name="salute_light_surface_inverse_gradient_main_start_point_x">0.0</string>
-    <string name="salute_light_surface_inverse_gradient_main_start_point_y">0.52</string>
-    <string name="salute_light_surface_inverse_gradient_main_end_point_x">1.0</string>
-    <string name="salute_light_surface_inverse_gradient_main_end_point_y">0.48</string>
+    <string name="salute_light_surface_inverse_gradient_main_angle">88.0</string>
     <string-array name="salute_light_surface_inverse_gradient_main_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7507,10 +7187,6 @@
         <item>@color/salute_light_surface_inverse_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_inverse_skeleton_gradient_angle">90.0</string>
-    <string name="salute_light_surface_inverse_skeleton_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_inverse_skeleton_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_inverse_skeleton_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_inverse_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_inverse_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -7583,10 +7259,6 @@
         <item>@color/salute_light_surface_inverse_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="salute_light_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
-    <string name="salute_light_surface_inverse_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="salute_light_surface_inverse_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="salute_light_surface_inverse_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="salute_light_surface_inverse_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="salute_light_surface_inverse_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -7636,11 +7308,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_athena_layer_0_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_athena_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_0_angle">68.2</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_0_start_point_x">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_0_start_point_y">0.2</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_0_end_point_x">0.9</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_0_end_point_y">1.2</string>
+    <string name="salute_light_background_default_mobile_assistant_athena_layer_0_angle">336.9</string>
     <string-array name="salute_light_background_default_mobile_assistant_athena_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7668,11 +7336,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_athena_layer_2_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_athena_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_2_angle">90.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_2_start_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_2_start_point_y">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_2_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_2_end_point_y">1.0</string>
+    <string name="salute_light_background_default_mobile_assistant_athena_layer_2_angle">180.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_athena_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7685,11 +7349,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_athena_layer_3_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_athena_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_3_angle">180.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_3_start_point_x">1.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_3_start_point_y">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_3_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_athena_layer_3_end_point_y">0.0</string>
+    <string name="salute_light_background_default_mobile_assistant_athena_layer_3_angle">270.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_athena_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7708,11 +7368,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_joy_layer_0_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_joy_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_0_angle">68.2</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_0_start_point_x">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_0_start_point_y">0.2</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_0_end_point_x">0.9</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_0_end_point_y">1.2</string>
+    <string name="salute_light_background_default_mobile_assistant_joy_layer_0_angle">336.9</string>
     <string-array name="salute_light_background_default_mobile_assistant_joy_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7740,11 +7396,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_joy_layer_2_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_joy_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_2_angle">90.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_2_start_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_2_start_point_y">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_2_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_2_end_point_y">1.0</string>
+    <string name="salute_light_background_default_mobile_assistant_joy_layer_2_angle">180.03</string>
     <string-array name="salute_light_background_default_mobile_assistant_joy_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7757,11 +7409,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_joy_layer_3_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_joy_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_3_angle">180.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_3_start_point_x">1.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_3_start_point_y">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_3_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_joy_layer_3_end_point_y">0.0</string>
+    <string name="salute_light_background_default_mobile_assistant_joy_layer_3_angle">270.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_joy_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7780,11 +7428,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_brand_layer_0_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_brand_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_0_angle">68.2</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_0_start_point_x">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_0_start_point_y">0.2</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_0_end_point_x">0.9</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_0_end_point_y">1.2</string>
+    <string name="salute_light_background_default_mobile_assistant_brand_layer_0_angle">336.9</string>
     <string-array name="salute_light_background_default_mobile_assistant_brand_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7812,11 +7456,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_brand_layer_2_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_brand_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_2_angle">90.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_2_start_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_2_start_point_y">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_2_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_2_end_point_y">1.0</string>
+    <string name="salute_light_background_default_mobile_assistant_brand_layer_2_angle">180.03</string>
     <string-array name="salute_light_background_default_mobile_assistant_brand_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7829,11 +7469,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_brand_layer_3_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_brand_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_3_angle">180.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_3_start_point_x">1.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_3_start_point_y">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_3_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_brand_layer_3_end_point_y">0.0</string>
+    <string name="salute_light_background_default_mobile_assistant_brand_layer_3_angle">269.47</string>
     <string-array name="salute_light_background_default_mobile_assistant_brand_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7852,11 +7488,7 @@
         <item>@color/salute_light_background_default_modal_sheet_layer_0_color_0</item>
         <item>@color/salute_light_background_default_modal_sheet_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_modal_sheet_layer_0_angle">90.0</string>
-    <string name="salute_light_background_default_modal_sheet_layer_0_start_point_x">0.5</string>
-    <string name="salute_light_background_default_modal_sheet_layer_0_start_point_y">0.0</string>
-    <string name="salute_light_background_default_modal_sheet_layer_0_end_point_x">0.5</string>
-    <string name="salute_light_background_default_modal_sheet_layer_0_end_point_y">1.0</string>
+    <string name="salute_light_background_default_modal_sheet_layer_0_angle">180.0</string>
     <string-array name="salute_light_background_default_modal_sheet_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7875,11 +7507,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_b2_e_layer_0_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_b2_e_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_0_angle">68.2</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_0_start_point_x">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_0_start_point_y">0.2</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_0_end_point_x">0.9</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_0_end_point_y">1.2</string>
+    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_0_angle">336.9</string>
     <string-array name="salute_light_background_default_mobile_assistant_b2_e_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7907,11 +7535,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_b2_e_layer_2_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_b2_e_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_2_angle">90.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_2_start_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_2_start_point_y">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_2_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_2_end_point_y">1.0</string>
+    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_2_angle">180.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_b2_e_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7924,11 +7548,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_b2_e_layer_3_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_b2_e_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_3_angle">180.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_3_start_point_x">1.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_3_start_point_y">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_3_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_3_end_point_y">0.0</string>
+    <string name="salute_light_background_default_mobile_assistant_b2_e_layer_3_angle">270.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_b2_e_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7947,11 +7567,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_main_layer_0_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_main_layer_0_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_0_angle">68.2</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_0_start_point_x">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_0_start_point_y">0.2</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_0_end_point_x">0.9</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_0_end_point_y">1.2</string>
+    <string name="salute_light_background_default_mobile_assistant_main_layer_0_angle">336.9</string>
     <string-array name="salute_light_background_default_mobile_assistant_main_layer_0_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7979,11 +7595,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_main_layer_2_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_main_layer_2_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_2_angle">90.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_2_start_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_2_start_point_y">0.5</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_2_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_2_end_point_y">1.0</string>
+    <string name="salute_light_background_default_mobile_assistant_main_layer_2_angle">180.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_main_layer_2_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -7996,11 +7608,7 @@
         <item>@color/salute_light_background_default_mobile_assistant_main_layer_3_color_0</item>
         <item>@color/salute_light_background_default_mobile_assistant_main_layer_3_color_1</item>
     </integer-array>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_3_angle">180.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_3_start_point_x">1.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_3_start_point_y">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_3_end_point_x">0.0</string>
-    <string name="salute_light_background_default_mobile_assistant_main_layer_3_end_point_y">0.0</string>
+    <string name="salute_light_background_default_mobile_assistant_main_layer_3_angle">270.0</string>
     <string-array name="salute_light_background_default_mobile_assistant_main_layer_3_positions">
         <item>0.0</item>
         <item>1.0</item>
