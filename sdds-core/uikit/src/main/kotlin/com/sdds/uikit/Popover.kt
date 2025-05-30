@@ -16,11 +16,12 @@ import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnLayout
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
+import com.sdds.uikit.internal.base.getScreenRect
+import com.sdds.uikit.internal.base.getVisibleDisplayFrame
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.internal.focusselector.ScaleAnimationListener
@@ -166,7 +167,7 @@ open class Popover @JvmOverloads constructor(
         val triggerRect = trigger.getScreenRect()
         val shadowPaddings = _content.getShadowSafePaddings()
         val rootRect = trigger.rootView.getScreenRect()
-        val visibleDisplayFrame = getVisibleDisplayFrame(trigger)
+        val visibleDisplayFrame = trigger.getVisibleDisplayFrame()
 
         return _currentLocation.calculateLocation(triggerRect)
             .ensureEnoughSpace(visibleDisplayFrame, triggerRect)
@@ -278,18 +279,6 @@ open class Popover @JvmOverloads constructor(
             }
         }
         return this.copy(bounds = Rect(x, y, x + popupWidth, y + popupHeight))
-    }
-
-    private fun getVisibleDisplayFrame(trigger: View): Rect {
-        return Rect().apply {
-            val insets = WindowInsetsCompat.toWindowInsetsCompat(trigger.rootWindowInsets)
-                .getInsets(WindowInsetsCompat.Type.systemBars())
-            trigger.rootView.getWindowVisibleDisplayFrame(this)
-            left += insets.left
-            top += insets.top
-            right -= insets.right
-            bottom -= insets.bottom
-        }
     }
 
     @Suppress("ClickableViewAccessibility")
@@ -502,17 +491,6 @@ open class Popover @JvmOverloads constructor(
 
         private fun Rect.isZeroRect(): Boolean {
             return left == 0 && top == 0 && right == 0 && bottom == 0
-        }
-
-        private fun View.getScreenRect(): Rect {
-            val location = IntArray(2)
-            getLocationOnScreen(location)
-            return Rect(
-                location[0],
-                location[1],
-                (location[0] + width * scaleX).toInt(),
-                (location[1] + height * scaleY).toInt(),
-            )
         }
 
         private fun getNextAvailablePlacementClockwise(

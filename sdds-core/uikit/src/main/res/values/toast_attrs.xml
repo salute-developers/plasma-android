@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_toastStyle" format="reference"/>
+
+    <declare-styleable name="Toast" tools:ignore="ResourceName">
+        <attr name="sd_background" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearanceAdjustment" />
+
+        <attr name="sd_contentStart" />
+        <attr name="sd_contentStartTint" />
+        <attr name="sd_contentStartSize"  />
+
+        <attr name="sd_contentEnd" format="reference|color"/>
+        <attr name="sd_contentEndTint" format="reference|color"/>
+        <attr name="sd_contentEndSize"  />
+
+        <attr name="android:text" />
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor" />
+        <attr name="sd_textColor" />
+        <attr name="android:maxLines" />
+    </declare-styleable>
+</resources>

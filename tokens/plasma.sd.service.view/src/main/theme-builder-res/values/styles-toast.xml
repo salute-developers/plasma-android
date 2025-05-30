@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Toast" parent="Sdds.Components.Toast">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_contentStartSize">@dimen/plasma_toast_content_start_size</item>
+        <item name="sd_contentStartPadding">@dimen/plasma_toast_content_start_padding</item>
+        <item name="sd_contentEndSize">@dimen/plasma_toast_content_end_size</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_toast_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_toast_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_toast_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_toast_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_toast_padding_bottom</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_textColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_contentStartTint">@color/plasma_toast_content_start_color</item>
+        <item name="sd_contentEndTint">?plasma_textDefaultSecondary</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ToastColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Rounded">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastRounded">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Rounded</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Rounded.Default">
+        <item name="plasma_toastColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastRoundedDefault">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Rounded.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Rounded.Positive">
+        <item name="plasma_toastColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastRoundedPositive">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Rounded.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Rounded.Negative">
+        <item name="plasma_toastColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastRoundedNegative">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Rounded.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastPilled">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Pilled.Default">
+        <item name="plasma_toastColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastPilledDefault">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Pilled.Positive">
+        <item name="plasma_toastColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastPilledPositive">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Toast.Pilled.Negative">
+        <item name="plasma_toastColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ToastPilledNegative">
+        <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Pilled.Negative</item>
+    </style>
+</resources>
