@@ -152,11 +152,7 @@
         <item>@color/serv_dark_text_default_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_default_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_text_default_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_text_default_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_text_default_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_text_default_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_text_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -312,11 +308,7 @@
         <item>@color/serv_dark_text_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_on_dark_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_text_on_dark_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_text_on_dark_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_text_on_dark_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_text_on_dark_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_text_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -472,11 +464,7 @@
         <item>@color/serv_dark_text_on_light_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_on_light_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_text_on_light_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_text_on_light_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_text_on_light_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_text_on_light_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_text_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -632,11 +620,7 @@
         <item>@color/serv_dark_text_inverse_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_inverse_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_text_inverse_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_text_inverse_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_text_inverse_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_text_inverse_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_text_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -870,11 +854,7 @@
         <item>@color/serv_dark_surface_default_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_default_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_surface_default_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_surface_default_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_surface_default_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_surface_default_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_surface_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -910,10 +890,6 @@
         <item>@color/serv_dark_surface_default_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_default_skeleton_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_default_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_default_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_default_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_default_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_default_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -986,10 +962,6 @@
         <item>@color/serv_dark_surface_default_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_default_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_default_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_default_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_default_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_default_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_default_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1260,11 +1232,7 @@
         <item>@color/serv_dark_surface_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_on_dark_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_surface_on_dark_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_surface_on_dark_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_surface_on_dark_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_surface_on_dark_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_surface_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1300,10 +1268,6 @@
         <item>@color/serv_dark_surface_on_dark_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_on_dark_skeleton_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_on_dark_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_on_dark_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_on_dark_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_on_dark_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_on_dark_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1376,10 +1340,6 @@
         <item>@color/serv_dark_surface_on_dark_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_on_dark_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_on_dark_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_on_dark_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_on_dark_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_on_dark_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1650,11 +1610,7 @@
         <item>@color/serv_dark_surface_on_light_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_on_light_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_surface_on_light_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_surface_on_light_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_surface_on_light_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_surface_on_light_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_surface_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1690,10 +1646,6 @@
         <item>@color/serv_dark_surface_on_light_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_on_light_skeleton_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_on_light_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_on_light_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_on_light_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_on_light_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_on_light_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1766,10 +1718,6 @@
         <item>@color/serv_dark_surface_on_light_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_on_light_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_on_light_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_on_light_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_on_light_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_on_light_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2040,11 +1988,7 @@
         <item>@color/serv_dark_surface_inverse_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_inverse_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_surface_inverse_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_surface_inverse_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_surface_inverse_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_surface_inverse_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_surface_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2080,10 +2024,6 @@
         <item>@color/serv_dark_surface_inverse_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_inverse_skeleton_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_inverse_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_inverse_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_inverse_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_inverse_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_inverse_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2156,10 +2096,6 @@
         <item>@color/serv_dark_surface_inverse_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_dark_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_dark_surface_inverse_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_dark_surface_inverse_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_dark_surface_inverse_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_dark_surface_inverse_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_dark_surface_inverse_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -2391,11 +2327,7 @@
         <item>@color/serv_dark_outline_default_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_default_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_outline_default_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_outline_default_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_outline_default_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_outline_default_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_outline_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2590,11 +2522,7 @@
         <item>@color/serv_dark_outline_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_on_dark_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_outline_on_dark_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_outline_on_dark_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_outline_on_dark_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_outline_on_dark_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_outline_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2789,11 +2717,7 @@
         <item>@color/serv_dark_outline_on_light_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_on_light_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_outline_on_light_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_outline_on_light_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_outline_on_light_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_outline_on_light_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_outline_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2988,11 +2912,7 @@
         <item>@color/serv_dark_outline_inverse_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_inverse_accent_gradient_angle">315.0</string>
-    <string name="serv_dark_outline_inverse_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_dark_outline_inverse_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_dark_outline_inverse_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_dark_outline_inverse_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_dark_outline_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3148,11 +3068,7 @@
         <item>@color/serv_light_text_default_accent_gradient_color_0</item>
         <item>@color/serv_light_text_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_default_accent_gradient_angle">315.0</string>
-    <string name="serv_light_text_default_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_text_default_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_text_default_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_text_default_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_text_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3308,11 +3224,7 @@
         <item>@color/serv_light_text_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_light_text_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_on_dark_accent_gradient_angle">315.0</string>
-    <string name="serv_light_text_on_dark_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_text_on_dark_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_text_on_dark_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_text_on_dark_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_text_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3468,11 +3380,7 @@
         <item>@color/serv_light_text_on_light_accent_gradient_color_0</item>
         <item>@color/serv_light_text_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_on_light_accent_gradient_angle">315.0</string>
-    <string name="serv_light_text_on_light_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_text_on_light_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_text_on_light_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_text_on_light_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_text_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3628,11 +3536,7 @@
         <item>@color/serv_light_text_inverse_accent_gradient_color_0</item>
         <item>@color/serv_light_text_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_inverse_accent_gradient_angle">315.0</string>
-    <string name="serv_light_text_inverse_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_text_inverse_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_text_inverse_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_text_inverse_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_text_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3866,11 +3770,7 @@
         <item>@color/serv_light_surface_default_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_default_accent_gradient_angle">315.0</string>
-    <string name="serv_light_surface_default_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_surface_default_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_surface_default_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_surface_default_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_surface_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3906,10 +3806,6 @@
         <item>@color/serv_light_surface_default_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_default_skeleton_gradient_angle">90.0</string>
-    <string name="serv_light_surface_default_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_default_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_default_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_default_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_default_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -3982,10 +3878,6 @@
         <item>@color/serv_light_surface_default_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_default_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_light_surface_default_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_default_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_default_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_default_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_default_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -4256,11 +4148,7 @@
         <item>@color/serv_light_surface_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_on_dark_accent_gradient_angle">315.0</string>
-    <string name="serv_light_surface_on_dark_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_surface_on_dark_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_surface_on_dark_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_surface_on_dark_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_surface_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4296,10 +4184,6 @@
         <item>@color/serv_light_surface_on_dark_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_on_dark_skeleton_gradient_angle">90.0</string>
-    <string name="serv_light_surface_on_dark_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_on_dark_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_on_dark_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_on_dark_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_on_dark_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -4372,10 +4256,6 @@
         <item>@color/serv_light_surface_on_dark_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_light_surface_on_dark_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_on_dark_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_on_dark_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_on_dark_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_on_dark_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -4646,11 +4526,7 @@
         <item>@color/serv_light_surface_on_light_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_on_light_accent_gradient_angle">315.0</string>
-    <string name="serv_light_surface_on_light_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_surface_on_light_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_surface_on_light_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_surface_on_light_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_surface_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4686,10 +4562,6 @@
         <item>@color/serv_light_surface_on_light_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_on_light_skeleton_gradient_angle">90.0</string>
-    <string name="serv_light_surface_on_light_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_on_light_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_on_light_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_on_light_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_on_light_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -4762,10 +4634,6 @@
         <item>@color/serv_light_surface_on_light_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_light_surface_on_light_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_on_light_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_on_light_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_on_light_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_on_light_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -5036,11 +4904,7 @@
         <item>@color/serv_light_surface_inverse_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_inverse_accent_gradient_angle">315.0</string>
-    <string name="serv_light_surface_inverse_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_surface_inverse_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_surface_inverse_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_surface_inverse_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_surface_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5076,10 +4940,6 @@
         <item>@color/serv_light_surface_inverse_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_inverse_skeleton_gradient_angle">90.0</string>
-    <string name="serv_light_surface_inverse_skeleton_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_inverse_skeleton_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_inverse_skeleton_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_inverse_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_inverse_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -5152,10 +5012,6 @@
         <item>@color/serv_light_surface_inverse_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="serv_light_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
-    <string name="serv_light_surface_inverse_skeleton_deep_gradient_start_point_x">0.5</string>
-    <string name="serv_light_surface_inverse_skeleton_deep_gradient_start_point_y">0.0</string>
-    <string name="serv_light_surface_inverse_skeleton_deep_gradient_end_point_x">0.5</string>
-    <string name="serv_light_surface_inverse_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="serv_light_surface_inverse_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -5387,11 +5243,7 @@
         <item>@color/serv_light_outline_default_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_default_accent_gradient_angle">315.0</string>
-    <string name="serv_light_outline_default_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_outline_default_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_outline_default_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_outline_default_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_outline_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5586,11 +5438,7 @@
         <item>@color/serv_light_outline_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_on_dark_accent_gradient_angle">315.0</string>
-    <string name="serv_light_outline_on_dark_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_outline_on_dark_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_outline_on_dark_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_outline_on_dark_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_outline_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5785,11 +5633,7 @@
         <item>@color/serv_light_outline_on_light_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_on_light_accent_gradient_angle">315.0</string>
-    <string name="serv_light_outline_on_light_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_outline_on_light_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_outline_on_light_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_outline_on_light_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_outline_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5984,11 +5828,7 @@
         <item>@color/serv_light_outline_inverse_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_inverse_accent_gradient_angle">315.0</string>
-    <string name="serv_light_outline_inverse_accent_gradient_start_point_x">0.15</string>
-    <string name="serv_light_outline_inverse_accent_gradient_start_point_y">0.85</string>
-    <string name="serv_light_outline_inverse_accent_gradient_end_point_x">0.85</string>
-    <string name="serv_light_outline_inverse_accent_gradient_end_point_y">0.15</string>
+    <string name="serv_light_outline_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>

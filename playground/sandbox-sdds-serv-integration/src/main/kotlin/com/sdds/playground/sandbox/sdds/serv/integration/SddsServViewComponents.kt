@@ -37,6 +37,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.popover.vs.SddsServPopo
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
@@ -184,6 +185,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.RadioBoxGroup,
                 SddsServRadioBoxGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.RectSkeleton,
+                SddsServRectSkeletonVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Segment,

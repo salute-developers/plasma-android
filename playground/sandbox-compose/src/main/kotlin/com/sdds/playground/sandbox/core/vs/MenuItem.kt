@@ -38,6 +38,7 @@ import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
 import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
+import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
@@ -87,6 +88,7 @@ import com.sdds.testing.vs.radiobox.radioBoxGroup
 import com.sdds.testing.vs.segement.SegmentUiState
 import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
+import com.sdds.testing.vs.skeleton.rectSkeleton
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
@@ -269,6 +271,10 @@ internal sealed class ComponentScreen(
     object Notification : ComponentScreen(
         { item -> fragment<NotificationFragment>(item.route, item.defaultBuilder) },
     )
+
+    object RectSkeleton : ComponentScreen(
+        { item -> fragment<RectSkeletonFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -307,6 +313,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOAST -> ComponentScreen.Toast
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
+        CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -347,6 +354,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.TOAST -> R.id.nav_toast
         CoreComponent.MODAL -> R.id.nav_modal
         CoreComponent.NOTIFICATION -> R.id.nav_notification
+        CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -426,6 +434,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.TOAST -> toastTrigger(context, style)
         CoreComponent.MODAL -> modalTrigger(context, style)
         CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
+        CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
