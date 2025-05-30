@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
+import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
@@ -69,6 +70,7 @@ import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.indicator.indicator
+import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
 import com.sdds.testing.vs.overlay.overlayWithTrigger
@@ -258,6 +260,9 @@ internal sealed class ComponentScreen(
     object Toast : ComponentScreen(
         { item -> fragment<ToastFragment>(item.route, item.defaultBuilder) },
     )
+    object Modal : ComponentScreen(
+        { item -> fragment<ModalFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -294,6 +299,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
         CoreComponent.OVERLAY -> ComponentScreen.Overlay
         CoreComponent.TOAST -> ComponentScreen.Toast
+        CoreComponent.MODAL -> ComponentScreen.Modal
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -332,6 +338,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.TOOLTIP -> R.id.nav_tooltip
         CoreComponent.OVERLAY -> R.id.nav_overlay
         CoreComponent.TOAST -> R.id.nav_toast
+        CoreComponent.MODAL -> R.id.nav_modal
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -409,6 +416,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.TOOLTIP -> tooltipWithTrigger(context, style).trigger
         CoreComponent.OVERLAY -> overlayWithTrigger(context, style)
         CoreComponent.TOAST -> toastTrigger(context, style)
+        CoreComponent.MODAL -> modalTrigger(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

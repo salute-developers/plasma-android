@@ -25,6 +25,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.popover.vs.StylesSalutePopoverVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
@@ -128,6 +129,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Indicator,
                 StylesSaluteIndicatorVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Modal,
+                StylesSaluteModalVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Popover,
