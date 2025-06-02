@@ -8,8 +8,8 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.FrameLayout.LayoutParams
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
-import androidx.activity.ComponentActivity
 import androidx.annotation.StyleRes
+import androidx.fragment.app.FragmentActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers
 import com.github.takahirom.roborazzi.captureRoboImage
@@ -75,7 +75,7 @@ fun component(
     skipDefaultCaptureRoboImage: Boolean = false,
     factory: ComponentScope.() -> View,
 ) {
-    val controller = Robolectric.buildActivity(ComponentActivity::class.java)
+    val controller = Robolectric.buildActivity(FragmentActivity::class.java)
     val activity = controller.get()
     val componentScope = ComponentScopeImpl(activity)
     activity.setTheme(theme)
