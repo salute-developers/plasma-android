@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.modal.compose.ModalCompo
 import com.sdds.plugin.themebuilder.internal.components.modal.view.ModalStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
@@ -28,6 +29,7 @@ internal class ModalConfigDelegate : ComponentConfigDelegate<ModalConfig>() {
         resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
         viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
         colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+        styleComponentName = component.styleName.techToCamelCase(),
     )
 
     override fun createComposeGenerator(

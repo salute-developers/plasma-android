@@ -7,11 +7,12 @@ import android.view.Gravity
 import android.view.View
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import com.sdds.uikit.FrameLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
 
-internal class ModalView @JvmOverloads constructor(
+internal open class ModalView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_modalStyle,
@@ -24,6 +25,8 @@ internal class ModalView @JvmOverloads constructor(
             defaultFocusHighlightEnabled = false
         }
     }
+    private var _closeIconAlignment: Int = ICON_ALIGNMENT_TOP_END
+    private var _closeIconContentPadding: Int = 0
 
     init {
         context.withStyledAttributes(attrs, R.styleable.ModalView, defStyleAttr, defStyleRes) {
@@ -32,15 +35,25 @@ internal class ModalView @JvmOverloads constructor(
             closeIconView.setImageDrawable(icon)
             setHasClose(icon != null)
             _closeIconSize = getDimensionPixelSize(R.styleable.ModalView_sd_closeIconSize, DEFAULT_ICON_SIZE)
+            _closeIconContentPadding = getDimensionPixelSize(R.styleable.ModalView_sd_closeIconContentPadding, 0)
+            _closeIconContentPadding = getInt(R.styleable.ModalView_sd_closeIconAlignment, ICON_ALIGNMENT_TOP_END)
         }
     }
 
     fun setContentView(contentView: View?) {
-        contentView?.let { addView(it) }
+        contentView?.let {
+            addView(it)
+            it.updateLayoutParams<LayoutParams> {
+                if (_closeIconSize > 0) {
+                    marginEnd = _closeIconSize + _closeIconContentPadding
+                }
+                gravity = Gravity.CENTER_VERTICAL
+            }
+        }
         addView(
             closeIconView,
             LayoutParams(_closeIconSize, _closeIconSize).apply {
-                gravity = Gravity.TOP or Gravity.END
+                gravity = getIconGravity(_closeIconAlignment)
             },
         )
     }
@@ -55,5 +68,14 @@ internal class ModalView @JvmOverloads constructor(
 
     private companion object {
         const val DEFAULT_ICON_SIZE = LayoutParams.WRAP_CONTENT
+        const val ICON_ALIGNMENT_TOP_END = 0
+        const val ICON_ALIGNMENT_CENTER_END = 1
+
+        fun getIconGravity(alignment: Int): Int {
+            return when (alignment) {
+                ICON_ALIGNMENT_CENTER_END -> Gravity.CENTER_VERTICAL or Gravity.END
+                else -> Gravity.TOP or Gravity.END
+            }
+        }
     }
 }

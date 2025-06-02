@@ -1,4 +1,4 @@
-package com.sdds.plugin.themebuilder.internal.components.toast.view
+package com.sdds.plugin.themebuilder.internal.components.notification.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -7,7 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
-import com.sdds.plugin.themebuilder.internal.components.toast.ToastProperties
+import com.sdds.plugin.themebuilder.internal.components.notification.NotificationProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
@@ -16,7 +16,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import org.w3c.dom.Element
 import java.io.File
 
-internal class ToastStyleGeneratorView(
+internal class NotificationStyleGeneratorView(
     xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     resourceReferenceProvider: ResourceReferenceProvider,
     dimensAggregator: DimensAggregator,
@@ -28,15 +28,15 @@ internal class ToastStyleGeneratorView(
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
     defStyleAttr: String = DEF_STYLE_ATTR,
-) : ViewVariationGenerator<ToastProperties>(
+) : ViewVariationGenerator<NotificationProperties>(
     xmlBuilderFactory = xmlBuilderFactory,
     resourceReferenceProvider = resourceReferenceProvider,
     dimensAggregator = dimensAggregator,
     outputResDir = outputResDir,
     resourcePrefix = resourcePrefix,
-    styleComponentName = styleComponentName,
     coreComponentName = coreComponentName,
     componentParent = componentParent,
+    styleComponentName = styleComponentName,
     viewColorStateGeneratorFactory = viewColorStateGeneratorFactory,
     colorStateListGeneratorFactory = colorStateListGeneratorFactory,
     defStyleAttr = defStyleAttr,
@@ -46,64 +46,55 @@ internal class ToastStyleGeneratorView(
         variation: String,
         rootDocument: XmlResourcesDocumentBuilder,
         styleElement: Element,
-        variationNode: VariationNode<ToastProperties>,
+        variationNode: VariationNode<NotificationProperties>,
     ) = with(styleElement) {
         addProps(variation, variationNode)
-        ToastDimensionProperties.values().forEach {
+        NotificationDimensionProperties.values().forEach {
             addDimensionProperty(it, variation, variationNode)
         }
-        ToastColorProperty.values().forEach {
+        NotificationColorProperty.values().forEach {
             addColorProperty(it, variation, variationNode)
         }
     }
 
-    private fun Element.addProps(variation: String, variationNode: VariationNode<ToastProperties>) {
+    private fun Element.addProps(variation: String, variationNode: VariationNode<NotificationProperties>) {
         val props = variationNode.value.props
 
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
-        props.textStyle?.let { typographyAttribute("android:textAppearance", it.value) }
+        props.shadow?.let { shadowAttribute(it.value) }
+        props.closeAlignment?.let { valueAttribute("sd_closeIconAlignment", it.value.asIconAlignment()) }
     }
 
-    internal enum class ToastColorProperty(
+    internal enum class NotificationColorProperty(
         override val attribute: String,
         override val colorFileSuffix: String,
-    ) : ProvidableColorProperty<ToastProperties> {
+    ) : ProvidableColorProperty<NotificationProperties> {
         BACKGROUND_COLOR("sd_background", "bg_color"),
-        TEXT_COLOR("sd_textColor", "text_color"),
-        CONTENT_START_COLOR("sd_contentStartTint", "content_start_color"),
-        CONTENT_END_COLOR("sd_contentEndTint", "content_end_color"),
+        CLOSE_COLOR("sd_closeIconTint", "close_icon_color"),
         ;
 
-        override fun provide(owner: ToastProperties): Color? {
+        override fun provide(owner: NotificationProperties): Color? {
             return when (this) {
                 BACKGROUND_COLOR -> owner.backgroundColor
-                TEXT_COLOR -> owner.textColor
-                CONTENT_START_COLOR -> owner.contentStartColor
-                CONTENT_END_COLOR -> owner.contentEndColor
+                CLOSE_COLOR -> owner.closeColor
             }
         }
     }
 
-    internal enum class ToastDimensionProperties(
+    internal enum class NotificationDimensionProperties(
         override val attribute: String,
         override val fileSuffix: String,
-    ) : ProvidableProperty<ToastProperties, Float, Dimension> {
-        CONTENT_START_SIZE("sd_contentStartSize", "content_start_size"),
-        CONTENT_START_PADDING("sd_contentStartPadding", "content_start_padding"),
-        CONTENT_END_SIZE("sd_contentEndSize", "content_end_size"),
-        CONTENT_END_PADDING("sd_contentEndPadding", "content_end_padding"),
+    ) : ProvidableProperty<NotificationProperties, Float, Dimension> {
         PADDING_START("android:paddingStart", "padding_start"),
         PADDING_END("android:paddingEnd", "padding_end"),
         PADDING_TOP("android:paddingTop", "padding_top"),
         PADDING_BOTTOM("android:paddingBottom", "padding_bottom"),
+        CLOSE_SIZE("sd_closeIconSize", "close_icon_size"),
         ;
 
-        override fun provide(owner: ToastProperties): Dimension? {
+        override fun provide(owner: NotificationProperties): Dimension? {
             return when (this) {
-                CONTENT_START_SIZE -> owner.contentStartSize
-                CONTENT_START_PADDING -> owner.contentStartPadding
-                CONTENT_END_SIZE -> owner.contentEndSize
-                CONTENT_END_PADDING -> owner.contentEndPadding
+                CLOSE_SIZE -> owner.closeSize
                 PADDING_START -> owner.paddingStart
                 PADDING_END -> owner.paddingEnd
                 PADDING_TOP -> owner.paddingTop
@@ -113,8 +104,15 @@ internal class ToastStyleGeneratorView(
     }
 
     private companion object {
-        const val CORE_COMPONENT_NAME = "Toast"
-        const val DEF_STYLE_ATTR = "sd_toastStyle"
-        const val COMPONENT_PARENT = "Sdds.Components.Toast"
+        const val CORE_COMPONENT_NAME = "Notification"
+        const val DEF_STYLE_ATTR = "sd_notificationStyle"
+        const val COMPONENT_PARENT = "Sdds.Components.Notification"
+
+        fun String.asIconAlignment(): String {
+            return when (this) {
+                "center-end" -> "centerEnd"
+                else -> "topEnd"
+            }
+        }
     }
 }

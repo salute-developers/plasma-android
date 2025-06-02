@@ -34,4 +34,5 @@
     <item type="id" name="nav_overlay"/>
     <item type="id" name="nav_toast"/>
     <item type="id" name="nav_modal"/>
+    <item type="id" name="nav_notification"/>
 </resources>

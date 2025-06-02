@@ -1,8 +1,12 @@
 package com.sdds.uikit.internal.overlays
 
+import android.animation.Animator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.transition.Transition
+import android.transition.TransitionValues
 import android.view.Gravity
 import android.view.View
 import android.view.View.MeasureSpec
@@ -11,6 +15,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import androidx.core.transition.addListener
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
@@ -19,10 +24,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.getScreenRect
+import com.sdds.uikit.overlays.OverlayAnimationSpec
+import com.sdds.uikit.overlays.OverlayAnimationSpec.Companion.shouldAnimate
 import com.sdds.uikit.overlays.OverlayEntry
 import com.sdds.uikit.overlays.OverlayManager
 import com.sdds.uikit.overlays.OverlayPosition
-import com.sdds.uikit.overlays.getAnimationSpec
 import com.sdds.uikit.overlays.isTop
 import java.lang.ref.WeakReference
 import kotlin.math.max
@@ -46,12 +52,14 @@ internal class OverlayAdapter(
         return getItem(position).id
     }
 
+    @Suppress("ClickableViewAccessibility")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             FrameLayout(parent.context).apply {
                 setPadding(itemSpacing)
+                setOnTouchListener { v, event -> true }
                 layoutParams = FrameLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                 )
             },
@@ -72,6 +80,7 @@ internal class OverlayAdapter(
     inner class ViewHolder(private val container: ViewGroup) : RecyclerView.ViewHolder(container) {
 
         fun bind(entry: OverlayEntry) {
+            itemView.tag = entry.animationSpec?.takeIf { it.shouldAnimate() }
             container.removeAllViews()
             container.addView(
                 entry.createView(),
@@ -100,7 +109,6 @@ internal class OverlayEntryListView(context: Context, position: OverlayPosition)
         context.resources.getDimensionPixelSize(R.dimen.sdds_spacer_2x),
         position,
     )
-    private val defaultAnimation = position.getAnimationSpec()
 
     private var maxMeasuredWidth: Int = 0
     private var maxMeasuredHeight: Int = 0
@@ -155,6 +163,10 @@ internal class OverlayEntryListView(context: Context, position: OverlayPosition)
         setMeasuredDimension(maxMeasuredWidth, maxMeasuredHeight)
     }
 
+    override fun setVisibility(visibility: Int) {
+        super.setVisibility(VISIBLE)
+    }
+
     private fun resetMinSize() {
         maxMeasuredHeight = 0
         maxMeasuredWidth = 0
@@ -162,18 +174,31 @@ internal class OverlayEntryListView(context: Context, position: OverlayPosition)
 
     private inner class OverlayItemAnimator : DefaultItemAnimator() {
         private val runningRemoveAnimations = mutableSetOf<ViewHolder>()
+        private val animationSpecs = mutableMapOf<ViewHolder, OverlayAnimationSpec>()
 
         override fun animateAdd(holder: ViewHolder): Boolean {
-            super.animateAdd(holder)
-            val animation = defaultAnimation.enter
-            animation(holder.itemView)
+            val holderSpec = holder.itemView.tag as? OverlayAnimationSpec
+            holderSpec?.enter?.let { animation ->
+                super.animateAdd(holder)
+                animationSpecs[holder] = holderSpec
+                animation(holder.itemView)
+            } ?: run {
+                dispatchAddStarting(holder)
+                dispatchAddFinished(holder)
+            }
             return true
         }
 
         override fun animateRemove(holder: ViewHolder): Boolean {
-            super.animateRemove(holder)
-            val animation = defaultAnimation.exit
-            animation(holder.itemView)
+            val holderSpec = animationSpecs[holder]
+            holderSpec?.exit?.let { animation ->
+                super.animateRemove(holder)
+                animation(holder.itemView)
+            } ?: run {
+                dispatchRemoveStarting(holder)
+                dispatchRemoveFinished(holder)
+            }
+            animationSpecs.remove(holder)
             return true
         }
 
@@ -197,6 +222,9 @@ internal class OverlayEntryListView(context: Context, position: OverlayPosition)
         fun createDummyOverlayEntry(context: Context) = object : OverlayEntry {
             override val id: Long = DUMMY_OVERLAY_ENTRY_ID
             override val durationMillis: Long? = null
+            override val animationSpec: OverlayAnimationSpec? = null
+            override val isFocusable: Boolean = false
+
             override fun createView(): View {
                 return FrameLayout(context)
             }
@@ -221,11 +249,27 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
         event.offsetLocation(offsetX, offsetY)
         rView.dispatchTouchEvent(event)
     }
+    private val popupTouchInterceptor: OnTouchListener = OnTouchListener { v, event ->
+        val listLocation = v.getScreenRect()
+        val x = event.rawX.toInt()
+        val y = event.rawY.toInt()
+        val outside = x < listLocation.left || x > listLocation.right || y < listLocation.top || y > listLocation.bottom
+        if (outside) {
+            clear()
+            true
+        } else {
+            false
+        }
+    }
     private val overlayEntryListViewListener = object : OverlayEntryListView.Listener {
         override fun onEmpty() {
             popupWindow.dismiss()
         }
     }
+    private val fakeExitTransition = FakeTransition().apply {
+        setDuration(EXIT_DURATION)
+    }
+    private var exitTransitionListener: Transition.TransitionListener? = null
     private var overlayEntryListView: OverlayEntryListView? = null
     private val overlayEntries = mutableListOf<OverlayEntry>()
     private val popupWindow = PopupWindow(
@@ -236,6 +280,7 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
         isFocusable = false
         inputMethodMode = PopupWindow.INPUT_METHOD_NOT_NEEDED
         softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING
+        windowLayoutType = WindowManager.LayoutParams.TYPE_APPLICATION_SUB_PANEL
         elevation = 0f
         animationStyle = 0
         isAttachedInDecor = true
@@ -255,6 +300,7 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
 
     override fun show(overlayEntry: OverlayEntry) {
         overlayEntries.add(overlayEntry)
+        popupWindow.isFocusable = overlayEntries.any { it.isFocusable }
         overlayEntryListView?.submitEntries(overlayEntries.toList())
 
         showIfNeed()
@@ -277,6 +323,7 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
         } else {
             overlayEntryListView?.setEmpty()
         }
+        popupWindow.isFocusable = overlayEntries.any { it.isFocusable }
     }
 
     override fun unbind() {
@@ -290,15 +337,27 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
 
     override fun clear() {
         overlayEntries.clear()
+        overlayEntryListView?.setEmpty()
         _timeoutHandle.removeCallbacksAndMessages(null)
         _timeoutActions.clear()
     }
 
     private fun showIfNeed() {
         val anchorView = anchorViewRef?.get() ?: return
-        if (popupWindow.isShowing) {
-            popupWindow.update()
-            return
+        popupWindow.apply {
+            setTouchInterceptor(popupTouchInterceptor.takeIf { isFocusable })
+            exitTransition = fakeExitTransition.takeIf { isFocusable }
+                ?.also {
+                    exitTransitionListener = it.addListener(onStart = {
+                        if (isBound()) {
+                            clear()
+                        }
+                    },)
+                }
+            if (isShowing) {
+                update()
+                return
+            }
         }
 
         overlayEntryListView?.measure(
@@ -307,7 +366,11 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
         )
         popupWindow.showAtLocation(anchorView, position.toGravity(), 0, 0)
     }
+
+    private fun isBound(): Boolean = anchorViewRef != null
 }
+
+private const val EXIT_DURATION = 300L
 
 private fun OverlayPosition.toGravity(): Int = when (this) {
     OverlayPosition.TopStart -> Gravity.TOP or Gravity.START
@@ -319,4 +382,26 @@ private fun OverlayPosition.toGravity(): Int = when (this) {
     OverlayPosition.BottomStart -> Gravity.BOTTOM or Gravity.START
     OverlayPosition.BottomCenter -> Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
     OverlayPosition.BottomEnd -> Gravity.BOTTOM or Gravity.END
+}
+
+private class FakeTransition : Transition() {
+
+    override fun captureStartValues(transitionValues: TransitionValues) {
+        transitionValues.values["fake"] = 0
+    }
+
+    override fun captureEndValues(transitionValues: TransitionValues) {
+        transitionValues.values["fake"] = 1
+    }
+
+    override fun createAnimator(
+        sceneRoot: ViewGroup,
+        startValues: TransitionValues?,
+        endValues: TransitionValues?,
+    ): Animator? {
+        // Возвращаем пустой аниматор на duration — просто таймер
+        return ValueAnimator.ofFloat(0f, 1f).apply {
+            duration = this@FakeTransition.duration
+        }
+    }
 }

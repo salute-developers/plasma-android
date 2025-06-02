@@ -3,6 +3,7 @@
 
     <style name="Sdds.Components.Modal">
         <item name="sd_closeIcon">@drawable/sd_ic_close_24</item>
+        <item name="sd_closeIconContentPadding">@dimen/sdds_spacer_2x</item>
         <item name="sd_closeIconTint">#aaa</item>
         <item name="sd_clipToOutline">false</item>
         <item name="android:clipToPadding">false</item>

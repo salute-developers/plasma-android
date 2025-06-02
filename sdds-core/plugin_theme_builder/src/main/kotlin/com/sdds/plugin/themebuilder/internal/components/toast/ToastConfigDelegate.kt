@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.toast.compose.ToastCompo
 import com.sdds.plugin.themebuilder.internal.components.toast.view.ToastStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
@@ -28,6 +29,7 @@ internal class ToastConfigDelegate : ComponentConfigDelegate<ToastConfig>() {
         resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
         viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
         colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+        styleComponentName = component.styleName.techToCamelCase(),
     )
 
     override fun createComposeGenerator(

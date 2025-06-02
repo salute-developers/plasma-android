@@ -4,7 +4,7 @@
 <resources>
     <style name="Serv.Sdds.Components.Modal" parent="Sdds.Components.Modal">
         <item name="sd_shapeAppearance">?serv_shapeRoundXl</item>
-        <item name="sd_shadowAppearance">?serv_shadowDownHardL</item>
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftL</item>
         <item name="android:paddingStart">@dimen/serv_modal_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_modal_padding_end</item>
         <item name="android:paddingTop">@dimen/serv_modal_padding_top</item>

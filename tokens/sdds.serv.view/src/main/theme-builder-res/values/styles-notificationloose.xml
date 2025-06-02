@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.NotificationLoose" parent="Sdds.Components.Notification">
+        <item name="sd_closeIconAlignment">topEnd</item>
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?serv_textDefaultSecondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.NotificationLoose.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/serv_notification_loose_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_notification_loose_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_notification_loose_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_notification_loose_l_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/serv_notification_loose_l_close_icon_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NotificationLooseL">
+        <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.NotificationLoose.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_notification_loose_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/serv_notification_loose_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_notification_loose_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_notification_loose_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_notification_loose_m_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/serv_notification_loose_m_close_icon_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NotificationLooseM">
+        <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.NotificationLoose.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:paddingStart">@dimen/serv_notification_loose_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_notification_loose_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_notification_loose_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_notification_loose_s_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/serv_notification_loose_s_close_icon_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NotificationLooseS">
+        <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.S</item>
+    </style>
+</resources>
