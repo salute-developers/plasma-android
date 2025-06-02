@@ -31,7 +31,7 @@ import kotlinx.coroutines.flow.collectLatest
  */
 @Composable
 fun OverlayHost(
-    overlayManager: OverlayManager = rememberOverlayManager(),
+    overlayManager: OverlayManager = overlayManager(),
     animationSpec: OverlayAnimationSpec = OverlayAnimationSpec(),
     content: @Composable () -> Unit,
 ) {
