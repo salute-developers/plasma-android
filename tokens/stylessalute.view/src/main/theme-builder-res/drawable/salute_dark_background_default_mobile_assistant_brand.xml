@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<drawable xmlns:app="http://schemas.android.com/apk/res-auto" app:sd_shaderAppearance="@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrand" class="com.sdds.uikit.shape.ShapeDrawable">
     <!--Drawable for dark_background_default_mobile_assistant_brand-->
-    <item android:drawable="@drawable/salute_dark_background_default_mobile_assistant_brand_layer_0"/>
-    <item android:drawable="@drawable/salute_dark_background_default_mobile_assistant_brand_layer_1"/>
-    <item android:drawable="@drawable/salute_dark_background_default_mobile_assistant_brand_layer_2"/>
-    <item android:drawable="@drawable/salute_dark_background_default_mobile_assistant_brand_layer_3"/>
-    <item android:drawable="@drawable/salute_dark_background_default_mobile_assistant_brand_layer_4"/>
-</layer-list>
+</drawable>

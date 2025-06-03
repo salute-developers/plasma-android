@@ -97,6 +97,10 @@
         <item name="sd_angle">@string/plasma_dark_text_inverse_accent_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_text_inverse_accent_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_text_inverse_accent_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_text_inverse_accent_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_text_inverse_accent_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_text_inverse_accent_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_text_inverse_accent_gradient_end_point_y</item>
     </style>
     <!--endregion Инвертированный акцентный цвет с градиентом-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
@@ -142,6 +146,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_default_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_default_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_default_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_default_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -166,6 +174,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_default_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_default_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_default_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_default_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -214,6 +226,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_on_dark_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_on_dark_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_on_dark_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_on_dark_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -238,6 +254,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -286,6 +306,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_on_light_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_on_light_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_on_light_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_on_light_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -310,6 +334,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -334,6 +362,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_inverse_accent_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_inverse_accent_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_inverse_accent_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_inverse_accent_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_inverse_accent_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_inverse_accent_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_inverse_accent_gradient_end_point_y</item>
     </style>
     <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
     <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
@@ -358,6 +390,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_inverse_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_inverse_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_inverse_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_inverse_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -382,6 +418,10 @@
         <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -494,6 +534,10 @@
         <item name="sd_angle">@string/plasma_light_text_inverse_accent_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_text_inverse_accent_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_text_inverse_accent_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_text_inverse_accent_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_text_inverse_accent_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_text_inverse_accent_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_text_inverse_accent_gradient_end_point_y</item>
     </style>
     <!--endregion Инвертированный акцентный цвет с градиентом-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
@@ -526,6 +570,10 @@
         <item name="sd_angle">@string/plasma_light_surface_default_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_default_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_default_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_default_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_default_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_default_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_default_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -550,6 +598,10 @@
         <item name="sd_angle">@string/plasma_light_surface_default_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_default_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_default_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_default_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_default_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_default_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_default_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -598,6 +650,10 @@
         <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_on_dark_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_on_dark_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_on_dark_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_on_dark_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -622,6 +678,10 @@
         <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -670,6 +730,10 @@
         <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_on_light_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_on_light_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_on_light_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_on_light_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -694,6 +758,10 @@
         <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_on_light_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_on_light_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_on_light_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_on_light_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -742,6 +810,10 @@
         <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_inverse_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_inverse_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_inverse_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_inverse_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -766,6 +838,10 @@
         <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/plasma_light_surface_inverse_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/plasma_light_surface_inverse_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/plasma_light_surface_inverse_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/plasma_light_surface_inverse_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
