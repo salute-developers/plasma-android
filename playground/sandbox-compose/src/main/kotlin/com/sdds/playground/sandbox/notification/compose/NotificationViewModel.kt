@@ -33,6 +33,11 @@ internal class NotificationViewModel(
                 value = hasClose,
                 onApply = { internalUiState.value = internalUiState.value.copy(hasClose = it) },
             ),
+            Property.BooleanProperty(
+                name = "focusable",
+                value = focusable,
+                onApply = { internalUiState.value = internalUiState.value.copy(focusable = it) },
+            ),
         )
     }
 }

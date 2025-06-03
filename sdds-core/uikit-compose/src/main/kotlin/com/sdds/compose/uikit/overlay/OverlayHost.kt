@@ -57,7 +57,13 @@ private fun OverlayContainer(
 
     entriesByPosition
         .forEach { (position, entries) ->
-            OverlayPopup(position) {
+            OverlayPopup(
+                position = position,
+                onDismissRequest = {
+                    entries.forEach { it.visible.targetState = false }
+                },
+                isFocusable = entries.firstOrNull { it.isFocusable } != null,
+            ) {
                 entries.forEach { entry ->
                     key(entry.id) {
                         val visibilityState = remember(entry.id) { entry.visible }
@@ -71,7 +77,11 @@ private fun OverlayContainer(
                         }
 
                         LaunchedEffect(entry.id) {
-                            snapshotFlow { visibilityState.isIdle && !visibilityState.currentState }
+                            snapshotFlow {
+                                visibilityState.isIdle &&
+                                    !visibilityState.targetState &&
+                                    !visibilityState.currentState
+                            }
                                 .collectLatest { shouldRemove ->
                                     if (shouldRemove) {
                                         manager.remove(entry.id)
@@ -87,7 +97,9 @@ private fun OverlayContainer(
 @Composable
 private fun OverlayPopup(
     position: OverlayPosition,
-    content: @Composable ColumnScope.() -> Unit,
+    onDismissRequest: () -> Unit,
+    isFocusable: Boolean,
+    content: @Composable (ColumnScope.() -> Unit),
 ) {
     var contentHeightPx by remember(position) { mutableFloatStateOf(0f) }
     val alignment = position.toAlignment()
@@ -96,10 +108,11 @@ private fun OverlayPopup(
     Popup(
         alignment = alignment,
         properties = PopupProperties(
-            focusable = false,
+            focusable = isFocusable,
             excludeFromSystemGesture = false,
             dismissOnClickOutside = false,
         ),
+        onDismissRequest = onDismissRequest,
     ) {
         Box(
             modifier = Modifier.defaultMinSize(minHeight = density.run { contentHeightPx.toDp() }),

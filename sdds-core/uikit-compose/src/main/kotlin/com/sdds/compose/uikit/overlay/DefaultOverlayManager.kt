@@ -19,6 +19,7 @@ internal open class DefaultOverlayManager(
         position: OverlayPosition,
         durationMillis: Long?,
         animationSpec: OverlayAnimationSpec?,
+        isFocusable: Boolean,
         content: @Composable (Long) -> Unit,
     ): Long {
         val entry = OverlayEntry(
@@ -26,6 +27,7 @@ internal open class DefaultOverlayManager(
             durationMillis = durationMillis,
             position = position,
             animationSpec = animationSpec,
+            isFocusable = isFocusable,
         )
         _overlays.value += entry
         entry.visible.targetState = true

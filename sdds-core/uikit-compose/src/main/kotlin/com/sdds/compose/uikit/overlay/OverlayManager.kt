@@ -84,6 +84,7 @@ internal fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec? {
  * @property durationMillis время жизни элемента
  * @property visible состояние анимации элемента
  * @property animationSpec настройки анимации элемента
+ * @property isFocusable способность быть в фокусе
  */
 data class OverlayEntry(
     val id: Long = System.currentTimeMillis(),
@@ -92,6 +93,7 @@ data class OverlayEntry(
     val durationMillis: Long? = null,
     val visible: MutableTransitionState<Boolean> = MutableTransitionState(false),
     val animationSpec: OverlayAnimationSpec? = null,
+    val isFocusable: Boolean = false,
 )
 
 /**
@@ -144,6 +146,7 @@ interface OverlayManager {
         position: OverlayPosition = OverlayPosition.TopCenter,
         durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
         animationSpec: OverlayAnimationSpec? = null,
+        isFocusable: Boolean = false,
         content: @Composable (Long) -> Unit,
     ): Long
 
@@ -185,7 +188,13 @@ fun OverlayManager.showToast(
     content: @Composable (Long) -> Unit,
 ): Long {
     val animation = animationSpec ?: position.getAnimationSpec()
-    return show(position, durationMillis, animation, content)
+    return show(
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animation,
+        isFocusable = false,
+        content = content,
+    )
 }
 
 /**
@@ -200,10 +209,17 @@ fun OverlayManager.showNotification(
     position: OverlayPosition = OverlayPosition.BottomEnd,
     durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
     animationSpec: OverlayAnimationSpec? = null,
+    isFocusable: Boolean = false,
     content: @Composable (Long) -> Unit,
 ): Long {
     val animation = animationSpec ?: position.getAnimationSpec()
-    return show(position, durationMillis, animation, content)
+    return show(
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animation,
+        isFocusable = isFocusable,
+        content = content,
+    )
 }
 
 /**

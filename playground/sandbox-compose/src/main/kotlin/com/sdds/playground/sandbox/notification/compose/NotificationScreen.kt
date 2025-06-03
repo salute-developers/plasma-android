@@ -40,6 +40,7 @@ internal fun NotificationScreen(componentKey: ComponentKey = ComponentKey.Notifi
                 onClick = {
                     overlayManager.showNotification(
                         position = notificationUiState.position,
+                        isFocusable = notificationUiState.focusable,
                     ) {
                         Notification(
                             style = style,
@@ -49,7 +50,7 @@ internal fun NotificationScreen(componentKey: ComponentKey = ComponentKey.Notifi
                         ) {
                             Text(
                                 modifier = Modifier.padding(end = 32.dp),
-                                text = notificationUiState.text,
+                                text = "${notificationUiState.text} $it",
                             )
                         }
                     }
