@@ -1,6 +1,9 @@
 package com.sdds.playground.sandbox.notification.compose
 
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,10 +16,14 @@ import com.sdds.compose.uikit.Notification
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.showNotification
+import com.sdds.compose.uikit.style.style
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.serv.styles.basicbutton.BasicButton
+import com.sdds.serv.styles.basicbutton.Default
+import com.sdds.serv.styles.basicbutton.S
 
 /**
  * Экран с компонентом [Notification]
@@ -50,14 +57,22 @@ internal fun NotificationScreen(componentKey: ComponentKey = ComponentKey.Notifi
                             onClose = { overlayManager.remove(it) },
                         ) {
                             val idText = if (notificationUiState.showId) " $it" else ""
-                            Text(
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
                                 modifier = if (notificationUiState.hasClose) {
                                     Modifier.padding(end = 32.dp)
                                 } else {
                                     Modifier
                                 },
-                                text = "${notificationUiState.text}$idText",
-                            )
+                            ) {
+                                Text(text = "${notificationUiState.text}$idText")
+                                Spacer(Modifier.size(8.dp))
+                                Button(
+                                    label = "Action",
+                                    onClick = {},
+                                    style = BasicButton.S.Default.style(),
+                                )
+                            }
                         }
                     }
                 },
