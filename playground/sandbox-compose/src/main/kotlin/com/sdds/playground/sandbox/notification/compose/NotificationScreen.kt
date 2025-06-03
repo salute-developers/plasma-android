@@ -39,6 +39,7 @@ internal fun NotificationScreen(componentKey: ComponentKey = ComponentKey.Notifi
                 label = "show",
                 onClick = {
                     overlayManager.showNotification(
+                        durationMillis = if (notificationUiState.autoDismiss) 3000 else null,
                         position = notificationUiState.position,
                         isFocusable = notificationUiState.focusable,
                     ) {

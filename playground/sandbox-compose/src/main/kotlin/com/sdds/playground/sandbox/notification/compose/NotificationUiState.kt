@@ -8,6 +8,7 @@ internal data class NotificationUiState(
     val text: String = "Notification",
     val hasClose: Boolean = true,
     val focusable: Boolean = false,
+    val autoDismiss: Boolean = true,
     val position: OverlayPosition = OverlayPosition.BottomCenter,
 ) : UiState {
 

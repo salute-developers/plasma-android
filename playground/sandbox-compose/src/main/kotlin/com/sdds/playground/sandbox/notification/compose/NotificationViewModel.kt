@@ -38,6 +38,11 @@ internal class NotificationViewModel(
                 value = focusable,
                 onApply = { internalUiState.value = internalUiState.value.copy(focusable = it) },
             ),
+            Property.BooleanProperty(
+                name = "autoDismiss",
+                value = autoDismiss,
+                onApply = { internalUiState.value = internalUiState.value.copy(autoDismiss = it) },
+            ),
         )
     }
 }
