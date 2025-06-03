@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
+import com.sdds.playground.sandbox.list.vs.ListFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
 import com.sdds.playground.sandbox.notification.vs.NotificationFragment
@@ -72,6 +73,7 @@ import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.indicator.indicator
+import com.sdds.testing.vs.list.listView
 import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
@@ -275,6 +277,9 @@ internal sealed class ComponentScreen(
     object RectSkeleton : ComponentScreen(
         { item -> fragment<RectSkeletonFragment>(item.route, item.defaultBuilder) },
     )
+    object List : ComponentScreen(
+        { item -> fragment<ListFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -314,6 +319,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
+        CoreComponent.LIST -> ComponentScreen.List
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -355,6 +361,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.MODAL -> R.id.nav_modal
         CoreComponent.NOTIFICATION -> R.id.nav_notification
         CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
+        CoreComponent.LIST -> R.id.nav_list
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -435,6 +442,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.MODAL -> modalTrigger(context, style)
         CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
         CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
+        CoreComponent.LIST -> listView(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

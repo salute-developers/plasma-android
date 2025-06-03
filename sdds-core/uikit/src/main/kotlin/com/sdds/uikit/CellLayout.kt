@@ -28,6 +28,9 @@ import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.setBackgroundValueList
 import com.sdds.uikit.viewstate.ViewState
 
 /**
@@ -78,6 +81,7 @@ open class CellLayout @JvmOverloads constructor(
     private var _contentStartPaddingEnabled = false
     private var _contentEndPaddingEnabled = false
     private var _disclosurePaddingEnabled = false
+    private var _backgroundList: ColorValueStateList? = null
 
     /**
      * Выравнивание дочерних элементов относительно строки, в которой они находятся.
@@ -161,8 +165,11 @@ open class CellLayout @JvmOverloads constructor(
             typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_disclosurePadding, 0)
         _forceDuplicateParentState =
             typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
+        _backgroundList = typedArray.getColorValueStateList(context, R.styleable.CellLayout_sd_background)
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
+        resetDisclosure()
+        applySelector(this)
     }
 
     override fun setPressed(pressed: Boolean) {
@@ -175,7 +182,6 @@ open class CellLayout @JvmOverloads constructor(
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
         updateFocusSelector(this, gainFocus)
-        isActivated = gainFocus
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
@@ -406,6 +412,11 @@ open class CellLayout @JvmOverloads constructor(
         }
     }
 
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        setBackgroundValueList(_backgroundList)
+    }
+
     override fun generateDefaultLayoutParams(): LayoutParams {
         return LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -473,6 +484,7 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     private fun View.applyContentRole(cellParams: LayoutParams) {
+        isDuplicateParentStateEnabled = cellParams.forceDuplicateParentState && _forceDuplicateParentState
         (this as? TextView)?.apply {
             when (cellParams.cellContent) {
                 LABEL -> {

@@ -26,6 +26,7 @@ dependencies {
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.constraintLayout)
+    implementation(libs.base.android.material)
     implementation(libs.base.test.unit.jUnit)
     implementation(libs.test.roborazzi)
     implementation(libs.test.roborazzi.rule)

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.ListTight" parent="Sdds.Components.List"/>
+    <style name="Serv.Sdds.Components.ListTight.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemTightXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListTightXl">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListTight.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListTight.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemTightL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListTightL">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListTight.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListTight.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemTightM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListTightM">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListTight.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListTight.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemTightS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListTightS">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListTight.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListTight.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemTightXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListTightXs">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListTight.Xs</item>
+    </style>
+</resources>

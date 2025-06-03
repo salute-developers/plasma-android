@@ -6,7 +6,7 @@
         <item name="android:clipChildren">true</item>
         <item name="sd_collapsedItemWidth">48dp</item>
     </style>
-    <style name="Sdds.Components.NavigationDrawerItem" parent="Sdds.Components.Cell">
+    <style name="Sdds.Components.NavigationDrawerItem" parent="Sdds.Components.ListItem">
         <item name="sd_counterEnabled">false</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:padding">12dp</item>
@@ -16,5 +16,9 @@
         <item name="sd_collapsedCounterOffsetY">-7dp</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:clipChildren">false</item>
+        <item name="sd_fsScaleEnabled">false</item>
+        <item name="sd_fsBorderMode">none</item>
+        <item name="sd_fsEnabled">false</item>
+        <item name="sd_fsDuplicateParentState">false</item>
     </style>
 </resources>

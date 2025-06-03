@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.List">
+        <item name="android:orientation">vertical</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:clipChildren">false</item>
+        <item name="sd_clipToOutline">true</item>
+    </style>
+
+    <style name="Sdds.Components.ListItem" parent="Sdds.Components.Cell">
+        <item name="sd_disclosureEnabled">true</item>
+        <item name="android:focusable">true</item>
+        <item name="sd_forceDuplicateParentState">true</item>
+    </style>
+</resources>

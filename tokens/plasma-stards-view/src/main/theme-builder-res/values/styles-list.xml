@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.List" parent="Sdds.Components.List"/>
+    <style name="Sdkit.StarDs.Components.List.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ListItemL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListL">
+        <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.List.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.List.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ListItemM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListM">
+        <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.List.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.List.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ListItemS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListS">
+        <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.List.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.List.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ListItemXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListXs">
+        <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.List.Xs</item>
+    </style>
+</resources>

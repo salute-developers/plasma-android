@@ -12,10 +12,10 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.core.content.res.use
 import androidx.core.view.isVisible
-import com.sdds.uikit.CellLayout
 import com.sdds.uikit.Counter
 import com.sdds.uikit.FrameLayout
 import com.sdds.uikit.ImageView
+import com.sdds.uikit.ListItemView
 import com.sdds.uikit.NavigationDrawer.Companion.STATE_EXPANDED
 import com.sdds.uikit.NavigationDrawer.Item
 import com.sdds.uikit.R
@@ -28,7 +28,7 @@ import com.sdds.uikit.internal.base.colorForState
 internal class NavigationDrawerItem(
     context: Context,
     @StyleRes style: Int,
-) : CellLayout(context, null, 0, style) {
+) : ListItemView(context, null, 0, style) {
 
     private val _iconView: ImageView
     private val _titleView: TextView

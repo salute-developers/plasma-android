@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.ListItemTight" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/plasma_list_item_tight_bg_color</item>
+        <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_disclosureColor">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListItemTight.Xl">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_list_item_tight_xl_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_list_item_tight_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_list_item_tight_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_list_item_tight_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_list_item_tight_xl_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListItemTightXl">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemTight.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListItemTight.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_list_item_tight_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_list_item_tight_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_list_item_tight_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_list_item_tight_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_list_item_tight_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_list_item_tight_l_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListItemTightL">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemTight.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListItemTight.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_list_item_tight_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_list_item_tight_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_list_item_tight_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_list_item_tight_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_list_item_tight_m_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListItemTightM">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemTight.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListItemTight.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_list_item_tight_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_list_item_tight_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_list_item_tight_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_list_item_tight_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_list_item_tight_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_list_item_tight_s_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListItemTightS">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemTight.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListItemTight.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_list_item_tight_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_list_item_tight_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_list_item_tight_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_list_item_tight_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_list_item_tight_xs_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListItemTightXs">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemTight.Xs</item>
+    </style>
+</resources>

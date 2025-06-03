@@ -25,6 +25,7 @@
         <attr name="sd_disclosureIcon" format="reference" />
         <attr name="sd_forceDuplicateParentState" format="boolean" />
 
+        <attr name="sd_background"/>
         <attr name="sd_shapeAppearance"/>
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>

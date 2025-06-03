@@ -29,6 +29,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsView
@@ -150,6 +152,14 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Indicator,
                 PlasmaSdServiceIndicatorVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                PlasmaSdServiceListNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                PlasmaSdServiceListTightVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Modal,

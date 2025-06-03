@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.ListItem" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/sdkit_list_item_bg_color</item>
+        <item name="sd_titleColor">@color/sdkit_list_item_text_color</item>
+        <item name="sd_disclosureColor">@color/sdkit_list_item_disclosure_icon_color</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ListItem.L">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_list_item_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_list_item_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_list_item_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_list_item_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_list_item_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_list_item_l_padding_bottom</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListItemL">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ListItem.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_list_item_m_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMBold</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_list_item_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_list_item_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_list_item_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_list_item_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_list_item_m_padding_bottom</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListItemM">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ListItem.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_list_item_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_list_item_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_list_item_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_list_item_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_list_item_s_padding_bottom</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListItemS">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ListItem.Xs">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_list_item_xs_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsBold</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_list_item_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_list_item_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_list_item_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_list_item_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_list_item_xs_padding_bottom</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ListItemXs">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.Xs</item>
+    </style>
+</resources>

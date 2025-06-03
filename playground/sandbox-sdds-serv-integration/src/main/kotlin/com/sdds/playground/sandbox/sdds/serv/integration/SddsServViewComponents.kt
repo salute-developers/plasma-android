@@ -29,6 +29,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsView
@@ -149,6 +151,14 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Flow,
                 ViewStyleProvider.Empty,
+            ),
+            ViewComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                SddsServListNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                SddsServListTightVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Modal,
