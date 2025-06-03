@@ -36,6 +36,7 @@ internal fun RectSkeletonScreen(componentKey: ComponentKey = ComponentKey.RectSk
                     .fillMaxWidth()
                     .height(30.dp),
                 style = style,
+                duration = 5000,
                 // удалить после починки токенов:
                 brush = Brush.linearGradient(
                     0f to Color.Transparent,
