@@ -119,14 +119,30 @@ internal class GradientStyleGenerator(
         }
     }
 
+    @Suppress("ComplexCondition")
+    private fun GradientTokenResult.ViewTokenData.Gradient.Layer.Linear.getEndpoints(): Map<String, String> {
+        return if (this.startX != null && this.startY != null && this.endX != null && this.endY != null) {
+            mapOf(
+                "sd_startX" to this.startX,
+                "sd_startY" to this.startY,
+                "sd_endX" to this.endX,
+                "sd_endY" to this.endY,
+            )
+        } else {
+            emptyMap()
+        }
+    }
+
     private fun GradientTokenResult.ViewTokenData.Gradient.Layer.getGradientParameters(): Map<String, String> {
         return when (this) {
-            is GradientTokenResult.ViewTokenData.Gradient.Layer.Linear -> mapOf(
-                "sd_gradientType" to "linear",
-                "sd_angle" to this.angle,
-                "sd_colors" to this.colors,
-                "sd_stops" to this.stops,
-            )
+            is GradientTokenResult.ViewTokenData.Gradient.Layer.Linear -> {
+                mapOf(
+                    "sd_gradientType" to "linear",
+                    "sd_angle" to this.angle,
+                    "sd_colors" to this.colors,
+                    "sd_stops" to this.stops,
+                ) + getEndpoints()
+            }
 
             is GradientTokenResult.ViewTokenData.Gradient.Layer.Radial -> mapOf(
                 "sd_gradientType" to "radial",

@@ -95,7 +95,6 @@ internal class GeneratorFactory(
     private val composeGradientAttributeGeneratorFactory by unsafeLazy {
         ComposeGradientAttributeGeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
-            ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
             packageResolver = packageResolver,

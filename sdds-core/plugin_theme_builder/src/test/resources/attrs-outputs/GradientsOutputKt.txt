@@ -1,181 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.theme
-import androidx.compose.runtime.Immutable
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.geometry.center
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.LinearGradientShader
-import androidx.compose.ui.graphics.Shader
-import androidx.compose.ui.graphics.ShaderBrush
-import androidx.compose.ui.graphics.TileMode
-import kotlin.math.PI
-import kotlin.math.abs
-import kotlin.math.acos
-import kotlin.math.cos
-import kotlin.math.pow
-import kotlin.math.sin
-import kotlin.math.sqrt
-
-/**
- * Линейный градиент с возможностью установить углов отрисовки в градусах
- * @param colors цвета
- * @param stops точки остановки цвета
- * @param tileMode определяет поведение на границах градиента
- * @param angleInDegrees угол в градусах
- */
-@Immutable
-internal class ThmbldrLinearGradient constructor(
-    private val colors: List<Color>,
-    private val stops: List<Float>? = null,
-    angleInDegrees: Float = 0f,
-    private val tileMode: TileMode = TileMode.Clamp,
-) : ShaderBrush() {
-
-    private val normalizedAngle: Float = (angleInDegrees % 360 + 360) % 360
-    private val angleInRadians: Float = Math.toRadians(normalizedAngle.toDouble()).toFloat()
-
-    override fun createShader(size: Size): Shader {
-        val (from, to) = getGradientCoordinates(size = size)
-        return LinearGradientShader(
-            colors = colors,
-            colorStops = stops,
-            from = from,
-            to = to,
-            tileMode = tileMode,
-        )
-    }
-
-    private fun getGradientCoordinates(size: Size): Pair<Offset, Offset> {
-        val diagonal = sqrt(size.width.pow(2) + size.height.pow(2))
-        val angleBetweenDiagonalAndWidth = acos(size.width / diagonal)
-        val angleBetweenDiagonalAndGradientLine =
-            if ((normalizedAngle.inExclusiveRange(90f, 180f)) || (normalizedAngle.inExclusiveRange(270f, 360f))) {
-                PI.toFloat() - angleInRadians - angleBetweenDiagonalAndWidth
-            } else {
-                angleInRadians - angleBetweenDiagonalAndWidth
-            }
-        val halfGradientLine = abs(cos(angleBetweenDiagonalAndGradientLine) * diagonal) / 2
-
-        val horizontalOffset = halfGradientLine * cos(angleInRadians)
-        val verticalOffset = halfGradientLine * sin(angleInRadians)
-
-        val start = size.center + Offset(-horizontalOffset, verticalOffset)
-        val end = size.center + Offset(horizontalOffset, -verticalOffset)
-
-        return start to end
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is ThmbldrLinearGradient) return false
-
-        if (colors != other.colors) return false
-        if (stops != other.stops) return false
-        if (normalizedAngle != other.normalizedAngle) return false
-        if (tileMode != other.tileMode) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = colors.hashCode()
-        result = 31 * result + (stops?.hashCode() ?: 0)
-        result = 31 * result + normalizedAngle.hashCode()
-        result = 31 * result + tileMode.hashCode()
-        return result
-    }
-
-    override fun toString(): String {
-        return "LinearGradient(colors=$colors, " +
-            "stops=$stops, " +
-            "angle=$normalizedAngle, " +
-            "tileMode=$tileMode)"
-    }
-
-    private companion object {
-
-        fun Float.inExclusiveRange(from: Float, to: Float): Boolean {
-            return this > from && this < to
-        }
-    }
-}
-// AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.theme
-import androidx.compose.runtime.Immutable
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RadialGradientShader
-import androidx.compose.ui.graphics.Shader
-import androidx.compose.ui.graphics.ShaderBrush
-import androidx.compose.ui.graphics.TileMode
-import kotlin.math.max
-
-/**
- * Радиальный градиент
- * @param colors цвета
- * @param stops точки остановки цвета
- * @param radius радиус градиента
- * @param centerX смещение центра по X
- * @param centerY смещение центра по Y
- * @param tileMode определяет поведение на границах градиента
- */
-@Immutable
-internal data class ThmbldrRadialGradient(
-    private val colors: List<Color>,
-    private val stops: List<Float>? = null,
-    private val radius: Float = 0f,
-    private val centerX: Float = 0.5f,
-    private val centerY: Float = 0.5f,
-    private val tileMode: TileMode = TileMode.Clamp,
-) : ShaderBrush() {
-
-    override fun createShader(size: Size): Shader {
-        return RadialGradientShader(
-            center = Offset(size.width * centerX, size.height * centerY),
-            radius = max(size.width, size.height) * radius / 2,
-            colors = colors,
-            colorStops = stops,
-            tileMode = tileMode
-        )
-    }
-}
-// AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.theme
-import androidx.compose.runtime.Immutable
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shader
-import androidx.compose.ui.graphics.ShaderBrush
-import androidx.compose.ui.graphics.SweepGradientShader
-
-/**
- * Sweep (Angular) градиент
- * @param colors цвета
- * @param stops точки остановки цвета
- * @param centerX смещение центра по X
- * @param centerY смещение центра по Y
- */
-@Immutable
-internal data class ThmbldrSweepGradient(
-    private val colors: List<Color>,
-    private val stops: List<Float>? = null,
-    private val centerX: Float = 0.5f,
-    private val centerY: Float = 0.5f,
-) : ShaderBrush() {
-
-    override fun createShader(size: Size): Shader {
-        return SweepGradientShader(
-            center = Offset(size.width * centerX, size.height * centerY),
-            colors = colors,
-            colorStops = stops,
-        )
-    }
-}
-// AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -183,9 +7,11 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
+import com.sdds.compose.uikit.graphics.Gradients
 import com.sdds.playground.themebuilder.theme.GradientOverrideScope
 import com.sdds.playground.themebuilder.theme.ThemeGradients
 import com.sdds.playground.themebuilder.tokens.DarkGradientTokens
@@ -308,8 +134,10 @@ public fun darkThemeGradients(overrideGradients: GradientOverrideScope.() -> Uni
 internal fun linearGradient(
     colors: List<Color>,
     positions: FloatArray,
-    angle: Float,
-): ShaderBrush = ThmbldrLinearGradient(colors, positions.toList(), angle)
+    angle: Float = 0f,
+    startPoint: Offset? = null,
+    endPoint: Offset? = null,
+): ShaderBrush = Gradients.Linear(colors, positions.toList(), angle, startPoint, endPoint)
 
 internal fun radialGradient(
     colors: List<Color>,
@@ -317,16 +145,16 @@ internal fun radialGradient(
     radius: Float,
     centerX: Float,
     centerY: Float,
-): ShaderBrush = ThmbldrRadialGradient(colors, positions.toList(), radius, centerX, centerY)
+): ShaderBrush = Gradients.Radial(colors, positions.toList(), radius, centerX, centerY)
 
 internal fun sweepGradient(
     colors: List<Color>,
     positions: FloatArray,
     centerX: Float,
     centerY: Float,
-): ShaderBrush = ThmbldrSweepGradient(colors, positions.toList(), centerX, centerY)
+): ShaderBrush = Gradients.Sweep(colors, positions.toList(), centerX, centerY)
 
-internal fun singleColor(color: Color): ShaderBrush = ThmbldrLinearGradient(listOf(color, color),
+internal fun singleColor(color: Color): ShaderBrush = Gradients.Linear(listOf(color, color),
         listOf(0f, 1f))
 
 /**
