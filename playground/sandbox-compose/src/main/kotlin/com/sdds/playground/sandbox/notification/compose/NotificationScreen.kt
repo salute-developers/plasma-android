@@ -49,9 +49,14 @@ internal fun NotificationScreen(componentKey: ComponentKey = ComponentKey.Notifi
                             closeIcon = painterResource(R.drawable.ic_close_24),
                             onClose = { overlayManager.remove(it) },
                         ) {
+                            val idText = if (notificationUiState.showId) " $it" else ""
                             Text(
-                                modifier = Modifier.padding(end = 32.dp),
-                                text = "${notificationUiState.text} $it",
+                                modifier = if (notificationUiState.hasClose) {
+                                    Modifier.padding(end = 32.dp)
+                                } else {
+                                    Modifier
+                                },
+                                text = "${notificationUiState.text}$idText",
                             )
                         }
                     }
