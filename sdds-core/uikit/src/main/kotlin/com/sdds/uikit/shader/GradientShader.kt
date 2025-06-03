@@ -358,23 +358,23 @@ private fun TypedArray.obtainShaderLayerAppearance(): ShaderAppearance {
             .mapNotNull { it?.toFloatOrNull() ?: 0f }
             .toFloatArray()
     }
-    val startPointX = if (hasValue(R.styleable.SdShaderAppearance_sd_startX)) {
-        getFloat(R.styleable.SdShaderAppearance_sd_startX, 0f)
+    val startPointX = if (hasValue(R.styleable.SdShaderLayer_sd_startX)) {
+        getFloat(R.styleable.SdShaderLayer_sd_startX, 0f)
     } else {
         null
     }
-    val startPointY = if (hasValue(R.styleable.SdShaderAppearance_sd_startY)) {
-        getFloat(R.styleable.SdShaderAppearance_sd_startY, 0f)
+    val startPointY = if (hasValue(R.styleable.SdShaderLayer_sd_startY)) {
+        getFloat(R.styleable.SdShaderLayer_sd_startY, 0f)
     } else {
         null
     }
-    val endPointX = if (hasValue(R.styleable.SdShaderAppearance_sd_endX)) {
-        getFloat(R.styleable.SdShaderAppearance_sd_endX, 0f)
+    val endPointX = if (hasValue(R.styleable.SdShaderLayer_sd_endX)) {
+        getFloat(R.styleable.SdShaderLayer_sd_endX, 0f)
     } else {
         null
     }
-    val endPointY = if (hasValue(R.styleable.SdShaderAppearance_sd_endY)) {
-        getFloat(R.styleable.SdShaderAppearance_sd_endY, 0f)
+    val endPointY = if (hasValue(R.styleable.SdShaderLayer_sd_endY)) {
+        getFloat(R.styleable.SdShaderLayer_sd_endY, 0f)
     } else {
         null
     }
