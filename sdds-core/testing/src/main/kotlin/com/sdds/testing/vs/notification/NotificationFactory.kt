@@ -73,6 +73,8 @@ private fun focusableNotificationContent(context: Context, state: NotificationUi
     }
     return CellLayout(context).apply {
         clipChildren = false
+        isFocusable = false
+        isFocusableInTouchMode = false
         addView(textView)
         addView(button)
     }
