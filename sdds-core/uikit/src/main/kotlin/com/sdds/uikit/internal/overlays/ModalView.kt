@@ -27,6 +27,7 @@ internal open class ModalView @JvmOverloads constructor(
     }
     private var _closeIconAlignment: Int = ICON_ALIGNMENT_TOP_END
     private var _closeIconContentPadding: Int = 0
+    private var _contentView: View? = null
 
     init {
         context.withStyledAttributes(attrs, R.styleable.ModalView, defStyleAttr, defStyleRes) {
@@ -42,13 +43,9 @@ internal open class ModalView @JvmOverloads constructor(
 
     fun setContentView(contentView: View?) {
         contentView?.let {
+            _contentView = it
             addView(it)
-            it.updateLayoutParams<LayoutParams> {
-                if (_closeIconSize > 0) {
-                    marginEnd = _closeIconSize + _closeIconContentPadding
-                }
-                gravity = Gravity.CENTER_VERTICAL
-            }
+            updateContentLayoutParams()
         }
         addView(
             closeIconView,
@@ -60,10 +57,22 @@ internal open class ModalView @JvmOverloads constructor(
 
     fun setHasClose(hasClose: Boolean) {
         closeIconView.isVisible = hasClose
+        updateContentLayoutParams()
     }
 
     fun setCloseIconClickListener(listener: OnClickListener) {
         closeIconView.setOnClickListener(listener)
+    }
+
+    private fun updateContentLayoutParams() {
+        _contentView?.updateLayoutParams<LayoutParams> {
+            marginEnd = if (closeIconView.isVisible && _closeIconSize > 0) {
+                _closeIconSize + _closeIconContentPadding
+            } else {
+                0
+            }
+            gravity = Gravity.CENTER_VERTICAL
+        }
     }
 
     private companion object {

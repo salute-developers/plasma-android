@@ -10,6 +10,7 @@ import com.sdds.uikit.overlays.OverlayPosition
  * @property position положение Notification
  * @property autoDismiss автоматическое скрытие Notification
  * @property focusable может ли Notification быть в фокусе
+ * @property hasClose отображается ли кнопка закрытия
  */
 data class NotificationUiState(
     override val variant: String = "",
@@ -17,6 +18,7 @@ data class NotificationUiState(
     val position: OverlayPosition = OverlayPosition.BottomEnd,
     val autoDismiss: Boolean = false,
     val focusable: Boolean = false,
+    val hasClose: Boolean = true,
 ) : UiState {
 
     override fun updateVariant(variant: String): UiState {

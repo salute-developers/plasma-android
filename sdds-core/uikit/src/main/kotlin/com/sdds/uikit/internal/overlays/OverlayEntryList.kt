@@ -348,11 +348,13 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
             setTouchInterceptor(popupTouchInterceptor.takeIf { isFocusable })
             exitTransition = fakeExitTransition.takeIf { isFocusable }
                 ?.also {
-                    exitTransitionListener = it.addListener(onStart = {
-                        if (isBound()) {
-                            clear()
-                        }
-                    },)
+                    exitTransitionListener = it.addListener(
+                        onStart = {
+                            if (isBound()) {
+                                clear()
+                            }
+                        },
+                    )
                 }
             if (isShowing) {
                 update()

@@ -43,7 +43,7 @@ fun notification(
         position = state.position,
         duration = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS.takeIf { state.autoDismiss },
         isFocusable = state.focusable,
-//        animationSpec = OverlayAnimationSpec.NoAnimation
+        hasClose = state.hasClose,
     ) { ctx, _ ->
         if (state.focusable) {
             focusableNotificationContent(context, state)

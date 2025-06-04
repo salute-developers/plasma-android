@@ -25,6 +25,7 @@ internal class NotificationViewModel(
             NotificationPropertyName.AutoDismiss -> currentState.copy(autoDismiss = valueString.toBoolean())
             NotificationPropertyName.Focusable -> currentState.copy(focusable = valueString.toBoolean())
             NotificationPropertyName.Text -> currentState.copy(text = valueString)
+            NotificationPropertyName.HasClose -> currentState.copy(hasClose = valueString.toBoolean())
             else -> currentState
         }
     }
@@ -47,6 +48,10 @@ internal class NotificationViewModel(
                 name = NotificationPropertyName.Focusable.value,
                 value = focusable,
             ),
+            Property.BooleanProperty(
+                name = NotificationPropertyName.HasClose.value,
+                value = hasClose,
+            ),
         )
     }
 
@@ -55,6 +60,7 @@ internal class NotificationViewModel(
         Text("text"),
         AutoDismiss("autoDismiss"),
         Focusable("focusable"),
+        HasClose("hasClose"),
     }
 }
 
