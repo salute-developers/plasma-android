@@ -16,14 +16,10 @@ import com.sdds.compose.uikit.Notification
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.showNotification
-import com.sdds.compose.uikit.style.style
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
-import com.sdds.serv.styles.basicbutton.BasicButton
-import com.sdds.serv.styles.basicbutton.Default
-import com.sdds.serv.styles.basicbutton.S
 
 /**
  * Экран с компонентом [Notification]
@@ -66,12 +62,13 @@ internal fun NotificationScreen(componentKey: ComponentKey = ComponentKey.Notifi
                                 },
                             ) {
                                 Text(text = "${notificationUiState.text}$idText")
-                                Spacer(Modifier.size(8.dp))
-                                Button(
-                                    label = "Action",
-                                    onClick = {},
-                                    style = BasicButton.S.Default.style(),
-                                )
+                                if (notificationUiState.focusable) {
+                                    Spacer(Modifier.size(8.dp))
+                                    Button(
+                                        label = "Action",
+                                        onClick = {},
+                                    )
+                                }
                             }
                         }
                     }
