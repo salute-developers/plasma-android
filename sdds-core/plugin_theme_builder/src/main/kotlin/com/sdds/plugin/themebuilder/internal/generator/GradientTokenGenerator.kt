@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ViewTokenData
 import com.sdds.plugin.themebuilder.internal.token.BackgroundGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GradientPoint
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientTokenValue
@@ -295,6 +296,10 @@ internal class GradientTokenGenerator(
         val positionArrayParameter = "${baseTokenName}_positions"
         val angleParameter = "${baseTokenName}_angle"
         val description = token.description + getXmlGradientLayerDescription(layerIndex)
+        val startPointXParameter = "${baseTokenName}_start_point_x"
+        val startPointYParameter = "${baseTokenName}_start_point_y"
+        val endPointXParameter = "${baseTokenName}_end_point_x"
+        val endPointYParameter = "${baseTokenName}_end_point_y"
 
         with(xmlParametersDocumentBuilder) {
             wrapWithRegion(description) {
@@ -308,6 +313,12 @@ internal class GradientTokenGenerator(
                     }
                 }
                 appendElement(ElementName.STRING, angleParameter, tokenValue.angle.toString())
+                if (tokenValue.startPoint != null && tokenValue.endPoint != null) {
+                    appendElement(ElementName.STRING, startPointXParameter, tokenValue.startPoint.x.toString())
+                    appendElement(ElementName.STRING, startPointYParameter, tokenValue.startPoint.y.toString())
+                    appendElement(ElementName.STRING, endPointXParameter, tokenValue.endPoint.x.toString())
+                    appendElement(ElementName.STRING, endPointYParameter, tokenValue.endPoint.y.toString())
+                }
                 appendElementWithContent(ElementName.STRING_ARRAY, positionArrayParameter) {
                     positionParameters.forEach {
                         appendElement(elementName = ElementName.ITEM, value = it.value)
@@ -315,11 +326,15 @@ internal class GradientTokenGenerator(
                 }
             }
         }
-
+        val shouldUseEndPointRefs = tokenValue.startPoint != null && tokenValue.endPoint != null
         return ViewTokenData.Gradient.Layer.Linear(
             angle = resourceReferenceProvider.string(angleParameter),
             colors = resourceReferenceProvider.array(colorArrayParameter),
             stops = resourceReferenceProvider.array(positionArrayParameter),
+            startX = resourceReferenceProvider.string(startPointXParameter).takeIf { shouldUseEndPointRefs },
+            startY = resourceReferenceProvider.string(startPointYParameter).takeIf { shouldUseEndPointRefs },
+            endX = resourceReferenceProvider.string(endPointXParameter).takeIf { shouldUseEndPointRefs },
+            endY = resourceReferenceProvider.string(endPointYParameter).takeIf { shouldUseEndPointRefs },
         )
     }
 
@@ -493,13 +508,22 @@ internal class GradientTokenGenerator(
                 modifiers = listOf(KtFileBuilder.Modifier.CONST),
                 description = ANGLE_KT_PROPERTY_DESC,
             )
+            appendGradientEndPoints(
+                tokenValue.startPoint,
+                tokenValue.endPoint,
+            )
+        }
+        val tokenRefs = mutableListOf<String>().apply {
+            add("$baseTokenName.$layerRef$COLORS_KT_PROPERTY_NAME")
+            add("$baseTokenName.$layerRef$POSITIONS_KT_PROPERTY_NAME")
+            add("$baseTokenName.$layerRef$ANGLE_KT_PROPERTY_NAME")
+            if (tokenValue.startPoint != null && tokenValue.endPoint != null) {
+                add("$baseTokenName.$layerRef$START_POINT_KT_PROPERTY_NAME")
+                add("$baseTokenName.$layerRef$END_POINT_KT_PROPERTY_NAME")
+            }
         }
         return ComposeTokenData.Gradient(
-            tokenRefs = listOf(
-                "$baseTokenName.$layerRef$COLORS_KT_PROPERTY_NAME",
-                "$baseTokenName.$layerRef$POSITIONS_KT_PROPERTY_NAME",
-                "$baseTokenName.$layerRef$ANGLE_KT_PROPERTY_NAME",
-            ),
+            tokenRefs = tokenRefs,
             gradientType = ComposeTokenData.GradientType.LINEAR,
             description = token.description,
         )
@@ -642,6 +666,25 @@ internal class GradientTokenGenerator(
         )
     }
 
+    private fun TypeSpec.Builder.appendGradientEndPoints(
+        startPoint: GradientPoint?,
+        endPoint: GradientPoint?,
+    ) = with(composeKtFileBuilder) {
+        if (startPoint == null || endPoint == null) return@with
+        appendProperty(
+            name = START_POINT_KT_PROPERTY_NAME,
+            typeName = KtFileBuilder.TypeOffset,
+            initializer = "Offset(${startPoint.x}f, ${startPoint.y}f)",
+            description = START_POINT_KT_PROPERTY_DESC,
+        )
+        appendProperty(
+            name = END_POINT_KT_PROPERTY_NAME,
+            typeName = KtFileBuilder.TypeOffset,
+            initializer = "Offset(${endPoint.x}f, ${endPoint.y}f)",
+            description = END_POINT_KT_PROPERTY_DESC,
+        )
+    }
+
     private fun GradientToken.addKtTokenData(
         attrName: String,
         params: ComposeTokenData.Gradient,
@@ -689,6 +732,10 @@ internal class GradientTokenGenerator(
         private const val CENTER_Y_KT_PROPERTY_DESC = "Координата центра по оси Y"
         private const val BACKGROUND_PROPERTY_NAME = "background"
         private const val BACKGROUND_PROPERTY_DESC = "Фон градиента"
+        private const val START_POINT_KT_PROPERTY_NAME = "startPoint"
+        private const val START_POINT_KT_PROPERTY_DESC = "Координата начала"
+        private const val END_POINT_KT_PROPERTY_NAME = "endPoint"
+        private const val END_POINT_KT_PROPERTY_DESC = "Координата конца"
 
         internal const val LIGHT_GRADIENT_TOKENS_NAME = "LightGradientTokens"
         internal const val LIGHT_GRADIENT_TOKENS_DESC = "Токены градиента для светлой темы"

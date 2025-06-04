@@ -688,6 +688,7 @@ internal class KtFileBuilder(
         val TypeMutableStateOfColor = ClassName("androidx.compose.runtime", "MutableState")
             .parameterizedBy(TypeColor)
         val TypeExperimentalTextApi = ClassName("androidx.compose.ui.text", "ExperimentalTextApi")
+        val TypeOffset = ClassName("androidx.compose.ui.geometry", "Offset")
 
         /**
          * Возвращает [TypeName] как nullable тип

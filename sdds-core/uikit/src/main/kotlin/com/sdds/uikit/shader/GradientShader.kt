@@ -5,12 +5,15 @@ import android.content.res.Resources.Theme
 import android.content.res.TypedArray
 import android.graphics.ComposeShader
 import android.graphics.LinearGradient
+import android.graphics.PointF
 import android.graphics.PorterDuff
 import android.graphics.RadialGradient
 import android.graphics.Shader
+import android.graphics.Shader.TileMode
 import android.graphics.SweepGradient
 import androidx.annotation.StyleRes
 import androidx.core.content.res.use
+import androidx.core.graphics.plus
 import com.sdds.uikit.R
 import com.sdds.uikit.shape.ShapeDrawable
 import kotlin.math.PI
@@ -28,6 +31,8 @@ import kotlin.math.sqrt
  */
 sealed class GradientShader : ShaderFactory {
 
+    internal open fun setTileMode(tileMode: TileMode) = Unit
+
     /**
      * Шейдер линейного градиента
      * @param colors цвета
@@ -38,13 +43,21 @@ sealed class GradientShader : ShaderFactory {
         private val colors: IntArray,
         private val positions: FloatArray,
         angle: Float,
+        private val startPoint: PointF? = null,
+        private val endPoint: PointF? = null,
     ) : GradientShader() {
 
-        private val normalizedAngle: Float = (angle % 360 + 360) % 360
+        private val normalizedAngle: Float = convertAngle(angle)
         private val angleInRadians: Float = Math.toRadians(normalizedAngle.toDouble()).toFloat()
+        private var tileMode: TileMode = TileMode.CLAMP
 
         override fun resize(width: Float, height: Float): Shader {
-            val (from, to) = getGradientCoordinates(Size(width, height))
+            val size = Size(width, height)
+            val (from, to) = if (startPoint != null && endPoint != null) {
+                getGradientCoordinatePoints(size, startPoint, endPoint)
+            } else {
+                getGradientAngleCoordinates(size)
+            }
             return LinearGradient(
                 from.x,
                 from.y,
@@ -52,11 +65,24 @@ sealed class GradientShader : ShaderFactory {
                 to.y,
                 colors,
                 positions,
-                Shader.TileMode.CLAMP,
+                tileMode,
             )
         }
 
-        private fun getGradientCoordinates(size: Size): Pair<Offset, Offset> {
+        override fun setTileMode(tileMode: TileMode) {
+            this.tileMode = tileMode
+        }
+
+        private fun getGradientCoordinatePoints(
+            size: Size,
+            startPoint: PointF,
+            endPoint: PointF,
+        ): Pair<PointF, PointF> {
+            return PointF(startPoint.x * size.width, startPoint.y * size.height) to
+                PointF(endPoint.x * size.width, endPoint.y * size.height)
+        }
+
+        private fun getGradientAngleCoordinates(size: Size): Pair<PointF, PointF> {
             val diagonal = sqrt(size.width.pow(2) + size.height.pow(2))
             val angleBetweenDiagonalAndWidth = acos(size.width / diagonal)
             val isSecondQuarter = normalizedAngle.inExclusiveRange(90f, 180f)
@@ -71,8 +97,8 @@ sealed class GradientShader : ShaderFactory {
             val horizontalOffset = (halfGradientLine * cos(angleInRadians))
             val verticalOffset = (halfGradientLine * sin(angleInRadians))
 
-            val start = size.center + Offset(-horizontalOffset, verticalOffset)
-            val end = size.center + Offset(horizontalOffset, -verticalOffset)
+            val start = size.center + PointF(-horizontalOffset, verticalOffset)
+            val end = size.center + PointF(horizontalOffset, -verticalOffset)
 
             return start.round() to end.round()
         }
@@ -81,14 +107,7 @@ sealed class GradientShader : ShaderFactory {
             val width: Float,
             val height: Float,
         ) {
-            val center = Offset(width / 2f, height / 2f)
-        }
-
-        private data class Offset(
-            val x: Float,
-            val y: Float,
-        ) {
-            operator fun plus(other: Offset): Offset = Offset(x + other.x, y + other.y)
+            val center = PointF(width / 2f, height / 2f)
         }
 
         private companion object {
@@ -97,11 +116,16 @@ sealed class GradientShader : ShaderFactory {
                 return this > from && this < to
             }
 
-            fun Offset.round(): Offset =
-                Offset(
-                    x = x.takeIf { it.isFinite() }?.roundToInt()?.toFloat() ?: 0f,
-                    y = y.takeIf { it.isFinite() }?.roundToInt()?.toFloat() ?: 0f,
+            fun PointF.round(): PointF =
+                PointF(
+                    x.takeIf { it.isFinite() }?.roundToInt()?.toFloat() ?: 0f,
+                    y.takeIf { it.isFinite() }?.roundToInt()?.toFloat() ?: 0f,
                 )
+
+            fun convertAngle(cssAngle: Float): Float {
+                val positiveAngle = (cssAngle % 360 + 360) % 360
+                return (90 - positiveAngle + 360) % 360
+            }
         }
     }
 
@@ -121,6 +145,8 @@ sealed class GradientShader : ShaderFactory {
         private val centerY: Float,
     ) : GradientShader() {
 
+        private var tileMode: TileMode = TileMode.CLAMP
+
         override fun resize(width: Float, height: Float): Shader {
             return RadialGradient(
                 width * centerX,
@@ -128,8 +154,12 @@ sealed class GradientShader : ShaderFactory {
                 java.lang.Float.max(width, height) * radius / 2f,
                 colors,
                 positions,
-                Shader.TileMode.CLAMP,
+                tileMode,
             )
+        }
+
+        override fun setTileMode(tileMode: TileMode) {
+            this.tileMode = tileMode
         }
     }
 
@@ -171,7 +201,7 @@ sealed class GradientShader : ShaderFactory {
                 height,
                 intArrayOf(color, color),
                 floatArrayOf(0f, 1f),
-                Shader.TileMode.CLAMP,
+                TileMode.CLAMP,
             )
         }
     }
@@ -217,6 +247,8 @@ private fun ShaderAppearance.toGradientShader(): GradientShader? {
             colors = colors,
             positions = stops,
             angle = angle,
+            startPoint = startPoint,
+            endPoint = endPoint,
         )
 
         ShapeDrawable.GradientType.RADIAL -> GradientShader.Radial(
@@ -269,6 +301,36 @@ private fun TypedArray.obtainGradientShader(): GradientShader? {
             .map { it.toFloatOrNull() ?: 0f }
             .toFloatArray()
     }
+    val startPointX = if (hasValue(R.styleable.SdShaderAppearance_sd_startX)) {
+        getFloat(R.styleable.SdShaderAppearance_sd_startX, 0f)
+    } else {
+        null
+    }
+    val startPointY = if (hasValue(R.styleable.SdShaderAppearance_sd_startY)) {
+        getFloat(R.styleable.SdShaderAppearance_sd_startY, 0f)
+    } else {
+        null
+    }
+    val endPointX = if (hasValue(R.styleable.SdShaderAppearance_sd_endX)) {
+        getFloat(R.styleable.SdShaderAppearance_sd_endX, 0f)
+    } else {
+        null
+    }
+    val endPointY = if (hasValue(R.styleable.SdShaderAppearance_sd_endY)) {
+        getFloat(R.styleable.SdShaderAppearance_sd_endY, 0f)
+    } else {
+        null
+    }
+    val startPoint = if (startPointX != null && startPointY != null) {
+        PointF(startPointX, startPointY)
+    } else {
+        null
+    }
+    val endPoint = if (endPointX != null && endPointY != null) {
+        PointF(endPointX, endPointY)
+    } else {
+        null
+    }
     return ShaderAppearance(
         type = type,
         colors = colors,
@@ -277,6 +339,8 @@ private fun TypedArray.obtainGradientShader(): GradientShader? {
         centerY = getFloat(R.styleable.SdShaderAppearance_sd_centerY, 0f),
         radius = getFloat(R.styleable.SdShaderAppearance_sd_radius, 0f),
         angle = getFloat(R.styleable.SdShaderAppearance_sd_angle, 0f),
+        startPoint = startPoint,
+        endPoint = endPoint,
     ).toGradientShader()
 }
 
@@ -294,6 +358,36 @@ private fun TypedArray.obtainShaderLayerAppearance(): ShaderAppearance {
             .mapNotNull { it?.toFloatOrNull() ?: 0f }
             .toFloatArray()
     }
+    val startPointX = if (hasValue(R.styleable.SdShaderLayer_sd_startX)) {
+        getFloat(R.styleable.SdShaderLayer_sd_startX, 0f)
+    } else {
+        null
+    }
+    val startPointY = if (hasValue(R.styleable.SdShaderLayer_sd_startY)) {
+        getFloat(R.styleable.SdShaderLayer_sd_startY, 0f)
+    } else {
+        null
+    }
+    val endPointX = if (hasValue(R.styleable.SdShaderLayer_sd_endX)) {
+        getFloat(R.styleable.SdShaderLayer_sd_endX, 0f)
+    } else {
+        null
+    }
+    val endPointY = if (hasValue(R.styleable.SdShaderLayer_sd_endY)) {
+        getFloat(R.styleable.SdShaderLayer_sd_endY, 0f)
+    } else {
+        null
+    }
+    val startPoint = if (startPointX != null && startPointY != null) {
+        PointF(startPointX, startPointY)
+    } else {
+        null
+    }
+    val endPoint = if (endPointX != null && endPointY != null) {
+        PointF(endPointX, endPointY)
+    } else {
+        null
+    }
     return ShaderAppearance(
         type = type,
         colors = colors,
@@ -302,6 +396,8 @@ private fun TypedArray.obtainShaderLayerAppearance(): ShaderAppearance {
         centerY = getFloat(R.styleable.SdShaderLayer_sd_centerY, 0f),
         radius = getFloat(R.styleable.SdShaderLayer_sd_radius, 0f),
         angle = getFloat(R.styleable.SdShaderLayer_sd_angle, 0f),
+        startPoint = startPoint,
+        endPoint = endPoint,
     )
 }
 
@@ -313,4 +409,6 @@ private class ShaderAppearance(
     val centerY: Float,
     val radius: Float,
     val angle: Float,
+    val startPoint: PointF?,
+    val endPoint: PointF?,
 )

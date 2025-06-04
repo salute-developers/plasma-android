@@ -7,9 +7,11 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
+import com.sdds.compose.uikit.graphics.Gradients
 import com.sdds.plasma.sd.service.tokens.DarkGradientTokens
 import com.sdds.plasma.sd.service.tokens.LightGradientTokens
 import kotlin.Float
@@ -696,6 +698,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.TextInverseAccentGradient.colors,
                 LightGradientTokens.TextInverseAccentGradient.positions,
                 LightGradientTokens.TextInverseAccentGradient.angle,
+                LightGradientTokens.TextInverseAccentGradient.startPoint,
+                LightGradientTokens.TextInverseAccentGradient.endPoint,
             ),
         ),
         overwrite,
@@ -740,6 +744,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceDefaultSkeletonGradient.colors,
                 LightGradientTokens.SurfaceDefaultSkeletonGradient.positions,
                 LightGradientTokens.SurfaceDefaultSkeletonGradient.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.startPoint,
+                LightGradientTokens.SurfaceDefaultSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -773,6 +779,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.colors,
                 LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.positions,
                 LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.angle,
+                LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.startPoint,
+                LightGradientTokens.SurfaceDefaultSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -839,6 +847,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
                 LightGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
                 LightGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.startPoint,
+                LightGradientTokens.SurfaceOnDarkSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -872,6 +882,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.colors,
                 LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.positions,
                 LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.angle,
+                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.startPoint,
+                LightGradientTokens.SurfaceOnDarkSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -938,6 +950,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceOnLightSkeletonGradient.colors,
                 LightGradientTokens.SurfaceOnLightSkeletonGradient.positions,
                 LightGradientTokens.SurfaceOnLightSkeletonGradient.angle,
+                LightGradientTokens.SurfaceOnLightSkeletonGradient.startPoint,
+                LightGradientTokens.SurfaceOnLightSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -971,6 +985,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.colors,
                 LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.positions,
                 LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.angle,
+                LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.startPoint,
+                LightGradientTokens.SurfaceOnLightSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1037,6 +1053,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceInverseSkeletonGradient.colors,
                 LightGradientTokens.SurfaceInverseSkeletonGradient.positions,
                 LightGradientTokens.SurfaceInverseSkeletonGradient.angle,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.startPoint,
+                LightGradientTokens.SurfaceInverseSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1070,6 +1088,8 @@ public fun lightPlasmaSdServiceGradients(overrideGradients: GradientOverrideScop
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.startPoint,
+                LightGradientTokens.SurfaceInverseSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1237,6 +1257,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.TextInverseAccentGradient.colors,
                 DarkGradientTokens.TextInverseAccentGradient.positions,
                 DarkGradientTokens.TextInverseAccentGradient.angle,
+                DarkGradientTokens.TextInverseAccentGradient.startPoint,
+                DarkGradientTokens.TextInverseAccentGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1286,6 +1308,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceDefaultSkeletonGradient.colors,
                 DarkGradientTokens.SurfaceDefaultSkeletonGradient.positions,
                 DarkGradientTokens.SurfaceDefaultSkeletonGradient.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.startPoint,
+                DarkGradientTokens.SurfaceDefaultSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1319,6 +1343,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.colors,
                 DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.positions,
                 DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.angle,
+                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.startPoint,
+                DarkGradientTokens.SurfaceDefaultSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1385,6 +1411,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceOnDarkSkeletonGradient.colors,
                 DarkGradientTokens.SurfaceOnDarkSkeletonGradient.positions,
                 DarkGradientTokens.SurfaceOnDarkSkeletonGradient.angle,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.startPoint,
+                DarkGradientTokens.SurfaceOnDarkSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1418,6 +1446,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.colors,
                 DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.positions,
                 DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.angle,
+                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.startPoint,
+                DarkGradientTokens.SurfaceOnDarkSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1484,6 +1514,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceOnLightSkeletonGradient.colors,
                 DarkGradientTokens.SurfaceOnLightSkeletonGradient.positions,
                 DarkGradientTokens.SurfaceOnLightSkeletonGradient.angle,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradient.startPoint,
+                DarkGradientTokens.SurfaceOnLightSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1517,6 +1549,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.colors,
                 DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.positions,
                 DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.angle,
+                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.startPoint,
+                DarkGradientTokens.SurfaceOnLightSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1550,6 +1584,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceInverseAccentGradient.colors,
                 DarkGradientTokens.SurfaceInverseAccentGradient.positions,
                 DarkGradientTokens.SurfaceInverseAccentGradient.angle,
+                DarkGradientTokens.SurfaceInverseAccentGradient.startPoint,
+                DarkGradientTokens.SurfaceInverseAccentGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1583,6 +1619,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceInverseSkeletonGradient.colors,
                 DarkGradientTokens.SurfaceInverseSkeletonGradient.positions,
                 DarkGradientTokens.SurfaceInverseSkeletonGradient.angle,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.startPoint,
+                DarkGradientTokens.SurfaceInverseSkeletonGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1616,6 +1654,8 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.colors,
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.positions,
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.angle,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.startPoint,
+                DarkGradientTokens.SurfaceInverseSkeletonDeepGradient.endPoint,
             ),
         ),
         overwrite,
@@ -1648,8 +1688,10 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
 internal fun linearGradient(
     colors: List<Color>,
     positions: FloatArray,
-    angle: Float,
-): ShaderBrush = ThmbldrLinearGradient(colors, positions.toList(), angle)
+    angle: Float = 0f,
+    startPoint: Offset? = null,
+    endPoint: Offset? = null,
+): ShaderBrush = Gradients.Linear(colors, positions.toList(), angle, startPoint, endPoint)
 
 internal fun radialGradient(
     colors: List<Color>,
@@ -1657,16 +1699,16 @@ internal fun radialGradient(
     radius: Float,
     centerX: Float,
     centerY: Float,
-): ShaderBrush = ThmbldrRadialGradient(colors, positions.toList(), radius, centerX, centerY)
+): ShaderBrush = Gradients.Radial(colors, positions.toList(), radius, centerX, centerY)
 
 internal fun sweepGradient(
     colors: List<Color>,
     positions: FloatArray,
     centerX: Float,
     centerY: Float,
-): ShaderBrush = ThmbldrSweepGradient(colors, positions.toList(), centerX, centerY)
+): ShaderBrush = Gradients.Sweep(colors, positions.toList(), centerX, centerY)
 
-internal fun singleColor(color: Color): ShaderBrush = ThmbldrLinearGradient(
+internal fun singleColor(color: Color): ShaderBrush = Gradients.Linear(
     listOf(color, color),
     listOf(0f, 1f),
 )

@@ -153,6 +153,10 @@
         <item>@color/plasma_dark_text_inverse_accent_gradient_color_1</item>
     </integer-array>
     <string name="plasma_dark_text_inverse_accent_gradient_angle">4.57</string>
+    <string name="plasma_dark_text_inverse_accent_gradient_start_point_x">0.0</string>
+    <string name="plasma_dark_text_inverse_accent_gradient_start_point_y">0.46</string>
+    <string name="plasma_dark_text_inverse_accent_gradient_end_point_x">1.0</string>
+    <string name="plasma_dark_text_inverse_accent_gradient_end_point_y">0.54</string>
     <string-array name="plasma_dark_text_inverse_accent_gradient_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -240,6 +244,10 @@
         <item>@color/plasma_dark_surface_default_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_default_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_default_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_default_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_default_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_default_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_default_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -312,6 +320,10 @@
         <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_default_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_default_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -423,6 +435,10 @@
         <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_on_dark_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_on_dark_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -495,6 +511,10 @@
         <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -606,6 +626,10 @@
         <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_on_light_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_on_light_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -678,6 +702,10 @@
         <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -754,6 +782,10 @@
         <item>@color/plasma_dark_surface_inverse_accent_gradient_color_1</item>
     </integer-array>
     <string name="plasma_dark_surface_inverse_accent_gradient_angle">4.57</string>
+    <string name="plasma_dark_surface_inverse_accent_gradient_start_point_x">0.0</string>
+    <string name="plasma_dark_surface_inverse_accent_gradient_start_point_y">0.46</string>
+    <string name="plasma_dark_surface_inverse_accent_gradient_end_point_x">1.0</string>
+    <string name="plasma_dark_surface_inverse_accent_gradient_end_point_y">0.54</string>
     <string-array name="plasma_dark_surface_inverse_accent_gradient_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -789,6 +821,10 @@
         <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_inverse_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_inverse_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -861,6 +897,10 @@
         <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1054,6 +1094,10 @@
         <item>@color/plasma_light_text_inverse_accent_gradient_color_1</item>
     </integer-array>
     <string name="plasma_light_text_inverse_accent_gradient_angle">0.0</string>
+    <string name="plasma_light_text_inverse_accent_gradient_start_point_x">0.0</string>
+    <string name="plasma_light_text_inverse_accent_gradient_start_point_y">0.5</string>
+    <string name="plasma_light_text_inverse_accent_gradient_end_point_x">1.0</string>
+    <string name="plasma_light_text_inverse_accent_gradient_end_point_y">0.5</string>
     <string-array name="plasma_light_text_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1128,6 +1172,10 @@
         <item>@color/plasma_light_surface_default_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_default_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_default_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_default_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_default_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_default_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_default_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1200,6 +1248,10 @@
         <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_default_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_default_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1311,6 +1363,10 @@
         <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_on_dark_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_on_dark_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1383,6 +1439,10 @@
         <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1494,6 +1554,10 @@
         <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_on_light_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_on_light_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1566,6 +1630,10 @@
         <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_on_light_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1677,6 +1745,10 @@
         <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_inverse_skeleton_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_inverse_skeleton_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>
@@ -1749,6 +1821,10 @@
         <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_12</item>
     </integer-array>
     <string name="plasma_light_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_start_point_x">0.5</string>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_start_point_y">0.0</string>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_end_point_x">0.5</string>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_end_point_y">1.0</string>
     <string-array name="plasma_light_surface_inverse_skeleton_deep_gradient_positions">
         <item>0.0</item>
         <item>0.0625</item>

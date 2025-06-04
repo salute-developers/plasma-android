@@ -121,6 +121,10 @@
         <item name="sd_angle">@string/salute_dark_text_default_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_dark_text_default_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_dark_text_default_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_default_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_default_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_default_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_default_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины-->
     <!--region Градиент Джой-->
@@ -145,6 +149,10 @@
         <item name="sd_angle">@string/salute_dark_text_default_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_dark_text_default_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_dark_text_default_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_default_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_default_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_default_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_default_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой-->
     <!--region Градиент бренда-->
@@ -169,6 +177,10 @@
         <item name="sd_angle">@string/salute_dark_text_default_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_dark_text_default_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_dark_text_default_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_default_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_default_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_default_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_default_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда-->
     <!--region Градиент B2E-ассистента-->
@@ -193,6 +205,10 @@
         <item name="sd_angle">@string/salute_dark_text_default_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_dark_text_default_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_dark_text_default_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_default_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_default_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_default_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_default_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента-->
     <!--region Градиент-->
@@ -217,6 +233,10 @@
         <item name="sd_angle">@string/salute_dark_text_default_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_text_default_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_text_default_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_default_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_default_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_default_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент-->
     <!--region Акцентный цвет с градиентом на темном фоне-->
@@ -337,6 +357,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_dark_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_dark_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_dark_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_dark_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_dark_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_dark_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_dark_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на темном фоне-->
     <!--region Градиент Джой на темном фоне-->
@@ -361,6 +385,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_dark_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_dark_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_dark_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_dark_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_dark_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_dark_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_dark_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на темном фоне-->
     <!--region Градиент B2E-ассистента на темном фоне-->
@@ -385,6 +413,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_dark_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_dark_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_dark_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_dark_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_dark_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_dark_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_dark_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на темном фоне-->
     <!--region Градиент бренда на темном фоне-->
@@ -409,6 +441,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_dark_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_dark_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_dark_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_dark_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_dark_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_dark_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_dark_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда на темном фоне-->
     <!--region Градиент на темном фоне-->
@@ -433,6 +469,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_dark_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_dark_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_dark_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_dark_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на темном фоне-->
     <!--region Акцентный цвет с градиентом на светлом фоне-->
@@ -553,6 +593,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_light_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_light_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_light_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_light_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_light_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_light_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_light_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на светлом фоне-->
     <!--region Градиент Джой на светлом фоне-->
@@ -577,6 +621,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_light_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_light_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_light_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_light_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_light_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_light_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_light_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на светлом фоне-->
     <!--region Градиент B2E-ассистента на светлом фоне-->
@@ -601,6 +649,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_light_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_light_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_light_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_light_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_light_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_light_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_light_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на светлом фоне-->
     <!--region Акцентный цвет бренда на светлом фоне-->
@@ -625,6 +677,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_light_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_light_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_light_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_light_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_light_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_light_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_light_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Акцентный цвет бренда на светлом фоне-->
     <!--region Градиент на светлом фоне-->
@@ -649,6 +705,10 @@
         <item name="sd_angle">@string/salute_dark_text_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_text_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_text_on_light_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_on_light_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_on_light_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_on_light_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на светлом фоне-->
     <!--region Инвертированный акцентный цвет с градиентом-->
@@ -833,6 +893,10 @@
         <item name="sd_angle">@string/salute_dark_text_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_text_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_text_inverse_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_inverse_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_inverse_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_inverse_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientMain-->
     <!--region dark text inverse textGradientAthena-->
@@ -841,6 +905,10 @@
         <item name="sd_angle">@string/salute_dark_text_inverse_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_dark_text_inverse_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_dark_text_inverse_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_inverse_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_inverse_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_inverse_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_inverse_gradient_athena_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientAthena-->
     <!--region dark text inverse textGradientJoy-->
@@ -849,6 +917,10 @@
         <item name="sd_angle">@string/salute_dark_text_inverse_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_dark_text_inverse_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_dark_text_inverse_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_inverse_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_inverse_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_inverse_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_inverse_gradient_joy_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientJoy-->
     <!--region dark text inverse textGradientB2E-->
@@ -857,6 +929,10 @@
         <item name="sd_angle">@string/salute_dark_text_inverse_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_dark_text_inverse_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_dark_text_inverse_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_inverse_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_inverse_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_inverse_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_inverse_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientB2E-->
     <!--region dark text inverse textGradientBrand-->
@@ -865,6 +941,10 @@
         <item name="sd_angle">@string/salute_dark_text_inverse_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_dark_text_inverse_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_dark_text_inverse_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_dark_text_inverse_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_text_inverse_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_text_inverse_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_text_inverse_gradient_brand_end_point_y</item>
     </style>
     <!--endregion dark text inverse textGradientBrand-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
@@ -1017,6 +1097,10 @@
         <item name="sd_angle">@string/salute_dark_surface_default_skeleton_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_default_skeleton_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_default_skeleton_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_default_skeleton_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_default_skeleton_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_default_skeleton_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_default_skeleton_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region dark surface default surfaceGradientMainHover-->
@@ -1041,6 +1125,10 @@
         <item name="sd_angle">@string/salute_dark_surface_default_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_default_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_default_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_default_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_default_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_default_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface default surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1049,6 +1137,10 @@
         <item name="sd_angle">@string/salute_dark_surface_default_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_default_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_default_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_default_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_default_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_default_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_default_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1073,6 +1165,10 @@
         <item name="sd_angle">@string/salute_dark_surface_default_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_default_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_default_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_default_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_default_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_default_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_default_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1257,6 +1353,10 @@
         <item name="sd_angle">@string/salute_dark_surface_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_on_dark_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_on_dark_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_on_dark_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_on_dark_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface onDark surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1265,6 +1365,10 @@
         <item name="sd_angle">@string/salute_dark_surface_on_dark_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_on_dark_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_on_dark_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_on_dark_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_on_dark_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_on_dark_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_on_dark_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1289,6 +1393,10 @@
         <item name="sd_angle">@string/salute_dark_surface_on_dark_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_on_dark_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_on_dark_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_on_dark_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_on_dark_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_on_dark_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_on_dark_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1473,6 +1581,10 @@
         <item name="sd_angle">@string/salute_dark_surface_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_on_light_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_on_light_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_on_light_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_on_light_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface onLight surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1481,6 +1593,10 @@
         <item name="sd_angle">@string/salute_dark_surface_on_light_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_on_light_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_on_light_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_on_light_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_on_light_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_on_light_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_on_light_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1505,6 +1621,10 @@
         <item name="sd_angle">@string/salute_dark_surface_on_light_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_on_light_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_on_light_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_on_light_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_on_light_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_on_light_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_on_light_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1689,6 +1809,10 @@
         <item name="sd_angle">@string/salute_dark_surface_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_inverse_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_inverse_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_inverse_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_inverse_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion dark surface inverse surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -1697,6 +1821,10 @@
         <item name="sd_angle">@string/salute_dark_surface_inverse_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_inverse_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_inverse_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_inverse_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_inverse_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_inverse_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_inverse_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -1721,6 +1849,10 @@
         <item name="sd_angle">@string/salute_dark_surface_inverse_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_dark_surface_inverse_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_dark_surface_inverse_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_dark_surface_inverse_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_surface_inverse_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_surface_inverse_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_surface_inverse_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -1739,30 +1871,18 @@
         <item name="sd_stops">@array/salute_dark_surface_inverse_skeleton_deep_gradient_active_positions</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
-    <!--region Фон Афины на мобиле Слой 0-->
+    <!--region Фон Афины на мобиле-->
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer0">
-        <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_4_colors</item>
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_athena_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_athena_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_athena_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_athena_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_athena_layer_0_end_point_y</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 0-->
-    <!--region Фон Афины на мобиле Слой 1-->
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_athena_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 1-->
-    <!--region Фон Афины на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_athena_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 2-->
-    <!--region Фон Афины на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_dark_background_default_mobile_assistant_athena_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_dark_background_default_mobile_assistant_athena_layer_1_center_y</item>
@@ -1770,39 +1890,53 @@
         <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_1_colors</item>
         <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_1_positions</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 3-->
-    <!--region Фон Афины на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_athena_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_athena_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_athena_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_athena_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_athena_layer_2_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_athena_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_athena_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_athena_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_athena_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_athena_layer_3_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_athena_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_athena_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 4-->
-    <!--region Фон Джой на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_athena_layer_4_colors</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 0-->
-    <!--region Фон Джой на мобиле Слой 1-->
+    <integer-array name="salute_shader_dark_background_default_mobile_assistant_athena_layers">
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthenaLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantAthena">
+        <item name="sd_shaderLayers">@array/salute_shader_dark_background_default_mobile_assistant_athena_layers</item>
+    </style>
+    <!--endregion Фон Афины на мобиле-->
+    <!--region Фон Джой на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_joy_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_joy_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_joy_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_joy_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_joy_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_joy_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 1-->
-    <!--region Фон Джой на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_joy_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 2-->
-    <!--region Фон Джой на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_dark_background_default_mobile_assistant_joy_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_dark_background_default_mobile_assistant_joy_layer_1_center_y</item>
@@ -1810,39 +1944,53 @@
         <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_1_colors</item>
         <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_1_positions</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 3-->
-    <!--region Фон Джой на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_joy_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_joy_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_joy_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_joy_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_joy_layer_2_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_joy_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_joy_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_joy_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_joy_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_joy_layer_3_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_joy_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_joy_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 4-->
-    <!--region Фоновый градиент бренда на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_joy_layer_4_colors</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 0-->
-    <!--region Фоновый градиент бренда на мобиле Слой 1-->
+    <integer-array name="salute_shader_dark_background_default_mobile_assistant_joy_layers">
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoyLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantJoy">
+        <item name="sd_shaderLayers">@array/salute_shader_dark_background_default_mobile_assistant_joy_layers</item>
+    </style>
+    <!--endregion Фон Джой на мобиле-->
+    <!--region Фоновый градиент бренда на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_brand_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_brand_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_brand_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_brand_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_brand_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_brand_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 1-->
-    <!--region Фоновый градиент бренда на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_brand_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 2-->
-    <!--region Фоновый градиент бренда на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_dark_background_default_mobile_assistant_brand_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_dark_background_default_mobile_assistant_brand_layer_1_center_y</item>
@@ -1850,53 +1998,76 @@
         <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_1_colors</item>
         <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 3-->
-    <!--region Фоновый градиент бренда на мобиле Слой 4-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4">
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_brand_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_0_positions</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_brand_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_brand_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_brand_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_brand_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_brand_layer_2_end_point_y</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 4-->
-    <!--region Фон для модальной шторки Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheetLayer0">
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_brand_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_brand_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_brand_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_brand_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_brand_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_brand_layer_3_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_dark_background_default_modal_sheet_layer_1_colors</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_brand_layer_4_colors</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 0-->
-    <!--region Фон для модальной шторки Слой 1-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheetLayer1">
+    <integer-array name="salute_shader_dark_background_default_mobile_assistant_brand_layers">
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrandLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantBrand">
+        <item name="sd_shaderLayers">@array/salute_shader_dark_background_default_mobile_assistant_brand_layers</item>
+    </style>
+    <!--endregion Фоновый градиент бренда на мобиле-->
+    <!--region Фон для модальной шторки-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheetLayer0">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/salute_dark_background_default_modal_sheet_layer_0_angle</item>
         <item name="sd_colors">@array/salute_dark_background_default_modal_sheet_layer_0_colors</item>
         <item name="sd_stops">@array/salute_dark_background_default_modal_sheet_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_modal_sheet_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_modal_sheet_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_modal_sheet_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_modal_sheet_layer_0_end_point_y</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer0">
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheetLayer1">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_dark_background_default_modal_sheet_layer_1_colors</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 1-->
+    <integer-array name="salute_shader_dark_background_default_modal_sheet_layers">
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheetLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheetLayer1</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultModalSheet">
+        <item name="sd_shaderLayers">@array/salute_shader_dark_background_default_modal_sheet_layers</item>
+    </style>
+    <!--endregion Фон для модальной шторки-->
+    <!--region Фоновый градиент B2E-ассистента на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_1_center_y</item>
@@ -1904,39 +2075,53 @@
         <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_1_colors</item>
         <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_2_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_3_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_b2_e_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_0_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 4-->
-    <!--region Фон ассистента на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_b2_e_layer_4_colors</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 0-->
-    <!--region Фон ассистента на мобиле Слой 1-->
+    <integer-array name="salute_shader_dark_background_default_mobile_assistant_b2_e_layers">
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2ELayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantB2E">
+        <item name="sd_shaderLayers">@array/salute_shader_dark_background_default_mobile_assistant_b2_e_layers</item>
+    </style>
+    <!--endregion Фоновый градиент B2E-ассистента на мобиле-->
+    <!--region Фон ассистента на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_main_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_main_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_main_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_main_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_main_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_main_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_3_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 1-->
-    <!--region Фон ассистента на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_main_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_2_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 2-->
-    <!--region Фон ассистента на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_dark_background_default_mobile_assistant_main_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_dark_background_default_mobile_assistant_main_layer_1_center_y</item>
@@ -1944,15 +2129,41 @@
         <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_1_colors</item>
         <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_1_positions</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 3-->
-    <!--region Фон ассистента на мобиле Слой 4-->
-    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4">
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_main_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_0_positions</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_main_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_main_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_main_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_main_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_main_layer_2_end_point_y</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_dark_background_default_mobile_assistant_main_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_dark_background_default_mobile_assistant_main_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_dark_background_default_mobile_assistant_main_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_dark_background_default_mobile_assistant_main_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_dark_background_default_mobile_assistant_main_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_dark_background_default_mobile_assistant_main_layer_3_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4">
+        <item name="sd_gradientType">solid</item>
+        <item name="sd_colors">@array/salute_dark_background_default_mobile_assistant_main_layer_4_colors</item>
+    </style>
+    <integer-array name="salute_shader_dark_background_default_mobile_assistant_main_layers">
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMainLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.DarkBackgroundDefaultMobileAssistantMain">
+        <item name="sd_shaderLayers">@array/salute_shader_dark_background_default_mobile_assistant_main_layers</item>
+    </style>
+    <!--endregion Фон ассистента на мобиле-->
     <!--region Акцентный цвет обводки с градиентом-->
     <style name="Salute.StylesSalute.Gradient.DarkOutlineDefaultAccentGradientHover">
         <item name="sd_gradientType">linear</item>
@@ -2551,6 +2762,10 @@
         <item name="sd_angle">@string/salute_light_text_default_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_light_text_default_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_light_text_default_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_light_text_default_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_default_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_default_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_default_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины-->
     <!--region Градиент Джой-->
@@ -2575,6 +2790,10 @@
         <item name="sd_angle">@string/salute_light_text_default_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_light_text_default_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_light_text_default_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_light_text_default_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_default_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_default_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_default_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой-->
     <!--region Градиент бренда-->
@@ -2599,6 +2818,10 @@
         <item name="sd_angle">@string/salute_light_text_default_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_light_text_default_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_light_text_default_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_light_text_default_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_default_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_default_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_default_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда-->
     <!--region Градиент B2E-ассистента-->
@@ -2623,6 +2846,10 @@
         <item name="sd_angle">@string/salute_light_text_default_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_light_text_default_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_light_text_default_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_light_text_default_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_default_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_default_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_default_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента-->
     <!--region Градиент-->
@@ -2647,6 +2874,10 @@
         <item name="sd_angle">@string/salute_light_text_default_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_text_default_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_text_default_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_text_default_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_default_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_default_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент-->
     <!--region Акцентный цвет с градиентом на темном фоне-->
@@ -2767,6 +2998,10 @@
         <item name="sd_angle">@string/salute_light_text_on_dark_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_dark_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_dark_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_dark_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_dark_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_dark_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_dark_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на темном фоне-->
     <!--region Градиент Джой на темном фоне-->
@@ -2791,6 +3026,10 @@
         <item name="sd_angle">@string/salute_light_text_on_dark_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_dark_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_dark_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_dark_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_dark_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_dark_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_dark_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на темном фоне-->
     <!--region Градиент B2E-ассистента на темном фоне-->
@@ -2815,6 +3054,10 @@
         <item name="sd_angle">@string/salute_light_text_on_dark_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_dark_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_dark_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_dark_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_dark_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_dark_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_dark_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на темном фоне-->
     <!--region Градиент бренда на темном фоне-->
@@ -2839,6 +3082,10 @@
         <item name="sd_angle">@string/salute_light_text_on_dark_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_dark_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_dark_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_dark_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_dark_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_dark_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_dark_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Градиент бренда на темном фоне-->
     <!--region Градиент на темном фоне-->
@@ -2863,6 +3110,10 @@
         <item name="sd_angle">@string/salute_light_text_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_dark_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_dark_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_dark_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_dark_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на темном фоне-->
     <!--region Акцентный цвет с градиентом на светлом фоне-->
@@ -2983,6 +3234,10 @@
         <item name="sd_angle">@string/salute_light_text_on_light_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_light_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_light_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_light_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_light_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_light_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_light_gradient_athena_end_point_y</item>
     </style>
     <!--endregion Градиент Афины на светлом фоне-->
     <!--region Градиент Джой на светлом фоне-->
@@ -3007,6 +3262,10 @@
         <item name="sd_angle">@string/salute_light_text_on_light_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_light_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_light_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_light_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_light_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_light_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_light_gradient_joy_end_point_y</item>
     </style>
     <!--endregion Градиент Джой на светлом фоне-->
     <!--region Градиент B2E-ассистента на светлом фоне-->
@@ -3031,6 +3290,10 @@
         <item name="sd_angle">@string/salute_light_text_on_light_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_light_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_light_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_light_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_light_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_light_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_light_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion Градиент B2E-ассистента на светлом фоне-->
     <!--region Акцентный цвет бренда на светлом фоне-->
@@ -3055,6 +3318,10 @@
         <item name="sd_angle">@string/salute_light_text_on_light_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_light_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_light_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_light_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_light_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_light_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_light_gradient_brand_end_point_y</item>
     </style>
     <!--endregion Акцентный цвет бренда на светлом фоне-->
     <!--region Градиент на светлом фоне-->
@@ -3079,6 +3346,10 @@
         <item name="sd_angle">@string/salute_light_text_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_text_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_text_on_light_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_text_on_light_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_on_light_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_on_light_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion Градиент на светлом фоне-->
     <!--region Инвертированный акцентный цвет с градиентом-->
@@ -3263,6 +3534,10 @@
         <item name="sd_angle">@string/salute_light_text_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_text_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_text_inverse_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_text_inverse_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_inverse_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_inverse_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientMain-->
     <!--region light text inverse textGradientAthena-->
@@ -3271,6 +3546,10 @@
         <item name="sd_angle">@string/salute_light_text_inverse_gradient_athena_angle</item>
         <item name="sd_colors">@array/salute_light_text_inverse_gradient_athena_colors</item>
         <item name="sd_stops">@array/salute_light_text_inverse_gradient_athena_positions</item>
+        <item name="sd_startX">@string/salute_light_text_inverse_gradient_athena_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_inverse_gradient_athena_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_inverse_gradient_athena_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_inverse_gradient_athena_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientAthena-->
     <!--region light text inverse textGradientJoy-->
@@ -3279,6 +3558,10 @@
         <item name="sd_angle">@string/salute_light_text_inverse_gradient_joy_angle</item>
         <item name="sd_colors">@array/salute_light_text_inverse_gradient_joy_colors</item>
         <item name="sd_stops">@array/salute_light_text_inverse_gradient_joy_positions</item>
+        <item name="sd_startX">@string/salute_light_text_inverse_gradient_joy_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_inverse_gradient_joy_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_inverse_gradient_joy_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_inverse_gradient_joy_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientJoy-->
     <!--region light text inverse textGradientB2E-->
@@ -3287,6 +3570,10 @@
         <item name="sd_angle">@string/salute_light_text_inverse_gradient_b2_e_angle</item>
         <item name="sd_colors">@array/salute_light_text_inverse_gradient_b2_e_colors</item>
         <item name="sd_stops">@array/salute_light_text_inverse_gradient_b2_e_positions</item>
+        <item name="sd_startX">@string/salute_light_text_inverse_gradient_b2_e_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_inverse_gradient_b2_e_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_inverse_gradient_b2_e_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_inverse_gradient_b2_e_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientB2E-->
     <!--region light text inverse textGradientBrand-->
@@ -3295,6 +3582,10 @@
         <item name="sd_angle">@string/salute_light_text_inverse_gradient_brand_angle</item>
         <item name="sd_colors">@array/salute_light_text_inverse_gradient_brand_colors</item>
         <item name="sd_stops">@array/salute_light_text_inverse_gradient_brand_positions</item>
+        <item name="sd_startX">@string/salute_light_text_inverse_gradient_brand_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_text_inverse_gradient_brand_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_text_inverse_gradient_brand_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_text_inverse_gradient_brand_end_point_y</item>
     </style>
     <!--endregion light text inverse textGradientBrand-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
@@ -3447,6 +3738,10 @@
         <item name="sd_angle">@string/salute_light_surface_default_skeleton_angle</item>
         <item name="sd_colors">@array/salute_light_surface_default_skeleton_colors</item>
         <item name="sd_stops">@array/salute_light_surface_default_skeleton_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_default_skeleton_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_default_skeleton_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_default_skeleton_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_default_skeleton_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region light surface default surfaceGradientMainHover-->
@@ -3471,6 +3766,10 @@
         <item name="sd_angle">@string/salute_light_surface_default_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_surface_default_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_surface_default_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_default_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_default_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_default_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_default_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface default surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -3479,6 +3778,10 @@
         <item name="sd_angle">@string/salute_light_surface_default_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_default_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_default_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_default_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_default_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_default_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_default_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -3503,6 +3806,10 @@
         <item name="sd_angle">@string/salute_light_surface_default_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_default_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_default_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_default_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_default_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_default_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_default_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -3687,6 +3994,10 @@
         <item name="sd_angle">@string/salute_light_surface_on_dark_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_surface_on_dark_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_surface_on_dark_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_on_dark_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_on_dark_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_on_dark_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_on_dark_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface onDark surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -3695,6 +4006,10 @@
         <item name="sd_angle">@string/salute_light_surface_on_dark_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_on_dark_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_on_dark_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_on_dark_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_on_dark_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_on_dark_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_on_dark_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -3719,6 +4034,10 @@
         <item name="sd_angle">@string/salute_light_surface_on_dark_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_on_dark_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_on_dark_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_on_dark_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_on_dark_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_on_dark_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_on_dark_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -3903,6 +4222,10 @@
         <item name="sd_angle">@string/salute_light_surface_on_light_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_surface_on_light_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_surface_on_light_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_on_light_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_on_light_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_on_light_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_on_light_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface onLight surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -3911,6 +4234,10 @@
         <item name="sd_angle">@string/salute_light_surface_on_light_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_on_light_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_on_light_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_on_light_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_on_light_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_on_light_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_on_light_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -3935,6 +4262,10 @@
         <item name="sd_angle">@string/salute_light_surface_on_light_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_on_light_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_on_light_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_on_light_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_on_light_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_on_light_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_on_light_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -4119,6 +4450,10 @@
         <item name="sd_angle">@string/salute_light_surface_inverse_gradient_main_angle</item>
         <item name="sd_colors">@array/salute_light_surface_inverse_gradient_main_colors</item>
         <item name="sd_stops">@array/salute_light_surface_inverse_gradient_main_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_inverse_gradient_main_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_inverse_gradient_main_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_inverse_gradient_main_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_inverse_gradient_main_end_point_y</item>
     </style>
     <!--endregion light surface inverse surfaceGradientMain-->
     <!--region Фон для скелетона-->
@@ -4127,6 +4462,10 @@
         <item name="sd_angle">@string/salute_light_surface_inverse_skeleton_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_inverse_skeleton_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_inverse_skeleton_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_inverse_skeleton_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_inverse_skeleton_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_inverse_skeleton_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_inverse_skeleton_gradient_end_point_y</item>
     </style>
     <!--endregion Фон для скелетона-->
     <!--region Фон для скелетона-->
@@ -4151,6 +4490,10 @@
         <item name="sd_angle">@string/salute_light_surface_inverse_skeleton_deep_gradient_angle</item>
         <item name="sd_colors">@array/salute_light_surface_inverse_skeleton_deep_gradient_colors</item>
         <item name="sd_stops">@array/salute_light_surface_inverse_skeleton_deep_gradient_positions</item>
+        <item name="sd_startX">@string/salute_light_surface_inverse_skeleton_deep_gradient_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_surface_inverse_skeleton_deep_gradient_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_surface_inverse_skeleton_deep_gradient_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_surface_inverse_skeleton_deep_gradient_end_point_y</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
     <!--region Яркий фон для скелетона-->
@@ -4169,30 +4512,18 @@
         <item name="sd_stops">@array/salute_light_surface_inverse_skeleton_deep_gradient_active_positions</item>
     </style>
     <!--endregion Яркий фон для скелетона-->
-    <!--region Фон Афины на мобиле Слой 0-->
+    <!--region Фон Афины на мобиле-->
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer0">
-        <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_4_colors</item>
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_athena_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_athena_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_athena_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_athena_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_athena_layer_0_end_point_y</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 0-->
-    <!--region Фон Афины на мобиле Слой 1-->
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_athena_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 1-->
-    <!--region Фон Афины на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_athena_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 2-->
-    <!--region Фон Афины на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_light_background_default_mobile_assistant_athena_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_light_background_default_mobile_assistant_athena_layer_1_center_y</item>
@@ -4200,39 +4531,53 @@
         <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_1_colors</item>
         <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_1_positions</item>
     </style>
-    <!--endregion Фон Афины на мобиле Слой 3-->
-    <!--region Фон Афины на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_athena_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_athena_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_athena_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_athena_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_athena_layer_2_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_athena_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_athena_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_athena_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_athena_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_athena_layer_3_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_athena_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_athena_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Афины на мобиле Слой 4-->
-    <!--region Фон Джой на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_athena_layer_4_colors</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 0-->
-    <!--region Фон Джой на мобиле Слой 1-->
+    <integer-array name="salute_shader_light_background_default_mobile_assistant_athena_layers">
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthenaLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantAthena">
+        <item name="sd_shaderLayers">@array/salute_shader_light_background_default_mobile_assistant_athena_layers</item>
+    </style>
+    <!--endregion Фон Афины на мобиле-->
+    <!--region Фон Джой на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_joy_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_joy_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_joy_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_joy_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_joy_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_joy_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_3_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 1-->
-    <!--region Фон Джой на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_joy_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_2_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 2-->
-    <!--region Фон Джой на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_light_background_default_mobile_assistant_joy_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_light_background_default_mobile_assistant_joy_layer_1_center_y</item>
@@ -4240,39 +4585,53 @@
         <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_1_colors</item>
         <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_1_positions</item>
     </style>
-    <!--endregion Фон Джой на мобиле Слой 3-->
-    <!--region Фон Джой на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_joy_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_joy_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_joy_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_joy_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_joy_layer_2_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_joy_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_joy_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_joy_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_joy_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_joy_layer_3_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_joy_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_joy_layer_0_positions</item>
-    </style>
-    <!--endregion Фон Джой на мобиле Слой 4-->
-    <!--region Фоновый градиент бренда на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_joy_layer_4_colors</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 0-->
-    <!--region Фоновый градиент бренда на мобиле Слой 1-->
+    <integer-array name="salute_shader_light_background_default_mobile_assistant_joy_layers">
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoyLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantJoy">
+        <item name="sd_shaderLayers">@array/salute_shader_light_background_default_mobile_assistant_joy_layers</item>
+    </style>
+    <!--endregion Фон Джой на мобиле-->
+    <!--region Фоновый градиент бренда на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_brand_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_brand_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_brand_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_brand_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_brand_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_brand_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 1-->
-    <!--region Фоновый градиент бренда на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_brand_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 2-->
-    <!--region Фоновый градиент бренда на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_light_background_default_mobile_assistant_brand_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_light_background_default_mobile_assistant_brand_layer_1_center_y</item>
@@ -4280,53 +4639,76 @@
         <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_1_colors</item>
         <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 3-->
-    <!--region Фоновый градиент бренда на мобиле Слой 4-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4">
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_brand_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_0_positions</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_brand_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_brand_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_brand_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_brand_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_brand_layer_2_end_point_y</item>
     </style>
-    <!--endregion Фоновый градиент бренда на мобиле Слой 4-->
-    <!--region Фон для модальной шторки Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheetLayer0">
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_brand_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_brand_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_brand_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_brand_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_brand_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_brand_layer_3_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_light_background_default_modal_sheet_layer_1_colors</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_brand_layer_4_colors</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 0-->
-    <!--region Фон для модальной шторки Слой 1-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheetLayer1">
+    <integer-array name="salute_shader_light_background_default_mobile_assistant_brand_layers">
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrandLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantBrand">
+        <item name="sd_shaderLayers">@array/salute_shader_light_background_default_mobile_assistant_brand_layers</item>
+    </style>
+    <!--endregion Фоновый градиент бренда на мобиле-->
+    <!--region Фон для модальной шторки-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheetLayer0">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/salute_light_background_default_modal_sheet_layer_0_angle</item>
         <item name="sd_colors">@array/salute_light_background_default_modal_sheet_layer_0_colors</item>
         <item name="sd_stops">@array/salute_light_background_default_modal_sheet_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_modal_sheet_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_modal_sheet_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_modal_sheet_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_modal_sheet_layer_0_end_point_y</item>
     </style>
-    <!--endregion Фон для модальной шторки Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer0">
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheetLayer1">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_light_background_default_modal_sheet_layer_1_colors</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 0-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 1-->
+    <integer-array name="salute_shader_light_background_default_modal_sheet_layers">
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheetLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheetLayer1</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultModalSheet">
+        <item name="sd_shaderLayers">@array/salute_shader_light_background_default_modal_sheet_layers</item>
+    </style>
+    <!--endregion Фон для модальной шторки-->
+    <!--region Фоновый градиент B2E-ассистента на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_b2_e_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_b2_e_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_b2_e_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_b2_e_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_3_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 1-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_b2_e_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_2_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 2-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_light_background_default_mobile_assistant_b2_e_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_1_center_y</item>
@@ -4334,39 +4716,53 @@
         <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_1_colors</item>
         <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_1_positions</item>
     </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 3-->
-    <!--region Фоновый градиент B2E-ассистента на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer2">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_b2_e_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_b2_e_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_b2_e_layer_2_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_b2_e_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_b2_e_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_b2_e_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_b2_e_layer_3_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer4">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_b2_e_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_b2_e_layer_0_positions</item>
-    </style>
-    <!--endregion Фоновый градиент B2E-ассистента на мобиле Слой 4-->
-    <!--region Фон ассистента на мобиле Слой 0-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer0">
         <item name="sd_gradientType">solid</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_4_colors</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_b2_e_layer_4_colors</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 0-->
-    <!--region Фон ассистента на мобиле Слой 1-->
+    <integer-array name="salute_shader_light_background_default_mobile_assistant_b2_e_layers">
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2ELayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantB2E">
+        <item name="sd_shaderLayers">@array/salute_shader_light_background_default_mobile_assistant_b2_e_layers</item>
+    </style>
+    <!--endregion Фоновый градиент B2E-ассистента на мобиле-->
+    <!--region Фон ассистента на мобиле-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_main_layer_0_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_0_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_0_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_main_layer_0_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_main_layer_0_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_main_layer_0_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_main_layer_0_end_point_y</item>
+    </style>
     <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer1">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_main_layer_3_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_3_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_3_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 1-->
-    <!--region Фон ассистента на мобиле Слой 2-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer2">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_main_layer_2_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_2_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_2_positions</item>
-    </style>
-    <!--endregion Фон ассистента на мобиле Слой 2-->
-    <!--region Фон ассистента на мобиле Слой 3-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3">
         <item name="sd_gradientType">radial</item>
         <item name="sd_radius">@string/salute_light_background_default_mobile_assistant_main_layer_1_radius</item>
         <item name="sd_centerX">@string/salute_light_background_default_mobile_assistant_main_layer_1_center_y</item>
@@ -4374,15 +4770,41 @@
         <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_1_colors</item>
         <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_1_positions</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 3-->
-    <!--region Фон ассистента на мобиле Слой 4-->
-    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4">
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer2">
         <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_main_layer_0_angle</item>
-        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_0_colors</item>
-        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_0_positions</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_main_layer_2_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_2_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_2_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_main_layer_2_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_main_layer_2_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_main_layer_2_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_main_layer_2_end_point_y</item>
     </style>
-    <!--endregion Фон ассистента на мобиле Слой 4-->
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/salute_light_background_default_mobile_assistant_main_layer_3_angle</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_3_colors</item>
+        <item name="sd_stops">@array/salute_light_background_default_mobile_assistant_main_layer_3_positions</item>
+        <item name="sd_startX">@string/salute_light_background_default_mobile_assistant_main_layer_3_start_point_x</item>
+        <item name="sd_startY">@string/salute_light_background_default_mobile_assistant_main_layer_3_start_point_y</item>
+        <item name="sd_endX">@string/salute_light_background_default_mobile_assistant_main_layer_3_end_point_x</item>
+        <item name="sd_endY">@string/salute_light_background_default_mobile_assistant_main_layer_3_end_point_y</item>
+    </style>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4">
+        <item name="sd_gradientType">solid</item>
+        <item name="sd_colors">@array/salute_light_background_default_mobile_assistant_main_layer_4_colors</item>
+    </style>
+    <integer-array name="salute_shader_light_background_default_mobile_assistant_main_layers">
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer0</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer1</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer2</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer3</item>
+        <item>@style/Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMainLayer4</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Gradient.LightBackgroundDefaultMobileAssistantMain">
+        <item name="sd_shaderLayers">@array/salute_shader_light_background_default_mobile_assistant_main_layers</item>
+    </style>
+    <!--endregion Фон ассистента на мобиле-->
     <!--region Акцентный цвет обводки с градиентом-->
     <style name="Salute.StylesSalute.Gradient.LightOutlineDefaultAccentGradientHover">
         <item name="sd_gradientType">linear</item>
