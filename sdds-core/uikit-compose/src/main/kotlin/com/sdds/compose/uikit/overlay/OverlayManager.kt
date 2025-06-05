@@ -14,13 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.overlay.OverlayManager.Companion.OVERLAY_DURATION_SLOW_MILLIS
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 
 /**
  * CompositionLocal c [OverlayManager]
@@ -88,6 +84,7 @@ internal fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec? {
  * @property durationMillis время жизни элемента
  * @property visible состояние анимации элемента
  * @property animationSpec настройки анимации элемента
+ * @property isFocusable способность быть в фокусе
  */
 data class OverlayEntry(
     val id: Long = System.currentTimeMillis(),
@@ -96,6 +93,7 @@ data class OverlayEntry(
     val durationMillis: Long? = null,
     val visible: MutableTransitionState<Boolean> = MutableTransitionState(false),
     val animationSpec: OverlayAnimationSpec? = null,
+    val isFocusable: Boolean = false,
 )
 
 /**
@@ -148,6 +146,7 @@ interface OverlayManager {
         position: OverlayPosition = OverlayPosition.TopCenter,
         durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
         animationSpec: OverlayAnimationSpec? = null,
+        isFocusable: Boolean = false,
         content: @Composable (Long) -> Unit,
     ): Long
 
@@ -189,7 +188,13 @@ fun OverlayManager.showToast(
     content: @Composable (Long) -> Unit,
 ): Long {
     val animation = animationSpec ?: position.getAnimationSpec()
-    return show(position, durationMillis, animation, content)
+    return show(
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animation,
+        isFocusable = false,
+        content = content,
+    )
 }
 
 /**
@@ -204,58 +209,39 @@ fun OverlayManager.showNotification(
     position: OverlayPosition = OverlayPosition.BottomEnd,
     durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
     animationSpec: OverlayAnimationSpec? = null,
+    isFocusable: Boolean = false,
     content: @Composable (Long) -> Unit,
 ): Long {
     val animation = animationSpec ?: position.getAnimationSpec()
-    return show(position, durationMillis, animation, content)
+    return show(
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animation,
+        isFocusable = isFocusable,
+        content = content,
+    )
 }
 
 /**
  * Создает и запоминает [OverlayManager]
  */
 @Composable
-fun rememberOverlayManager(): OverlayManager {
-    val scope = rememberCoroutineScope()
-    return remember { DefaultOverlayManager(scope) }
+fun overlayManager(lifecycle: OverlayManagerLifecycle = OverlayManagerLifecycle.ViewModelScoped): OverlayManager {
+    return when (lifecycle) {
+        OverlayManagerLifecycle.ComposableScoped -> {
+            val scope = rememberCoroutineScope()
+            remember { DefaultOverlayManager(scope) }
+        }
+        OverlayManagerLifecycle.ViewModelScoped -> {
+            viewModel { ViewModelBasedOverlayManager() }
+        }
+    }
 }
 
-internal class DefaultOverlayManager(
-    private val scope: CoroutineScope? = null,
-) : OverlayManager {
-    private val _overlays = MutableStateFlow<List<OverlayEntry>>(emptyList())
-
-    override val overlays: StateFlow<List<OverlayEntry>> = _overlays.asStateFlow()
-
-    override fun show(
-        position: OverlayPosition,
-        durationMillis: Long?,
-        animationSpec: OverlayAnimationSpec?,
-        content: @Composable (Long) -> Unit,
-    ): Long {
-        val entry = OverlayEntry(
-            content = content,
-            durationMillis = durationMillis,
-            position = position,
-            animationSpec = animationSpec,
-        )
-        _overlays.value += entry
-        entry.visible.targetState = true
-
-        if (durationMillis != null && scope != null) {
-            scope.launch {
-                delay(durationMillis)
-                entry.visible.targetState = false
-            }
-        }
-
-        return entry.id
-    }
-
-    override fun remove(id: Long) {
-        _overlays.value = _overlays.value.filterNot { it.id == id }
-    }
-
-    override fun clear() {
-        _overlays.value = emptyList()
-    }
+/**
+ * Жизненный цикл [OverlayManager]
+ */
+enum class OverlayManagerLifecycle {
+    ComposableScoped,
+    ViewModelScoped,
 }

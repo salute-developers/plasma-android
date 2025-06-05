@@ -32,6 +32,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCou
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.modal.PlasmaGigaModalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.notification.PlasmaGigaNotificationCompactVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.notification.PlasmaGigaNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.overlay.compose.PlasmaGigaOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.popover.PlasmaGigaPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.progress.PlasmaGigaProgressVariationsCompose
@@ -218,6 +220,14 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Modal,
                 PlasmaGigaModalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                PlasmaGigaNotificationLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                PlasmaGigaNotificationCompactVariationsCompose,
             ),
         ).associateBy { it.key }
 }

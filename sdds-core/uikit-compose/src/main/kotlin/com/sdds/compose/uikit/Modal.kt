@@ -112,6 +112,7 @@ private fun BoxScope.IconClose(
     closeIcon: Painter,
 ) {
     val size = style.dimensions.closeSize
+    val closeInteractionSource = remember { MutableInteractionSource() }
     Icon(
         modifier = Modifier
             .size(size)
@@ -119,10 +120,11 @@ private fun BoxScope.IconClose(
             .align(Alignment.TopEnd)
             .clickable(
                 indication = null,
-                interactionSource = DummyInteractionSource,
+                interactionSource = closeInteractionSource,
             ) { onDismissRequest.invoke() },
         painter = closeIcon,
         contentDescription = "",
+        tint = style.colors.closeColor.colorForInteraction(closeInteractionSource),
     )
 }
 

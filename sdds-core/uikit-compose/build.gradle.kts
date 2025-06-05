@@ -30,6 +30,7 @@ dependencies {
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.base.androidX.compose.material)
     implementation(libs.base.androidX.compose.animation)
+    implementation(libs.base.androidX.lifecycle.compose.viewmodel)
 
     // Preview support
     implementation(libs.base.androidX.compose.uiTooling.preview)

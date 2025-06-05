@@ -22,6 +22,7 @@ import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
+import com.sdds.playground.sandbox.notification.compose.NotificationScreen
 import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
 import com.sdds.playground.sandbox.popover.compose.PopoverScreen
 import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
@@ -51,7 +52,7 @@ internal class MenuItem(
 internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
     return all.map { (key, value) ->
         MenuItem(value.name, key, key.core.screen())
-    }
+    }.sortedBy { it.title }
 }
 
 internal sealed class ComponentScreen(
@@ -91,6 +92,7 @@ internal sealed class ComponentScreen(
     object Tooltip : ComponentScreen({ TooltipScreen(it) })
     object Toast : ComponentScreen({ ToastScreen(it) })
     object Modal : ComponentScreen({ ModalScreen(it) })
+    object Notification : ComponentScreen({ NotificationScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -129,6 +131,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
         CoreComponent.TOAST -> ComponentScreen.Toast
         CoreComponent.MODAL -> ComponentScreen.Modal
+        CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         else -> ComponentScreen.Empty
     }
 }
