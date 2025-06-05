@@ -11,6 +11,7 @@ import com.sdds.uikit.overlays.OverlayPosition
  * @property hasContentEnd отображать ли контент вконце
  * @property position положение Toast
  * @property autoDismiss автоматическое скрытие Toast
+ * @property hasAnimation включает/выключает анимацию
  */
 data class ToastUiState(
     override val variant: String = "",
@@ -19,6 +20,7 @@ data class ToastUiState(
     val hasContentEnd: Boolean = true,
     val position: OverlayPosition = OverlayPosition.BottomCenter,
     val autoDismiss: Boolean = true,
+    val hasAnimation: Boolean = true,
 ) : UiState {
 
     override fun updateVariant(variant: String): UiState {

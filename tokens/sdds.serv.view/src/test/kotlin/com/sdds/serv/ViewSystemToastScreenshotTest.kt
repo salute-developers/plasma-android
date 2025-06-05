@@ -5,12 +5,12 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdds.testing.vs.toast.ToastTestCases
-import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
+import org.robolectric.shadows.ShadowLooper
 
 @RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -19,7 +19,6 @@ class ViewSystemToastScreenshotTest(
     theme: String,
 ) : ToastTestCases(theme) {
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastRoundedDefaultTopStart() {
@@ -29,10 +28,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastRoundedDefaultTopStart(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastRoundedNegativeTopCenter() {
@@ -42,10 +42,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastRoundedNegativeTopCenter(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedNegative)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastRoundedPositiveTopEnd() {
@@ -55,10 +56,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastRoundedPositiveTopEnd(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedPositive)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastPilledDefaultCenterStart() {
@@ -68,10 +70,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastPilledDefaultCenterStart(R.style.Serv_Sdds_ComponentOverlays_ToastPilledDefault)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastPilledNegativeCenter() {
@@ -81,10 +84,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastPilledNegativeCenter(R.style.Serv_Sdds_ComponentOverlays_ToastPilledNegative)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastPilledPositiveCenterEnd() {
@@ -94,10 +98,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastPilledPositiveCenterEnd(R.style.Serv_Sdds_ComponentOverlays_ToastPilledPositive)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastRoundedDefaultBottomStart() {
@@ -107,10 +112,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastRoundedDefaultBottomStart(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastRoundedDefaultBottomCenter() {
@@ -120,10 +126,11 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastRoundedDefaultBottomCenter(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 
-    @Ignore("Need disable animation to capture screenshot")
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
     override fun testToastRoundedDefaultBottomEnd() {
@@ -133,6 +140,8 @@ class ViewSystemToastScreenshotTest(
         ) {
             toastRoundedDefaultBottomEnd(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
         }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        Thread.sleep(1000)
         captureScreenRoboImage()
     }
 }

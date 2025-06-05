@@ -77,7 +77,8 @@ fun component(
 ) {
     val controller = Robolectric.buildActivity(FragmentActivity::class.java)
     val activity = controller.get()
-    val componentScope = ComponentScopeImpl(activity)
+    val testTheme = ContextThemeWrapper(activity, R.style.TestTheme)
+    val componentScope = ComponentScopeImpl(testTheme)
     activity.setTheme(theme)
     if (backgroundColorAttr != 0) {
         activity.window.decorView.setBackgroundColor(
@@ -85,7 +86,7 @@ fun component(
         )
     }
     controller.setup()
-    val container = FrameLayout(activity).apply {
+    val container = FrameLayout(testTheme).apply {
         id = R.id.test_component_container
         clipChildren = false
         clipToPadding = false

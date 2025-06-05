@@ -139,7 +139,10 @@ internal fun OverlayPosition.isStart(): Boolean =
 internal fun OverlayPosition.isCenter(): Boolean =
     this == OverlayPosition.Center || this == OverlayPosition.TopCenter || this == OverlayPosition.BottomCenter
 
-internal fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec {
+/**
+ * Возвращает подходящий [OverlayAnimationSpec] для [OverlayPosition]
+ */
+fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec {
     return when (this) {
         OverlayPosition.TopStart,
         OverlayPosition.CenterStart,

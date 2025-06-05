@@ -10,47 +10,47 @@ import com.sdds.uikit.overlays.OverlayPosition
 @Suppress("UndocumentedPublicFunction")
 abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
     /**
-     * PLASMA-T2026
+     * PLASMA-T2036
      */
     abstract fun testToastRoundedDefaultTopStart()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2037
      */
     abstract fun testToastRoundedNegativeTopCenter()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2038
      */
     abstract fun testToastRoundedPositiveTopEnd()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2039
      */
     abstract fun testToastPilledDefaultCenterStart()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2040
      */
     abstract fun testToastPilledNegativeCenter()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2041
      */
     abstract fun testToastPilledPositiveCenterEnd()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2042
      */
     abstract fun testToastRoundedDefaultBottomStart()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2043
      */
     abstract fun testToastRoundedDefaultBottomCenter()
 
     /**
-     * PLASMA-T2026
+     * PLASMA-T2044
      */
     abstract fun testToastRoundedDefaultBottomEnd()
 
@@ -65,6 +65,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.TopStart,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -79,6 +80,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = false,
                 position = OverlayPosition.TopCenter,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -93,6 +95,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.TopCenter,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -107,6 +110,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = false,
                 position = OverlayPosition.CenterStart,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -121,6 +125,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.Center,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -135,6 +140,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.CenterEnd,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -149,6 +155,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.BottomStart,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -163,6 +170,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.BottomCenter,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 
@@ -177,6 +185,7 @@ abstract class ToastTestCases(mode: String) : RoborazziConfig(mode) {
                 hasContentEnd = true,
                 position = OverlayPosition.BottomEnd,
                 autoDismiss = false,
+                hasAnimation = false,
             ),
         )
 }
