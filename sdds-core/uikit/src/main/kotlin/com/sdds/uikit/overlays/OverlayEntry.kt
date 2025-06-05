@@ -17,6 +17,16 @@ interface OverlayEntry {
     val durationMillis: Long?
 
     /**
+     * Анимация отображения и скрытия
+     */
+    val animationSpec: OverlayAnimationSpec?
+
+    /**
+     * Индикатор возможности текущего [OverlayEntry] быть в фокусе
+     */
+    val isFocusable: Boolean
+
+    /**
      * Создаёт и возвращает представление (View), связанное с элементом оверлея.
      */
     fun createView(): View
@@ -109,6 +119,10 @@ data class OverlayAnimationSpec(
             FadeOut(view)
             view.translationX = 0f
             view.animate().translationX(view.measuredWidth.toFloat())
+        }
+
+        internal fun OverlayAnimationSpec.shouldAnimate(): Boolean {
+            return this != NoAnimation
         }
     }
 }

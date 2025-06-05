@@ -14,9 +14,11 @@ import com.sdds.uikit.Toast.Companion.simpleToast
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.overlays.getOverlayManager
+import com.sdds.uikit.overlays.OverlayAnimationSpec
 import com.sdds.uikit.overlays.OverlayEntry
 import com.sdds.uikit.overlays.OverlayManager
 import com.sdds.uikit.overlays.OverlayPosition
+import com.sdds.uikit.overlays.getAnimationSpec
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
@@ -31,10 +33,12 @@ class Toast private constructor(
     overlayManager: OverlayManager,
     private val viewFactory: (Context, OverlayEntry) -> View,
     override val durationMillis: Long?,
+    override val animationSpec: OverlayAnimationSpec?,
 ) : OverlayEntry {
 
     /** Уникальный идентификатор данного тоста. */
     override val id: Long = System.currentTimeMillis()
+    override val isFocusable: Boolean = false
 
     override fun createView(): View {
         return viewFactory(context, this)
@@ -89,6 +93,7 @@ class Toast private constructor(
             context: Context,
             position: OverlayPosition = DefaultToastPosition,
             duration: Long? = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS,
+            animationSpec: OverlayAnimationSpec? = position.getAnimationSpec(),
             factory: (Context, OverlayEntry) -> View,
         ): Toast {
             val overlayManager = context.getOverlayManager(position, TOAST_MANAGER_TAG)
@@ -97,6 +102,7 @@ class Toast private constructor(
                 overlayManager = overlayManager,
                 viewFactory = factory,
                 durationMillis = duration,
+                animationSpec = animationSpec,
             )
         }
 
@@ -107,7 +113,7 @@ class Toast private constructor(
          * @param message Текст сообщения.
          * @param contentStart Необязательная иконка в начале.
          * @param contentEnd Необязательная иконка в конце (например, кнопка закрытия).
-         * @param toastOverlayStyle Необязательный стиль для тоста.
+         * @param toastStyleOverlay Необязательный стиль для тоста.
          * @param duration Продолжительность отображения в миллисекундах.
          * @param position Положение тоста на экране.
          * @return Настроенный экземпляр [Toast], готовый к показу.
@@ -117,16 +123,18 @@ class Toast private constructor(
             message: String,
             contentStart: Drawable? = null,
             contentEnd: Drawable? = null,
-            @StyleRes toastOverlayStyle: Int? = null,
+            @StyleRes toastStyleOverlay: Int? = null,
             duration: Long? = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS,
             position: OverlayPosition = DefaultToastPosition,
+            animationSpec: OverlayAnimationSpec? = position.getAnimationSpec(),
         ): Toast {
             return makeToast(
                 context = context,
                 position = position,
                 duration = duration,
+                animationSpec = animationSpec,
             ) { ctx, entry ->
-                val contextWrapper = toastOverlayStyle?.let { ContextThemeWrapper(ctx, it) } ?: ctx
+                val contextWrapper = toastStyleOverlay?.let { ContextThemeWrapper(ctx, it) } ?: ctx
                 ToastView(contextWrapper).apply {
                     this.message = message
                     this.contentStart = contentStart

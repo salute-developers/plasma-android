@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.NotificationLoose" parent="Sdds.Components.Notification">
+        <item name="sd_closeIconAlignment">topEnd</item>
+        <item name="sd_background">?sdkit_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?sdkit_textDefaultSecondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationLoose.L">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/sdkit_notification_loose_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_notification_loose_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_notification_loose_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_notification_loose_l_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/sdkit_notification_loose_l_close_icon_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationLooseL">
+        <item name="sd_notificationStyle">@style/Sdkit.StarDs.Components.NotificationLoose.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationLoose.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_notification_loose_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/sdkit_notification_loose_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_notification_loose_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_notification_loose_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_notification_loose_m_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/sdkit_notification_loose_m_close_icon_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationLooseM">
+        <item name="sd_notificationStyle">@style/Sdkit.StarDs.Components.NotificationLoose.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationLoose.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:paddingStart">@dimen/sdkit_notification_loose_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_notification_loose_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_notification_loose_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_notification_loose_s_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/sdkit_notification_loose_s_close_icon_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationLooseS">
+        <item name="sd_notificationStyle">@style/Sdkit.StarDs.Components.NotificationLoose.S</item>
+    </style>
+</resources>

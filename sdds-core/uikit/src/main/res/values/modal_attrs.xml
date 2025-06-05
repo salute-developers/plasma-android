@@ -7,6 +7,11 @@
         <attr name="sd_closeIcon" format="reference"/>
         <attr name="sd_closeIconTint" format="color"/>
         <attr name="sd_closeIconSize" format="dimension"/>
+        <attr name="sd_closeIconContentPadding" format="dimension"/>
+        <attr name="sd_closeIconAlignment" format="enum">
+            <enum name="topEnd" value="0" />
+            <enum name="centerEnd" value="1" />
+        </attr>
 
     </declare-styleable>
 </resources>

@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.plasma.stards.integration
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsView
@@ -18,6 +19,8 @@ import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.St
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.overlay.vs.StarDsOverlayVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPopoverVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
@@ -91,6 +94,14 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.NavigationDrawer,
                 StarDsNavDrawerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                StarDsNotificationCompactVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                StarDsNotificationLooseVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Overlay,

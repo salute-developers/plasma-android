@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.notification.vs.NotificationFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
@@ -73,6 +74,7 @@ import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.notification.notificationTrigger
 import com.sdds.testing.vs.overlay.overlayWithTrigger
 import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
@@ -263,6 +265,10 @@ internal sealed class ComponentScreen(
     object Modal : ComponentScreen(
         { item -> fragment<ModalFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Notification : ComponentScreen(
+        { item -> fragment<NotificationFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -300,6 +306,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.OVERLAY -> ComponentScreen.Overlay
         CoreComponent.TOAST -> ComponentScreen.Toast
         CoreComponent.MODAL -> ComponentScreen.Modal
+        CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -339,6 +346,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.OVERLAY -> R.id.nav_overlay
         CoreComponent.TOAST -> R.id.nav_toast
         CoreComponent.MODAL -> R.id.nav_modal
+        CoreComponent.NOTIFICATION -> R.id.nav_notification
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -417,6 +425,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.OVERLAY -> overlayWithTrigger(context, style)
         CoreComponent.TOAST -> toastTrigger(context, style)
         CoreComponent.MODAL -> modalTrigger(context, style)
+        CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.NotificationCompact" parent="Sdds.Components.Notification">
+        <item name="sd_closeIconAlignment">topEnd</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationCompact.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/plasma_notification_compact_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_notification_compact_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_notification_compact_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_notification_compact_l_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/plasma_notification_compact_l_close_icon_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationCompactL">
+        <item name="sd_notificationStyle">@style/Plasma.SdService.Components.NotificationCompact.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationCompact.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_notification_compact_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_notification_compact_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_notification_compact_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_notification_compact_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_notification_compact_m_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/plasma_notification_compact_m_close_icon_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationCompactM">
+        <item name="sd_notificationStyle">@style/Plasma.SdService.Components.NotificationCompact.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationCompact.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:paddingStart">@dimen/plasma_notification_compact_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_notification_compact_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_notification_compact_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_notification_compact_s_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/plasma_notification_compact_s_close_icon_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationCompactS">
+        <item name="sd_notificationStyle">@style/Plasma.SdService.Components.NotificationCompact.S</item>
+    </style>
+</resources>

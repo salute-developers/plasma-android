@@ -1252,6 +1252,8 @@
         <item name="sd_navigationDrawerStyle">@style/Serv.Sdds.Components.NavigationDrawer</item>
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.M.Default</item>
         <item name="sd_modalStyle">@style/Serv.Sdds.Components.Modal</item>
+        <item name="sd_toastStyle">@style/Serv.Sdds.Components.Toast.Rounded.Default</item>
+        <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2503,6 +2505,8 @@
         <item name="sd_navigationDrawerStyle">@style/Serv.Sdds.Components.NavigationDrawer</item>
         <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.M.Default</item>
         <item name="sd_modalStyle">@style/Serv.Sdds.Components.Modal</item>
+        <item name="sd_toastStyle">@style/Serv.Sdds.Components.Toast.Rounded.Default</item>
+        <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>
