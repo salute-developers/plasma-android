@@ -11,7 +11,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.compose.LocalNavigationViewStyle
@@ -75,7 +74,6 @@ fun SandboxTheme(
         gradients = if (darkTheme) DarkGradients else LightGradients,
         content = {
             CompositionLocalProvider(
-                LocalButtonStyle provides BasicButton.M.style(),
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
