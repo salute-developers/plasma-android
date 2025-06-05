@@ -37,14 +37,6 @@ internal fun RectSkeletonScreen(componentKey: ComponentKey = ComponentKey.RectSk
                     .height(30.dp),
                 style = style,
                 duration = 5000,
-                // удалить после починки токенов:
-                brush = Brush.linearGradient(
-                    0f to Color.Transparent,
-                    0.5f to Color.LightGray,
-                    1f to Color.Transparent,
-                    start = Offset.Zero,
-                    end = Offset(Float.POSITIVE_INFINITY, 0f),
-                ).asStatefulValue(),
             )
         },
     )
