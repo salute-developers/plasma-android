@@ -1,7 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdkit.star.designsystem.tokens
 
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import kotlin.Float
 import kotlin.FloatArray
@@ -308,17 +307,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -378,17 +367,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -448,17 +427,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -518,17 +487,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -588,17 +547,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -898,17 +847,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -968,17 +907,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -1038,17 +967,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -1108,17 +1027,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -1178,17 +1087,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -1488,17 +1387,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -1558,17 +1447,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -1628,17 +1507,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -1698,17 +1567,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -1768,17 +1627,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -2238,17 +2087,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 357.71f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.52f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.48f)
+        public const val angle: Float = 88.0f
     }
 
     /**
@@ -2268,17 +2107,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -2298,17 +2127,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -2328,17 +2147,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -2358,17 +2167,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 4.57f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.46f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.54f)
+        public const val angle: Float = 94.0f
     }
 
     /**
@@ -2764,17 +2563,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -2834,17 +2623,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -2873,16 +2652,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -2951,16 +2720,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -3420,17 +3179,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -3459,16 +3208,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -3537,16 +3276,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -4006,17 +3735,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -4045,16 +3764,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -4123,16 +3832,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -4592,17 +4291,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 357.71f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.52f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.48f)
+        public const val angle: Float = 88.0f
     }
 
     /**
@@ -4631,16 +4320,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -4709,16 +4388,6 @@ public object DarkGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -4782,17 +4451,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.5f, 0.5f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -4827,17 +4486,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -4887,17 +4536,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.03f
         }
 
         /**
@@ -4917,17 +4556,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -4962,17 +4591,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -5022,17 +4641,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.03f
         }
 
         /**
@@ -5052,17 +4661,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -5097,17 +4696,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.84f
         }
 
         /**
@@ -5157,17 +4746,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -5187,17 +4766,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -5232,17 +4801,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -5292,17 +4851,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.03f
         }
 
         /**
@@ -5322,17 +4871,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 269.47f
         }
 
         /**
@@ -5367,17 +4906,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.84f
         }
 
         /**
@@ -5427,17 +4956,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -5457,17 +4976,7 @@ public object DarkGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -6983,17 +6492,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -7053,17 +6552,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -7123,17 +6612,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -7193,17 +6672,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -7263,17 +6732,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -7573,17 +7032,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -7643,17 +7092,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -7713,17 +7152,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -7783,17 +7212,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -7853,17 +7272,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -8163,17 +7572,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -8233,17 +7632,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -8303,17 +7692,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -8373,17 +7752,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 93.97f
     }
 
     /**
@@ -8443,17 +7812,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -8913,17 +8272,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -8943,17 +8292,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 4.57f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.46f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.54f)
+        public const val angle: Float = 94.0f
     }
 
     /**
@@ -8973,17 +8312,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 4.57f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.46f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.54f)
+        public const val angle: Float = 94.0f
     }
 
     /**
@@ -9003,17 +8332,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -9033,17 +8352,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -9439,17 +8748,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 90.0f
     }
 
     /**
@@ -9509,17 +8808,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -9548,16 +8837,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -9626,16 +8905,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -10095,17 +9364,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -10134,16 +9393,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -10212,16 +9461,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -10681,17 +9920,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.5f)
+        public const val angle: Float = 89.83f
     }
 
     /**
@@ -10720,16 +9949,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -10798,16 +10017,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -11267,17 +10476,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 357.71f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.0f, 0.52f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(1.0f, 0.48f)
+        public const val angle: Float = 88.0f
     }
 
     /**
@@ -11306,16 +10505,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -11384,16 +10573,6 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
-
-        /**
-         * Координата начала
-         */
-        public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-        /**
-         * Координата конца
-         */
-        public val endPoint: Offset = Offset(0.5f, 1.0f)
     }
 
     /**
@@ -11457,17 +10636,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -11517,17 +10686,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -11547,17 +10706,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -11592,17 +10741,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -11652,17 +10791,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.03f
         }
 
         /**
@@ -11682,17 +10811,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -11727,17 +10846,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -11787,17 +10896,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.03f
         }
 
         /**
@@ -11817,17 +10916,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 269.47f
         }
 
         /**
@@ -11862,17 +10951,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.5f, 1.0f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -11907,17 +10986,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -11967,17 +11036,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -11997,17 +11056,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**
@@ -12042,17 +11091,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 68.2f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.5f, 0.2f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.9f, 1.2f)
+            public const val angle: Float = 336.9f
         }
 
         /**
@@ -12102,17 +11141,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 90.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(0.0f, 0.5f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 1.0f)
+            public const val angle: Float = 180.0f
         }
 
         /**
@@ -12132,17 +11161,7 @@ public object LightGradientTokens {
             /**
              * Угол градиента
              */
-            public const val angle: Float = 180.0f
-
-            /**
-             * Координата начала
-             */
-            public val startPoint: Offset = Offset(1.0f, 0.0f)
-
-            /**
-             * Координата конца
-             */
-            public val endPoint: Offset = Offset(0.0f, 0.0f)
+            public const val angle: Float = 270.0f
         }
 
         /**

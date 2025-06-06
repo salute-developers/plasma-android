@@ -23,6 +23,7 @@ import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDel
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
@@ -69,5 +70,6 @@ internal val componentDelegates by unsafeLazy {
         "toast" to ToastConfigDelegate(),
         "modal" to ModalConfigDelegate(),
         "notification" to NotificationConfigDelegate(),
+        "rect-skeleton" to RectSkeletonConfigDelegate(),
     )
 }

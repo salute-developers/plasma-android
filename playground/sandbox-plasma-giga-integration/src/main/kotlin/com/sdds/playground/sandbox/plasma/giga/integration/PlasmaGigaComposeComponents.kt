@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.popover.PlasmaGigaPop
 import com.sdds.playground.sandbox.plasma.giga.integration.progress.PlasmaGigaProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.radiobox.PlasmaGigaRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.radiobox.group.PlasmaGigaRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.rectskeleton.PlasmaGigaRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.segment.PlasmaGigaSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.segment.item.PlasmaGigaSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.switcher.PlasmaGigaSwitchVariationsCompose
@@ -228,6 +229,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 PlasmaGigaNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                PlasmaGigaRectSkeletonVariationsCompose,
             ),
         ).associateBy { it.key }
 }

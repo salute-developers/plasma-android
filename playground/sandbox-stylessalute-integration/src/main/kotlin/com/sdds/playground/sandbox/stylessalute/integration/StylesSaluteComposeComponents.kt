@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.popover.StylesSalute
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsCompose
@@ -203,6 +204,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 StylesSaluteNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                StylesSaluteRectSkeletonVariationsCompose,
             ),
         ).associateBy { it.key }
 }
