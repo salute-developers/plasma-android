@@ -10,6 +10,7 @@ import com.sdds.uikit.CellLayout
 import com.sdds.uikit.Notification
 import com.sdds.uikit.TextView
 import com.sdds.uikit.overlays.OverlayManager
+import com.sdds.uikit.overlays.getAnimationSpec
 
 /**
  * Создает [Notification] с тригером.
@@ -42,6 +43,7 @@ fun notification(
         context = context,
         position = state.position,
         duration = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS.takeIf { state.autoDismiss },
+        animationSpec = state.position.getAnimationSpec().takeIf { state.hasAnimation },
         isFocusable = state.focusable,
         hasClose = state.hasClose,
     ) { ctx, _ ->

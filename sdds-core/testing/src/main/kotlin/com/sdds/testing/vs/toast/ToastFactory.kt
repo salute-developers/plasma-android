@@ -7,6 +7,7 @@ import com.sdds.testing.vs.button.basicButton
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Toast
 import com.sdds.uikit.overlays.OverlayManager
+import com.sdds.uikit.overlays.getAnimationSpec
 
 /**
  * Создает [Toast] с тригером.
@@ -40,6 +41,7 @@ fun toast(
         message = state.text,
         position = state.position,
         duration = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS.takeIf { state.autoDismiss },
+        animationSpec = state.position.getAnimationSpec().takeIf { state.hasAnimation },
         contentStart = if (state.hasContentStart) {
             ContextCompat.getDrawable(
                 context,
