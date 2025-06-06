@@ -1,6 +1,29 @@
 package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.AvatarGroupStyle
+import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.BadgeStyle
+import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CardStyle
+import com.sdds.compose.uikit.CellStyle
+import com.sdds.compose.uikit.CheckBoxGroupStyle
+import com.sdds.compose.uikit.CheckBoxStyle
+import com.sdds.compose.uikit.ChipGroupStyle
+import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.CircularProgressBarStyle
+import com.sdds.compose.uikit.CounterStyle
+import com.sdds.compose.uikit.DividerStyle
+import com.sdds.compose.uikit.IndicatorStyle
+import com.sdds.compose.uikit.ProgressBarStyle
+import com.sdds.compose.uikit.RadioBoxGroup
+import com.sdds.compose.uikit.RadioBoxGroupStyle
+import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.SegmentItemStyle
+import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
@@ -38,6 +61,31 @@ import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.toast.compose.ToastScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
+import com.sdds.testing.compose.avatar.AvatarGroupSizeS
+import com.sdds.testing.compose.avatar.AvatarSizeM
+import com.sdds.testing.compose.badge.BadgeSizeLDefaultContentLeft
+import com.sdds.testing.compose.badge.IconBadgeCommon
+import com.sdds.testing.compose.button.ButtonSizeLSecondary
+import com.sdds.testing.compose.button.IconButtonLDefault
+import com.sdds.testing.compose.button.LinkButtonSizeLDefault
+import com.sdds.testing.compose.card.CardVertical
+import com.sdds.testing.compose.cell.CellMAvatarIcon
+import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeM
+import com.sdds.testing.compose.checkbox.CheckBoxSizeM
+import com.sdds.testing.compose.chip.ChipGroupSizeLDense
+import com.sdds.testing.compose.chip.ChipSizeLDefault
+import com.sdds.testing.compose.counter.CounterCommon
+import com.sdds.testing.compose.divider.DividerDefault
+import com.sdds.testing.compose.indicator.IndicatorCommon
+import com.sdds.testing.compose.progress.CircularProgress
+import com.sdds.testing.compose.progress.ProgressBarDefault
+import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeM
+import com.sdds.testing.compose.radiobox.RadioBoxSizeM
+import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
+import com.sdds.testing.compose.segment.SegmentSizeLCounter
+import com.sdds.testing.compose.switcher.SwitchS
+import com.sdds.testing.compose.textarea.TextAreaLDefaultTBTA
+import com.sdds.testing.compose.textfield.TextFieldLDefaultInnerLeft
 
 /**
  *
@@ -60,36 +108,45 @@ internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
 
 internal sealed class ComponentScreen(
     val composeScreen: @Composable (ComponentKey) -> Unit,
+    val preview: (@Composable (Style) -> Unit)? = null,
 ) {
-    object Avatar : ComponentScreen({ AvatarScreen(it) })
-
-    object AvatarGroup : ComponentScreen({ AvatarGroupScreen(it) })
-    object Buttons : ComponentScreen({ BasicButtonScreen(it) })
-    object Badge : ComponentScreen({ BadgeScreen(it) })
-    object IconButtons : ComponentScreen({ IconButtonScreen(it) })
-    object IconBadge : ComponentScreen({ IconBadgeScreen(it) })
+    object Avatar : ComponentScreen({ AvatarScreen(it) }, { AvatarSizeM(it as AvatarStyle) })
+    object AvatarGroup : ComponentScreen({ AvatarGroupScreen(it) }, { AvatarGroupSizeS(it as AvatarGroupStyle) })
+    object Buttons : ComponentScreen({ BasicButtonScreen(it) }, { ButtonSizeLSecondary(it as ButtonStyle) })
+    object Badge : ComponentScreen({ BadgeScreen(it) }, { BadgeSizeLDefaultContentLeft(it as BadgeStyle) })
+    object IconButtons : ComponentScreen({ IconButtonScreen(it) }, { IconButtonLDefault(it as ButtonStyle) })
+    object IconBadge : ComponentScreen({ IconBadgeScreen(it) }, { IconBadgeCommon(it as BadgeStyle) })
     object BottomSheet : ComponentScreen({ BottomSheetScreen(it) })
-    object LinkButtons : ComponentScreen({ LinkButtonScreen(it) })
-    object Cell : ComponentScreen({ CellScreen(it) })
-    object Card : ComponentScreen({ CardScreen(it) })
-    object CheckBox : ComponentScreen({ CheckBoxScreen(it) })
-    object CheckBoxGroup : ComponentScreen({ CheckBoxGroupScreen(it) })
-    object RadioBox : ComponentScreen({ RadioBoxScreen(it) })
-    object RadioBoxGroup : ComponentScreen({ RadioBoxGroupScreen(it) })
-    object Switch : ComponentScreen({ SwitchScreen(it) })
-    object Progress : ComponentScreen({ ProgressScreen(it) })
-    object CircularProgress : ComponentScreen({ CircularProgressScreen(it) })
-    object TextField : ComponentScreen({ TextFieldScreen(it) })
+    object LinkButtons : ComponentScreen({ LinkButtonScreen(it) }, { LinkButtonSizeLDefault(it as ButtonStyle) })
+    object Cell : ComponentScreen({ CellScreen(it) }, { CellMAvatarIcon(it as CellStyle) })
+    object Card : ComponentScreen({ CardScreen(it) }, { CardVertical(it as CardStyle) })
+    object CheckBox : ComponentScreen({ CheckBoxScreen(it) }, { CheckBoxSizeM(it as CheckBoxStyle) })
+    object CheckBoxGroup :
+        ComponentScreen({ CheckBoxGroupScreen(it) }, { CheckBoxGroupSizeM(it as CheckBoxGroupStyle) })
 
-    object TextArea : ComponentScreen({ TextFieldScreen(it) })
+    object RadioBox : ComponentScreen({ RadioBoxScreen(it) }, { RadioBoxSizeM(it as RadioBoxStyle) })
+    object RadioBoxGroup :
+        ComponentScreen({ RadioBoxGroupScreen(it) }, { RadioBoxGroupSizeM(it as RadioBoxGroupStyle) })
 
-    object Chip : ComponentScreen({ ChipScreen(it) })
-    object ChipGroup : ComponentScreen({ ChipGroupScreen(it) })
-    object Indicator : ComponentScreen({ IndicatorScreen(it) })
-    object Counter : ComponentScreen({ CounterScreen(it) })
-    object SegmentItem : ComponentScreen({ SegmentItemScreen(it) })
-    object Segment : ComponentScreen({ SegmentScreen(it) })
-    object Divider : ComponentScreen({ DividerScreen(it) })
+    object Switch : ComponentScreen({ SwitchScreen(it) }, { SwitchS(it as SwitchStyle) })
+    object Progress : ComponentScreen({ ProgressScreen(it) }, { ProgressBarDefault(it as ProgressBarStyle) })
+    object CircularProgress :
+        ComponentScreen({ CircularProgressScreen(it) }, { CircularProgress(it as CircularProgressBarStyle) })
+
+    object TextField : ComponentScreen({ TextFieldScreen(it) }, { TextFieldLDefaultInnerLeft(it as TextFieldStyle) })
+    object TextArea : ComponentScreen(
+        { TextFieldScreen(it) },
+        { TextAreaLDefaultTBTA(it as TextFieldStyle) },
+    )
+    object Chip : ComponentScreen({ ChipScreen(it) }, { ChipSizeLDefault(it as ChipStyle) })
+    object ChipGroup : ComponentScreen({ ChipGroupScreen(it) }, { ChipGroupSizeLDense(it as ChipGroupStyle) })
+    object Indicator : ComponentScreen({ IndicatorScreen(it) }, { IndicatorCommon(it as IndicatorStyle) })
+    object Counter : ComponentScreen({ CounterScreen(it) }, { CounterCommon(it as CounterStyle) })
+    object SegmentItem :
+        ComponentScreen({ SegmentItemScreen(it) }, { SegmentItemSizeMSecondaryPilled(it as SegmentItemStyle) })
+
+    object Segment : ComponentScreen({ SegmentScreen(it) }, { SegmentSizeLCounter(it as SegmentStyle) })
+    object Divider : ComponentScreen({ DividerScreen(it) }, { DividerDefault(it as DividerStyle) })
     object Overlay : ComponentScreen({ OverlayScreen(it) })
     object Popover : ComponentScreen({ PopoverScreen(it) })
     object Tooltip : ComponentScreen({ TooltipScreen(it) })

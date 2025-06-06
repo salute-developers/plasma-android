@@ -3,9 +3,9 @@
 package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
@@ -27,13 +28,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.SwitchStyle
@@ -41,7 +42,6 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.playground.sandbox.R
 import com.sdds.icons.R.drawable as Icons
 
 /**
@@ -139,6 +139,7 @@ internal interface PropertiesListStyle {
     val headerPaddings: PaddingValues
     val headerTextStyle: TextStyle
     val headerTextColor: Color
+    val headerDescriptionTextColor: Color
 
     val propertyLabelTextStyle: TextStyle
     val propertyLabelTextColor: InteractiveColor
@@ -146,8 +147,10 @@ internal interface PropertiesListStyle {
     val propertyValueTextColor: InteractiveColor
     val propertyBackgroundColor: InteractiveColor
     val propertyHeight: Dp
-    val propertyPaddings: PaddingValues
+    val propertyPaddings: Dp
     val propertySwitchStyle: SwitchStyle
+    val propertyItemShape: Shape
+    val spaceBetweenProperties: Dp
 
     val resetButtonStyle: ButtonStyle
 
@@ -167,17 +170,20 @@ internal interface PropertiesListStyle {
             headerPaddings: PaddingValues = PaddingValues(16.dp),
             headerTextStyle: TextStyle = TextStyle.Default,
             headerTextColor: Color = Color.Black,
+            headerDescriptionTextColor: Color = Color.Black,
             propertyLabelTextStyle: TextStyle = TextStyle.Default,
             propertyLabelTextColor: InteractiveColor = Color.Black.asInteractive(),
             propertyValueTextStyle: TextStyle = TextStyle.Default,
             propertyValueTextColor: InteractiveColor = Color.LightGray.asInteractive(),
             propertyBackgroundColor: InteractiveColor = Color.Gray.asInteractive(),
-            propertyPaddings: PaddingValues = PaddingValues(8.dp),
+            propertyPaddings: Dp = 6.dp,
             propertySwitchStyle: SwitchStyle = SwitchStyle.builder().style(),
             propertyHeight: Dp = 56.dp,
+            propertyItemShape: Shape = RoundedCornerShape(6.dp),
             dividerWidth: Dp = 1.dp,
             dividerColor: Color = Color.LightGray,
             resetButtonStyle: ButtonStyle = ButtonStyle.iconButtonBuilder().style(),
+            spaceBetweenProperties: Dp = 10.dp,
         ): PropertiesListStyle =
             PropertiesListStyleImpl(
                 shape = shape,
@@ -189,6 +195,7 @@ internal interface PropertiesListStyle {
                 headerPaddings = headerPaddings,
                 headerTextStyle = headerTextStyle,
                 headerTextColor = headerTextColor,
+                headerDescriptionTextColor = headerDescriptionTextColor,
                 propertyLabelTextStyle = propertyLabelTextStyle,
                 propertyLabelTextColor = propertyLabelTextColor,
                 propertyValueTextStyle = propertyValueTextStyle,
@@ -200,6 +207,8 @@ internal interface PropertiesListStyle {
                 dividerWidth = dividerWidth,
                 dividerColor = dividerColor,
                 resetButtonStyle = resetButtonStyle,
+                propertyItemShape = propertyItemShape,
+                spaceBetweenProperties = spaceBetweenProperties,
             )
     }
 }
@@ -214,6 +223,7 @@ internal interface PropertiesListStyle {
 internal fun PropertiesList(
     onSelect: (Property<*>) -> Unit,
     onReset: () -> Unit,
+    headerTitle: String,
     properties: List<Property<*>>,
     modifier: Modifier = Modifier,
     style: PropertiesListStyle = LocalPropertiesListStyle.current,
@@ -221,16 +231,19 @@ internal fun PropertiesList(
     Column(
         modifier = modifier
             .clip(style.shape)
-            .border(style.borderWidth, style.borderColor, style.shape)
-            .background(style.backgroundColor),
+            .background(style.backgroundColor)
+            .padding(horizontal = 4.dp),
     ) {
         PropertiesHeader(
+            title = headerTitle,
             style = style,
-            modifier = Modifier.background(style.headerBackgroundColor),
             onResetClicked = onReset,
         )
 
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(style.spaceBetweenProperties),
+        ) {
             items(properties.size) {
                 when (val property = properties[it]) {
                     is Property.BooleanProperty ->
@@ -249,6 +262,7 @@ internal fun PropertiesList(
                             onClick = { onSelect(property) },
                             propertyName = property.name,
                             propertyValue = property.value.toString(),
+                            icon = painterResource(id = Icons.ic_keyboard_outline_16),
                         )
 
                     is Property.SingleChoiceProperty ->
@@ -257,6 +271,7 @@ internal fun PropertiesList(
                             onClick = { onSelect(property) },
                             propertyName = property.name,
                             propertyValue = property.value,
+                            icon = painterResource(id = Icons.ic_disclosure_right_outline_16),
                         )
 
                     is Property.StringProperty ->
@@ -265,15 +280,9 @@ internal fun PropertiesList(
                             onClick = { onSelect(property) },
                             propertyName = property.name,
                             propertyValue = property.value,
+                            icon = painterResource(id = Icons.ic_keyboard_outline_16),
                         )
                 }
-
-                Spacer(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(style.dividerWidth)
-                        .background(style.dividerColor),
-                )
             }
         }
     }
@@ -281,37 +290,37 @@ internal fun PropertiesList(
 
 @Composable
 private fun PropertiesHeader(
+    title: String,
     style: PropertiesListStyle,
     onResetClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth()
             .height(style.headerHeight)
-            .padding(style.headerPaddings),
+            .fillMaxWidth()
+            .padding(style.propertyPaddings),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(
-            text = stringResource(R.string.sandbox_properties_header_name),
-            style = style.headerTextStyle.copy(color = style.headerTextColor),
-            modifier = Modifier
+        Column(
+            Modifier
                 .weight(1f)
                 .wrapContentWidth(Alignment.Start),
-        )
-        Text(
-            text = stringResource(R.string.sandbox_properties_header_value),
-            style = style.headerTextStyle.copy(color = style.headerTextColor),
-            modifier = Modifier
-                .weight(1f)
-                .wrapContentWidth(Alignment.End),
-        )
-
-        Spacer(modifier = Modifier.width(dimensionResource(R.dimen.sandbox_property_reset_margin)))
-
+        ) {
+            Text(
+                modifier = Modifier.align(Alignment.Start),
+                text = title.substringBefore(","),
+                style = style.headerTextStyle.copy(style.headerDescriptionTextColor),
+            )
+            Text(
+                modifier = Modifier.align(Alignment.Start),
+                text = title.substringAfter(","),
+                style = style.headerTextStyle.copy(style.headerTextColor),
+            )
+        }
         IconButton(
             style = style.resetButtonStyle,
-            icon = painterResource(id = Icons.ic_reset_outline_24),
+            icon = painterResource(id = Icons.ic_reset_outline_16),
             onClick = onResetClicked,
         )
     }
@@ -323,38 +332,36 @@ private fun ValuePropertyListItem(
     onClick: () -> Unit,
     propertyName: String,
     propertyValue: String,
+    icon: Painter,
     modifier: Modifier = Modifier,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val backgroundColor = style.propertyBackgroundColor.colorForInteraction(interactionSource)
     Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .focusableItem(interactionSource = interactionSource)
-            .background(backgroundColor)
             .fillMaxWidth()
             .height(style.propertyHeight)
             .clickable(onClick = onClick)
-            .padding(style.propertyPaddings),
-        verticalAlignment = Alignment.CenterVertically,
+            .background(backgroundColor, style.propertyItemShape)
+            .padding(horizontal = style.propertyPaddings),
     ) {
         Text(
             text = propertyName,
             style = style.propertyLabelTextStyle.copy(
                 color = style.propertyLabelTextColor.colorForInteraction(interactionSource),
             ),
-            modifier = Modifier
-                .weight(1f)
-                .wrapContentWidth(Alignment.Start),
         )
+        Spacer(modifier = Modifier.width(4.dp))
         Text(
             text = propertyValue,
             style = style.propertyValueTextStyle.copy(
                 color = style.propertyValueTextColor.colorForInteraction(interactionSource),
             ),
-            modifier = Modifier
-                .weight(1f)
-                .wrapContentWidth(Alignment.End),
         )
+        Spacer(modifier = Modifier.width(4.dp))
+        Icon(painter = icon, contentDescription = "")
     }
 }
 
@@ -369,23 +376,24 @@ private fun SwitchPropertyListItem(
     val interactionSource = remember { MutableInteractionSource() }
     val backgroundColor by style.propertyBackgroundColor.colorForInteractionAsState(interactionSource)
     Row(
+        verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .focusableItem(interactionSource = interactionSource)
-            .background(backgroundColor)
             .fillMaxWidth()
             .height(style.propertyHeight)
             .clickable(onClick = onClick)
-            .padding(style.propertyPaddings),
-        verticalAlignment = Alignment.CenterVertically,
+            .background(backgroundColor, style.propertyItemShape)
+            .padding(horizontal = style.propertyPaddings),
     ) {
         Text(
+            modifier = Modifier
+                .weight(1f)
+                .wrapContentWidth(Alignment.Start),
             text = propertyName,
             style = style.propertyLabelTextStyle.copy(
                 color = style.propertyLabelTextColor.colorForInteraction(interactionSource),
             ),
-            modifier = Modifier
-                .weight(1f)
-                .wrapContentWidth(Alignment.Start),
+
         )
         Switch(
             active = propertyValue,
@@ -413,10 +421,13 @@ private data class PropertiesListStyleImpl(
     override val propertyValueTextStyle: TextStyle,
     override val propertyValueTextColor: InteractiveColor,
     override val propertyBackgroundColor: InteractiveColor,
-    override val propertyPaddings: PaddingValues,
+    override val propertyPaddings: Dp,
     override val propertySwitchStyle: SwitchStyle,
     override val propertyHeight: Dp,
     override val dividerWidth: Dp,
     override val dividerColor: Color,
     override val resetButtonStyle: ButtonStyle,
+    override val propertyItemShape: Shape,
+    override val spaceBetweenProperties: Dp,
+    override val headerDescriptionTextColor: Color,
 ) : PropertiesListStyle
