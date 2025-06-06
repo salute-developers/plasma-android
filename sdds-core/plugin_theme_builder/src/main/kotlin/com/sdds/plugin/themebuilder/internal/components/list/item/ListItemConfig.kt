@@ -25,6 +25,7 @@ internal data class ListItemProperties(
     val paddingTop: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingBottom: Dimension? = null,
+    val height: Dimension? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -41,6 +42,7 @@ internal data class ListItemProperties(
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
+            height = height ?: otherProps.height,
         )
     }
 }

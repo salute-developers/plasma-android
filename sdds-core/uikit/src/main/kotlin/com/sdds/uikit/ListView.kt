@@ -84,9 +84,9 @@ open class ListView @JvmOverloads constructor(
         ): Context {
             var themeOverlay = context
             context.withStyledAttributes(attrs, R.styleable.ListView, defStyleAttr, defStyleRes) {
-                val chipStyleOverlay = getResourceId(R.styleable.ListView_sd_listItemViewStyleOverlay, 0)
-                if (chipStyleOverlay != 0) {
-                    themeOverlay = ContextThemeWrapper(context, chipStyleOverlay)
+                val styleOverlay = getResourceId(R.styleable.ListView_sd_listItemViewStyleOverlay, 0)
+                if (styleOverlay != 0) {
+                    themeOverlay = ContextThemeWrapper(context, styleOverlay)
                 }
             }
             return themeOverlay

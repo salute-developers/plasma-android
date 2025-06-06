@@ -197,11 +197,6 @@ open class CellLayout @JvmOverloads constructor(
         super.addView(child, index, params)
     }
 
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        _disclosureView = null
-    }
-
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (DEBUG) {

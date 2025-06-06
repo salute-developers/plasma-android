@@ -92,6 +92,7 @@ internal class ListItemStyleGeneratorView(
         PADDING_END("android:paddingEnd", "padding_end"),
         PADDING_TOP("android:paddingTop", "padding_top"),
         PADDING_BOTTOM("android:paddingBottom", "padding_bottom"),
+        HEIGHT("android:minHeight", "min_height"),
         ;
 
         override fun provide(owner: ListItemProperties): Dimension? {
@@ -101,6 +102,7 @@ internal class ListItemStyleGeneratorView(
                 PADDING_END -> owner.paddingEnd
                 PADDING_TOP -> owner.paddingTop
                 PADDING_BOTTOM -> owner.paddingBottom
+                HEIGHT -> owner.height
             }?.copy(states = emptyList())
         }
     }

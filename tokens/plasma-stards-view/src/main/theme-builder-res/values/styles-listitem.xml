@@ -17,6 +17,7 @@
         <item name="android:paddingEnd">@dimen/sdkit_list_item_l_padding_end</item>
         <item name="android:paddingTop">@dimen/sdkit_list_item_l_padding_top</item>
         <item name="android:paddingBottom">@dimen/sdkit_list_item_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_list_item_l_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ListItemL">
         <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.L</item>
@@ -31,6 +32,7 @@
         <item name="android:paddingEnd">@dimen/sdkit_list_item_m_padding_end</item>
         <item name="android:paddingTop">@dimen/sdkit_list_item_m_padding_top</item>
         <item name="android:paddingBottom">@dimen/sdkit_list_item_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_list_item_m_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ListItemM">
         <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.M</item>
@@ -44,6 +46,7 @@
         <item name="android:paddingEnd">@dimen/sdkit_list_item_s_padding_end</item>
         <item name="android:paddingTop">@dimen/sdkit_list_item_s_padding_top</item>
         <item name="android:paddingBottom">@dimen/sdkit_list_item_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_list_item_s_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ListItemS">
         <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.S</item>
@@ -58,6 +61,7 @@
         <item name="android:paddingEnd">@dimen/sdkit_list_item_xs_padding_end</item>
         <item name="android:paddingTop">@dimen/sdkit_list_item_xs_padding_top</item>
         <item name="android:paddingBottom">@dimen/sdkit_list_item_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_list_item_xs_min_height</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.ListItemXs">
         <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.Xs</item>

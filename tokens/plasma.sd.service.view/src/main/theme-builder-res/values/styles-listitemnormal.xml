@@ -16,6 +16,7 @@
         <item name="android:paddingEnd">@dimen/plasma_list_item_normal_xl_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_list_item_normal_xl_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_list_item_normal_xl_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_list_item_normal_xl_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ListItemNormalXl">
         <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemNormal.Xl</item>
@@ -30,6 +31,7 @@
         <item name="android:paddingEnd">@dimen/plasma_list_item_normal_l_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_list_item_normal_l_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_list_item_normal_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_list_item_normal_l_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ListItemNormalL">
         <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemNormal.L</item>
@@ -43,6 +45,7 @@
         <item name="android:paddingEnd">@dimen/plasma_list_item_normal_m_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_list_item_normal_m_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_list_item_normal_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_list_item_normal_m_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ListItemNormalM">
         <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemNormal.M</item>
@@ -57,6 +60,7 @@
         <item name="android:paddingEnd">@dimen/plasma_list_item_normal_s_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_list_item_normal_s_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_list_item_normal_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_list_item_normal_s_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ListItemNormalS">
         <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemNormal.S</item>
@@ -70,6 +74,7 @@
         <item name="android:paddingEnd">@dimen/plasma_list_item_normal_xs_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_list_item_normal_xs_padding_top</item>
         <item name="android:paddingBottom">@dimen/plasma_list_item_normal_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_list_item_normal_xs_min_height</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.ListItemNormalXs">
         <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemNormal.Xs</item>
