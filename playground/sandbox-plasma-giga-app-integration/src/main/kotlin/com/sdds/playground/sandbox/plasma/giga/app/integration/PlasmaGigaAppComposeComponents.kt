@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.group.Pl
 import com.sdds.playground.sandbox.plasma.giga.app.integration.rectskeleton.PlasmaGigaAppRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.PlasmaGigaAppSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.item.PlasmaGigaAppSegmentItemVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.spinner.PlasmaGigaAppSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.switcher.PlasmaGigaAppSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.PlasmaGigaAppTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.clear.PlasmaGigaAppTextAreaClearVariationsCompose
@@ -233,6 +234,10 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 PlasmaGigaAppRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Spinner,
+                PlasmaGigaAppSpinnerVariationsCompose,
             ),
         ).associateBy { it.key }
 }
