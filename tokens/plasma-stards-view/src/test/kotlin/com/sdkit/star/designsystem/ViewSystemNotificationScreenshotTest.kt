@@ -27,7 +27,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationCompactLTopStartHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -41,7 +41,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationCompactMTopCenterHasCloseFocusable(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactM)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -55,7 +55,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationCompactSTopEnd(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactS)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -69,7 +69,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationCompactLCenterStartHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -83,7 +83,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationLooseLCenterHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -97,7 +97,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationLooseMCenterEndHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -111,7 +111,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationLooseSBottomStart(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -125,7 +125,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationLooseBottomCenterHasCloseFocusable(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -139,7 +139,7 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
             notificationLooseLBottomEndHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 }

@@ -29,7 +29,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationCompactLTopStartHasClose(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -43,7 +43,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationCompactMTopCenterHasCloseFocusable(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactM)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -57,7 +57,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationCompactSTopEnd(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactS)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -71,7 +71,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationCompactLCenterStartHasClose(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -85,7 +85,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationLooseLCenterHasClose(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -99,7 +99,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationLooseMCenterEndHasClose(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -113,7 +113,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationLooseSBottomStart(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -127,7 +127,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationLooseBottomCenterHasCloseFocusable(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -141,7 +141,7 @@ class ViewSystemNotificationScreenshotTest(
             notificationLooseLBottomEndHasClose(R.style.Serv_Sdds_ComponentOverlays_NotificationCompactL)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 }
