@@ -289,6 +289,22 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет атрибут со значением иконки
+     */
+    protected fun Element.iconAttribute(
+        attributeName: String,
+        iconName: String,
+    ) = with(xmlResourceBuilder) {
+        val resourceRef = "ic_${iconName.replace('.', '_')}"
+        this@iconAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = resourceReferenceProvider.drawable(resourceRef, false),
+            usePrefix = false,
+        )
+    }
+
+    /**
      * Добавляет атрибут со значением вида @style/ComponentOverlays.styleName, где [styleName] - стиль компонента
      */
     protected fun Element.componentOverlayAttribute(

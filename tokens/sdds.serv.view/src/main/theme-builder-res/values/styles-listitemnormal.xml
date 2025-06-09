@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.ListItemNormal" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/serv_list_item_normal_bg_color</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_disclosureColor">?serv_textDefaultSecondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListItemNormal.Xl">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/serv_list_item_normal_xl_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_list_item_normal_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_list_item_normal_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_list_item_normal_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_list_item_normal_xl_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_list_item_normal_xl_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListItemNormalXl">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItemNormal.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListItemNormal.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_list_item_normal_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/serv_list_item_normal_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_list_item_normal_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_list_item_normal_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_list_item_normal_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_list_item_normal_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_list_item_normal_l_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListItemNormalL">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItemNormal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListItemNormal.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/serv_list_item_normal_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_list_item_normal_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_list_item_normal_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_list_item_normal_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_list_item_normal_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_list_item_normal_m_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListItemNormalM">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItemNormal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListItemNormal.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_list_item_normal_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/serv_list_item_normal_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_list_item_normal_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_list_item_normal_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_list_item_normal_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_list_item_normal_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_list_item_normal_s_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListItemNormalS">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItemNormal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListItemNormal.Xs">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/serv_list_item_normal_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_list_item_normal_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_list_item_normal_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_list_item_normal_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_list_item_normal_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_list_item_normal_xs_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListItemNormalXs">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItemNormal.Xs</item>
+    </style>
+</resources>

@@ -164,6 +164,7 @@ data class ComponentKey(
         val Notification = ComponentKey("Notification", CoreComponent.NOTIFICATION)
         val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
         val Spinner = ComponentKey("Spinner", CoreComponent.SPINNER)
+        val List = ComponentKey("List", CoreComponent.LIST)
     }
 }
 
@@ -224,4 +225,5 @@ enum class CoreComponent {
     NOTIFICATION,
     RECT_SKELETON,
     SPINNER,
+    LIST,
 }

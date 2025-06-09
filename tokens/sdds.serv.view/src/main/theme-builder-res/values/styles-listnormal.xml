@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.ListNormal" parent="Sdds.Components.List"/>
+    <style name="Serv.Sdds.Components.ListNormal.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemNormalXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListNormalXl">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListNormal.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListNormal.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemNormalL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListNormalL">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListNormal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListNormal.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemNormalM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListNormalM">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListNormal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListNormal.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemNormalS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListNormalS">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListNormal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.ListNormal.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItemNormalXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ListNormalXs">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListNormal.Xs</item>
+    </style>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.ListTight" parent="Sdds.Components.List"/>
+    <style name="Plasma.SdService.Components.ListTight.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemTightXl</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListTightXl">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListTight.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListTight.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemTightL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListTightL">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListTight.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListTight.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemTightM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListTightM">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListTight.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListTight.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemTightS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListTightS">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListTight.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListTight.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemTightXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListTightXs">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListTight.Xs</item>
+    </style>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.Components.List" parent="Sdds.Components.List">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.ListItem</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.List">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.List</item>
+    </style>
+
+
+    <style name="Serv.Sdds.Components.ListItem" parent="Sdds.Components.ListItem">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">17dp</item>
+        <item name="android:paddingBottom">17dp</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_disclosureColor">?serv_textDefaultSecondary</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ListItem">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItem</item>
+    </style>
+</resources>

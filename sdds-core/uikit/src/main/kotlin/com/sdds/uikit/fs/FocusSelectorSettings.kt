@@ -60,7 +60,7 @@ data class FocusSelectorSettings(
                 attributeSet,
                 R.styleable.SdFocusSelector,
                 defStyleAttr,
-                0,
+                defStyleRes,
             ).use { attr ->
                 val fallbackFsMode = FocusSelectorMode.fromAttr(attr)
                 val isFsEnabled = attr.getBoolean(R.styleable.SdFocusSelector_sd_fsEnabled, fallbackFsMode.isEnabled())

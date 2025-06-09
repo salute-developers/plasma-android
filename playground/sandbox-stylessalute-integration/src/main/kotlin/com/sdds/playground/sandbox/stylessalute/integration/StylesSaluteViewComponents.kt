@@ -25,6 +25,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListNormalVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListTightVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationCompactVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationLooseVariationsView
@@ -132,6 +134,14 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Indicator,
                 StylesSaluteIndicatorVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                StylesSaluteListNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                StylesSaluteListTightVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Modal,

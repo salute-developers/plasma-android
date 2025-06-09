@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.ListNormal" parent="Sdds.Components.List"/>
+    <style name="Plasma.SdService.Components.ListNormal.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemNormalXl</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListNormalXl">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListNormal.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListNormal.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemNormalL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListNormalL">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListNormal.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListNormal.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemNormalM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListNormalM">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListNormal.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListNormal.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemNormalS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListNormalS">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListNormal.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.ListNormal.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ListItemNormalXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.ListNormalXs">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListNormal.Xs</item>
+    </style>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.ListTight" parent="Sdds.Components.List"/>
+    <style name="Salute.StylesSalute.Components.ListTight.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemTightXl</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListTightXl">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListTight.Xl</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListTight.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemTightL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListTightL">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListTight.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListTight.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemTightM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListTightM">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListTight.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListTight.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemTightS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListTightS">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListTight.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListTight.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemTightXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListTightXs">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListTight.Xs</item>
+    </style>
+</resources>
