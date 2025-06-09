@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StyleRes
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
@@ -532,6 +533,10 @@ open class CellLayout @JvmOverloads constructor(
                     setIconTintList(_disclosureColor)
                     state = ViewState.SECONDARY
                 }
+                is DisclosureView -> {
+                    setTextAppearance(_disclosureTextAppearance)
+                    setColor(_disclosureColor)
+                }
             }
         }
     }
@@ -539,7 +544,7 @@ open class CellLayout @JvmOverloads constructor(
     private fun resetDisclosure() {
         if (!_disclosureText.isNullOrBlank() || _disclosureIcon != null) {
             var needAddView = false
-            val view = _disclosureView ?: TextView(context).also {
+            val view = _disclosureView ?: DisclosureView(context).also {
                 _disclosureView = it
                 needAddView = true
             }
@@ -552,6 +557,10 @@ open class CellLayout @JvmOverloads constructor(
                         _disclosureIcon,
                         null,
                     )
+                    gravity = Gravity.CENTER_VERTICAL
+                }
+                if (this is DisclosureView) {
+                    setDisclosure(disclosureText, disclosureIcon)
                     gravity = Gravity.CENTER_VERTICAL
                 }
                 isVisible = disclosureEnabled
@@ -569,6 +578,38 @@ open class CellLayout @JvmOverloads constructor(
             }
         }
         _disclosureView?.isVisible = disclosureEnabled
+    }
+
+    private class DisclosureView(context: Context) : LinearLayout(context) {
+        private val disclosureText: TextView = TextView(context).apply {
+            state = ViewState.SECONDARY
+        }
+        private val disclosureIcon: ImageView = ImageView(context).apply {
+            state = ViewState.SECONDARY
+        }
+
+        init {
+            orientation = HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            addView(disclosureText)
+            addView(disclosureIcon)
+        }
+
+        fun setDisclosure(text: CharSequence?, icon: Drawable?) {
+            disclosureText.text = text
+            disclosureText.isVisible = !text.isNullOrBlank()
+            disclosureIcon.setImageDrawable(icon)
+            disclosureIcon.isVisible = icon != null
+        }
+
+        fun setTextAppearance(@StyleRes resId: Int) {
+            disclosureText.setTextAppearance(resId)
+        }
+
+        fun setColor(color: ColorStateList?) {
+            color?.let { disclosureText.setTextColor(it) }
+            disclosureIcon.imageTintList = color
+        }
     }
 
     /**
