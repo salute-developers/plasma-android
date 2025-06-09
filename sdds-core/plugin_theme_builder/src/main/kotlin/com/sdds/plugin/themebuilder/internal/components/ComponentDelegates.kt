@@ -26,6 +26,7 @@ import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxG
 import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
@@ -71,5 +72,6 @@ internal val componentDelegates by unsafeLazy {
         "modal" to ModalConfigDelegate(),
         "notification" to NotificationConfigDelegate(),
         "rect-skeleton" to RectSkeletonConfigDelegate(),
+        "spinner" to SpinnerConfigDelegate(),
     )
 }

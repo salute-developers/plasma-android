@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServ
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
@@ -233,6 +234,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 SddsServRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Spinner,
+                SddsServSpinnerVariationsCompose,
             ),
         ).associateBy { it.key }
 }

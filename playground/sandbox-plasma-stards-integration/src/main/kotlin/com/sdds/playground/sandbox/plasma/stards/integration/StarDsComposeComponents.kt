@@ -32,6 +32,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadi
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.StarDsTextAreaClearVariationsCompose
@@ -178,6 +179,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 StarDsNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Spinner,
+                StarDsSpinnerVariationsCompose,
             ),
         ).associateBy { it.key }
 }
