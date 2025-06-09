@@ -27,6 +27,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListNormalVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListTightVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationLooseVariationsCompose
@@ -208,6 +210,14 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 StylesSaluteRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                StylesSaluteListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                StylesSaluteListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }

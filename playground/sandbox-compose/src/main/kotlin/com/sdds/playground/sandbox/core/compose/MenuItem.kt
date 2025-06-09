@@ -21,6 +21,7 @@ import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
+import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
 import com.sdds.playground.sandbox.notification.compose.NotificationScreen
 import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
@@ -97,6 +98,7 @@ internal sealed class ComponentScreen(
     object Notification : ComponentScreen({ NotificationScreen(it) })
     object RectSkeleton : ComponentScreen({ RectSkeletonScreen(it) })
     object Spinner : ComponentScreen({ SpinnerScreen(it) })
+    object List : ComponentScreen({ ListScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -138,6 +140,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         CoreComponent.SPINNER -> ComponentScreen.Spinner
+        CoreComponent.LIST -> ComponentScreen.List
         else -> ComponentScreen.Empty
     }
 }

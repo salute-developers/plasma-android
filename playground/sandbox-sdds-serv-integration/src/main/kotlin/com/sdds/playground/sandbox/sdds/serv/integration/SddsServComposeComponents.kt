@@ -31,6 +31,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsCompose
@@ -238,6 +240,14 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Spinner,
                 SddsServSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                SddsServListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                SddsServListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }
