@@ -31,7 +31,13 @@ open class Switch @JvmOverloads constructor(
 ) : CompoundButton(context, attrs, defStyleAttr, defStyleRes) {
 
     @Suppress("LeakingThis")
-    private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr, defStyleRes)
+    private val _checkableDelegate: CheckableDelegate = CheckableDelegate(
+        compoundButton = this,
+        attrs = attrs,
+        defStyleAttrs = defStyleAttr,
+        defStyleRes = defStyleRes,
+        descriptionLayoutMode = CheckableDelegate.DescriptionLayoutMode.FullWidth,
+    )
     private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
     private var _buttonDrawable: SwitchDrawable? = null
     private var _offsetY = 0f

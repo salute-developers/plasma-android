@@ -121,6 +121,8 @@ private class BaseSwitchMeasurePolicy(
                 labelConstraints.maxHeight,
                 label?.let { verticalSpacing - it.height }.orZero(),
             ),
+            minWidth = 0,
+            maxWidth = switchConstraints.maxWidth,
         )
 
         val description = measurables
@@ -140,13 +142,14 @@ private class BaseSwitchMeasurePolicy(
             description != null -> descriptionY + description.height
             else -> 0
         }
-        val textEnd = if (label != null || description != null) {
-            max(label?.width.orZero(), description?.width.orZero()) + horizontalSpacing
+        val labelEnd = if (label != null) {
+            label.width + horizontalSpacing
         } else {
             0
         }
+        val descriptionEnd = description?.width.orZero()
 
-        val desiredWidth = textEnd + switch.width
+        val desiredWidth = max(labelEnd + switch.width, descriptionEnd)
         val desiredHeight = max(switch.height, textBottom)
         val constrainedWidth = constraints.constrainWidth(desiredWidth)
         val constrainedHeight = constraints.constrainHeight(desiredHeight)

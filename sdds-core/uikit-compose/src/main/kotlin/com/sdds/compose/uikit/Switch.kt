@@ -237,6 +237,6 @@ private fun SwitchPreview() {
             .toggleThumbShape(RoundedCornerShape(25))
             .toggleTrackShape(RoundedCornerShape(25))
             .style(),
-        description = "Description",
+        description = "Description is long enough",
     )
 }
