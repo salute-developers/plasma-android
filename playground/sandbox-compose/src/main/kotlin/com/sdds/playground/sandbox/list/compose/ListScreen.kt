@@ -12,6 +12,7 @@ import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.compose.uikit.List
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
@@ -24,7 +25,7 @@ internal fun ListScreen(componentKey: ComponentKey = ComponentKey.List) {
             key = componentKey.toString(),
         ),
         component = { uiState, style ->
-            com.sdds.compose.uikit.List(
+            List(
                 style = style,
             ) {
                 items(uiState.amount) {
