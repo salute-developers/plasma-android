@@ -1,0 +1,41 @@
+package com.sdds.testing.compose.list
+
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import com.sdds.compose.uikit.ListItem
+import com.sdds.compose.uikit.ListStyle
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
+
+/**
+ * Тест кейсы для List
+ */
+
+/**
+ * Preview для меню песочницы
+ */
+@Composable
+fun ListForSandbox(style: ListStyle) {
+    com.sdds.compose.uikit.List(
+        style = style,
+    ) {
+        items(3) {
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            ListItem(
+                modifier = Modifier
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                title = "Title $it",
+                disclosureEnabled = true,
+                interactionSource = interactionSource,
+            )
+        }
+    }
+}

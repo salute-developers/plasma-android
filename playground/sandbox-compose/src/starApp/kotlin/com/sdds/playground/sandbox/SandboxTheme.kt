@@ -23,14 +23,15 @@ import com.sdds.playground.sandbox.core.compose.PropertiesListStyle
 import com.sdds.playground.sandbox.core.compose.PropertyEditorStyle
 import com.sdds.playground.sandbox.core.compose.SandboxStyle
 import com.sdds.playground.sandbox.core.compose.TopBarStyle
-import com.sdkit.star.designsystem.styles.basicbutton.BasicButton
-import com.sdkit.star.designsystem.styles.basicbutton.M
 import com.sdkit.star.designsystem.styles.iconbutton.IconButton
 import com.sdkit.star.designsystem.styles.iconbutton.M
 import com.sdkit.star.designsystem.styles.iconbutton.Pilled
 import com.sdkit.star.designsystem.styles.iconbutton.Xs
 import com.sdkit.star.designsystem.styles.switcher.M
 import com.sdkit.star.designsystem.styles.switcher.Switch
+import com.sdkit.star.designsystem.styles.textfield.InnerLabel
+import com.sdkit.star.designsystem.styles.textfield.S
+import com.sdkit.star.designsystem.styles.textfield.TextField
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import com.sdkit.star.designsystem.theme.darkStarDsColors
 import com.sdkit.star.designsystem.theme.darkStarDsGradients
@@ -80,17 +81,29 @@ fun SandboxTheme(
                     sheetShape = StarDsTheme.shapes.roundS.copy(CornerSize(0.dp), CornerSize(0.dp)),
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
-                    itemTextStyle = StarDsTheme.typography.bodyMBold,
+                    itemTextStyle = StarDsTheme.typography.bodyXsNormal,
                     itemTextColor = colorScheme.textDefaultPrimary.asInteractive(
                         focused = colorScheme.textInversePrimary,
                     ),
                     itemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
-                        focused = StarDsTheme.colors.surfaceDefaultSolidDefault,
+                        focused = colorScheme.surfaceDefaultSolidDefault,
+                        selected = colorScheme.surfaceDefaultSolidSecondary,
                     ),
+                    itemHeight = 24.dp,
+                    itemPaddings = 6.dp,
+                    menuBackground = colorScheme.surfaceDefaultSolidCard,
+                    menuShape = StarDsTheme.shapes.roundL,
+                    menuWidth = 240.dp,
+                    headerHeight = 72.dp,
+                    headerTextStyle = StarDsTheme.typography.bodyXsBold,
+                    headerTextColor = colorScheme.textDefaultPrimary,
+                    selectedShape = StarDsTheme.shapes.roundXs,
                 ),
                 LocalTopBarStyle provides TopBarStyle.create(
                     titleStyle = StarDsTheme.typography.bodyMBold,
-                    titleColor = colorScheme.textDefaultPrimary,
+                    titleColor = colorScheme.textDefaultPrimary.asInteractive(
+                        focused = colorScheme.textInversePrimary,
+                    ),
                     backgroundColor = colorScheme.surfaceDefaultClear,
                     contentColor = colorScheme.textDefaultPrimary,
                     navigationButtonStyle = IconButton.M.Pilled.style(),
@@ -98,9 +111,36 @@ fun SandboxTheme(
                 ),
                 LocalPropertiesListStyle provides defaultPropertiesListStyle(),
                 LocalPropertyEditorStyle provides PropertyEditorStyle.create(
-                    labelTextStyle = StarDsTheme.typography.headerH3Bold,
+                    headerHeight = 72.dp,
+                    shape = StarDsTheme.shapes.roundM,
+                    labelTextStyle = StarDsTheme.typography.bodyXsNormal,
                     labelTextColor = colorScheme.textDefaultPrimary,
-                    confirmButtonStyle = BasicButton.M.style(),
+                    editorItemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                        focused = colorScheme.surfaceDefaultSolidDefault,
+                        selected = colorScheme.surfaceDefaultSolidSecondary,
+                    ),
+                    editorItemShape = StarDsTheme.shapes.roundXs,
+                    editorItemPadding = 6.dp,
+                    editorItemHeight = 24.dp,
+                    textEditorStyle = TextField.S.InnerLabel.builder
+                        .labelStyle(StarDsTheme.typography.bodyXsNormal)
+                        .valueStyle(StarDsTheme.typography.bodyLNormal)
+                        .dimensions {
+                            boxPaddingStart(6.dp)
+                        }
+                        .colors {
+                            labelColor(colorScheme.textDefaultSecondary)
+                            valueColor(colorScheme.textDefaultPrimary)
+                            backgroundColor(androidx.compose.ui.graphics.Color.Transparent)
+                            dividerColor(androidx.compose.ui.graphics.Color.Transparent)
+                        }.style(),
+                    backgroundColor = colorScheme.surfaceDefaultSolidCard,
+                    editorItemTextStyle = StarDsTheme.typography.bodyXsNormal,
+                    editorItemTextColor = colorScheme.textDefaultPrimary.asInteractive(
+                        focused = colorScheme.textInverseSecondary,
+                    ),
+                    choiceEditorTextColor = colorScheme.textDefaultSecondary,
+                    spacing = 14.dp,
                 ),
                 content = content,
             )
@@ -116,25 +156,33 @@ private fun defaultPropertiesListStyle(): PropertiesListStyle =
         borderColor = StarDsTheme.colors.surfaceDefaultSolidTertiary,
         backgroundColor = StarDsTheme.colors.surfaceDefaultSolidCard,
         headerBackgroundColor = StarDsTheme.colors.surfaceDefaultSolidSecondary,
-        headerHeight = 56.dp,
+        headerHeight = 72.dp,
         headerPaddings = PaddingValues(16.dp),
-        headerTextStyle = StarDsTheme.typography.bodyMBold,
-        headerTextColor = StarDsTheme.colors.textDefaultSecondary,
-        propertyLabelTextStyle = StarDsTheme.typography.bodyMBold,
-        propertyLabelTextColor = StarDsTheme.colors.textDefaultPrimary.asInteractive(
-            focused = StarDsTheme.colors.textInversePrimary,
-        ),
-        propertyValueTextStyle = StarDsTheme.typography.bodyMBold,
-        propertyValueTextColor = StarDsTheme.colors.textDefaultSecondary.asInteractive(
+        headerTextStyle = StarDsTheme.typography.bodyXsBold,
+        headerTextColor = StarDsTheme.colors.textDefaultPrimary,
+        headerDescriptionTextColor = StarDsTheme.colors.textDefaultSecondary,
+        propertyLabelTextStyle = StarDsTheme.typography.bodyXsNormal,
+        propertyLabelTextColor = StarDsTheme.colors.textDefaultSecondary.asInteractive(
             focused = StarDsTheme.colors.textInverseSecondary,
+        ),
+        propertyValueTextStyle = StarDsTheme.typography.bodyXsNormal,
+        propertyValueTextColor = StarDsTheme.colors.textDefaultPrimary.asInteractive(
+            focused = StarDsTheme.colors.textInversePrimary,
         ),
         propertyBackgroundColor = ComposeUiGraphicsColor.Transparent.asInteractive(
             focused = StarDsTheme.colors.surfaceDefaultSolidDefault,
         ),
-        propertyPaddings = PaddingValues(8.dp),
-        propertySwitchStyle = Switch.M.style(),
-        propertyHeight = 56.dp,
+        propertyPaddings = 6.dp,
+        spaceBetweenProperties = 14.dp,
+        propertySwitchStyle = Switch.M.builder.dimensionValues {
+            toggleTrackWidth(32.dp)
+            toggleTrackHeight(20.dp)
+            toggleThumbWidth(16.dp)
+            toggleThumbHeight(16.dp)
+        }.style(),
+        propertyHeight = 24.dp,
+        propertyItemShape = StarDsTheme.shapes.roundXs,
         dividerWidth = 1.dp,
         dividerColor = StarDsTheme.colors.surfaceDefaultSolidSecondary,
-        resetButtonStyle = IconButton.Xs.Pilled.style(),
+        resetButtonStyle = IconButton.Xs.style(),
     )

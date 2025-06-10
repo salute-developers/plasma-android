@@ -54,6 +54,7 @@ import com.sdds.serv.styles.basicbutton.M
 import com.sdds.serv.styles.bottomsheet.Default
 import com.sdds.serv.styles.bottomsheet.ModalBottomSheet
 import com.sdds.serv.styles.card.CardSolid
+import com.sdds.serv.styles.card.L
 import com.sdds.serv.styles.card.M
 import com.sdds.serv.styles.cell.Cell
 import com.sdds.serv.styles.cell.M
@@ -81,9 +82,13 @@ import com.sdds.serv.styles.segmentitem.Primary
 import com.sdds.serv.styles.segmentitem.SegmentItem
 import com.sdds.serv.styles.switcher.M
 import com.sdds.serv.styles.switcher.Switch
+import com.sdds.serv.styles.switcher.ToggleS
 import com.sdds.serv.styles.textfield.Default
+import com.sdds.serv.styles.textfield.InnerLabel
+import com.sdds.serv.styles.textfield.L
 import com.sdds.serv.styles.textfield.M
 import com.sdds.serv.styles.textfield.OuterLabel
+import com.sdds.serv.styles.textfield.S
 import com.sdds.serv.styles.textfield.TextField
 import com.sdds.serv.theme.SddsServTheme
 import com.sdds.serv.theme.darkSddsServColors
@@ -174,20 +179,62 @@ fun SandboxTheme(
                             colorScheme.surfaceDefaultTransparentSecondary
                         },
                     ),
+                    itemCard = CardSolid.L.builder
+                        .colors {
+                            backgroundColor(colorScheme.surfaceDefaultSolidCard)
+                        }
+                        .style(),
+                    headerTextColor = colorScheme.textDefaultPrimary,
+                    headerTextStyle = SddsServTheme.typography.bodyMBold,
                 ),
                 LocalTopBarStyle provides TopBarStyle.create(
                     titleStyle = SddsServTheme.typography.bodyMBold,
-                    titleColor = colorScheme.textDefaultPrimary,
-                    backgroundColor = colorScheme.surfaceDefaultSolidPrimary,
+                    dropItemTextStyle = SddsServTheme.typography.bodyMNormal,
+                    titleColor = colorScheme.textDefaultPrimary.asInteractive(
+                        focused = colorScheme.textInversePrimary,
+                    ),
+                    backgroundColor = colorScheme.surfaceDefaultSolidCard,
                     contentColor = colorScheme.textDefaultPrimary,
                     navigationButtonStyle = IconButton.M.Pilled.Clear.style(),
                     actionButtonStyle = IconButton.M.Pilled.Clear.style(),
+                    shapeDropDown = SddsServTheme.shapes.roundXxs,
+                    dropItemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                        focused = colorScheme.surfaceDefaultSolidDefault,
+                        selected = colorScheme.surfaceDefaultSolidSecondary,
+                    ),
                 ),
                 LocalPropertiesListStyle provides defaultPropertiesListStyle(darkTheme),
                 LocalPropertyEditorStyle provides PropertyEditorStyle.create(
-                    labelTextStyle = SddsServTheme.typography.headerH3Bold,
+                    headerHeight = 74.dp,
+                    shape = SddsServTheme.shapes.roundM,
+                    labelTextStyle = SddsServTheme.typography.bodyMBold,
                     labelTextColor = colorScheme.textDefaultPrimary,
-                    confirmButtonStyle = BasicButton.M.Default.style(),
+                    editorItemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                        focused = colorScheme.surfaceDefaultSolidDefault,
+                        selected = colorScheme.surfaceDefaultSolidSecondary,
+                    ),
+                    editorItemShape = SddsServTheme.shapes.roundXs,
+                    editorItemPadding = 6.dp,
+                    editorItemHeight = 24.dp,
+                    textEditorStyle = TextField.S.InnerLabel.builder
+                        .labelStyle(SddsServTheme.typography.bodyXsNormal)
+                        .valueStyle(SddsServTheme.typography.bodyLNormal)
+                        .dimensions {
+                            boxPaddingStart(6.dp)
+                        }
+                        .colors {
+                            labelColor(colorScheme.textDefaultSecondary)
+                            valueColor(colorScheme.textDefaultPrimary)
+                            backgroundColor(androidx.compose.ui.graphics.Color.Transparent)
+                            dividerColor(androidx.compose.ui.graphics.Color.Transparent)
+                        }.style(),
+                    backgroundColor = colorScheme.surfaceDefaultSolidCard,
+                    editorItemTextStyle = SddsServTheme.typography.bodyMNormal,
+                    editorItemTextColor = colorScheme.textDefaultPrimary.asInteractive(
+                        focused = colorScheme.textInversePrimary,
+                    ),
+                    choiceEditorTextColor = colorScheme.textDefaultSecondary,
+                    spacing = 14.dp,
                 ),
                 content = content,
             )
@@ -205,20 +252,21 @@ private fun defaultPropertiesListStyle(
         borderColor = SddsServTheme.colors.surfaceDefaultSolidTertiary,
         backgroundColor = SddsServTheme.colors.surfaceDefaultSolidCard,
         headerBackgroundColor = SddsServTheme.colors.surfaceDefaultSolidSecondary,
-        headerHeight = 56.dp,
+        headerHeight = 74.dp,
         headerPaddings = PaddingValues(16.dp),
         headerTextStyle = SddsServTheme.typography.bodyMBold,
-        headerTextColor = SddsServTheme.colors.textDefaultSecondary,
-        propertyLabelTextStyle = SddsServTheme.typography.bodyMBold,
-        propertyLabelTextColor = SddsServTheme.colors.textDefaultPrimary.asInteractive(
+        headerTextColor = SddsServTheme.colors.textDefaultPrimary,
+        headerDescriptionTextColor = SddsServTheme.colors.textDefaultSecondary,
+        propertyLabelTextStyle = SddsServTheme.typography.bodyMNormal,
+        propertyValueTextColor = SddsServTheme.colors.textDefaultPrimary.asInteractive(
             focused = if (darkTheme) {
                 SddsServTheme.colors.textInversePrimary
             } else {
                 SddsServTheme.colors.textDefaultPrimary
             },
         ),
-        propertyValueTextStyle = SddsServTheme.typography.bodyMBold,
-        propertyValueTextColor = SddsServTheme.colors.textDefaultSecondary.asInteractive(
+        propertyValueTextStyle = SddsServTheme.typography.bodyMNormal,
+        propertyLabelTextColor = SddsServTheme.colors.textDefaultSecondary.asInteractive(
             focused = if (darkTheme) {
                 SddsServTheme.colors.textInverseSecondary
             } else {
@@ -232,9 +280,11 @@ private fun defaultPropertiesListStyle(
                 SddsServTheme.colors.surfaceDefaultTransparentSecondary
             },
         ),
-        propertyPaddings = PaddingValues(8.dp),
-        propertySwitchStyle = Switch.M.style(),
-        propertyHeight = 56.dp,
+        propertyPaddings = 6.dp,
+        spaceBetweenProperties = 14.dp,
+        propertySwitchStyle = Switch.M.ToggleS.style(),
+        propertyItemShape = SddsServTheme.shapes.roundXs,
+        propertyHeight = 24.dp,
         dividerWidth = 1.dp,
         dividerColor = SddsServTheme.colors.surfaceDefaultSolidSecondary,
         resetButtonStyle = IconButton.Xs.Pilled.Clear.style(),
