@@ -2,6 +2,7 @@ package com.sdds.testing.vs.list
 
 import android.content.Context
 import androidx.annotation.StyleRes
+import com.sdds.testing.R
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.ListItem
 import com.sdds.uikit.ListView
@@ -23,6 +24,7 @@ fun listView(
             adapter = SimpleListViewAdapter()
         }
         .applyState(state)
+        .apply { id = R.id.list_view }
 }
 
 /**
