@@ -11,7 +11,7 @@ import com.sdds.testing.vs.UiState
  */
 data class ListUiState(
     override val variant: String = "",
-    val amount: Int = 3,
+    val amount: Int = 15,
     val itemTitle: String = "Title",
     val hasDisclosure: Boolean = true,
 ) : UiState {

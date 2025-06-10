@@ -1,13 +1,17 @@
 package com.sdds.playground.sandbox.list.vs
 
 import android.view.ContextThemeWrapper
+import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
+import androidx.core.view.updateMargins
+import androidx.core.view.updateMarginsRelative
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.list.ListUiState
 import com.sdds.testing.vs.list.applyState
 import com.sdds.testing.vs.list.listView
 import com.sdds.uikit.ListView
+import com.sdds.uikit.dp
 
 internal class ListFragment : ComponentFragment<ListUiState, ListView, ListViewModel>() {
 
@@ -20,7 +24,8 @@ internal class ListFragment : ComponentFragment<ListUiState, ListView, ListViewM
 
     override val defaultLayoutParams: FrameLayout.LayoutParams
         get() = super.defaultLayoutParams.apply {
-            width = resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_108x)
+            width = LayoutParams.MATCH_PARENT
+            updateMarginsRelative(end = 20.dp, start = 20.dp)
         }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): ListView {
