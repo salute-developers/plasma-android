@@ -6,8 +6,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
@@ -46,22 +47,24 @@ internal fun BaseCell(
             modifier = modifier,
             verticalAlignment = gravity.toVerticalAlignment(),
         ) {
-            startContent?.let { startContent() }
+            startContent?.let {
+                startContent()
+                Spacer(Modifier.width(style.dimensions.contentPaddingStart))
+            }
             centerContent?.let {
                 Column(
                     modifier = Modifier
                         .weight(1f, fill = false)
-                        .fillMaxWidth()
-                        .padding(
-                            start = style.dimensions.contentPaddingStart,
-                            end = style.dimensions.contentPaddingEnd,
-                        ),
+                        .fillMaxWidth(),
                     horizontalAlignment = Alignment.Start,
                 ) {
                     centerContent()
                 }
             }
-            endContent?.let { endContent() }
+            endContent?.let {
+                Spacer(Modifier.width(style.dimensions.contentPaddingEnd))
+                endContent()
+            }
             if (disclosureEnabled && disclosureContent != null) { disclosureContent() }
         }
     }

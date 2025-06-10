@@ -31,6 +31,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.Plas
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.list.PlasmaGigaListNormalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.list.PlasmaGigaListTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.modal.PlasmaGigaModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.notification.PlasmaGigaNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.notification.PlasmaGigaNotificationLooseVariationsCompose
@@ -238,6 +240,14 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Spinner,
                 PlasmaGigaSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                PlasmaGigaListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                PlasmaGigaListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }

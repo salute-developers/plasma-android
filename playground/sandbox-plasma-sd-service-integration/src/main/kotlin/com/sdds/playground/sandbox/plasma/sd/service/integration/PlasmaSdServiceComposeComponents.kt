@@ -31,6 +31,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsCompose
@@ -238,6 +240,14 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Spinner,
                 PlasmaSdServiceSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                PlasmaSdServiceListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                PlasmaSdServiceListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }
