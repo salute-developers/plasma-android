@@ -295,6 +295,7 @@ private fun PropertiesHeader(
     onResetClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val interactionSource = remember { MutableInteractionSource() }
     Row(
         modifier = modifier
             .height(style.headerHeight)
@@ -319,8 +320,13 @@ private fun PropertiesHeader(
             )
         }
         IconButton(
+            modifier = Modifier
+                .focusableItem(
+                    interactionSource = interactionSource,
+                ),
             style = style.resetButtonStyle,
             icon = painterResource(id = Icons.ic_reset_outline_16),
+            interactionSource = interactionSource,
             onClick = onResetClicked,
         )
     }

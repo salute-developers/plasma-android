@@ -98,7 +98,6 @@ internal fun NavigationViewTv(
     title: String,
     modifier: Modifier = Modifier,
     focusable: Boolean = false,
-    onFocusChanged: (Boolean) -> Unit = {},
     style: NavigationViewStyle = LocalNavigationViewStyle.current,
 ) {
     var currentIndex by remember { mutableIntStateOf(0) }
@@ -134,7 +133,6 @@ internal fun NavigationViewTv(
                     style = style,
                     focusable = focusable,
                     isSelected = index == currentIndex,
-                    onFocusChanged = onFocusChanged,
                     onClick = {
                         currentIndex = index
                         onSelect(menuItem)
@@ -152,7 +150,6 @@ private fun NavigationItemTv(
     isSelected: Boolean = false,
     focusable: Boolean = false,
     focusRequester: FocusRequester? = null,
-    onFocusChanged: (Boolean) -> Unit = {},
     onClick: () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -166,7 +163,6 @@ private fun NavigationItemTv(
                 enabled = focusable,
                 focusRequester = focusRequester,
                 interactionSource = interactionSource,
-                onFocusChanged = { focusState -> onFocusChanged(focusState.isFocused) },
             )
             .selection(
                 selected = isSelected,

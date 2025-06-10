@@ -15,15 +15,25 @@ import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.IndicatorStyle
+import com.sdds.compose.uikit.ListStyle
+import com.sdds.compose.uikit.ModalBottomSheetStyle
+import com.sdds.compose.uikit.ModalStyle
+import com.sdds.compose.uikit.NotificationStyle
+import com.sdds.compose.uikit.OverlayStyle
+import com.sdds.compose.uikit.PopoverStyle
 import com.sdds.compose.uikit.ProgressBarStyle
-import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.RectSkeletonStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.ToastStyle
+import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.style.Style
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
@@ -61,10 +71,16 @@ import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.toast.compose.ToastScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
+import com.sdds.serv.styles.basicbutton.BasicButton
+import com.sdds.serv.styles.basicbutton.Default
+import com.sdds.serv.styles.basicbutton.S
+import com.sdds.serv.styles.iconbutton.IconButton
+import com.sdds.serv.styles.iconbutton.S
 import com.sdds.testing.compose.avatar.AvatarGroupSizeS
 import com.sdds.testing.compose.avatar.AvatarSizeM
 import com.sdds.testing.compose.badge.BadgeSizeLDefaultContentLeft
 import com.sdds.testing.compose.badge.IconBadgeCommon
+import com.sdds.testing.compose.bottomsheet.BottomSheetForSandbox
 import com.sdds.testing.compose.button.ButtonSizeLSecondary
 import com.sdds.testing.compose.button.IconButtonLDefault
 import com.sdds.testing.compose.button.LinkButtonSizeLDefault
@@ -77,15 +93,24 @@ import com.sdds.testing.compose.chip.ChipSizeLDefault
 import com.sdds.testing.compose.counter.CounterCommon
 import com.sdds.testing.compose.divider.DividerDefault
 import com.sdds.testing.compose.indicator.IndicatorCommon
+import com.sdds.testing.compose.list.ListForSandbox
+import com.sdds.testing.compose.modal.ModalForSandboxCompose
+import com.sdds.testing.compose.notification.NotificationForSandbox
+import com.sdds.testing.compose.overlay.OverlayForSandbox
+import com.sdds.testing.compose.popover.PopoverForSandbox
 import com.sdds.testing.compose.progress.CircularProgress
 import com.sdds.testing.compose.progress.ProgressBarDefault
 import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeM
 import com.sdds.testing.compose.radiobox.RadioBoxSizeM
+import com.sdds.testing.compose.rectskeleton.RectSkeletonForSandbox
 import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
 import com.sdds.testing.compose.segment.SegmentSizeLCounter
+import com.sdds.testing.compose.spinner.SpinnerTest
 import com.sdds.testing.compose.switcher.SwitchS
 import com.sdds.testing.compose.textarea.TextAreaLDefaultTBTA
 import com.sdds.testing.compose.textfield.TextFieldLDefaultInnerLeft
+import com.sdds.testing.compose.toast.ToastForSandbox
+import com.sdds.testing.compose.tooltip.TooltipForSandbox
 
 /**
  *
@@ -116,7 +141,11 @@ internal sealed class ComponentScreen(
     object Badge : ComponentScreen({ BadgeScreen(it) }, { BadgeSizeLDefaultContentLeft(it as BadgeStyle) })
     object IconButtons : ComponentScreen({ IconButtonScreen(it) }, { IconButtonLDefault(it as ButtonStyle) })
     object IconBadge : ComponentScreen({ IconBadgeScreen(it) }, { IconBadgeCommon(it as BadgeStyle) })
-    object BottomSheet : ComponentScreen({ BottomSheetScreen(it) })
+    object BottomSheet : ComponentScreen(
+        { BottomSheetScreen(it) },
+        { BottomSheetForSandbox(it as ModalBottomSheetStyle) },
+    )
+
     object LinkButtons : ComponentScreen({ LinkButtonScreen(it) }, { LinkButtonSizeLDefault(it as ButtonStyle) })
     object Cell : ComponentScreen({ CellScreen(it) }, { CellMAvatarIcon(it as CellStyle) })
     object Card : ComponentScreen({ CardScreen(it) }, { CardVertical(it as CardStyle) })
@@ -138,6 +167,7 @@ internal sealed class ComponentScreen(
         { TextFieldScreen(it) },
         { TextAreaLDefaultTBTA(it as TextFieldStyle) },
     )
+
     object Chip : ComponentScreen({ ChipScreen(it) }, { ChipSizeLDefault(it as ChipStyle) })
     object ChipGroup : ComponentScreen({ ChipGroupScreen(it) }, { ChipGroupSizeLDense(it as ChipGroupStyle) })
     object Indicator : ComponentScreen({ IndicatorScreen(it) }, { IndicatorCommon(it as IndicatorStyle) })
@@ -147,16 +177,31 @@ internal sealed class ComponentScreen(
 
     object Segment : ComponentScreen({ SegmentScreen(it) }, { SegmentSizeLCounter(it as SegmentStyle) })
     object Divider : ComponentScreen({ DividerScreen(it) }, { DividerDefault(it as DividerStyle) })
-    object Overlay : ComponentScreen({ OverlayScreen(it) })
-    object Popover : ComponentScreen({ PopoverScreen(it) })
-    object Tooltip : ComponentScreen({ TooltipScreen(it) })
-    object Toast : ComponentScreen({ ToastScreen(it) })
-    object Modal : ComponentScreen({ ModalScreen(it) })
-    object Notification : ComponentScreen({ NotificationScreen(it) })
-    object RectSkeleton : ComponentScreen({ RectSkeletonScreen(it) })
-    object Spinner : ComponentScreen({ SpinnerScreen(it) })
-    object List : ComponentScreen({ ListScreen(it) })
+    object Overlay : ComponentScreen(
+        { OverlayScreen(it) },
+        { OverlayForSandbox(it as OverlayStyle, IconButton.S.style()) },
+    )
 
+    object Popover : ComponentScreen(
+        { PopoverScreen(it) },
+        { PopoverForSandbox(it as PopoverStyle, BasicButton.S.Default.style()) },
+    )
+
+    object Tooltip : ComponentScreen({ TooltipScreen(it) }, { TooltipForSandbox(it as TooltipStyle) })
+    object Toast : ComponentScreen({ ToastScreen(it) }, { ToastForSandbox(it as ToastStyle) })
+    object Modal : ComponentScreen({ ModalScreen(it) }, { ModalForSandboxCompose(it as ModalStyle) })
+    object Notification : ComponentScreen(
+        { NotificationScreen(it) },
+        { NotificationForSandbox(it as NotificationStyle) },
+    )
+
+    object RectSkeleton : ComponentScreen(
+        { RectSkeletonScreen(it) },
+        { RectSkeletonForSandbox(it as RectSkeletonStyle) },
+    )
+
+    object Spinner : ComponentScreen({ SpinnerScreen(it) }, { SpinnerTest(it as SpinnerStyle) })
+    object List : ComponentScreen({ ListScreen(it) }, { ListForSandbox(it as ListStyle) })
     object Empty : ComponentScreen({})
 }
 

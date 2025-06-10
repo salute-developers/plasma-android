@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -24,7 +26,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
@@ -34,6 +35,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -143,7 +145,6 @@ internal fun PropertyEditor(
                 },
                 choices = property.variants,
                 currentValue = property.value,
-                modifier = modifier,
                 style = style,
                 propertyName = property.name,
             )
@@ -174,14 +175,16 @@ internal fun PropertyEditor(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun TextPropertyEditor(
     onConfirm: (String) -> Unit,
     propertyName: String,
     currentValue: String,
     style: PropertyEditorStyle,
-    keyboardOptions: KeyboardOptions = KeyboardOptions(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(
+        keyboardType = KeyboardType.Text,
+        imeAction = ImeAction.Done,
+    ),
 ) {
     var textFieldValue by remember { mutableStateOf(currentValue) }
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -195,6 +198,12 @@ private fun TextPropertyEditor(
             .fillMaxWidth()
             .focusRequester(focusRequester),
         keyboardOptions = keyboardOptions,
+        keyboardActions = KeyboardActions(
+            onDone = {
+                onConfirm(textFieldValue)
+                keyboardController?.hide()
+            },
+        ),
         onValueChange = { textFieldValue = it },
         placeholderText = "",
         focusSelectorSettings = FocusSelectorSettings.None,
@@ -212,26 +221,22 @@ private fun <T> ChoiceEditor(
     currentValue: T,
     choices: List<T>,
     style: PropertyEditorStyle,
-    modifier: Modifier = Modifier,
 ) {
     var selected by remember { mutableStateOf(currentValue) }
+    val selectedIndex = choices.indexOf(selected).coerceAtLeast(0)
+    val focusRequester = remember { List(choices.size) { FocusRequester() } }
+    val listState = rememberLazyListState()
+    LaunchedEffect(selectedIndex) {
+        listState.scrollToItem(selectedIndex)
+        focusRequester[selectedIndex].requestFocus()
+    }
     Column(
         Modifier
             .fillMaxHeight(),
     ) {
-        Spacer(modifier = Modifier.height(style.spacing))
-        Row(
-            Modifier
-                .padding(horizontal = style.editorItemPadding),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = propertyName,
-                style = style.editorItemTextStyle.copy(style.choiceEditorTextColor),
-            )
-        }
-        Spacer(modifier = Modifier.height(style.spacing))
+        ChoiceEditorHeader(propertyName, style)
         LazyColumn(
+            state = listState,
             verticalArrangement = Arrangement.spacedBy(style.editorItemPadding),
         ) {
             items(choices.size) {
@@ -244,6 +249,7 @@ private fun <T> ChoiceEditor(
                         .fillMaxWidth()
                         .height(style.editorItemHeight)
                         .focusableItem(
+                            focusRequester = focusRequester[it],
                             interactionSource = interactionSource,
                         )
                         .selection(isSelected, interactionSource)
@@ -264,6 +270,25 @@ private fun <T> ChoiceEditor(
             }
         }
     }
+}
+
+@Composable
+private fun ChoiceEditorHeader(
+    propertyName: String,
+    style: PropertyEditorStyle,
+) {
+    Spacer(modifier = Modifier.height(style.spacing))
+    Row(
+        Modifier
+            .padding(horizontal = style.editorItemPadding),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = propertyName,
+            style = style.editorItemTextStyle.copy(style.choiceEditorTextColor),
+        )
+    }
+    Spacer(modifier = Modifier.height(style.spacing))
 }
 
 @Composable

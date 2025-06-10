@@ -8,10 +8,6 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -20,8 +16,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -53,12 +47,11 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
 
     if (isTv) {
         TvLayout(
-            menuItems = { onFocusChanged ->
+            menuItems = {
                 NavigationViewTv(
                     items = menuItems,
                     title = themeInfo.theme.name,
                     focusable = true,
-                    onFocusChanged = onFocusChanged,
                     onSelect = {
                         scope.launch {
                             navController.navigate(it.route) {
@@ -77,13 +70,10 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
             NavigationGraph(navController, menuItems, savedRoute.value, null, true)
         }
     } else {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .statusBarsPadding()
-                .background(Color.Transparent),
-        ) {
-            if (hasMultipleThemes && showTopBar) {
+        MobileLayout(
+            hasMultipleThemes = hasMultipleThemes,
+            showTopBar = showTopBar,
+            topBar = {
                 TopBarSection(
                     currentTheme = currentTheme,
                     onThemeSelected = { themeManager.updateTheme(it) },
@@ -91,7 +81,8 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                     isThemePickerExpanded = themePickerState.value,
                     onDismissRequest = { themePickerState.value = false },
                 )
-            }
+            },
+        ) {
             NavigationGraph(navController, menuItems, null, themeInfo, false)
         }
     }
@@ -105,33 +96,38 @@ internal fun NavigationGraph(
     themeInfo: ThemeInfoCompose? = null,
     isTv: Boolean,
 ) {
-    val enterTransition = if (isTv) {
-        EnterTransition.None
-    } else {
-        slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(300))
+    val transitions = remember(isTv) {
+        NavigationTransition(
+            enter = if (isTv) {
+                EnterTransition.None
+            } else {
+                slideInHorizontally(initialOffsetX = { it }, animationSpec = tween(300))
+            },
+            exit = if (isTv) {
+                ExitTransition.None
+            } else {
+                slideOutHorizontally(targetOffsetX = { -it }, animationSpec = tween(300))
+            },
+            popEnter = if (isTv) {
+                EnterTransition.None
+            } else {
+                slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(300))
+            },
+            popExit = if (isTv) {
+                ExitTransition.None
+            } else {
+                slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(300))
+            },
+        )
     }
-    val exitTransition = if (isTv) {
-        ExitTransition.None
-    } else {
-        slideOutHorizontally(targetOffsetX = { -it }, animationSpec = tween(300))
-    }
-    val popEnterTransition = if (isTv) {
-        EnterTransition.None
-    } else {
-        slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(300))
-    }
-    val popExitTransition = if (isTv) {
-        ExitTransition.None
-    } else {
-        slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(300))
-    }
+
     NavHost(
         navController = navController,
         startDestination = startDestination ?: "menuItems",
-        enterTransition = { enterTransition },
-        exitTransition = { exitTransition },
-        popEnterTransition = { popEnterTransition },
-        popExitTransition = { popExitTransition },
+        enterTransition = { transitions.enter },
+        exitTransition = { transitions.exit },
+        popEnterTransition = { transitions.popEnter },
+        popExitTransition = { transitions.popExit },
     ) {
         menuItems.forEach { item ->
             composable(item.route) {
@@ -150,6 +146,13 @@ internal fun NavigationGraph(
         }
     }
 }
+
+private data class NavigationTransition(
+    val enter: EnterTransition,
+    val exit: ExitTransition,
+    val popEnter: EnterTransition,
+    val popExit: ExitTransition,
+)
 
 private fun toMainActivity(context: Context) {
     val intent = Intent(context, MainSandboxActivity::class.java)

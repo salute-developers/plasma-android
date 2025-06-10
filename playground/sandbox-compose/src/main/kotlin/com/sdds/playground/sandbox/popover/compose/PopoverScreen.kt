@@ -74,12 +74,7 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
                 ) {
                     Column(
                         modifier = Modifier
-                            .padding(
-                                top = 12.dp,
-                                bottom = 8.dp,
-                                start = 8.dp,
-                                end = 8.dp,
-                            ),
+                            .padding(top = 12.dp, bottom = 8.dp, start = 8.dp, end = 8.dp),
                     ) {
                         Text("Title")
                         Spacer(Modifier.height(4.dp))

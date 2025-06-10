@@ -3,16 +3,13 @@ package com.sdds.playground.sandbox.cell.compose
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
@@ -42,29 +39,24 @@ internal fun CellScreen(componentKey: ComponentKey = ComponentKey.Cell) {
         component = { uiState, style ->
             val interactionSource = remember { MutableInteractionSource() }
             val isFocused = interactionSource.collectIsFocusedAsState()
-            Box(
+
+            Cell(
                 modifier = Modifier
-                    .fillMaxHeight()
-                    .width(300.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                Cell(
-                    modifier = Modifier
-                        .focusable(interactionSource = interactionSource)
-                        .focusSelector(
-                            settings = LocalFocusSelectorSettings.current,
-                        ) { isFocused.value },
-                    style = style,
-                    title = AnnotatedString(uiState.title),
-                    subtitle = AnnotatedString(uiState.subtitle),
-                    label = AnnotatedString(uiState.label),
-                    disclosureEnabled = uiState.hasDisclosure,
-                    disclosureText = AnnotatedString(uiState.disclosureText),
-                    startContent = cellContent(contentType = uiState.startContent),
-                    endContent = cellContent(contentType = uiState.endContent),
-                    interactionSource = interactionSource,
-                )
-            }
+                    .width(300.dp)
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                style = style,
+                title = AnnotatedString(uiState.title),
+                subtitle = AnnotatedString(uiState.subtitle),
+                label = AnnotatedString(uiState.label),
+                disclosureEnabled = uiState.hasDisclosure,
+                disclosureText = AnnotatedString(uiState.disclosureText),
+                startContent = cellContent(contentType = uiState.startContent),
+                endContent = cellContent(contentType = uiState.endContent),
+                interactionSource = interactionSource,
+            )
         },
     )
 }
