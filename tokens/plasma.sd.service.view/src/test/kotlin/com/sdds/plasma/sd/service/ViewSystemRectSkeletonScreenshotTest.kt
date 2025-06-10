@@ -2,6 +2,7 @@ package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdds.testing.vs.skeleton.RectSkeletonTestCases
 import org.junit.Test
@@ -21,10 +22,10 @@ class ViewSystemRectSkeletonScreenshotTest(
     @Test
     override fun testRectSkeleton() {
         themedComponent(
-//            skipDefaultCaptureRoboImage = true,
+            skipDefaultCaptureRoboImage = true,
         ) {
             rectSkeletonTest(style = R.style.Plasma_SdService_ComponentOverlays_RectSkeleton)
         }
-//        captureScreenRoboImage()
+        captureScreenRoboImage()
     }
 }
