@@ -34,4 +34,5 @@
     <item type="id" name="popover_trigger"/>
     <item type="id" name="overlay"/>
     <item type="id" name="list_view"/>
+    <item type="id" name="dropdown_menu_trigger"/>
 </resources>

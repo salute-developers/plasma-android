@@ -21,7 +21,11 @@ android {
 
 themeBuilder {
     themeSource(name = "plasma_b2c", version = themeVersion, alias = "SdService")
-    componentSource(name = "plasma_b2c", version = componentsVersion, alias = "SdService")
+//    componentSource(name = "plasma_b2c", version = componentsVersion, alias = "SdService")
+    componentSource {
+        url("file:///Users/alex/Projects/theme-converter/components/plasma_b2c/0.5.0-rc.zip")
+        name("SdService")
+    }
     view {
         themeParents {
             materialComponentsTheme()

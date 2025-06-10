@@ -24,6 +24,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteEmb
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuNormalVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuTightVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListNormalVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListTightVariationsView
@@ -126,6 +128,14 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Counter,
                 StylesSaluteCounterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                StylesSaluteDropdownMenuNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                StylesSaluteDropdownMenuTightVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Flow,

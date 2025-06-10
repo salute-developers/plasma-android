@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/sdkit_dropdown_menu_item_bg_color</item>
+        <item name="sd_titleColor">@color/sdkit_dropdown_menu_item_text_color</item>
+        <item name="sd_disclosureColor">@color/sdkit_dropdown_menu_item_disclosure_icon_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.ListItemViewColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xl">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_dropdown_menu_item_xl_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_dropdown_menu_item_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_dropdown_menu_item_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_dropdown_menu_item_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_dropdown_menu_item_xl_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_dropdown_menu_item_xl_min_height</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXl">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xl</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xl.Default">
+        <item name="sdkit_listitemviewColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXlDefault">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xl.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xl.Positive">
+        <item name="sdkit_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXlPositive">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xl.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xl.Negative">
+        <item name="sdkit_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXlNegative">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xl.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.L">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_dropdown_menu_item_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_dropdown_menu_item_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_dropdown_menu_item_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_dropdown_menu_item_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_dropdown_menu_item_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_dropdown_menu_item_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_dropdown_menu_item_l_min_height</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemL">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.L.Default">
+        <item name="sdkit_listitemviewColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemLDefault">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.L.Positive">
+        <item name="sdkit_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemLPositive">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.L.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.L.Negative">
+        <item name="sdkit_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemLNegative">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.L.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_dropdown_menu_item_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_dropdown_menu_item_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_dropdown_menu_item_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_dropdown_menu_item_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_dropdown_menu_item_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_dropdown_menu_item_m_min_height</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemM">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.M.Default">
+        <item name="sdkit_listitemviewColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemMDefault">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.M.Positive">
+        <item name="sdkit_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemMPositive">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.M.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.M.Negative">
+        <item name="sdkit_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemMNegative">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.M.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_dropdown_menu_item_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_dropdown_menu_item_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_dropdown_menu_item_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_dropdown_menu_item_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_dropdown_menu_item_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_dropdown_menu_item_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_dropdown_menu_item_s_min_height</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemS">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.S.Default">
+        <item name="sdkit_listitemviewColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemSDefault">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.S.Positive">
+        <item name="sdkit_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemSPositive">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.S.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.S.Negative">
+        <item name="sdkit_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemSNegative">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.S.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xs">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_dropdown_menu_item_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/sdkit_dropdown_menu_item_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_dropdown_menu_item_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_dropdown_menu_item_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_dropdown_menu_item_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/sdkit_dropdown_menu_item_xs_min_height</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXs">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xs.Default">
+        <item name="sdkit_listitemviewColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXsDefault">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xs.Positive">
+        <item name="sdkit_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXsPositive">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xs.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.DropdownMenuItem.Xs.Negative">
+        <item name="sdkit_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXsNegative">
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuItem.Xs.Negative</item>
+    </style>
+</resources>

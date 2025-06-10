@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.DropdownMenuListNormal" parent="Sdds.Components.List"/>
+    <style name="Serv.Sdds.Components.DropdownMenuListNormal.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListNormalXl">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListNormal.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListNormal.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListNormalL">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListNormal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListNormal.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListNormalM">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListNormal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListNormal.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListNormalS">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListNormal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListNormal.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemNormalXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListNormalXs">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListNormal.Xs</item>
+    </style>
+</resources>
