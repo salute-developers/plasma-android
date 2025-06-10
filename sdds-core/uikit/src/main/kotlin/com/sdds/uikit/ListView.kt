@@ -11,6 +11,7 @@ import android.view.ViewOutlineProvider
 import androidx.core.content.withStyledAttributes
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.uikit.SimpleListViewAdapter.SimpleListViewHolder
@@ -36,8 +37,16 @@ open class ListView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Sdds_Components_List,
 ) : RecyclerView(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr) {
 
+    private val _orientation: Int
+        get() = (layoutManager as? LinearLayoutManager)?.orientation ?: HORIZONTAL
+
     init {
         initOutline(context, attrs, defStyleAttr, defStyleRes)
+    }
+
+    override fun onScrollStateChanged(state: Int) {
+        super.onScrollStateChanged(state)
+        updateOutlineOnScroll(state)
     }
 
     private fun initOutline(
@@ -48,30 +57,58 @@ open class ListView @JvmOverloads constructor(
     ) {
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
         val settings = FocusSelectorSettings.fromAttrs(context, attrs, defStyleAttr, defStyleRes)
-        val focusSelectorScale = if (settings.scaleEnabled) {
+        outlineProvider = SelectorOutlineProvider(settings)
+    }
+
+    private fun updateOutlineOnScroll(state: Int) {
+        (outlineProvider as? SelectorOutlineProvider)?.apply {
+            if (state == SCROLL_STATE_IDLE) {
+                extendHorizontal = true
+                extendVertical = true
+            } else {
+                // Если ориентация горизонтальная, нужно отключить расширение outline по горизонтали,
+                // чтобы элементы не вылезали за границы List при скролле
+                extendHorizontal = _orientation != HORIZONTAL
+                // Если ориентация вертикальная, нужно отключить расширение outline по вертикали,
+                // чтобы элементы не вылезали за границы List при скролле
+                extendVertical = _orientation != VERTICAL
+            }
+        }
+        invalidateOutline()
+    }
+
+    private class SelectorOutlineProvider(settings: FocusSelectorSettings) : ViewOutlineProvider() {
+        private val focusSelectorScale: Float = if (settings.scaleEnabled) {
             1f + settings.scaleFactor
         } else {
             1f
         }
-        val focusSelectorOffset = if (settings.border.borderMode != FocusSelectorBorder.Mode.NONE) {
+        private val focusSelectorOffset: Int = if (settings.border.borderMode != FocusSelectorBorder.Mode.NONE) {
             ((settings.border.strokeWidth + settings.border.strokeInsets) * focusSelectorScale).roundToInt()
         } else {
             0
         }
 
-        outlineProvider = object : ViewOutlineProvider() {
-            override fun getOutline(view: View, outline: Outline) {
-                val scaledWidth = (view.width * focusSelectorScale).roundToInt()
-                val scaledHeight = (view.height * focusSelectorScale).roundToInt()
-                val left = if (scaledWidth >= view.width) (view.width - scaledWidth) / 2 else 0
-                val top = if (scaledHeight >= view.height) (view.height - scaledHeight) / 2 else 0
-                outline.setRect(
-                    left - focusSelectorOffset,
-                    top - focusSelectorOffset,
-                    left + scaledWidth + focusSelectorOffset,
-                    top + scaledHeight + focusSelectorOffset,
-                )
-            }
+        var extendVertical: Boolean = true
+        var extendHorizontal: Boolean = true
+
+        override fun getOutline(view: View, outline: Outline) {
+            val verticalOffset = if (extendVertical) focusSelectorOffset else 0
+            val horizontalOffset = if (extendHorizontal) focusSelectorOffset else 0
+            val verticalScale = if (extendVertical) focusSelectorScale else 1f
+            val horizontalScale = if (extendHorizontal) focusSelectorScale else 1f
+
+            val scaledWidth = (view.width * horizontalScale).roundToInt()
+            val scaledHeight = (view.height * verticalScale).roundToInt()
+            val left = if (scaledWidth >= view.width) (view.width - scaledWidth) / 2 else 0
+            val top = if (scaledHeight >= view.height) (view.height - scaledHeight) / 2 else 0
+
+            outline.setRect(
+                left - horizontalOffset,
+                top - verticalOffset,
+                left + scaledWidth + horizontalOffset,
+                top + scaledHeight + verticalOffset,
+            )
         }
     }
 
