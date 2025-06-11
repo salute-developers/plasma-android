@@ -18,11 +18,15 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.Style
@@ -38,6 +42,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
     key: ComponentKey,
     viewModel: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
+    componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     if (LocalContext.current.isTvDevice()) {
@@ -45,6 +50,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
             key = key,
             viewModel = viewModel,
             themeManager = themeManager,
+            componentAlignment = componentAlignment,
             component = component,
         )
     } else {
@@ -52,6 +58,7 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
             key = key,
             viewModel = viewModel,
             themeManager = themeManager,
+            componentAlignment = componentAlignment,
             component = component,
         )
     }
@@ -62,30 +69,35 @@ private fun <State : UiState, S : Style> MobileScaffold(
     key: ComponentKey,
     viewModel: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
+    componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     val sheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Collapsed)
-    val translation = remember(sheetState.progressFromCollapsedToExpanded) {
-        -sheetState.progressFromCollapsedToExpanded * 600.dp.value
-    }
-
     BottomSheetScaffold(
         bottomSheetState = sheetState,
         sheetPeekHeight = 74.dp,
         bottomSheetContent = {
             AnimatedMenuProperty(title = "${key.core},${key.value}", viewModel = viewModel)
         },
-    ) {
+    ) { sheetHeight ->
+        var top by remember { mutableFloatStateOf(0f) }
+        val uiState by viewModel.uiState.collectAsState()
         Box(
             modifier = Modifier
-                .fillMaxSize()
-                .graphicsLayer(translationY = translation),
+                .align(componentAlignment(uiState))
+                .onGloballyPositioned { layoutCoordinates ->
+                    val pos = layoutCoordinates.positionInRoot()
+                    top = pos.y
+                }
+                .graphicsLayer {
+                    val offset = (sheetState.progressFromCollapsedToExpanded * sheetHeight).coerceAtMost(top)
+                    translationY = -offset
+                },
             contentAlignment = Alignment.Center,
         ) {
             val currentTheme by themeManager.currentTheme.collectAsState()
             val themeInfo = composeTheme(currentTheme)
             themeInfo.themeWrapper {
-                val uiState by viewModel.uiState.collectAsState()
                 runCatching {
                     component(
                         uiState,
@@ -102,6 +114,7 @@ private fun <State : UiState, S : Style> TvScaffold(
     key: ComponentKey,
     viewModel: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
+    componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     Row(
@@ -115,16 +128,16 @@ private fun <State : UiState, S : Style> TvScaffold(
         ) {
             AnimatedMenuProperty(title = "${key.core},${key.value}", viewModel = viewModel)
         }
+        val uiState by viewModel.uiState.collectAsState()
         Box(
             modifier = Modifier
                 .weight(1f, fill = true)
                 .fillMaxHeight(),
-            contentAlignment = Alignment.Center,
+            contentAlignment = componentAlignment(uiState),
         ) {
             val currentTheme by themeManager.currentTheme.collectAsState()
             val themeInfo = composeTheme(currentTheme)
             themeInfo.themeWrapper {
-                val uiState by viewModel.uiState.collectAsState()
                 component(
                     uiState,
                     themeInfo.components.get<String, S>(key).styleProvider.style(uiState.variant),
@@ -168,7 +181,6 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
                     onReset = { viewModel.resetToDefault() },
                 )
             }
-
             is MenuPropertyContent.PropertyEditor -> {
                 PropertyEditor(
                     modifier = Modifier.fillMaxHeight(),

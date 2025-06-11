@@ -1,14 +1,10 @@
 package com.sdds.playground.sandbox.tooltip.compose
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,39 +36,34 @@ internal fun TooltipScreen(componentKey: ComponentKey = ComponentKey.Tooltip) {
             ),
             key = componentKey.toString(),
         ),
+        componentAlignment = { tooltipUiState -> tooltipUiState.triggerPlacement.toAlignment() },
         component = { tooltipUiState, style ->
             val showTooltip = remember { mutableStateOf(false) }
             val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
-            Box(
-                Modifier
-                    .fillMaxSize()
-                    .background(Color.LightGray.copy(0.3f)),
-            ) {
-                Button(
-                    modifier = Modifier
-                        .align(tooltipUiState.triggerPlacement.toAlignment())
-                        .popoverTrigger(triggerInfo),
-                    label = "show",
-                    onClick = { showTooltip.value = true },
-                )
-                Tooltip(
-                    show = showTooltip.value,
-                    modifier = Modifier.widthIn(0.dp, 160.dp),
-                    triggerInfo = triggerInfo.value,
-                    placement = tooltipUiState.placement,
-                    placementMode = tooltipUiState.placementMode,
-                    triggerCentered = tooltipUiState.triggerCentered,
-                    alignment = tooltipUiState.alignment,
-                    style = style,
-                    tailEnabled = tooltipUiState.tailEnabled,
-                    onDismissRequest = {
-                        showTooltip.value = false
-                    },
-                    duration = tooltipUiState.autoHide.autoHideToMs(),
-                    contentStart = getContentStart(tooltipUiState.hasContentStart),
-                    text = AnnotatedString(tooltipUiState.text),
-                )
-            }
+            Button(
+                modifier = Modifier
+                    .align(tooltipUiState.triggerPlacement.toAlignment())
+                    .popoverTrigger(triggerInfo),
+                label = "show",
+                onClick = { showTooltip.value = true },
+            )
+            Tooltip(
+                show = showTooltip.value,
+                modifier = Modifier.widthIn(0.dp, 160.dp),
+                triggerInfo = triggerInfo.value,
+                placement = tooltipUiState.placement,
+                placementMode = tooltipUiState.placementMode,
+                triggerCentered = tooltipUiState.triggerCentered,
+                alignment = tooltipUiState.alignment,
+                style = style,
+                tailEnabled = tooltipUiState.tailEnabled,
+                onDismissRequest = {
+                    showTooltip.value = false
+                },
+                duration = tooltipUiState.autoHide.autoHideToMs(),
+                contentStart = getContentStart(tooltipUiState.hasContentStart),
+                text = AnnotatedString(tooltipUiState.text),
+            )
         },
     )
 }
