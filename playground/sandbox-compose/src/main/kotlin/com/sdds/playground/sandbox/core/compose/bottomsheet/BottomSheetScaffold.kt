@@ -7,10 +7,9 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.anchoredDraggable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -36,6 +35,7 @@ import com.sdds.compose.uikit.px
 import kotlin.math.roundToInt
 
 @OptIn(ExperimentalFoundationApi::class)
+@Suppress("LongMethod")
 @Composable
 internal fun BottomSheetScaffold(
     bottomSheetState: BottomSheetState,
@@ -44,7 +44,7 @@ internal fun BottomSheetScaffold(
     sheetShape: Shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
     sheetBackgroundColor: Color = Color.Transparent,
     sheetPeekHeight: Dp = BottomSheetDefaults.PeekHeight,
-    content: @Composable ColumnScope.() -> Unit,
+    content: @Composable BoxScope.(sheetHeight: Int) -> Unit,
 ) {
     val peekHeight = sheetPeekHeight.px
     var layoutHeight by remember { mutableIntStateOf(0) }
@@ -55,13 +55,11 @@ internal fun BottomSheetScaffold(
             orientation = Orientation.Vertical,
         )
     }
-
     LaunchedEffect(bottomSheetState.targetValue) {
         if (bottomSheetState.isHidingInProgress()) {
             bottomSheetState.onDismiss()
         }
     }
-
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -72,8 +70,13 @@ internal fun BottomSheetScaffold(
                 }
             },
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            content()
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = sheetPeekHeight),
+            contentAlignment = Alignment.Center,
+        ) {
+            content(sheetHeight)
         }
         Box(
             modifier = Modifier
