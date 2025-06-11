@@ -247,7 +247,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -487,7 +487,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -727,7 +727,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -967,7 +967,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -1327,7 +1327,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -1823,7 +1823,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -2319,7 +2319,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -2815,7 +2815,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -3251,7 +3251,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -3551,7 +3551,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -3851,7 +3851,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -4151,7 +4151,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 }
 
@@ -4396,7 +4396,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -4636,7 +4636,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -4876,7 +4876,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -5116,7 +5116,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -5476,7 +5476,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -5972,7 +5972,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -6468,7 +6468,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -6964,7 +6964,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -7400,7 +7400,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -7700,7 +7700,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -8000,7 +8000,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 
     /**
@@ -8300,6 +8300,6 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 315.0f
+        public const val angle: Float = 45.0f
     }
 }

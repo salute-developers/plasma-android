@@ -26,6 +26,10 @@ internal data class GradientTokenResult(
                     val angle: String,
                     val colors: String,
                     val stops: String,
+                    val startX: String? = null,
+                    val startY: String? = null,
+                    val endX: String? = null,
+                    val endY: String? = null,
                 ) : Layer()
 
                 data class Radial(

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.RectSkeleton">
+        <item name="sd_autoStart">true</item>
+        <item name="sd_clipToOutline">true</item>
+    </style>
+</resources>

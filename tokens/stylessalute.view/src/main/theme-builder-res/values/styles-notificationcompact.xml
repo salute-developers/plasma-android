@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.NotificationCompact" parent="Sdds.Components.Notification">
+        <item name="sd_closeIconAlignment">topEnd</item>
+        <item name="sd_background">?salute_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?salute_textDefaultSecondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.NotificationCompact.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/salute_notification_compact_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_notification_compact_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_notification_compact_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_notification_compact_l_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/salute_notification_compact_l_close_icon_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.NotificationCompactL">
+        <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationCompact.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.NotificationCompact.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_notification_compact_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/salute_notification_compact_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_notification_compact_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_notification_compact_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_notification_compact_m_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/salute_notification_compact_m_close_icon_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.NotificationCompactM">
+        <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationCompact.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.NotificationCompact.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="android:paddingStart">@dimen/salute_notification_compact_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_notification_compact_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_notification_compact_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_notification_compact_s_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/salute_notification_compact_s_close_icon_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.NotificationCompactS">
+        <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationCompact.S</item>
+    </style>
+</resources>

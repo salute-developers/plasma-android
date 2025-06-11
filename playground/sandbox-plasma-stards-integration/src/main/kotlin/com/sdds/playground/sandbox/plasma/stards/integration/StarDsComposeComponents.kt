@@ -23,6 +23,9 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsCh
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.overlay.compose.StarDsOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.popover.StarDsPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
@@ -30,6 +33,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadi
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.StarDsTextAreaClearVariationsCompose
@@ -168,6 +172,22 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Overlay,
                 StarDsOverlayVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                StarDsNotificationLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                StarDsNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Spinner,
+                StarDsSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.List,
+                StarDsListVariationsCompose,
             ),
         ).associateBy { it.key }
 }

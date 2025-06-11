@@ -25,15 +25,22 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListNormalVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListTightVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationCompactVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationLooseVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.popover.vs.StylesSalutePopoverVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSaluteTextAreaVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.StylesSaluteTextFieldVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.toast.StylesSaluteToastVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.tooltip.vs.StylesSaluteTooltipVariationsView
 
 /**
@@ -129,6 +136,26 @@ object StylesSaluteViewComponents : ComponentsProviderView {
                 StylesSaluteIndicatorVariationsView,
             ),
             ViewComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                StylesSaluteListNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                StylesSaluteListTightVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Modal,
+                StylesSaluteModalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                StylesSaluteNotificationCompactVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                StylesSaluteNotificationLooseVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Popover,
                 StylesSalutePopoverVariationsView,
             ),
@@ -143,6 +170,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.RadioBoxGroup,
                 StylesSaluteRadioBoxGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.RectSkeleton,
+                StylesSaluteRectSkeletonVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Segment,
@@ -163,6 +194,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 StylesSaluteTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Toast,
+                StylesSaluteToastVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Tooltip,

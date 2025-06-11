@@ -29,18 +29,23 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
+import com.sdds.playground.sandbox.list.vs.ListFragment
+import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.notification.vs.NotificationFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
 import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
+import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
+import com.sdds.playground.sandbox.toast.vs.ToastFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
@@ -68,8 +73,11 @@ import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.indicator.indicator
+import com.sdds.testing.vs.list.listView
+import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.notification.notificationTrigger
 import com.sdds.testing.vs.overlay.overlayWithTrigger
 import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
@@ -82,11 +90,13 @@ import com.sdds.testing.vs.radiobox.radioBoxGroup
 import com.sdds.testing.vs.segement.SegmentUiState
 import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
+import com.sdds.testing.vs.skeleton.rectSkeleton
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
+import com.sdds.testing.vs.toast.toastTrigger
 import com.sdds.testing.vs.tooltip.tooltipWithTrigger
 import com.sdds.uikit.colorstate.ColorState
 
@@ -252,6 +262,24 @@ internal sealed class ComponentScreen(
     object Overlay : ComponentScreen(
         { item -> fragment<OverlayFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Toast : ComponentScreen(
+        { item -> fragment<ToastFragment>(item.route, item.defaultBuilder) },
+    )
+    object Modal : ComponentScreen(
+        { item -> fragment<ModalFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object Notification : ComponentScreen(
+        { item -> fragment<NotificationFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object RectSkeleton : ComponentScreen(
+        { item -> fragment<RectSkeletonFragment>(item.route, item.defaultBuilder) },
+    )
+    object List : ComponentScreen(
+        { item -> fragment<ListFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -287,6 +315,11 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.POPOVER -> ComponentScreen.Popover
         CoreComponent.TOOLTIP -> ComponentScreen.Tooltip
         CoreComponent.OVERLAY -> ComponentScreen.Overlay
+        CoreComponent.TOAST -> ComponentScreen.Toast
+        CoreComponent.MODAL -> ComponentScreen.Modal
+        CoreComponent.NOTIFICATION -> ComponentScreen.Notification
+        CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
+        CoreComponent.LIST -> ComponentScreen.List
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -324,6 +357,11 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.POPOVER -> R.id.nav_popover
         CoreComponent.TOOLTIP -> R.id.nav_tooltip
         CoreComponent.OVERLAY -> R.id.nav_overlay
+        CoreComponent.TOAST -> R.id.nav_toast
+        CoreComponent.MODAL -> R.id.nav_modal
+        CoreComponent.NOTIFICATION -> R.id.nav_notification
+        CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
+        CoreComponent.LIST -> R.id.nav_list
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -400,6 +438,11 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.POPOVER -> popoverWithTrigger(context, style).trigger
         CoreComponent.TOOLTIP -> tooltipWithTrigger(context, style).trigger
         CoreComponent.OVERLAY -> overlayWithTrigger(context, style)
+        CoreComponent.TOAST -> toastTrigger(context, style)
+        CoreComponent.MODAL -> modalTrigger(context, style)
+        CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
+        CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
+        CoreComponent.LIST -> listView(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

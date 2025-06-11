@@ -63,6 +63,8 @@ internal data class RadialGradientTokenValue(
  * @property colors цвета градиента
  * @property locations позиции цвета градиента
  * @property angle радиус [0, 1]
+ * @property startPoint точка начала градиента
+ * @property endPoint точка конца градиента
  */
 @Serializable
 @SerialName("linear")
@@ -70,7 +72,18 @@ internal data class LinearGradientTokenValue(
     val colors: List<String> = FallbackColors,
     val locations: List<Float> = FallbackLocations,
     val angle: Float,
+    val startPoint: GradientPoint? = null,
+    val endPoint: GradientPoint? = null,
 ) : GradientTokenValue()
+
+/**
+ * Точка описывающая начало или конец градиента
+ */
+@Serializable
+internal data class GradientPoint(
+    val x: Float,
+    val y: Float,
+)
 
 /**
  * Значение токена градиента с одним цветом

@@ -621,19 +621,19 @@ private class PopoverPositionProvider(
         }
     }
 
-    private fun IntOffset.notEnoughSpaceOnTop(): Boolean = this.y < 0
+    private fun IntOffset.notEnoughSpaceOnTop(): Boolean = this.y + shadowPaddings.top < 0
 
     private fun IntOffset.notEnoughSpaceOnBottom(
         popupSize: IntSize,
         windowSize: IntSize,
-    ): Boolean = this.y + popupSize.height > windowSize.height
+    ): Boolean = this.y + popupSize.height - shadowPaddings.bottom > windowSize.height
 
-    private fun IntOffset.notEnoughSpaceOnStart(): Boolean = this.x < 0
+    private fun IntOffset.notEnoughSpaceOnStart(): Boolean = this.x + shadowPaddings.start < 0
 
     private fun IntOffset.notEnoughSpaceOnEnd(
         popupSize: IntSize,
         windowSize: IntSize,
-    ): Boolean = this.x + popupSize.width > windowSize.width
+    ): Boolean = this.x + popupSize.width - shadowPaddings.end > windowSize.width
 }
 
 @Immutable

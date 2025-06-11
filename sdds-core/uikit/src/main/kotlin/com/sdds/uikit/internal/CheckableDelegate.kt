@@ -31,7 +31,14 @@ internal class CheckableDelegate(
     attrs: AttributeSet?,
     defStyleAttrs: Int = 0,
     defStyleRes: Int = 0,
+    private val descriptionLayoutMode: DescriptionLayoutMode = DescriptionLayoutMode.DrawableConstrained,
 ) {
+
+    internal enum class DescriptionLayoutMode {
+        FullWidth,
+        DrawableConstrained,
+    }
+
     private val _descriptionPaint: TextPaint = TextPaint().configure(isAntiAlias = true)
     private val _lastLineBounds: Rect = Rect()
 
@@ -123,7 +130,11 @@ internal class CheckableDelegate(
 
         if (widthMode != MeasureSpec.EXACTLY) {
             val layoutWidth = (descriptionLayout?.width ?: 0)
-            val newWidth = descriptionOffsetX.toInt() + layoutWidth + compoundButton.compoundPaddingEnd
+            val compoundPaddingEnd = when (descriptionLayoutMode) {
+                DescriptionLayoutMode.FullWidth -> 0
+                DescriptionLayoutMode.DrawableConstrained -> compoundButton.compoundPaddingEnd
+            }
+            val newWidth = descriptionOffsetX.toInt() + layoutWidth + compoundPaddingEnd
             width = max(width, newWidth)
         }
         return width
@@ -183,7 +194,13 @@ internal class CheckableDelegate(
             ?: 0
         val widthMode = MeasureSpec.getMode(widthSpec)
         val specWidth = MeasureSpec.getSize(widthSpec)
-        val available = specWidth - compoundButton.compoundPaddingStart - compoundButton.compoundPaddingEnd
+        val compoundPadding = when (descriptionLayoutMode) {
+            DescriptionLayoutMode.FullWidth -> 0
+            DescriptionLayoutMode.DrawableConstrained -> {
+                compoundButton.compoundPaddingStart + compoundButton.compoundPaddingEnd
+            }
+        }
+        val available = specWidth - compoundPadding
         val layoutWidth = when (widthMode) {
             MeasureSpec.AT_MOST -> minOf(available, maxOf(biggestLineWidth, compoundButton.minimumWidth))
             MeasureSpec.EXACTLY -> available

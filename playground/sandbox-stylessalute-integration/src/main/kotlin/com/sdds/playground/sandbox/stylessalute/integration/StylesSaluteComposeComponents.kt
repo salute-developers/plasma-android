@@ -27,11 +27,16 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListNormalVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListTightVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationCompactVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.popover.StylesSalutePopoverVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsCompose
@@ -193,6 +198,26 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Modal,
                 StylesSaluteModalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                StylesSaluteNotificationLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                StylesSaluteNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                StylesSaluteRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                StylesSaluteListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                StylesSaluteListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }

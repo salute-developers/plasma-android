@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.ListNormal" parent="Sdds.Components.List"/>
+    <style name="Salute.StylesSalute.Components.ListNormal.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemNormalXl</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListNormalXl">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListNormal.Xl</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListNormal.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemNormalL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListNormalL">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListNormal.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListNormal.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemNormalM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListNormalM">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListNormal.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListNormal.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemNormalS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListNormalS">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListNormal.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.ListNormal.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.ListItemNormalXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.ListNormalXs">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.ListNormal.Xs</item>
+    </style>
+</resources>

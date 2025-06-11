@@ -152,7 +152,7 @@
         <item>@color/plasma_dark_text_inverse_accent_gradient_color_0</item>
         <item>@color/plasma_dark_text_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="plasma_dark_text_inverse_accent_gradient_angle">4.57</string>
+    <string name="plasma_dark_text_inverse_accent_gradient_angle">94.0</string>
     <string-array name="plasma_dark_text_inverse_accent_gradient_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -753,7 +753,7 @@
         <item>@color/plasma_dark_surface_inverse_accent_gradient_color_0</item>
         <item>@color/plasma_dark_surface_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="plasma_dark_surface_inverse_accent_gradient_angle">4.57</string>
+    <string name="plasma_dark_surface_inverse_accent_gradient_angle">94.0</string>
     <string-array name="plasma_dark_surface_inverse_accent_gradient_positions">
         <item>0.06</item>
         <item>0.94</item>
@@ -1053,7 +1053,7 @@
         <item>@color/plasma_light_text_inverse_accent_gradient_color_0</item>
         <item>@color/plasma_light_text_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="plasma_light_text_inverse_accent_gradient_angle">0.0</string>
+    <string name="plasma_light_text_inverse_accent_gradient_angle">90.0</string>
     <string-array name="plasma_light_text_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>

@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -40,13 +39,12 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
             ),
             key = componentKey.toString(),
         ),
-        backgroundColor = Color.LightGray.copy(0.3f),
+        componentAlignment = { popoverUiState -> popoverUiState.triggerPlacement.toAlignment() },
         component = { popoverUiState, style ->
             val showPopover = remember { mutableStateOf(false) }
             val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
             Button(
                 modifier = Modifier
-                    .align(popoverUiState.triggerPlacement.toAlignment())
                     .popoverTrigger(triggerInfo),
                 label = "show",
                 onClick = { showPopover.value = true },
@@ -67,12 +65,7 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
             ) {
                 Column(
                     modifier = Modifier
-                        .padding(
-                            top = 12.dp,
-                            bottom = 8.dp,
-                            start = 8.dp,
-                            end = 8.dp,
-                        ),
+                        .padding(top = 12.dp, bottom = 8.dp, start = 8.dp, end = 8.dp),
                 ) {
                     Text("Title")
                     Spacer(Modifier.height(4.dp))

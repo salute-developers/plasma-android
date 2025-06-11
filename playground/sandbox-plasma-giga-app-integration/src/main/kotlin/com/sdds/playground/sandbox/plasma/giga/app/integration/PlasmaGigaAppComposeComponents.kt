@@ -31,14 +31,20 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.circularprogress.
 import com.sdds.playground.sandbox.plasma.giga.app.integration.counter.PlasmaGigaAppCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.divider.compose.PlasmaGigaAppDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.indicator.compose.PlasmaGigaAppIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.list.PlasmaGigaAppListNormalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.list.PlasmaGigaAppListTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.modal.PlasmaGigaAppModalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.notification.PlasmaGigaAppNotificationCompactVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.notification.PlasmaGigaAppNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.overlay.compose.PlasmaGigaAppOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.popover.PlasmaGigaAppPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.progress.PlasmaGigaAppProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.PlasmaGigaAppRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.group.PlasmaGigaRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.rectskeleton.PlasmaGigaAppRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.PlasmaGigaAppSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.item.PlasmaGigaAppSegmentItemVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.spinner.PlasmaGigaAppSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.switcher.PlasmaGigaAppSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.PlasmaGigaAppTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.clear.PlasmaGigaAppTextAreaClearVariationsCompose
@@ -218,6 +224,30 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Modal,
                 PlasmaGigaAppModalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                PlasmaGigaAppNotificationLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                PlasmaGigaAppNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                PlasmaGigaAppRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Spinner,
+                PlasmaGigaAppSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                PlasmaGigaAppListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                PlasmaGigaAppListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }

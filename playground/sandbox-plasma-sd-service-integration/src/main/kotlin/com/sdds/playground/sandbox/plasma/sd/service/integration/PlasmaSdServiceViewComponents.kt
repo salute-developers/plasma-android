@@ -29,16 +29,23 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogres
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.vs.PlasmaSdServiceOverlayVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.vs.PlasmaSdServicePopoverVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.toast.PlasmaSdServiceToastVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.tooltip.vs.PlasmaSdServiceTooltipVariationsView
 
 /**
@@ -147,6 +154,26 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
                 PlasmaSdServiceIndicatorVariationsView,
             ),
             ViewComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                PlasmaSdServiceListNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                PlasmaSdServiceListTightVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Modal,
+                PlasmaSdServiceModalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                PlasmaSdServiceNotificationCompactVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                PlasmaSdServiceNotificationLooseVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Overlay,
                 PlasmaSdServiceOverlayVariationsView,
             ),
@@ -171,6 +198,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
                 PlasmaSdServiceRadioBoxGroupVariationsView,
             ),
             ViewComponent(
+                ComponentKey.RectSkeleton,
+                PlasmaSdServiceRectSkeletonVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Segment,
                 PlasmaSdServiceSegmentVariationsView,
             ),
@@ -189,6 +220,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 PlasmaSdServiceTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Toast,
+                PlasmaSdServiceToastVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Tooltip,

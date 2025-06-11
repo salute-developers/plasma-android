@@ -1,8 +1,6 @@
 package com.sdds.playground.sandbox.switcher.compose
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Switch
@@ -30,7 +28,6 @@ internal fun SwitchScreen(componentKey: ComponentKey = ComponentKey.Switch) {
                 style = style,
                 description = switchState.description,
                 enabled = switchState.enabled,
-                modifier = Modifier.fillMaxWidth(),
                 onActiveChanged = { switchViewModel.updateActive(it) },
             )
         },

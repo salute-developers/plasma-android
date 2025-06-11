@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Modal" parent="Sdds.Components.Modal">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXl</item>
+        <item name="sd_shadowAppearance">?plasma_shadowDownSoftL</item>
+        <item name="android:paddingStart">@dimen/plasma_modal_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_modal_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_modal_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_modal_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/plasma_modal_close_icon_size</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.Modal">
+        <item name="sd_modalStyle">@style/Plasma.SdService.Components.Modal</item>
+    </style>
+</resources>

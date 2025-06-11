@@ -147,24 +147,27 @@ public fun StarDsTheme(
             .border(FocusSelectorBorders.none())
             .scale(FocusSelectorScales.byFactor())
             .build(),
-        LocalSwitchStyle provides Switch.M.style(),
-        LocalButtonStyle provides BasicButton.M.style(),
-        LocalIconButtonStyle provides IconButton.M.style(),
-        LocalCheckBoxStyle provides CheckBox.M.style(),
-        LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
-        LocalRadioBoxStyle provides RadioBox.M.style(),
-        LocalRadioBoxGroupStyle provides RadioBoxGroup.M.style(),
-        LocalProgressBarStyle provides ProgressBar.Default.style(),
-        LocalAvatarStyle provides Avatar.M.style(),
-        LocalAvatarGroupStyle provides AvatarGroup.S.style(),
-        LocalChipStyle provides Chip.M.Default.style(),
-        LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
-        LocalCellStyle provides Cell.M.style(),
         content = {
-            ProvideTextStyle(
-                value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
-                content = content,
-            )
+            CompositionLocalProvider(
+                LocalSwitchStyle provides Switch.M.style(),
+                LocalButtonStyle provides BasicButton.M.style(),
+                LocalIconButtonStyle provides IconButton.M.style(),
+                LocalCheckBoxStyle provides CheckBox.M.style(),
+                LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
+                LocalRadioBoxStyle provides RadioBox.M.style(),
+                LocalRadioBoxGroupStyle provides RadioBoxGroup.M.style(),
+                LocalProgressBarStyle provides ProgressBar.Default.style(),
+                LocalAvatarStyle provides Avatar.M.style(),
+                LocalAvatarGroupStyle provides AvatarGroup.S.style(),
+                LocalChipStyle provides Chip.M.Default.style(),
+                LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
+                LocalCellStyle provides Cell.M.style(),
+            ) {
+                ProvideTextStyle(
+                    value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
+                    content = content,
+                )
+            }
         },
     )
 }

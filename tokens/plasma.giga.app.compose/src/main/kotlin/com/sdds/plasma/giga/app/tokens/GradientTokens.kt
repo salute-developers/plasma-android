@@ -247,7 +247,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 4.57f
+        public const val angle: Float = 94.0f
     }
 
     /**
@@ -920,7 +920,7 @@ public object DarkGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 4.57f
+        public const val angle: Float = 94.0f
     }
 
     /**
@@ -1301,7 +1301,7 @@ public object LightGradientTokens {
         /**
          * Угол градиента
          */
-        public const val angle: Float = 0.0f
+        public const val angle: Float = 90.0f
     }
 
     /**

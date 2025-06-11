@@ -32,4 +32,9 @@
     <item type="id" name="nav_popover"/>
     <item type="id" name="nav_tooltip"/>
     <item type="id" name="nav_overlay"/>
+    <item type="id" name="nav_toast"/>
+    <item type="id" name="nav_modal"/>
+    <item type="id" name="nav_notification"/>
+    <item type="id" name="nav_rect_skeleton"/>
+    <item type="id" name="nav_list"/>
 </resources>

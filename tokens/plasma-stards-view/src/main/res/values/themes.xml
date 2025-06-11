@@ -35,6 +35,7 @@
         <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal.Xs</item>
         <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.Xs</item>
         <item name="sd_navigationDrawerStyle">@style/Sdkit.StarDs.Components.NavigationDrawer</item>
+        <item name="sd_notificationStyle">@style/Sdkit.StarDs.Components.NotificationLoose.M</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
         <item name="sd_fsScaleEnabled">true</item>
@@ -82,6 +83,7 @@
         <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.M</item>
         <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal.Xs</item>
         <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.Xs</item>
+        <item name="sd_notificationStyle">@style/Sdkit.StarDs.Components.NotificationLoose.M</item>
 
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>

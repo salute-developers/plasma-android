@@ -31,14 +31,20 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.overlay.compose.SddsServOverlayVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.popover.SddsServPopoverVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
@@ -218,6 +224,30 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Modal,
                 SddsServModalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                SddsServNotificationLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                SddsServNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                SddsServRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Spinner,
+                SddsServSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                SddsServListNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                SddsServListTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }

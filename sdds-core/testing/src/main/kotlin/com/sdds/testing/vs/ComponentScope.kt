@@ -8,8 +8,8 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.FrameLayout.LayoutParams
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
-import androidx.activity.ComponentActivity
 import androidx.annotation.StyleRes
+import androidx.fragment.app.FragmentActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers
 import com.github.takahirom.roborazzi.captureRoboImage
@@ -75,9 +75,10 @@ fun component(
     skipDefaultCaptureRoboImage: Boolean = false,
     factory: ComponentScope.() -> View,
 ) {
-    val controller = Robolectric.buildActivity(ComponentActivity::class.java)
+    val controller = Robolectric.buildActivity(FragmentActivity::class.java)
     val activity = controller.get()
-    val componentScope = ComponentScopeImpl(activity)
+    val testTheme = ContextThemeWrapper(activity, R.style.TestTheme)
+    val componentScope = ComponentScopeImpl(testTheme)
     activity.setTheme(theme)
     if (backgroundColorAttr != 0) {
         activity.window.decorView.setBackgroundColor(
@@ -85,7 +86,7 @@ fun component(
         )
     }
     controller.setup()
-    val container = FrameLayout(activity).apply {
+    val container = FrameLayout(testTheme).apply {
         id = R.id.test_component_container
         clipChildren = false
         clipToPadding = false

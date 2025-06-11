@@ -7,9 +7,11 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
+import com.sdds.compose.uikit.graphics.Gradients
 import com.sdkit.star.designsystem.tokens.DarkGradientTokens
 import com.sdkit.star.designsystem.tokens.LightGradientTokens
 import kotlin.Float
@@ -9410,8 +9412,10 @@ public fun darkStarDsGradients(overrideGradients: GradientOverrideScope.() -> Un
 internal fun linearGradient(
     colors: List<Color>,
     positions: FloatArray,
-    angle: Float,
-): ShaderBrush = ThmbldrLinearGradient(colors, positions.toList(), angle)
+    angle: Float = 0f,
+    startPoint: Offset? = null,
+    endPoint: Offset? = null,
+): ShaderBrush = Gradients.Linear(colors, positions.toList(), angle, startPoint, endPoint)
 
 internal fun radialGradient(
     colors: List<Color>,
@@ -9419,16 +9423,16 @@ internal fun radialGradient(
     radius: Float,
     centerX: Float,
     centerY: Float,
-): ShaderBrush = ThmbldrRadialGradient(colors, positions.toList(), radius, centerX, centerY)
+): ShaderBrush = Gradients.Radial(colors, positions.toList(), radius, centerX, centerY)
 
 internal fun sweepGradient(
     colors: List<Color>,
     positions: FloatArray,
     centerX: Float,
     centerY: Float,
-): ShaderBrush = ThmbldrSweepGradient(colors, positions.toList(), centerX, centerY)
+): ShaderBrush = Gradients.Sweep(colors, positions.toList(), centerX, centerY)
 
-internal fun singleColor(color: Color): ShaderBrush = ThmbldrLinearGradient(
+internal fun singleColor(color: Color): ShaderBrush = Gradients.Linear(
     listOf(color, color),
     listOf(0f, 1f),
 )

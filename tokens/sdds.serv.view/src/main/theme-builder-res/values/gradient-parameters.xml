@@ -152,7 +152,7 @@
         <item>@color/serv_dark_text_default_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_default_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_text_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -308,7 +308,7 @@
         <item>@color/serv_dark_text_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_on_dark_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_text_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -464,7 +464,7 @@
         <item>@color/serv_dark_text_on_light_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_on_light_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_text_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -620,7 +620,7 @@
         <item>@color/serv_dark_text_inverse_accent_gradient_color_0</item>
         <item>@color/serv_dark_text_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_text_inverse_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_text_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_text_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -854,7 +854,7 @@
         <item>@color/serv_dark_surface_default_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_default_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_surface_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1232,7 +1232,7 @@
         <item>@color/serv_dark_surface_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_on_dark_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_surface_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1610,7 +1610,7 @@
         <item>@color/serv_dark_surface_on_light_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_on_light_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_surface_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -1988,7 +1988,7 @@
         <item>@color/serv_dark_surface_inverse_accent_gradient_color_0</item>
         <item>@color/serv_dark_surface_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_surface_inverse_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_surface_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_surface_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2327,7 +2327,7 @@
         <item>@color/serv_dark_outline_default_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_default_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_outline_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2522,7 +2522,7 @@
         <item>@color/serv_dark_outline_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_on_dark_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_outline_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2717,7 +2717,7 @@
         <item>@color/serv_dark_outline_on_light_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_on_light_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_outline_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -2912,7 +2912,7 @@
         <item>@color/serv_dark_outline_inverse_accent_gradient_color_0</item>
         <item>@color/serv_dark_outline_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_dark_outline_inverse_accent_gradient_angle">315.0</string>
+    <string name="serv_dark_outline_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_dark_outline_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3068,7 +3068,7 @@
         <item>@color/serv_light_text_default_accent_gradient_color_0</item>
         <item>@color/serv_light_text_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_default_accent_gradient_angle">315.0</string>
+    <string name="serv_light_text_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3224,7 +3224,7 @@
         <item>@color/serv_light_text_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_light_text_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_on_dark_accent_gradient_angle">315.0</string>
+    <string name="serv_light_text_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3380,7 +3380,7 @@
         <item>@color/serv_light_text_on_light_accent_gradient_color_0</item>
         <item>@color/serv_light_text_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_on_light_accent_gradient_angle">315.0</string>
+    <string name="serv_light_text_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3536,7 +3536,7 @@
         <item>@color/serv_light_text_inverse_accent_gradient_color_0</item>
         <item>@color/serv_light_text_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_text_inverse_accent_gradient_angle">315.0</string>
+    <string name="serv_light_text_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_text_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -3770,7 +3770,7 @@
         <item>@color/serv_light_surface_default_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_default_accent_gradient_angle">315.0</string>
+    <string name="serv_light_surface_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4148,7 +4148,7 @@
         <item>@color/serv_light_surface_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_on_dark_accent_gradient_angle">315.0</string>
+    <string name="serv_light_surface_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4526,7 +4526,7 @@
         <item>@color/serv_light_surface_on_light_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_on_light_accent_gradient_angle">315.0</string>
+    <string name="serv_light_surface_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -4904,7 +4904,7 @@
         <item>@color/serv_light_surface_inverse_accent_gradient_color_0</item>
         <item>@color/serv_light_surface_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_surface_inverse_accent_gradient_angle">315.0</string>
+    <string name="serv_light_surface_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_surface_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5243,7 +5243,7 @@
         <item>@color/serv_light_outline_default_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_default_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_default_accent_gradient_angle">315.0</string>
+    <string name="serv_light_outline_default_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_default_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5438,7 +5438,7 @@
         <item>@color/serv_light_outline_on_dark_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_on_dark_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_on_dark_accent_gradient_angle">315.0</string>
+    <string name="serv_light_outline_on_dark_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_on_dark_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5633,7 +5633,7 @@
         <item>@color/serv_light_outline_on_light_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_on_light_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_on_light_accent_gradient_angle">315.0</string>
+    <string name="serv_light_outline_on_light_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_on_light_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>
@@ -5828,7 +5828,7 @@
         <item>@color/serv_light_outline_inverse_accent_gradient_color_0</item>
         <item>@color/serv_light_outline_inverse_accent_gradient_color_1</item>
     </integer-array>
-    <string name="serv_light_outline_inverse_accent_gradient_angle">315.0</string>
+    <string name="serv_light_outline_inverse_accent_gradient_angle">45.0</string>
     <string-array name="serv_light_outline_inverse_accent_gradient_positions">
         <item>0.0</item>
         <item>1.0</item>

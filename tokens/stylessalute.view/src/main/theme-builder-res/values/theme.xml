@@ -1827,6 +1827,10 @@
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.M</item>
         <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+        <item name="sd_modalStyle">@style/Salute.StylesSalute.Components.Modal</item>
+        <item name="sd_toastStyle">@style/Salute.StylesSalute.Components.Toast.Rounded</item>
+        <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationLoose.M</item>
+        <item name="sd_rectSkeletonStyle">@style/Salute.StylesSalute.Components.RectSkeleton</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -3653,6 +3657,10 @@
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.M</item>
         <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+        <item name="sd_modalStyle">@style/Salute.StylesSalute.Components.Modal</item>
+        <item name="sd_toastStyle">@style/Salute.StylesSalute.Components.Toast.Rounded</item>
+        <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationLoose.M</item>
+        <item name="sd_rectSkeletonStyle">@style/Salute.StylesSalute.Components.RectSkeleton</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.DayNight" parent="Salute.StylesSalute.MaterialComponents.Light"/>
     <style name="Salute.StylesSalute"/>

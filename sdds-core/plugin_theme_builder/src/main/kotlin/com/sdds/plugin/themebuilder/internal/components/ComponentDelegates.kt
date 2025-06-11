@@ -16,14 +16,19 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
@@ -67,5 +72,10 @@ internal val componentDelegates by unsafeLazy {
         "overlay" to OverlayConfigDelegate(),
         "toast" to ToastConfigDelegate(),
         "modal" to ModalConfigDelegate(),
+        "notification" to NotificationConfigDelegate(),
+        "rect-skeleton" to RectSkeletonConfigDelegate(),
+        "spinner" to SpinnerConfigDelegate(),
+        "list" to ListConfigDelegate(),
+        "list-item" to ListItemConfigDelegate(),
     )
 }

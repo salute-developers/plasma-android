@@ -32,7 +32,7 @@ fun SwitchMOff(style: SwitchStyle) {
         active = false,
         label = "Label",
         description = "Description",
-        enabled = false,
+        enabled = true,
     )
 }
 

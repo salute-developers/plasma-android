@@ -161,6 +161,10 @@ data class ComponentKey(
         val Overlay = ComponentKey("Overlay", CoreComponent.OVERLAY)
         val Toast = ComponentKey("Toast", CoreComponent.TOAST)
         val Modal = ComponentKey("Modal", CoreComponent.MODAL)
+        val Notification = ComponentKey("Notification", CoreComponent.NOTIFICATION)
+        val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
+        val Spinner = ComponentKey("Spinner", CoreComponent.SPINNER)
+        val List = ComponentKey("List", CoreComponent.LIST)
     }
 }
 
@@ -218,4 +222,8 @@ enum class CoreComponent {
     OVERLAY,
     TOAST,
     MODAL,
+    NOTIFICATION,
+    RECT_SKELETON,
+    SPINNER,
+    LIST,
 }

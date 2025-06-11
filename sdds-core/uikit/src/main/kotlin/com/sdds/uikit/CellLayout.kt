@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StyleRes
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
@@ -28,6 +29,9 @@ import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.setBackgroundValueList
 import com.sdds.uikit.viewstate.ViewState
 
 /**
@@ -78,6 +82,7 @@ open class CellLayout @JvmOverloads constructor(
     private var _contentStartPaddingEnabled = false
     private var _contentEndPaddingEnabled = false
     private var _disclosurePaddingEnabled = false
+    private var _backgroundList: ColorValueStateList? = null
 
     /**
      * Выравнивание дочерних элементов относительно строки, в которой они находятся.
@@ -161,8 +166,11 @@ open class CellLayout @JvmOverloads constructor(
             typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_disclosurePadding, 0)
         _forceDuplicateParentState =
             typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
+        _backgroundList = typedArray.getColorValueStateList(context, R.styleable.CellLayout_sd_background)
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
+        resetDisclosure()
+        applySelector(this)
     }
 
     override fun setPressed(pressed: Boolean) {
@@ -175,7 +183,6 @@ open class CellLayout @JvmOverloads constructor(
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
         updateFocusSelector(this, gainFocus)
-        isActivated = gainFocus
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
@@ -189,11 +196,6 @@ open class CellLayout @JvmOverloads constructor(
             _disclosureView?.isVisible = _disclosureEnabled
         }
         super.addView(child, index, params)
-    }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        _disclosureView = null
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -406,6 +408,11 @@ open class CellLayout @JvmOverloads constructor(
         }
     }
 
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        setBackgroundValueList(_backgroundList)
+    }
+
     override fun generateDefaultLayoutParams(): LayoutParams {
         return LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -473,6 +480,7 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     private fun View.applyContentRole(cellParams: LayoutParams) {
+        isDuplicateParentStateEnabled = cellParams.forceDuplicateParentState && _forceDuplicateParentState
         (this as? TextView)?.apply {
             when (cellParams.cellContent) {
                 LABEL -> {
@@ -525,6 +533,10 @@ open class CellLayout @JvmOverloads constructor(
                     setIconTintList(_disclosureColor)
                     state = ViewState.SECONDARY
                 }
+                is DisclosureView -> {
+                    setTextAppearance(_disclosureTextAppearance)
+                    setColor(_disclosureColor)
+                }
             }
         }
     }
@@ -532,7 +544,7 @@ open class CellLayout @JvmOverloads constructor(
     private fun resetDisclosure() {
         if (!_disclosureText.isNullOrBlank() || _disclosureIcon != null) {
             var needAddView = false
-            val view = _disclosureView ?: TextView(context).also {
+            val view = _disclosureView ?: DisclosureView(context).also {
                 _disclosureView = it
                 needAddView = true
             }
@@ -545,6 +557,10 @@ open class CellLayout @JvmOverloads constructor(
                         _disclosureIcon,
                         null,
                     )
+                    gravity = Gravity.CENTER_VERTICAL
+                }
+                if (this is DisclosureView) {
+                    setDisclosure(disclosureText, disclosureIcon)
                     gravity = Gravity.CENTER_VERTICAL
                 }
                 isVisible = disclosureEnabled
@@ -562,6 +578,40 @@ open class CellLayout @JvmOverloads constructor(
             }
         }
         _disclosureView?.isVisible = disclosureEnabled
+    }
+
+    private class DisclosureView(context: Context) : LinearLayout(context) {
+        private val disclosureText: TextView = TextView(context).apply {
+            state = ViewState.SECONDARY
+            isDuplicateParentStateEnabled = true
+        }
+        private val disclosureIcon: ImageView = ImageView(context).apply {
+            state = ViewState.SECONDARY
+            isDuplicateParentStateEnabled = true
+        }
+
+        init {
+            orientation = HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            addView(disclosureText)
+            addView(disclosureIcon)
+        }
+
+        fun setDisclosure(text: CharSequence?, icon: Drawable?) {
+            disclosureText.text = text
+            disclosureText.isVisible = !text.isNullOrBlank()
+            disclosureIcon.setImageDrawable(icon)
+            disclosureIcon.isVisible = icon != null
+        }
+
+        fun setTextAppearance(@StyleRes resId: Int) {
+            disclosureText.setTextAppearance(resId)
+        }
+
+        fun setColor(color: ColorStateList?) {
+            color?.let { disclosureText.setTextColor(it) }
+            disclosureIcon.imageTintList = color
+        }
     }
 
     /**

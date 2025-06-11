@@ -29,16 +29,23 @@ import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsSe
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.overlay.vs.SddsServOverlayVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.popover.vs.SddsServPopoverVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.toast.SddsServToastVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.tooltip.vs.SddsServTooltipVariationsView
 
 /**
@@ -146,6 +153,26 @@ object SddsServViewComponents : ComponentsProviderView {
                 ViewStyleProvider.Empty,
             ),
             ViewComponent(
+                ComponentKey("ListNormal", CoreComponent.LIST),
+                SddsServListNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("ListTight", CoreComponent.LIST),
+                SddsServListTightVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Modal,
+                SddsServModalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
+                SddsServNotificationCompactVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
+                SddsServNotificationLooseVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Overlay,
                 SddsServOverlayVariationsView,
             ),
@@ -170,6 +197,10 @@ object SddsServViewComponents : ComponentsProviderView {
                 SddsServRadioBoxGroupVariationsView,
             ),
             ViewComponent(
+                ComponentKey.RectSkeleton,
+                SddsServRectSkeletonVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Segment,
                 SddsServSegmentVariationsView,
             ),
@@ -188,6 +219,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.TextArea,
                 SddsServTextAreaVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Toast,
+                SddsServToastVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Tooltip,
