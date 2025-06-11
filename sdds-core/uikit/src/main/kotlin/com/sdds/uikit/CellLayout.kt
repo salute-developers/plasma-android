@@ -583,9 +583,11 @@ open class CellLayout @JvmOverloads constructor(
     private class DisclosureView(context: Context) : LinearLayout(context) {
         private val disclosureText: TextView = TextView(context).apply {
             state = ViewState.SECONDARY
+            isDuplicateParentStateEnabled = true
         }
         private val disclosureIcon: ImageView = ImageView(context).apply {
             state = ViewState.SECONDARY
+            isDuplicateParentStateEnabled = true
         }
 
         init {
