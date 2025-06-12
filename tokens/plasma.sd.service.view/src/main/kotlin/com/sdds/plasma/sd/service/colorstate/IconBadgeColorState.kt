@@ -1,7 +1,9 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.plasma.sd.service.colorstate
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.`annotation`.Keep
 import com.sdds.plasma.sd.service.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
@@ -14,19 +16,19 @@ import kotlin.IntArray
 public enum class IconBadgeColorState(
     public override val attrs: IntArray,
 ) : ColorState {
-    DEFAULT(intArrayOf(R.attr.plasma_iconBadge_state_default)),
-    ACCENT(intArrayOf(R.attr.plasma_iconBadge_state_accent)),
-    POSITIVE(intArrayOf(R.attr.plasma_iconBadge_state_positive)),
-    NEGATIVE(intArrayOf(R.attr.plasma_iconBadge_state_negative)),
-    WARNING(intArrayOf(R.attr.plasma_iconBadge_state_warning)),
-    CLEAR(intArrayOf(R.attr.plasma_iconBadge_state_clear)),
-    BLACK(intArrayOf(R.attr.plasma_iconBadge_state_black)),
-    WHITE(intArrayOf(R.attr.plasma_iconBadge_state_white)),
+    DEFAULT(intArrayOf(R.attr.plasma_iconbadge_state_default)),
+    ACCENT(intArrayOf(R.attr.plasma_iconbadge_state_accent)),
+    NEGATIVE(intArrayOf(R.attr.plasma_iconbadge_state_negative)),
+    POSITIVE(intArrayOf(R.attr.plasma_iconbadge_state_positive)),
+    WARNING(intArrayOf(R.attr.plasma_iconbadge_state_warning)),
+    DARK(intArrayOf(R.attr.plasma_iconbadge_state_dark)),
+    LIGHT(intArrayOf(R.attr.plasma_iconbadge_state_light)),
 }
 
 /**
  * Реализация [ColorStateProvider] для IconBadgeColorState
  */
+@Keep
 internal class IconBadgeColorStateProvider : ColorStateProvider {
     public override fun obtain(
         context: Context,
@@ -40,7 +42,7 @@ internal class IconBadgeColorStateProvider : ColorStateProvider {
             defStyleAttr,
             defStyleRes,
         )
-        val stateOrdinal: Int = typedArray.getInt(R.styleable.IconBadge_plasma_iconBadgeColors, 0)
+        val stateOrdinal: Int = typedArray.getInt(R.styleable.IconBadge_plasma_iconbadgeColors, 0)
         typedArray.recycle()
         return IconBadgeColorState.values().getOrNull(stateOrdinal)
     }

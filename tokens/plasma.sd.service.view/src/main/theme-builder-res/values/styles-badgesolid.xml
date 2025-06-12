@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.BadgeSolid" parent="Sdds.Components.Badge">
+        <item name="android:backgroundTint">@color/plasma_badge_solid_bg_color</item>
+        <item name="android:textColor">@color/plasma_badge_solid_text_color</item>
+        <item name="sd_drawableStartTint">@color/plasma_badge_solid_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/plasma_badge_solid_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.BadgeColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/plasma_badge_solid_l_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_solid_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_solid_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_solid_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_solid_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_badge_solid_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_badge_solid_l_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidL">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilled">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.L.Pilled.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidLPilledLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.L.Pilled.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_badge_solid_m_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_solid_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_solid_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_solid_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_solid_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_badge_solid_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_badge_solid_m_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidM">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilled">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.M.Pilled.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidMPilledLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Pilled.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_badge_solid_s_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_solid_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_solid_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_solid_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_solid_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_badge_solid_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_badge_solid_s_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidS">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilled">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.S.Pilled.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidSPilledLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.S.Pilled.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXxs</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_badge_solid_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_badge_solid_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_badge_solid_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/plasma_badge_solid_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/plasma_badge_solid_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_badge_solid_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/plasma_badge_solid_xs_content_end_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXs">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilled">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Default">
+        <item name="plasma_badgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledDefault">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Accent">
+        <item name="plasma_badgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledAccent">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Negative">
+        <item name="plasma_badgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledNegative">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Positive">
+        <item name="plasma_badgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledPositive">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Warning">
+        <item name="plasma_badgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledWarning">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Dark">
+        <item name="plasma_badgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledDark">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Light">
+        <item name="plasma_badgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BadgeSolidXsPilledLight">
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.Xs.Pilled.Light</item>
+    </style>
+</resources>

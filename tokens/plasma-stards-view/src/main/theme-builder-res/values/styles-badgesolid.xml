@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.BadgeSolid" parent="Sdds.Components.Badge">
+        <item name="android:backgroundTint">@color/sdkit_badge_solid_bg_color</item>
+        <item name="android:textColor">@color/sdkit_badge_solid_text_color</item>
+        <item name="sd_drawableStartTint">@color/sdkit_badge_solid_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/sdkit_badge_solid_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.BadgeColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_badge_solid_l_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_badge_solid_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_badge_solid_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_badge_solid_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_badge_solid_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_badge_solid_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_badge_solid_l_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidL">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilled">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidLPilledLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.L.Pilled.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_badge_solid_m_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_badge_solid_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_badge_solid_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_badge_solid_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_badge_solid_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_badge_solid_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_badge_solid_m_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidM">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilled">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidMPilledLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.M.Pilled.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_badge_solid_s_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_badge_solid_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_badge_solid_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_badge_solid_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_badge_solid_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_badge_solid_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_badge_solid_s_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidS">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilled">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidSPilledLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.S.Pilled.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXxs</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/sdkit_badge_solid_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_badge_solid_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_badge_solid_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/sdkit_badge_solid_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/sdkit_badge_solid_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_badge_solid_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_badge_solid_xs_content_end_size</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXs">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Light</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilled">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Default">
+        <item name="sdkit_badgeColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledDefault">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Accent">
+        <item name="sdkit_badgeColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledAccent">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Negative">
+        <item name="sdkit_badgeColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledNegative">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Positive">
+        <item name="sdkit_badgeColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledPositive">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Warning">
+        <item name="sdkit_badgeColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledWarning">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Dark">
+        <item name="sdkit_badgeColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledDark">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Light">
+        <item name="sdkit_badgeColors">state_light</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BadgeSolidXsPilledLight">
+        <item name="sd_badgeStyle">@style/Sdkit.StarDs.Components.BadgeSolid.Xs.Pilled.Light</item>
+    </style>
+</resources>

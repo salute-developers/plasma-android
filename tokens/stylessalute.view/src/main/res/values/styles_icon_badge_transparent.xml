@@ -1,262 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent" parent="Sdds.Components.IconBadge">
-        <item name="android:backgroundTint">@color/salute_icon_badge_transparent_bg_color</item>
-        <item name="sd_drawableStartTint">@color/salute_icon_badge_transparent_text_color</item>
-        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.IconBadgeColorStateProvider</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L">
-        <item name="android:minHeight">28dp</item>
-        <item name="android:minWidth">28dp</item>
-        <item name="android:paddingStart">6dp</item>
-        <item name="android:paddingEnd">6dp</item>
-        <item name="sd_drawableSize">16dp</item>
-        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M">
-        <item name="android:minHeight">24dp</item>
-        <item name="android:minWidth">24dp</item>
-        <item name="android:paddingStart">6dp</item>
-        <item name="android:paddingEnd">6dp</item>
-        <item name="sd_drawableSize">12dp</item>
-        <item name="sd_shapeAppearance">?salute_shapeRoundXs</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S">
-        <item name="android:minHeight">20dp</item>
-        <item name="android:minWidth">20dp</item>
-        <item name="android:paddingStart">4dp</item>
-        <item name="android:paddingEnd">4dp</item>
-        <item name="sd_drawableSize">12dp</item>
-        <item name="sd_shapeAppearance">?salute_shapeRoundXs</item>
-
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs">
-        <item name="android:minHeight">16dp</item>
-        <item name="android:minWidth">16dp</item>
-        <item name="android:paddingStart">3dp</item>
-        <item name="android:paddingEnd">3dp</item>
-        <item name="sd_drawableSize">10dp</item>
-        <item name="sd_shapeAppearance">?salute_shapeRoundXxs</item>
-
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
     <!--    start region L size-->
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
 
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.L.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.L.Light"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Light"/>
     <!--    end region L size-->
 
     <!--    start region M size-->
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.M.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.M.Light"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Light"/>
     <!--    end region M size-->
 
     <!--    start region S size-->
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.S.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.S.Light"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Light"/>
     <!--    end region S size-->
 
     <!--    start region Xs size-->
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Accent">
-        <item name="salute_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Positive">
-        <item name="salute_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Warning">
-        <item name="salute_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Negative">
-        <item name="salute_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Black">
-        <item name="salute_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.White">
-        <item name="salute_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Light"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Black" parent="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Dark"/>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.White" parent="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Light"/>
     <!--    end region Xs size-->
 </resources>

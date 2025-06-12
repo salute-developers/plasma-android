@@ -17,6 +17,7 @@ internal data class BadgeProperties(
     val labelStyle: Typography? = null,
 
     val height: Dimension? = null,
+    val width: Dimension? = null,
     val startContentSize: Dimension? = null,
     val endContentSize: Dimension? = null,
     val startContentMargin: Dimension? = null,

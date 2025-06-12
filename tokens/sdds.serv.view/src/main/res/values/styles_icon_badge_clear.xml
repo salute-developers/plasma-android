@@ -1,149 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Serv.Sdds.Components.IconBadgeClear" parent="Sdds.Components.IconBadge">
-        <item name="android:backgroundTint">?serv_surfaceDefaultClear</item>
-        <item name="sd_drawableStartTint">@color/serv_icon_badge_transparent_text_color</item>
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.IconBadgeColorStateProvider</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.L">
-        <item name="android:minHeight">28dp</item>
-        <item name="android:minWidth">28dp</item>
-        <item name="android:paddingStart">6dp</item>
-        <item name="android:paddingEnd">6dp</item>
-        <item name="sd_drawableSize">16dp</item>
-        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.M">
-        <item name="android:minHeight">24dp</item>
-        <item name="android:minWidth">24dp</item>
-        <item name="android:paddingStart">6dp</item>
-        <item name="android:paddingEnd">6dp</item>
-        <item name="sd_drawableSize">12dp</item>
-        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.S">
-        <item name="android:minHeight">20dp</item>
-        <item name="android:minWidth">20dp</item>
-        <item name="android:paddingStart">4dp</item>
-        <item name="android:paddingEnd">4dp</item>
-        <item name="sd_drawableSize">12dp</item>
-        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
-
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs">
-        <item name="android:minHeight">16dp</item>
-        <item name="android:minWidth">16dp</item>
-        <item name="android:paddingStart">3dp</item>
-        <item name="android:paddingEnd">3dp</item>
-        <item name="sd_drawableSize">10dp</item>
-        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
-    </style>
-
     <!--    start region L size-->
-    <style name="Serv.Sdds.Components.IconBadgeClear.L.Accent">
-        <item name="serv_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.L.Positive">
-        <item name="serv_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.L.Warning">
-        <item name="serv_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.L.Negative">
-        <item name="serv_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.L.Black">
-        <item name="serv_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.L.White">
-        <item name="serv_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Serv.Sdds.Components.IconBadgeClear.L.Black" parent="Serv.Sdds.Components.IconBadgeClear.L.Dark" />
+    <style name="Serv.Sdds.Components.IconBadgeClear.L.White" parent="Serv.Sdds.Components.IconBadgeClear.L.Light" />
     <!--    end region L size-->
 
     <!--    start region M size-->
-    <style name="Serv.Sdds.Components.IconBadgeClear.M.Accent">
-        <item name="serv_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.M.Positive">
-        <item name="serv_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.M.Warning">
-        <item name="serv_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.M.Negative">
-        <item name="serv_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.M.Black">
-        <item name="serv_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.M.White">
-        <item name="serv_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Serv.Sdds.Components.IconBadgeClear.M.Black" parent="Serv.Sdds.Components.IconBadgeClear.M.Dark" />
+    <style name="Serv.Sdds.Components.IconBadgeClear.M.White" parent="Serv.Sdds.Components.IconBadgeClear.M.Light" />
     <!--    end region M size-->
 
     <!--    start region S size-->
-    <style name="Serv.Sdds.Components.IconBadgeClear.S.Accent">
-        <item name="serv_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.S.Positive">
-        <item name="serv_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.S.Warning">
-        <item name="serv_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.S.Negative">
-        <item name="serv_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.S.Black">
-        <item name="serv_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.S.White">
-        <item name="serv_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Serv.Sdds.Components.IconBadgeClear.S.Black" parent="Serv.Sdds.Components.IconBadgeClear.S.Dark" />
+    <style name="Serv.Sdds.Components.IconBadgeClear.S.White" parent="Serv.Sdds.Components.IconBadgeClear.S.Light" />
     <!--    end region S size-->
 
     <!--    start region Xs size-->
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.Accent">
-        <item name="serv_iconBadgeColors">state_accent</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.Positive">
-        <item name="serv_iconBadgeColors">state_positive</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.Warning">
-        <item name="serv_iconBadgeColors">state_warning</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.Negative">
-        <item name="serv_iconBadgeColors">state_negative</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.Black">
-        <item name="serv_iconBadgeColors">state_black</item>
-    </style>
-
-    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.White">
-        <item name="serv_iconBadgeColors">state_white</item>
-    </style>
+    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.Black" parent="Serv.Sdds.Components.IconBadgeClear.Xs.Dark" />
+    <style name="Serv.Sdds.Components.IconBadgeClear.Xs.White" parent="Serv.Sdds.Components.IconBadgeClear.Xs.Light" />
     <!--    end region Xs size-->
 </resources>

@@ -8,8 +8,10 @@
         <attr name="android:drawableStart" />
         <attr name="android:drawableEnd" />
         <attr name="sd_drawableStartTint" />
-        <attr name="sd_drawableEndTint"  />
-        <attr name="sd_drawableSize"  />
+        <attr name="sd_drawableEndTint" />
+        <attr name="sd_drawableSize" />
+        <attr name="sd_contentStartSize" />
+        <attr name="sd_contentEndSize" />
 
         <attr name="android:text" />
         <attr name="android:textAppearance" />
@@ -17,15 +19,15 @@
         <attr name="sd_textPaddingStart" />
         <attr name="sd_textPaddingEnd" />
 
-        <attr name="android:paddingStart"/>
-        <attr name="android:paddingEnd"/>
-        <attr name="android:paddingTop"/>
-        <attr name="android:paddingBottom"/>
-        <attr name="android:minWidth"/>
-        <attr name="android:minHeight"/>
+        <attr name="android:paddingStart" />
+        <attr name="android:paddingEnd" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:minWidth" />
+        <attr name="android:minHeight" />
 
-        <attr name="android:backgroundTint"/>
-        <attr name="backgroundTint"/>
+        <attr name="android:backgroundTint" />
+        <attr name="backgroundTint" />
         <attr name="sd_shapeAppearance" />
     </declare-styleable>
 </resources>
