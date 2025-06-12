@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.BadgeTransparent" parent="Sdds.Components.Badge">
+        <item name="android:backgroundTint">@color/serv_badge_transparent_bg_color</item>
+        <item name="android:textColor">@color/serv_badge_transparent_text_color</item>
+        <item name="sd_drawableStartTint">@color/serv_badge_transparent_drawable_start_tint</item>
+        <item name="sd_drawableEndTint">@color/serv_badge_transparent_drawable_end_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.BadgeColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/serv_badge_transparent_l_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_badge_transparent_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_badge_transparent_l_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_badge_transparent_l_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_badge_transparent_l_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_badge_transparent_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_badge_transparent_l_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentL">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilled">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.L.Pilled.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentLPilledLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.L.Pilled.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/serv_badge_transparent_m_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_badge_transparent_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_badge_transparent_m_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_badge_transparent_m_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_badge_transparent_m_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_badge_transparent_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_badge_transparent_m_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentM">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilled">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.M.Pilled.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentMPilledLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.M.Pilled.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/serv_badge_transparent_s_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_badge_transparent_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_badge_transparent_s_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_badge_transparent_s_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_badge_transparent_s_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_badge_transparent_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_badge_transparent_s_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentS">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilled">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.S.Pilled.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentSPilledLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.S.Pilled.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs">
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/serv_badge_transparent_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_badge_transparent_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_badge_transparent_xs_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_badge_transparent_xs_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_badge_transparent_xs_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_badge_transparent_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_badge_transparent_xs_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXs">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Light</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilled">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Default">
+        <item name="serv_badgeColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Dark">
+        <item name="serv_badgeColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledDark">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Light">
+        <item name="serv_badgeColors">state_light</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BadgeTransparentXsPilledLight">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeTransparent.Xs.Pilled.Light</item>
+    </style>
+</resources>

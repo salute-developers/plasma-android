@@ -1,7 +1,9 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.stylessalute.colorstate
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.`annotation`.Keep
 import com.sdds.stylessalute.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
@@ -16,17 +18,17 @@ public enum class BadgeColorState(
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.salute_badge_state_default)),
     ACCENT(intArrayOf(R.attr.salute_badge_state_accent)),
-    POSITIVE(intArrayOf(R.attr.salute_badge_state_positive)),
     NEGATIVE(intArrayOf(R.attr.salute_badge_state_negative)),
+    POSITIVE(intArrayOf(R.attr.salute_badge_state_positive)),
     WARNING(intArrayOf(R.attr.salute_badge_state_warning)),
-    CLEAR(intArrayOf(R.attr.salute_badge_state_clear)),
-    BLACK(intArrayOf(R.attr.salute_badge_state_black)),
-    WHITE(intArrayOf(R.attr.salute_badge_state_white)),
+    DARK(intArrayOf(R.attr.salute_badge_state_dark)),
+    LIGHT(intArrayOf(R.attr.salute_badge_state_light)),
 }
 
 /**
  * Реализация [ColorStateProvider] для BadgeColorState
  */
+@Keep
 internal class BadgeColorStateProvider : ColorStateProvider {
     public override fun obtain(
         context: Context,

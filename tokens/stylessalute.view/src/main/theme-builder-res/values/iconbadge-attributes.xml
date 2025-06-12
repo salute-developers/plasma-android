@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SaluteIconBadgeColorState">
+        <attr format="boolean" name="salute_iconbadge_state_default"/>
+        <attr format="boolean" name="salute_iconbadge_state_accent"/>
+        <attr format="boolean" name="salute_iconbadge_state_negative"/>
+        <attr format="boolean" name="salute_iconbadge_state_positive"/>
+        <attr format="boolean" name="salute_iconbadge_state_warning"/>
+        <attr format="boolean" name="salute_iconbadge_state_dark"/>
+        <attr format="boolean" name="salute_iconbadge_state_light"/>
+    </declare-styleable>
+    <declare-styleable name="IconBadge" tools:ignore="ResourceName">
+        <attr format="enum" name="salute_iconbadgeColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+            <enum name="state_negative" value="2"/>
+            <enum name="state_positive" value="3"/>
+            <enum name="state_warning" value="4"/>
+            <enum name="state_dark" value="5"/>
+            <enum name="state_light" value="6"/>
+        </attr>
+    </declare-styleable>
+</resources>
