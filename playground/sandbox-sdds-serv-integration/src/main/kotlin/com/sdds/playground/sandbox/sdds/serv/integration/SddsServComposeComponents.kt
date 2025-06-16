@@ -50,6 +50,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAr
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.clear.SddsServTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.textskeleton.SddsServTextSkeletonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.toast.SddsServToastVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.tooltip.SddsServTooltipVariationsCompose
 
@@ -236,6 +237,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 SddsServRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.TextSkeleton,
+                SddsServTextSkeletonVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Spinner,

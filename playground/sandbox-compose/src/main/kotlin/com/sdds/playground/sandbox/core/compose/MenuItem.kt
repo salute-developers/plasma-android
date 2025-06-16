@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.ToastStyle
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.style.Style
@@ -69,6 +70,8 @@ import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.spinner.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
+import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
+import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
 import com.sdds.playground.sandbox.toast.compose.ToastScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
 import com.sdds.serv.styles.basicbutton.BasicButton
@@ -199,6 +202,10 @@ internal sealed class ComponentScreen(
         { RectSkeletonScreen(it) },
         { RectSkeletonForSandbox(it as RectSkeletonStyle) },
     )
+    object TextSkeleton : ComponentScreen(
+        { TextSkeletonScreen(it) },
+        { TextSkeletonPreview(it as TextSkeletonStyle) },
+    )
 
     object Spinner : ComponentScreen({ SpinnerScreen(it) }, { SpinnerTest(it as SpinnerStyle) })
     object List : ComponentScreen({ ListScreen(it) }, { ListForSandbox(it as ListStyle) })
@@ -241,6 +248,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
+        CoreComponent.TEXT_SKELETON -> ComponentScreen.TextSkeleton
         CoreComponent.SPINNER -> ComponentScreen.Spinner
         CoreComponent.LIST -> ComponentScreen.List
         else -> ComponentScreen.Empty
