@@ -232,8 +232,10 @@ open class Popover @JvmOverloads constructor(
         val trigger = _triggerRef?.get() ?: return Point(INITIAL_POSITION, INITIAL_POSITION)
         val safePaddings = _content.getSafePaddings()
         val rootRect = trigger.rootView.getScreenRect()
+        val triggerRect = trigger.getScreenRect()
+        val visibleDisplayFrame = trigger.getVisibleDisplayFrame()
 
-        return _currentLocation
+        return _currentLocation.copy(triggerRect = triggerRect, visibleDisplayFrame = visibleDisplayFrame)
             .calculateLocation()
             .ensureEnoughSpace()
             .also { _currentLocation = it }

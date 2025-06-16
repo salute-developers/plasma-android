@@ -1,5 +1,8 @@
 package com.sdds.serv
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -23,7 +26,10 @@ class ViewSystemModalScreenshotTest(
     @Test
     override fun testModalUseNativeBlackoutHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             modalUseNativeBlackoutHasClose(R.style.Serv_Sdds_ComponentOverlays_Modal)
@@ -36,7 +42,10 @@ class ViewSystemModalScreenshotTest(
     @Test
     override fun testModalNoCloseNoBlackout() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             modalNoValues(R.style.Serv_Sdds_ComponentOverlays_Modal)

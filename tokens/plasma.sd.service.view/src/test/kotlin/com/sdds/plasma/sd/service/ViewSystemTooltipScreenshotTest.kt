@@ -1,5 +1,8 @@
 package com.sdds.plasma.sd.service
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -22,7 +25,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMStrictBottomEndStartTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMStrictBottomEndStartTop(R.style.Plasma_SdService_ComponentOverlays_TooltipM)
@@ -34,7 +40,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMStrictTopCenterStartCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMStrictTopCenterStartCenter(R.style.Plasma_SdService_ComponentOverlays_TooltipM)
@@ -46,7 +55,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipSLooseEndStartBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipSLooseEndStartBottom(R.style.Plasma_SdService_ComponentOverlays_TooltipS)
@@ -58,7 +70,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipSStrictBottomStartCenterTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipSStrictBottomStartCenterTop(R.style.Plasma_SdService_ComponentOverlays_TooltipS)
@@ -70,7 +85,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMLooseStartCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartCenter(R.style.Plasma_SdService_ComponentOverlays_TooltipS)
@@ -82,7 +100,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMLooseStartCenterBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartCenterBottom(R.style.Plasma_SdService_ComponentOverlays_TooltipM)
@@ -94,7 +115,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMLooseTopEndEndTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseTopEndEndTop(R.style.Plasma_SdService_ComponentOverlays_TooltipM)
@@ -106,7 +130,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMLooseStartEndCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartEndCenter(R.style.Plasma_SdService_ComponentOverlays_TooltipM)
@@ -118,7 +145,10 @@ class ViewSystemTooltipScreenshotTest(
     @Test
     override fun testTooltipMLooseStartCenterEndBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartCenterEndBottom(R.style.Plasma_SdService_ComponentOverlays_TooltipM)
