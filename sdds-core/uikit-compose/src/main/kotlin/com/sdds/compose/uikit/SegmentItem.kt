@@ -72,36 +72,7 @@ fun SegmentItem(
         } else {
             null
         },
-        endContent = if (endIcon == null && counter.isNullOrEmpty()) {
-            null
-        } else {
-            @Composable {
-                endIcon?.let {
-                    Icon(
-                        modifier = Modifier
-                            .size(style.dimensions.endContentSize)
-                            .defaultMinSize(
-                                minHeight = style.dimensions.endContentSize,
-                                minWidth = style.dimensions.endContentSize,
-                            ),
-                        painter = endIcon,
-                        contentDescription = "",
-                    )
-                }
-                counter?.let {
-                    Counter(
-                        modifier = Modifier
-                            .selection(
-                                selected = isSelected,
-                                interactionSource = interactionSource,
-                            ),
-                        count = AnnotatedString(counter),
-                        style = style.counterStyle,
-                        interactionSource = interactionSource,
-                    )
-                }
-            }
-        },
+        endContent = endIconOrCounter(isSelected, endIcon, counter, style, interactionSource),
         enabled = enabled,
         interactionSource = interactionSource,
     )
@@ -176,6 +147,44 @@ fun SegmentItem(
         endContent?.let { content ->
             EndContent(style, endContentColor, content)
         }
+    }
+}
+
+private fun endIconOrCounter(
+    isSelected: Boolean,
+    endIcon: Painter?,
+    counter: String?,
+    style: SegmentItemStyle,
+    interactionSource: MutableInteractionSource,
+): @Composable (() -> Unit)? {
+    return if (endIcon != null) {
+        @Composable {
+            Icon(
+                modifier = Modifier
+                    .size(style.dimensions.endContentSize)
+                    .defaultMinSize(
+                        minHeight = style.dimensions.endContentSize,
+                        minWidth = style.dimensions.endContentSize,
+                    ),
+                painter = endIcon,
+                contentDescription = "",
+            )
+        }
+    } else if (!counter.isNullOrEmpty()) {
+        @Composable {
+            Counter(
+                modifier = Modifier
+                    .selection(
+                        selected = isSelected,
+                        interactionSource = interactionSource,
+                    ),
+                count = AnnotatedString(counter),
+                style = style.counterStyle,
+                interactionSource = interactionSource,
+            )
+        }
+    } else {
+        null
     }
 }
 

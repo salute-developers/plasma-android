@@ -152,10 +152,10 @@ internal class SegmentItemComposeVariationGenerator(
                 props.paddingEnd?.let {
                     appendDimension("padding_end", it, variationId)
                 }
-                props.startContentPadding?.let {
+                props.iconMargin?.let {
                     appendDimension("start_content_padding", it, variationId)
                 }
-                props.endContentPadding?.let {
+                props.counterMargin?.let {
                     appendDimension("end_content_padding", it, variationId)
                 }
                 props.startContentSize?.let {
@@ -187,8 +187,8 @@ internal class SegmentItemComposeVariationGenerator(
             minHeight != null ||
             paddingStart != null ||
             paddingEnd != null ||
-            startContentPadding != null ||
-            endContentPadding != null ||
+            iconMargin != null ||
+            counterMargin != null ||
             startContentSize != null ||
             endContentSize != null ||
             valueMargin != null
