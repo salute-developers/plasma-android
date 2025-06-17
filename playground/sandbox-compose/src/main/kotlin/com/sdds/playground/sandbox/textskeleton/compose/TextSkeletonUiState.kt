@@ -17,5 +17,4 @@ internal data class TextSkeletonUiState(
 internal enum class TextSkeletonWidth {
     Random,
     FullWidth,
-    ;
 }

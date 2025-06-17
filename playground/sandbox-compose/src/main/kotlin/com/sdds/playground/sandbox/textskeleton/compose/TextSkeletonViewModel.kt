@@ -34,8 +34,8 @@ internal class TextSkeletonViewModel(
         enumProperty(
             name = "width",
             value = width,
-            onApply = { internalUiState.value = internalUiState.value.copy(width = it) }
-        )
+            onApply = { internalUiState.value = internalUiState.value.copy(width = it) },
+        ),
     )
 }
 
