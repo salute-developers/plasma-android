@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_surfaceDefaultClearHover" android:state_hovered="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_surfaceDefaultSolidDefault" android:state_checked="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_surfaceDefaultSolidDefaultActive" android:state_checked="true" android:state_pressed="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_surfaceDefaultSolidDefaultHover" android:state_checked="true" android:state_hovered="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_surfaceDefaultClear" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_surfaceDefaultClearHover" android:state_hovered="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultTransparentCard" android:state_checked="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultTransparentCardActive" android:state_checked="true" android:state_pressed="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultTransparentCardHover" android:state_checked="true" android:state_hovered="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultClear" app:sdkit_segmentitem_state_secondary="true"/>
+</selector>

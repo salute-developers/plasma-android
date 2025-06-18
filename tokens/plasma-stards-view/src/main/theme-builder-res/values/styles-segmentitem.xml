@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.SegmentItem" parent="Sdds.Components.SegmentItem">
+        <item name="android:textColor">@color/sdkit_segment_item_text_color</item>
+        <item name="sd_valueTextColor">@color/sdkit_segment_item_value_text_color</item>
+        <item name="backgroundTint">@color/sdkit_segment_item_background_color</item>
+        <item name="sd_iconTint">@color/sdkit_segment_item_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.SegmentItemColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xl">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.S.Accent</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_xl_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_segment_item_xl_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_xl_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_segment_item_xl_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_segment_item_xl_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/sdkit_segment_item_xl_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/sdkit_segment_item_xl_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_segment_item_xl_value_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXl">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xl</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xl.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXlPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xl.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xl.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXlSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xl.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xl.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_xl_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_xl_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_xl_pilled_padding_end</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXlPilled">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xl.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xl.Pilled.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXlPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xl.Pilled.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xl.Pilled.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXlPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xl.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.L">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_segment_item_l_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.S.Accent</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_l_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_segment_item_l_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_l_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_segment_item_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_segment_item_l_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/sdkit_segment_item_l_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/sdkit_segment_item_l_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_segment_item_l_value_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemL">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.L.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemLPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.L.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.L.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemLSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.L.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_l_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_l_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_l_pilled_padding_end</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemLPilled">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.L.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.L.Pilled.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemLPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.L.Pilled.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.L.Pilled.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemLPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.L.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.M">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMBold</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.Xs.Accent</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_m_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_segment_item_m_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_m_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_segment_item_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_segment_item_m_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/sdkit_segment_item_m_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/sdkit_segment_item_m_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_segment_item_m_value_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemM">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.M.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemMPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.M.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemMSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_m_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_m_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_m_pilled_padding_end</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemMPilled">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.M.Pilled.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemMPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M.Pilled.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.M.Pilled.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemMPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.S">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_segment_item_s_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.Xs.Accent</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_s_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_segment_item_s_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_s_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_segment_item_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_segment_item_s_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/sdkit_segment_item_s_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/sdkit_segment_item_s_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_segment_item_s_value_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemS">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.S.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemSPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.S.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.S.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemSSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.S.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_s_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_s_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_s_pilled_padding_end</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemSPilled">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.S.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.S.Pilled.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemSPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.S.Pilled.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.S.Pilled.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemSPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.S.Pilled.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xs">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsBold</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.Xxs.Accent</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_xs_min_width</item>
+        <item name="android:minHeight">@dimen/sdkit_segment_item_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_xs_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/sdkit_segment_item_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/sdkit_segment_item_xs_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/sdkit_segment_item_xs_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/sdkit_segment_item_xs_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_segment_item_xs_value_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXs">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xs.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXsPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xs.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xs.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXsSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xs.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/sdkit_segment_item_xs_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_segment_item_xs_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_segment_item_xs_pilled_padding_end</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXsPilled">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xs.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xs.Pilled.Primary">
+        <item name="sdkit_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXsPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xs.Pilled.Primary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SegmentItem.Xs.Pilled.Secondary">
+        <item name="sdkit_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SegmentItemXsPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.Xs.Pilled.Secondary</item>
+    </style>
+</resources>

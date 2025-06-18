@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_textDefaultSecondaryHover" android:state_hovered="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_textInverseSecondary" android:state_checked="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_textInverseSecondaryActive" android:state_checked="true" android:state_pressed="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_textInverseSecondaryHover" android:state_checked="true" android:state_hovered="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_textDefaultSecondary" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_textDefaultSecondaryHover" android:state_hovered="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_textDefaultSecondary" android:state_checked="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_textDefaultSecondaryActive" android:state_checked="true" android:state_pressed="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_textDefaultSecondaryHover" android:state_checked="true" android:state_hovered="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_textDefaultSecondary" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_textDefaultSecondaryHover" android:state_hovered="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_textOnDarkSecondary" android:state_checked="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_textOnDarkSecondaryActive" android:state_checked="true" android:state_pressed="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_textOnDarkSecondaryHover" android:state_checked="true" android:state_hovered="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_textDefaultSecondary" app:serv_segmentitem_state_accent="true"/>
+</selector>
