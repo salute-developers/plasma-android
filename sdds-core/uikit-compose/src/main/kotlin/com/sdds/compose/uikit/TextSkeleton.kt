@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import kotlin.random.Random
@@ -40,7 +41,7 @@ fun TextSkeleton(
     shape: Shape = style.shape,
 ) {
     if (lineCount < 1) throw IllegalStateException("RectSkeleton: line count must be greater than 0")
-    val lineSpacing = (textStyle.lineHeight.value - textStyle.fontSize.value).dp
+    val lineSpacing = with(LocalDensity.current) { (textStyle.lineHeight.toDp() - textStyle.fontSize.toDp()) }
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(lineSpacing),
