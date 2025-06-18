@@ -7,6 +7,10 @@ import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeSolidVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeTransparentVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeSolidVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeTransparentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.card.vs.StarDsCardVariationsView
@@ -53,6 +57,22 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.BasicButton,
                 StarDsBasicButtonVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("BadgeSolid", CoreComponent.BADGE),
+                StarDsBadgeSolidVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("BadgeTransparent", CoreComponent.BADGE),
+                StarDsBadgeTransparentVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconBadgeSolid", CoreComponent.ICON_BADGE),
+                StarDsIconBadgeSolidVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconBadgeTransparent", CoreComponent.ICON_BADGE),
+                StarDsIconBadgeTransparentVariationsView,
             ),
             ViewComponent(
                 ComponentKey.IconButton,

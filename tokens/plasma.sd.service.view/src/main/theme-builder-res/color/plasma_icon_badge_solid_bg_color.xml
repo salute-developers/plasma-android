@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?plasma_surfaceDefaultSolidDefault" app:plasma_iconbadge_state_default="true"/>
+    <item android:color="?plasma_surfaceDefaultAccent" app:plasma_iconbadge_state_accent="true"/>
+    <item android:color="?plasma_surfaceDefaultNegative" app:plasma_iconbadge_state_negative="true"/>
+    <item android:color="?plasma_surfaceDefaultPositive" app:plasma_iconbadge_state_positive="true"/>
+    <item android:color="?plasma_surfaceDefaultWarning" app:plasma_iconbadge_state_warning="true"/>
+    <item android:color="?plasma_surfaceOnLightSolidDefault" app:plasma_iconbadge_state_dark="true"/>
+    <item android:color="?plasma_surfaceOnDarkSolidDefault" app:plasma_iconbadge_state_light="true"/>
+</selector>

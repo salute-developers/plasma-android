@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_surfaceDefaultTransparentSecondary" app:serv_badge_state_default="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentAccent" app:serv_badge_state_accent="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentNegative" app:serv_badge_state_negative="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentPositive" app:serv_badge_state_positive="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentWarning" app:serv_badge_state_warning="true"/>
+    <item android:color="?serv_surfaceOnLightTransparentDeep" app:serv_badge_state_dark="true"/>
+    <item android:color="?serv_surfaceOnDarkTransparentSecondary" app:serv_badge_state_light="true"/>
+</selector>

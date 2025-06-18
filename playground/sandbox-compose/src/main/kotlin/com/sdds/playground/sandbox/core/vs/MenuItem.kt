@@ -134,7 +134,7 @@ internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
                 null
             },
         )
-    }
+    }.sortedBy { it.title }
 }
 
 private val MenuItem.defaultBuilder: FragmentNavigatorDestinationBuilder.() -> Unit
