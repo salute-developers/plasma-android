@@ -1,5 +1,8 @@
 package com.sdds.plasma.sd.service
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -23,7 +26,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationCompactLTopStartHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactLTopStartHasClose(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactL)
@@ -37,7 +43,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationCompactMTopCenterHasCloseFocusable() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactMTopCenterHasCloseFocusable(
@@ -53,7 +62,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationCompactSTopEnd() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactSTopEnd(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactS)
@@ -67,7 +79,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationCompactLCenterStartHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactLCenterStartHasClose(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactL)
@@ -81,7 +96,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationLooseLCenterHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseLCenterHasClose(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactL)
@@ -95,7 +113,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationLooseMCenterEndHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseMCenterEndHasClose(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactL)
@@ -109,7 +130,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationLooseSBottomStart() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseSBottomStart(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactL)
@@ -123,7 +147,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationLooseBottomCenterHasCloseFocusable() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseBottomCenterHasCloseFocusable(
@@ -139,7 +166,10 @@ class ViewSystemNotificationScreenshotTest(
     @Test
     override fun testNotificationLooseLBottomEndHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseLBottomEndHasClose(R.style.Plasma_SdService_ComponentOverlays_NotificationCompactL)

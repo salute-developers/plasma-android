@@ -1,7 +1,9 @@
 package com.sdds.uikit.shape
 
 import android.content.Context
+import android.graphics.Outline
 import android.graphics.Path
+import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.shapes.RoundRectShape
 import android.graphics.drawable.shapes.Shape
@@ -196,4 +198,18 @@ fun ShapeModel.toPath(bounds: RectF, path: Path) {
         ),
         Path.Direction.CW,
     )
+}
+
+internal fun ShapeModel.getOutline(boundsF: RectF, bounds: Rect, outline: Outline) {
+    if (cornerFamily != CornerFamily.ROUNDED) return
+    val topLeft = cornerSizeTopLeft.getSize(boundsF)
+    val topRight = cornerSizeTopRight.getSize(boundsF)
+    val bottomRight = cornerSizeBottomRight.getSize(boundsF)
+    val bottomLeft = cornerSizeBottomLeft.getSize(boundsF)
+    val isUniformCorners = topLeft == topRight && topLeft == bottomRight && topLeft == bottomLeft
+    if (isUniformCorners) {
+        outline.setRoundRect(bounds, topLeft)
+    } else {
+        outline.setRect(bounds)
+    }
 }

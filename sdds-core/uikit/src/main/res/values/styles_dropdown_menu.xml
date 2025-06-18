@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.DropdownMenu" parent="Sdds.Components.Popover">
+        <item name="sd_shapeTailEnabled">false</item>
+    </style>
+</resources>

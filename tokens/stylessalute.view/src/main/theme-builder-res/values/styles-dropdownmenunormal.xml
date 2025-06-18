@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.DropdownMenuNormal" parent="Sdds.Components.DropdownMenu">
+        <item name="sd_shadowAppearance">?salute_shadowDownHardM</item>
+        <item name="sd_dividerStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.Divider</item>
+        <item name="sd_offset">@dimen/salute_dropdown_menu_normal_offset</item>
+        <item name="sd_background">?salute_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuNormal.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_dropdown_menu_normal_l_shape_adjustment</item>
+        <item name="sd_listViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalL</item>
+        <item name="android:minWidth">@dimen/salute_dropdown_menu_normal_l_min_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuNormalL">
+        <item name="sd_dropdownMenuStyle">@style/Salute.StylesSalute.Components.DropdownMenuNormal.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuNormal.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_listViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalM</item>
+        <item name="android:minWidth">@dimen/salute_dropdown_menu_normal_m_min_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuNormalM">
+        <item name="sd_dropdownMenuStyle">@style/Salute.StylesSalute.Components.DropdownMenuNormal.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuNormal.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_dropdown_menu_normal_s_shape_adjustment</item>
+        <item name="sd_listViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalS</item>
+        <item name="android:minWidth">@dimen/salute_dropdown_menu_normal_s_min_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuNormalS">
+        <item name="sd_dropdownMenuStyle">@style/Salute.StylesSalute.Components.DropdownMenuNormal.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuNormal.Xs">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_listViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalXs</item>
+        <item name="android:minWidth">@dimen/salute_dropdown_menu_normal_xs_min_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuNormalXs">
+        <item name="sd_dropdownMenuStyle">@style/Salute.StylesSalute.Components.DropdownMenuNormal.Xs</item>
+    </style>
+</resources>

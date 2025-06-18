@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.DropdownMenuListTight" parent="Sdds.Components.List"/>
+    <style name="Plasma.SdService.Components.DropdownMenuListTight.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightXl</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightXl">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuListTight.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightL">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuListTight.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightM">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuListTight.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightS">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuListTight.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightXs">
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.Xs</item>
+    </style>
+</resources>

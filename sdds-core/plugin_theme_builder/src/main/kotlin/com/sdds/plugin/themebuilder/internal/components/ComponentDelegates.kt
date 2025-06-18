@@ -15,6 +15,7 @@ import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConf
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
@@ -77,5 +78,6 @@ internal val componentDelegates by unsafeLazy {
         "spinner" to SpinnerConfigDelegate(),
         "list" to ListConfigDelegate(),
         "list-item" to ListItemConfigDelegate(),
+        "dropdown-menu" to DropdownMenuConfigDelegate(),
     )
 }

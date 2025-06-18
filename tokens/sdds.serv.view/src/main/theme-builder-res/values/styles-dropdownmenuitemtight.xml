@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/serv_dropdown_menu_item_tight_bg_color</item>
+        <item name="sd_titleColor">@color/serv_dropdown_menu_item_tight_text_color</item>
+        <item name="sd_disclosureColor">?serv_textDefaultSecondary</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ListItemViewColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xl">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_tight_xl_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_tight_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_tight_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_tight_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_tight_xl_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_tight_xl_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXl">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xl.Default">
+        <item name="serv_listitemviewColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXlDefault">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xl.Positive">
+        <item name="serv_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXlPositive">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xl.Negative">
+        <item name="serv_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXlNegative">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_dropdown_menu_item_tight_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_tight_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_tight_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_tight_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_tight_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_tight_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_tight_l_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightL">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.L.Default">
+        <item name="serv_listitemviewColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightLDefault">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.L.Positive">
+        <item name="serv_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightLPositive">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.L.Negative">
+        <item name="serv_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightLNegative">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_tight_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_tight_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_tight_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_tight_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_tight_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_tight_m_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightM">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.M.Default">
+        <item name="serv_listitemviewColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightMDefault">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.M.Positive">
+        <item name="serv_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightMPositive">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.M.Negative">
+        <item name="serv_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightMNegative">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_dropdown_menu_item_tight_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_tight_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_tight_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_tight_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_tight_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_tight_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_tight_s_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightS">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.S.Default">
+        <item name="serv_listitemviewColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightSDefault">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.S.Positive">
+        <item name="serv_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightSPositive">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.S.Negative">
+        <item name="serv_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightSNegative">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xs">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/serv_dropdown_menu_item_tight_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_menu_item_tight_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_menu_item_tight_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_menu_item_tight_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_menu_item_tight_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/serv_dropdown_menu_item_tight_xs_min_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXs">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xs.Default">
+        <item name="serv_listitemviewColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXsDefault">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xs.Positive">
+        <item name="serv_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXsPositive">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuItemTight.Xs.Negative">
+        <item name="serv_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXsNegative">
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.DropdownMenuItemTight.Xs.Negative</item>
+    </style>
+</resources>

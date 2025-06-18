@@ -165,6 +165,7 @@ data class ComponentKey(
         val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
         val Spinner = ComponentKey("Spinner", CoreComponent.SPINNER)
         val List = ComponentKey("List", CoreComponent.LIST)
+        val DropdownMenu = ComponentKey("DropdownMenu", CoreComponent.DROPDOWN_MENU)
     }
 }
 
@@ -226,4 +227,5 @@ enum class CoreComponent {
     RECT_SKELETON,
     SPINNER,
     LIST,
+    DROPDOWN_MENU,
 }

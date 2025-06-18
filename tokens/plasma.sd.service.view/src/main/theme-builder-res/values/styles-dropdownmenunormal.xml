@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.DropdownMenuNormal" parent="Sdds.Components.DropdownMenu">
+        <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
+        <item name="sd_dividerStyleOverlay">@style/Plasma.SdService.ComponentOverlays.Divider</item>
+        <item name="sd_offset">@dimen/plasma_dropdown_menu_normal_offset</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuNormal.Xl">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListNormalXl</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_normal_xl_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuNormalXl">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuNormal.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuNormal.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_normal_l_shape_adjustment</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListNormalL</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_normal_l_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuNormalL">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuNormal.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuNormal.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListNormalM</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_normal_m_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuNormalM">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuNormal.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuNormal.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_normal_s_shape_adjustment</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListNormalS</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_normal_s_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuNormalS">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuNormal.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuNormal.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListNormalXs</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_normal_xs_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuNormalXs">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuNormal.Xs</item>
+    </style>
+</resources>

@@ -37,4 +37,5 @@
     <item type="id" name="nav_notification"/>
     <item type="id" name="nav_rect_skeleton"/>
     <item type="id" name="nav_list"/>
+    <item type="id" name="nav_dropdown_menu"/>
 </resources>

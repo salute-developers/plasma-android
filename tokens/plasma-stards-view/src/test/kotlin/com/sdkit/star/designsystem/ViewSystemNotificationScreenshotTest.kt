@@ -1,5 +1,8 @@
 package com.sdkit.star.designsystem
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -21,7 +24,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationCompactLTopStartHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactLTopStartHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
@@ -35,7 +41,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationCompactMTopCenterHasCloseFocusable() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactMTopCenterHasCloseFocusable(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactM)
@@ -49,7 +58,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationCompactSTopEnd() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactSTopEnd(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactS)
@@ -63,7 +75,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationCompactLCenterStartHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationCompactLCenterStartHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
@@ -77,7 +92,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationLooseLCenterHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseLCenterHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
@@ -91,7 +109,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationLooseMCenterEndHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseMCenterEndHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
@@ -105,7 +126,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationLooseSBottomStart() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseSBottomStart(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
@@ -119,7 +143,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationLooseBottomCenterHasCloseFocusable() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseBottomCenterHasCloseFocusable(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)
@@ -133,7 +160,10 @@ class ViewSystemNotificationScreenshotTest : NotificationTestCases("+night") {
     @Test
     override fun testNotificationLooseLBottomEndHasClose() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             notificationLooseLBottomEndHasClose(R.style.Sdkit_StarDs_ComponentOverlays_NotificationCompactL)

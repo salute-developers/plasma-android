@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.drawable.shapes.RectShape
-import android.os.Build
+import androidx.core.graphics.toRect
 import com.sdds.uikit.shape.CornerShape.Companion.TAIL_ALIGNMENT_START
 import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_BOTTOM
 import com.sdds.uikit.shape.CornerShape.Companion.TAIL_PLACEMENT_END
@@ -67,6 +67,9 @@ open class CornerShape(
 
     private val combinedPath: Path = Path()
     private val tailPath: Path = Path()
+    private val canGetCorrectOutline: Boolean =
+        cornerFamily == CornerFamily.ROUNDED && corners != null && corners.all { it == corners.first() }
+    private val outlineCorners: Float = corners?.first() ?: 0f
 
     override fun draw(canvas: Canvas, paint: Paint) {
         canvas.drawPath(combinedPath, paint)
@@ -91,10 +94,11 @@ open class CornerShape(
 
     override fun getOutline(outline: Outline) {
         super.getOutline(outline)
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
-            outline.setPath(combinedPath)
+        val rect = rect().toRect()
+        if (canGetCorrectOutline) {
+            outline.setRoundRect(rect, outlineCorners)
         } else {
-            outline.setConvexPath(combinedPath)
+            outline.setRect(rect)
         }
     }
 
