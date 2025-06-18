@@ -44,6 +44,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.clear.StylesSaluteTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.StylesSaluteTextFieldVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.clear.StylesSaluteTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.textskeleton.StylesSaluteTextSkeletonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.toast.StylesSaluteToastVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.tooltip.StylesSaluteTooltipVariationsCompose
 
@@ -210,6 +211,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 StylesSaluteRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.TextSkeleton,
+                StylesSaluteTextSkeletonVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey("ListNormal", CoreComponent.LIST),

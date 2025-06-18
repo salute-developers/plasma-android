@@ -33,6 +33,7 @@ import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDel
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -79,5 +80,6 @@ internal val componentDelegates by unsafeLazy {
         "list" to ListConfigDelegate(),
         "list-item" to ListItemConfigDelegate(),
         "dropdown-menu" to DropdownMenuConfigDelegate(),
+        "text-skeleton" to TextSkeletonConfigDelegate(),
     )
 }

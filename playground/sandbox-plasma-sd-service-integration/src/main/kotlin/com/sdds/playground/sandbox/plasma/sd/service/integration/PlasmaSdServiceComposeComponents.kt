@@ -50,6 +50,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.Plasma
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear.PlasmaSdServiceTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.clear.PlasmaSdServiceTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.textskeleton.PlasmaSdServiceTextSkeletonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.toast.PlasmaSdServiceToastVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.tooltip.PlasmaSdServiceTooltipVariationsCompose
 
@@ -236,6 +237,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 PlasmaSdServiceRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.TextSkeleton,
+                PlasmaSdServiceTextSkeletonVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Spinner,
