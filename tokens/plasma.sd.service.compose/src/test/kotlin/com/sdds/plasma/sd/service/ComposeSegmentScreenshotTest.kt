@@ -70,7 +70,7 @@ class ComposeSegmentScreenshotTest(
     @Test
     fun testSegmentItemSizeXs() {
         composeTestRule.content {
-            SegmentItemSizeXs(style = SegmentItem.Xs.Primary.style())
+            SegmentItemSizeXs(style = SegmentItem.Xs.Pilled.Primary.style())
         }
     }
 
