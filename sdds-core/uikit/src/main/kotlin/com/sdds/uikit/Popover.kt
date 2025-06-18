@@ -81,12 +81,12 @@ open class Popover @JvmOverloads constructor(
     /**
      * Максимальная ширина [Popover]
      */
-    var maxWidth: Int = Int.MAX_VALUE
+    var maxWidth: Int = -1
 
     /**
      * Максимальная высота [Popover]
      */
-    var maxHeight: Int = Int.MAX_VALUE
+    var maxHeight: Int = -1
 
     /**
      * Минимальная ширина [Popover]
