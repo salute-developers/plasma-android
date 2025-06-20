@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?salute_textDefaultSecondaryHover" android:state_hovered="true" app:salute_segmentitem_state_primary="true"/>
+    <item android:color="?salute_textInverseSecondary" android:state_checked="true" app:salute_segmentitem_state_primary="true"/>
+    <item android:color="?salute_textInverseSecondaryActive" android:state_checked="true" android:state_pressed="true" app:salute_segmentitem_state_primary="true"/>
+    <item android:color="?salute_textInverseSecondaryHover" android:state_checked="true" android:state_hovered="true" app:salute_segmentitem_state_primary="true"/>
+    <item android:color="?salute_textDefaultSecondary" app:salute_segmentitem_state_primary="true"/>
+    <item android:color="?salute_textDefaultSecondaryHover" android:state_hovered="true" app:salute_segmentitem_state_secondary="true"/>
+    <item android:color="?salute_textDefaultSecondary" android:state_checked="true" app:salute_segmentitem_state_secondary="true"/>
+    <item android:color="?salute_textDefaultSecondaryActive" android:state_checked="true" android:state_pressed="true" app:salute_segmentitem_state_secondary="true"/>
+    <item android:color="?salute_textDefaultSecondaryHover" android:state_checked="true" android:state_hovered="true" app:salute_segmentitem_state_secondary="true"/>
+    <item android:color="?salute_textDefaultSecondary" app:salute_segmentitem_state_secondary="true"/>
+</selector>

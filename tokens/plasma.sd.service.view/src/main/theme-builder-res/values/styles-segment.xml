@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Segment" parent="Sdds.Components.Segment">
+        <item name="android:backgroundTint">?plasma_surfaceDefaultTransparentSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXl</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_segment_xl_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xl_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXl">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXlPrimary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xl_padding_bottom</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXlSecondary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xl_padding_bottom</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXlAccent</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xl_padding_bottom</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Pilled.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXlPilledPrimary</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlPilledPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Pilled.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Pilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXlPilledSecondary</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlPilledSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xl.Pilled.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXlPilledAccent</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXlPilledAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xl.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_segment_l_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_l_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentL">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemLPrimary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_l_padding_bottom</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemLSecondary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_l_padding_bottom</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemLAccent</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_l_padding_bottom</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Pilled.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemLPilledPrimary</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPilledPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Pilled.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Pilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemLPilledSecondary</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPilledSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.L.Pilled.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemLPilledAccent</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPilledAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_m_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentM">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemMPrimary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_m_padding_bottom</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemMSecondary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_m_padding_bottom</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemMAccent</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_m_padding_bottom</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Pilled.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemMPilledPrimary</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPilledPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Pilled.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Pilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemMPilledSecondary</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPilledSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.M.Pilled.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemMPilledAccent</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPilledAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_segment_s_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_s_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentS">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemSPrimary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_s_padding_bottom</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemSSecondary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_s_padding_bottom</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemSAccent</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_s_padding_bottom</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Pilled.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemSPilledPrimary</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPilledPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Pilled.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Pilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemSPilledSecondary</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPilledSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.S.Pilled.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemSPilledAccent</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPilledAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xs_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXs">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXsPrimary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xs_padding_bottom</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXsSecondary</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xs_padding_bottom</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXsAccent</item>
+        <item name="android:paddingStart">@dimen/plasma_segment_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_segment_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_segment_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_segment_xs_padding_bottom</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Pilled.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXsPilledPrimary</item>
+        <item name="plasma_segmentColors">state_primary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPilledPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Pilled.Primary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Pilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXsPilledSecondary</item>
+        <item name="plasma_segmentColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPilledSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Segment.Xs.Pilled.Accent">
+        <item name="sd_segmentItemStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SegmentItemXsPilledAccent</item>
+        <item name="plasma_segmentColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPilledAccent">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Pilled.Accent</item>
+    </style>
+</resources>

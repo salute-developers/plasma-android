@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?plasma_surfaceDefaultClearHover" android:state_hovered="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_surfaceDefaultSolidDefault" android:state_checked="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_surfaceDefaultSolidDefaultActive" android:state_checked="true" android:state_pressed="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_surfaceDefaultSolidDefaultHover" android:state_checked="true" android:state_hovered="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_surfaceDefaultClear" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_surfaceDefaultClearHover" android:state_hovered="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentCard" android:state_checked="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentCardActive" android:state_checked="true" android:state_pressed="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentCardHover" android:state_checked="true" android:state_hovered="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_surfaceDefaultClear" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_surfaceDefaultClearHover" android:state_hovered="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_surfaceDefaultAccent" android:state_checked="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_surfaceDefaultAccentActive" android:state_checked="true" android:state_pressed="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_surfaceDefaultAccentHover" android:state_checked="true" android:state_hovered="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_surfaceDefaultClear" app:plasma_segmentitem_state_accent="true"/>
+</selector>

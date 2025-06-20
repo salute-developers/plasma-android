@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_textInverseSecondary" android:state_checked="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_textInverseSecondaryActive" android:state_checked="true" android:state_pressed="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_textInverseSecondaryHover" android:state_checked="true" android:state_hovered="true" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_segmentitem_state_primary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondary" android:state_checked="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryActive" android:state_checked="true" android:state_pressed="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_checked="true" android:state_hovered="true" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_segmentitem_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" android:state_checked="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_checked="true" android:state_pressed="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_checked="true" android:state_hovered="true" app:plasma_segmentitem_state_accent="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_segmentitem_state_accent="true"/>
+</selector>

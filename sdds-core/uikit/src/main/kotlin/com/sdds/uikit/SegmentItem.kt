@@ -25,6 +25,9 @@ open class SegmentItem @JvmOverloads constructor(
     private var _counterPadding: Int = 0
     private var _isCounterEnabled: Boolean = false
     private var _counterState: ColorState? = null
+    private var _contentStartSize: Int = 0
+    private var _contentEndSize: Int = 0
+    private var _iconSize: Int = 0
 
     /**
      * Включение counter
@@ -62,6 +65,50 @@ open class SegmentItem @JvmOverloads constructor(
             }
         }
 
+    /**
+     * Размер иконки внчале.
+     */
+    open var contentStartSize: Int
+        get() = _contentStartSize
+        set(value) {
+            if (_contentStartSize != value) {
+                _contentStartSize = value
+                if (iconPosition == IconPosition.TextStart) {
+                    iconSize = _contentStartSize
+                }
+            }
+        }
+
+    /**
+     * Размер иконки вконце.
+     */
+    open var contentEndSize: Int
+        get() = _contentEndSize
+        set(value) {
+            if (_contentEndSize != value) {
+                _contentEndSize = value
+                if (iconPosition == IconPosition.TextEnd) {
+                    iconSize = _contentEndSize
+                }
+            }
+        }
+
+    override var iconPosition: IconPosition
+        get() = super.iconPosition
+        set(value) {
+            if (super.iconPosition != value) {
+                super.iconPosition = value
+                iconSize = getActualIconSize()
+            }
+        }
+
+    private fun getActualIconSize(): Int {
+        return when (iconPosition) {
+            IconPosition.TextStart -> if (_contentStartSize != 0) _contentStartSize else _iconSize
+            IconPosition.TextEnd -> if (_contentEndSize != 0) _contentEndSize else _iconSize
+        }
+    }
+
     init {
         obtainAttributes(attrs, defStyleAttr)
     }
@@ -76,14 +123,19 @@ open class SegmentItem @JvmOverloads constructor(
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         val typedArray =
             context.obtainStyledAttributes(attrs, R.styleable.SegmentItem, defStyleAttr, 0)
-        _counterPadding =
-            typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_counterPadding, 0)
+        val contentEndPadding = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_contentEndPadding, 0)
+        val counterPadding = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_counterPadding, 0)
+        _counterPadding = if (contentEndPadding != 0) contentEndPadding else counterPadding
         val counterStyleAttr = typedArray.getResourceId(
             R.styleable.SegmentItem_sd_counterStyle,
             R.style.Sdds_Components_Counter,
         )
         counterText = typedArray.getString(R.styleable.SegmentItem_sd_counterText) ?: "0"
+        _contentStartSize = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_contentStartSize, 0)
+        _contentEndSize = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_contentEndSize, 0)
+        _iconSize = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_iconSize, 0)
         typedArray.recycle()
+        iconSize = getActualIconSize()
         counterObtainAttributes(counterStyleAttr)
     }
 
@@ -217,6 +269,7 @@ open class SegmentItem @JvmOverloads constructor(
             )
         }
     }
+
     override fun toggle() {
         isChecked = isChecked || isCheckable
     }

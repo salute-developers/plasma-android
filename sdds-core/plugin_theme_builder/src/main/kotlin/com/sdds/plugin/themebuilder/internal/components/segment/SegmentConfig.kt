@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -19,7 +20,7 @@ internal data class SegmentProperties(
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
-    val segmentItemStyle: ComponentStyle<SegmentProperties>? = null,
+    val segmentItemStyle: ComponentStyle<SegmentItemProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")

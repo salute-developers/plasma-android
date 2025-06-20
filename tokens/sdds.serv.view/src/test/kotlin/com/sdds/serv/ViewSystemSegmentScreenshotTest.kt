@@ -39,7 +39,7 @@ class ViewSystemSegmentScreenshotTest(
                     .perform(click())
             },
         ) {
-            segmentSizeMPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMSecondaryPilled)
+            segmentSizeMPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMPilledSecondary)
         }
     }
 
@@ -113,35 +113,35 @@ class ViewSystemSegmentScreenshotTest(
     @Test
     override fun testSegmentItemSizeLPrimary() {
         themedComponent {
-            segmentItemSizeLPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LPrimary)
+            segmentItemSizeLPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentItemLPrimary)
         }
     }
 
     @Test
     override fun testSegmentItemSizeMSecondary() {
         themedComponent {
-            segmentItemSizeMSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MSecondaryPilled)
+            segmentItemSizeMSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentItemMPilledSecondary)
         }
     }
 
     @Test
     override fun testSegmentItemSizeSDefault() {
         themedComponent {
-            segmentItemSizeSDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SDefault)
+            segmentItemSizeSDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItemS)
         }
     }
 
     @Test
     override fun testSegmentItemSizeXSPrimaryCounter() {
         themedComponent {
-            segmentItemSizeXSPrimaryCounter(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsPrimaryPilled)
+            segmentItemSizeXSPrimaryCounter(R.style.Serv_Sdds_ComponentOverlays_SegmentItemXsPilledPrimary)
         }
     }
 
     @Test
     override fun testSegmentItemDisabled() {
         themedComponent {
-            segmentItemDisabled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LPrimary)
+            segmentItemDisabled(R.style.Serv_Sdds_ComponentOverlays_SegmentItemLPrimary)
         }
     }
 }

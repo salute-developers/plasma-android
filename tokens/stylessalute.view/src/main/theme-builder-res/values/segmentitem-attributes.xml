@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SaluteSegmentItemColorState">
+        <attr format="boolean" name="salute_segmentitem_state_primary"/>
+        <attr format="boolean" name="salute_segmentitem_state_secondary"/>
+    </declare-styleable>
+    <declare-styleable name="SegmentItem" tools:ignore="ResourceName">
+        <attr format="enum" name="salute_segmentitemColors">
+            <enum name="state_primary" value="0"/>
+            <enum name="state_secondary" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

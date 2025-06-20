@@ -6,6 +6,8 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
+import com.sdds.plugin.themebuilder.internal.components.segment.item.compose.SegmentItemComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.segment.item.view.SegmentItemStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
@@ -20,7 +22,16 @@ internal class SegmentItemConfigDelegate : ComponentConfigDelegate<SegmentItemCo
     override fun createViewGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ): ComponentStyleGenerator<SegmentItemConfig>? = null
+    ): ComponentStyleGenerator<SegmentItemConfig>? =
+        SegmentItemStyleGeneratorView(
+            xmlBuilderFactory = deps.xmlBuilderFactory,
+            resourceReferenceProvider = deps.resourceReferenceProvider,
+            dimensAggregator = deps.dimensAggregator,
+            outputResDir = deps.outputResDir,
+            resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+            colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+            viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
+        )
 
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,

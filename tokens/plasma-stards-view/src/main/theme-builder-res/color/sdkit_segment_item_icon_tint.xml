@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_textDefaultPrimaryHover" android:state_hovered="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_textInversePrimary" android:state_checked="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_textInversePrimaryActive" android:state_checked="true" android:state_pressed="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_textInversePrimaryHover" android:state_checked="true" android:state_hovered="true" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_textDefaultPrimary" app:sdkit_segmentitem_state_primary="true"/>
+    <item android:color="?sdkit_textDefaultPrimaryActive" android:state_pressed="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_textDefaultPrimaryHover" android:state_hovered="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_textDefaultPrimary" android:state_checked="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_textDefaultPrimaryHover" android:state_checked="true" android:state_hovered="true" app:sdkit_segmentitem_state_secondary="true"/>
+    <item android:color="?sdkit_textDefaultPrimary" app:sdkit_segmentitem_state_secondary="true"/>
+</selector>

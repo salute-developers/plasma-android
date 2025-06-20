@@ -57,7 +57,6 @@ internal class ProgressBarStyleGeneratorView(
     }
 
     private fun Element.addProps(variation: String, props: ProgressBarProperties) {
-        println(props)
         props.backgroundShape?.let { shapeAttribute(variation, it.value) }
         props.indicatorShape?.let { shapeAttribute(variation, it.value, attrName = "indicator") }
     }
