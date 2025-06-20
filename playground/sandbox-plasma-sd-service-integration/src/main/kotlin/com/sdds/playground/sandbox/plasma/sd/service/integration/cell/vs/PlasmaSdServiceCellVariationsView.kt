@@ -9,6 +9,6 @@ internal object PlasmaSdServiceCellVariationsView : ViewStyleProvider<String>() 
             "L" to s.Plasma_SdService_ComponentOverlays_CellL,
             "M" to s.Plasma_SdService_ComponentOverlays_CellM,
             "S" to s.Plasma_SdService_ComponentOverlays_CellS,
-            "Xs" to s.Plasma_SdService_ComponentOverlays_CellXS,
+            "Xs" to s.Plasma_SdService_ComponentOverlays_CellXs,
         )
 }

@@ -74,6 +74,7 @@ open class CellLayout @JvmOverloads constructor(
     private var _disclosureText: CharSequence? = null
     private var _disclosureTextAppearance: Int = 0
     private var _disclosureColor: ColorStateList? = null
+    private var _disclosureTextColor: ColorStateList? = null
     private var _disclosureIcon: Drawable? = null
     private var _disclosureView: View? = null
     private var _disclosureEnabled: Boolean = false
@@ -158,6 +159,7 @@ open class CellLayout @JvmOverloads constructor(
         _disclosureTextAppearance =
             typedArray.getResourceId(R.styleable.CellLayout_sd_disclosureTextAppearance, 0)
         _disclosureColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_disclosureColor)
+        _disclosureTextColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_disclosureTextColor)
         _disclosureIcon = typedArray.getDrawable(R.styleable.CellLayout_sd_disclosureIcon)
         _disclosureText = typedArray.getString(R.styleable.CellLayout_sd_disclosureText)
         _disclosureEnabled =
@@ -479,6 +481,7 @@ open class CellLayout @JvmOverloads constructor(
         )
     }
 
+    @Suppress("CyclomaticComplexMethod")
     private fun View.applyContentRole(cellParams: LayoutParams) {
         isDuplicateParentStateEnabled = cellParams.forceDuplicateParentState && _forceDuplicateParentState
         (this as? TextView)?.apply {
@@ -507,13 +510,12 @@ open class CellLayout @JvmOverloads constructor(
                 else -> Unit
             }
         }
-
         if (cellParams.cellContent == DISCLOSURE) {
             when (this) {
                 is ImageView -> imageTintList = _disclosureColor
                 is TextView -> {
                     setTextAppearance(_disclosureTextAppearance)
-                    _disclosureColor?.let(::setTextColor)
+                    _disclosureTextColor?.let(::setTextColor)
                     if (compoundDrawablesRelative.all { it == null }) {
                         setCompoundDrawablesRelativeWithIntrinsicBounds(
                             null,
@@ -527,15 +529,18 @@ open class CellLayout @JvmOverloads constructor(
                 }
 
                 is Button -> {
-                    if (icon == null) {
-                        icon = _disclosureIcon
-                    }
+                    if (icon == null) icon = _disclosureIcon
                     setIconTintList(_disclosureColor)
                     state = ViewState.SECONDARY
                 }
+
                 is DisclosureView -> {
                     setTextAppearance(_disclosureTextAppearance)
-                    setColor(_disclosureColor)
+                    if (_disclosureTextColor != null) {
+                        setColor(_disclosureTextColor, _disclosureColor)
+                    } else {
+                        setColor(_disclosureColor)
+                    }
                 }
             }
         }
@@ -611,6 +616,11 @@ open class CellLayout @JvmOverloads constructor(
         fun setColor(color: ColorStateList?) {
             color?.let { disclosureText.setTextColor(it) }
             disclosureIcon.imageTintList = color
+        }
+
+        fun setColor(textColor: ColorStateList?, iconColor: ColorStateList?) {
+            textColor?.let { disclosureText.setTextColor(it) }
+            disclosureIcon.imageTintList = iconColor
         }
     }
 

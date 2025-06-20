@@ -36,6 +36,9 @@ internal open class XmlResourcesDocumentBuilder(
         capitalizedResPrefix
     }
 
+    val resPrefix: String
+        get() = compositeResourcePrefix
+
     /**
      * Добавляет элемент с контентом внутри
      * @param elementName название элемента xml документа

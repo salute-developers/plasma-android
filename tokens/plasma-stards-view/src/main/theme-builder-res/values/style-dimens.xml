@@ -201,6 +201,14 @@
     <dimen name="sdkit_card_square_l_content_min_height">512.0dp</dimen>
     <dimen name="sdkit_card_square_xs_content_min_width">240.0dp</dimen>
     <dimen name="sdkit_card_square_xs_content_min_height">240.0dp</dimen>
+    <dimen name="sdkit_cell_l_content_start_padding">16.0dp</dimen>
+    <dimen name="sdkit_cell_l_content_end_padding">16.0dp</dimen>
+    <dimen name="sdkit_cell_m_content_start_padding">16.0dp</dimen>
+    <dimen name="sdkit_cell_m_content_end_padding">16.0dp</dimen>
+    <dimen name="sdkit_cell_s_content_start_padding">12.0dp</dimen>
+    <dimen name="sdkit_cell_s_content_end_padding">12.0dp</dimen>
+    <dimen name="sdkit_cell_xs_content_start_padding">12.0dp</dimen>
+    <dimen name="sdkit_cell_xs_content_end_padding">12.0dp</dimen>
     <dimen name="sdkit_check_box_toggle_border_offset_value_0">6.0dp</dimen>
     <dimen name="sdkit_check_box_toggle_border_offset_value_1">6.0dp</dimen>
     <dimen name="sdkit_check_box_toggle_border_offset_value_2">6.0dp</dimen>

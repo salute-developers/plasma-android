@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Cell" parent="Sdds.Components.Cell">
+        <item name="sd_labelColor">?plasma_textDefaultSecondary</item>
+        <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_subtitleColor">?plasma_textDefaultSecondary</item>
+        <item name="sd_disclosureTextColor">?plasma_textDefaultSecondary</item>
+        <item name="sd_disclosureColor">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Cell.L">
+        <item name="sd_contentStartPadding">@dimen/plasma_cell_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_cell_l_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CellL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CellL">
+        <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.L</item>
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.L</item>
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.L</item>
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.IconButton.L.Clear</item>
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Plasma.SdService.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Cell.M">
+        <item name="sd_contentStartPadding">@dimen/plasma_cell_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_cell_m_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CellM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CellM">
+        <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.M</item>
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.M</item>
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.M</item>
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.IconButton.M.Clear</item>
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Plasma.SdService.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Cell.S">
+        <item name="sd_contentStartPadding">@dimen/plasma_cell_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_cell_s_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CellS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CellS">
+        <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.S</item>
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.S</item>
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.S</item>
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.IconButton.S.Clear</item>
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.S</item>
+        <item name="android:checkboxStyle">@style/Plasma.SdService.Components.CheckBox.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Cell.Xs">
+        <item name="sd_contentStartPadding">@dimen/plasma_cell_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_cell_xs_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CellXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CellXs">
+        <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.Xs</item>
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.S</item>
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.S</item>
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Clear</item>
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.S</item>
+        <item name="android:checkboxStyle">@style/Plasma.SdService.Components.CheckBox.S.Default</item>
+    </style>
+</resources>

@@ -9,6 +9,6 @@ internal object StarDsCellVariationsView : ViewStyleProvider<String>() {
             "L" to s.Sdkit_StarDs_ComponentOverlays_CellL,
             "M" to s.Sdkit_StarDs_ComponentOverlays_CellM,
             "S" to s.Sdkit_StarDs_ComponentOverlays_CellS,
-            "Xs" to s.Sdkit_StarDs_ComponentOverlays_CellXS,
+            "Xs" to s.Sdkit_StarDs_ComponentOverlays_CellXs,
         )
 }

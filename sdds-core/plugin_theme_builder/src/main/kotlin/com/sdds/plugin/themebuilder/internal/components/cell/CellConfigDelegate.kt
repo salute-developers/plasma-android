@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.cell.view.CellStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
@@ -20,7 +21,15 @@ internal class CellConfigDelegate : ComponentConfigDelegate<CellConfig>() {
     override fun createViewGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ): ComponentStyleGenerator<CellConfig>? = null
+    ) = CellStyleGeneratorView(
+        xmlBuilderFactory = deps.xmlBuilderFactory,
+        resourceReferenceProvider = deps.resourceReferenceProvider,
+        dimensAggregator = deps.dimensAggregator,
+        outputResDir = deps.outputResDir,
+        resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+        viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
+        colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+    )
 
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,

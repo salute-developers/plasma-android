@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Cell" parent="Sdds.Components.Cell">
+        <item name="sd_labelColor">?salute_textDefaultSecondary</item>
+        <item name="sd_titleColor">?salute_textDefaultPrimary</item>
+        <item name="sd_subtitleColor">?salute_textDefaultSecondary</item>
+        <item name="sd_disclosureTextColor">?salute_textDefaultSecondary</item>
+        <item name="sd_disclosureColor">?salute_textDefaultSecondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Cell.L">
+        <item name="sd_contentStartPadding">@dimen/salute_cell_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/salute_cell_l_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Salute.StylesSalute.ComponentOverlays.CellL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CellL">
+        <item name="sd_cellStyle">@style/Salute.StylesSalute.Components.Cell.L</item>
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.L</item>
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.L</item>
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Clear</item>
+        <item name="android:radioButtonStyle">@style/Salute.StylesSalute.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Cell.M">
+        <item name="sd_contentStartPadding">@dimen/salute_cell_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/salute_cell_m_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Salute.StylesSalute.ComponentOverlays.CellM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CellM">
+        <item name="sd_cellStyle">@style/Salute.StylesSalute.Components.Cell.M</item>
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.M</item>
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.M</item>
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Clear</item>
+        <item name="android:radioButtonStyle">@style/Salute.StylesSalute.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Cell.S">
+        <item name="sd_contentStartPadding">@dimen/salute_cell_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/salute_cell_s_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Salute.StylesSalute.ComponentOverlays.CellS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CellS">
+        <item name="sd_cellStyle">@style/Salute.StylesSalute.Components.Cell.S</item>
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.S</item>
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.S</item>
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Clear</item>
+        <item name="android:radioButtonStyle">@style/Salute.StylesSalute.Components.RadioBox.S</item>
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Cell.Xs">
+        <item name="sd_contentStartPadding">@dimen/salute_cell_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/salute_cell_xs_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Salute.StylesSalute.ComponentOverlays.CellXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CellXs">
+        <item name="sd_cellStyle">@style/Salute.StylesSalute.Components.Cell.Xs</item>
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.S</item>
+        <item name="sd_switchStyle">@style/Salute.StylesSalute.Components.Switch.S</item>
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Clear</item>
+        <item name="android:radioButtonStyle">@style/Salute.StylesSalute.Components.RadioBox.S</item>
+        <item name="android:checkboxStyle">@style/Salute.StylesSalute.Components.CheckBox.S.Default</item>
+    </style>
+</resources>

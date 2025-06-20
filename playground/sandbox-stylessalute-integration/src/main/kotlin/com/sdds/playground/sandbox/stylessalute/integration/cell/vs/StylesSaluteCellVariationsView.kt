@@ -8,6 +8,6 @@ internal object StylesSaluteCellVariationsView : ViewStyleProvider<String>() {
         "L" to s.Salute_StylesSalute_ComponentOverlays_CellL,
         "M" to s.Salute_StylesSalute_ComponentOverlays_CellM,
         "S" to s.Salute_StylesSalute_ComponentOverlays_CellS,
-        "Xs" to s.Salute_StylesSalute_ComponentOverlays_CellXS,
+        "Xs" to s.Salute_StylesSalute_ComponentOverlays_CellXs,
     )
 }

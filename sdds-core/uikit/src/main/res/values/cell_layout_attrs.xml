@@ -22,6 +22,7 @@
         <attr name="sd_disclosureText" format="string" />
         <attr name="sd_disclosureTextAppearance" format="reference" />
         <attr name="sd_disclosureColor" format="color" />
+        <attr name="sd_disclosureTextColor" format="color" />
         <attr name="sd_disclosureIcon" format="reference" />
         <attr name="sd_forceDuplicateParentState" format="boolean" />
 

@@ -38,7 +38,7 @@ class ViewSystemCellScreenshotTest : CellTestCases("+night") {
     @Test
     override fun testCellSizeXSLabelAvatar() {
         themedComponent {
-            cellSizeXSLabelAvatar(R.style.Sdkit_StarDs_ComponentOverlays_CellXS)
+            cellSizeXSLabelAvatar(R.style.Sdkit_StarDs_ComponentOverlays_CellXs)
         }
     }
 
@@ -66,7 +66,7 @@ class ViewSystemCellScreenshotTest : CellTestCases("+night") {
     @Test
     override fun testCellSizeXSRadioBoxAvatar() {
         themedComponent {
-            cellSizeXSRadioBoxAvatar(R.style.Sdkit_StarDs_ComponentOverlays_CellXS)
+            cellSizeXSRadioBoxAvatar(R.style.Sdkit_StarDs_ComponentOverlays_CellXs)
         }
     }
 

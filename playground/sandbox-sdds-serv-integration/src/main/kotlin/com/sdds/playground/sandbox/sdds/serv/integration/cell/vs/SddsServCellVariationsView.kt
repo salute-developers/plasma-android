@@ -9,6 +9,6 @@ internal object SddsServCellVariationsView : ViewStyleProvider<String>() {
             "L" to s.Serv_Sdds_ComponentOverlays_CellL,
             "M" to s.Serv_Sdds_ComponentOverlays_CellM,
             "S" to s.Serv_Sdds_ComponentOverlays_CellS,
-            "Xs" to s.Serv_Sdds_ComponentOverlays_CellXS,
+            "Xs" to s.Serv_Sdds_ComponentOverlays_CellXs,
         )
 }

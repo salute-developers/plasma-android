@@ -20,11 +20,7 @@ android {
 
 themeBuilder {
     themeSource(name = "stylesSalute", version = themeVersion, alias = "StylesSalute")
-//    componentSource(name = "stylesSalute", version = componentsVersion, alias = "StylesSalute")
-    componentSource {
-        url("file:///Users/alex/Projects/theme-converter/components/stylesSalute/0.5.0-rc.zip")
-        name("StylesSalute")
-    }
+    componentSource(name = "stylesSalute", version = componentsVersion, alias = "StylesSalute")
     autoGenerate(false)
     ktPackage("com.sdds.stylessalute")
     mode(THEME)
