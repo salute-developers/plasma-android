@@ -305,6 +305,21 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет boolean атрибут
+     */
+    protected fun Element.booleanAttribute(
+        attributeName: String,
+        value: Boolean,
+    ) = with(xmlResourceBuilder) {
+        this@booleanAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = value.toString(),
+            usePrefix = false,
+        )
+    }
+
+    /**
      * Добавляет атрибут со значением вида @style/ComponentOverlays.styleName, где [styleName] - стиль компонента
      */
     protected fun Element.componentOverlayAttribute(
