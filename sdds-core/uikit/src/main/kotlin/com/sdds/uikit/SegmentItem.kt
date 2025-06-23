@@ -123,9 +123,7 @@ open class SegmentItem @JvmOverloads constructor(
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         val typedArray =
             context.obtainStyledAttributes(attrs, R.styleable.SegmentItem, defStyleAttr, 0)
-        val contentEndPadding = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_contentEndPadding, 0)
-        val counterPadding = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_counterPadding, 0)
-        _counterPadding = if (contentEndPadding != 0) contentEndPadding else counterPadding
+        _counterPadding = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_counterPadding, 0)
         val counterStyleAttr = typedArray.getResourceId(
             R.styleable.SegmentItem_sd_counterStyle,
             R.style.Sdds_Components_Counter,

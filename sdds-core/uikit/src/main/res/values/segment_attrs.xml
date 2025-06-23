@@ -15,9 +15,7 @@
         <attr name="sd_iconTint"/>
         <attr name="sd_iconSize"/>
         <attr name="sd_contentStartSize"/>
-        <attr name="sd_contentStartPadding"/>
         <attr name="sd_contentEndSize"/>
-        <attr name="sd_contentEndPadding"/>
         <attr name="sd_spinnerTint"/>
         <attr name="android:checkable"/>
         <attr name="android:checked"/>
