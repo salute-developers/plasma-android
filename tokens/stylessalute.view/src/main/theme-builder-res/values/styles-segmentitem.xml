@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.SegmentItem" parent="Sdds.Components.SegmentItem">
+        <item name="android:textColor">@color/salute_segment_item_text_color</item>
+        <item name="sd_valueTextColor">@color/salute_segment_item_value_text_color</item>
+        <item name="backgroundTint">@color/salute_segment_item_background_color</item>
+        <item name="sd_iconTint">@color/salute_segment_item_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.SegmentItemColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_segment_item_l_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLBold</item>
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.Accent</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_l_min_width</item>
+        <item name="android:minHeight">@dimen/salute_segment_item_l_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_l_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_segment_item_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_segment_item_l_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/salute_segment_item_l_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/salute_segment_item_l_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_segment_item_l_value_padding</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemL">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.L.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemLPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.L.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.L.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemLSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.L.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_l_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_l_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_l_pilled_padding_end</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemLPilled">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.L.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.L.Pilled.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemLPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.L.Pilled.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.L.Pilled.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemLPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.L.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMBold</item>
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Accent</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_m_min_width</item>
+        <item name="android:minHeight">@dimen/salute_segment_item_m_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_m_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_segment_item_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_segment_item_m_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/salute_segment_item_m_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/salute_segment_item_m_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_segment_item_m_value_padding</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemM">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.M.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemMPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.M.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemMSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_m_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_m_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_m_pilled_padding_end</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemMPilled">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.M.Pilled.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemMPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M.Pilled.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.M.Pilled.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemMPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_segment_item_s_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySBold</item>
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Accent</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_s_min_width</item>
+        <item name="android:minHeight">@dimen/salute_segment_item_s_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_s_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_segment_item_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_segment_item_s_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/salute_segment_item_s_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/salute_segment_item_s_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_segment_item_s_value_padding</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemS">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.S.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemSPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.S.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.S.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemSSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.S.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_s_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_s_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_s_pilled_padding_end</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemSPilled">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.S.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.S.Pilled.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemSPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.S.Pilled.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.S.Pilled.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemSPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.S.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.Xs">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsBold</item>
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Accent</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_xs_min_width</item>
+        <item name="android:minHeight">@dimen/salute_segment_item_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_xs_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_segment_item_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/salute_segment_item_xs_content_end_size</item>
+        <item name="sd_iconPadding">@dimen/salute_segment_item_xs_icon_padding</item>
+        <item name="sd_counterPadding">@dimen/salute_segment_item_xs_counter_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_segment_item_xs_value_padding</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemXs">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.Xs.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemXsPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.Xs.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.Xs.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemXsSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.Xs.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:minWidth">@dimen/salute_segment_item_xs_pilled_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_segment_item_xs_pilled_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_segment_item_xs_pilled_padding_end</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemXsPilled">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.Xs.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.Xs.Pilled.Primary">
+        <item name="salute_segmentitemColors">state_primary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemXsPilledPrimary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.Xs.Pilled.Primary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.SegmentItem.Xs.Pilled.Secondary">
+        <item name="salute_segmentitemColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.SegmentItemXsPilledSecondary">
+        <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.Xs.Pilled.Secondary</item>
+    </style>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ServSegmentItemColorState">
+        <attr format="boolean" name="serv_segmentitem_state_primary"/>
+        <attr format="boolean" name="serv_segmentitem_state_secondary"/>
+        <attr format="boolean" name="serv_segmentitem_state_accent"/>
+    </declare-styleable>
+    <declare-styleable name="SegmentItem" tools:ignore="ResourceName">
+        <attr format="enum" name="serv_segmentitemColors">
+            <enum name="state_primary" value="0"/>
+            <enum name="state_secondary" value="1"/>
+            <enum name="state_accent" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>
