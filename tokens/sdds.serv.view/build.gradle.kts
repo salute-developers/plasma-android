@@ -21,11 +21,7 @@ android {
 
 themeBuilder {
     themeSource(name = "sdds_serv", version = themeVersion, alias = "Sdds")
-//    componentSource(name = "sdds_serv", version = componentsVersion, alias = "Sdds")
-    componentSource {
-        url("file:///Users/alex/Projects/theme-converter/components/sdds_serv/0.5.0-rc.zip")
-        name("Sdds")
-    }
+    componentSource(name = "sdds_serv", version = componentsVersion, alias = "Sdds")
     view{
         themeParents {
             materialComponentsTheme()

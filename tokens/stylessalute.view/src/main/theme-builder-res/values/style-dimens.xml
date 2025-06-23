@@ -260,6 +260,14 @@
     <dimen name="salute_link_button_xs_spinner_size">16.0dp</dimen>
     <dimen name="salute_link_button_xs_spinner_stroke_width">1.0dp</dimen>
     <dimen name="salute_link_button_xs_icon_padding">4.0dp</dimen>
+    <dimen name="salute_cell_l_content_start_padding">8.0dp</dimen>
+    <dimen name="salute_cell_l_content_end_padding">8.0dp</dimen>
+    <dimen name="salute_cell_m_content_start_padding">8.0dp</dimen>
+    <dimen name="salute_cell_m_content_end_padding">8.0dp</dimen>
+    <dimen name="salute_cell_s_content_start_padding">6.0dp</dimen>
+    <dimen name="salute_cell_s_content_end_padding">6.0dp</dimen>
+    <dimen name="salute_cell_xs_content_start_padding">6.0dp</dimen>
+    <dimen name="salute_cell_xs_content_end_padding">6.0dp</dimen>
     <dimen name="salute_check_box_toggle_border_offset_value_0">3.0dp</dimen>
     <dimen name="salute_check_box_toggle_border_offset_value_1">3.0dp</dimen>
     <dimen name="salute_check_box_toggle_border_offset_value_2">3.0dp</dimen>
