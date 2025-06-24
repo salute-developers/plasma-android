@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service
+package com.sdds.serv
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -6,25 +6,25 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
+import com.sdds.serv.colorstate.ListItemViewColorState
 import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.toast.ToastTestCases
+import com.sdds.testing.vs.dropdownmenu.DropDownMenuTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
-import org.robolectric.shadows.ShadowLooper
 
 @RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemToastScreenshotTest(
+class ViewSystemDropDownMenuScreenshotTest(
     theme: String,
-) : ToastTestCases(theme) {
+) : DropDownMenuTestCases(theme) {
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastRoundedDefaultTopStart() {
+    override fun testDropDownMenuXlHasLooseStartTop() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -32,16 +32,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastRoundedDefaultTopStart(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
+            dropDownMenuXlHasLooseStartTop(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalXl,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastRoundedNegativeTopCenter() {
+    override fun testDropDownMenuLPositiveStrictStartCenter() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -49,16 +50,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastRoundedNegativeTopCenter(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedNegative)
+            dropDownMenuLPositiveStrictStartCenter(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalL,
+                colorState = ListItemViewColorState.POSITIVE,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastRoundedPositiveTopEnd() {
+    override fun testDropDownMenuMNegativeStrictStartBottom() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -66,16 +68,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastRoundedPositiveTopEnd(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedPositive)
+            dropDownMenuMNegativeStrictStartBottom(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalM,
+                colorState = ListItemViewColorState.NEGATIVE,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastPilledDefaultCenterStart() {
+    override fun testDropDownMenuSNoTextNoDisclosureStrictCenterTop() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -83,16 +86,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastPilledDefaultCenterStart(R.style.Plasma_SdService_ComponentOverlays_ToastPilledDefault)
+            dropDownMenuSNoTextNoDisclosureStrictCenterTop(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalS,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastPilledNegativeCenter() {
+    override fun testDropDownMenuXsStrictCenter() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -100,16 +104,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastPilledNegativeCenter(R.style.Plasma_SdService_ComponentOverlays_ToastPilledNegative)
+            dropDownMenuXsStrictCenter(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalXs,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastPilledPositiveCenterEnd() {
+    override fun testDropDownMenuXlAmountTwentyLooseCenterBottom() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -117,16 +122,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastPilledPositiveCenterEnd(R.style.Plasma_SdService_ComponentOverlays_ToastPilledPositive)
+            dropDownMenuXlAmountTwentyLooseCenterBottom(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalXl,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastRoundedDefaultBottomStart() {
+    override fun testDropDownMenuXlLooseEndTop() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -134,16 +140,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastRoundedDefaultBottomStart(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
+            dropDownMenuXlLooseEndTop(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalXl,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastRoundedDefaultBottomCenter() {
+    override fun testDropDownMenuXlStrictEndCenter() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -151,16 +158,17 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastRoundedDefaultBottomCenter(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
+            dropDownMenuXlStrictEndCenter(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalXl,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
-    override fun testToastRoundedDefaultBottomEnd() {
+    override fun testDropDownMenuXlLooseEndBottom() {
         themedComponent(
             action = {
                 onView(withId(it.id))
@@ -168,10 +176,29 @@ class ViewSystemToastScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            toastRoundedDefaultBottomEnd(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
+            dropDownMenuXlLooseEndBottom(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuNormalXl,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
         }
-        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(100)
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testDropDownMenuTightXsStrictCenter() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            dropDownMenuTightXsStrictCenter(
+                style = R.style.Serv_Sdds_ComponentOverlays_DropdownMenuTightXs,
+                colorState = ListItemViewColorState.DEFAULT,
+            )
+        }
         captureScreenRoboImage()
     }
 }
