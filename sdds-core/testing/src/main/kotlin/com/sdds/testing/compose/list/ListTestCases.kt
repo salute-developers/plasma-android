@@ -16,6 +16,81 @@ import com.sdds.compose.uikit.fs.focusSelector
  */
 
 /**
+ * List с тремя элементами и disclosure
+ */
+@Composable
+fun ListAmountThreeHasDisclosure(style: ListStyle) {
+    com.sdds.compose.uikit.List(
+        style = style,
+    ) {
+        items(3) {
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            ListItem(
+                modifier = Modifier
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                title = "Title",
+                disclosureEnabled = true,
+                interactionSource = interactionSource,
+            )
+        }
+    }
+}
+
+/**
+ * List without disclosure
+ */
+@Composable
+fun ListAmountThreeNoDisclosure(style: ListStyle) {
+    com.sdds.compose.uikit.List(
+        style = style,
+    ) {
+        items(3) {
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            ListItem(
+                modifier = Modifier
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                title = "Title",
+                disclosureEnabled = false,
+                interactionSource = interactionSource,
+            )
+        }
+    }
+}
+
+/**
+ * List с двадцатью элементами
+ */
+@Composable
+fun ListAmountTwenty(style: ListStyle) {
+    com.sdds.compose.uikit.List(
+        style = style,
+    ) {
+        items(20) {
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            ListItem(
+                modifier = Modifier
+                    .focusable(interactionSource = interactionSource)
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
+                    ) { isFocused.value },
+                title = "Title",
+                disclosureEnabled = false,
+                interactionSource = interactionSource,
+            )
+        }
+    }
+}
+
+/**
  * Preview для меню песочницы
  */
 @Composable
