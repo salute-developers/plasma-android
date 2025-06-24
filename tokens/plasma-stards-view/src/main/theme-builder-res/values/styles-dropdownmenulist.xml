@@ -4,31 +4,31 @@
 <resources>
     <style name="Sdkit.StarDs.Components.DropdownMenuList" parent="Sdds.Components.List"/>
     <style name="Sdkit.StarDs.Components.DropdownMenuList.Xl">
-        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXl</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXlDefault</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuListXl">
         <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuList.Xl</item>
     </style>
     <style name="Sdkit.StarDs.Components.DropdownMenuList.L">
-        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemL</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemLDefault</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuListL">
         <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuList.L</item>
     </style>
     <style name="Sdkit.StarDs.Components.DropdownMenuList.M">
-        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemM</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemMDefault</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuListM">
         <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuList.M</item>
     </style>
     <style name="Sdkit.StarDs.Components.DropdownMenuList.S">
-        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemS</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemSDefault</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuListS">
         <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuList.S</item>
     </style>
     <style name="Sdkit.StarDs.Components.DropdownMenuList.Xs">
-        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXs</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuItemXsDefault</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuListXs">
         <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.DropdownMenuList.Xs</item>
