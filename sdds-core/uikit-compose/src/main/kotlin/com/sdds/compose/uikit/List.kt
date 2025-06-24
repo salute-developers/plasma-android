@@ -42,6 +42,7 @@ fun List(
 ) {
     CompositionLocalProvider(
         LocalListItemStyle provides style.listItemStyle,
+        LocalDividerStyle provides style.dividerStyle,
     ) {
         LazyColumn(
             modifier = modifier,
@@ -60,7 +61,13 @@ fun List(
 @Composable
 private fun ListPreview() {
     List {
-        items(5) {
+        items(3) {
+            ListItem(title = "Title $it")
+        }
+        item {
+            Divider()
+        }
+        items(2) {
             ListItem(title = "Title $it")
         }
     }

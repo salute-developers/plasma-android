@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class ListComposeVariationGenerator(
     private val listItemStylesPackage: String,
+    private val dividerStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -43,6 +44,7 @@ internal class ListComposeVariationGenerator(
     ): List<String> {
         return listOfNotNull(
             listItemStyleCall(props, ktFileBuilder),
+            dividerStyleCall(props, ktFileBuilder),
         )
     }
 
@@ -52,6 +54,17 @@ internal class ListComposeVariationGenerator(
                 it.value.getComponentStyle(
                     ktFileBuilder,
                     listItemStylesPackage,
+                )
+            }.style())"
+        }
+    }
+
+    private fun dividerStyleCall(props: ListProperties, ktFileBuilder: KtFileBuilder): String? {
+        return props.dividerStyle?.let {
+            ".dividerStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    dividerStylesPackage,
                 )
             }.style())"
         }

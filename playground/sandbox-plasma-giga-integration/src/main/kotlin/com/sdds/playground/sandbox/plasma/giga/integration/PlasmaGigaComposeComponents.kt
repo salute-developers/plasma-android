@@ -30,6 +30,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGiga
 import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.PlasmaGigaCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuNormalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.list.PlasmaGigaListNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.list.PlasmaGigaListTightVariationsCompose
@@ -253,6 +255,14 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("ListTight", CoreComponent.LIST),
                 PlasmaGigaListTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                PlasmaGigaDropdownMenuNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                PlasmaGigaDropdownMenuTightVariationsCompose,
             ),
         ).associateBy { it.key }
 }

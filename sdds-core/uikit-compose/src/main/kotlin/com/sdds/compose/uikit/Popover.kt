@@ -159,7 +159,7 @@ enum class PopoverPlacementMode {
 
 /**
  * Модификатор, позволяющий получать информацию о размещении триггера,
- * необходимую для корректной работы [Popover]
+ * необходимую для корректной работы [Popover], [Tooltip], [DropdownMenu]
  */
 fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
     return composed {

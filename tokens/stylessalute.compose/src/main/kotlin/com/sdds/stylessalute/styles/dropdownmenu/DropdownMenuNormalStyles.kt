@@ -1,0 +1,130 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdds.stylessalute.styles.dropdownmenu
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.DropdownMenuStyleBuilder
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
+import com.sdds.compose.uikit.style.wrap
+import com.sdds.stylessalute.styles.divider.Default
+import com.sdds.stylessalute.styles.divider.Divider
+import com.sdds.stylessalute.styles.list.DropdownMenuListNormal
+import com.sdds.stylessalute.styles.list.L
+import com.sdds.stylessalute.styles.list.M
+import com.sdds.stylessalute.styles.list.S
+import com.sdds.stylessalute.styles.list.Xs
+import com.sdds.stylessalute.theme.StylesSaluteTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
+
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
+public interface WrapperDropdownMenuNormal :
+    BuilderWrapper<DropdownMenuStyle, DropdownMenuStyleBuilder>
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperDropdownMenuNormalL(
+    public override val builder: DropdownMenuStyleBuilder,
+) : WrapperDropdownMenuNormal
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperDropdownMenuNormalM(
+    public override val builder: DropdownMenuStyleBuilder,
+) : WrapperDropdownMenuNormal
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperDropdownMenuNormalS(
+    public override val builder: DropdownMenuStyleBuilder,
+) : WrapperDropdownMenuNormal
+
+/**
+ * Обертка для вариации Xs
+ */
+@JvmInline
+public value class WrapperDropdownMenuNormalXs(
+    public override val builder: DropdownMenuStyleBuilder,
+) : WrapperDropdownMenuNormal
+
+private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
+    @Composable
+    get() = this
+        .shadow(StylesSaluteTheme.shadows.downHardM)
+        .colors {
+            backgroundColor(
+                SolidColor(StylesSaluteTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
+            )
+        }
+        .dimensions {
+            offset(8.0.dp)
+        }
+        .dividerStyle(Divider.Default.style())
+
+public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
+    @Composable
+    @JvmName("WrapperDropdownMenuNormalL")
+    get() = DropdownMenuStyle.builder(this)
+        .invariantProps
+        .shape(StylesSaluteTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .dimensions {
+            width(200.0.dp)
+        }
+        .listStyle(DropdownMenuListNormal.L.style())
+        .wrap(::WrapperDropdownMenuNormalL)
+
+public val DropdownMenuNormal.M: WrapperDropdownMenuNormalM
+    @Composable
+    @JvmName("WrapperDropdownMenuNormalM")
+    get() = DropdownMenuStyle.builder(this)
+        .invariantProps
+        .shape(StylesSaluteTheme.shapes.roundM)
+        .dimensions {
+            width(200.0.dp)
+        }
+        .listStyle(DropdownMenuListNormal.M.style())
+        .wrap(::WrapperDropdownMenuNormalM)
+
+public val DropdownMenuNormal.S: WrapperDropdownMenuNormalS
+    @Composable
+    @JvmName("WrapperDropdownMenuNormalS")
+    get() = DropdownMenuStyle.builder(this)
+        .invariantProps
+        .shape(StylesSaluteTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .dimensions {
+            width(160.0.dp)
+        }
+        .listStyle(DropdownMenuListNormal.S.style())
+        .wrap(::WrapperDropdownMenuNormalS)
+
+public val DropdownMenuNormal.Xs: WrapperDropdownMenuNormalXs
+    @Composable
+    @JvmName("WrapperDropdownMenuNormalXs")
+    get() = DropdownMenuStyle.builder(this)
+        .invariantProps
+        .shape(StylesSaluteTheme.shapes.roundS)
+        .dimensions {
+            width(160.0.dp)
+        }
+        .listStyle(DropdownMenuListNormal.Xs.style())
+        .wrap(::WrapperDropdownMenuNormalXs)

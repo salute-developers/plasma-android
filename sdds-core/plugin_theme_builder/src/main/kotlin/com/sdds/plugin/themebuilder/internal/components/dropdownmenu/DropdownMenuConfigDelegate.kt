@@ -1,12 +1,16 @@
 package com.sdds.plugin.themebuilder.internal.components.dropdownmenu
 
+import com.sdds.plugin.themebuilder.internal.TargetPackage
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
+import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.compose.DropdownMenuComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.view.DropdownMenuStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class DropdownMenuConfigDelegate : ComponentConfigDelegate<DropdownMenuConfig>() {
@@ -31,5 +35,19 @@ internal class DropdownMenuConfigDelegate : ComponentConfigDelegate<DropdownMenu
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ) = null
+    ) = DropdownMenuComposeVariationGenerator(
+        themeClassName = deps.themeClassName,
+        themePackage = deps.packageResolver.getPackage(TargetPackage.THEME),
+        dimensionsConfig = deps.dimensionsConfig,
+        dimensAggregator = deps.dimensAggregator,
+        resourceReferenceProvider = deps.resourceReferenceProvider,
+        namespace = deps.namespace,
+        ktFileBuilderFactory = deps.ktFileBuilderFactory,
+        componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
+        componentName = component.styleName.techToSnakeCase(),
+        styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
+        listStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.list",
+        dividerStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.divider",
+        outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+    )
 }

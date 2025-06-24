@@ -211,7 +211,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     ): String {
         val styleRefParts = split(".")
         val objectName = styleRefParts.first().toCamelCase()
-        val extensions = styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
+        val hasNoVariations = styleRefParts.size == 1
+        val extensions = if (hasNoVariations) {
+            listOf("Default")
+        } else {
+            styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
+        }
         ktFileBuilder.addImport(ClassName(stylesPackage, listOf(objectName)))
         extensions.forEach {
             ktFileBuilder.addImport(
@@ -221,8 +226,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 ),
             )
         }
-        return styleRefParts
-            .joinToString(separator = ".") { it.toCamelCase() }
+        return "$objectName.${extensions.joinToString(separator = ".")}"
     }
 
     protected fun StringBuilder.appendDimension(
