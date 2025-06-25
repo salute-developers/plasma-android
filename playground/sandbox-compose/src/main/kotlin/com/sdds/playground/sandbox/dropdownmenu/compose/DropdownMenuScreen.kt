@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.dropdownmenu.compose
 
-import DropdownMenu
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.heightIn
@@ -14,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Divider
+import com.sdds.compose.uikit.DropdownMenu
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem

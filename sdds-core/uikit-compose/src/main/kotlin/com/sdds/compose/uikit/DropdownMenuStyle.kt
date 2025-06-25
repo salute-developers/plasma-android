@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import DropdownMenu
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
