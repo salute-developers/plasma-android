@@ -3,7 +3,6 @@ package com.sdds.playground.sandbox.dropdownmenu.compose
 import DropdownMenu
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
@@ -22,8 +21,6 @@ import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.TriggerInfo
-import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
-import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -70,14 +67,8 @@ internal fun DropdownMenuScreen(componentKey: ComponentKey = ComponentKey.Dropdo
                 ) {
                     items(dropdownMenuUiState.amount) {
                         val interactionSource = remember { MutableInteractionSource() }
-                        val isFocused = interactionSource.collectIsFocusedAsState()
                         ListItem(
-                            modifier = Modifier
-                                .focusable(interactionSource = interactionSource)
-                                .focusSelector(
-                                    settings = LocalFocusSelectorSettings.current,
-                                    shape = style.listStyle.listItemStyle.shape,
-                                ) { isFocused.value },
+                            modifier = Modifier.focusable(interactionSource = interactionSource),
                             title = "${dropdownMenuUiState.itemTitle} $it",
                             disclosureEnabled = dropdownMenuUiState.hasDisclosure,
                             interactionSource = interactionSource,
