@@ -1,12 +1,14 @@
 package com.sdds.playground.sandbox.textfield.compose
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.key
@@ -16,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
@@ -53,55 +56,56 @@ internal fun TextFieldScreen(componentKey: ComponentKey = ComponentKey.TextField
         component = { textFieldUiState, style ->
             val focusManager = LocalFocusManager.current
             var isFocusSelectorOn by remember { mutableStateOf(!TextFieldFocusSelectorModeSwitch) }
-            TextField(
-                value = textFieldUiState.textFieldValue,
-                onValueChange = {
-                    textFieldViewModel.onValueChange(it)
-                },
-                modifier = Modifier
-                    .onKeyEvent {
-                        if (it.key == Key.Backspace) {
-                            textFieldViewModel.onBackspacePressed()
-                        }
-                        return@onKeyEvent false
+            Column {
+                TextField(
+                    value = textFieldUiState.textFieldValue,
+                    onValueChange = {
+                        textFieldViewModel.onValueChange(it)
                     },
-                style = style,
-                enabled = textFieldUiState.enabled,
-                readOnly = textFieldUiState.readOnly,
-                placeholderText = textFieldUiState.placeholderText,
-                prefix = textFieldUiState.prefix,
-                suffix = textFieldUiState.suffix,
-                labelText = textFieldUiState.labelText,
-                optionalText = textFieldUiState.optionalText,
-                captionText = textFieldUiState.captionText,
-                counterText = textFieldUiState.counterText,
-                startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
-                endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
-                chipsContent = textFieldUiState.chips.toChipContent(
-                    onChipClosePressed = {
-                        textFieldViewModel.onChipClosePressed(it)
+                    modifier = Modifier
+                        .onKeyEvent {
+                            if (it.key == Key.Backspace) {
+                                textFieldViewModel.onBackspacePressed()
+                            }
+                            return@onKeyEvent false
+                        },
+                    style = style,
+                    enabled = textFieldUiState.enabled,
+                    readOnly = textFieldUiState.readOnly,
+                    placeholderText = textFieldUiState.placeholderText,
+                    prefix = textFieldUiState.prefix,
+                    suffix = textFieldUiState.suffix,
+                    labelText = textFieldUiState.labelText,
+                    optionalText = textFieldUiState.optionalText,
+                    captionText = textFieldUiState.captionText,
+                    counterText = textFieldUiState.counterText,
+                    startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
+                    endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
+                    chipsContent = textFieldUiState.chips.toChipContent(
+                        onChipClosePressed = {
+                            textFieldViewModel.onChipClosePressed(it)
+                        },
+                    ),
+                    focusSelectorSettings = if (isFocusSelectorOn) {
+                        LocalFocusSelectorSettings.current
+                    } else {
+                        FocusSelectorSettings.None
                     },
-                ),
-                focusSelectorSettings = if (isFocusSelectorOn) {
-                    LocalFocusSelectorSettings.current
-                } else {
-                    FocusSelectorSettings.None
-                },
-            )
+                )
 
-            if (TextFieldFocusSelectorModeSwitch) {
-                Switch(
-                    active = isFocusSelectorOn,
-                    label = stringResource(R.string.sandbox_enable_focus_selector),
-                    modifier = Modifier.align(Alignment.BottomStart),
-                    onActiveChanged = { isFocusSelectorOn = it },
-                )
-                Button(
-                    style = BasicButton.Xs.Default.style(),
-                    label = stringResource(R.string.sandbox_clear_focus),
-                    modifier = Modifier.align(Alignment.BottomEnd),
-                    onClick = { focusManager.clearFocus(true) },
-                )
+                if (TextFieldFocusSelectorModeSwitch) {
+                    Spacer(Modifier.size(64.dp))
+                    Switch(
+                        active = isFocusSelectorOn,
+                        label = stringResource(R.string.sandbox_enable_focus_selector),
+                        onActiveChanged = { isFocusSelectorOn = it },
+                    )
+                    Button(
+                        style = BasicButton.Xs.Default.style(),
+                        label = stringResource(R.string.sandbox_clear_focus),
+                        onClick = { focusManager.clearFocus(true) },
+                    )
+                }
             }
         },
     )
