@@ -330,7 +330,7 @@ private class DefaultDropdownMenuDimensions(
             return DefaultDropdownMenuDimensions(
                 width = width ?: 40.dp,
                 offset = offset ?: 0.dp,
-                strokeWidth = strokeWidth ?: 0.dp,
+                strokeWidth = strokeWidth ?: Dp.Unspecified,
             )
         }
     }

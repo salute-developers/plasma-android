@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.DropdownMenuColors
@@ -49,6 +51,7 @@ import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
  * @param content содержимое Popover
  */
 @Composable
+@NonRestartableComposable
 fun DropdownMenu(
     opened: Boolean,
     modifier: Modifier = Modifier,
@@ -83,7 +86,7 @@ fun DropdownMenu(
         exitTransition = exitTransition,
         interactionSource = interactionSource,
     ) {
-        val hasBorder = style.dimensions.strokeWidth != 0.dp
+        val hasBorder = style.dimensions.strokeWidth != Dp.Unspecified
         val borderModifier = if (hasBorder) {
             Modifier.border(
                 width = style.dimensions.strokeWidth,
