@@ -38,13 +38,15 @@ if [[ "$CHANGED_TOKENS" == true ]]; then
   echo "📦 Detected changes in tokens/, enumerating submodules from git diff..."
 
   TOKEN_MODULES=$(git diff --name-only "$FROM_TAG" HEAD | \
-    grep '^tokens/' | cut -d '/' -f2 | sort -u)
+    grep '^tokens/.*/' | cut -d '/' -f2 | sort -u)
 
   for NAME in $TOKEN_MODULES; do
-    if [[ -n "$NAME" ]]; then
+    if [[ -d "tokens/$NAME" ]]; then
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
       echo "✅ Added token module: $MODULE"
+    else
+      echo "⏭ Skipped file-level token: tokens/$NAME"
     fi
   done
 fi
