@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.DropdownMenuTight" parent="Sdds.Components.DropdownMenu">
+        <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
+        <item name="sd_dividerStyleOverlay">@style/Plasma.SdService.ComponentOverlays.Divider</item>
+        <item name="sd_offset">@dimen/plasma_dropdown_menu_tight_offset</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuTight.Xl">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightXl</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_xl_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightXl">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuTight.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_tight_l_shape_adjustment</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightL</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_l_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightL">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuTight.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightM</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_m_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightM">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuTight.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_tight_s_shape_adjustment</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightS</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_s_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightS">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuTight.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightXs</item>
+        <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_xs_min_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightXs">
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.Xs</item>
+    </style>
+</resources>

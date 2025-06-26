@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?salute_textDefaultPrimary" app:salute_badge_state_default="true"/>
+    <item android:color="?salute_textDefaultAccentMain" app:salute_badge_state_accent="true"/>
+    <item android:color="?salute_textDefaultNegative" app:salute_badge_state_negative="true"/>
+    <item android:color="?salute_textDefaultPositive" app:salute_badge_state_positive="true"/>
+    <item android:color="?salute_textDefaultWarning" app:salute_badge_state_warning="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_badge_state_dark="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_badge_state_light="true"/>
+</selector>

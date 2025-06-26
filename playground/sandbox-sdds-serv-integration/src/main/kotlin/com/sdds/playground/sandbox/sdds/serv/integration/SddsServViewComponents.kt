@@ -28,6 +28,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbe
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsView
@@ -143,6 +145,14 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Divider,
                 SddsServDividerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                SddsServDropdownMenuNormalVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                SddsServDropdownMenuTightVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Indicator,

@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
+import com.sdds.playground.sandbox.dropdownmenu.vs.DropdownMenuFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.list.vs.ListFragment
@@ -70,6 +71,7 @@ import com.sdds.testing.vs.chip.chipGroup
 import com.sdds.testing.vs.counter.CounterUiState
 import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
+import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.indicator.indicator
@@ -132,7 +134,7 @@ internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
                 null
             },
         )
-    }
+    }.sortedBy { it.title }
 }
 
 private val MenuItem.defaultBuilder: FragmentNavigatorDestinationBuilder.() -> Unit
@@ -280,6 +282,9 @@ internal sealed class ComponentScreen(
     object List : ComponentScreen(
         { item -> fragment<ListFragment>(item.route, item.defaultBuilder) },
     )
+    object DropdownMenu : ComponentScreen(
+        { item -> fragment<DropdownMenuFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -320,6 +325,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         CoreComponent.LIST -> ComponentScreen.List
+        CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -362,6 +368,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.NOTIFICATION -> R.id.nav_notification
         CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
         CoreComponent.LIST -> R.id.nav_list
+        CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -443,6 +450,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
         CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
         CoreComponent.LIST -> listView(context, style)
+        CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

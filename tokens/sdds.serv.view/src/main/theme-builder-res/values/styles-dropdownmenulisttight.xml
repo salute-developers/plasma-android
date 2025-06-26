@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.DropdownMenuListTight" parent="Sdds.Components.List"/>
+    <style name="Serv.Sdds.Components.DropdownMenuListTight.Xl">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListTightXl">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListTight.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListTight.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemTightL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListTightL">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListTight.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListTight.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemTightM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListTightM">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListTight.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListTight.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemTightS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListTightS">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListTight.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownMenuListTight.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuItemTightXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownMenuListTightXs">
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.DropdownMenuListTight.Xs</item>
+    </style>
+</resources>

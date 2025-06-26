@@ -40,7 +40,7 @@ class ViewSystemCellScreenshotTest(
     @Test
     override fun testCellSizeXSLabelAvatar() {
         themedComponent {
-            cellSizeXSLabelAvatar(R.style.Salute_StylesSalute_ComponentOverlays_CellXS)
+            cellSizeXSLabelAvatar(R.style.Salute_StylesSalute_ComponentOverlays_CellXs)
         }
     }
 
@@ -68,7 +68,7 @@ class ViewSystemCellScreenshotTest(
     @Test
     override fun testCellSizeXSRadioBoxAvatar() {
         themedComponent {
-            cellSizeXSRadioBoxAvatar(R.style.Salute_StylesSalute_ComponentOverlays_CellXS)
+            cellSizeXSRadioBoxAvatar(R.style.Salute_StylesSalute_ComponentOverlays_CellXs)
         }
     }
 

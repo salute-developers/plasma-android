@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.badge.compose.BadgeComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.badge.view.BadgeStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
@@ -22,7 +23,25 @@ internal class BadgeConfigDelegate : ComponentConfigDelegate<BadgeConfig>() {
     override fun createViewGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ): ComponentStyleGenerator<BadgeConfig>? = null
+    ): ComponentStyleGenerator<BadgeConfig>? {
+        val name = component.componentName.techToCamelCase()
+        val style = component.styleName.techToCamelCase()
+        val parent = if (name == "Badge") "Sdds.Components.Badge" else "Sdds.Components.IconBadge"
+        val defStyleAttr = if (name == "Badge") "sd_badgeStyle" else "sd_iconBadgeStyle"
+        return BadgeStyleGeneratorView(
+            xmlBuilderFactory = deps.xmlBuilderFactory,
+            resourceReferenceProvider = deps.resourceReferenceProvider,
+            dimensAggregator = deps.dimensAggregator,
+            outputResDir = deps.outputResDir,
+            resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+            coreComponentName = name,
+            styleComponentName = style,
+            componentParent = parent,
+            viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+            defStyleAttr = defStyleAttr,
+        )
+    }
 
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,

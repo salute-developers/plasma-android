@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_surfaceDefaultClearHover" android:state_hovered="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_surfaceDefaultSolidDefault" android:state_checked="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_surfaceDefaultSolidDefaultActive" android:state_checked="true" android:state_pressed="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_surfaceDefaultSolidDefaultHover" android:state_checked="true" android:state_hovered="true" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_surfaceDefaultClear" app:serv_segmentitem_state_primary="true"/>
+    <item android:color="?serv_surfaceDefaultClearHover" android:state_hovered="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentCard" android:state_checked="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentCardActive" android:state_checked="true" android:state_pressed="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentCardHover" android:state_checked="true" android:state_hovered="true" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_surfaceDefaultClear" app:serv_segmentitem_state_secondary="true"/>
+    <item android:color="?serv_surfaceDefaultClearHover" android:state_hovered="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_surfaceDefaultAccent" android:state_checked="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_surfaceDefaultAccentActive" android:state_checked="true" android:state_pressed="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_surfaceDefaultAccentHover" android:state_checked="true" android:state_hovered="true" app:serv_segmentitem_state_accent="true"/>
+    <item android:color="?serv_surfaceDefaultClear" app:serv_segmentitem_state_accent="true"/>
+</selector>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/plasma_dropdown_menu_item_normal_bg_color</item>
+        <item name="sd_titleColor">@color/plasma_dropdown_menu_item_normal_text_color</item>
+        <item name="sd_disclosureColor">?plasma_textDefaultSecondary</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ListItemViewColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xl">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_dropdown_menu_item_normal_xl_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_dropdown_menu_item_normal_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_dropdown_menu_item_normal_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_dropdown_menu_item_normal_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_dropdown_menu_item_normal_xl_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_dropdown_menu_item_normal_xl_min_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXl">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xl.Default">
+        <item name="plasma_listitemviewColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXlDefault">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xl.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xl.Positive">
+        <item name="plasma_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXlPositive">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xl.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xl.Negative">
+        <item name="plasma_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXlNegative">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xl.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_item_normal_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_dropdown_menu_item_normal_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_dropdown_menu_item_normal_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_dropdown_menu_item_normal_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_dropdown_menu_item_normal_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_dropdown_menu_item_normal_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_dropdown_menu_item_normal_l_min_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalL">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.L.Default">
+        <item name="plasma_listitemviewColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalLDefault">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.L.Positive">
+        <item name="plasma_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalLPositive">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.L.Negative">
+        <item name="plasma_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalLNegative">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_dropdown_menu_item_normal_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_dropdown_menu_item_normal_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_dropdown_menu_item_normal_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_dropdown_menu_item_normal_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_dropdown_menu_item_normal_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_dropdown_menu_item_normal_m_min_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalM">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.M.Default">
+        <item name="plasma_listitemviewColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalMDefault">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.M.Positive">
+        <item name="plasma_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalMPositive">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.M.Negative">
+        <item name="plasma_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalMNegative">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_item_normal_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_dropdown_menu_item_normal_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_dropdown_menu_item_normal_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_dropdown_menu_item_normal_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_dropdown_menu_item_normal_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_dropdown_menu_item_normal_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_dropdown_menu_item_normal_s_min_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalS">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.S.Default">
+        <item name="plasma_listitemviewColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalSDefault">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.S.Positive">
+        <item name="plasma_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalSPositive">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.S.Negative">
+        <item name="plasma_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalSNegative">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_dropdown_menu_item_normal_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/plasma_dropdown_menu_item_normal_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_dropdown_menu_item_normal_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_dropdown_menu_item_normal_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_dropdown_menu_item_normal_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/plasma_dropdown_menu_item_normal_xs_min_height</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXs">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xs.Default">
+        <item name="plasma_listitemviewColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXsDefault">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xs.Positive">
+        <item name="plasma_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXsPositive">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.DropdownMenuItemNormal.Xs.Negative">
+        <item name="plasma_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DropdownMenuItemNormalXsNegative">
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.DropdownMenuItemNormal.Xs.Negative</item>
+    </style>
+</resources>

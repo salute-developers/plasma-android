@@ -30,7 +30,33 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.interactions.getValue
+
+/**
+ * Компонент RectSkeleton
+ *
+ * Представляет собой прямоугольную область с формой [shape],
+ * внутри которой бесконечно перемещается градиент [brush].
+ *
+ * @param modifier модификатор компонента
+ * @param style стиль компонента
+ * @param duration время в мс, за которое градиент перемещается через всю ширину компонента
+ * @param brush градиент шиммера
+ * @param shape форма компонента
+ * @param interactionSource источник взаимодейтсвий
+ */
+@Composable
+fun RectSkeleton(
+    modifier: Modifier = Modifier,
+    style: RectSkeletonStyle = LocalRectSkeletonStyle.current,
+    duration: Int = style.duration,
+    brush: StatefulValue<Brush> = style.gradient,
+    shape: Shape = style.shape,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    Box(modifier.shimmer(brush.getValue(interactionSource), shape, duration))
+}
 
 /**
  * Компонент RectSkeleton
@@ -49,11 +75,10 @@ fun RectSkeleton(
     modifier: Modifier = Modifier,
     style: RectSkeletonStyle = LocalRectSkeletonStyle.current,
     duration: Int = style.duration,
-    brush: StatefulValue<Brush> = style.gradient,
+    brush: Brush = style.gradient.getDefaultValue(),
     shape: Shape = style.shape,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    Box(modifier.shimmer(brush.getValue(interactionSource), shape, duration))
+    RectSkeleton(modifier, style, duration, brush.asStatefulValue(), shape)
 }
 
 /**
@@ -93,12 +118,11 @@ fun Modifier.shimmer(
             val rectSize = Size(screenWidthPx, size.height)
             val screenWidthShader = (brush as? ShaderBrush)?.createShader(rectSize)
             val shaderBrush = screenWidthShader?.let { ShaderBrush(it) }
-            val layoutCoordinates = coordinates
-            val positionInRoot = layoutCoordinates?.positionInRoot()?.x ?: 0f
 
             onDrawWithContent {
                 drawContent()
                 shaderBrush ?: return@onDrawWithContent
+                val positionInRoot = coordinates?.positionInRoot()?.x ?: 0f
                 translate(screenWidthPx * translateAnimation - positionInRoot) {
                     translate(left = -screenWidthPx) {
                         drawRect(brush = shaderBrush, size = rectSize)

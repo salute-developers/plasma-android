@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!--    start region L size-->
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearLDefault">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.L</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearLAccent">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.L.Accent</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearLPositive">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.L.Positive</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearLWarning">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.L.Warning</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearLNegative">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.L.Negative</item>
-    </style>
-
     <style name="Serv.Sdds.ComponentOverlays.BadgeClearLWhite">
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.L.White</item>
     </style>
@@ -32,26 +11,6 @@
     <!--    end region L size-->
 
     <!--    start region M size-->
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearMDefault">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.M</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearMAccent">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.M.Accent</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearMPositive">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.M.Positive</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearMWarning">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.M.Warning</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearMNegative">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.M.Negative</item>
-    </style>
-
     <style name="Serv.Sdds.ComponentOverlays.BadgeClearMWhite">
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.M.White</item>
     </style>
@@ -62,26 +21,6 @@
     <!--    end region M size-->
 
     <!--    start region S size-->
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearSDefault">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.S</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearSAccent">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.S.Accent</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearSPositive">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.S.Positive</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearSWarning">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.S.Warning</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearSNegative">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.S.Negative</item>
-    </style>
-
     <style name="Serv.Sdds.ComponentOverlays.BadgeClearSWhite">
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.S.White</item>
     </style>
@@ -92,26 +31,6 @@
     <!--    end region S size-->
 
     <!--    start region Xs size-->
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearXsDefault">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearXsAccent">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs.Accent</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearXsPositive">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs.Positive</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearXsWarning">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs.Warning</item>
-    </style>
-
-    <style name="Serv.Sdds.ComponentOverlays.BadgeClearXsNegative">
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs.Negative</item>
-    </style>
-
     <style name="Serv.Sdds.ComponentOverlays.BadgeClearXsWhite">
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs.White</item>
     </style>
@@ -120,5 +39,4 @@
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeClear.Xs.Black</item>
     </style>
     <!--    end region Xs size-->
-
 </resources>

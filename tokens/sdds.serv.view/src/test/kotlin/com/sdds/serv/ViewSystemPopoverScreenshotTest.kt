@@ -1,4 +1,7 @@
 package com.sdds.serv
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -21,7 +24,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMDefaultStrictBottomEndStartTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMDefaultStrictBottomEndStartTop(R.style.Serv_Sdds_ComponentOverlays_PopoverMDefault)
@@ -33,7 +39,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMAccentStrictTopCenterStartCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMAccentStrictTopCenterStartCenter(R.style.Serv_Sdds_ComponentOverlays_PopoverMAccent)
@@ -45,7 +54,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverSDefaultLooseEndStartBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverSDefaultLooseEndStartBottom(R.style.Serv_Sdds_ComponentOverlays_PopoverSDefault)
@@ -57,7 +69,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverSAccentStrictBottomStartCenterTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverSAccentStrictBottomStartCenterTop(R.style.Serv_Sdds_ComponentOverlays_PopoverSAccent)
@@ -69,7 +84,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMDefaultLooseStartCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMDefaultLooseStartCenter(R.style.Serv_Sdds_ComponentOverlays_PopoverMDefault)
@@ -81,7 +99,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMDefaultLooseStartCenterBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMDefaultLooseStartCenterBottom(R.style.Serv_Sdds_ComponentOverlays_PopoverMDefault)
@@ -93,7 +114,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMDefaultLooseTopEndEndTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMDefaultLooseTopEndEndTop(R.style.Serv_Sdds_ComponentOverlays_PopoverMDefault)
@@ -105,7 +129,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMDefaultLooseStartEndCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMDefaultLooseStartEndCenter(R.style.Serv_Sdds_ComponentOverlays_PopoverMDefault)
@@ -117,7 +144,10 @@ class ViewSystemPopoverScreenshotTest(
     @Test
     override fun testPopoverMDefaultLooseStartCenterEndBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             popoverMDefaultLooseStartCenterEndBottom(R.style.Serv_Sdds_ComponentOverlays_PopoverMDefault)

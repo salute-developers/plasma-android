@@ -50,6 +50,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.textarea.PlasmaGigaTe
 import com.sdds.playground.sandbox.plasma.giga.integration.textarea.clear.PlasmaGigaTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.PlasmaGigaTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.textfield.clear.PlasmaGigaTextFieldClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.textskeleton.PlasmaGigaTextSkeletonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.toast.PlasmaGigaToastVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.tooltip.PlasmaGigaTooltipVariationsCompose
 
@@ -236,6 +237,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.RectSkeleton,
                 PlasmaGigaRectSkeletonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.TextSkeleton,
+                PlasmaGigaTextSkeletonVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Spinner,

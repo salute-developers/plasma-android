@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_dropdownMenuStyle" format="reference" />
+
+    <declare-styleable name="DropdownMenu" tools:ignore="ResourceName" >
+        <attr name="sd_itemDividerEnabled" format="boolean" />
+        <attr name="sd_listViewStyleOverlay" format="reference" />
+        <attr name="sd_dividerStyleOverlay" format="reference" />
+    </declare-styleable>
+</resources>

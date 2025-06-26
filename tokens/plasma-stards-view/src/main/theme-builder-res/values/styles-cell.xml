@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Cell" parent="Sdds.Components.Cell">
+        <item name="sd_labelColor">?sdkit_textDefaultSecondary</item>
+        <item name="sd_titleColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_subtitleColor">?sdkit_textDefaultSecondary</item>
+        <item name="sd_disclosureTextColor">?sdkit_textDefaultSecondary</item>
+        <item name="sd_disclosureColor">?sdkit_textDefaultSecondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Cell.L">
+        <item name="sd_contentStartPadding">@dimen/sdkit_cell_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_cell_l_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CellL">
+        <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.L</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.L</item>
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.L</item>
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.IconButton.L</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Cell.M">
+        <item name="sd_contentStartPadding">@dimen/sdkit_cell_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_cell_m_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CellM">
+        <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.M</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.M</item>
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.IconButton.M</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Cell.S">
+        <item name="sd_contentStartPadding">@dimen/sdkit_cell_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_cell_s_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CellS">
+        <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.S</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.S</item>
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.S</item>
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.IconButton.S</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.S</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Cell.Xs">
+        <item name="sd_contentStartPadding">@dimen/sdkit_cell_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_cell_xs_content_end_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.CellXs">
+        <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.Xs</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.S</item>
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.S</item>
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.S</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.S.Default</item>
+    </style>
+</resources>

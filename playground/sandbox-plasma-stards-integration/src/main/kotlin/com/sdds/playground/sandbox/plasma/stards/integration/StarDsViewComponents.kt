@@ -7,6 +7,10 @@ import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeSolidVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeTransparentVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeSolidVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeTransparentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.card.vs.StarDsCardVariationsView
@@ -17,6 +21,8 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.StarDsChipVari
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.divider.StarDsDividerVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDsDropdownMenuVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
@@ -27,6 +33,8 @@ import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPo
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
@@ -51,6 +59,22 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.BasicButton,
                 StarDsBasicButtonVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("BadgeSolid", CoreComponent.BADGE),
+                StarDsBadgeSolidVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("BadgeTransparent", CoreComponent.BADGE),
+                StarDsBadgeTransparentVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconBadgeSolid", CoreComponent.ICON_BADGE),
+                StarDsIconBadgeSolidVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconBadgeTransparent", CoreComponent.ICON_BADGE),
+                StarDsIconBadgeTransparentVariationsView,
             ),
             ViewComponent(
                 ComponentKey.IconButton,
@@ -83,6 +107,14 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Counter,
                 StarDsCounterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Divider,
+                StarDsDividerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.DropdownMenu,
+                StarDsDropdownMenuVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Flow,
@@ -135,6 +167,14 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Switch,
                 StarDsSwitchVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Segment,
+                StarDsSegmentVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.SegmentItem,
+                StarDsSegmentItemVariationsView,
             ),
             ViewComponent(
                 ComponentKey.TextField,

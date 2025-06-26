@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.IconBadgeClear" parent="Sdds.Components.IconBadge">
+        <item name="android:backgroundTint">?plasma_surfaceDefaultClear</item>
+        <item name="sd_drawableStartTint">@color/plasma_icon_badge_clear_drawable_start_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IconBadgeColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_l_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_l_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_l_content_start_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearL">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilled">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.L.Pilled.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearLPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.L.Pilled.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_m_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_m_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_m_content_start_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearM">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilled">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.M.Pilled.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearMPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.M.Pilled.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_s_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_s_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_s_content_start_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearS">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilled">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.S.Pilled.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearSPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.S.Pilled.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundXxs</item>
+        <item name="android:minHeight">@dimen/plasma_icon_badge_clear_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_badge_clear_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_badge_clear_xs_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/plasma_icon_badge_clear_xs_content_start_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXs">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Light</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilled">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Default">
+        <item name="plasma_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Accent">
+        <item name="plasma_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Negative">
+        <item name="plasma_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Positive">
+        <item name="plasma_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Warning">
+        <item name="plasma_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Dark">
+        <item name="plasma_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Light">
+        <item name="plasma_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconBadgeClearXsPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeClear.Xs.Pilled.Light</item>
+    </style>
+</resources>

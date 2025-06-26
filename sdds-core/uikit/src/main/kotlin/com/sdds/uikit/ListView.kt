@@ -1,24 +1,26 @@
 package com.sdds.uikit
 
 import android.content.Context
-import android.graphics.Outline
 import android.util.AttributeSet
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewOutlineProvider
 import androidx.core.content.withStyledAttributes
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.uikit.SimpleListViewAdapter.SimpleListViewHolder
-import com.sdds.uikit.fs.FocusSelectorBorder
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.fs.FocusSelectorSettings
+import com.sdds.uikit.internal.base.SelectorOutlineProvider
 import com.sdds.uikit.internal.base.isClippedToOutline
-import kotlin.math.roundToInt
+import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
+import com.sdds.uikit.shape.shapeHelper
 
 /**
  * Компонент для отображения списка из элементов на основе [RecyclerView].
@@ -35,81 +37,91 @@ open class ListView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_listViewStyle,
     defStyleRes: Int = R.style.Sdds_Components_List,
-) : RecyclerView(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr) {
+) : RecyclerView(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr), Shapeable {
 
-    private val _orientation: Int
-        get() = (layoutManager as? LinearLayoutManager)?.orientation ?: HORIZONTAL
+    private val _shapeHelper = shapeHelper(attrs, defStyleAttr, defStyleRes)
+    private val _selectorSettings = FocusSelectorSettings.fromAttrs(context, attrs, defStyleAttr, defStyleRes)
 
     init {
-        initOutline(context, attrs, defStyleAttr, defStyleRes)
+        clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
+        resetOutline()
+        viewTreeObserver.addOnGlobalFocusChangeListener { _, _ ->
+            if (shouldExtendOutline()) {
+                updateOutlineOnScroll()
+            }
+        }
     }
+
+    override val shape: ShapeModel?
+        get() = _shapeHelper.shape
 
     override fun onScrollStateChanged(state: Int) {
         super.onScrollStateChanged(state)
-        updateOutlineOnScroll(state)
+        updateOutlineOnScroll()
     }
 
-    private fun initOutline(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int,
-        defStyleRes: Int,
-    ) {
-        clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
-        val settings = FocusSelectorSettings.fromAttrs(context, attrs, defStyleAttr, defStyleRes)
-        outlineProvider = SelectorOutlineProvider(settings)
+    internal fun setShape(shapeModel: ShapeModel) {
+        _shapeHelper.setShape(shapeModel)
+        resetOutline()
     }
 
-    private fun updateOutlineOnScroll(state: Int) {
+    private fun resetOutline() {
+        outlineProvider = SelectorOutlineProvider(_selectorSettings, _shapeHelper.shape)
+    }
+
+    private fun updateOutlineOnScroll() {
         (outlineProvider as? SelectorOutlineProvider)?.apply {
-            if (state == SCROLL_STATE_IDLE) {
-                extendHorizontal = true
-                extendVertical = true
-            } else {
-                // Если ориентация горизонтальная, нужно отключить расширение outline по горизонтали,
-                // чтобы элементы не вылезали за границы List при скролле
-                extendHorizontal = _orientation != HORIZONTAL
-                // Если ориентация вертикальная, нужно отключить расширение outline по вертикали,
-                // чтобы элементы не вылезали за границы List при скролле
-                extendVertical = _orientation != VERTICAL
-            }
+            // Если ориентация вертикальная, нужно отключить расширение outline по вертикали,
+            // чтобы элементы не вылезали за границы List при скролле
+            extendTop = shouldExtendTopOutline()
+            extendBottom = shouldExtendBottomOutline()
+            // Если ориентация горизонтальная, нужно отключить расширение outline по горизонтали,
+            // чтобы элементы не вылезали за границы List при скролле
+            extendStart = shouldExtendLeftOutline()
+            extendEnd = shouldExtendRightOutline()
         }
         invalidateOutline()
     }
 
-    private class SelectorOutlineProvider(settings: FocusSelectorSettings) : ViewOutlineProvider() {
-        private val focusSelectorScale: Float = if (settings.scaleEnabled) {
-            1f + settings.scaleFactor
-        } else {
-            1f
+    private fun shouldExtendOutline(): Boolean {
+        return hasFocus() && !isFocused
+    }
+
+    private fun shouldExtendTopOutline(): Boolean {
+        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.TOP)
+    }
+
+    private fun shouldExtendBottomOutline(): Boolean {
+        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.BOTTOM)
+    }
+
+    private fun shouldExtendLeftOutline(): Boolean {
+        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.LEFT)
+    }
+
+    private fun shouldExtendRightOutline(): Boolean {
+        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.RIGHT)
+    }
+
+    /**
+     * Проверяет, находится ли сфокусированный дочерний элемент близко к указанной стороне (edge) с учетом threshold.
+     */
+    private fun isFocusedChildNearEdge(edge: EDGE, threshold: Int = 0): Boolean {
+        val child = focusedChild ?: return false
+
+        return when (edge) {
+            EDGE.TOP -> child.top - threshold <= paddingTop
+            EDGE.BOTTOM -> child.bottom + threshold >= height - paddingBottom
+            EDGE.LEFT -> child.left - threshold <= paddingLeft
+            EDGE.RIGHT -> child.right + threshold >= width - paddingRight
         }
-        private val focusSelectorOffset: Int = if (settings.border.borderMode != FocusSelectorBorder.Mode.NONE) {
-            ((settings.border.strokeWidth + settings.border.strokeInsets) * focusSelectorScale).roundToInt()
-        } else {
-            0
-        }
+    }
 
-        var extendVertical: Boolean = true
-        var extendHorizontal: Boolean = true
-
-        override fun getOutline(view: View, outline: Outline) {
-            val verticalOffset = if (extendVertical) focusSelectorOffset else 0
-            val horizontalOffset = if (extendHorizontal) focusSelectorOffset else 0
-            val verticalScale = if (extendVertical) focusSelectorScale else 1f
-            val horizontalScale = if (extendHorizontal) focusSelectorScale else 1f
-
-            val scaledWidth = (view.width * horizontalScale).roundToInt()
-            val scaledHeight = (view.height * verticalScale).roundToInt()
-            val left = if (scaledWidth >= view.width) (view.width - scaledWidth) / 2 else 0
-            val top = if (scaledHeight >= view.height) (view.height - scaledHeight) / 2 else 0
-
-            outline.setRect(
-                left - horizontalOffset,
-                top - verticalOffset,
-                left + scaledWidth + horizontalOffset,
-                top + scaledHeight + verticalOffset,
-            )
-        }
+    private enum class EDGE {
+        LEFT,
+        TOP,
+        RIGHT,
+        BOTTOM,
     }
 
     companion object {
@@ -145,7 +157,24 @@ open class ListItemView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_listItemViewStyle,
     defStyleRes: Int = R.style.Sdds_Components_ListItem,
-) : CellLayout(context, attrs, defStyleAttr, defStyleRes)
+) : CellLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
+
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr, defStyleRes)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        return drawableState
+    }
+}
 
 /**
  * Базовый интерфейс элемента в [ListViewAdapter]
@@ -167,6 +196,12 @@ interface ListItem {
      */
     val hasDisclosure: Boolean
 
+    /**
+     * Состояние цвета элемента
+     * @see ListItemView.colorState
+     */
+    val colorState: ColorState? get() = null
+
     companion object {
 
         /**
@@ -174,16 +209,19 @@ interface ListItem {
          * @param id идентификатор элемента
          * @param title заголовок элемента
          * @param hasDisclosure наличие индикатора дополнительной информации
+         * @param colorState состояние цвета
          */
         fun simpleItem(
             id: Long,
             title: String,
             hasDisclosure: Boolean = true,
+            colorState: ColorState? = null,
         ): ListItem =
             SimpleListItem(
                 id = id,
                 title = title,
                 hasDisclosure = hasDisclosure,
+                colorState = colorState,
             )
     }
 }
@@ -235,6 +273,7 @@ class SimpleListViewAdapter : ListViewAdapter<ListItem, SimpleListViewHolder>(Li
         fun bind(item: ListItem) = (itemView as ListItemView).apply {
             titleView.text = item.title
             disclosureEnabled = item.hasDisclosure
+            item.colorState?.let { colorState = it }
         }
     }
 
@@ -254,4 +293,5 @@ private data class SimpleListItem(
     override val id: Long,
     override val title: String,
     override val hasDisclosure: Boolean,
+    override val colorState: ColorState? = null,
 ) : ListItem

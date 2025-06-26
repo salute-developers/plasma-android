@@ -1,5 +1,8 @@
 package com.sdds.serv
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -23,7 +26,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastRoundedDefaultTopStart() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastRoundedDefaultTopStart(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
@@ -37,7 +43,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastRoundedNegativeTopCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastRoundedNegativeTopCenter(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedNegative)
@@ -51,7 +60,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastRoundedPositiveTopEnd() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastRoundedPositiveTopEnd(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedPositive)
@@ -65,7 +77,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastPilledDefaultCenterStart() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastPilledDefaultCenterStart(R.style.Serv_Sdds_ComponentOverlays_ToastPilledDefault)
@@ -79,7 +94,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastPilledNegativeCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastPilledNegativeCenter(R.style.Serv_Sdds_ComponentOverlays_ToastPilledNegative)
@@ -93,7 +111,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastPilledPositiveCenterEnd() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastPilledPositiveCenterEnd(R.style.Serv_Sdds_ComponentOverlays_ToastPilledPositive)
@@ -107,7 +128,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastRoundedDefaultBottomStart() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastRoundedDefaultBottomStart(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
@@ -121,7 +145,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastRoundedDefaultBottomCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastRoundedDefaultBottomCenter(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)
@@ -135,7 +162,10 @@ class ViewSystemToastScreenshotTest(
     @Test
     override fun testToastRoundedDefaultBottomEnd() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             toastRoundedDefaultBottomEnd(R.style.Serv_Sdds_ComponentOverlays_ToastRoundedDefault)

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent" parent="Sdds.Components.IconBadge">
+        <item name="android:backgroundTint">@color/salute_icon_badge_transparent_bg_color</item>
+        <item name="sd_drawableStartTint">@color/salute_icon_badge_transparent_drawable_start_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.IconBadgeColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="android:minHeight">@dimen/salute_icon_badge_transparent_l_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_icon_badge_transparent_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_badge_transparent_l_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_icon_badge_transparent_l_content_start_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentL">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilled">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentLPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.L.Pilled.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundXs</item>
+        <item name="android:minHeight">@dimen/salute_icon_badge_transparent_m_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_icon_badge_transparent_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_badge_transparent_m_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_icon_badge_transparent_m_content_start_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentM">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilled">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentMPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.M.Pilled.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundXs</item>
+        <item name="android:minHeight">@dimen/salute_icon_badge_transparent_s_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_icon_badge_transparent_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_badge_transparent_s_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_icon_badge_transparent_s_content_start_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentS">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilled">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentSPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.S.Pilled.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs">
+        <item name="sd_shapeAppearance">?salute_shapeRoundXxs</item>
+        <item name="android:minHeight">@dimen/salute_icon_badge_transparent_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/salute_icon_badge_transparent_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_badge_transparent_xs_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/salute_icon_badge_transparent_xs_content_start_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXs">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Light</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilled">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Default">
+        <item name="salute_iconbadgeColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledDefault">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Accent">
+        <item name="salute_iconbadgeColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledAccent">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Negative">
+        <item name="salute_iconbadgeColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledNegative">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Positive">
+        <item name="salute_iconbadgeColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledPositive">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Warning">
+        <item name="salute_iconbadgeColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledWarning">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Dark">
+        <item name="salute_iconbadgeColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledDark">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Light">
+        <item name="salute_iconbadgeColors">state_light</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconBadgeTransparentXsPilledLight">
+        <item name="sd_iconBadgeStyle">@style/Salute.StylesSalute.Components.IconBadgeTransparent.Xs.Pilled.Light</item>
+    </style>
+</resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal" parent="Sdds.Components.ListItem">
+        <item name="sd_background">@color/salute_dropdown_menu_item_normal_bg_color</item>
+        <item name="sd_titleColor">@color/salute_dropdown_menu_item_normal_text_color</item>
+        <item name="sd_disclosureColor">?salute_textDefaultSecondary</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.ListItemViewColorStateProvider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_dropdown_menu_item_normal_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/salute_dropdown_menu_item_normal_l_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/salute_dropdown_menu_item_normal_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_dropdown_menu_item_normal_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_dropdown_menu_item_normal_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_dropdown_menu_item_normal_l_padding_bottom</item>
+        <item name="android:minHeight">@dimen/salute_dropdown_menu_item_normal_l_min_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalL">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.L.Default">
+        <item name="salute_listitemviewColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalLDefault">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.L.Positive">
+        <item name="salute_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalLPositive">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.L.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.L.Negative">
+        <item name="salute_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalLNegative">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.L.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_contentEndPadding">@dimen/salute_dropdown_menu_item_normal_m_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/salute_dropdown_menu_item_normal_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_dropdown_menu_item_normal_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_dropdown_menu_item_normal_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_dropdown_menu_item_normal_m_padding_bottom</item>
+        <item name="android:minHeight">@dimen/salute_dropdown_menu_item_normal_m_min_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalM">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.M.Default">
+        <item name="salute_listitemviewColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalMDefault">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.M.Positive">
+        <item name="salute_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalMPositive">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.M.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.M.Negative">
+        <item name="salute_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalMNegative">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.M.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_dropdown_menu_item_normal_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/salute_dropdown_menu_item_normal_s_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/salute_dropdown_menu_item_normal_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_dropdown_menu_item_normal_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_dropdown_menu_item_normal_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_dropdown_menu_item_normal_s_padding_bottom</item>
+        <item name="android:minHeight">@dimen/salute_dropdown_menu_item_normal_s_min_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalS">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.S.Default">
+        <item name="salute_listitemviewColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalSDefault">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.S.Positive">
+        <item name="salute_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalSPositive">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.S.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.S.Negative">
+        <item name="salute_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalSNegative">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.S.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_contentEndPadding">@dimen/salute_dropdown_menu_item_normal_xs_content_end_padding</item>
+        <item name="android:paddingStart">@dimen/salute_dropdown_menu_item_normal_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_dropdown_menu_item_normal_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/salute_dropdown_menu_item_normal_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/salute_dropdown_menu_item_normal_xs_padding_bottom</item>
+        <item name="android:minHeight">@dimen/salute_dropdown_menu_item_normal_xs_min_height</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXs">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs.Default">
+        <item name="salute_listitemviewColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXsDefault">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs.Positive">
+        <item name="salute_listitemviewColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXsPositive">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs.Negative">
+        <item name="salute_listitemviewColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXsNegative">
+        <item name="sd_listItemViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuItemNormal.Xs.Negative</item>
+    </style>
+</resources>

@@ -1,5 +1,8 @@
 package com.sdkit.star.designsystem
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -20,7 +23,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMStrictBottomEndStartTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMStrictBottomEndStartTop(R.style.Sdkit_StarDs_ComponentOverlays_TooltipM)
@@ -32,7 +38,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMStrictTopCenterStartCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMStrictTopCenterStartCenter(R.style.Sdkit_StarDs_ComponentOverlays_TooltipM)
@@ -44,7 +53,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipSLooseEndStartBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipSLooseEndStartBottom(R.style.Sdkit_StarDs_ComponentOverlays_TooltipS)
@@ -56,7 +68,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipSStrictBottomStartCenterTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipSStrictBottomStartCenterTop(R.style.Sdkit_StarDs_ComponentOverlays_TooltipS)
@@ -68,7 +83,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMLooseStartCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartCenter(R.style.Sdkit_StarDs_ComponentOverlays_TooltipS)
@@ -80,7 +98,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMLooseStartCenterBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartCenterBottom(R.style.Sdkit_StarDs_ComponentOverlays_TooltipM)
@@ -92,7 +113,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMLooseTopEndEndTop() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseTopEndEndTop(R.style.Sdkit_StarDs_ComponentOverlays_TooltipM)
@@ -104,7 +128,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMLooseStartEndCenter() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartEndCenter(R.style.Sdkit_StarDs_ComponentOverlays_TooltipM)
@@ -116,7 +143,10 @@ class ViewSystemTooltipScreenshotTest : TooltipTestCases("+night") {
     @Test
     override fun testTooltipMLooseStartCenterEndBottom() {
         themedComponent(
-            action = { it.performClick() },
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
             skipDefaultCaptureRoboImage = true,
         ) {
             tooltipMLooseStartCenterEndBottom(R.style.Sdkit_StarDs_ComponentOverlays_TooltipM)

@@ -385,6 +385,8 @@
     <dimen name="sdkit_cmp_segment_item_min_height_xl">128.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_start_xl">56.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_end_xl">56.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_start_content_padding_xl">12.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_end_content_padding_xl">12.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_start_content_size_xl">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_end_content_size_xl">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_value_margin_xl">12.0dp</dimen>
@@ -396,6 +398,8 @@
     <dimen name="sdkit_cmp_segment_item_min_height_l">112.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_start_l">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_end_l">48.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_start_content_padding_l">12.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_end_content_padding_l">12.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_start_content_size_l">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_end_content_size_l">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_value_margin_l">12.0dp</dimen>
@@ -407,6 +411,8 @@
     <dimen name="sdkit_cmp_segment_item_min_height_m">96.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_start_m">40.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_end_m">40.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_start_content_padding_m">8.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_end_content_padding_m">8.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_start_content_size_m">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_end_content_size_m">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_value_margin_m">8.0dp</dimen>
@@ -418,6 +424,8 @@
     <dimen name="sdkit_cmp_segment_item_min_height_s">80.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_start_s">32.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_end_s">32.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_start_content_padding_s">4.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_end_content_padding_s">4.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_start_content_size_s">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_end_content_size_s">48.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_value_margin_s">4.0dp</dimen>
@@ -429,6 +437,8 @@
     <dimen name="sdkit_cmp_segment_item_min_height_xs">64.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_start_xs">24.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_padding_end_xs">24.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_start_content_padding_xs">4.0dp</dimen>
+    <dimen name="sdkit_cmp_segment_item_end_content_padding_xs">4.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_start_content_size_xs">32.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_end_content_size_xs">32.0dp</dimen>
     <dimen name="sdkit_cmp_segment_item_value_margin_xs">4.0dp</dimen>

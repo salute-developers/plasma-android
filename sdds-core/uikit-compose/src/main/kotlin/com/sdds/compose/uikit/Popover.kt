@@ -15,6 +15,7 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.round
@@ -166,7 +167,7 @@ fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
         this@popoverTrigger then onGloballyPositioned {
             triggerInfo.value = triggerInfo.value.copy(
                 size = it.size,
-                positionInRoot = it.positionInRoot().round(),
+                positionInRoot = it.positionInWindow().round(),
             )
         } then onFocusChanged {
             val scaleFactor = if (it.isFocused) {

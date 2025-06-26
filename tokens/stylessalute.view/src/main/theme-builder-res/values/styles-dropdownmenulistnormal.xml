@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.DropdownMenuListNormal" parent="Sdds.Components.List"/>
+    <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.L">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalL">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.M">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalM">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.S">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalS">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.Xs">
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalXs">
+        <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.Xs</item>
+    </style>
+</resources>
