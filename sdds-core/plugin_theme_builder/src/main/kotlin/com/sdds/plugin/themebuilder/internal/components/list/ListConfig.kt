@@ -6,18 +6,21 @@ import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class ListProperties(
     val listItemStyle: ComponentStyle<ListItemProperties>? = null,
+    val dividerStyle: ComponentStyle<DividerProperties>? = null,
 ) : PropertyOwner {
 
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? ListProperties ?: return this
         return copy(
             listItemStyle = listItemStyle ?: otherProps.listItemStyle,
+            dividerStyle = dividerStyle ?: otherProps.dividerStyle,
         )
     }
 }

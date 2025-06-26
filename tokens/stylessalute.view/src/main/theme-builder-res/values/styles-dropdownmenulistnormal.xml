@@ -4,25 +4,25 @@
 <resources>
     <style name="Salute.StylesSalute.Components.DropdownMenuListNormal" parent="Sdds.Components.List"/>
     <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.L">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalL</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalLDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalL">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.L</item>
     </style>
     <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.M">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalM</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalMDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalM">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.M</item>
     </style>
     <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.S">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalS</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalSDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalS">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.S</item>
     </style>
     <style name="Salute.StylesSalute.Components.DropdownMenuListNormal.Xs">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXs</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemNormalXsDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListNormalXs">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListNormal.Xs</item>

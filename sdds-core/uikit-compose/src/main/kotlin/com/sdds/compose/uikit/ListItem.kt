@@ -79,8 +79,10 @@ private fun ListItemPreview() {
             .colors {
                 backgroundColor(Color.Transparent)
             }
+            .dimensions {
+                height(48.dp)
+            }
             .style(),
-        modifier = Modifier.height(56.dp),
         title = "Title",
     )
 }

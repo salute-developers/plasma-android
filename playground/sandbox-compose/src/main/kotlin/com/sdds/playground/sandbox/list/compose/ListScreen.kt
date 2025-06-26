@@ -28,8 +28,7 @@ internal fun ListScreen(componentKey: ComponentKey = ComponentKey.List) {
                 items(uiState.amount) {
                     val interactionSource = remember { MutableInteractionSource() }
                     ListItem(
-                        modifier = Modifier
-                            .focusable(interactionSource = interactionSource),
+                        modifier = Modifier.focusable(interactionSource = interactionSource),
                         title = "${uiState.title} $it",
                         disclosureEnabled = uiState.hasDisclosure,
                         interactionSource = interactionSource,

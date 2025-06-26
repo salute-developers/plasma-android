@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
+import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
@@ -54,6 +55,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
+import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
+import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
@@ -209,6 +212,10 @@ internal sealed class ComponentScreen(
 
     object Spinner : ComponentScreen({ SpinnerScreen(it) }, { SpinnerTest(it as SpinnerStyle) })
     object List : ComponentScreen({ ListScreen(it) }, { ListForSandbox(it as ListStyle) })
+    object DropdownMenu : ComponentScreen(
+        { DropdownMenuScreen(it) },
+        { DropdownMenuPreview(it as DropdownMenuStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -251,6 +258,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TEXT_SKELETON -> ComponentScreen.TextSkeleton
         CoreComponent.SPINNER -> ComponentScreen.Spinner
         CoreComponent.LIST -> ComponentScreen.List
+        CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         else -> ComponentScreen.Empty
     }
 }

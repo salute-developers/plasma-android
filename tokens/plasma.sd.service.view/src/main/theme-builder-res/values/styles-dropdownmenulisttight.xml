@@ -4,31 +4,31 @@
 <resources>
     <style name="Plasma.SdService.Components.DropdownMenuListTight" parent="Sdds.Components.List"/>
     <style name="Plasma.SdService.Components.DropdownMenuListTight.Xl">
-        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightXl</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightXlDefault</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightXl">
         <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.Xl</item>
     </style>
     <style name="Plasma.SdService.Components.DropdownMenuListTight.L">
-        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightL</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightLDefault</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightL">
         <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.L</item>
     </style>
     <style name="Plasma.SdService.Components.DropdownMenuListTight.M">
-        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightM</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightMDefault</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightM">
         <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.M</item>
     </style>
     <style name="Plasma.SdService.Components.DropdownMenuListTight.S">
-        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightS</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightSDefault</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightS">
         <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.S</item>
     </style>
     <style name="Plasma.SdService.Components.DropdownMenuListTight.Xs">
-        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightXs</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuItemTightXsDefault</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuListTightXs">
         <item name="sd_listViewStyle">@style/Plasma.SdService.Components.DropdownMenuListTight.Xs</item>
