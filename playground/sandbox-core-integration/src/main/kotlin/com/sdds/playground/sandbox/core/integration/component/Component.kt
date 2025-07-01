@@ -167,6 +167,7 @@ data class ComponentKey(
         val List = ComponentKey("List", CoreComponent.LIST)
         val DropdownMenu = ComponentKey("DropdownMenu", CoreComponent.DROPDOWN_MENU)
         val TextSkeleton = ComponentKey("TextSkeleton", CoreComponent.TEXT_SKELETON)
+        val Accordion = ComponentKey("Accordion", CoreComponent.ACCORDION)
     }
 }
 
@@ -230,4 +231,5 @@ enum class CoreComponent {
     LIST,
     DROPDOWN_MENU,
     TEXT_SKELETON,
+    ACCORDION,
 }

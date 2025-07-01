@@ -1,0 +1,241 @@
+package com.sdds.compose.uikit
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.AnimationSpec
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.State
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.text.AnnotatedString
+
+/**
+ * AccordionItem.
+ * Служит составным элементом для списка Accordion.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param opened состояние открыт/закрыт
+ * @param title основной текст
+ * @param onClick обработчик нажатия на компонент
+ * @param openTransition анимация открытия
+ * @param closeTransition анимация закрытия
+ * @param iconAnimationSpec спецификация анимации иконки при открытии/закрытии
+ * @param interactionSource источник взаимодействий
+ * @param content контент
+ */
+@Composable
+fun AccordionItem(
+    modifier: Modifier = Modifier,
+    style: AccordionItemStyle = LocalAccordionItemStyle.current,
+    opened: Boolean = false,
+    title: String,
+    onClick: () -> Unit = {},
+    openTransition: EnterTransition = remember { fadeIn() + expandVertically() },
+    closeTransition: ExitTransition = remember { fadeOut() + shrinkVertically() },
+    iconAnimationSpec: AnimationSpec<Float>? = remember { spring() },
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
+) {
+    AccordionItem(
+        modifier = modifier,
+        style = style,
+        opened = opened,
+        title = title,
+        onClick = onClick,
+        action = { AccordionAction(opened, style, iconAnimationSpec) },
+        openTransition = openTransition,
+        closeTransition = closeTransition,
+        interactionSource = interactionSource,
+        content = content,
+    )
+}
+
+/**
+ * AccordionItem.
+ * Служит составным элементом для списка Accordion.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param opened состояние открыт/закрыт
+ * @param title основной текст
+ * @param action контент иконки
+ * @param onClick обработчик нажатия на компонент
+ * @param openTransition анимация открытия
+ * @param closeTransition анимация закрытия
+ * @param interactionSource источник взаимодействий
+ * @param content контент
+ */
+@Composable
+fun AccordionItem(
+    modifier: Modifier = Modifier,
+    style: AccordionItemStyle = LocalAccordionItemStyle.current,
+    opened: Boolean = false,
+    title: String,
+    onClick: () -> Unit = {},
+    action: @Composable () -> Unit,
+    openTransition: EnterTransition = fadeIn() + expandVertically(),
+    closeTransition: ExitTransition = fadeOut() + shrinkVertically(),
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
+) {
+    Column(
+        modifier = modifier
+            .background(
+                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
+                shape = style.shape,
+            )
+            .clickable(
+                indication = null,
+                interactionSource = interactionSource,
+            ) { onClick.invoke() },
+    ) {
+        val cellStyle = CellStyle.builder()
+            .titleStyle(style.titleStyle)
+            .colors { titleColor(style.colors.titleColor) }
+            .dimensions {
+                contentPaddingStart(style.dimensions.iconPadding)
+                contentPaddingEnd(style.dimensions.iconPadding)
+            }
+            .style()
+        Cell(
+            modifier = Modifier.padding(
+                start = style.dimensions.paddingStart,
+                top = style.dimensions.paddingTop,
+                end = style.dimensions.paddingEnd,
+                bottom = style.dimensions.paddingBottom,
+            ),
+            style = cellStyle,
+            title = AnnotatedString(title),
+            startContent = startContent(action, style.iconPlacement),
+            endContent = endContent(action, style.iconPlacement),
+            gravity = CellGravity.Center,
+            disclosureEnabled = false,
+        )
+        AnimatedVisibility(
+            visible = opened,
+            enter = openTransition,
+            exit = closeTransition,
+        ) {
+            val textColor = style.colors.contentTextColor.colorForInteraction(interactionSource)
+            val textStyle = style.contentTextStyle.copy(color = textColor)
+            CompositionLocalProvider(LocalTextStyle provides textStyle) {
+                Box(
+                    modifier = Modifier.padding(
+                        start = style.dimensions.contentPaddingStart,
+                        end = style.dimensions.contentPaddingEnd,
+                        top = style.dimensions.contentPaddingTop,
+                        bottom = style.dimensions.contentPaddingBottom,
+                    ),
+                ) {
+                    content.invoke()
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Расположение иконки
+ */
+enum class AccordionIconPlacement {
+
+    /**
+     * Иконка в начале
+     */
+    Start,
+
+    /**
+     * Иконка в конце
+     */
+    End,
+}
+
+@Composable
+private fun AccordionAction(
+    opened: Boolean,
+    style: AccordionItemStyle,
+    iconAnimationSpec: AnimationSpec<Float>?,
+) {
+    val transition = iconAnimationState(opened, iconAnimationSpec)
+    val iconClosed = style.iconClosed
+    val iconOpened = style.iconOpened
+    val rotation = style.iconRotation
+    Box {
+        iconClosed?.let {
+            Icon(
+                modifier = Modifier
+                    .rotate(rotation * transition.value - rotation)
+                    .graphicsLayer { alpha = transition.value },
+                painter = it,
+                contentDescription = "",
+            )
+        }
+        iconOpened?.let {
+            Icon(
+                modifier = Modifier
+                    .rotate(rotation * transition.value)
+                    .graphicsLayer { alpha = 1f - transition.value },
+                painter = it,
+                contentDescription = "",
+            )
+        }
+    }
+}
+
+private fun startContent(
+    action: @Composable () -> Unit,
+    iconPlacement: AccordionIconPlacement,
+): (@Composable RowScope.() -> Unit)? {
+    return when (iconPlacement) {
+        AccordionIconPlacement.Start -> {
+            @Composable { action.invoke() }
+        }
+
+        AccordionIconPlacement.End -> null
+    }
+}
+
+private fun endContent(
+    action: @Composable () -> Unit,
+    iconPlacement: AccordionIconPlacement,
+): (@Composable RowScope.() -> Unit)? {
+    return when (iconPlacement) {
+        AccordionIconPlacement.End -> {
+            @Composable { action.invoke() }
+        }
+
+        AccordionIconPlacement.Start -> null
+    }
+}
+
+@Composable
+private fun iconAnimationState(
+    opened: Boolean,
+    iconAnimationSpec: AnimationSpec<Float>?,
+): State<Float> = if (iconAnimationSpec == null) {
+    rememberUpdatedState(if (opened) 0f else 1f)
+} else {
+    animateFloatAsState(
+        targetValue = if (opened) 0f else 1f,
+        animationSpec = iconAnimationSpec,
+    )
+}

@@ -32,7 +32,7 @@ import com.sdds.compose.uikit.internal.common.StyledText
 @Composable
 fun Cell(
     modifier: Modifier = Modifier,
-    style: CellStyle,
+    style: CellStyle = LocalCellStyle.current,
     gravity: CellGravity = CellGravity.Center,
     title: AnnotatedString = AnnotatedString(""),
     subtitle: AnnotatedString = AnnotatedString(""),
@@ -99,7 +99,7 @@ fun Cell(
 @NonRestartableComposable
 fun Cell(
     modifier: Modifier = Modifier,
-    style: CellStyle,
+    style: CellStyle = LocalCellStyle.current,
     gravity: CellGravity = CellGravity.Center,
     disclosureEnabled: Boolean = false,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,

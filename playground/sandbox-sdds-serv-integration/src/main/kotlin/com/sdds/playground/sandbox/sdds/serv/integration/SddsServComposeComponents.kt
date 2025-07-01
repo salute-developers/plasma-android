@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.SddsServAvatarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.group.SddsServAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeClearVariationsCompose
@@ -263,6 +267,22 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
                 SddsServDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionEndVariationsCompose,
             ),
         ).associateBy { it.key }
 }
