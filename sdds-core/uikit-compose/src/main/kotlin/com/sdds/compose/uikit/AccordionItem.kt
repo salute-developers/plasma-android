@@ -26,6 +26,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.interactions.InteractiveColor
 
 /**
  * AccordionItem.
@@ -108,14 +111,6 @@ fun AccordionItem(
                 interactionSource = interactionSource,
             ) { onClick.invoke() },
     ) {
-        val cellStyle = CellStyle.builder()
-            .titleStyle(style.titleStyle)
-            .colors { titleColor(style.colors.titleColor) }
-            .dimensions {
-                contentPaddingStart(style.dimensions.iconPadding)
-                contentPaddingEnd(style.dimensions.iconPadding)
-            }
-            .style()
         Cell(
             modifier = Modifier.padding(
                 start = style.dimensions.paddingStart,
@@ -123,7 +118,11 @@ fun AccordionItem(
                 end = style.dimensions.paddingEnd,
                 bottom = style.dimensions.paddingBottom,
             ),
-            style = cellStyle,
+            style = cellStyle(
+                titleStyle = style.titleStyle,
+                titleColor = style.colors.titleColor,
+                iconPadding = style.dimensions.iconPadding,
+            ),
             title = AnnotatedString(title),
             startContent = startContent(action, style.iconPlacement),
             endContent = endContent(action, style.iconPlacement),
@@ -167,6 +166,23 @@ enum class AccordionIconPlacement {
      * Иконка в конце
      */
     End,
+}
+
+@Composable
+private fun cellStyle(
+    titleStyle: TextStyle,
+    titleColor: InteractiveColor,
+    iconPadding: Dp,
+): CellStyle {
+    val builder = remember { CellStyle.builder() }
+    return builder
+        .titleStyle(titleStyle)
+        .colors { titleColor(titleColor) }
+        .dimensions {
+            contentPaddingStart(iconPadding)
+            contentPaddingEnd(iconPadding)
+        }
+        .style()
 }
 
 @Composable
