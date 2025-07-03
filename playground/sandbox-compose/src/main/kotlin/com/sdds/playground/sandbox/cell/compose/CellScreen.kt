@@ -51,7 +51,7 @@ internal fun CellScreen(componentKey: ComponentKey = ComponentKey.Cell) {
                 title = AnnotatedString(uiState.title),
                 subtitle = AnnotatedString(uiState.subtitle),
                 label = AnnotatedString(uiState.label),
-                disclosureEnabled = uiState.hasDisclosure,
+                disclosureContentEnabled = uiState.hasDisclosure,
                 disclosureText = AnnotatedString(uiState.disclosureText),
                 startContent = cellContent(contentType = uiState.startContent),
                 endContent = cellContent(contentType = uiState.endContent),

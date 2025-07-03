@@ -47,7 +47,7 @@ fun CellSizeMTitleAvatar(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString(""),
         label = AnnotatedString(""),
-        disclosureEnabled = false,
+        disclosureContentEnabled = false,
         disclosureText = AnnotatedString(""),
         startContent = {
             Avatar(painter = painterResource(id = R.drawable.ic_scribble_diagonal_24))
@@ -65,7 +65,7 @@ fun CellSizeSSubtitleHasDisclosure(cellStyle: CellStyle) {
         title = AnnotatedString(""),
         subtitle = AnnotatedString("Subtitle"),
         label = AnnotatedString(""),
-        disclosureEnabled = true,
+        disclosureContentEnabled = true,
     )
 }
 
@@ -79,7 +79,7 @@ fun CellSizeXsLabelAvatar(cellStyle: CellStyle) {
         title = AnnotatedString(""),
         subtitle = AnnotatedString(""),
         label = AnnotatedString("Label"),
-        disclosureEnabled = false,
+        disclosureContentEnabled = false,
         startContent = {
             Avatar(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -98,7 +98,7 @@ fun CellSizeLHasDisclosureDisclosureText(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
         label = AnnotatedString("Label"),
-        disclosureEnabled = true,
+        disclosureContentEnabled = true,
         disclosureText = AnnotatedString("text"),
     )
 }
@@ -113,7 +113,7 @@ fun CellMAvatarIcon(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString(""),
         label = AnnotatedString("Label"),
-        disclosureEnabled = false,
+        disclosureContentEnabled = false,
         startContent = {
             Avatar(
                 painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -138,7 +138,7 @@ fun CellSizeSIconHasDisclosureDisclosureText(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
         label = AnnotatedString(""),
-        disclosureEnabled = true,
+        disclosureContentEnabled = true,
         disclosureText = AnnotatedString("text"),
         startContent = {
             Icon(
@@ -159,7 +159,7 @@ fun CellSizeXsRadioBoxAvatar(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
         label = AnnotatedString("Label"),
-        disclosureEnabled = false,
+        disclosureContentEnabled = false,
         startContent = {
             var checked by remember { mutableStateOf(false) }
             RadioBox(
@@ -185,7 +185,7 @@ fun CellSizeLSwitchCheckBox(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString(""),
         label = AnnotatedString(""),
-        disclosureEnabled = false,
+        disclosureContentEnabled = false,
         startContent = {
             var active by remember { mutableStateOf(false) }
             Switch(active = active, onActiveChanged = { active = it })
@@ -207,7 +207,7 @@ fun CellSizeMCheckBoxHasDisclosure(cellStyle: CellStyle) {
         title = AnnotatedString(""),
         subtitle = AnnotatedString(""),
         label = AnnotatedString("Label"),
-        disclosureEnabled = true,
+        disclosureContentEnabled = true,
         startContent = {
             var checked by remember { mutableStateOf(false) }
             CheckBox(checked = checked, onCheckedChange = { checked = it })

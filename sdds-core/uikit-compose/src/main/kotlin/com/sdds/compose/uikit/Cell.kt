@@ -70,9 +70,11 @@ fun Cell(
                     interactionSource,
                 ),
             )
-            (disclosureIconRes ?: style.disclosureIconRes)?.let {
+            val iconRes = disclosureIconRes ?: style.disclosureIconRes
+            val painter = iconRes?.let { painterResource(it) } ?: style.disclosureIcon
+            painter?.let {
                 Icon(
-                    painter = painterResource(it),
+                    painter = it,
                     contentDescription = "",
                     tint = style.colors.disclosureIconColor.colorForInteraction(
                         interactionSource,
@@ -140,15 +142,20 @@ fun Cell(
                     interactionSource,
                 ),
             )
-            (disclosureIcon ?: style.disclosureIcon)?.let {
-                Icon(
-                    painter = it,
-                    contentDescription = "",
-                    tint = style.colors.disclosureIconColor.colorForInteraction(
-                        interactionSource,
-                    ),
-                )
-            }
+            disclosureIcon
+                ?: style.disclosureIcon
+                ?: style.disclosureIconRes?.let {
+                    painterResource(it)
+                }
+                    ?.let {
+                        Icon(
+                            painter = it,
+                            contentDescription = "",
+                            tint = style.colors.disclosureIconColor.colorForInteraction(
+                                interactionSource,
+                            ),
+                        )
+                    }
         },
         interactionSource = interactionSource,
     )

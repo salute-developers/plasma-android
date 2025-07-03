@@ -102,7 +102,7 @@ fun ListItem(
 private fun ListItemStyle.toCellStyle(): CellStyle {
     return CellStyle.builder().apply {
         titleStyle(titleStyle)
-        disclosureIcon?.let { disclosureIcon(it) }
+        disclosureIconRes?.let { disclosureIcon(it) }
         colors {
             titleColor(colors.titleColor)
             disclosureIconColor(colors.disclosureIconColor)
