@@ -106,7 +106,7 @@ internal fun DropdownMenuPreview(style: DropdownMenuStyle) {
         List(modifier = Modifier.width(200.dp)) {
             items(3) {
                 ListItem(
-                    title = "Item Title $it",
+                    text = "Item Title $it",
                     disclosureEnabled = true,
                 )
             }

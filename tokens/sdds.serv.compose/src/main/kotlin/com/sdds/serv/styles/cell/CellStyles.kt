@@ -8,7 +8,6 @@
 package com.sdds.serv.styles.cell
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
@@ -109,7 +108,7 @@ public val Cell.L: WrapperCellL
         .titleStyle(SddsServTheme.typography.bodyLNormal)
         .subtitleStyle(SddsServTheme.typography.bodyMNormal)
         .disclosureTextStyle(SddsServTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(8.0.dp)
             contentPaddingEnd(8.0.dp)
@@ -130,7 +129,7 @@ public val Cell.M: WrapperCellM
         .titleStyle(SddsServTheme.typography.bodyMNormal)
         .subtitleStyle(SddsServTheme.typography.bodySNormal)
         .disclosureTextStyle(SddsServTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(8.0.dp)
             contentPaddingEnd(8.0.dp)
@@ -151,7 +150,7 @@ public val Cell.S: WrapperCellS
         .titleStyle(SddsServTheme.typography.bodySNormal)
         .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
         .disclosureTextStyle(SddsServTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingStart(6.0.dp)
             contentPaddingEnd(6.0.dp)
@@ -172,7 +171,7 @@ public val Cell.Xs: WrapperCellXs
         .titleStyle(SddsServTheme.typography.bodyXsNormal)
         .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
         .disclosureTextStyle(SddsServTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingStart(6.0.dp)
             contentPaddingEnd(6.0.dp)

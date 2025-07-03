@@ -178,13 +178,13 @@ internal class AccordionItemComposeVariationGenerator(
 
     private fun iconClosedCall(props: AccordionItemProperties): String? {
         return props.closedIcon?.let {
-            getIcon("iconClosed", it)
+            getIconAsDrawableRes("iconClosed", it)
         }
     }
 
     private fun iconOpenedCall(props: AccordionItemProperties): String? {
         return props.openedIcon?.let {
-            getIcon("iconOpened", it)
+            getIconAsDrawableRes("iconOpened", it)
         }
     }
 }

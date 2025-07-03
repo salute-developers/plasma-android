@@ -197,7 +197,7 @@ internal class CellComposeVariationGenerator(
 
     private fun disclosureIconCall(props: CellProperties): String? {
         return props.disclosureIcon?.let {
-            getIcon("disclosureIcon", it)
+            getIconAsDrawableRes("disclosureIcon", it)
         }
     }
 }

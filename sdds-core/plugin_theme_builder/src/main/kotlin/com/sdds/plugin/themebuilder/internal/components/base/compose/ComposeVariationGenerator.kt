@@ -181,9 +181,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return ".$styleName($themeClassName.typography.${typography.value.toKtAttrName()})"
     }
 
-    protected fun getIcon(iconName: String, icon: Icon): String {
+    protected fun getIconAsDrawableRes(iconName: String, icon: Icon): String {
         val resourceRef = "ic_${icon.value.replace('.', '_')}"
-        return ".$iconName(painterResource(com.sdds.icons.R.drawable.$resourceRef))"
+        return ".$iconName(com.sdds.icons.R.drawable.$resourceRef)"
     }
 
     private fun getDimension(

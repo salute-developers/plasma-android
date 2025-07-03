@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
@@ -19,12 +20,54 @@ import androidx.compose.ui.unit.dp
  *
  * @param modifier модификатор
  * @param style стиль компонента
+ * @param text текст элемента
+ * @param disclosureEnabled включена ли иконка
+ * @param disclosureIconRes иконка disclosure
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun ListItem(
+    modifier: Modifier = Modifier,
+    style: ListItemStyle = LocalListItemStyle.current,
+    text: String,
+    disclosureEnabled: Boolean = false,
+    @DrawableRes disclosureIconRes: Int? = style.disclosureIconRes,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    Cell(
+        style = style.toCellStyle(),
+        modifier = modifier
+            .background(
+                color = style.colors.backgroundColor.colorForInteraction(interactionSource),
+                shape = style.shape,
+            )
+            .height(style.dimensions.height)
+            .padding(
+                start = style.dimensions.paddingStart,
+                top = style.dimensions.paddingTop,
+                end = style.dimensions.paddingEnd,
+                bottom = style.dimensions.paddingBottom,
+            ),
+        title = AnnotatedString(text),
+        gravity = CellGravity.Center,
+        disclosureContentEnabled = disclosureEnabled,
+        disclosureIconRes = disclosureIconRes,
+        interactionSource = interactionSource,
+    )
+}
+
+/**
+ * Компонент ListItem
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
  * @param title текст элемента
  * @param disclosureEnabled включена ли иконка
  * @param disclosureIcon иконка
  * @param interactionSource источник взаимодействий
  */
 @Composable
+@Deprecated("Use ListItem with disclosureIconRes")
 fun ListItem(
     modifier: Modifier = Modifier,
     style: ListItemStyle = LocalListItemStyle.current,
@@ -83,6 +126,6 @@ private fun ListItemPreview() {
                 height(48.dp)
             }
             .style(),
-        title = "Title",
+        text = "Title",
     )
 }

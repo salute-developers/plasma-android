@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
@@ -8,10 +9,80 @@ import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.uikit.internal.cell.BaseCell
 import com.sdds.compose.uikit.internal.cell.CellCenterContent
 import com.sdds.compose.uikit.internal.common.StyledText
+
+/**
+ * Компонент Cell.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param gravity режим выравнивания контента по вертикали
+ * @param title тайтл
+ * @param label лэйбл
+ * @param subtitle сабтайтл
+ * @param disclosureContentEnabled Включает/выключает отображение disclosure (Текст + иконка)
+ * @param disclosureText текст disclosure
+ * @param disclosureIconRes иконка disclosure
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun Cell(
+    modifier: Modifier = Modifier,
+    style: CellStyle = LocalCellStyle.current,
+    gravity: CellGravity = CellGravity.Center,
+    title: AnnotatedString = AnnotatedString(""),
+    subtitle: AnnotatedString = AnnotatedString(""),
+    label: AnnotatedString = AnnotatedString(""),
+    disclosureContentEnabled: Boolean = false,
+    @DrawableRes disclosureIconRes: Int? = null,
+    disclosureText: AnnotatedString = AnnotatedString(""),
+    startContent: (@Composable RowScope.() -> Unit)? = null,
+    endContent: (@Composable RowScope.() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    BaseCell(
+        modifier = modifier,
+        style = style,
+        gravity = gravity,
+        centerContent = {
+            CellCenterContent(
+                title = title,
+                label = label,
+                subtitle = subtitle,
+                style = style,
+                interactionSource = interactionSource,
+            )
+        },
+        startContent = startContent,
+        endContent = endContent,
+        disclosureEnabled = disclosureContentEnabled,
+        disclosureContent = {
+            StyledText(
+                text = disclosureText,
+                textStyle = style.disclosureTextStyle,
+                textColor = style.colors.disclosureTextColor.colorForInteraction(
+                    interactionSource,
+                ),
+            )
+            (disclosureIconRes ?: style.disclosureIconRes)?.let {
+                Icon(
+                    painter = painterResource(it),
+                    contentDescription = "",
+                    tint = style.colors.disclosureIconColor.colorForInteraction(
+                        interactionSource,
+                    ),
+                )
+            }
+        },
+        interactionSource = interactionSource,
+    )
+}
 
 /**
  * Компонент Cell.
@@ -30,6 +101,7 @@ import com.sdds.compose.uikit.internal.common.StyledText
  * @param interactionSource источник взаимодействий
  */
 @Composable
+@Deprecated("Use Cell with disclosureIconRes")
 fun Cell(
     modifier: Modifier = Modifier,
     style: CellStyle = LocalCellStyle.current,

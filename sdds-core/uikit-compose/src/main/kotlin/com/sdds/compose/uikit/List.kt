@@ -62,13 +62,13 @@ fun List(
 private fun ListPreview() {
     List {
         items(3) {
-            ListItem(title = "Title $it")
+            ListItem(text = "Title $it")
         }
         item {
             Divider()
         }
         items(2) {
-            ListItem(title = "Title $it")
+            ListItem(text = "Title $it")
         }
     }
 }

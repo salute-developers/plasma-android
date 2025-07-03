@@ -8,11 +8,14 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Accordion
 import com.sdds.compose.uikit.AccordionItem
@@ -38,7 +41,10 @@ internal fun AccordionScreen(componentKey: ComponentKey = ComponentKey.Accordion
             key = componentKey.toString(),
         ),
         component = { accordionUiState, style ->
-            Accordion(style = style) {
+            Accordion(
+                style = style,
+                modifier = Modifier.verticalScroll(rememberScrollState()),
+            ) {
                 repeat(accordionUiState.amount) {
                     var opened by remember { mutableStateOf(false) }
                     AccordionItem(

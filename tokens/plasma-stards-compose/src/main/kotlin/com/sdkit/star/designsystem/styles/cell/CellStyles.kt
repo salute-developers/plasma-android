@@ -9,7 +9,6 @@ package com.sdkit.star.designsystem.styles.cell
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -109,7 +108,7 @@ public val Cell.L: WrapperCellL
         .titleStyle(StarDsTheme.typography.bodyLNormal)
         .subtitleStyle(StarDsTheme.typography.bodyMNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_start_l))
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_end_l))
@@ -130,7 +129,7 @@ public val Cell.M: WrapperCellM
         .titleStyle(StarDsTheme.typography.bodyMNormal)
         .subtitleStyle(StarDsTheme.typography.bodySNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_start_m))
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_end_m))
@@ -151,7 +150,7 @@ public val Cell.S: WrapperCellS
         .titleStyle(StarDsTheme.typography.bodySNormal)
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_start_s))
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_end_s))
@@ -172,7 +171,7 @@ public val Cell.Xs: WrapperCellXs
         .titleStyle(StarDsTheme.typography.bodyXsNormal)
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(StarDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingStart(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_start_xs))
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_cell_content_padding_end_xs))

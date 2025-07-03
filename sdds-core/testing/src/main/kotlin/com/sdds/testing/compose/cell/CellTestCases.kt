@@ -29,7 +29,7 @@ fun CellSizeLAvatarHasDisclosure(cellStyle: CellStyle) {
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
         label = AnnotatedString("Label"),
-        disclosureEnabled = true,
+        disclosureContentEnabled = true,
         disclosureText = AnnotatedString(""),
         startContent = {
             Avatar(painter = painterResource(id = R.drawable.ic_scribble_diagonal_24))

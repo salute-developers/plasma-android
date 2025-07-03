@@ -4,7 +4,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class AccordionUiState(
     override val variant: String = "",
-    val amount: Int = 3,
+    val amount: Int = 9,
     val title: String = "Title",
     val contentText: String = "Content text",
     val animation: Boolean = true,

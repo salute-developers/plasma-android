@@ -9,7 +9,6 @@ package com.sdkit.star.designsystem.styles.listitem
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -148,7 +147,7 @@ public val DropdownMenuItem.Xl: WrapperDropdownMenuItemXl
         .invariantProps
         .shape(StarDsTheme.shapes.roundL)
         .titleStyle(StarDsTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_xl))
             height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_xl))
@@ -171,7 +170,7 @@ public val DropdownMenuItem.L: WrapperDropdownMenuItemL
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_l))
             height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_l))
@@ -189,7 +188,7 @@ public val DropdownMenuItem.M: WrapperDropdownMenuItemM
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .titleStyle(StarDsTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_m))
             height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_m))
@@ -212,7 +211,7 @@ public val DropdownMenuItem.S: WrapperDropdownMenuItemS
             ),
         )
         .titleStyle(StarDsTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_s))
             height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_s))
@@ -230,7 +229,7 @@ public val DropdownMenuItem.Xs: WrapperDropdownMenuItemXs
         .invariantProps
         .shape(StarDsTheme.shapes.roundS)
         .titleStyle(StarDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_content_padding_end_xs))
             height(dimensionResource(R.dimen.sdkit_cmp_dropdown_menu_item_height_xs))

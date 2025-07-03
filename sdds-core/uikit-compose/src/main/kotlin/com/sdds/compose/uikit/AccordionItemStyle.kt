@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
@@ -8,7 +9,6 @@ import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -56,12 +56,14 @@ interface AccordionItemStyle : Style {
     /**
      * Иконка в закрытом состоянии
      */
-    val iconClosed: Painter?
+    @get:DrawableRes
+    val iconClosed: Int?
 
     /**
      * Иконка в открытом состоянии
      */
-    val iconOpened: Painter?
+    @get:DrawableRes
+    val iconOpened: Int?
 
     /**
      * Цвета компонента
@@ -104,12 +106,12 @@ interface AccordionItemStyleBuilder : StyleBuilder<AccordionItemStyle> {
     /**
      * Устанавливает иконку в закрытом состоянии [iconClosed]
      */
-    fun iconClosed(iconClosed: Painter?): AccordionItemStyleBuilder
+    fun iconClosed(@DrawableRes iconClosed: Int?): AccordionItemStyleBuilder
 
     /**
      * Устанавливает иконку в открытом состоянии [iconOpened]
      */
-    fun iconOpened(iconOpened: Painter?): AccordionItemStyleBuilder
+    fun iconOpened(@DrawableRes iconOpened: Int?): AccordionItemStyleBuilder
 
     /**
      * Устанавливает угол поворота иконки при смене состояния
@@ -142,8 +144,8 @@ private data class DefaultAccordionItemStyle(
     override val colors: AccordionItemColors,
     override val dimensions: AccordionItemDimensions,
     override val iconPlacement: AccordionIconPlacement,
-    override val iconClosed: Painter?,
-    override val iconOpened: Painter?,
+    override val iconClosed: Int?,
+    override val iconOpened: Int?,
 ) : AccordionItemStyle {
 
     class Builder : AccordionItemStyleBuilder {
@@ -155,9 +157,9 @@ private data class DefaultAccordionItemStyle(
 
         private var iconRotation: Float? = null
 
-        private var iconClosed: Painter? = null
+        private var iconClosed: Int? = null
 
-        private var iconOpened: Painter? = null
+        private var iconOpened: Int? = null
 
         private var iconPlacement: AccordionIconPlacement? = null
 
@@ -175,10 +177,10 @@ private data class DefaultAccordionItemStyle(
         override fun contentTextStyle(contentTextStyle: TextStyle): AccordionItemStyleBuilder =
             apply { this.contentTextStyle = contentTextStyle }
 
-        override fun iconClosed(iconClosed: Painter?): AccordionItemStyleBuilder =
+        override fun iconClosed(iconClosed: Int?): AccordionItemStyleBuilder =
             apply { this.iconClosed = iconClosed }
 
-        override fun iconOpened(iconOpened: Painter?): AccordionItemStyleBuilder =
+        override fun iconOpened(iconOpened: Int?): AccordionItemStyleBuilder =
             apply { this.iconOpened = iconOpened }
 
         override fun iconRotation(iconRotation: Float): AccordionItemStyleBuilder =

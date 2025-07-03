@@ -126,7 +126,7 @@ private fun DropdownMenuPreview() {
             triggerInfo = TriggerInfo(),
         ) {
             List {
-                items(9) { ListItem(title = "title") }
+                items(9) { ListItem(text = "title") }
             }
         }
     }

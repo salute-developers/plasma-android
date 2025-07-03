@@ -8,7 +8,6 @@
 package com.sdds.plasma.sd.service.styles.accordionitem
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.AccordionIconPlacement
 import com.sdds.compose.uikit.AccordionItemStyle
@@ -129,8 +128,8 @@ public val AccordionItemSolidActionStart.Xs: WrapperAccordionItemSolidActionStar
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
         .wrap(::WrapperAccordionItemSolidActionStartXs)
 
 public val AccordionItemSolidActionStart.S: WrapperAccordionItemSolidActionStartS
@@ -150,8 +149,8 @@ public val AccordionItemSolidActionStart.S: WrapperAccordionItemSolidActionStart
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
         .wrap(::WrapperAccordionItemSolidActionStartS)
 
 public val AccordionItemSolidActionStart.M: WrapperAccordionItemSolidActionStartM
@@ -171,8 +170,8 @@ public val AccordionItemSolidActionStart.M: WrapperAccordionItemSolidActionStart
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
         .wrap(::WrapperAccordionItemSolidActionStartM)
 
 public val AccordionItemSolidActionStart.L: WrapperAccordionItemSolidActionStartL
@@ -192,8 +191,8 @@ public val AccordionItemSolidActionStart.L: WrapperAccordionItemSolidActionStart
             paddingTop(17.0.dp)
             paddingBottom(17.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
         .wrap(::WrapperAccordionItemSolidActionStartL)
 
 public val AccordionItemSolidActionStart.H2: WrapperAccordionItemSolidActionStartH2
@@ -213,8 +212,8 @@ public val AccordionItemSolidActionStart.H2: WrapperAccordionItemSolidActionStar
             paddingTop(16.0.dp)
             paddingBottom(16.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
         .wrap(::WrapperAccordionItemSolidActionStartH2)
 
 public val AccordionItemSolidActionStart.H3: WrapperAccordionItemSolidActionStartH3
@@ -234,8 +233,8 @@ public val AccordionItemSolidActionStart.H3: WrapperAccordionItemSolidActionStar
             paddingTop(14.0.dp)
             paddingBottom(14.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_24)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_24)
         .wrap(::WrapperAccordionItemSolidActionStartH3)
 
 public val AccordionItemSolidActionStart.H4: WrapperAccordionItemSolidActionStartH4
@@ -255,8 +254,8 @@ public val AccordionItemSolidActionStart.H4: WrapperAccordionItemSolidActionStar
             paddingTop(11.0.dp)
             paddingBottom(11.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
         .wrap(::WrapperAccordionItemSolidActionStartH4)
 
 public val AccordionItemSolidActionStart.H5: WrapperAccordionItemSolidActionStartH5
@@ -276,6 +275,6 @@ public val AccordionItemSolidActionStart.H5: WrapperAccordionItemSolidActionStar
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
         }
-        .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16))
-        .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16))
+        .iconClosed(com.sdds.icons.R.drawable.ic_disclosure_down_fill_16)
+        .iconOpened(com.sdds.icons.R.drawable.ic_disclosure_up_fill_16)
         .wrap(::WrapperAccordionItemSolidActionStartH5)

@@ -164,7 +164,7 @@ fun DropDownMenuSStrictTopCenter(style: DropdownMenuStyle, buttonStyle: ButtonSt
                 val items = listOf("Item 1", "Item 2", "Item 3")
                 items(items.size) { index ->
                     ListItem(
-                        title = "",
+                        text = "",
                         disclosureEnabled = false,
                     )
                     if (index < items.lastIndex) {
@@ -210,7 +210,7 @@ fun DropDownMenuXsStrictCenter(style: DropdownMenuStyle, buttonStyle: ButtonStyl
             ) {
                 items(3) {
                     ListItem(
-                        title = "Title",
+                        text = "Title",
                         disclosureEnabled = false,
                     )
                 }
@@ -291,7 +291,7 @@ fun DropDownMenuXlLooseTopEndDivider(style: DropdownMenuStyle, buttonStyle: Butt
                 val items = listOf("Item 1", "Item 2", "Item 3")
                 items(items.size) { index ->
                     ListItem(
-                        title = "Title",
+                        text = "Title",
                         disclosureEnabled = true,
                     )
                     if (index < items.lastIndex) {
@@ -418,7 +418,7 @@ fun ListForDropDownMenu() {
     ) {
         items(3) {
             ListItem(
-                title = "Title",
+                text = "Title",
                 disclosureEnabled = true,
             )
         }
@@ -435,7 +435,7 @@ fun ListForDropDownMenuAmountTen() {
     ) {
         items(10) {
             ListItem(
-                title = "Title",
+                text = "Title",
                 disclosureEnabled = true,
             )
         }

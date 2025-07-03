@@ -25,6 +25,7 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
@@ -127,7 +128,8 @@ fun AccordionItem(
             startContent = startContent(action, style.iconPlacement),
             endContent = endContent(action, style.iconPlacement),
             gravity = CellGravity.Center,
-            disclosureEnabled = false,
+            disclosureContentEnabled = false,
+            disclosureIconRes = null,
         )
         AnimatedVisibility(
             visible = opened,
@@ -192,8 +194,8 @@ private fun AccordionAction(
     iconAnimationSpec: AnimationSpec<Float>?,
 ) {
     val transition = iconAnimationState(opened, iconAnimationSpec)
-    val iconClosed = style.iconClosed
-    val iconOpened = style.iconOpened
+    val iconClosed = style.iconClosed?.let { painterResource(it) }
+    val iconOpened = style.iconOpened?.let { painterResource(it) }
     val rotation = style.iconRotation
     Box {
         iconClosed?.let {
