@@ -241,6 +241,34 @@ fun AccordionClearActionStartSizeH5(style: AccordionStyle) {
     }
 }
 
+/**
+ * PLASMA-T2107
+ */
+@Composable
+fun AccordionSolidActionEndSizeLLongText(style: AccordionStyle) {
+    Accordion(style = style) {
+        repeat(3) {
+            var opened by remember { mutableStateOf(false) }
+            AccordionItem(
+                modifier = Modifier.testTag("Accordion"),
+                title = "The standard lorem ipsum passage, used since the 1500\n",
+                onClick = { opened = !opened },
+                opened = opened,
+                openTransition = openTransition(true),
+                content = {
+                    Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, " +
+                            "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris " +
+                            "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor " +
+                            "in reprehenderit in voluptate velit esse cillum dolore",
+                    )
+                },
+            )
+        }
+    }
+}
+
 @Composable
 private fun openTransition(animationEnabled: Boolean): EnterTransition =
     if (animationEnabled) remember { fadeIn() + expandVertically() } else EnterTransition.None

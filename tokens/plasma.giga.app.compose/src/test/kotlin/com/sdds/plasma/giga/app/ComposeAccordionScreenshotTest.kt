@@ -25,6 +25,7 @@ import com.sdds.testing.compose.accordion.AccordionClearActionStartSizeXs
 import com.sdds.testing.compose.accordion.AccordionSolidActionEndSizeH2
 import com.sdds.testing.compose.accordion.AccordionSolidActionEndSizeL
 import com.sdds.testing.compose.accordion.AccordionSolidActionEndSizeLAmountTen
+import com.sdds.testing.compose.accordion.AccordionSolidActionEndSizeLLongText
 import com.sdds.testing.compose.accordion.AccordionSolidActionEndSizeLNoTextNoContent
 import com.sdds.testing.compose.accordion.AccordionSolidActionStartAmountTenSizeM
 import com.sdds.testing.compose.accordion.AccordionSolidActionStartSizeH3
@@ -160,6 +161,17 @@ class ComposeAccordionScreenshotTest(
     fun testAccordionClearActionStartSizeH5() {
         composeTestRule.content {
             AccordionClearActionStartSizeH5(AccordionClearActionStart.H5.style())
+        }
+        composeTestRule
+            .onAllNodesWithTag("Accordion", useUnmergedTree = true)[0]
+            .performClick()
+        composeTestRule.waitForIdle()
+    }
+
+    @Test
+    fun testAccordionSolidActionEndSizeLLongText() {
+        composeTestRule.content {
+            AccordionSolidActionEndSizeLLongText(AccordionSolidActionEnd.L.style())
         }
         composeTestRule
             .onAllNodesWithTag("Accordion", useUnmergedTree = true)[0]
