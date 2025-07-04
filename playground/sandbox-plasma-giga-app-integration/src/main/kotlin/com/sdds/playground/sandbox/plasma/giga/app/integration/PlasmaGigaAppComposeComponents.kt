@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.plasma.giga.app.integration.accordion.PlasmaGigaAppAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.accordion.PlasmaGigaAppAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.accordion.PlasmaGigaAppAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.accordion.PlasmaGigaAppAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.avatar.PlasmaGigaAppAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.avatar.group.PlasmaGigaAppAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.badge.PlasmaGigaAppBadgeClearVariationsCompose
@@ -263,6 +267,22 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
                 PlasmaGigaAppDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                PlasmaGigaAppAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                PlasmaGigaAppAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                PlasmaGigaAppAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                PlasmaGigaAppAccordionSolidActionEndVariationsCompose,
             ),
         ).associateBy { it.key }
 }

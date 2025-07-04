@@ -8,7 +8,6 @@
 package com.sdds.plasma.sd.service.styles.listitem
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
@@ -135,7 +134,7 @@ public val DropdownMenuItemNormal.Xl: WrapperDropdownMenuItemNormalXl
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(64.0.dp)
@@ -153,7 +152,7 @@ public val DropdownMenuItemNormal.L: WrapperDropdownMenuItemNormalL
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(56.0.dp)
@@ -171,7 +170,7 @@ public val DropdownMenuItemNormal.M: WrapperDropdownMenuItemNormalM
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(48.0.dp)
@@ -189,7 +188,7 @@ public val DropdownMenuItemNormal.S: WrapperDropdownMenuItemNormalS
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
             height(40.0.dp)
@@ -207,7 +206,7 @@ public val DropdownMenuItemNormal.Xs: WrapperDropdownMenuItemNormalXs
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
             height(32.0.dp)

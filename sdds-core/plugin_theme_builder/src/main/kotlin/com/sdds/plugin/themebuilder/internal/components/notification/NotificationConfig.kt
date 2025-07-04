@@ -35,6 +35,7 @@ internal data class NotificationProperties(
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             closeColor = closeColor ?: otherProps.closeColor,
             closeSize = closeSize ?: otherProps.closeSize,
+            closeAlignment = closeAlignment ?: otherProps.closeAlignment,
             paddingStart = paddingStart ?: otherProps.paddingStart,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,

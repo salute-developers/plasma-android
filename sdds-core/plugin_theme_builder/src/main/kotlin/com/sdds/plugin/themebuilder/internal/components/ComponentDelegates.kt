@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components
 
+import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
@@ -81,5 +83,7 @@ internal val componentDelegates by unsafeLazy {
         "list-item" to ListItemConfigDelegate(),
         "dropdown-menu" to DropdownMenuConfigDelegate(),
         "text-skeleton" to TextSkeletonConfigDelegate(),
+        "accordion-item" to AccordionItemConfigDelegate(),
+        "accordion" to AccordionConfigDelegate(),
     )
 }

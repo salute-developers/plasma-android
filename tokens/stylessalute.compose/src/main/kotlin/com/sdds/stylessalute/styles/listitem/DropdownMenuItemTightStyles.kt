@@ -8,7 +8,6 @@
 package com.sdds.stylessalute.styles.listitem
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
@@ -127,7 +126,7 @@ public val DropdownMenuItemTight.L: WrapperDropdownMenuItemTightL
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(StylesSaluteTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(48.0.dp)
@@ -145,7 +144,7 @@ public val DropdownMenuItemTight.M: WrapperDropdownMenuItemTightM
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundM)
         .titleStyle(StylesSaluteTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(40.0.dp)
@@ -163,7 +162,7 @@ public val DropdownMenuItemTight.S: WrapperDropdownMenuItemTightS
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(StylesSaluteTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
             height(32.0.dp)
@@ -181,7 +180,7 @@ public val DropdownMenuItemTight.Xs: WrapperDropdownMenuItemTightXs
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundS)
         .titleStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
             height(24.0.dp)

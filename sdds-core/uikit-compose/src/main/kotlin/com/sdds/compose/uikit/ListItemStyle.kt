@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -42,7 +43,14 @@ interface ListItemStyle : Style {
     /**
      * Иконка disclosure
      */
+    @Deprecated("Use disclosureIconRes instead")
     val disclosureIcon: Painter?
+
+    /**
+     * Иконка disclosure
+     */
+    @get:DrawableRes
+    val disclosureIconRes: Int?
 
     /**
      * Цвета компонента
@@ -66,7 +74,9 @@ interface ListItemStyle : Style {
 private data class DefaultListItemStyle(
     override val shape: Shape,
     override val titleStyle: TextStyle,
+    @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
+    override val disclosureIconRes: Int?,
     override val colors: ListItemColors,
     override val dimensions: ListItemDimensions,
 ) : ListItemStyle {
@@ -74,6 +84,7 @@ private data class DefaultListItemStyle(
         private var shape: Shape? = null
         private var titleStyle: TextStyle? = null
         private var disclosureIcon: Painter? = null
+        private var disclosureIconRes: Int? = null
         private var colorsBuilder: ListItemColorsBuilder = ListItemColors.builder()
         private var dimensionsBuilder: ListItemDimensionsBuilder = ListItemDimensions.builder()
 
@@ -85,8 +96,13 @@ private data class DefaultListItemStyle(
             this.titleStyle = titleStyle
         }
 
+        @Deprecated("Use disclosureIcon with drawable res")
         override fun disclosureIcon(disclosureIcon: Painter) = apply {
             this.disclosureIcon = disclosureIcon
+        }
+
+        override fun disclosureIcon(disclosureIconRes: Int) = apply {
+            this.disclosureIconRes = disclosureIconRes
         }
 
         @Composable
@@ -105,6 +121,7 @@ private data class DefaultListItemStyle(
                 shape = shape ?: RectangleShape,
                 titleStyle = titleStyle ?: TextStyle.Default,
                 disclosureIcon = disclosureIcon,
+                disclosureIconRes = disclosureIconRes,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
             )
@@ -130,7 +147,13 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     /**
      * Устанавливает иконку disclosure
      */
+    @Deprecated("Use disclosureIcon with drawable res")
     fun disclosureIcon(disclosureIcon: Painter): ListItemStyleBuilder
+
+    /**
+     * Устанавливает иконку disclosure
+     */
+    fun disclosureIcon(@DrawableRes disclosureIconRes: Int): ListItemStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]

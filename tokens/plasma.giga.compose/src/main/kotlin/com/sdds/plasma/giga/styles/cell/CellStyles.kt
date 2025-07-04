@@ -8,7 +8,6 @@
 package com.sdds.plasma.giga.styles.cell
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
@@ -109,7 +108,7 @@ public val Cell.L: WrapperCellL
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .subtitleStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .disclosureTextStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(8.0.dp)
             contentPaddingEnd(8.0.dp)
@@ -130,7 +129,7 @@ public val Cell.M: WrapperCellM
         .titleStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .subtitleStyle(PlasmaGigaTheme.typography.bodySNormal)
         .disclosureTextStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(8.0.dp)
             contentPaddingEnd(8.0.dp)
@@ -151,7 +150,7 @@ public val Cell.S: WrapperCellS
         .titleStyle(PlasmaGigaTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingStart(6.0.dp)
             contentPaddingEnd(6.0.dp)
@@ -172,7 +171,7 @@ public val Cell.Xs: WrapperCellXs
         .titleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .subtitleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingStart(6.0.dp)
             contentPaddingEnd(6.0.dp)

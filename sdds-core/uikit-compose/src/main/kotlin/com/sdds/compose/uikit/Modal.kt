@@ -20,7 +20,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import com.sdds.compose.uikit.interactions.getValue
-import com.sdds.compose.uikit.internal.DummyInteractionSource
+import com.sdds.compose.uikit.internal.clickableWithoutIndication
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
@@ -63,10 +63,7 @@ fun Modal(
             }
         }
         val outsideClickableModifier = if (dialogProperties.dismissOnClickOutside) {
-            Modifier.clickable(
-                indication = null,
-                interactionSource = DummyInteractionSource,
-            ) { onDismissRequest.invoke() }
+            Modifier.clickableWithoutIndication { onDismissRequest.invoke() }
         } else {
             Modifier
         }

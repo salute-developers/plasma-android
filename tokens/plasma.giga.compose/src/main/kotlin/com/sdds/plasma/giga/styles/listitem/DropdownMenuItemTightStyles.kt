@@ -8,7 +8,6 @@
 package com.sdds.plasma.giga.styles.listitem
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
@@ -135,7 +134,7 @@ public val DropdownMenuItemTight.Xl: WrapperDropdownMenuItemTightXl
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(56.0.dp)
@@ -153,7 +152,7 @@ public val DropdownMenuItemTight.L: WrapperDropdownMenuItemTightL
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM)
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(48.0.dp)
@@ -171,7 +170,7 @@ public val DropdownMenuItemTight.M: WrapperDropdownMenuItemTightM
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
             height(40.0.dp)
@@ -189,7 +188,7 @@ public val DropdownMenuItemTight.S: WrapperDropdownMenuItemTightS
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundS)
         .titleStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
             height(32.0.dp)
@@ -207,7 +206,7 @@ public val DropdownMenuItemTight.Xs: WrapperDropdownMenuItemTightXs
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundXs)
         .titleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
             height(24.0.dp)

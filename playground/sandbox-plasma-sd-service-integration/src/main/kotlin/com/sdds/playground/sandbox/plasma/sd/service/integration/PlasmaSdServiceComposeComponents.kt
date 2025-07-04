@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.PlasmaSdServiceAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.PlasmaSdServiceAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeClearVariationsCompose
@@ -263,6 +267,22 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
                 PlasmaSdServiceDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionEndVariationsCompose,
             ),
         ).associateBy { it.key }
 }
