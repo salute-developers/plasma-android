@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Wheel">
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="Sdds.Components.WheelItem" parent="Sdds.Components.ListItem">
+
+    </style>
+</resources>

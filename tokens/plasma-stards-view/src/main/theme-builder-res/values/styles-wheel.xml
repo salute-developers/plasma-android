@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Wheel" parent="Sdds.Components.Wheel">
+        <item name="sd_wheelCount">3</item>
+        <item name="sd_visibleItemsCount">5</item>
+        <item name="sd_controlIconUp">@drawable/ic_disclosure_up_outline_36</item>
+        <item name="sd_controlIconDown">@drawable/ic_disclosure_down_outline_36</item>
+        <item name="sd_itemTextColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_itemTextAfterColor">?sdkit_textDefaultSecondary</item>
+        <item name="sd_descriptionTextColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_controlIconUpTint">@color/sdkit_wheel_control_up_color</item>
+        <item name="sd_controlIconDownTint">@color/sdkit_wheel_control_down_color</item>
+        <item name="sd_separatorColor">?sdkit_textDefaultPrimary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Wheel.H1">
+        <item name="sd_itemTextAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
+        <item name="sd_itemTextAfterAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_itemTextAfterPadding">@dimen/sdkit_wheel_h1_text_after_padding</item>
+        <item name="sd_descriptionPadding">@dimen/sdkit_wheel_h1_description_padding</item>
+        <item name="sd_separatorSpacing">@dimen/sdkit_wheel_h1_separator_spacing</item>
+        <item name="sd_itemMinSpacing">@dimen/sdkit_wheel_h1_item_min_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.WheelH1">
+        <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Wheel.H1.RightAlign">
+        <item name="sd_itemAlignment">end</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.WheelH1RightAlign">
+        <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1.RightAlign</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Wheel.H1.CenterAlign">
+        <item name="sd_itemAlignment">center</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.WheelH1CenterAlign">
+        <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1.CenterAlign</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Wheel.H1.LeftAlign">
+        <item name="sd_itemAlignment">start</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.WheelH1LeftAlign">
+        <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1.LeftAlign</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Wheel.H1.MixedAlign">
+        <item name="sd_itemAlignment">mixed</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.WheelH1MixedAlign">
+        <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1.MixedAlign</item>
+    </style>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_wheelStyle" format="reference"/>
+    <item name="sd_upButtonId" type="id"/>
+    <item name="sd_downButtonId" type="id"/>
+
+    <declare-styleable name="Wheel" tools:ignore="ResourceName">
+        <attr name="sd_itemTextAppearance" format="reference" />
+        <attr name="sd_itemTextColor" format="reference|color" />
+        <attr name="sd_itemTextAfterAppearance" format="reference" />
+        <attr name="sd_itemTextAfterColor" format="reference" />
+        <attr name="sd_itemTextAfterPadding" format="dimension" />
+        <attr name="sd_itemAlignment" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+            <enum name="mixed" value="3" />
+        </attr>
+        <attr name="sd_itemMinSpacing" format="dimension" />
+        <attr name="sd_visibleItemsCount" format="integer" />
+
+        <attr name="sd_controlsEnabled" format="boolean"/>
+
+        <attr name="sd_controlIconUp" format="reference" />
+        <attr name="sd_controlIconUpTint" format="reference|color" />
+        <attr name="sd_controlIconDown" format="reference" />
+        <attr name="sd_controlIconDownTint" format="reference|color" />
+
+        <attr name="sd_description"/>
+        <attr name="sd_descriptionTextAppearance"/>
+        <attr name="sd_descriptionTextColor" />
+        <attr name="sd_descriptionPadding" />
+
+        <attr name="sd_wheelCount" format="integer" />
+        <attr name="sd_separatorSpacing" format="dimension" />
+        <attr name="sd_separatorType" format="enum" >
+            <enum name="none" value="0" />
+            <enum name="divider" value="1" />
+            <enum name="dots" value="2" />
+        </attr>
+        <attr name="sd_separatorColor" format="reference|color"/>
+    </declare-styleable>
+</resources>
