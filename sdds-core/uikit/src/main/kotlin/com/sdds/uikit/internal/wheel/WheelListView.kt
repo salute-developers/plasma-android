@@ -191,10 +191,10 @@ internal class WheelListView(context: Context) : ListView(context) {
         }
     }
 
-    fun setSelectedEntry(entryId: Long): Boolean {
+    fun setSelectedEntry(entryId: Long, animate: Boolean): Boolean {
         val position = _wheelItemAdapter.getItemPosition(entryId)
         if (position == NO_POSITION) return false
-        return setSelectedPosition(position)
+        return setSelectedPosition(position, animate)
     }
 
     fun setSelectedPosition(position: Int, smooth: Boolean = true): Boolean {
@@ -269,9 +269,6 @@ internal class WheelListView(context: Context) : ListView(context) {
             estimateHeight += heightForDistance
             childrenCenter += itemHeight
             distance = centerY - childrenCenter
-        }
-        if (estimateHeight > 0) {
-            estimateHeight += entryMinSpacing
         }
         return estimateHeight.toInt()
     }
@@ -348,7 +345,7 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     private fun getAlphaByDistanceFactor(factor: Float): Float {
-        return 1f - 0.6f * factor
+        return 1f - 0.8f * factor.coerceAtMost(1f)
     }
 
     private fun getItemHeightForDistance(itemHeight: Int, distance: Float, maxDist: Float): Float {

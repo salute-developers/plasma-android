@@ -19,6 +19,13 @@ fun wheel(
 ): Wheel {
     return Wheel(context.styleWrapper(style))
         .applyState(state)
+        .apply {
+            post {
+                repeat(state.wheelCount) {
+                    setSelectedEntry(it, 0)
+                }
+            }
+        }
 }
 
 /**

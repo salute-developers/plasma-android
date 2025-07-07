@@ -243,8 +243,8 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         return _listView.snap { it - 1 }
     }
 
-    fun setSelectedEntry(entryId: Long): Boolean {
-        return _listView.setSelectedEntry(entryId)
+    fun setSelectedEntry(entryId: Long, animate: Boolean): Boolean {
+        return _listView.setSelectedEntry(entryId, animate)
     }
 
     fun getSelectedEntry(): Wheel.WheelItemEntry? {
@@ -364,8 +364,10 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     }
 
     private fun resetPositions() {
+        val current = _listView.getSelectedPosition()
         _listView.doOnPreDraw {
             _descriptionView.translationY = getDescriptionPosition().toFloat()
+            _listView.setSelectedPosition(current, false)
         }
         invalidate()
         requestLayout()

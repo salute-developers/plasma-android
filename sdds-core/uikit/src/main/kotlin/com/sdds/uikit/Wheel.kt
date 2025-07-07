@@ -330,11 +330,12 @@ open class Wheel @JvmOverloads constructor(
      *
      * @param wheelId Идентификатор колеса.
      * @param entryId Идентификатор элемента.
+     * @param animate Использовать анимацию или нет.
      * @return true, если элемент найден и выбран.
      */
-    open fun setSelectedEntry(wheelId: Int, entryId: Long): Boolean {
+    open fun setSelectedEntry(wheelId: Int, entryId: Long, animate: Boolean = true): Boolean {
         val wheelItem = findViewById<WheelItemView>(wheelId) ?: return false
-        return wheelItem.setSelectedEntry(entryId)
+        return wheelItem.setSelectedEntry(entryId, animate)
     }
 
     /**
