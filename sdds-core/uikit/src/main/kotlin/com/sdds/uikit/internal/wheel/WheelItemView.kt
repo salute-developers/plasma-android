@@ -89,7 +89,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     val itemHeight: Int
         get() = _listView.itemHeight
 
-    var visibleEntriesCount: Int
+    var visibleItemsCount: Int
         get() = _listView.visibleCount
         set(value) {
             _listView.visibleCount = value
@@ -353,7 +353,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
 
     private fun updateDescription() {
         _descriptionView.apply {
-            isGone = description.isNullOrBlank() || visibleEntriesCount == 0
+            isGone = description.isNullOrBlank() || visibleItemsCount == 0
             _listView.extraItemOffsetEnabled = isVisible
             text = description
             setTextColor(_descriptionTextColor)

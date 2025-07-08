@@ -48,7 +48,7 @@ open class Wheel @JvmOverloads constructor(
     private val _entrySelectedListener = EntrySelectedListener { wheelId, entry ->
         _entrySelectedListeners.forEach { it.onEntrySelected(wheelId, entry) }
     }
-    private var _visibleEntriesCount: Int = 5
+    private var _visibleItemsCount: Int = MIN_VISIBLE_ITEMS_COUNT
     private var _controlsEnabled: Boolean = false
     private var _controlIconUp: Drawable? = null
     private var _controlIconUpTintList: ColorStateList? = null
@@ -78,13 +78,13 @@ open class Wheel @JvmOverloads constructor(
     /**
      * Количество видимых элементов в каждом колесе.
      */
-    open var visibleEntriesCount: Int
-        get() = _visibleEntriesCount
+    open var visibleItemsCount: Int
+        get() = _visibleItemsCount
         set(value) {
-            if (_visibleEntriesCount != value) {
-                _visibleEntriesCount = value
+            if (_visibleItemsCount != value) {
+                _visibleItemsCount = value.coerceAtLeast(MIN_VISIBLE_ITEMS_COUNT)
                 configureWheelItems {
-                    it.visibleEntriesCount = value
+                    it.visibleItemsCount = _visibleItemsCount
                 }
             }
         }
@@ -257,6 +257,7 @@ open class Wheel @JvmOverloads constructor(
             _separatorColor = getColorValueStateList(context, R.styleable.Wheel_sd_separatorColor)
             separatorSpacing = getDimensionPixelSize(R.styleable.Wheel_sd_separatorSpacing, 0)
             descriptionPadding = getDimensionPixelSize(R.styleable.Wheel_sd_descriptionPadding, 0)
+            visibleItemsCount = getInt(R.styleable.Wheel_sd_visibleItemsCount, 0)
         }
         orientation = HORIZONTAL
         gravity = Gravity.CENTER
@@ -535,7 +536,7 @@ open class Wheel @JvmOverloads constructor(
         val wheelItem = _wheelPool[id] ?: WheelItemView(context).also { _wheelPool[id] = it }
         return wheelItem.apply {
             this.id = id
-            visibleEntriesCount = this@Wheel.visibleEntriesCount
+            visibleItemsCount = this@Wheel.visibleItemsCount
             infiniteScrollEnabled = this@Wheel.infiniteScrollEnabled
             setItemTextAppearance(_itemTextAppearance)
             setItemTextColor(_itemTextColor)
@@ -647,6 +648,8 @@ open class Wheel @JvmOverloads constructor(
      * Константы и вспомогательные методы для компонента [Wheel].
      */
     companion object {
+        private const val MIN_VISIBLE_ITEMS_COUNT = 1
+
         /** Текст, используемый в виде разделителя с точками. */
         private const val SEPARATOR_DOTS_TEXT = ":"
 

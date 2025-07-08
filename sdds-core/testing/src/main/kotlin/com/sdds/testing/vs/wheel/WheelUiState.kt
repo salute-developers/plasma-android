@@ -12,7 +12,7 @@ import com.sdds.uikit.Wheel
  * @property description Описание колеса.
  * @property hasControls Флаг отображения кнопок управления.
  * @property wheelCount Количество колес.
- * @property visibleEntriesCount Количество видимых элементов.
+ * @property visibleItemsCount Количество видимых элементов.
  * @property separatorType Тип разделителя между элементами.
  * @property hasInfiniteScroll Флаг бесконечной прокрутки.
  */
@@ -23,7 +23,7 @@ data class WheelUiState(
     val description: String = "",
     val hasControls: Boolean = true,
     val wheelCount: Int = 2,
-    val visibleEntriesCount: Int = 5,
+    val visibleItemsCount: Int = 5,
     val separatorType: WheelSeparatorType = WheelSeparatorType.DOTS,
     val hasInfiniteScroll: Boolean = false,
 ) : UiState {

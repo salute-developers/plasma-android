@@ -21,7 +21,6 @@ import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.sdds.uikit.ListItemView
 import com.sdds.uikit.ListView
 import com.sdds.uikit.ListViewHolder
 import com.sdds.uikit.R
@@ -262,7 +261,7 @@ internal class WheelListView(context: Context) : ListView(context) {
         val centerY = visibleCount * itemHeight / 2
         val maxDist = visibleCount * itemHeight / 2f
         var estimateHeight = 0f
-        var childrenCenter = estimateHeight / 2
+        var childrenCenter = itemHeight.toFloat() / 2
         var distance = centerY - childrenCenter
         repeat(visibleCount) {
             val heightForDistance = getItemHeightForDistance(itemHeight, distance, maxDist)
@@ -528,7 +527,7 @@ internal class WheelListView(context: Context) : ListView(context) {
             private val itemTitleView = itemView.findViewById<TextView>(R.id.sd_wheel_item_title)
             private val itemTextAfterView = itemView.findViewById<TextView>(R.id.sd_wheel_item_text_after)
 
-            private val wheelItem = itemView.findViewById<ListItemView>(R.id.sd_wheel_item)
+            private val wheelItem = itemView.findViewById<ViewGroup>(R.id.sd_wheel_item)
 
             private val descriptionOffset: Int
                 get() = (extraItemOffset)

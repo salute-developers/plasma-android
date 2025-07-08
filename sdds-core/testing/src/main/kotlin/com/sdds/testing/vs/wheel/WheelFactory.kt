@@ -36,7 +36,7 @@ fun wheel(
  */
 fun Wheel.applyState(state: WheelUiState): Wheel = apply {
     wheelCount = state.wheelCount
-    visibleEntriesCount = state.visibleEntriesCount
+    visibleItemsCount = state.visibleItemsCount
     separatorType = state.separatorType.toSeparatorType()
     repeat(state.wheelCount) {
         setData(

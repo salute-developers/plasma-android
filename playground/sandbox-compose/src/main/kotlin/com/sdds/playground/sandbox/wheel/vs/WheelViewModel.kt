@@ -25,7 +25,7 @@ internal class WheelViewModel(
             PropertyName.ItemTextAfter -> currentState.copy(itemTextAfter = valueString)
             PropertyName.HasControls -> currentState.copy(hasControls = valueString.toBoolean())
             PropertyName.WheelCount -> currentState.copy(wheelCount = valueString.toIntOrNull() ?: 0)
-            PropertyName.VisibleEntriesCount -> currentState.copy(visibleEntriesCount = valueString.toIntOrNull() ?: 0)
+            PropertyName.VisibleItemsCount -> currentState.copy(visibleItemsCount = valueString.toIntOrNull() ?: 0)
             PropertyName.SeparatorType -> currentState.copy(separatorType = WheelSeparatorType.valueOf(valueString))
             PropertyName.HasInfiniteScroll -> currentState.copy(hasInfiniteScroll = valueString.toBoolean())
             else -> currentState
@@ -59,8 +59,8 @@ internal class WheelViewModel(
                 value = wheelCount,
             ),
             Property.IntProperty(
-                name = PropertyName.VisibleEntriesCount.value,
-                value = visibleEntriesCount,
+                name = PropertyName.VisibleItemsCount.value,
+                value = visibleItemsCount,
             ),
             enumProperty(
                 name = PropertyName.SeparatorType.value,
@@ -77,7 +77,7 @@ internal class WheelViewModel(
         ItemAlignment("itemAlignment"),
         HasControls("hasControls"),
         WheelCount("wheelCount"),
-        VisibleEntriesCount("visibleEntriesCount"),
+        VisibleItemsCount("visibleItemsCount"),
         SeparatorType("separatorType"),
         HasInfiniteScroll("hasInfiniteScroll"),
     }

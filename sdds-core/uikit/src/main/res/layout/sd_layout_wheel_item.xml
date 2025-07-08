@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.sdds.uikit.ListItemView
+    <com.sdds.uikit.LinearLayout
         android:id="@+id/sd_wheel_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +35,6 @@
             android:focusable="false"
             tools:text="dfasfsdfsdfsdffsdfsdfsdfsdfsdfsdfsdfsdfsffffff" />
 
-    </com.sdds.uikit.ListItemView>
+    </com.sdds.uikit.LinearLayout>
 </FrameLayout>
 

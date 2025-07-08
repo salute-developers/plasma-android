@@ -44,7 +44,7 @@
 ```kotlin
 val wheel = Wheel(context).apply {
     wheelCount = 2
-    visibleEntriesCount = 5
+    visibleItemsCount = 5
     controlsEnabled = true
     separatorType = Wheel.SEPARATOR_TYPE_DOTS
     infiniteScrollEnabled = true
