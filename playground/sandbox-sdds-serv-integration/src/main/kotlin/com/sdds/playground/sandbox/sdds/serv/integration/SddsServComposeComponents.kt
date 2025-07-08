@@ -48,6 +48,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgre
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.scrollbar.SddsServScrollBarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsCompose
@@ -283,6 +284,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
                 SddsServAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                SddsServScrollBarVariationsCompose,
             ),
         ).associateBy { it.key }
 }

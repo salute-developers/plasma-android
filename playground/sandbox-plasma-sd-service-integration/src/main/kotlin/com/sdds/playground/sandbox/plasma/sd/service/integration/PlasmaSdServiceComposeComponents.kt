@@ -48,6 +48,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.Plasma
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.scrollbar.PlasmaSdServiceScrollBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.spinner.PlasmaSdServiceSpinnerVariationsCompose
@@ -283,6 +284,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
                 PlasmaSdServiceAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                PlasmaSdServiceScrollBarVariationsCompose,
             ),
         ).associateBy { it.key }
 }

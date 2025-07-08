@@ -29,6 +29,7 @@ import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConf
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeletonConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
@@ -87,5 +88,6 @@ internal val componentDelegates by unsafeLazy {
         "accordion-item" to AccordionItemConfigDelegate(),
         "accordion" to AccordionConfigDelegate(),
         "wheel" to WheelConfigDelegate(),
+        "scroll-bar" to ScrollBarConfigDelegate(),
     )
 }

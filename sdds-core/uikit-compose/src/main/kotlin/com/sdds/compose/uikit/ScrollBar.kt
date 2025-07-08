@@ -5,11 +5,26 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithContent
@@ -18,12 +33,162 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.internal.scrollbar.BaseScrollBar
+import com.sdds.compose.uikit.internal.scrollbar.BaseScrollBarThumb
 import kotlin.math.max
+
+/**
+ * Интерактивный индикатор для горизонтального или вертикального перемещения по контенту
+ *
+ * @param scrollState состояние скролла [ScrollState]
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param orientation ориентация скролла
+ * @param hasTrack показан ли трек скролла
+ * @param hoverExpand будет ли увеличиваться компонент при взаимодействии с ним
+ * @param alwaysShowScrollbar показывать scrollbar всегда или только во время скролла
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun ScrollBar(
+    scrollState: ScrollState,
+    modifier: Modifier = Modifier,
+    style: ScrollBarStyle = LocalScrollBarStyle.current,
+    orientation: Orientation = Orientation.Vertical,
+    hasTrack: Boolean = false,
+    hoverExpand: Boolean = true,
+    alwaysShowScrollbar: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    val isDragging = remember { mutableStateOf(false) }
+    BaseScrollBar(
+        modifier = modifier,
+        scrollableState = scrollState,
+        orientation = orientation,
+        alwaysShowScrollbar = alwaysShowScrollbar,
+        hasTrack = hasTrack,
+        hoverExpand = hoverExpand,
+        hoverExpandFactor = style.hoverExpandFactor,
+        trackWidth = style.dimensions.width,
+        trackColor = style.colors.trackColor.colorForInteraction(interactionSource),
+        trackShape = style.shape,
+        isDragging = isDragging,
+        interactionSource = interactionSource,
+    ) {
+        BaseScrollBarThumb(
+            scrollState = scrollState,
+            orientation = orientation,
+            thumbWidth = style.dimensions.width,
+            thumbColor = style.colors.thumbColor.colorForInteraction(interactionSource),
+            thumbShape = style.shape,
+            isDragging = isDragging,
+        )
+    }
+}
+
+/**
+ * Интерактивный индикатор для горизонтального или вертикального перемещения по контенту
+ *
+ * @param scrollState состояние скролла [LazyListState]
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param orientation ориентация скролла
+ * @param hasTrack показан ли трек скролла
+ * @param hoverExpand будет ли увеличиваться компонент при взаимодействии с ним
+ * @param alwaysShowScrollbar показывать scrollbar всегда или только во время скролла
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun ScrollBar(
+    scrollState: LazyListState,
+    modifier: Modifier = Modifier,
+    style: ScrollBarStyle = LocalScrollBarStyle.current,
+    orientation: Orientation = Orientation.Vertical,
+    hasTrack: Boolean = false,
+    hoverExpand: Boolean = true,
+    alwaysShowScrollbar: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    val isDragging = remember { mutableStateOf(false) }
+    BaseScrollBar(
+        modifier = modifier,
+        scrollableState = scrollState,
+        orientation = orientation,
+        alwaysShowScrollbar = alwaysShowScrollbar,
+        hasTrack = hasTrack,
+        hoverExpand = hoverExpand,
+        hoverExpandFactor = style.hoverExpandFactor,
+        trackWidth = style.dimensions.width,
+        trackColor = style.colors.trackColor.colorForInteraction(interactionSource),
+        trackShape = style.shape,
+        isDragging = isDragging,
+        interactionSource = interactionSource,
+    ) {
+        BaseScrollBarThumb(
+            scrollState = scrollState,
+            orientation = orientation,
+            thumbWidth = style.dimensions.width,
+            thumbColor = style.colors.thumbColor.colorForInteraction(interactionSource),
+            thumbShape = style.shape,
+            isDragging = isDragging,
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun LazyScrollBarPreview() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        val scrollState = rememberLazyListState()
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 24.dp),
+            state = scrollState,
+        ) {
+            items(200) {
+                Text(text = "lazy text $it")
+            }
+        }
+        ScrollBar(
+            modifier = Modifier.align(Alignment.CenterEnd),
+            scrollState = scrollState,
+            alwaysShowScrollbar = false,
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun SimpleScrollBarPreview() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+    ) {
+        val state = rememberScrollState()
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(state),
+        ) {
+            repeat(100) {
+                Text(text = "text $it")
+            }
+        }
+        ScrollBar(
+            modifier = Modifier.align(Alignment.CenterEnd),
+            scrollState = state,
+            alwaysShowScrollbar = false,
+        )
+    }
+}
 
 /**
  * Добавляет scroll bar
@@ -38,6 +203,7 @@ import kotlin.math.max
  * @param padding отступы скроллбара
  */
 @Suppress("LongMethod")
+@Deprecated("Use ScrollBar composable instead")
 fun Modifier.scrollbar(
     state: ScrollState,
     direction: Orientation,
@@ -210,6 +376,7 @@ private fun indicatorLength(
  * @property padding отступы скроллбара
  */
 @Immutable
+@Deprecated("Use ScrollBar composable instead")
 data class ScrollBar(
     val indicatorThickness: Dp = 2.dp,
     val indicatorColor: InteractiveColor = Color.DarkGray.asInteractive(),

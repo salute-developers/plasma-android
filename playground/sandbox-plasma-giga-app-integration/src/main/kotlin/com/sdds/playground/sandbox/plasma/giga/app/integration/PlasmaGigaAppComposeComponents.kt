@@ -48,6 +48,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.progress.PlasmaGi
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.PlasmaGigaAppRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.group.PlasmaGigaRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.rectskeleton.PlasmaGigaAppRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.scrollbar.PlasmaGigaAppScrollBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.PlasmaGigaAppSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.item.PlasmaGigaAppSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.spinner.PlasmaGigaAppSpinnerVariationsCompose
@@ -283,6 +284,10 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
                 PlasmaGigaAppAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                PlasmaGigaAppScrollBarVariationsCompose,
             ),
         ).associateBy { it.key }
 }

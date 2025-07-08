@@ -169,6 +169,7 @@ data class ComponentKey(
         val TextSkeleton = ComponentKey("TextSkeleton", CoreComponent.TEXT_SKELETON)
         val Accordion = ComponentKey("Accordion", CoreComponent.ACCORDION)
         val Wheel = ComponentKey("Wheel", CoreComponent.WHEEL)
+        val ScrollBar = ComponentKey("ScrollBar", CoreComponent.SCROLL_BAR)
     }
 }
 
@@ -234,4 +235,5 @@ enum class CoreComponent {
     TEXT_SKELETON,
     ACCORDION,
     WHEEL,
+    SCROLL_BAR,
 }
