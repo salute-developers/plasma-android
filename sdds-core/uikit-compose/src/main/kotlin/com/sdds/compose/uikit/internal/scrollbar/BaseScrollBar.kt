@@ -280,7 +280,7 @@ internal object BaseScrollBar {
         trackLengthPx: Float,
         thumbLengthPx: Float,
         isDragging: MutableState<Boolean>,
-    ): Modifier = this.pointerInput(Unit) {
+    ): Modifier = this.pointerInput(thumbLengthPx) {
         detectDragGestures(
             onDragStart = { isDragging.value = true },
             onDragEnd = { isDragging.value = false },
@@ -310,7 +310,7 @@ internal object BaseScrollBar {
         trackLengthPx: Float,
         thumbLengthPx: Float,
         isDragging: MutableState<Boolean>,
-    ): Modifier = this.pointerInput(Unit) {
+    ): Modifier = this.pointerInput(thumbLengthPx) {
         detectDragGestures(
             onDragStart = { isDragging.value = true },
             onDragEnd = { isDragging.value = false },
