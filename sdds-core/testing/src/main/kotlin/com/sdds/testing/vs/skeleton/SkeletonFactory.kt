@@ -1,6 +1,7 @@
 package com.sdds.testing.vs.skeleton
 
 import android.content.Context
+import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.StyleRes
@@ -41,10 +42,10 @@ fun textSkeleton(
     @StyleRes style: Int? = null,
     state: TextSkeletonUiState = TextSkeletonUiState(),
 ): ViewGroup {
-    val wrappedContext = context.styleWrapper(R.style.DefaultAppearance)
-    val typedArray = wrappedContext.obtainStyledAttributes(intArrayOf(R.attr.testTextAppearance))
-    val appearanceRes = typedArray.getResourceId(0, -1)
-    typedArray.recycle()
+    val appearanceRes = TypedValue().run {
+        context.theme.resolveAttribute(R.attr.testTextAppearance, this, true)
+        this.data
+    }
     val skeletonView = skeletonShimmer(context, style, state, appearanceRes)
     val textView = text(context, state, appearanceRes)
     return FrameLayout(context).apply {

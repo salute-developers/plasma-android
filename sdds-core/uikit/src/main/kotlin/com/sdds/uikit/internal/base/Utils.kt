@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.res.ColorStateList
+import android.content.res.Resources
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.Typeface
@@ -11,6 +12,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
 import android.text.TextPaint
 import android.util.Size
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
@@ -174,3 +176,10 @@ internal fun View.getVisibleDisplayFrame(): Rect {
 }
 
 internal val ZeroSize = Size(0, 0)
+
+internal val Int.sp: Int
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_SP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics,
+    ).toInt()

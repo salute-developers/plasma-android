@@ -1,12 +1,13 @@
 package com.sdds.uikit
 
 import android.content.Context
-import android.content.res.Resources
 import android.util.AttributeSet
-import android.util.TypedValue
+import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import com.sdds.uikit.internal.base.TextAppearance
+import com.sdds.uikit.internal.base.sp
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 /**
@@ -27,13 +28,6 @@ open class TextSkeleton @JvmOverloads constructor(
     private var _textAppearance: TextAppearance? = null
     private var _textAppearanceRes: Int = 0
     private var _lineWidthProvider: SkeletonLineWidthProvider = SkeletonLineWidthProvider.RandomDeviation()
-
-    private val Int.sp: Int
-        get() = TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_SP,
-            this.toFloat(),
-            Resources.getSystem().displayMetrics,
-        ).toInt()
 
     /**
      * Количество, отображаемых строк.
@@ -90,9 +84,14 @@ open class TextSkeleton @JvmOverloads constructor(
         val lineSpacing = lineHeight - textSize
         repeat(lineCount) { lineIndex ->
             val widthFactor = lineWidthProvider.widthFactor(lineIndex, lineCount)
-            val skeletonView = ShimmerLayout(context, attrs, defStyleAttr, defStyleRes).apply {
+            val skeletonView = object : ShimmerLayout(context, attrs, defStyleAttr, defStyleRes) {
+                override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+                    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+                    setMeasuredDimension((measuredWidth * widthFactor).roundToInt(), measuredHeight)
+                }
+            }.apply {
                 layoutParams = LayoutParams(
-                    (resources.displayMetrics.widthPixels * widthFactor).toInt(),
+                    ViewGroup.LayoutParams.MATCH_PARENT,
                     textSize,
                 ).apply {
                     if (lineIndex > 0) topMargin = lineSpacing
