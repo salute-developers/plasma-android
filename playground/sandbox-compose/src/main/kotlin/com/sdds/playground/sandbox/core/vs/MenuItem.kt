@@ -46,6 +46,7 @@ import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
+import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
 import com.sdds.playground.sandbox.toast.vs.ToastFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
@@ -94,6 +95,7 @@ import com.sdds.testing.vs.segement.SegmentUiState
 import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.testing.vs.skeleton.rectSkeleton
+import com.sdds.testing.vs.skeleton.textSkeleton
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
@@ -281,6 +283,9 @@ internal sealed class ComponentScreen(
     object RectSkeleton : ComponentScreen(
         { item -> fragment<RectSkeletonFragment>(item.route, item.defaultBuilder) },
     )
+    object TextSkeleton : ComponentScreen(
+        { item -> fragment<TextSkeletonFragment>(item.route, item.defaultBuilder) },
+    )
     object List : ComponentScreen(
         { item -> fragment<ListFragment>(item.route, item.defaultBuilder) },
     )
@@ -329,6 +334,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
+        CoreComponent.TEXT_SKELETON -> ComponentScreen.TextSkeleton
         CoreComponent.LIST -> ComponentScreen.List
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.WHEEL -> ComponentScreen.Wheel
@@ -373,6 +379,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.MODAL -> R.id.nav_modal
         CoreComponent.NOTIFICATION -> R.id.nav_notification
         CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
+        CoreComponent.TEXT_SKELETON -> R.id.nav_text_skeleton
         CoreComponent.LIST -> R.id.nav_list
         CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
         CoreComponent.WHEEL -> R.id.nav_wheel
@@ -456,6 +463,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.MODAL -> modalTrigger(context, style)
         CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
         CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
+        CoreComponent.TEXT_SKELETON -> textSkeleton(context, style)
         CoreComponent.LIST -> listView(context, style)
         CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
         CoreComponent.WHEEL -> wheel(context, style)
