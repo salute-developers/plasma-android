@@ -38,6 +38,7 @@ import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfi
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.wheel.WheelConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.kotlin.dsl.provideDelegate
 
@@ -85,5 +86,6 @@ internal val componentDelegates by unsafeLazy {
         "text-skeleton" to TextSkeletonConfigDelegate(),
         "accordion-item" to AccordionItemConfigDelegate(),
         "accordion" to AccordionConfigDelegate(),
+        "wheel" to WheelConfigDelegate(),
     )
 }

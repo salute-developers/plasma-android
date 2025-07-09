@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sdds.uikit.CellLayout
+<com.sdds.uikit.ListItemView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Theme.Sandbox.Components.PropertyItem"
@@ -35,4 +35,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</com.sdds.uikit.CellLayout>
+</com.sdds.uikit.ListItemView>

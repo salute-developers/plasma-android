@@ -1,11 +1,13 @@
 package com.sdds.uikit
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.uikit.colorstate.ColorState
@@ -14,6 +16,7 @@ import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.drawable.DividerDrawable
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
+import com.sdds.uikit.statelist.ColorValueStateList
 
 /**
  * Компонент Divider.
@@ -57,6 +60,42 @@ open class Divider @JvmOverloads constructor(
     override val shape: ShapeModel?
         get() = _dividerDrawable.shape
 
+    /**
+     * Толщина разделителя
+     */
+    val thickness: Int
+        get() = _dividerDrawable.thickness
+
+    /**
+     * Ориентация [Divider] - горизонтальная или вертика
+     */
+    var orientation: Int
+        get() = _dividerDrawable.orientation
+        set(value) {
+            _dividerDrawable.orientation = value
+        }
+
+    /**
+     * Устанавливает цвет [ColorStateList] для [Divider]
+     */
+    fun setColor(colorStateList: ColorStateList?) {
+        _dividerDrawable.setTintList(colorStateList)
+    }
+
+    /**
+     * Устанавливает цвет [ColorValueStateList] для [Divider]
+     */
+    fun setColor(colorValueStateList: ColorValueStateList?) {
+        _dividerDrawable.setTintValue(colorValueStateList)
+    }
+
+    /**
+     * Устанавливает цвет для [Divider]
+     */
+    fun setColor(@ColorInt color: Int) {
+        setColor(ColorStateList.valueOf(color))
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
@@ -65,22 +104,27 @@ open class Divider @JvmOverloads constructor(
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
-        val intrinsicWidth = _dividerDrawable.intrinsicWidth
-        val intrinsicHeight = _dividerDrawable.intrinsicHeight
+        val desiredWidth = _dividerDrawable.intrinsicWidth + paddingStart + paddingEnd
+        val desiredHeight = _dividerDrawable.intrinsicHeight + paddingTop + paddingBottom
 
         val width = when (widthMode) {
-            MeasureSpec.AT_MOST -> minOf(specWidth, intrinsicWidth)
+            MeasureSpec.AT_MOST -> minOf(specWidth, desiredWidth)
             MeasureSpec.EXACTLY -> specWidth
-            else -> intrinsicWidth
+            else -> desiredWidth
         }
 
         val height = when (heightMode) {
-            MeasureSpec.AT_MOST -> minOf(specHeight, intrinsicHeight)
+            MeasureSpec.AT_MOST -> minOf(specHeight, desiredHeight)
             MeasureSpec.EXACTLY -> specHeight
-            else -> intrinsicHeight
+            else -> desiredHeight
         }
         setMeasuredDimension(width, height)
-        _dividerDrawable.setBounds(0, 0, measuredWidth, measuredHeight)
+        _dividerDrawable.setBounds(
+            paddingStart,
+            paddingTop,
+            measuredWidth - paddingEnd,
+            measuredHeight - paddingBottom,
+        )
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -108,6 +152,16 @@ open class Divider @JvmOverloads constructor(
     companion object {
 
         /**
+         * @see DividerDrawable.ORIENTATION_HORIZONTAL
+         */
+        const val ORIENTATION_HORIZONTAL = DividerDrawable.ORIENTATION_HORIZONTAL
+
+        /**
+         * @see DividerDrawable.ORIENTATION_VERTICAL
+         */
+        const val ORIENTATION_VERTICAL = DividerDrawable.ORIENTATION_VERTICAL
+
+        /**
          * Возвращает [DividerItemDecoration] с [DividerDrawable]
          */
         @Deprecated(
@@ -130,7 +184,7 @@ open class Divider @JvmOverloads constructor(
 private class DividerDecoration(context: Context, orientation: Int) : DividerItemDecoration(context, orientation) {
 
     init {
-        setDrawable(DividerDrawable(context))
+        setDrawable(DividerDrawable(context).apply { this.orientation = orientation })
     }
 }
 

@@ -48,6 +48,7 @@ import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
 import com.sdds.playground.sandbox.toast.vs.ToastFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
+import com.sdds.playground.sandbox.wheel.vs.WheelFragment
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
 import com.sdds.testing.vs.avatar.avatarGroup
@@ -100,6 +101,7 @@ import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
 import com.sdds.testing.vs.toast.toastTrigger
 import com.sdds.testing.vs.tooltip.tooltipWithTrigger
+import com.sdds.testing.vs.wheel.wheel
 import com.sdds.uikit.colorstate.ColorState
 
 internal class MenuItem(
@@ -285,6 +287,9 @@ internal sealed class ComponentScreen(
     object DropdownMenu : ComponentScreen(
         { item -> fragment<DropdownMenuFragment>(item.route, item.defaultBuilder) },
     )
+    object Wheel : ComponentScreen(
+        { item -> fragment<WheelFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -326,6 +331,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         CoreComponent.LIST -> ComponentScreen.List
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
+        CoreComponent.WHEEL -> ComponentScreen.Wheel
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -369,6 +375,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
         CoreComponent.LIST -> R.id.nav_list
         CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
+        CoreComponent.WHEEL -> R.id.nav_wheel
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -451,6 +458,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
         CoreComponent.LIST -> listView(context, style)
         CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
+        CoreComponent.WHEEL -> wheel(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
