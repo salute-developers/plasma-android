@@ -132,3 +132,8 @@ fun Image(
         filterQuality = filterQuality,
     )
 }
+
+/**
+ * Применяет стиль [ImageStyle] к изображению
+ */
+fun Modifier.image(style: ImageStyle): Modifier = this.aspectRatio(style.ratio)

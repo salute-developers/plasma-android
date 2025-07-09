@@ -30,3 +30,19 @@ ImageStyle.builder()
     .ratio(2f)
 .style()
 ```
+
+## Поддержка стиля Image для других компонентов
+
+Чтобы поддержать стиль Image в произвольном компоненте, нужно использовать модификатор image(style: ImageStyle)
+
+```kotlin
+AsyncImage(
+    modifier = Modifier
+        .width(100.dp)
+        .image(Image.Ratio3x4.style())
+        .background(Color.Gray),
+    model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
+    contentDescription = "image",
+    contentScale = ContentScale.Crop,
+)
+```
