@@ -1054,6 +1054,7 @@
         <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Rounded.Default</item>
         <item name="sd_notificationStyle">@style/Plasma.SdService.Components.NotificationLoose.M</item>
         <item name="sd_rectSkeletonStyle">@style/Plasma.SdService.Components.RectSkeleton</item>
+        <item name="sd_textSkeletonStyle">@style/Plasma.SdService.Components.TextSkeleton</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2107,6 +2108,7 @@
         <item name="sd_toastStyle">@style/Plasma.SdService.Components.Toast.Rounded.Default</item>
         <item name="sd_notificationStyle">@style/Plasma.SdService.Components.NotificationLoose.M</item>
         <item name="sd_rectSkeletonStyle">@style/Plasma.SdService.Components.RectSkeleton</item>
+        <item name="sd_textSkeletonStyle">@style/Plasma.SdService.Components.TextSkeleton</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.DayNight" parent="Plasma.SdService.MaterialComponents.Light"/>
     <style name="Plasma.SdService"/>

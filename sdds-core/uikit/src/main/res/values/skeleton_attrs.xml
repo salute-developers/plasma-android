@@ -2,6 +2,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_rectSkeletonStyle" format="reference"/>
+    <attr name="sd_textSkeletonStyle" format="reference"/>
 
     <declare-styleable name="RectSkeleton" tools:ignore="ResourceName" />
+    <declare-styleable name="TextSkeleton" tools:ignore="ResourceName" >
+        <attr name="sd_lineCount" format="integer" />
+        <attr name="android:textAppearance" />
+    </declare-styleable>
 </resources>

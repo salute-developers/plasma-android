@@ -47,6 +47,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSe
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.textskeleton.SddsServTextSkeletonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.toast.SddsServToastVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.tooltip.vs.SddsServTooltipVariationsView
 
@@ -209,6 +210,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.RectSkeleton,
                 SddsServRectSkeletonVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.TextSkeleton,
+                SddsServTextSkeletonVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Segment,

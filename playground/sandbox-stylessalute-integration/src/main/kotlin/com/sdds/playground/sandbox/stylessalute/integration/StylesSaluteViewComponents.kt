@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesS
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSaluteTextAreaVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.textfield.StylesSaluteTextFieldVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.textskeleton.StylesSaluteTextSkeletonVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.toast.StylesSaluteToastVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.tooltip.vs.StylesSaluteTooltipVariationsView
 
@@ -184,6 +185,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.RectSkeleton,
                 StylesSaluteRectSkeletonVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.TextSkeleton,
+                StylesSaluteTextSkeletonVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Segment,
