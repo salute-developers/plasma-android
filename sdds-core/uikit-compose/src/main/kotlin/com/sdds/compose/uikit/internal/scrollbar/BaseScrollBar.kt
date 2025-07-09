@@ -208,7 +208,7 @@ internal object BaseScrollBar {
         scrollState: LazyListState,
         trackLengthPx: Float,
         thumbLengthPx: Float,
-    ): State<Float> = remember {
+    ): State<Float> = remember(thumbLengthPx) {
         derivedStateOf {
             val layoutInfo = scrollState.layoutInfo
             val averageItemSize =
@@ -233,7 +233,7 @@ internal object BaseScrollBar {
         scrollState: ScrollState,
         trackLengthPx: Float,
         thumbLengthPx: Float,
-    ): State<Float> = remember {
+    ): State<Float> = remember(thumbLengthPx) {
         derivedStateOf {
             val availableHeight = trackLengthPx - thumbLengthPx
             val offset =
