@@ -36,6 +36,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounter
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsCompose
@@ -288,6 +289,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ScrollBar,
                 SddsServScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Image,
+                SddsServImageVariationsCompose,
             ),
         ).associateBy { it.key }
 }

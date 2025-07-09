@@ -1,5 +1,7 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.FloatRange
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Alignment
@@ -20,8 +22,10 @@ import androidx.compose.foundation.Image as FoundationImage
  * @param painter экземпляр [Painter]
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
+ * @param style стиль изображения
  * @param alignment режим размещения контента
  * @param contentScale режим вписывания контента
+ * @param ratio соотношение сторон
  * @param alpha прозрачность, которая будет применена к [painter]
  * @param colorFilter фильтр цвета
  */
@@ -31,15 +35,18 @@ fun Image(
     painter: Painter,
     contentDescription: String?,
     modifier: Modifier = Modifier,
+    style: ImageStyle = LocalImageStyle.current,
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
+    @FloatRange(from = 0.0, fromInclusive = false)
+    ratio: Float = style.ratio,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
     FoundationImage(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = modifier,
+        modifier = modifier.aspectRatio(ratio),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
@@ -53,8 +60,10 @@ fun Image(
  * @param imageVector объект [ImageVector], который будет нарисован
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
+ * @param style стиль изображения
  * @param alignment режим размещения контента
  * @param contentScale режим вписывания контента
+ * @param ratio соотношение сторон
  * @param alpha прозрачность, которая будет применена к [imageVector]
  * @param colorFilter фильтр цвета
  */
@@ -64,15 +73,18 @@ fun Image(
     imageVector: ImageVector,
     contentDescription: String?,
     modifier: Modifier = Modifier,
+    style: ImageStyle = LocalImageStyle.current,
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
+    @FloatRange(from = 0.0, fromInclusive = false)
+    ratio: Float = style.ratio,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
     FoundationImage(
         imageVector = imageVector,
         contentDescription = contentDescription,
-        modifier = modifier,
+        modifier = modifier.aspectRatio(ratio),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
@@ -86,8 +98,10 @@ fun Image(
  * @param bitmap объект [ImageBitmap], который будет нарисован
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
+ * @param style стиль изображения
  * @param alignment режим размещения контента
  * @param contentScale режим вписывания контента
+ * @param ratio соотношение сторон
  * @param alpha прозрачность, которая будет применена к [bitmap]
  * @param colorFilter фильтр цвета
  * @param filterQuality алгоритм семплирования [bitmap] при ее масштабировании
@@ -98,8 +112,11 @@ fun Image(
     bitmap: ImageBitmap,
     contentDescription: String?,
     modifier: Modifier = Modifier,
+    style: ImageStyle = LocalImageStyle.current,
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
+    @FloatRange(from = 0.0, fromInclusive = false)
+    ratio: Float = style.ratio,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
     filterQuality: FilterQuality = DrawScope.DefaultFilterQuality,
@@ -107,7 +124,7 @@ fun Image(
     FoundationImage(
         bitmap = bitmap,
         contentDescription = contentDescription,
-        modifier = modifier,
+        modifier = modifier.aspectRatio(ratio),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,

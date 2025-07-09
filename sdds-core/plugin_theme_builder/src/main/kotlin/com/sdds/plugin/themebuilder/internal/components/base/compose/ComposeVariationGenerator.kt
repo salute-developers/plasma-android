@@ -97,6 +97,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     protected open val componentStyleName: String = "${camelComponentName}Style"
 
+    protected open fun getVariationName(variationId: String?): String = variationId?.toCamelCase().orEmpty()
+
     protected open fun propsToBuilderCalls(
         props: PO,
         ktFileBuilder: KtFileBuilder,
@@ -476,8 +478,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         wrapperSuperTypeName: String,
         builderCalls: List<String>,
     ) {
-        val parentName = variationNode.parent?.id?.toCamelCase()
-        val variationName = variationNode.name.toCamelCase()
+        val parentName = getVariationName(variationNode.parent?.id)
+        val variationName = getVariationName(variationNode.name)
         val isParentRoot = parentName == camelComponentName
 
         val outType: ClassName

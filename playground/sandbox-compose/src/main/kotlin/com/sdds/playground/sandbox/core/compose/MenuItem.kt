@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
@@ -61,6 +62,8 @@ import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
+import com.sdds.playground.sandbox.image.ImageScreen
+import com.sdds.playground.sandbox.image.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
@@ -230,6 +233,10 @@ internal sealed class ComponentScreen(
         { ScrollBarScreen(it) },
         { ScrollBarPreview(it as ScrollBarStyle) },
     )
+    object Image : ComponentScreen(
+        { ImageScreen(it) },
+        { ImageScreenPreview(it as ImageStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -275,6 +282,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
+        CoreComponent.IMAGE -> ComponentScreen.Image
         else -> ComponentScreen.Empty
     }
 }
