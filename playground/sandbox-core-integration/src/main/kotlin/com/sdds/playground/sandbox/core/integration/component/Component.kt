@@ -170,6 +170,7 @@ data class ComponentKey(
         val Accordion = ComponentKey("Accordion", CoreComponent.ACCORDION)
         val Wheel = ComponentKey("Wheel", CoreComponent.WHEEL)
         val ScrollBar = ComponentKey("ScrollBar", CoreComponent.SCROLL_BAR)
+        val Image = ComponentKey("Image", CoreComponent.IMAGE)
     }
 }
 
@@ -236,4 +237,5 @@ enum class CoreComponent {
     ACCORDION,
     WHEEL,
     SCROLL_BAR,
+    IMAGE,
 }

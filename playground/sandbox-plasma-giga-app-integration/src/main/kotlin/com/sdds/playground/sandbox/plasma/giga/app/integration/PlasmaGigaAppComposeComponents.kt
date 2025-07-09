@@ -36,6 +36,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.counter.PlasmaGig
 import com.sdds.playground.sandbox.plasma.giga.app.integration.divider.compose.PlasmaGigaAppDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.dropdownmenu.PlasmaGigaAppDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.dropdownmenu.PlasmaGigaAppDropdownMenuTightVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.image.PlasmaGigaAppImageVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.indicator.compose.PlasmaGigaAppIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.list.PlasmaGigaAppListNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.list.PlasmaGigaAppListTightVariationsCompose
@@ -288,6 +289,10 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ScrollBar,
                 PlasmaGigaAppScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Image,
+                PlasmaGigaAppImageVariationsCompose,
             ),
         ).associateBy { it.key }
 }

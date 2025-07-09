@@ -18,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
@@ -89,5 +90,6 @@ internal val componentDelegates by unsafeLazy {
         "accordion" to AccordionConfigDelegate(),
         "wheel" to WheelConfigDelegate(),
         "scroll-bar" to ScrollBarConfigDelegate(),
+        "image" to ImageConfigDelegate(),
     )
 }
