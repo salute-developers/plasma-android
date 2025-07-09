@@ -43,6 +43,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.scrollbar.StylesSaluteScrollBarVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsCompose
@@ -253,6 +254,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
                 StylesSaluteAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                StylesSaluteScrollBarVariationsCompose,
             ),
         ).associateBy { it.key }
 }

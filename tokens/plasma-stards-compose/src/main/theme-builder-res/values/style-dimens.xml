@@ -799,4 +799,6 @@
     <dimen name="sdkit_cmp_dropdown_menu_shapeAdjustment_s">-4.0dp</dimen>
     <dimen name="sdkit_cmp_dropdown_menu_width_s">320.0dp</dimen>
     <dimen name="sdkit_cmp_dropdown_menu_width_xs">320.0dp</dimen>
+    <dimen name="sdkit_cmp_scroll_bar_width_s">4.0dp</dimen>
+    <dimen name="sdkit_cmp_scroll_bar_width_m">8.0dp</dimen>
 </resources>

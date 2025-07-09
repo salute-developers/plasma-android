@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RectSkeletonStyle
+import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SpinnerStyle
@@ -71,6 +72,8 @@ import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.rectskeleton.compose.RectSkeletonScreen
+import com.sdds.playground.sandbox.scrollbar.ScrollBarPreview
+import com.sdds.playground.sandbox.scrollbar.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.spinner.SpinnerScreen
@@ -223,6 +226,10 @@ internal sealed class ComponentScreen(
         { AccordionScreen(it) },
         { AccordionPreview(it as AccordionStyle) },
     )
+    object ScrollBar : ComponentScreen(
+        { ScrollBarScreen(it) },
+        { ScrollBarPreview(it as ScrollBarStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -267,6 +274,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LIST -> ComponentScreen.List
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
+        CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
         else -> ComponentScreen.Empty
     }
 }

@@ -32,6 +32,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.popover.StarDsPopov
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.scrollbar.StarDsScrollBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsCompose
@@ -193,6 +194,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.DropdownMenu,
                 StarDsDropdownMenuVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                StarDsScrollBarVariationsCompose,
             ),
         ).associateBy { it.key }
 }
