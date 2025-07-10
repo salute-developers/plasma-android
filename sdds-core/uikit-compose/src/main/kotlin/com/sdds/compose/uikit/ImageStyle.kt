@@ -19,7 +19,7 @@ interface ImageStyle : Style {
     /**
      * Соотношение сторон изображения
      */
-    val ratio: Float
+    val ratio: Float?
 
     companion object {
 
@@ -38,25 +38,25 @@ interface ImageStyleBuilder : StyleBuilder<ImageStyle> {
     /**
      * Устанавливает соотношение сторон изображения [ratio]
      */
-    fun ratio(ratio: Float): ImageStyleBuilder
+    fun ratio(ratio: Float?): ImageStyleBuilder
 }
 
 @Immutable
 private data class DefaultImageStyle(
-    override val ratio: Float,
+    override val ratio: Float?,
 ) : ImageStyle {
 
     class Builder : ImageStyleBuilder {
 
         private var ratio: Float? = null
 
-        override fun ratio(ratio: Float) = apply {
+        override fun ratio(ratio: Float?) = apply {
             this.ratio = ratio
         }
 
         override fun style(): ImageStyle {
             return DefaultImageStyle(
-                ratio = ratio ?: 1f,
+                ratio = ratio,
             )
         }
     }

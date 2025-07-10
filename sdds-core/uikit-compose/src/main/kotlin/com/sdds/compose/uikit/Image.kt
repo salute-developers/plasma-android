@@ -39,14 +39,14 @@ fun Image(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     @FloatRange(from = 0.0, fromInclusive = false)
-    ratio: Float = style.ratio,
+    ratio: Float? = style.ratio,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
     FoundationImage(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = modifier.aspectRatio(ratio),
+        modifier = run { ratio?.let { modifier.aspectRatio(ratio) } ?: modifier },
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
@@ -77,14 +77,14 @@ fun Image(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     @FloatRange(from = 0.0, fromInclusive = false)
-    ratio: Float = style.ratio,
+    ratio: Float? = style.ratio,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
     FoundationImage(
         imageVector = imageVector,
         contentDescription = contentDescription,
-        modifier = modifier.aspectRatio(ratio),
+        modifier = run { ratio?.let { modifier.aspectRatio(ratio) } ?: modifier },
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
@@ -116,7 +116,7 @@ fun Image(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     @FloatRange(from = 0.0, fromInclusive = false)
-    ratio: Float = style.ratio,
+    ratio: Float? = style.ratio,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
     filterQuality: FilterQuality = DrawScope.DefaultFilterQuality,
@@ -124,7 +124,7 @@ fun Image(
     FoundationImage(
         bitmap = bitmap,
         contentDescription = contentDescription,
-        modifier = modifier.aspectRatio(ratio),
+        modifier = run { ratio?.let { modifier.aspectRatio(ratio) } ?: modifier },
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
@@ -136,4 +136,4 @@ fun Image(
 /**
  * Применяет стиль [ImageStyle] к изображению
  */
-fun Modifier.image(style: ImageStyle): Modifier = this.aspectRatio(style.ratio)
+fun Modifier.image(style: ImageStyle): Modifier = style.ratio?.let { this.aspectRatio(it) } ?: this
