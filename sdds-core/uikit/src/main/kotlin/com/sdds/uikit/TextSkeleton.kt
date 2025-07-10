@@ -107,32 +107,13 @@ open class TextSkeleton @JvmOverloads constructor(
         val lineSpacing = lineHeight - textSize
         repeat(lineCount) { lineIndex ->
             val widthFactor = lineWidthProvider.widthFactor(lineIndex, lineCount)
-            val skeletonView = object : ShimmerLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
-                /**
-                 * Состояние внешнего вида компонента [TextSkeleton]
-                 * @see ColorState
-                 */
-                override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
-                    set(value) {
-                        if (field != value) {
-                            field = value
-                            refreshDrawableState()
-                        }
-                    }
-
-                override fun onCreateDrawableState(extraSpace: Int): IntArray {
-                    val drawableState = super.onCreateDrawableState(extraSpace + 1)
-                    if (colorState?.isDefined() == true) {
-                        mergeDrawableStates(drawableState, colorState?.attrs)
-                    }
-                    return drawableState
-                }
-
+            val skeletonView = object : RectSkeleton(context, attrs, defStyleAttr, defStyleRes) {
                 override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
                     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
                     setMeasuredDimension((measuredWidth * widthFactor).roundToInt(), measuredHeight)
                 }
             }.apply {
+                colorState = this@TextSkeleton.colorState
                 layoutParams = LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     textSize,
