@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.s
 internal object PlasmaSdServiceTextSkeletonVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
-            "Default" to s.Plasma_SdService_ComponentOverlays_TextSkeleton,
+            "Default" to s.Plasma_SdService_ComponentOverlays_TextSkeletonDefault,
+            "Lighter" to s.Plasma_SdService_ComponentOverlays_TextSkeletonLighter,
         )
 }
