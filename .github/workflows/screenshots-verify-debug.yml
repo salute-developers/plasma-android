@@ -4,11 +4,9 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - main
       - develop
       - feature/*
-      - release/*
-      - hotfix/*
+      - bugfix/*
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -30,7 +28,7 @@ jobs:
         id: verify-test
         run: |
           # If there is a difference between the screenshots, the test will fail.
-          ./gradlew :tokens:verifyRoborazziAll --stacktrace
+          ./gradlew :tokens:verifyRoborazziDebugAll --stacktrace
 
       - uses: actions/upload-artifact@v4
         if: ${{ always() }}
