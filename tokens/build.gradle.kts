@@ -243,10 +243,18 @@ tasks.register("cleanAll") {
     dependsOn(cleanTasks, includedCleanTasks)
 }
 
-tasks.register("verifyRoborazziAll") {
+tasks.register("verifyRoborazziDebugAll") {
     group = "verification"
     val verifyTasks = subprojects.flatMap {
-        it.tasks.matching { task -> task.name == "verifyRoborazzi" }
+        it.tasks.matching { task -> task.name == "verifyRoborazziDebug" }
+    }
+    dependsOn(verifyTasks)
+}
+
+tasks.register("verifyRoborazziReleaseAll") {
+    group = "verification"
+    val verifyTasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "verifyRoborazziRelease" }
     }
     dependsOn(verifyTasks)
 }
