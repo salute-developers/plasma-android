@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="PlasmaTextSkeletonColorState">
+        <attr format="boolean" name="plasma_textskeleton_state_default"/>
+        <attr format="boolean" name="plasma_textskeleton_state_lighter"/>
+    </declare-styleable>
+    <declare-styleable name="TextSkeleton" tools:ignore="ResourceName">
+        <attr format="enum" name="plasma_textskeletonColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_lighter" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>
