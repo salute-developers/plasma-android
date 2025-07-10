@@ -5,6 +5,9 @@ import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.TextAppearance
 import com.sdds.uikit.internal.base.sp
 import kotlin.math.roundToInt
@@ -22,12 +25,32 @@ open class TextSkeleton @JvmOverloads constructor(
     private val attrs: AttributeSet? = null,
     private val defStyleAttr: Int = R.attr.sd_textSkeletonStyle,
     private val defStyleRes: Int = R.style.Sdds_Components_TextSkeleton,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
 
     private var _lineCount: Int = 0
     private var _textAppearance: TextAppearance? = null
     private var _textAppearanceRes: Int = 0
     private var _lineWidthProvider: SkeletonLineWidthProvider = SkeletonLineWidthProvider.RandomDeviation()
+
+    /**
+     * Состояние внешнего вида компонента [TextSkeleton]
+     * @see ColorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        return drawableState
+    }
 
     /**
      * Количество, отображаемых строк.
@@ -84,7 +107,27 @@ open class TextSkeleton @JvmOverloads constructor(
         val lineSpacing = lineHeight - textSize
         repeat(lineCount) { lineIndex ->
             val widthFactor = lineWidthProvider.widthFactor(lineIndex, lineCount)
-            val skeletonView = object : ShimmerLayout(context, attrs, defStyleAttr, defStyleRes) {
+            val skeletonView = object : ShimmerLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
+                /**
+                 * Состояние внешнего вида компонента [TextSkeleton]
+                 * @see ColorState
+                 */
+                override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+                    set(value) {
+                        if (field != value) {
+                            field = value
+                            refreshDrawableState()
+                        }
+                    }
+
+                override fun onCreateDrawableState(extraSpace: Int): IntArray {
+                    val drawableState = super.onCreateDrawableState(extraSpace + 1)
+                    if (colorState?.isDefined() == true) {
+                        mergeDrawableStates(drawableState, colorState?.attrs)
+                    }
+                    return drawableState
+                }
+
                 override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
                     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
                     setMeasuredDimension((measuredWidth * widthFactor).roundToInt(), measuredHeight)
