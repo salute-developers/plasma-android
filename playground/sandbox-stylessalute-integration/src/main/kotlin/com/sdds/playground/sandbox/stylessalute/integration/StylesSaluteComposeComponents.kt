@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.StylesSaluteAvatarVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.group.StylesSaluteAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBadgeClearVariationsCompose
@@ -26,6 +30,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuNormalVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListNormalVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteListTightVariationsCompose
@@ -37,6 +43,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.scrollbar.StylesSaluteScrollBarVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsCompose
@@ -223,6 +230,34 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("ListTight", CoreComponent.LIST),
                 StylesSaluteListTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                StylesSaluteDropdownMenuNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                StylesSaluteDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                StylesSaluteAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                StylesSaluteAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                StylesSaluteAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                StylesSaluteAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                StylesSaluteScrollBarVariationsCompose,
             ),
         ).associateBy { it.key }
 }

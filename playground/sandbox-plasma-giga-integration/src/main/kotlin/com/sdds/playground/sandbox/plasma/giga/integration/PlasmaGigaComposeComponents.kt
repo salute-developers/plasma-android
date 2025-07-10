@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.plasma.giga.integration.accordion.PlasmaGigaAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.accordion.PlasmaGigaAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.accordion.PlasmaGigaAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.accordion.PlasmaGigaAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.avatar.PlasmaGigaAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.avatar.group.PlasmaGigaAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.badge.PlasmaGigaBadgeClearVariationsCompose
@@ -30,6 +34,9 @@ import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGiga
 import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.PlasmaGigaCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuNormalVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuTightVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.image.PlasmaGigaImageVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.list.PlasmaGigaListNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.list.PlasmaGigaListTightVariationsCompose
@@ -42,6 +49,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.progress.PlasmaGigaPr
 import com.sdds.playground.sandbox.plasma.giga.integration.radiobox.PlasmaGigaRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.radiobox.group.PlasmaGigaRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.rectskeleton.PlasmaGigaRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.scrollbar.PlasmaGigaScrollBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.segment.PlasmaGigaSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.segment.item.PlasmaGigaSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.spinner.PlasmaGigaSpinnerVariationsCompose
@@ -253,6 +261,38 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("ListTight", CoreComponent.LIST),
                 PlasmaGigaListTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                PlasmaGigaDropdownMenuNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                PlasmaGigaDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                PlasmaGigaAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                PlasmaGigaAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                PlasmaGigaAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                PlasmaGigaAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                PlasmaGigaScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Image,
+                PlasmaGigaImageVariationsCompose,
             ),
         ).associateBy { it.key }
 }

@@ -32,7 +32,7 @@ fun ListAmountThreeHasDisclosure(style: ListStyle) {
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,
                     ) { isFocused.value },
-                title = "Title",
+                text = "Title",
                 disclosureEnabled = true,
                 interactionSource = interactionSource,
             )
@@ -57,7 +57,7 @@ fun ListAmountThreeNoDisclosure(style: ListStyle) {
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,
                     ) { isFocused.value },
-                title = "Title",
+                text = "Title",
                 disclosureEnabled = false,
                 interactionSource = interactionSource,
             )
@@ -82,7 +82,7 @@ fun ListAmountTwenty(style: ListStyle) {
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,
                     ) { isFocused.value },
-                title = "Title",
+                text = "Title",
                 disclosureEnabled = false,
                 interactionSource = interactionSource,
             )
@@ -107,7 +107,7 @@ fun ListForSandbox(style: ListStyle) {
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,
                     ) { isFocused.value },
-                title = "Title $it",
+                text = "Title $it",
                 disclosureEnabled = true,
                 interactionSource = interactionSource,
             )

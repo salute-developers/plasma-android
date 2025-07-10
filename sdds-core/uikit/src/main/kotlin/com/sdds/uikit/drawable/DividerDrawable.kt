@@ -36,6 +36,18 @@ open class DividerDrawable(
             }
         }
 
+    /**
+     * Толщина разделителя
+     */
+    var thickness: Int
+        get() = _thickness
+        set(value) {
+            if (_thickness != value) {
+                _thickness = value
+                invalidateSelf()
+            }
+        }
+
     init {
 
         val typedArray =

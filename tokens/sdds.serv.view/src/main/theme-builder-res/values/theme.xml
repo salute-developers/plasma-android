@@ -1255,6 +1255,7 @@
         <item name="sd_toastStyle">@style/Serv.Sdds.Components.Toast.Rounded.Default</item>
         <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.M</item>
         <item name="sd_rectSkeletonStyle">@style/Serv.Sdds.Components.RectSkeleton</item>
+        <item name="sd_textSkeletonStyle">@style/Serv.Sdds.Components.TextSkeleton</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2509,6 +2510,7 @@
         <item name="sd_toastStyle">@style/Serv.Sdds.Components.Toast.Rounded.Default</item>
         <item name="sd_notificationStyle">@style/Serv.Sdds.Components.NotificationLoose.M</item>
         <item name="sd_rectSkeletonStyle">@style/Serv.Sdds.Components.RectSkeleton</item>
+        <item name="sd_textSkeletonStyle">@style/Serv.Sdds.Components.TextSkeleton</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

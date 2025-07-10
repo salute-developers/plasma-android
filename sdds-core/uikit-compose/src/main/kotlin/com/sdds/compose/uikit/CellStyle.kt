@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -49,7 +50,14 @@ interface CellStyle : Style {
     /**
      * Иконка disclosure
      */
+    @Deprecated("Use disclosureIconRes instead")
     val disclosureIcon: Painter?
+
+    /**
+     * Иконка disclosure
+     */
+    @get:DrawableRes
+    val disclosureIconRes: Int?
 
     /**
      * Цвета компонента
@@ -100,7 +108,9 @@ private data class DefaultCellStyle(
     override val titleStyle: TextStyle,
     override val subtitleStyle: TextStyle,
     override val disclosureTextStyle: TextStyle,
+    @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
+    override val disclosureIconRes: Int?,
     override val colors: CellColors,
     override val dimensions: CellDimensions,
     override val avatarStyle: AvatarStyle,
@@ -115,6 +125,7 @@ private data class DefaultCellStyle(
         private var subtitleStyle: TextStyle? = null
         private var disclosureStyle: TextStyle? = null
         private var disclosureIcon: Painter? = null
+        private var disclosureIconRes: Int? = null
         private var colorsBuilder: CellColorsBuilder = CellColors.builder()
         private var dimensionsBuilder: CellDimensionsBuilder = CellDimensions.builder()
         private var avatarStyle: AvatarStyle? = null
@@ -139,8 +150,13 @@ private data class DefaultCellStyle(
             this.disclosureStyle = disclosureStyle
         }
 
+        @Deprecated("Use disclosureIcon with drawable res")
         override fun disclosureIcon(disclosureIcon: Painter) = apply {
             this.disclosureIcon = disclosureIcon
+        }
+
+        override fun disclosureIcon(@DrawableRes disclosureIconRes: Int) = apply {
+            this.disclosureIconRes = disclosureIconRes
         }
 
         @Composable
@@ -180,6 +196,7 @@ private data class DefaultCellStyle(
                 subtitleStyle = subtitleStyle ?: TextStyle.Default,
                 disclosureTextStyle = disclosureStyle ?: TextStyle.Default,
                 disclosureIcon = disclosureIcon,
+                disclosureIconRes = disclosureIconRes,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 avatarStyle = avatarStyle ?: AvatarStyle.builder().style(),
@@ -220,7 +237,13 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает иконку disclosure
      */
+    @Deprecated("Use disclosureIcon with drawable res")
     fun disclosureIcon(disclosureIcon: Painter): CellStyleBuilder
+
+    /**
+     * Устанавливает иконку disclosure
+     */
+    fun disclosureIcon(@DrawableRes disclosureIconRes: Int): CellStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]

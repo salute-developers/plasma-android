@@ -22,6 +22,8 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsCh
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDsDropdownMenuVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsCompose
@@ -31,6 +33,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.popover.StarDsPopov
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.scrollbar.StarDsScrollBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsCompose
@@ -188,6 +191,18 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.List,
                 StarDsListVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.DropdownMenu,
+                StarDsDropdownMenuVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                StarDsScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Image,
+                StarDsImageVariationsCompose,
             ),
         ).associateBy { it.key }
 }

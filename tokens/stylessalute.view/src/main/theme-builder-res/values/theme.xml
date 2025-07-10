@@ -1831,6 +1831,7 @@
         <item name="sd_toastStyle">@style/Salute.StylesSalute.Components.Toast.Rounded</item>
         <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationLoose.M</item>
         <item name="sd_rectSkeletonStyle">@style/Salute.StylesSalute.Components.RectSkeleton</item>
+        <item name="sd_textSkeletonStyle">@style/Salute.StylesSalute.Components.TextSkeleton</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -3661,6 +3662,7 @@
         <item name="sd_toastStyle">@style/Salute.StylesSalute.Components.Toast.Rounded</item>
         <item name="sd_notificationStyle">@style/Salute.StylesSalute.Components.NotificationLoose.M</item>
         <item name="sd_rectSkeletonStyle">@style/Salute.StylesSalute.Components.RectSkeleton</item>
+        <item name="sd_textSkeletonStyle">@style/Salute.StylesSalute.Components.TextSkeleton</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.DayNight" parent="Salute.StylesSalute.MaterialComponents.Light"/>
     <style name="Salute.StylesSalute"/>

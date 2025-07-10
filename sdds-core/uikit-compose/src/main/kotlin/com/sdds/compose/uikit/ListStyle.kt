@@ -23,6 +23,11 @@ interface ListStyle : Style {
      */
     val listItemStyle: ListItemStyle
 
+    /**
+     * Стиль [Divider]
+     */
+    val dividerStyle: DividerStyle
+
     companion object {
         /**
          * Возвращает экземпляр [ListStyleBuilder]
@@ -37,18 +42,29 @@ interface ListStyle : Style {
 interface ListStyleBuilder : StyleBuilder<ListStyle> {
 
     /**
-     * Устанавливает стиль [Counter]
+     * Устанавливает стиль элементов списка [listItemStyle]
      */
     fun listItemStyle(listItemStyle: ListItemStyle): ListStyleBuilder
+
+    /**
+     * Устанавливает стиль разделителей [dividerStyle]
+     */
+    fun dividerStyle(dividerStyle: DividerStyle): ListStyleBuilder
 }
 
 @Immutable
 private class DefaultListStyle(
     override val listItemStyle: ListItemStyle,
+    override val dividerStyle: DividerStyle,
 ) : ListStyle {
 
     class Builder : ListStyleBuilder {
         private var listItemStyle: ListItemStyle? = null
+        private var dividerStyle: DividerStyle? = null
+
+        override fun dividerStyle(dividerStyle: DividerStyle) = apply {
+            this.dividerStyle = dividerStyle
+        }
 
         override fun listItemStyle(listItemStyle: ListItemStyle) = apply {
             this.listItemStyle = listItemStyle
@@ -57,6 +73,7 @@ private class DefaultListStyle(
         override fun style(): ListStyle {
             return DefaultListStyle(
                 listItemStyle = listItemStyle ?: ListItemStyle.builder().style(),
+                dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
             )
         }
     }

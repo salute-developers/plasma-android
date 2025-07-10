@@ -44,6 +44,7 @@ open class ShimmerLayout @JvmOverloads constructor(
     private var shimmerDuration: Long = DEFAULT_DURATION.toLong()
 
     private var shimmerTranslateXFraction = 0f
+    private val shimmerAnimationWidth = Resources.getSystem().displayMetrics.widthPixels.toFloat()
     private val animator: ValueAnimator = ValueAnimator.ofFloat(1f).apply {
         duration = shimmerDuration
         repeatCount = ValueAnimator.INFINITE
@@ -142,7 +143,10 @@ open class ShimmerLayout @JvmOverloads constructor(
     override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
         shimmerShader?.let {
-            shaderMatrix.setTranslate(lerp(-width.toFloat(), width.toFloat(), shimmerTranslateXFraction), 0f)
+            shaderMatrix.setTranslate(
+                lerp(-shimmerAnimationWidth, shimmerAnimationWidth, shimmerTranslateXFraction),
+                0f,
+            )
             it.setLocalMatrix(shaderMatrix)
             shimmerPaint.shader = it
             canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), shimmerPaint)

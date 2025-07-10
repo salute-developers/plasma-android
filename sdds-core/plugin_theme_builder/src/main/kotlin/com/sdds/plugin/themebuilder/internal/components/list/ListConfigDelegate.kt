@@ -49,6 +49,7 @@ internal class ListConfigDelegate : ComponentConfigDelegate<ListConfig>() {
         componentName = component.styleName.techToSnakeCase(),
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         listItemStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.listitem",
+        dividerStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.divider",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
     )
 }

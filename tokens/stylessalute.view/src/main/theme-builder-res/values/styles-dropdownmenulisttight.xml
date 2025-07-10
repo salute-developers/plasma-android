@@ -4,25 +4,25 @@
 <resources>
     <style name="Salute.StylesSalute.Components.DropdownMenuListTight" parent="Sdds.Components.List"/>
     <style name="Salute.StylesSalute.Components.DropdownMenuListTight.L">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightL</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightLDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListTightL">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListTight.L</item>
     </style>
     <style name="Salute.StylesSalute.Components.DropdownMenuListTight.M">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightM</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightMDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListTightM">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListTight.M</item>
     </style>
     <style name="Salute.StylesSalute.Components.DropdownMenuListTight.S">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightS</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightSDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListTightS">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListTight.S</item>
     </style>
     <style name="Salute.StylesSalute.Components.DropdownMenuListTight.Xs">
-        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightXs</item>
+        <item name="sd_listItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.DropdownMenuItemTightXsDefault</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.DropdownMenuListTightXs">
         <item name="sd_listViewStyle">@style/Salute.StylesSalute.Components.DropdownMenuListTight.Xs</item>

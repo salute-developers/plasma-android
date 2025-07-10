@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit.internal
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
@@ -59,8 +60,11 @@ internal operator fun PaddingValues.plus(other: PaddingValues): PaddingValues = 
  * Используется для перегрузки clickable, когда нужно занулить indication и
  * нет необходимости в источнике взаимодействий
  */
-internal val DummyInteractionSource = object : MutableInteractionSource {
+private val DummyInteractionSource = object : MutableInteractionSource {
     override val interactions: Flow<Interaction> = emptyFlow()
     override suspend fun emit(interaction: Interaction) = Unit
     override fun tryEmit(interaction: Interaction) = false
 }
+
+internal fun Modifier.clickableWithoutIndication(onClick: () -> Unit): Modifier =
+    this.clickable(indication = null, interactionSource = DummyInteractionSource) { onClick.invoke() }

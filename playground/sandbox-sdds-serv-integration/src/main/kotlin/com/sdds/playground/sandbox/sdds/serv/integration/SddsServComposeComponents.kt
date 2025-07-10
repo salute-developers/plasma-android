@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.SddsServAvatarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.group.SddsServAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeClearVariationsCompose
@@ -30,6 +34,9 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbe
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsCompose
@@ -42,6 +49,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgre
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.scrollbar.SddsServScrollBarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsCompose
@@ -253,6 +261,38 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("ListTight", CoreComponent.LIST),
                 SddsServListTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                SddsServDropdownMenuNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                SddsServDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                SddsServScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Image,
+                SddsServImageVariationsCompose,
             ),
         ).associateBy { it.key }
 }

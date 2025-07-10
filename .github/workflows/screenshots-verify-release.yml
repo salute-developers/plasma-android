@@ -1,0 +1,52 @@
+name: 'Verify screenshots'
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - release/*
+      - hotfix/*
+      - main
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: verify screenshots-compose
+        id: verify-test
+        run: |
+          # If there is a difference between the screenshots, the test will fail.
+          ./gradlew :tokens:verifyRoborazziReleaseAll --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-compose
+          path: tokens/**/build/outputs/roborazzi
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-reports-compose
+          path: tokens/**/build/reports
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-test-results-compose
+          path: tokens/**/build/test-results
+          retention-days: 30

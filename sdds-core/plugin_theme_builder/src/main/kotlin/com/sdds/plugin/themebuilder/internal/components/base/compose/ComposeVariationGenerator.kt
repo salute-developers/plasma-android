@@ -97,6 +97,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     protected open val componentStyleName: String = "${camelComponentName}Style"
 
+    protected open fun getVariationName(variationId: String?): String = variationId?.toCamelCase().orEmpty()
+
     protected open fun propsToBuilderCalls(
         props: PO,
         ktFileBuilder: KtFileBuilder,
@@ -181,9 +183,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return ".$styleName($themeClassName.typography.${typography.value.toKtAttrName()})"
     }
 
-    protected fun getIcon(iconName: String, icon: Icon): String {
+    protected fun getIconAsDrawableRes(iconName: String, icon: Icon): String {
         val resourceRef = "ic_${icon.value.replace('.', '_')}"
-        return ".$iconName(painterResource(com.sdds.icons.R.drawable.$resourceRef))"
+        return ".$iconName(com.sdds.icons.R.drawable.$resourceRef)"
     }
 
     private fun getDimension(
@@ -211,7 +213,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     ): String {
         val styleRefParts = split(".")
         val objectName = styleRefParts.first().toCamelCase()
-        val extensions = styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
+        val hasNoVariations = styleRefParts.size == 1
+        val extensions = if (hasNoVariations) {
+            listOf("Default")
+        } else {
+            styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
+        }
         ktFileBuilder.addImport(ClassName(stylesPackage, listOf(objectName)))
         extensions.forEach {
             ktFileBuilder.addImport(
@@ -221,8 +228,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 ),
             )
         }
-        return styleRefParts
-            .joinToString(separator = ".") { it.toCamelCase() }
+        return "$objectName.${extensions.joinToString(separator = ".")}"
     }
 
     protected fun StringBuilder.appendDimension(
@@ -472,8 +478,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         wrapperSuperTypeName: String,
         builderCalls: List<String>,
     ) {
-        val parentName = variationNode.parent?.id?.toCamelCase()
-        val variationName = variationNode.name.toCamelCase()
+        val parentName = getVariationName(variationNode.parent?.id)
+        val variationName = getVariationName(variationNode.name)
         val isParentRoot = parentName == camelComponentName
 
         val outType: ClassName

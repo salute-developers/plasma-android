@@ -32,6 +32,7 @@
         <item name="sandbox_shapeRoundL">?serv_shapeRoundL</item>
         <item name="sandbox_shapeRoundXxs">?serv_shapeRoundXxs</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="testTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
     </style>
 
     <style name="Theme.Sandbox" parent="Theme.SandboxBase">

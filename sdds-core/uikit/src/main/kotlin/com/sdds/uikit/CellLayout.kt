@@ -140,6 +140,32 @@ open class CellLayout @JvmOverloads constructor(
     override val shape: ShapeModel?
         get() = _shaper.shape
 
+    /**
+     * Отступ между [CellContent.START] и [CellContent.CENTER]
+     */
+    open var contentStartPadding: Int
+        get() = _contentStartPadding
+        set(value) {
+            if (_contentStartPadding != value) {
+                _contentStartPadding = value
+                requestLayout()
+                invalidate()
+            }
+        }
+
+    /**
+     * Отступ между [CellContent.END] и [CellContent.CENTER]
+     */
+    open var contentEndPadding: Int
+        get() = _contentEndPadding
+        set(value) {
+            if (_contentEndPadding != value) {
+                _contentEndPadding = value
+                requestLayout()
+                invalidate()
+            }
+        }
+
     init {
         setWillNotDraw(!DEBUG)
         val typedArray =

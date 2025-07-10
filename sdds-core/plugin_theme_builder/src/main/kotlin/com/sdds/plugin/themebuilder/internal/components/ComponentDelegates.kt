@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components
 
+import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
@@ -16,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
@@ -27,6 +30,7 @@ import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConf
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeletonConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
@@ -36,6 +40,7 @@ import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfi
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.wheel.WheelConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.kotlin.dsl.provideDelegate
 
@@ -81,5 +86,10 @@ internal val componentDelegates by unsafeLazy {
         "list-item" to ListItemConfigDelegate(),
         "dropdown-menu" to DropdownMenuConfigDelegate(),
         "text-skeleton" to TextSkeletonConfigDelegate(),
+        "accordion-item" to AccordionItemConfigDelegate(),
+        "accordion" to AccordionConfigDelegate(),
+        "wheel" to WheelConfigDelegate(),
+        "scroll-bar" to ScrollBarConfigDelegate(),
+        "image" to ImageConfigDelegate(),
     )
 }

@@ -24,6 +24,6 @@
 
         <item name="sandbox_shapeRoundL">?sdkit_shapeRoundL</item>
         <item name="sandbox_shapeRoundXxs">?sdkit_shapeRoundXxs</item>
-
+        <item name="testTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
     </style>
 </resources>

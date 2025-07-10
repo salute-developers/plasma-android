@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwit
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.tooltip.vs.StarDsTooltipVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.wheel.StarDsWheelVariationsView
 
 /**
  *
@@ -187,6 +188,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Tooltip,
                 StarDsTooltipVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Wheel,
+                StarDsWheelVariationsView,
             ),
         ).associateBy { it.key }
 }

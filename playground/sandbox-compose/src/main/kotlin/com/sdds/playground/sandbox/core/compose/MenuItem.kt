@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.AccordionStyle
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.BadgeStyle
@@ -14,6 +15,8 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
+import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
@@ -25,6 +28,7 @@ import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RectSkeletonStyle
+import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SpinnerStyle
@@ -35,6 +39,8 @@ import com.sdds.compose.uikit.ToastStyle
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.style
+import com.sdds.playground.sandbox.accordion.AccordionPreview
+import com.sdds.playground.sandbox.accordion.AccordionScreen
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
@@ -54,6 +60,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
+import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
+import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
+import com.sdds.playground.sandbox.image.ImageScreen
+import com.sdds.playground.sandbox.image.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
@@ -65,6 +75,8 @@ import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.rectskeleton.compose.RectSkeletonScreen
+import com.sdds.playground.sandbox.scrollbar.ScrollBarPreview
+import com.sdds.playground.sandbox.scrollbar.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.spinner.SpinnerScreen
@@ -209,6 +221,22 @@ internal sealed class ComponentScreen(
 
     object Spinner : ComponentScreen({ SpinnerScreen(it) }, { SpinnerTest(it as SpinnerStyle) })
     object List : ComponentScreen({ ListScreen(it) }, { ListForSandbox(it as ListStyle) })
+    object DropdownMenu : ComponentScreen(
+        { DropdownMenuScreen(it) },
+        { DropdownMenuPreview(it as DropdownMenuStyle) },
+    )
+    object Accordion : ComponentScreen(
+        { AccordionScreen(it) },
+        { AccordionPreview(it as AccordionStyle) },
+    )
+    object ScrollBar : ComponentScreen(
+        { ScrollBarScreen(it) },
+        { ScrollBarPreview(it as ScrollBarStyle) },
+    )
+    object Image : ComponentScreen(
+        { ImageScreen(it) },
+        { ImageScreenPreview(it as ImageStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -251,6 +279,10 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TEXT_SKELETON -> ComponentScreen.TextSkeleton
         CoreComponent.SPINNER -> ComponentScreen.Spinner
         CoreComponent.LIST -> ComponentScreen.List
+        CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
+        CoreComponent.ACCORDION -> ComponentScreen.Accordion
+        CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
+        CoreComponent.IMAGE -> ComponentScreen.Image
         else -> ComponentScreen.Empty
     }
 }

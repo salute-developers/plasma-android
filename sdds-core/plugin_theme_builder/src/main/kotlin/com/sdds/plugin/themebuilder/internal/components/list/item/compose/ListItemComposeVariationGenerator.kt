@@ -131,7 +131,7 @@ internal class ListItemComposeVariationGenerator(
 
     private fun disclosureIconCall(props: ListItemProperties): String? {
         return props.disclosureIcon?.let {
-            getIcon("disclosureIcon", it)
+            getIconAsDrawableRes("disclosureIcon", it)
         }
     }
 }

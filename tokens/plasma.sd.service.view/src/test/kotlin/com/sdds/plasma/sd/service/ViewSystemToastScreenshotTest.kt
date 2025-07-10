@@ -35,7 +35,7 @@ class ViewSystemToastScreenshotTest(
             toastRoundedDefaultTopStart(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -52,7 +52,7 @@ class ViewSystemToastScreenshotTest(
             toastRoundedNegativeTopCenter(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedNegative)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -69,7 +69,7 @@ class ViewSystemToastScreenshotTest(
             toastRoundedPositiveTopEnd(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedPositive)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -86,7 +86,7 @@ class ViewSystemToastScreenshotTest(
             toastPilledDefaultCenterStart(R.style.Plasma_SdService_ComponentOverlays_ToastPilledDefault)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -103,7 +103,7 @@ class ViewSystemToastScreenshotTest(
             toastPilledNegativeCenter(R.style.Plasma_SdService_ComponentOverlays_ToastPilledNegative)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -120,7 +120,7 @@ class ViewSystemToastScreenshotTest(
             toastPilledPositiveCenterEnd(R.style.Plasma_SdService_ComponentOverlays_ToastPilledPositive)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -137,7 +137,7 @@ class ViewSystemToastScreenshotTest(
             toastRoundedDefaultBottomStart(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -154,7 +154,7 @@ class ViewSystemToastScreenshotTest(
             toastRoundedDefaultBottomCenter(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 
@@ -171,7 +171,7 @@ class ViewSystemToastScreenshotTest(
             toastRoundedDefaultBottomEnd(R.style.Plasma_SdService_ComponentOverlays_ToastRoundedDefault)
         }
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
-        Thread.sleep(1000)
+        Thread.sleep(100)
         captureScreenRoboImage()
     }
 }

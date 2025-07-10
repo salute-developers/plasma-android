@@ -9,7 +9,6 @@ package com.sdkit.star.designsystem.styles.listitem
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -98,7 +97,7 @@ public val ListItem.L: WrapperListItemL
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyLBold)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_l))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_l))
@@ -121,7 +120,7 @@ public val ListItem.M: WrapperListItemM
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyMBold)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_m))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_m))
@@ -139,7 +138,7 @@ public val ListItem.S: WrapperListItemS
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .titleStyle(StarDsTheme.typography.bodySBold)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_s))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_s))
@@ -162,7 +161,7 @@ public val ListItem.Xs: WrapperListItemXs
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyXsBold)
-        .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16))
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_xs))
             height(dimensionResource(R.dimen.sdkit_cmp_list_item_height_xs))

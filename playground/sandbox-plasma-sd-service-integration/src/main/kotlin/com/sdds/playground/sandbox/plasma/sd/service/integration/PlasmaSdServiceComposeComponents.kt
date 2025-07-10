@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionStartVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionEndVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionStartVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.PlasmaSdServiceAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.PlasmaSdServiceAvatarGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeClearVariationsCompose
@@ -30,6 +34,9 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuNormalVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuTightVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdServiceImageVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsCompose
@@ -42,6 +49,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.Plasma
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.scrollbar.PlasmaSdServiceScrollBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.spinner.PlasmaSdServiceSpinnerVariationsCompose
@@ -253,6 +261,38 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("ListTight", CoreComponent.LIST),
                 PlasmaSdServiceListTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuNormal", CoreComponent.DROPDOWN_MENU),
+                PlasmaSdServiceDropdownMenuNormalVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DropdownMenuTight", CoreComponent.DROPDOWN_MENU),
+                PlasmaSdServiceDropdownMenuTightVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionStartVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionEndVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.ScrollBar,
+                PlasmaSdServiceScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Image,
+                PlasmaSdServiceImageVariationsCompose,
             ),
         ).associateBy { it.key }
 }

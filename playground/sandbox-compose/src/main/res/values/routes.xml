@@ -36,6 +36,8 @@
     <item type="id" name="nav_modal"/>
     <item type="id" name="nav_notification"/>
     <item type="id" name="nav_rect_skeleton"/>
+    <item type="id" name="nav_text_skeleton"/>
     <item type="id" name="nav_list"/>
     <item type="id" name="nav_dropdown_menu"/>
+    <item type="id" name="nav_wheel"/>
 </resources>
