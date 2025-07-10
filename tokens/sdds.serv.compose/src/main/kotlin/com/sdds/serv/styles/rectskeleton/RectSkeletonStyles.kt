@@ -17,7 +17,6 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
-import kotlin.jvm.JvmName
 
 /**
  * Базовый интерфейс для всех оберток этого стиля
@@ -25,20 +24,33 @@ import kotlin.jvm.JvmName
 public interface WrapperRectSkeleton : BuilderWrapper<RectSkeletonStyle, RectSkeletonStyleBuilder>
 
 /**
- * Обертка для вариации Default
+ * Терминальная обертка
  */
 @JvmInline
-public value class WrapperRectSkeletonDefault(
+public value class WrapperRectSkeletonTerminate(
     public override val builder: RectSkeletonStyleBuilder,
 ) : WrapperRectSkeleton
 
-public val RectSkeleton.Default: WrapperRectSkeletonDefault
+public val RectSkeleton.Default: WrapperRectSkeletonTerminate
     @Composable
-    @JvmName("WrapperRectSkeletonDefault")
     get() = RectSkeletonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundM)
-        .duration(1000.0.toInt())
+        .invariantProps
         .gradient(
             SddsServTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue(),
         )
-        .wrap(::WrapperRectSkeletonDefault)
+        .wrap(::WrapperRectSkeletonTerminate)
+
+public val RectSkeleton.Lighter: WrapperRectSkeletonTerminate
+    @Composable
+    get() = RectSkeletonStyle.builder(this)
+        .invariantProps
+        .gradient(
+            SddsServTheme.gradients.surfaceDefaultSkeletonDeepGradient.asLayered().asStatefulValue(),
+        )
+        .wrap(::WrapperRectSkeletonTerminate)
+
+private val RectSkeletonStyleBuilder.invariantProps: RectSkeletonStyleBuilder
+    @Composable
+    get() = this
+        .shape(SddsServTheme.shapes.roundM)
+        .duration(1000.0.toInt())
