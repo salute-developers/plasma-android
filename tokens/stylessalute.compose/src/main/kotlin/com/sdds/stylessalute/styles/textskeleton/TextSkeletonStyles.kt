@@ -17,7 +17,6 @@ import com.sdds.compose.uikit.style.wrap
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
-import kotlin.jvm.JvmName
 
 /**
  * Базовый интерфейс для всех оберток этого стиля
@@ -25,20 +24,33 @@ import kotlin.jvm.JvmName
 public interface WrapperTextSkeleton : BuilderWrapper<TextSkeletonStyle, TextSkeletonStyleBuilder>
 
 /**
- * Обертка для вариации Default
+ * Терминальная обертка
  */
 @JvmInline
-public value class WrapperTextSkeletonDefault(
+public value class WrapperTextSkeletonTerminate(
     public override val builder: TextSkeletonStyleBuilder,
 ) : WrapperTextSkeleton
 
-public val TextSkeleton.Default: WrapperTextSkeletonDefault
+public val TextSkeleton.Default: WrapperTextSkeletonTerminate
     @Composable
-    @JvmName("WrapperTextSkeletonDefault")
     get() = TextSkeletonStyle.builder(this)
-        .shape(StylesSaluteTheme.shapes.roundXxs)
-        .duration(5000.0.toInt())
+        .invariantProps
         .gradient(
             StylesSaluteTheme.gradients.surfaceDefaultSkeletonGradient.asLayered().asStatefulValue(),
         )
-        .wrap(::WrapperTextSkeletonDefault)
+        .wrap(::WrapperTextSkeletonTerminate)
+
+public val TextSkeleton.Lighter: WrapperTextSkeletonTerminate
+    @Composable
+    get() = TextSkeletonStyle.builder(this)
+        .invariantProps
+        .gradient(
+            StylesSaluteTheme.gradients.surfaceDefaultSkeletonDeepGradient.asLayered().asStatefulValue(),
+        )
+        .wrap(::WrapperTextSkeletonTerminate)
+
+private val TextSkeletonStyleBuilder.invariantProps: TextSkeletonStyleBuilder
+    @Composable
+    get() = this
+        .shape(StylesSaluteTheme.shapes.roundXxs)
+        .duration(5000.0.toInt())

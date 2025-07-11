@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.s
 internal object SddsServTextSkeletonVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
-            "Default" to s.Serv_Sdds_ComponentOverlays_TextSkeleton,
+            "Default" to s.Serv_Sdds_ComponentOverlays_TextSkeletonDefault,
+            "Lighter" to s.Serv_Sdds_ComponentOverlays_TextSkeletonLighter,
         )
 }
