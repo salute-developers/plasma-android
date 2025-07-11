@@ -24,7 +24,7 @@ class ViewSystemRectSkeletonScreenshotTest(
         themedComponent(
             skipDefaultCaptureRoboImage = true,
         ) {
-            rectSkeletonTest(style = R.style.Salute_StylesSalute_ComponentOverlays_RectSkeleton)
+            rectSkeletonTest(style = R.style.Salute_StylesSalute_ComponentOverlays_RectSkeletonDefault)
         }
         captureScreenRoboImage()
     }
