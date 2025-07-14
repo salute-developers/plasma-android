@@ -16,7 +16,9 @@
         <item name="colorControlHighlight">@android:color/transparent</item>
         <item name="colorSecondary">?serv_surfaceDefaultSolidSecondary</item>
         <item name="android:textColorPrimary">?serv_textDefaultPrimary</item>
+        <item name="android:textColorPrimaryInverse">?serv_textInversePrimary</item>
         <item name="android:textColorSecondary">?serv_textDefaultSecondary</item>
+        <item name="android:textColorSecondaryInverse">?serv_textInverseSecondary</item>
 
         <item name="android:colorBackground">?serv_backgroundDefaultPrimary</item>
 
@@ -33,6 +35,8 @@
         <item name="sandbox_shapeRoundXxs">?serv_shapeRoundXxs</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="testTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+
+        <item name="sd_dropdownMenuStyle">@style/Theme.Sandbox.Components.DropdownMenu</item>
     </style>
 
     <style name="Theme.Sandbox" parent="Theme.SandboxBase">
@@ -42,6 +46,27 @@
     <style name="Theme.Sandbox.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.NoActionBar.Main">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+        <item name="android:textColorPrimary">?serv_textOnDarkPrimary</item>
+        <item name="serv_textDefaultPrimary">?serv_textOnDarkPrimary</item>
+        <item name="serv_textDefaultPrimaryActive">?serv_textOnDarkPrimaryActive</item>
+        <item name="android:textColorSecondary">?serv_textOnDarkSecondary</item>
+        <item name="serv_textDefaultSecondary">?serv_textOnDarkSecondary</item>
+        <item name="serv_textDefaultSecondaryActive">?serv_textOnDarkSecondaryActive</item>
+        <item name="serv_surfaceDefaultSolidPrimary">?serv_surfaceOnDarkSolidPrimary</item>
+        <item name="serv_surfaceDefaultSolidPrimaryActive">?serv_surfaceOnDarkSolidPrimaryActive</item>
+        <item name="serv_surfaceDefaultSolidSecondary">?serv_surfaceOnDarkSolidSecondary</item>
+        <item name="serv_surfaceDefaultSolidSecondaryActive">?serv_surfaceOnDarkSolidSecondaryActive</item>
+        <item name="serv_surfaceDefaultSolidTertiary">?serv_surfaceOnDarkSolidTertiary</item>
+        <item name="serv_surfaceDefaultSolidTertiaryActive">?serv_surfaceOnDarkSolidTertiaryActive</item>
+        <item name="serv_surfaceDefaultTransparentPrimary">?serv_surfaceOnDarkTransparentPrimary</item>
+        <item name="serv_surfaceDefaultTransparentPrimaryActive">?serv_surfaceOnDarkTransparentPrimaryActive</item>
+        <item name="serv_surfaceDefaultTransparentSecondary">?serv_surfaceOnDarkTransparentSecondary</item>
+        <item name="serv_surfaceDefaultTransparentSecondaryActive">?serv_surfaceOnDarkTransparentSecondaryActive</item>
     </style>
 
     <style name="Theme.Sandbox.Components" />

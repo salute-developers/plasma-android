@@ -75,7 +75,6 @@ internal class ComponentListFragment : Fragment() {
     private fun initView() = _binding?.apply {
         _navHeaderBinding = if (navView != null) {
             LayoutMainHeaderBinding.bind(navView.inflateHeader(R.layout.layout_main_header))
-                .also { it.root.minimumWidth = navView.minimumWidth }
         } else {
             mainHeader
         }
