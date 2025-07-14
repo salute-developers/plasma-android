@@ -54,4 +54,4 @@ private val RectSkeletonStyleBuilder.invariantProps: RectSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(PlasmaSdServiceTheme.shapes.roundM)
-        .duration(1000.0.toInt())
+        .duration(5000.0.toInt())
