@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
@@ -83,7 +84,7 @@ internal fun Modifier.enable(
  */
 @Stable
 internal fun Modifier.surface(
-    shape: CornerBasedShape = RoundedCornerShape(25),
+    shape: Shape = RoundedCornerShape(25),
     backgroundColor: () -> Brush = { SolidColor(Color.Transparent) },
     alpha: (Boolean) -> Float = { enable: Boolean -> if (enable) 1f else 0f },
     indication: Indication? = null,

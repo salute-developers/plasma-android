@@ -21,6 +21,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.bottomsheet.Pla
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.buttongroup.PlasmaSdServiceBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.buttongroup.PlasmaSdServiceIconButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.card.PlasmaSdServiceCardClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.card.PlasmaSdServiceCardSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.compose.PlasmaSdServiceCellVariationsCompose
@@ -293,6 +295,14 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Image,
                 PlasmaSdServiceImageVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaSdServiceBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaSdServiceIconButtonGroupVariationsCompose,
             ),
         ).associateBy { it.key }
 }

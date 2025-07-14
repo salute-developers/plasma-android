@@ -21,6 +21,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.bottomsheet.StylesSa
 import com.sdds.playground.sandbox.stylessalute.integration.button.basic.StylesSaluteBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.icon.StylesSaluteIconButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.link.StylesSaluteLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.buttongroup.StylesSaluteBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.buttongroup.StylesSaluteIconButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.cell.compose.StylesSaluteCellVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSaluteCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsCompose
@@ -258,6 +260,14 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.ScrollBar,
                 StylesSaluteScrollBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                StylesSaluteBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                StylesSaluteIconButtonGroupVariationsCompose,
             ),
         ).associateBy { it.key }
 }

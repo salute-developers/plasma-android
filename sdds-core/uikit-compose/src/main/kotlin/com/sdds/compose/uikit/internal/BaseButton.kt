@@ -14,13 +14,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.semantics.Role
@@ -44,7 +44,7 @@ import com.sdds.compose.uikit.internal.common.surface
 internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
-    shape: CornerBasedShape,
+    shape: Shape,
     colors: ButtonColors,
     loadingAlpha: Float,
     dimensions: ButtonDimensions,
