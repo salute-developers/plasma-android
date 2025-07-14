@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
@@ -136,12 +137,17 @@ internal fun RowScope.ButtonText(
     value: String?,
 ) {
     if (!value.isNullOrEmpty()) {
+        val widthModifier = if (spacing == ButtonSpacing.SpaceBetween) {
+            modifier.fillMaxWidth().weight(1f, false)
+        } else {
+            modifier
+        }
         Row(
             horizontalArrangement = when (spacing) {
                 ButtonSpacing.Packed -> Arrangement.Center
                 ButtonSpacing.SpaceBetween -> Arrangement.SpaceBetween
             },
-            modifier = modifier.weight(1f, spacing == ButtonSpacing.SpaceBetween),
+            modifier = widthModifier,
         ) {
             Text(
                 text = label,

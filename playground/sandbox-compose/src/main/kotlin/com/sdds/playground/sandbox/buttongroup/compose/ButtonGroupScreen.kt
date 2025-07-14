@@ -1,8 +1,5 @@
 package com.sdds.playground.sandbox.buttongroup.compose
 
-import ButtonGroup
-import ButtonGroupOrientation
-import ButtonGroupScope
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -11,6 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonGroup
+import com.sdds.compose.uikit.ButtonGroupOrientation
+import com.sdds.compose.uikit.ButtonGroupScope
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
@@ -33,8 +33,8 @@ internal fun ButtonGroupScreen(componentKey: ComponentKey = ComponentKey.ButtonG
         ),
         component = { btnGroupUiState, style ->
             val scrollModifier = when (btnGroupUiState.orientation) {
-                ButtonGroupOrientation.Vertical -> Modifier.horizontalScroll(rememberScrollState())
-                ButtonGroupOrientation.Horizontal -> Modifier.verticalScroll(rememberScrollState())
+                ButtonGroupOrientation.Vertical -> Modifier.verticalScroll(rememberScrollState())
+                ButtonGroupOrientation.Horizontal -> Modifier.horizontalScroll(rememberScrollState())
             }
             ButtonGroup(
                 style = style,

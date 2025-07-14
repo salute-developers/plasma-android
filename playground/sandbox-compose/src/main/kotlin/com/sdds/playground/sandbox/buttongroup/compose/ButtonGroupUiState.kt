@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.buttongroup.compose
 
-import ButtonGroupOrientation
+import com.sdds.compose.uikit.ButtonGroupOrientation
 import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class ButtonGroupUiState(
