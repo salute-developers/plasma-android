@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
+    <attr name="sd_imageViewStyle" format="reference" />
     <!--
        Компонент для отображения изображений.
        Поддерживает изменение формы, установку отступов только для контента (без фона),
@@ -21,7 +21,8 @@
         <attr name="sd_contentPaddingRight" format="dimension" />
         <!-- Внутренний отступ контента снизу -->
         <attr name="sd_contentPaddingBottom" format="dimension" />
-
+        <!-- Соотношение сторон -->
+        <attr name="sd_aspectRatio" format="float" />
         <attr name="sd_background" />
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
