@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.image
+package com.sdds.playground.sandbox.image.compose
 
 import com.sdds.playground.sandbox.core.compose.UiState
 

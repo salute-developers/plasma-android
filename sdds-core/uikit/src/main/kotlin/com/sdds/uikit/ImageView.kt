@@ -39,7 +39,8 @@ import com.sdds.uikit.viewstate.ViewStateHolder
 open class ImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = R.attr.sd_imageViewStyle,
+    defStyleRes: Int = R.style.Sdds_Components_ImageView,
 ) : AppCompatImageView(context, attrs, defStyleAttr),
     ViewStateHolder,
     ColorStateHolder,
@@ -55,12 +56,13 @@ open class ImageView @JvmOverloads constructor(
     private var _contentPaddingTop: Int = 0
     private var _contentPaddingRight: Int = 0
     private var _contentPaddingBottom: Int = 0
+    private var _aspectRatio: Float = 0f
     private var boundsPath: Path = Path()
     private var _backgroundStateList: ColorValueStateList? = null
 
     init {
         setLayerType(LAYER_TYPE_HARDWARE, null)
-        obtainAttributes(attrs, defStyleAttr)
+        obtainAttributes(attrs, defStyleAttr, defStyleRes)
         applySelector(this, context, attrs, defStyleAttr)
         clipToOutline = false
     }
@@ -220,6 +222,18 @@ open class ImageView @JvmOverloads constructor(
     }
 
     /**
+     * Соотношение строн width/height
+     */
+    open var aspectRatio: Float
+        get() = _aspectRatio
+        set(value) {
+            if (_aspectRatio != value) {
+                _aspectRatio = value
+                requestLayout()
+            }
+        }
+
+    /**
      * Устанавливает внутренние отступы для контента относительно [getLayoutDirection].
      * Эти отступы не применяют к фону.
      * @param start отступ в начале в px
@@ -354,12 +368,66 @@ open class ImageView @JvmOverloads constructor(
 
     protected open fun onDrawBeforeClip(canvas: Canvas) = Unit
 
+    private fun calculateSides(wMeasureSpec: Int, hMeasureSpec: Int) {
+        val wMode = MeasureSpec.getMode(wMeasureSpec)
+        val hMode = MeasureSpec.getMode(hMeasureSpec)
+        val wSize = MeasureSpec.getSize(wMeasureSpec)
+        val hSize = MeasureSpec.getSize(hMeasureSpec)
+        val (mWidth, mHeight) = when {
+            wMode == MeasureSpec.EXACTLY && hMode == MeasureSpec.EXACTLY -> wSize to hSize
+            wMode == MeasureSpec.EXACTLY -> measureExactWidth(wSize, hSize, hMode)
+            hMode == MeasureSpec.EXACTLY -> measureExactHeight(wSize, hSize, wMode)
+            wMode == MeasureSpec.AT_MOST && hMode == MeasureSpec.AT_MOST -> measureAtMost(wSize, hSize)
+            wMode == MeasureSpec.AT_MOST -> wSize to (hSize / aspectRatio).toInt()
+            hMode == MeasureSpec.AT_MOST -> (hSize * aspectRatio).toInt() to hSize
+            else -> measureUnspecified()
+        }
+        setMeasuredDimension(mWidth, mHeight)
+    }
+
+    private fun measureUnspecified(): Pair<Int, Int> {
+        val d = drawable ?: return 0 to 0
+        val width = d.intrinsicWidth
+        val height = (width / aspectRatio).toInt()
+        return width to height
+    }
+
+    private fun measureExactWidth(width: Int, maxHeight: Int, hMode: Int): Pair<Int, Int> {
+        val height = (width / aspectRatio).toInt()
+        return if (hMode == MeasureSpec.AT_MOST && height > maxHeight) {
+            maxHeight to (maxHeight * aspectRatio).toInt()
+        } else {
+            width to height
+        }
+    }
+
+    private fun measureExactHeight(maxWidth: Int, height: Int, wMode: Int): Pair<Int, Int> {
+        val width = (height * aspectRatio).toInt()
+        return if (wMode == MeasureSpec.AT_MOST && width > maxWidth) {
+            maxWidth to (maxWidth / aspectRatio).toInt()
+        } else {
+            width to height
+        }
+    }
+
+    private fun measureAtMost(maxWidth: Int, maxHeight: Int): Pair<Int, Int> {
+        val height = (maxWidth / aspectRatio).toInt()
+        return if (height <= maxHeight) {
+            maxWidth to height
+        } else {
+            (height * aspectRatio).toInt() to maxHeight
+        }
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        if (_aspectRatio > 0f) {
+            calculateSides(widthMeasureSpec, heightMeasureSpec)
+        } else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        }
         if (hasAdjustedPaddingAfterLayoutDirectionResolved || !isLayoutDirectionResolved) {
             return
         }
-
         hasAdjustedPaddingAfterLayoutDirectionResolved = true
 
         if (isPaddingRelative || isContentPaddingRelative()) {
@@ -412,8 +480,8 @@ open class ImageView @JvmOverloads constructor(
 
     internal fun getShapePath(): Path = _shapeableImageDelegate?.getShapePath() ?: boundsPath
 
-    private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageView, defStyleAttr, -1)
+    private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageView, defStyleAttr, defStyleRes)
 
         val contentPadding = typedArray.getDimensionPixelOffset(R.styleable.ImageView_sd_contentPadding, 0)
         _contentPaddingLeft = typedArray.getDimensionPixelSize(
@@ -453,6 +521,7 @@ open class ImageView @JvmOverloads constructor(
             setStrokeColor(strokeColor)
         }
         _backgroundStateList = typedArray.getColorValueStateList(context, R.styleable.ImageView_sd_background)
+        _aspectRatio = typedArray.getFloat(R.styleable.ImageView_sd_aspectRatio, 0f)
         typedArray.recycle()
     }
 

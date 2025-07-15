@@ -40,4 +40,5 @@
     <item type="id" name="nav_list"/>
     <item type="id" name="nav_dropdown_menu"/>
     <item type="id" name="nav_wheel"/>
+    <item type="id" name="nav_image"/>
 </resources>
