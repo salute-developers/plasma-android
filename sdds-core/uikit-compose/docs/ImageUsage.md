@@ -28,7 +28,7 @@ Image(
 ```kotlin
 ImageStyle.builder()
     .ratio(2f)
-.style()
+    .style()
 ```
 
 ## Поддержка стиля Image для других компонентов

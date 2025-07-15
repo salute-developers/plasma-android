@@ -28,7 +28,7 @@ SpinnerStyle.builder()
         startColor(Color.LightGray)
         endColor(Color.Black)
     }
-.style()
+    .style()
 ```
 
 ## SpinnerStrokeCap

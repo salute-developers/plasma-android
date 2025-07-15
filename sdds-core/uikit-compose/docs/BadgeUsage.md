@@ -22,32 +22,32 @@ Badge(
 
 ```kotlin
 BadgeStyle.builder()
-.shape(CircleShape)
-.colors {
-    backgroundColor(
-        SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-    )
-    labelColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(),
-    )
-    startContentColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(),
-    )
-    endContentColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(),
-    )
-}
-.labelStyle(SddsServTheme.typography.bodySNormal)
-.dimensions {
-        height(28.0.dp)
-        startContentSize(16.0.dp)
-        endContentSize(16.0.dp)
-        startContentMargin(4.0.dp)
-        endContentMargin(4.0.dp)
-        startPadding(11.0.dp)
-        endPadding(11.0.dp)
-}
-.style()
+    .shape(CircleShape)
+    .colors {
+        backgroundColor(
+            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+        )
+        labelColor(
+            SddsServTheme.colors.textOnLightPrimary.asInteractive(),
+        )
+        startContentColor(
+            SddsServTheme.colors.textOnLightPrimary.asInteractive(),
+        )
+        endContentColor(
+            SddsServTheme.colors.textOnLightPrimary.asInteractive(),
+        )
+    }
+    .labelStyle(SddsServTheme.typography.bodySNormal)
+    .dimensions {
+            height(28.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
+            startContentMargin(4.0.dp)
+            endContentMargin(4.0.dp)
+            startPadding(11.0.dp)
+            endPadding(11.0.dp)
+    }
+    .style()
 ```
 
 ## Иконка Badge

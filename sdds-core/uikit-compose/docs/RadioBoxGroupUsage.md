@@ -45,9 +45,9 @@ RadioBoxGroup(
 
 ```kotlin
 RadioBoxGroupStyle.builder()
-.radioBoxStyle(RadioBox.M.style())
-.dimensions {
-    itemSpacing(12.0.dp)
-}
-.style()
+    .radioBoxStyle(RadioBox.M.style())
+    .dimensions {
+        itemSpacing(12.0.dp)
+    }
+    .style()
 ```

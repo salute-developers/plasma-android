@@ -18,14 +18,14 @@
 
 ```kotlin
 DividerStyle.builder()
-.shape(CircleShape)
-.color {
-    backgroundColor(
-        SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-    )
-}
-.dimensions {
-    thickness(1.0.dp)
-}
-.style()
+    .shape(CircleShape)
+    .color {
+        backgroundColor(
+            SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
+        )
+    }
+    .dimensions {
+        thickness(1.0.dp)
+    }
+    .style()
 ```

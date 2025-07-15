@@ -50,6 +50,7 @@ AccordionItemStyle.builder()
     }
     .iconClosed(painterResource(com.sdds.icons.R.drawable.ic_plus_16))
     .iconOpened(painterResource(com.sdds.icons.R.drawable.ic_minus_16))
+    .style()
 ```
 
 ### Создание стиля AccordionStyle с помощью builder()
@@ -61,4 +62,5 @@ AccordionStyle.builder()
     .dimensions {
         itemSpacing(4.0.dp)
     }
+    .style()
 ```

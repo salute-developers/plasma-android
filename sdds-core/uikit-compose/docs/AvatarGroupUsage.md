@@ -30,10 +30,10 @@ counter {
 
 ```kotlin
 AvatarGroupStyle.builder()
-.dimensions {
-    itemSpacing(2.0.dp)
-    itemOffset(16.0.dp)
-}
-.avatarStyle(Avatar.S.style())
-.style()
+    .dimensions {
+        itemSpacing(2.0.dp)
+        itemOffset(16.0.dp)
+    }
+    .avatarStyle(Avatar.S.style())
+    .style()
 ```

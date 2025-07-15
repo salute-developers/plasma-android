@@ -21,30 +21,30 @@
 
 ```kotlin
 CounterStyle.builder()
-.colors {
-    backgroundColor(
-        SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-            setOf(InteractiveState.Pressed)
-                to SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
-            setOf(InteractiveState.Hovered)
-                to SddsServTheme.colors.surfaceOnDarkSolidDefaultHover,
-        ),
-    )
-    textColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(
-            setOf(InteractiveState.Pressed)
-                to SddsServTheme.colors.textOnLightPrimaryActive,
-            setOf(InteractiveState.Hovered)
-                to SddsServTheme.colors.textOnLightPrimaryHover,
-        ),
-    )
-}
-.textStyle(SddsServTheme.typography.bodySNormal)
-.dimensions {
-    minHeight(28.0.dp)
-    minWidth(28.0.dp)
-    paddingStart(10.0.dp)
-    paddingEnd(10.0.dp)
-}
-.style()
+    .colors {
+        backgroundColor(
+            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+                setOf(InteractiveState.Pressed)
+                    to SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
+                setOf(InteractiveState.Hovered)
+                    to SddsServTheme.colors.surfaceOnDarkSolidDefaultHover,
+            ),
+        )
+        textColor(
+            SddsServTheme.colors.textOnLightPrimary.asInteractive(
+                setOf(InteractiveState.Pressed)
+                    to SddsServTheme.colors.textOnLightPrimaryActive,
+                setOf(InteractiveState.Hovered)
+                    to SddsServTheme.colors.textOnLightPrimaryHover,
+            ),
+        )
+    }
+    .textStyle(SddsServTheme.typography.bodySNormal)
+    .dimensions {
+        minHeight(28.0.dp)
+        minWidth(28.0.dp)
+        paddingStart(10.0.dp)
+        paddingEnd(10.0.dp)
+    }
+    .style()
 ```

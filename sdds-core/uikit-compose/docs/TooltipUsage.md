@@ -56,7 +56,7 @@ TooltipStyle.builder()
         textColor(SolidColor(Color.Black))
         contentStartColor(Color.Black)
     }
-.style()
+    .style()
 ```
 
 ## TriggerInfo

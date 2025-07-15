@@ -19,16 +19,16 @@
 
 ```kotlin
 IndicatorStyle.builder(this)
-.color {
-    backgroundColor(
-        SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
-    )
-}
-.dimensions {
-    height(12.0.dp)
-    width(12.0.dp)
-}
-.style()
+    .color {
+        backgroundColor(
+            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+        )
+    }
+    .dimensions {
+        height(12.0.dp)
+        width(12.0.dp)
+    }
+    .style()
 ```
 
 ## Indicator как extension к Modifier

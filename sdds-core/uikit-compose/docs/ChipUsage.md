@@ -33,29 +33,29 @@ Chip(
 
 ```kotlin
 ChipStyle.builder()
- .colors {
-    backgroundColor(
-        SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-            setOf(InteractiveState.Pressed)
-                to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-            setOf(InteractiveState.Hovered)
-                to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
-        ),
-    )
-    contentStartColor(...)
-    contentEndColor(...)
-    labelColor(...)
-}
-.shape(SddsServTheme.shapes.roundM)
-.labelStyle(SddsServTheme.typography.bodyLNormal)
-.dimensions {
-    height(48.0.dp)
-    paddingStart(16.0.dp)
-    paddingEnd(16.0.dp)
-    contentStartPadding(8.0.dp)
-    contentEndPadding(8.0.dp)
-    contentStartSize(24.0.dp)
-    contentEndSize(24.0.dp)
-}
-.style()
+    .colors {
+        backgroundColor(
+            SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                setOf(InteractiveState.Pressed)
+                    to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                setOf(InteractiveState.Hovered)
+                    to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+            ),
+        )
+        contentStartColor(...)
+        contentEndColor(...)
+        labelColor(...)
+    }
+    .shape(SddsServTheme.shapes.roundM)
+    .labelStyle(SddsServTheme.typography.bodyLNormal)
+    .dimensions {
+        height(48.0.dp)
+        paddingStart(16.0.dp)
+        paddingEnd(16.0.dp)
+        contentStartPadding(8.0.dp)
+        contentEndPadding(8.0.dp)
+        contentStartSize(24.0.dp)
+        contentEndSize(24.0.dp)
+    }
+    .style()
 ```
