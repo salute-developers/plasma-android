@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.image
+package com.sdds.playground.sandbox.image.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height

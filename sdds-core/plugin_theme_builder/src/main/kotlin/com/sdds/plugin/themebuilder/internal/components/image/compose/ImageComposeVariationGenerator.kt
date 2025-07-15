@@ -1,8 +1,9 @@
-package com.sdds.plugin.themebuilder.internal.components.image
+package com.sdds.plugin.themebuilder.internal.components.image.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.image.ImageProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider

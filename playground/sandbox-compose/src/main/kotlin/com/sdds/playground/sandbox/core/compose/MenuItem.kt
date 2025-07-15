@@ -62,8 +62,8 @@ import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
-import com.sdds.playground.sandbox.image.ImageScreen
-import com.sdds.playground.sandbox.image.ImageScreenPreview
+import com.sdds.playground.sandbox.image.compose.ImageScreen
+import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen

@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.dropdownmenu.vs.DropdownMenuFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
+import com.sdds.playground.sandbox.image.vs.ImageFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.list.vs.ListFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
@@ -76,6 +77,7 @@ import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
+import com.sdds.testing.vs.image.image
 import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.list.listView
 import com.sdds.testing.vs.modal.modalTrigger
@@ -295,6 +297,9 @@ internal sealed class ComponentScreen(
     object Wheel : ComponentScreen(
         { item -> fragment<WheelFragment>(item.route, item.defaultBuilder) },
     )
+    object Image : ComponentScreen(
+        { item -> fragment<ImageFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -338,6 +343,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LIST -> ComponentScreen.List
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.WHEEL -> ComponentScreen.Wheel
+        CoreComponent.IMAGE -> ComponentScreen.Image
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -383,6 +389,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.LIST -> R.id.nav_list
         CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
         CoreComponent.WHEEL -> R.id.nav_wheel
+        CoreComponent.IMAGE -> R.id.nav_image
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -467,6 +474,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.LIST -> listView(context, style)
         CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
         CoreComponent.WHEEL -> wheel(context, style)
+        CoreComponent.IMAGE -> image(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
