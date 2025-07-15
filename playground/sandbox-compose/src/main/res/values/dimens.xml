@@ -20,7 +20,7 @@
     <dimen name="sandbox_menu_button_margin">@dimen/serv_spacing_4x</dimen>
     <dimen name="sandbox_properties_spacing">@dimen/serv_spacing_8x</dimen>
     <dimen name="sandbox_nav_item_height">@dimen/serv_spacing_12x</dimen>
-    <dimen name="sandbox_nav_view_expanded_width">200dp</dimen>
+    <dimen name="sandbox_nav_view_expanded_width">250dp</dimen>
     <dimen name="sandbox_nav_view_header_margin">@dimen/serv_spacing_8x</dimen>
     <dimen name="sandbox_switch_width">32dp</dimen>
     <dimen name="sandbox_switch_height">20dp</dimen>

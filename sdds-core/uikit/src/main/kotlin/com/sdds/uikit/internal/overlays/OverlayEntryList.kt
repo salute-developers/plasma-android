@@ -15,7 +15,9 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.PopupWindow
+import android.widget.PopupWindow.OnDismissListener
 import androidx.core.transition.addListener
+import androidx.core.view.doOnAttach
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
@@ -269,6 +271,9 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
     private val fakeExitTransition = FakeTransition().apply {
         setDuration(EXIT_DURATION)
     }
+    private val dismissListener = OnDismissListener {
+        if (!dismissedOnUnbind) clear()
+    }
     private var exitTransitionListener: Transition.TransitionListener? = null
     private var overlayEntryListView: OverlayEntryListView? = null
     private val overlayEntries = mutableListOf<OverlayEntry>()
@@ -285,6 +290,8 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
         animationStyle = 0
         isAttachedInDecor = true
     }
+
+    private var dismissedOnUnbind: Boolean = false
 
     override fun bind(rootView: View) {
         if (anchorViewRef != null) return
@@ -332,6 +339,7 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
         overlayEntryListView?.clear()
         anchorViewRef?.clear()
         anchorViewRef = null
+        dismissedOnUnbind = true
         popupWindow.dismiss()
     }
 
@@ -345,6 +353,8 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
     private fun showIfNeed() {
         val anchorView = anchorViewRef?.get() ?: return
         popupWindow.apply {
+            dismissedOnUnbind = false
+            setOnDismissListener(dismissListener)
             setTouchInterceptor(popupTouchInterceptor.takeIf { isFocusable })
             exitTransition = fakeExitTransition.takeIf { isFocusable }
                 ?.also {
@@ -366,7 +376,9 @@ internal class OverlayEntryList(private val position: OverlayPosition) : Overlay
             MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
             MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
         )
-        popupWindow.showAtLocation(anchorView, position.toGravity(), 0, 0)
+        anchorView.doOnAttach {
+            popupWindow.showAtLocation(anchorView, position.toGravity(), 0, 0)
+        }
     }
 
     private fun isBound(): Boolean = anchorViewRef != null

@@ -17,4 +17,6 @@
     <style name="Theme.Sandbox.TextAppearanceNormal" parent="Sdkit.StarDs.TextAppearance.BodyXsNormal"/>
     <style name="Theme.Sandbox.TextAppearanceBold" parent="Sdkit.StarDs.TextAppearance.BodyXsBold"/>
     <style name="Theme.Sandbox.TextAppearanceLargeBold" parent="Sdkit.StarDs.TextAppearance.BodyMBold"/>
+    <style name="Theme.Sandbox.BaseComponents.UpdateButton" parent="@style/Sdkit.StarDs.Components.BasicButton.Xs"/>
+    <style name="Theme.Sandbox.BaseComponents.MainMenuButton" parent="@style/Sdkit.StarDs.Components.BasicButton.M"/>
 </resources>

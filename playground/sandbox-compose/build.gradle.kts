@@ -1,7 +1,10 @@
 import com.android.build.gradle.tasks.MapSourceSetPathsTask
 import com.android.build.gradle.tasks.MergeResources
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
 import ru.sberdevices.starplugin.stardimens.GenerateStarDimensTask
 import ru.sberdevices.starplugin.stardimens.StarDimensGeneratorPluginExtension
+import utils.versionInfo
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -15,11 +18,15 @@ plugins {
     id("star-dimens-generator")
 }
 
+val APP_DISTRIBUTION_NAME = "sandbox-compose-app-release"
+val STAR_APP_DISTRIBUTION_NAME = "sandbox-compose-starApp-release"
+
 android {
     namespace = "com.sdds.playground.sandbox"
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     testOptions {
@@ -42,9 +49,11 @@ android {
     productFlavors {
         create("app") {
             applicationId = "com.sdds.playground.sandbox.compose"
+            buildConfigField("String", "DIST_NAME", "\"$APP_DISTRIBUTION_NAME\"")
         }
         create("starApp") {
             applicationId = System.getenv("STAR_APP_ID") ?: "com.sdds.playground.sandbox.stards"
+            buildConfigField("String", "DIST_NAME", "\"$STAR_APP_DISTRIBUTION_NAME\"")
         }
     }
 
@@ -93,6 +102,21 @@ tasks.withType<MergeResources>().configureEach {
 
 tasks.withType<MapSourceSetPathsTask>().configureEach {
     dependsOn(tasks.withType<GenerateStarDimensTask>())
+}
+
+tasks.register("generateVersionDescription") {
+    group = "build"
+    description = "Generates versions.json with versionCodes for both release variants"
+
+    val outputFile = file("$buildDir/outputs/versions.json")
+    doLast {
+        val version = versionInfo()
+        val json = buildJsonObject {
+            put(APP_DISTRIBUTION_NAME, version.code)
+            put(STAR_APP_DISTRIBUTION_NAME, version.code)
+        }
+        outputFile.writeText(json.toString())
+    }
 }
 
 dependencies {

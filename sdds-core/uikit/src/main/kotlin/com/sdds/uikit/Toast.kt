@@ -2,6 +2,7 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.text.TextUtils.TruncateAt
 import android.util.AttributeSet
 import android.view.ContextThemeWrapper
 import android.view.View
@@ -165,7 +166,9 @@ class ToastView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Sdds_Components_Toast,
 ) : CellLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
     private val contentStartView: ImageView = ImageView(context)
-    private val messageView: TextView = TextView(context)
+    private val messageView: TextView = TextView(context).apply {
+        ellipsize = TruncateAt.END
+    }
     private val contentEndView: ImageView = ImageView(context)
     private var backgroundList: ColorValueStateList? = null
     private var _contentStartSize: Int = 0
