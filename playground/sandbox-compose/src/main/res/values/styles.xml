@@ -35,7 +35,7 @@
         <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
         <item name="android:clipChildren">false</item>
         <item name="android:clipToPadding">false</item>
-        <item name="android:focusable">true</item>
+        <item name="android:focusable">false</item>
         <item name="sd_fsEnabled">false</item>
     </style>
 
@@ -56,10 +56,12 @@
     </style>
 
     <style name="Theme.Sandbox.Components.HeaderTitle">
-        <item name="android:textColor">@color/color_property_item_value</item>
-        <item name="android:drawableTint">@color/color_property_item_value</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:drawableTint">?android:textColorPrimary</item>
         <item name="android:textAppearance">@style/Theme.Sandbox.TextAppearanceBold</item>
         <item name="android:duplicateParentState">true</item>
+        <item name="sd_shapeAppearance">?sandbox_shapeRoundXxs</item>
+        <item name="sd_fsShapeAppearance">?sandbox_shapeRoundXxs</item>
     </style>
 
     <style name="Theme.Sandbox.Components.HeaderLabel">
@@ -141,5 +143,9 @@
         <item name="android:paddingTop">@dimen/sandbox_component_item_padding_vertical</item>
         <item name="android:paddingBottom">@dimen/sandbox_component_item_padding_vertical</item>
     </style>
+
+    <style name="Theme.Sandbox.Components.UpdateButton" parent="Theme.Sandbox.BaseComponents.UpdateButton"/>
+    <style name="Theme.Sandbox.Components.MainMenuButton" parent="Theme.Sandbox.BaseComponents.MainMenuButton"/>
+    <style name="Theme.Sandbox.Components.DropdownMenu" parent="Theme.Sandbox.BaseComponents.DropdownMenu"/>
 
 </resources>

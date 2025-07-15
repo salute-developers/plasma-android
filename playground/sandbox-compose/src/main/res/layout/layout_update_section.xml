@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.CellLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.Sandbox.Components.NavHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <com.sdds.uikit.TextView
+        style="@style/Theme.Sandbox.Components.HeaderTitle"
+        android:id="@+id/section_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/sandbox_update_notification_title"
+        app:layout_cellContent="center" />
+
+    <com.sdds.uikit.TextView
+        style="@style/Theme.Sandbox.Components.HeaderLabel"
+        android:id="@+id/section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="@string/sandbox_properties_header_name"
+        android:layout_gravity="start"
+        app:layout_cellContent="center"/>
+
+    <com.sdds.uikit.Button
+        style="@style/Theme.Sandbox.Components.UpdateButton"
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_cellContent="end"
+        android:text="@string/sandbox_update_button_text"
+        android:visibility="visible"
+        app:sd_icon="@drawable/ic_cloud_download_outline_36"/>
+
+</com.sdds.uikit.CellLayout>

@@ -55,6 +55,29 @@ jobs:
           name: sandbox-compose-release
           path: playground/sandbox-compose/build/outputs/apk/app/release/*.apk
 
+      - name: Build Release StarDS APK
+        env:
+          KEY_STORE_FILE: "keystore.jks"
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.STAR_RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.STAR_RELEASE_KEY_PASSWORD }}
+        run: ./gradlew :playground:sandbox-compose:assembleStarAppRelease
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: sandbox-compose-starApp-release
+          path: playground/sandbox-compose/build/outputs/apk/starApp/release/*.apk
+
+      - name: Build versions.json
+        run: ./gradlew :playground:sandbox-compose:generateVersionDescription
+
+      - name: Upload versions.json
+        uses: actions/upload-artifact@v4
+        with:
+          name: versions
+          path: playground/sandbox-compose/build/outputs/versions.json
+
       - name: Create or Update Release
         uses: ncipollo/release-action@v1
         with:
@@ -64,7 +87,10 @@ jobs:
           allowUpdates: true
           omitBody: true
           generateReleaseNotes: true
-          artifacts: playground/sandbox-compose/build/outputs/apk/app/release/*.apk
+          artifacts: >
+            playground/sandbox-compose/build/outputs/apk/app/release/*.apk,
+            playground/sandbox-compose/build/outputs/apk/starApp/release/*.apk,
+            playground/sandbox-compose/build/outputs/versions.json,
 
       - name: Distribute to testers
         env:

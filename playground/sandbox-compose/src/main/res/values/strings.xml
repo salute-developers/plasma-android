@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">SDDS Sandbox</string>
-    <string name="compose">Sandbox on Compose</string>
-    <string name="view_system">Sandbox on View system</string>
+    <string name="app_name_title">SDDS\nSandbox</string>
+    <string name="compose">Compose</string>
+    <string name="view_system">XML</string>
     <string name="sandbox_text_editor_title" formatted="true">Введите значение %1$s</string>
     <string name="sandbox_text_editor_placeholder" formatted="true">Введите значение</string>
     <string name="sandbox_choice_editor_title" formatted="true">Выберите значение %1$s</string>
@@ -36,4 +37,10 @@
     <string name="sandbox_editor_placeholder">Введите значение…</string>
     <string name="sandbox_editor_confirm_title">Подтвердить</string>
     <string name="main_screen">To main screen</string>
+    <string name="update_downloading">Загружаем обновление…</string>
+    <string name="sandbox_new_verstion_title">v%1$s</string>
+    <string name="sandbox_current_verstion_title">v%1$s</string>
+    <string name="sandbox_update_button_text">Обновить</string>
+    <string name="sandbox_update_notification_title">Доступно обновление</string>
+    <string name="sandbox_update_failed_notification_title">Произошла ошибка обновления</string>
 </resources>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.SandboxBase" parent="Sdkit.AppTheme">
         <item name="colorPrimary">?sdkit_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?sdkit_surfaceDefaultSolidPrimary</item>
@@ -25,5 +25,10 @@
         <item name="sandbox_shapeRoundL">?sdkit_shapeRoundL</item>
         <item name="sandbox_shapeRoundXxs">?sdkit_shapeRoundXxs</item>
         <item name="testTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+    </style>
+
+    <style name="Theme.Sandbox.NoActionBar.Main">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
     </style>
 </resources>

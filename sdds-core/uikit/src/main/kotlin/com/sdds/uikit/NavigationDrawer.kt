@@ -311,11 +311,9 @@ open class NavigationDrawer @JvmOverloads constructor(
     private fun updateMinimumWidth(minWidth: Int) {
         _headerContainer.apply {
             minimumWidth = minWidth
-            getChildAt(0)?.minimumWidth = minWidth
         }
         _footerContainer.apply {
             minimumWidth = minWidth
-            getChildAt(0)?.minimumWidth = minWidth
         }
         _itemsRecyclerView.minimumWidth = minWidth
     }
