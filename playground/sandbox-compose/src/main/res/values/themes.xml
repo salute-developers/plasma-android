@@ -67,6 +67,7 @@
         <item name="serv_surfaceDefaultTransparentPrimaryActive">?serv_surfaceOnDarkTransparentPrimaryActive</item>
         <item name="serv_surfaceDefaultTransparentSecondary">?serv_surfaceOnDarkTransparentSecondary</item>
         <item name="serv_surfaceDefaultTransparentSecondaryActive">?serv_surfaceOnDarkTransparentSecondaryActive</item>
+        <item name="serv_surfaceDefaultSolidCard">?serv_surfaceOnDarkSolidCard</item>
     </style>
 
     <style name="Theme.Sandbox.Components" />

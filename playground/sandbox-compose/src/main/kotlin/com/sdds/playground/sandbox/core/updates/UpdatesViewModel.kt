@@ -54,25 +54,22 @@ internal class UpdatesViewModel(
     fun installUpdate(update: UpdateInfo) {
         if (update !is UpdateInfo.PendingUpdate) return
         viewModelScope.launch {
-            goToState<UpdateState.PendingUpdate> { copy(isLoading = true, shouldShowNotification = false) }
+            val pendingUpdateState: UpdateState.PendingUpdate = goToState<UpdateState.PendingUpdate> {
+                copy(isLoading = true, shouldShowNotification = false)
+            }
             runCatching { updateManager.updateApp(update) }
-                .onSuccess {
-                    goToState<UpdateState.PendingUpdate> { copy(isLoading = false) }
-                }
-                .onFailure {
-                    goToState<UpdateState> { UpdateState.UpdateFailed(it.message) }
-                    goToState<UpdateState> { UpdateState.None }
-                }
+                .onFailure { goToState<UpdateState> { UpdateState.UpdateFailed(it.message) } }
+            goToState<UpdateState> { pendingUpdateState.copy(isLoading = false) }
         }
     }
 
     private inline fun <reified T : UpdateState> goToState(
         modifier: T.() -> T = { this },
-    ) {
+    ): T {
         val newState = (_updateState.value as? T)?.run(modifier)
-        if (newState != null) {
-            _updateState.value = newState
-        }
+            ?: throw IllegalStateException("UpdateState cannot be null")
+        _updateState.value = newState
+        return newState
     }
 }
 

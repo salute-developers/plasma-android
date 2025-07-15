@@ -14,7 +14,6 @@ import java.io.File
 import java.io.FileInputStream
 import java.lang.IllegalStateException
 import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
 
 /**
  * Интерфейс для установки обновлений приложения.
@@ -74,7 +73,7 @@ class ApkUpdateInstaller(
                             continuation.resume(Unit)
                         }
                         else -> {
-                            continuation.resumeWithException(IllegalStateException(message))
+                            continuation.cancel(IllegalStateException(message))
                         }
                     }
                 }
