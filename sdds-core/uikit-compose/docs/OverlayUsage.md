@@ -31,5 +31,5 @@ OverlayStyle.builder()
     .colors {
         backgroundColor(SolidColor(Color.Gray))
     }
-.style()
+    .style()
 ```

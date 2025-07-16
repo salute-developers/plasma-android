@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegat
 import com.sdds.plugin.themebuilder.internal.components.bottomsheet.BottomSheetConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
+import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
@@ -91,5 +92,6 @@ internal val componentDelegates by unsafeLazy {
         "wheel" to WheelConfigDelegate(),
         "scroll-bar" to ScrollBarConfigDelegate(),
         "image" to ImageConfigDelegate(),
+        "button-group" to ButtonGroupConfigDelegate(),
     )
 }

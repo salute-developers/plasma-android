@@ -40,10 +40,10 @@ ChipGroup(
 
 ```kotlin
 ChipGroupStyle.builder()
-.dimensions {
-    gap(2.0.dp)
-    lineSpacing(2.0.dp)
-}
-.chipStyle(Chip.L.Warning.style())
-.style()
+    .dimensions {
+        gap(2.0.dp)
+        lineSpacing(2.0.dp)
+    }
+    .chipStyle(Chip.L.Warning.style())
+    .style()
 ```

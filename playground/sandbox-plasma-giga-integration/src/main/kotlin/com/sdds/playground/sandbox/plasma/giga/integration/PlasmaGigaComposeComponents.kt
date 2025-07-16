@@ -21,6 +21,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.bottomsheet.PlasmaGig
 import com.sdds.playground.sandbox.plasma.giga.integration.button.basic.PlasmaGigaBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.button.icon.PlasmaGigaIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.button.link.PlasmaGigaLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.buttongroup.PlasmaGigaBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.buttongroup.PlasmaGigaIconButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.card.PlasmaGigaCardClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.card.PlasmaGigaCardSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.cell.compose.PlasmaGigaCellVariationsCompose
@@ -293,6 +295,14 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Image,
                 PlasmaGigaImageVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaGigaBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaGigaIconButtonGroupVariationsCompose,
             ),
         ).associateBy { it.key }
 }

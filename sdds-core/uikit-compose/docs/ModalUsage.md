@@ -48,5 +48,5 @@ ModalStyle.builder()
         backgroundColor(SolidColor(Color.Gray))
         closeColor(Color.LightGray)
     }
-.style()
+    .style()
 ```

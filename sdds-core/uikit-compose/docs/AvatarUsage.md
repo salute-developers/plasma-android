@@ -18,36 +18,36 @@ Avatar(
 
 ```kotlin
 AvatarStyle.builder()
-.shape(CircleShape)
-.colors {  
-    backgroundColor(
-        SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue(),
-    )  
-    textColor(
-        SddsServTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue(),
-    )
-}
-.dimensions {
-        width(88.0.dp)
-        height(88.0.dp)
-}
-.textStyle(SddsServTheme.typography.headerH2Bold)
-.badgeStyle(BadgeSolid.L.Pilled.Accent.style())
-.counterStyle(Counter.L.Negative.style())
-.statusStyle(
-    Indicator.L.modify {
-        color {
-            backgroundColor(
-                SddsServTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                    setOf(AvatarStatus.Active) 
-                    to SddsServTheme.colors.surfaceDefaultPositive,
-                ),
-            )
-        }
+    .shape(CircleShape)
+    .colors {  
+        backgroundColor(
+            SddsServTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue(),
+        )  
+        textColor(
+            SddsServTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue(),
+        )
     }
-    .style(),
-)
-.style()
+    .dimensions {
+            width(88.0.dp)
+            height(88.0.dp)
+    }
+    .textStyle(SddsServTheme.typography.headerH2Bold)
+    .badgeStyle(BadgeSolid.L.Pilled.Accent.style())
+    .counterStyle(Counter.L.Negative.style())
+    .statusStyle(
+        Indicator.L.modify {
+            color {
+                backgroundColor(
+                    SddsServTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        setOf(AvatarStatus.Active) 
+                        to SddsServTheme.colors.surfaceDefaultPositive,
+                    ),
+                )
+            }
+        }
+        .style(),
+    )
+    .style()
 ```
 
 ## Статус Avatar

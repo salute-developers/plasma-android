@@ -171,6 +171,7 @@ data class ComponentKey(
         val Wheel = ComponentKey("Wheel", CoreComponent.WHEEL)
         val ScrollBar = ComponentKey("ScrollBar", CoreComponent.SCROLL_BAR)
         val Image = ComponentKey("Image", CoreComponent.IMAGE)
+        val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
     }
 }
 
@@ -189,6 +190,7 @@ enum class CoreComponent {
     BASIC_BUTTON,
     ICON_BUTTON,
     LINK_BUTTON,
+    BUTTON_GROUP,
 
     CARD,
 

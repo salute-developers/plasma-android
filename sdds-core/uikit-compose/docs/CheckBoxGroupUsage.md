@@ -43,10 +43,10 @@ CheckBoxGroup(
 
 ```kotlin
 CheckBoxGroupStyle.builder()
-.checkBoxStyle(CheckBox.L.Default.style())
+    .checkBoxStyle(CheckBox.L.Default.style())
     .dimensions {
         itemSpacing(14.0.dp)
         itemOffset(36.0.dp)
     }
-.style()
+    .style()
 ```

@@ -14,6 +14,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIc
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.button.link.StarDsLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.buttongroup.StarDsBasicButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.cell.compose.StarDsCellVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.StarDsCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.group.StarDsCheckBoxGroupVariationsCompose
@@ -203,6 +204,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Image,
                 StarDsImageVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                StarDsBasicButtonGroupVariationsCompose,
             ),
         ).associateBy { it.key }
 }

@@ -6,8 +6,12 @@ import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -85,7 +89,7 @@ fun IconButton(
     BaseButton(
         modifier = modifier.requiredSize(dimensions.height),
         onClick = onClick,
-        shape = style.shape,
+        shape = LocalButtonForceShape.current ?: style.shape,
         dimensions = dimensions,
         colors = style.colors,
         enabled = enabled,
@@ -157,7 +161,7 @@ fun Button(
         loadingAlpha = style.loadingAlpha,
         disabledAlpha = style.disableAlpha,
         enabled = enabled,
-        shape = style.shape,
+        shape = LocalButtonForceShape.current ?: style.shape,
         loading = loading,
         dimensions = dimensions,
         indication = indication,
@@ -270,5 +274,8 @@ class ButtonIcons(
         endContentDescription: String? = this.endContentDescription,
     ): ButtonIcons = ButtonIcons(start, end, startContentDescription, endContentDescription)
 }
+
+internal val LocalButtonForceShape: ProvidableCompositionLocal<Shape?> =
+    compositionLocalOf(structuralEqualityPolicy()) { null }
 
 private val IconPaddingOffset = 2.dp

@@ -12,15 +12,14 @@ SegmentHorizontal(
     style = Segment.Xl.Primary.style(),
 ) {
     segmentItem {
-        val interactionSource = remember { MutableInteractionSource() }
         SegmentItem(
-        isSelected = true,
-        style = SegmentItem.Xl.Primary.style(),
-        label = "Label",
-        value = "Value",
-        startIcon =  painterResource(id = R.drawable.ic_scribble_diagonal_24),
-        counter = "55",
-        enabled = true
+            isSelected = true,
+            style = SegmentItem.Xl.Primary.style(),
+            label = "Label",
+            value = "Value",
+            startIcon =  painterResource(id = R.drawable.ic_scribble_diagonal_24),
+            counter = "55",
+            enabled = true
         )
     }
 }
@@ -34,20 +33,20 @@ SegmentHorizontal(
 
 ```kotlin
 SegmentStyle.builder()
-.segmentItemStyle(SegmentItem.Xl.Accent.style())
-.colors {
-    backgroundColor(
-        SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-    )
-}
-.shape(SddsServTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
-.dimensions {
-    paddingStart(2.0.dp)
-    paddingEnd(2.0.dp)
-    paddingTop(2.0.dp)
-    paddingBottom(2.0.dp)
-}
-.sttyle()
+    .segmentItemStyle(SegmentItem.Xl.Accent.style())
+    .colors {
+        backgroundColor(
+            SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
+        )
+    }
+    .shape(SddsServTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
+    .dimensions {
+        paddingStart(2.0.dp)
+        paddingEnd(2.0.dp)
+        paddingTop(2.0.dp)
+        paddingBottom(2.0.dp)
+    }
+    .sttyle()
 ```
 
 ## Ориентация Segment

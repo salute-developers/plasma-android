@@ -54,19 +54,19 @@ Card(
 
 ```kotlin
 CardStyle.builder()
-.colors {
-    backgroundColor(
-        SddsServTheme.colors.surfaceDefaultSolidCard
-            .asInteractive(),
-    )
-}
-.shape(SddsServTheme.shapes.roundL)
-.contentShape(SddsServTheme.shapes.roundS)
-.dimensions {
-    paddingTop(12.0.dp)
-    paddingBottom(12.0.dp)
-    paddingStart(12.0.dp)
-    paddingEnd(12.0.dp)
-}
-.style()
+    .colors {
+        backgroundColor(
+            SddsServTheme.colors.surfaceDefaultSolidCard
+                .asInteractive(),
+        )
+    }
+    .shape(SddsServTheme.shapes.roundL)
+    .contentShape(SddsServTheme.shapes.roundS)
+    .dimensions {
+        paddingTop(12.0.dp)
+        paddingBottom(12.0.dp)
+        paddingStart(12.0.dp)
+        paddingEnd(12.0.dp)
+    }
+    .style()
 ```
