@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,19 +28,21 @@ fun ButtonGroup(
     style: ButtonGroupStyle = LocalButtonGroupStyle.current,
     content: ButtonGroupScope.() -> Unit,
 ) {
+    val buttonGroupContent = @Composable { ButtonGroupContent(orientation, style, content) }
+    val movableContent = remember(buttonGroupContent) { movableContentOf(buttonGroupContent) }
     when (orientation) {
         ButtonGroupOrientation.Vertical -> Column(
             modifier = modifier,
             verticalArrangement = Arrangement.spacedBy(style.dimensions.spacing),
         ) {
-            ButtonGroupContent(orientation, style, content)
+            movableContent.invoke()
         }
 
         ButtonGroupOrientation.Horizontal -> Row(
             modifier = modifier,
             horizontalArrangement = Arrangement.spacedBy(style.dimensions.spacing),
         ) {
-            ButtonGroupContent(orientation, style, content)
+            movableContent.invoke()
         }
     }
 }
