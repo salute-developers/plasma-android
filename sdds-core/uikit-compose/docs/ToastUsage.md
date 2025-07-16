@@ -57,7 +57,7 @@ ToastStyle.builder()
         contentStartColor(Color.LightGray)
         contentEndColor(Color.LightGray)
     }
-.style()
+    .style()
 ```
 
 ## OverlayManager

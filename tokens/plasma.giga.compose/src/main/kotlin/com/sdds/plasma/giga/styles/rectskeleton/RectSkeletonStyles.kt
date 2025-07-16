@@ -53,4 +53,4 @@ private val RectSkeletonStyleBuilder.invariantProps: RectSkeletonStyleBuilder
     @Composable
     get() = this
         .shape(PlasmaGigaTheme.shapes.roundM)
-        .duration(1000.0.toInt())
+        .duration(5000.0.toInt())

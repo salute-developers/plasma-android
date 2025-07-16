@@ -21,6 +21,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.bottomsheet.SddsServBot
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServIconButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.card.SddsServCardClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.card.SddsServCardSolidVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.cell.compose.SddsServCellVariationsCompose
@@ -293,6 +295,14 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Image,
                 SddsServImageVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                SddsServBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                SddsServIconButtonGroupVariationsCompose,
             ),
         ).associateBy { it.key }
 }

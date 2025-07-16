@@ -70,7 +70,7 @@ DropdownMenuStyle.builder()
         backgroundColor(SolidColor(Color.LightGray))
         strokeColor(SolidColor(Color.Black))
     }
-.style()
+    .style()
 ```
 
 ## TriggerInfo

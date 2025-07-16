@@ -18,25 +18,19 @@ CircularProgressBar(
 
 ```kotlin
 CircularProgressBarStyle.builder()
- .colors {
-    indicatorColor(
-        SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue(),
-    )
-    trackColor(
-        SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
-    )
-    valueColor(
-        SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue(),
-    )
-.valueStyle(SddsServTheme.typography.headerH2Bold)
-.dimensions {
-    width(128.0.dp)
-    height(128.0.dp)
-    trackThickness(4.0.dp)
-    progressThickness(4.0.dp)
-}
-.style()
-}
+    .colors {
+        indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue())
+        trackColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+        valueColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+    }
+    .valueStyle(SddsServTheme.typography.headerH2Bold)
+    .dimensions {
+        width(128.0.dp)
+        height(128.0.dp)
+        trackThickness(4.0.dp)
+        progressThickness(4.0.dp)
+    }
+    .style()
 ```
 
 ## CircularProgressBar value и valueSuffix

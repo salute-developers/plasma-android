@@ -20,19 +20,19 @@
 
 ```kotlin
 ProgressBarStyle.builder()
-.colorValues {
-    backgroundColor(
-        SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-    )
-    indicatorColor(
-        SddsServTheme.colors.surfaceDefaultPositive.asInteractive(),
-    )
-}
-.indicatorShape(CircleShape)
-.backgroundShape(CircleShape)
-.dimensionValues {
-    indicatorHeight(4.0.dp)
-    backgroundHeight(4.0.dp)
-.style()
+    .colorValues {
+        backgroundColor(
+            SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
+        )
+        indicatorColor(
+            SddsServTheme.colors.surfaceDefaultPositive.asInteractive(),
+        )
+    }
+    .indicatorShape(CircleShape)
+    .backgroundShape(CircleShape)
+    .dimensionValues {
+        indicatorHeight(4.0.dp)
+        backgroundHeight(4.0.dp)
+    .style()
 }
 ```

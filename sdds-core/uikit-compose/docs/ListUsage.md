@@ -35,7 +35,7 @@ List(
 ```kotlin
 ListStyle.builder()
     .listItemStyle(ListItem.M.style())
-.style()
+    .style()
 ```
 
 ## ListItem
