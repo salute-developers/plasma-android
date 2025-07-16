@@ -29,6 +29,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.ButtonDimensions
 import com.sdds.compose.uikit.ButtonSpacing
@@ -74,6 +75,7 @@ internal fun BaseButton(
                 role = Role.Button,
                 interactionSource = interactionSource,
             )
+            .zIndex(if (isFocused.value) 1f else 0f)
             .padding(dimensions.paddingStart, 0.dp, dimensions.paddingEnd, 0.dp),
         contentAlignment = Alignment.Center,
     ) {

@@ -1,11 +1,14 @@
 package com.sdds.playground.sandbox.buttongroup.compose
 
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonGroup
@@ -36,13 +39,15 @@ internal fun ButtonGroupScreen(componentKey: ComponentKey = ComponentKey.ButtonG
                 ButtonGroupOrientation.Vertical -> Modifier.verticalScroll(rememberScrollState())
                 ButtonGroupOrientation.Horizontal -> Modifier.horizontalScroll(rememberScrollState())
             }
-            ButtonGroup(
-                style = style,
-                modifier = scrollModifier,
-                orientation = btnGroupUiState.orientation,
-            ) {
-                repeat(btnGroupUiState.amount) {
-                    buttonContent(componentKey)
+            Box(modifier = scrollModifier) {
+                ButtonGroup(
+                    style = style,
+                    modifier = Modifier.padding(12.dp),
+                    orientation = btnGroupUiState.orientation,
+                ) {
+                    repeat(btnGroupUiState.amount) {
+                        buttonContent(componentKey)
+                    }
                 }
             }
         },

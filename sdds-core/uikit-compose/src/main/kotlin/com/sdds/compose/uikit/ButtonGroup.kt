@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
  *
  * @param modifier модификатор
  * @param orientation ориентация группы
- * @param style тсиль компонента
+ * @param style стиль компонента
  * @param content контент группы
  */
 @Composable
