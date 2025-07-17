@@ -1,7 +1,11 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.componentsName
 import utils.componentsVersion
+import utils.themeAlias
+import utils.themeName
+import utils.themeResPrefix
 import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -16,12 +20,12 @@ plugins {
 
 android {
     namespace = "com.sdds.serv"
-    resourcePrefix = "serv"
+    resourcePrefix = themeResPrefix
 }
 
 themeBuilder {
-    themeSource(name = "sdds_serv", version = themeVersion, alias = "Sdds")
-    componentSource(name = "sdds_serv", version = componentsVersion, alias = "Sdds")
+    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
+    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
     view{
         themeParents {
             materialComponentsTheme()
