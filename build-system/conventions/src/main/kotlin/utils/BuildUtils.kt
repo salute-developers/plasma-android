@@ -1,8 +1,10 @@
 package utils
 
+import com.android.build.gradle.LibraryExtension
 import org.gradle.accessors.dm.LibrariesForLibs
 import java.io.File
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.the
 
 /**
@@ -32,6 +34,15 @@ inline fun Project.withVersionCatalogs(block: LibrariesForLibs.() -> Unit) {
 }
 
 /**
+ * Возвращает делегат для доступа к каталогу версий
+ */
+fun Project.getVersionCatalog(): LibrariesForLibs? {
+    return if (name != "gradle-kotlin-dsl-accessors") {
+         the<LibrariesForLibs>()
+    } else null
+}
+
+/**
  * Производит поиск свойства [propertyName] во всех файла gradle.properties,
  * если не находит - возвращает [default]
  */
@@ -55,3 +66,10 @@ fun Project.isAndroidLib(): Boolean =
     the<LibrariesForLibs>().let { libs ->
         plugins.hasPlugin(libs.plugins.android.lib.get().pluginId)
     }
+
+/**
+ * Возвращает true, если текущий проект - проект с плагином "com.android.lib",
+ * иначе false
+ */
+fun Project.isComposeLib(): Boolean =
+    extensions.findByType<LibraryExtension>()?.buildFeatures?.compose ?: false
