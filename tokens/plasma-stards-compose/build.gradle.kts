@@ -1,6 +1,9 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import utils.componentsName
 import utils.componentsVersion
+import utils.themeAlias
+import utils.themeResPrefix
 import utils.themeUrl
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -13,22 +16,23 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
     id("star-dimens-generator")
+    id("convention.docusaurus")
 }
 
 android {
     namespace = "com.sdkit.star.designsystem.compose"
-    resourcePrefix = "sdkit_cmp"
+    resourcePrefix = themeResPrefix
 }
 
 themeBuilder {
     themeSource {
         url(themeUrl)
-        name("StarDs")
+        name(themeAlias)
     }
-    componentSource(name = "plasma_stards", componentsVersion, "StarDs")
+    componentSource(name = componentsName, componentsVersion, themeAlias)
     compose()
     ktPackage("com.sdkit.star.designsystem")
-    resourcesPrefix(prefix = "sdkit_cmp")
+    resourcesPrefix(prefix = themeResPrefix)
     outputLocation(OutputLocation.SRC)
     autoGenerate(false)
     mode(ThemeBuilderMode.THEME)

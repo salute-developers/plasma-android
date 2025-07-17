@@ -2,11 +2,21 @@ import org.jetbrains.dokka.DokkaConfiguration
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
 import org.jetbrains.dokka.gradle.DokkaTask
+import tasks.s3.S3DeleteTask
+import tasks.s3.S3UploadTask
+import tasks.s3.getS3AccessKeyId
+import tasks.s3.getS3Bucket
+import tasks.s3.getS3Endpoint
+import tasks.s3.getS3Region
+import tasks.s3.getS3SecretAccessKey
+import utils.docsBaseUrl
 import utils.withVersionCatalogs
 
 withVersionCatalogs {
     apply(plugin = plugins.dokka.get().pluginId)
 }
+
+val outputDokkaDir = buildDir.resolve("dokka")
 
 tasks.withType<DokkaTask>().configureEach {
     pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
@@ -26,5 +36,31 @@ tasks.withType<DokkaTask>().configureEach {
             suppressInheritedMembers.set(true)
         }
     }
-    outputDirectory.set(buildDir.resolve("dokka"))
+    outputDirectory.set(outputDokkaDir)
+}
+
+tasks.register<S3UploadTask>("dokkaDeploy") {
+    group = "documentation"
+    description = "Разворачивает документацию dokka на удаленном сервере"
+
+    accessKeyId.set(getS3AccessKeyId())
+    secretAccessKey.set(getS3SecretAccessKey())
+    endpoint.set(getS3Endpoint())
+    region.set(getS3Region())
+    bucket.set(getS3Bucket())
+    sourceFiles.set(outputDokkaDir)
+    destinationPath.set(docsBaseUrl)
+}
+
+tasks.register<S3DeleteTask>("dokkaClean") {
+    group = "documentation"
+    description = "Очищает документацию dokka на удаленном сервере"
+
+    accessKeyId.set(getS3AccessKeyId())
+    secretAccessKey.set(getS3SecretAccessKey())
+    endpoint.set(getS3Endpoint())
+    region.set(getS3Region())
+    bucket.set(getS3Bucket())
+
+    deletePath.set(docsBaseUrl)
 }

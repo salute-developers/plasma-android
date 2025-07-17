@@ -16,6 +16,15 @@ buildscript {
         classpath(libs.base.dokka.graddle)
         classpath(libs.base.dokka.analysis)
     }
+
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(libs.versions.global.kotlin.get())
+                because("Avoid NoSuchMethodError in Kotlin Daemon due to version mismatch")
+            }
+        }
+    }
 }
 
 allprojects {

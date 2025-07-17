@@ -1,7 +1,11 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import utils.componentsName
 import utils.componentsVersion
+import utils.themeAlias
+import utils.themeName
+import utils.themeResPrefix
 import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -16,12 +20,12 @@ plugins {
 
 android {
     namespace = "com.sdds.plasma.sd.service"
-    resourcePrefix = "plasma"
+    resourcePrefix = themeResPrefix
 }
 
 themeBuilder {
-    themeSource(name = "plasma_b2c", version = themeVersion, alias = "SdService")
-    componentSource(name = "plasma_b2c", version = componentsVersion, alias = "SdService")
+    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
+    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
     view {
         themeParents {
             materialComponentsTheme()
