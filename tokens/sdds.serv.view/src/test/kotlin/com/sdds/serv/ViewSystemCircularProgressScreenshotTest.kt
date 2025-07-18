@@ -5,14 +5,16 @@ import com.sdds.testing.vs.SDK_NUMBER
 import com.sdds.testing.vs.progress.CircularProgressTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Television1080p)
-class ViewSystemCircularProgressScreenshotTest : CircularProgressTestCases("+night") {
+@Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
+class ViewSystemCircularProgressScreenshotTest(
+    theme: String,
+) : CircularProgressTestCases(theme) {
 
     @Test
     override fun testCircularProgressXxlDefault() {
