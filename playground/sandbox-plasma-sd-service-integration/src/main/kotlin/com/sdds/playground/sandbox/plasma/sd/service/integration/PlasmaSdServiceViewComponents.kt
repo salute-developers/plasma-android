@@ -45,6 +45,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.
 import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.spinner.PlasmaSdServiceSpinnerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsView
@@ -228,6 +229,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Switch,
                 PlasmaSdServiceSwitchVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Spinner,
+                PlasmaSdServiceSpinnerVariationsView,
             ),
             ViewComponent(
                 ComponentKey.TextField,

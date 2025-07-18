@@ -82,7 +82,7 @@ import com.sdds.playground.sandbox.scrollbar.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
-import com.sdds.playground.sandbox.spinner.SpinnerScreen
+import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview

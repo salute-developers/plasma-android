@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Spinner" parent="Sdds.Components.Spinner">
+        <item name="sd_sweepAngle">360</item>
+        <item name="sd_strokeCap">round</item>
+        <item name="sd_startColor">@color/serv_spinner_start_color</item>
+        <item name="sd_endColor">@color/serv_spinner_end_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.SpinnerColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl">
+        <item name="android:minWidth">@dimen/serv_spinner_xxl_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_xxl_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_xxl_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xxl_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_xxl_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxl">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxl.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxlInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxl.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl">
+        <item name="android:minWidth">@dimen/serv_spinner_xl_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_xl_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_xl_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xl_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_xl_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXl">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xl.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXlInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xl.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L">
+        <item name="android:minWidth">@dimen/serv_spinner_l_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_l_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_l_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_l_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_l_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerL">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.L.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerLInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.L.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M">
+        <item name="android:minWidth">@dimen/serv_spinner_m_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_m_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_m_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_m_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_m_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerM">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.M.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerMInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S">
+        <item name="android:minWidth">@dimen/serv_spinner_s_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_s_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_s_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_s_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_s_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerS">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.S.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerSInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.S.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs">
+        <item name="android:minWidth">@dimen/serv_spinner_xs_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_xs_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_xs_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xs_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_xs_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXs">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xs.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXsInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xs.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs">
+        <item name="android:minWidth">@dimen/serv_spinner_xxs_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_xxs_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_xxs_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_xxs_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_xxs_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxs">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsPositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Xxs.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerXxsInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Xxs.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable">
+        <item name="android:minWidth">@dimen/serv_spinner_scalable_min_width</item>
+        <item name="android:maxWidth">@dimen/serv_spinner_scalable_max_width</item>
+        <item name="android:minHeight">@dimen/serv_spinner_scalable_min_height</item>
+        <item name="android:maxHeight">@dimen/serv_spinner_scalable_max_height</item>
+        <item name="android:padding">@dimen/serv_spinner_scalable_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalable">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Default">
+        <item name="serv_spinnerColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalableDefault">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Secondary">
+        <item name="serv_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalableSecondary">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Accent">
+        <item name="serv_spinnerColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalableAccent">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Positive">
+        <item name="serv_spinnerColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalablePositive">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Negative">
+        <item name="serv_spinnerColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalableNegative">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Warning">
+        <item name="serv_spinnerColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalableWarning">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Spinner.Scalable.Info">
+        <item name="serv_spinnerColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SpinnerScalableInfo">
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.Scalable.Info</item>
+    </style>
+</resources>

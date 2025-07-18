@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Spinner" parent="Sdds.Components.Spinner">
+        <item name="sd_sweepAngle">360</item>
+        <item name="sd_strokeCap">round</item>
+        <item name="sd_startColor">@color/plasma_spinner_start_color</item>
+        <item name="sd_endColor">@color/plasma_spinner_end_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.SpinnerColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl">
+        <item name="android:minWidth">@dimen/plasma_spinner_xxl_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_xxl_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_xxl_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_xxl_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_xxl_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxl">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxl.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxlInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxl.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl">
+        <item name="android:minWidth">@dimen/plasma_spinner_xl_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_xl_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_xl_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_xl_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_xl_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXl">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xl.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXlInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xl.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L">
+        <item name="android:minWidth">@dimen/plasma_spinner_l_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_l_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_l_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_l_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_l_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerL">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.L.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerLInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.L.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M">
+        <item name="android:minWidth">@dimen/plasma_spinner_m_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_m_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_m_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_m_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_m_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerM">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.M.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerMInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S">
+        <item name="android:minWidth">@dimen/plasma_spinner_s_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_s_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_s_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_s_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_s_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerS">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.S.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerSInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.S.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs">
+        <item name="android:minWidth">@dimen/plasma_spinner_xs_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_xs_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_xs_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_xs_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_xs_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXs">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xs.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXsInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xs.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs">
+        <item name="android:minWidth">@dimen/plasma_spinner_xxs_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_xxs_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_xxs_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_xxs_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_xxs_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxs">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsPositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Xxs.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerXxsInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Xxs.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable">
+        <item name="android:minWidth">@dimen/plasma_spinner_scalable_min_width</item>
+        <item name="android:maxWidth">@dimen/plasma_spinner_scalable_max_width</item>
+        <item name="android:minHeight">@dimen/plasma_spinner_scalable_min_height</item>
+        <item name="android:maxHeight">@dimen/plasma_spinner_scalable_max_height</item>
+        <item name="android:padding">@dimen/plasma_spinner_scalable_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalable">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Default">
+        <item name="plasma_spinnerColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalableDefault">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Secondary">
+        <item name="plasma_spinnerColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalableSecondary">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Accent">
+        <item name="plasma_spinnerColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalableAccent">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Positive">
+        <item name="plasma_spinnerColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalablePositive">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Negative">
+        <item name="plasma_spinnerColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalableNegative">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Warning">
+        <item name="plasma_spinnerColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalableWarning">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Spinner.Scalable.Info">
+        <item name="plasma_spinnerColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.SpinnerScalableInfo">
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.Scalable.Info</item>
+    </style>
+</resources>
