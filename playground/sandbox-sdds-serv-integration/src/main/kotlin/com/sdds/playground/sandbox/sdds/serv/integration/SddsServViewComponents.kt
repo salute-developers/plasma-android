@@ -45,6 +45,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServ
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
@@ -231,6 +232,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Switch,
                 SddsServSwitchVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Spinner,
+                SddsServSpinnerVariationsView,
             ),
             ViewComponent(
                 ComponentKey.TextField,

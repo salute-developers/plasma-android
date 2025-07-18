@@ -16,6 +16,7 @@
     <item type="id" name="indicator"/>
     <item type="id" name="progressBar"/>
     <item type="id" name="switcher"/>
+    <item type="id" name="spinner"/>
     <item type="id" name="textField"/>
     <item type="id" name="avatar"/>
     <item type="id" name="avatar_group"/>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_surfaceDefaultSolidDefault" app:sdkit_spinner_state_default="true"/>
+    <item android:alpha="0.32" android:color="?sdkit_surfaceDefaultSolidDefault" app:sdkit_spinner_state_secondary="true"/>
+    <item android:color="?sdkit_surfaceDefaultAccentMain" app:sdkit_spinner_state_accent="true"/>
+    <item android:color="?sdkit_surfaceDefaultPositive" app:sdkit_spinner_state_positive="true"/>
+    <item android:color="?sdkit_surfaceDefaultNegative" app:sdkit_spinner_state_negative="true"/>
+    <item android:color="?sdkit_surfaceDefaultWarning" app:sdkit_spinner_state_warning="true"/>
+    <item android:color="?sdkit_surfaceDefaultInfo" app:sdkit_spinner_state_info="true"/>
+</selector>

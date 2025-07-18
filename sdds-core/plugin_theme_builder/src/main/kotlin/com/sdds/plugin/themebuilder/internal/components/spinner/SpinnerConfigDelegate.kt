@@ -3,9 +3,11 @@ package com.sdds.plugin.themebuilder.internal.components.spinner
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.spinner.compose.SpinnerComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.spinner.view.SpinnerStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
@@ -19,7 +21,17 @@ internal class SpinnerConfigDelegate : ComponentConfigDelegate<SpinnerConfig>() 
     override fun createViewGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ) = null
+    ): ComponentStyleGenerator<SpinnerConfig>? {
+        return SpinnerStyleGeneratorView(
+            xmlBuilderFactory = deps.xmlBuilderFactory,
+            resourceReferenceProvider = deps.resourceReferenceProvider,
+            dimensAggregator = deps.dimensAggregator,
+            outputResDir = deps.outputResDir,
+            resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+        )
+    }
 
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,
