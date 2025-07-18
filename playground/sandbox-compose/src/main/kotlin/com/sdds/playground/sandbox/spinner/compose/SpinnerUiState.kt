@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.spinner
+package com.sdds.playground.sandbox.spinner.compose
 
 import com.sdds.playground.sandbox.core.compose.UiState
 

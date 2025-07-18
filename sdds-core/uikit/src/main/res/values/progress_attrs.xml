@@ -3,13 +3,6 @@
 
     <attr name="sd_circularProgressBarStyle" format="reference"/>
 
-    <declare-styleable name="Spinner" tools:ignore="ResourceName">
-        <attr name="android:tint" />
-        <attr name="sd_strokeWidth" />
-        <attr name="android:maxHeight" />
-        <attr name="android:maxWidth" />
-    </declare-styleable>
-
     <declare-styleable name="ProgressBar" tools:ignore="ResourceName">
         <!-- Текущий прогресс -->
         <attr name="sd_progress" format="float" />

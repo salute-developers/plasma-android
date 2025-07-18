@@ -36,6 +36,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadi
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
@@ -197,6 +198,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Image,
                 StarDsImageVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Spinner,
+                StarDsSpinnerVariationsView,
             ),
         ).associateBy { it.key }
 }

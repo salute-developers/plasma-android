@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.spinner
+package com.sdds.playground.sandbox.spinner.compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
