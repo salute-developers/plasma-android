@@ -68,7 +68,7 @@ fun Project.isAndroidLib(): Boolean =
     }
 
 /**
- * Возвращает true, если текущий проект - проект с плагином "com.android.lib",
+ * Возвращает true, если текущий проект - проект с плагином "com.android.lib" и с включенным buildFeatures.compose,
  * иначе false
  */
 fun Project.isComposeLib(): Boolean =

@@ -1,0 +1,76 @@
+name: 'Deploy Docs on PR'
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+      - main
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect_changes:
+    name: Detect changes
+    uses: ./.github/workflows/detect-changes.yml
+
+  deploy_tokens:
+    name: Deploy tokens docs
+    needs: detect_changes
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed_tokens)) != '' }}
+    uses: ./.github/workflows/deploy-token-docs-common.yml
+    secrets: inherit
+    with:
+      modules: ${{ needs.detect_changes.outputs.changed_tokens }}
+      ref: ${{ github.head_ref }}
+
+  deploy_uikit:
+    name: Deploy uikit docs
+    needs: detect_changes
+    # Запускаем деплой uikit только, если будет деплоится документация токенов
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed_tokens)) != '' }}
+    uses: ./.github/workflows/deploy-dokka-common.yml
+    secrets: inherit
+    with:
+      modules: '[":sdds-core:uikit", ":sdds-core:uikit-compose"]'
+      ref: ${{ github.head_ref }}
+
+  create_comment:
+    name: Attach deploy summary comment
+    needs: [deploy_uikit, deploy_tokens]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Download all deploy results
+        uses: actions/download-artifact@v4
+        with:
+          path: deploy-results
+
+      - name: Collect deploy URLs and generate summary
+        id: collect_summary
+        shell: bash
+        run: |
+          echo "📘Артефакты документации опубликованы:" >> $GITHUB_STEP_SUMMARY
+          if [ ! -d deploy-results ]; then
+            echo "No deploy results found." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+          find deploy-results -name deploy.json | while read path; do
+            module=$(basename "$(dirname "$path")" | sed 's/^docusaurus-//' | sed 's/^dokka-//' | sed 's/-result$//' | sed 's|/|:|g')
+            url=$(jq -r '.deployUrl' "$path")
+            echo "- [$module]($url)" >> $GITHUB_STEP_SUMMARY
+          done
+          cp $GITHUB_STEP_SUMMARY docs-summary.md
+
+      - name: Attach comment
+        if: success() && hashFiles('docs-summary.md') != ''
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: docs
+          path: docs-summary.md
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

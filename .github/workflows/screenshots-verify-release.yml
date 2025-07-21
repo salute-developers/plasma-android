@@ -21,22 +21,20 @@ jobs:
   test:
     runs-on: macos-latest
     needs: detect_changes
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed_tokens)) != '' }}
     strategy:
       fail-fast: false
       matrix:
-        module: ${{ fromJson(needs.detect_changes.output.changed_tokens || '["__skip__"]') }}
+        module: ${{ fromJson(needs.detect_changes.outputs.changed_tokens) }}
     steps:
       - name: Checkout the code
-        if: ${{ matrix.module != '__skip__'}}
         uses: actions/checkout@v4
 
       - name: Prepare environment
-        if: ${{ matrix.module != '__skip__'}}
         uses: ./.github/actions/prepare-android-env
 
       - name: Get module dir
         id: module_dir
-        if: ${{ matrix.module != '__skip__'}}
         run: |
           module="${{ matrix.module }}"
           module="${module#:}"
@@ -45,28 +43,26 @@ jobs:
 
       - name: verify screenshots
         id: verify-test
-        if: ${{ matrix.module != '__skip__'}}
         run: |
           # If there is a difference between the screenshots, the test will fail.
           ./gradlew ${{ matrix.module }}:verifyRoborazziRelease --stacktrace
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && matrix.module != '__skip__' }}
-
+        if: always()
         with:
           name: screenshot-diff-compose
           path: tokens/${{ steps.module_dir.outputs.dir }}/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && matrix.module != '__skip__' }}
+        if: always()
         with:
           name: screenshot-diff-reports-compose
           path: tokens/${{ steps.module_dir.outputs.dir }}/build/reports
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && matrix.module != '__skip__' }}
+        if: always()
         with:
           name: screenshot-diff-test-results-compose
           path: tokens/${{ steps.module_dir.outputs.dir }}/build/test-results

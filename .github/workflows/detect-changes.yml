@@ -2,6 +2,13 @@ name: 'Detect changes'
 
 on:
   workflow_call:
+    outputs:
+      changed:
+        description: 'All changed modules'
+        value: ${{ jobs.state.outputs.changed }}
+      changed_tokens:
+        description: 'Changed token modules only'
+        value: ${{ jobs.state.outputs.changed_tokens }}
 
 jobs:
   state:
@@ -32,6 +39,7 @@ jobs:
           MODULES='${{ steps.changed_modules.outputs.modules }}'
           MODULES_JSON=$(echo "$MODULES" | tr ' ' '\n' | jq -R . | jq -s)
           TOKENS_JSON=$(echo "$MODULES_JSON" | jq '[.[] | select(startswith(":tokens:"))]')
-
-          echo "all=$(echo "MODULES_JSON" | jq -c .)" >> $GITHUB_OUTPUT
+          echo "Tokens $TOKENS_JSON"
+          echo "All $MODULES_JSON"
+          echo "all=$(echo "$MODULES_JSON" | jq -c .)" >> $GITHUB_OUTPUT
           echo "tokens=$(echo "$TOKENS_JSON" | jq -c .)" >> $GITHUB_OUTPUT

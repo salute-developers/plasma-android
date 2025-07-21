@@ -2,7 +2,8 @@ import org.jetbrains.dokka.DokkaConfiguration
 import org.jetbrains.dokka.base.DokkaBase
 import org.jetbrains.dokka.base.DokkaBaseConfiguration
 import org.jetbrains.dokka.gradle.DokkaTask
-import tasks.s3.S3DeleteTask
+import org.jetbrains.kotlin.com.google.gson.GsonBuilder
+import org.jetbrains.kotlin.com.google.gson.JsonObject
 import tasks.s3.S3UploadTask
 import tasks.s3.getS3AccessKeyId
 import tasks.s3.getS3Bucket
@@ -10,6 +11,7 @@ import tasks.s3.getS3Endpoint
 import tasks.s3.getS3Region
 import tasks.s3.getS3SecretAccessKey
 import utils.docsBaseUrl
+import utils.docsUrl
 import utils.withVersionCatalogs
 
 withVersionCatalogs {
@@ -42,6 +44,7 @@ tasks.withType<DokkaTask>().configureEach {
 tasks.register<S3UploadTask>("dokkaDeploy") {
     group = "documentation"
     description = "Разворачивает документацию dokka на удаленном сервере"
+    dependsOn(tasks.named("dokkaHtml"))
 
     accessKeyId.set(getS3AccessKeyId())
     secretAccessKey.set(getS3SecretAccessKey())
@@ -50,17 +53,15 @@ tasks.register<S3UploadTask>("dokkaDeploy") {
     bucket.set(getS3Bucket())
     sourceFiles.set(outputDokkaDir)
     destinationPath.set(docsBaseUrl)
-}
 
-tasks.register<S3DeleteTask>("dokkaClean") {
-    group = "documentation"
-    description = "Очищает документацию dokka на удаленном сервере"
-
-    accessKeyId.set(getS3AccessKeyId())
-    secretAccessKey.set(getS3SecretAccessKey())
-    endpoint.set(getS3Endpoint())
-    region.set(getS3Region())
-    bucket.set(getS3Bucket())
-
-    deletePath.set(docsBaseUrl)
+    doLast {
+        val jsonFile = buildDir
+            .resolve("dokkaInfo")
+            .also { it.mkdirs() }
+            .resolve("deploy.json")
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        val json = JsonObject()
+        json.addProperty("deployUrl", "$docsUrl$docsBaseUrl")
+        jsonFile.writeText(gson.toJson(json))
+    }
 }
