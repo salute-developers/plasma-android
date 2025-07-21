@@ -100,4 +100,4 @@ UNIQUE_MODULES=$(printf "%s\n" "${MODULES_SET[@]:-}" | sort -u | xargs)
 echo "✅ Final module list: $UNIQUE_MODULES"
 
 # Output for GitHub Actions
-#echo "modules=$UNIQUE_MODULES" >> "$GITHUB_OUTPUT"
+echo "modules=$UNIQUE_MODULES" >> "$GITHUB_OUTPUT"

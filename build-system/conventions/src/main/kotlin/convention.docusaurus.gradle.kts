@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonObject
-import tasks.s3.S3DeleteTask
 import tasks.s3.S3UploadTask
 import tasks.s3.getS3AccessKeyId
 import tasks.s3.getS3Bucket
@@ -130,16 +129,14 @@ tasks.register<S3UploadTask>("docusaurusDeploy") {
     bucket.set(getS3Bucket())
     sourceFiles.set(docusaurusBuildDir)
     destinationPath.set(docsBaseUrl)
-}
 
-tasks.register<S3DeleteTask>("docusaurusClean") {
-    group = "documentation"
-    description = "Очищает документацию Docusaurus на удаленном сервере"
-
-    accessKeyId.set(getS3AccessKeyId())
-    secretAccessKey.set(getS3SecretAccessKey())
-    endpoint.set(getS3Endpoint())
-    region.set(getS3Region())
-    bucket.set(getS3Bucket())
-    deletePath.set(docsBaseUrl)
+    doLast {
+        val jsonFile = docusaurusDestinationDir
+            .also { it.mkdirs() }
+            .resolve("deploy.json")
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        val json = JsonObject()
+        json.addProperty("deployUrl", "$docsUrl$docsBaseUrl")
+        jsonFile.writeText(gson.toJson(json))
+    }
 }

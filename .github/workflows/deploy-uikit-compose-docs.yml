@@ -1,0 +1,42 @@
+name: 'Deploy sdds-uikit-compose docs'
+
+on:
+  repository_dispatch:
+    types: [publish-uikit]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тэг для релиза"
+        required: true
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  state:
+    name: Prepare state
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.prepare.outputs.ref }}
+    steps:
+      - name: Prepare modules
+        id: prepare
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            echo "Using ref from repository_dispatch event"
+            echo "ref=${{ github.event.client_payload.tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "Using ref from workflow_dispatch input"
+            echo "ref=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          
+
+  deploy:
+    name: Deploy docs
+    needs: state
+    uses: ./.github/workflows/deploy-dokka-common.yml
+    secrets: inherit
+    with:
+      modules: '[":sdds-core:uikit-compose"]'
+      ref: ${{ needs.state.outputs.ref }}

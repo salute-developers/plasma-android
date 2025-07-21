@@ -15,7 +15,9 @@ plugins {
     id("convention.maven-publish")
     id("convention.auto-bump")
     id("convention.testing")
-    alias(libs.plugins.roborazzi)}
+    alias(libs.plugins.roborazzi)
+    id("convention.docusaurus")
+}
 
 android {
     namespace = "com.sdds.stylessalute"

@@ -55,7 +55,6 @@ abstract class S3BaseTask : DefaultTask() {
             *getConfig(),
             *getCommands(),
         )
-        println("executing ${args.joinToString()}")
         project.exec {
             commandLine(*args)
         }
