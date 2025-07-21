@@ -16,6 +16,7 @@ plugins {
     id("convention.auto-bump")
     id("convention.testing")
     alias(libs.plugins.roborazzi)
+    id("convention.docusaurus")
 }
 
 android {
