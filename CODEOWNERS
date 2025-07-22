@@ -2,7 +2,4 @@
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
-* @malilex @raininforest
-
-.github/* @Yakutoc @malilex @raininforest
-*.gradle.kts @Yakutoc @malilex @raininforest
+* @malilex @raininforest @SerraMorec @angirb
