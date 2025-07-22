@@ -56,6 +56,14 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.spinner.PlasmaSdServiceSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarHasLabelClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarHasLabelSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarIslandClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarIslandHasLabelClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarIslandHasLabelSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarIslandSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.tabbar.PlasmaSdServiceTabBarSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear.PlasmaSdServiceTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsCompose
@@ -303,6 +311,38 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
                 PlasmaSdServiceIconButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarSolid", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarClear", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandSolid", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarIslandSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandClear", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarIslandClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarHasLabelSolid", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarHasLabelSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarHasLabelClear", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandHasLabelSolid", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarIslandHasLabelSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
+                PlasmaSdServiceTabBarIslandHasLabelClearVariationsCompose,
             ),
         ).associateBy { it.key }
 }

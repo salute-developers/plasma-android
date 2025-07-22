@@ -30,12 +30,6 @@ internal class RadioBoxGroupViewModel(
         return internalUiState.value.current == id
     }
 
-    private fun updateVariant(variant: String) {
-        internalUiState.value = internalUiState.value.copy(
-            variant = variant,
-        )
-    }
-
     private fun updateLabel(label: String) {
         internalUiState.value = internalUiState.value.copy(
             items = internalUiState.value.items.map { item ->

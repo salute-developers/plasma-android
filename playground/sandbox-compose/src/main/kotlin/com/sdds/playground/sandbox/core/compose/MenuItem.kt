@@ -34,6 +34,7 @@ import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.ToastStyle
@@ -84,6 +85,8 @@ import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
+import com.sdds.playground.sandbox.tabbar.compose.TabBarPreview
+import com.sdds.playground.sandbox.tabbar.compose.TabBarScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
@@ -253,6 +256,10 @@ internal sealed class ComponentScreen(
         { ButtonGroupScreen(it) },
         { style, key -> ButtonGroupPreview(style as ButtonGroupStyle, key) },
     )
+    object TabBar : ComponentScreen(
+        { TabBarScreen(it) },
+        { style, _ -> TabBarPreview(style as TabBarStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -300,6 +307,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
         CoreComponent.IMAGE -> ComponentScreen.Image
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
+        CoreComponent.TAB_BAR -> ComponentScreen.TabBar
         else -> ComponentScreen.Empty
     }
 }
