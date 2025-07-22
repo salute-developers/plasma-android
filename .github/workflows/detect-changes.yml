@@ -1,0 +1,37 @@
+name: 'Detect changes'
+
+on:
+  workflow_call:
+
+jobs:
+  state:
+    name: Prepare state
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.filtered_modules.outputs.all }}
+      changed_tokens: ${{ steps.filtered_modules.outputs.tokens }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+
+      - name: Ensure base branch exists locally
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}    
+
+      - name: Determine changed modules
+        id: changed_modules
+        run: |
+          .github/scripts/changed-modules.sh "${{ github.event.pull_request.base.ref }}"
+
+      - name: Filter modules
+        id: filtered_modules
+        run: |
+          MODULES='${{ steps.changed_modules.outputs.modules }}'
+          MODULES_JSON=$(echo "$MODULES" | tr ' ' '\n' | jq -R . | jq -s)
+          TOKENS_JSON=$(echo "$MODULES_JSON" | jq '[.[] | select(startswith(":tokens:"))]')
+
+          echo "all=$(echo "MODULES_JSON" | jq -c .)" >> $GITHUB_OUTPUT
+          echo "tokens=$(echo "$TOKENS_JSON" | jq -c .)" >> $GITHUB_OUTPUT
