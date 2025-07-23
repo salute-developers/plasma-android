@@ -21,7 +21,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
@@ -175,7 +176,8 @@ private fun BoxScope.TabBarItemExtra(
     var size by remember { mutableStateOf(IntSize.Zero) }
     Box(
         modifier = Modifier
-            .onGloballyPositioned { size = it.size }
+            .onSizeChanged { size = it }
+            .graphicsLayer { alpha = if (size != IntSize.Zero) 1f else 0f }
             .align(Alignment.TopEnd)
             .offset {
                 IntOffset(
