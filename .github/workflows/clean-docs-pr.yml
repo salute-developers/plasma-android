@@ -19,15 +19,13 @@ jobs:
   clean:
     name: Clean up
     runs-on: ubuntu-latest
-    env:
-      PR_NAME: ${{ github.event.pull_request.head.ref.replace('/', '_') }}
     steps:
       - name: Extract and sanitize PR name
         id: extract
         run: |
-          RAW_REF="${{ github.event.pull_request.head.ref }}"
+          RAW_REF="${{ github.head_ref }}"
           SANITIZED_REF="${RAW_REF//\//_}"
-          echo "PR_NAME=$SANITIZED_REF" >> "$GITHUB_ENV"
+          echo "PR_NAME=$SANITIZED_REF" >> $GITHUB_ENV
 
       - name: Clean artifacts
         if: env.PR_NAME != ''
