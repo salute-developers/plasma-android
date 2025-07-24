@@ -42,9 +42,9 @@ Button(
 
 ```kotlin
 NotificationStyle.builder()
-    .shadow(SddsServTheme.shadows.downHardM)
-    .shape(SddsServTheme.shapes.roundM)
-    .textStyle(SddsServTheme.typography.bodyMNormal)
+    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
+    .shape({{ docs-theme-codeReference }}.shapes.roundM)
+    .textStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .dimensions {
         closeSize(16.0.dp)
         paddingStart(8.dp)

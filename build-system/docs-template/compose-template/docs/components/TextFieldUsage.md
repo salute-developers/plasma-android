@@ -32,67 +32,67 @@ TextField(
 TextFieldStyle.builder()
     .colors {
         captionColor(
-            SddsServTheme.colors.textDefaultWarning.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultWarning.asInteractive(
                 setOf(InteractiveState.Activated)
-                    to SddsServTheme.colors.textDefaultSecondary,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondary,
             ),
         )
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultTransparentWarning.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentWarning.asInteractive(
                 setOf(InteractiveState.Activated)
-                    to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary,
             ),
         )
         optionalColor(
-            SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultTertiary.asInteractive(),
         )
         valueColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
         )
         placeholderColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(
                 setOf(InteractiveState.Activated)
-                    to SddsServTheme.colors.textDefaultTertiary,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultTertiary,
             ),
         )
         indicatorColor(
-            SddsServTheme.colors.surfaceDefaultNegative.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultNegative.asInteractive(),
         )
         startContentColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         endContentColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(
                 setOf(InteractiveState.Pressed)
-                    to SddsServTheme.colors.textDefaultSecondaryActive,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondaryActive,
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textDefaultSecondaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondaryHover,
             ),
         )
         endContentColorReadOnly(
-            SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
         )
         captionColorReadOnly(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         counterColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         backgroundColorReadOnly(
-            SddsServTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
         )
         cursorColor(
-            SddsServTheme.colors.textDefaultAccent.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultAccent.asInteractive(),
         )
         prefixColor(
-            SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultTertiary.asInteractive(),
         )
         suffixColor(
-            SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultTertiary.asInteractive(),
         )
     }
     .singleLine(true)
-    .shape(SddsServTheme.shapes.roundS.adjustBy(all = 0.0.dp))
+    .shape({{ docs-theme-codeReference }}.shapes.roundS.adjustBy(all = 0.0.dp))
     .dimensions {
         optionalPadding(4.0.dp)
         helperTextPadding(4.0.dp)
@@ -108,14 +108,14 @@ TextFieldStyle.builder()
         startContentSize(16.0.dp)
         endContentSize(16.0.dp)
     }
-    .captionStyle(SddsServTheme.typography.bodyXsNormal)
-    .counterStyle(SddsServTheme.typography.bodyXsNormal)
+    .captionStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
+    .counterStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
     .captionPlacement(TextFieldHelperTextPlacement.Outer)
     .counterPlacement(TextFieldHelperTextPlacement.Outer)
-    .valueStyle(SddsServTheme.typography.bodyXsNormal)
-    .prefixStyle(SddsServTheme.typography.bodyXsNormal)
-    .suffixStyle(SddsServTheme.typography.bodyXsNormal)
-    .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
+    .valueStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
+    .prefixStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
+    .suffixStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
+    .placeholderStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
     .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
     .labelPlacement(TextFieldLabelPlacement.None)
     .style()

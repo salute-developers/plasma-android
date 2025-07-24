@@ -36,6 +36,8 @@ import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDel
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.tabbar.TabBarConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.tabbar.item.TabBarItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
@@ -93,5 +95,7 @@ internal val componentDelegates by unsafeLazy {
         "scroll-bar" to ScrollBarConfigDelegate(),
         "image" to ImageConfigDelegate(),
         "button-group" to ButtonGroupConfigDelegate(),
+        "tab-bar-item" to TabBarItemConfigDelegate(),
+        "tab-bar" to TabBarConfigDelegate(),
     )
 }

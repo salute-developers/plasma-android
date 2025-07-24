@@ -56,12 +56,12 @@ Card(
 CardStyle.builder()
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultSolidCard
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidCard
                 .asInteractive(),
         )
     }
-    .shape(SddsServTheme.shapes.roundL)
-    .contentShape(SddsServTheme.shapes.roundS)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL)
+    .contentShape({{ docs-theme-codeReference }}.shapes.roundS)
     .dimensions {
         paddingTop(12.0.dp)
         paddingBottom(12.0.dp)

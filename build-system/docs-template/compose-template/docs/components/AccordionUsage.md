@@ -29,13 +29,13 @@ Accordion(style = AccordionSolidActionStart.H3.style()) {
 AccordionItemStyle.builder()
     .iconPlacement(AccordionIconPlacement.End)
     .iconRotation(90.0f)
-    .shape(SddsServTheme.shapes.roundS)
-    .titleStyle(SddsServTheme.typography.bodyXsBold)
-    .contentTextStyle(SddsServTheme.typography.bodyXsNormal)
+    .shape({{ docs-theme-codeReference }}.shapes.roundS)
+    .titleStyle({{ docs-theme-codeReference }}.typography.bodyXsBold)
+    .contentTextStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
     .colors {
-        backgroundColor(SddsServTheme.colors.surfaceDefaultSolidCard.asInteractive())
-        titleColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-        contentTextColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+        backgroundColor({{ docs-theme-codeReference }}.colors.surfaceDefaultSolidCard.asInteractive())
+        titleColor({{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive())
+        contentTextColor({{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive())
     }
     .dimensions {
         contentPaddingStart(12.0.dp)

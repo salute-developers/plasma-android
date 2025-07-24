@@ -23,23 +23,23 @@ title: Counter
 CounterStyle.builder()
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefault.asInteractive(
                 setOf(InteractiveState.Pressed)
-                    to SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    to {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefaultActive,
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.surfaceOnDarkSolidDefaultHover,
+                    to {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefaultHover,
             ),
         )
         textColor(
-            SddsServTheme.colors.textOnLightPrimary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textOnLightPrimary.asInteractive(
                 setOf(InteractiveState.Pressed)
-                    to SddsServTheme.colors.textOnLightPrimaryActive,
+                    to {{ docs-theme-codeReference }}.colors.textOnLightPrimaryActive,
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textOnLightPrimaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textOnLightPrimaryHover,
             ),
         )
     }
-    .textStyle(SddsServTheme.typography.bodySNormal)
+    .textStyle({{ docs-theme-codeReference }}.typography.bodySNormal)
     .dimensions {
         minHeight(28.0.dp)
         minWidth(28.0.dp)

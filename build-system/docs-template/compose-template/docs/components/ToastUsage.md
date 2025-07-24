@@ -38,9 +38,9 @@ Button(
 
 ```kotlin
 ToastStyle.builder()
-    .shadow(SddsServTheme.shadows.downHardM)
-    .shape(SddsServTheme.shapes.roundM)
-    .textStyle(SddsServTheme.typography.bodyMNormal)
+    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
+    .shape({{ docs-theme-codeReference }}.shapes.roundM)
+    .textStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .dimensions {
         contentStartSize(16.0.dp)
         contentStartPadding(4.0.dp)

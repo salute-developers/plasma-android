@@ -46,8 +46,8 @@ ListStyle.builder()
 
 ```kotlin
 ListItemStyle.builder()
-    .shape(SddsServTheme.shapes.roundM)
-    .titleStyle(SddsServTheme.typography.bodyMNormal)
+    .shape({{ docs-theme-codeReference }}.shapes.roundM)
+    .titleStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
     .colors {
         titleColor(Color.Black)
