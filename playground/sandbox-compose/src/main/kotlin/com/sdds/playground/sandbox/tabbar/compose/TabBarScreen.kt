@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.tabbar.compose
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.TabBar
@@ -65,7 +64,7 @@ internal fun TabBarPreview(style: TabBarStyle) {
                     defaultIcon = R.drawable.ic_smile_outline_36,
                     selectedIcon = R.drawable.ic_smile_fill_36,
                     label = "Label",
-                    extra = { Badge(label = "80%") },
+                    extra = { Counter(count = "12") },
                 )
             }
         }
