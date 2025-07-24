@@ -84,12 +84,13 @@ fun TabBarItem(
         ) {
             val iconColor = style.colors.iconColor.getValue(interactionSource, stateSet)
             CompositionLocalProvider(LocalTint provides iconColor) {
-                Box(modifier = Modifier
-                    .size(style.dimensions.iconSize)
-                    .defaultMinSize(
-                        style.dimensions.iconSize,
-                        style.dimensions.iconSize,
-                    )
+                Box(
+                    modifier = Modifier
+                        .size(style.dimensions.iconSize)
+                        .defaultMinSize(
+                            style.dimensions.iconSize,
+                            style.dimensions.iconSize,
+                        ),
                 ) {
                     if (isSelected) selectedIcon.invoke() else defaultIcon.invoke()
                 }
