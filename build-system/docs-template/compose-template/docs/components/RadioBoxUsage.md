@@ -25,23 +25,23 @@ RadioBox(
 RadioBoxStyle.builder()
     .colorValues {
         labelColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
         )
         descriptionColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         toggleColor(
-            SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asInteractive(
                 setOf(RadioBoxStates.Checked)
-                    to SddsServTheme.colors.surfaceDefaultAccent,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultAccent,
             ),
         )
         toggleIconColor(...)
         toggleBorderColor(...)
     }
-    .shape(SddsServTheme.shapes.roundXs)
-    .labelStyle(SddsServTheme.typography.bodyLNormal)
-    .descriptionStyle(SddsServTheme.typography.bodyMNormal)
+    .shape({{ docs-theme-codeReference }}.shapes.roundXs)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
+    .descriptionStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .dimensionValues {
         toggleBorderOffset(
             0.0.dp.asStatefulValue(

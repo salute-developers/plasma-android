@@ -35,19 +35,19 @@ Chip(
 ChipStyle.builder()
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidDefault.asInteractive(
                 setOf(InteractiveState.Pressed)
-                    to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidDefaultActive,
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidDefaultHover,
             ),
         )
         contentStartColor(...)
         contentEndColor(...)
         labelColor(...)
     }
-    .shape(SddsServTheme.shapes.roundM)
-    .labelStyle(SddsServTheme.typography.bodyLNormal)
+    .shape({{ docs-theme-codeReference }}.shapes.roundM)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
     .dimensions {
         height(48.0.dp)
         paddingStart(16.0.dp)

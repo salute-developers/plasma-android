@@ -66,10 +66,10 @@ Box {
 ScrollBarStyle.builder()
     .colors {
         trackColor(
-            SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asInteractive(),
         )
         thumbColor(
-            SddsServTheme.colors.surfaceDefaultPositive.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultPositive.asInteractive(),
         )
     }
     .shape(CircleShape)

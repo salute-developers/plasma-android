@@ -21,7 +21,7 @@ DividerStyle.builder()
     .shape(CircleShape)
     .color {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentTertiary.asInteractive(),
         )
     }
     .dimensions {

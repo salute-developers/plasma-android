@@ -46,8 +46,8 @@ Popover(
 
 ```kotlin
 PopoverStyle.builder()
-    .shadow(SddsServTheme.shadows.downHardM)
-    .shape(SddsServTheme.shapes.roundL)
+    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL)
     .dimensions {
         width(182.0.dp)
         offset(8.0.dp)

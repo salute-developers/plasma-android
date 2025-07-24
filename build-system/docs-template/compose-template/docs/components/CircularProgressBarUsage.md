@@ -19,11 +19,11 @@ CircularProgressBar(
 ```kotlin
 CircularProgressBarStyle.builder()
     .colors {
-        indicatorColor(SolidColor(SddsServTheme.colors.surfaceDefaultWarning).asStatefulValue())
-        trackColor(SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
-        valueColor(SolidColor(SddsServTheme.colors.textDefaultPrimary).asStatefulValue())
+        indicatorColor(SolidColor({{ docs-theme-codeReference }}.colors.surfaceDefaultWarning).asStatefulValue())
+        trackColor(SolidColor({{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
+        valueColor(SolidColor({{ docs-theme-codeReference }}.colors.textDefaultPrimary).asStatefulValue())
     }
-    .valueStyle(SddsServTheme.typography.headerH2Bold)
+    .valueStyle({{ docs-theme-codeReference }}.typography.headerH2Bold)
     .dimensions {
         width(128.0.dp)
         height(128.0.dp)

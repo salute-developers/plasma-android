@@ -26,27 +26,27 @@ SwitchStyle.builder()
     .toggleThumbShape(CircleShape)
     .colorValues {
         labelColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
         )
         descriptionColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         toggleTrackColor(
-            SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentTertiary.asInteractive(
                 setOf(SwitchStates.Checked)
-                    to SddsServTheme.colors.surfaceDefaultAccent,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultAccent,
             ),
         )
         toggleTrackBorderColor(
-            SddsServTheme.colors.surfaceDefaultClear.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asInteractive(),
         )
         toggleThumbColor(
-            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefault.asInteractive(),
         )
     }
     .invariantProps
-    .labelStyle(SddsServTheme.typography.bodyLNormal)
-    .descriptionStyle(SddsServTheme.typography.bodyMNormal)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
+    .descriptionStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .dimensionValues {
         toggleTrackWidth(44.0.dp)
         toggleTrackHeight(28.0.dp)

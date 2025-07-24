@@ -82,7 +82,7 @@ private fun ButtonGroupContent(
             LocalButtonStyle provides style.buttonStyle,
             LocalIconButtonStyle provides style.buttonStyle,
         ) {
-            ButtonGroupItemScopeImpl.itemContent()
+            itemContent()
         }
     }
     scope.reset()
@@ -140,13 +140,8 @@ interface ButtonGroupScope {
     /**
      * Добавляет кнопку [content] в [ButtonGroup]
      */
-    fun button(content: @Composable ButtonGroupItemScope.() -> Unit)
+    fun button(content: @Composable () -> Unit)
 }
-
-/**
- * Скоуп дочерних элементов [ButtonGroup]
- */
-interface ButtonGroupItemScope
 
 /**
  * Ориентация группы кнопок [ButtonGroup]
@@ -157,8 +152,8 @@ enum class ButtonGroupOrientation {
 }
 
 private class ButtonGroupScopeImpl : ButtonGroupScope {
-    val buttons = mutableListOf<@Composable ButtonGroupItemScope.() -> Unit>()
-    override fun button(content: @Composable (ButtonGroupItemScope.() -> Unit)) {
+    val buttons = mutableListOf<@Composable () -> Unit>()
+    override fun button(content: @Composable () -> Unit) {
         buttons.add { content() }
     }
 
@@ -166,8 +161,6 @@ private class ButtonGroupScopeImpl : ButtonGroupScope {
         buttons.clear()
     }
 }
-
-private object ButtonGroupItemScopeImpl : ButtonGroupItemScope
 
 @Preview
 @Composable

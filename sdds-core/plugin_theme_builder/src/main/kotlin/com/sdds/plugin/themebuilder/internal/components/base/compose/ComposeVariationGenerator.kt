@@ -116,7 +116,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     protected open fun invariantBuilderCalls(): List<String> = emptyList()
 
-    protected fun getColor(colorName: String, color: Color): String {
+    protected fun getColor(colorName: String, color: Color, forceStatefulSuffix: Boolean = false): String {
         val alphaString = when (color) {
             is Gradient -> color.alpha?.let { ".asLayered(${it}f)" } ?: ".asLayered()"
             is SolidColor -> color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
@@ -125,9 +125,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             is Gradient -> "gradients"
             is SolidColor -> "colors"
         }
-        val stateSuffix = when (color) {
-            is Gradient -> color.asStatefulFragment()
-            is SolidColor -> color.asInteractiveFragment
+        val stateSuffix = when {
+            (color is Gradient) || forceStatefulSuffix -> color.asStatefulFragment()
+            else -> color.asInteractiveFragment
         }
         val tokenValue = color.default.toKtTokenName()
         return """

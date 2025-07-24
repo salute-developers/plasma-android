@@ -57,8 +57,8 @@ DropdownMenu(
 
 ```kotlin
 DropdownMenuStyle.builder()
-    .shadow(SddsServTheme.shadows.downHardM)
-    .shape(SddsServTheme.shapes.roundL)
+    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL)
     .listStyle(DropdownMenuListNormal.M.style())
     .dividerStyle(Divider.Default.style())
     .dimensions {
