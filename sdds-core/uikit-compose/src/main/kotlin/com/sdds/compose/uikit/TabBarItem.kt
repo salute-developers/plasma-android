@@ -80,17 +80,19 @@ fun TabBarItem(
             ),
     ) {
         Box(
-            modifier = Modifier
-                .size(style.dimensions.iconSize)
-                .defaultMinSize(
-                    style.dimensions.iconSize,
-                    style.dimensions.iconSize,
-                ),
             contentAlignment = Alignment.Center,
         ) {
             val iconColor = style.colors.iconColor.getValue(interactionSource, stateSet)
             CompositionLocalProvider(LocalTint provides iconColor) {
-                if (isSelected) selectedIcon.invoke() else defaultIcon.invoke()
+                Box(modifier = Modifier
+                    .size(style.dimensions.iconSize)
+                    .defaultMinSize(
+                        style.dimensions.iconSize,
+                        style.dimensions.iconSize,
+                    )
+                ) {
+                    if (isSelected) selectedIcon.invoke() else defaultIcon.invoke()
+                }
             }
             extra?.let { TabBarItemExtra(it, style) }
         }
