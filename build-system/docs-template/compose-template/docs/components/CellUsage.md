@@ -40,25 +40,25 @@ Cell(
 CellStyle.builder()
     .colors {
         labelColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         titleColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
         )
         subtitleColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         disclosureTextColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         disclosureIconColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
     }
-    .labelStyle(SddsServTheme.typography.bodyMNormal)
-    .titleStyle(SddsServTheme.typography.bodyLNormal)
-    .subtitleStyle(SddsServTheme.typography.bodyMNormal)
-    .disclosureTextStyle(SddsServTheme.typography.bodyMNormal)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
+    .titleStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
+    .subtitleStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
+    .disclosureTextStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
     .dimensions {
         contentPaddingStart(8.0.dp)

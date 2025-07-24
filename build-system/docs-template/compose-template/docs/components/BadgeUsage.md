@@ -25,19 +25,19 @@ BadgeStyle.builder()
     .shape(CircleShape)
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefault.asInteractive(),
         )
         labelColor(
-            SddsServTheme.colors.textOnLightPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textOnLightPrimary.asInteractive(),
         )
         startContentColor(
-            SddsServTheme.colors.textOnLightPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textOnLightPrimary.asInteractive(),
         )
         endContentColor(
-            SddsServTheme.colors.textOnLightPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textOnLightPrimary.asInteractive(),
         )
     }
-    .labelStyle(SddsServTheme.typography.bodySNormal)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodySNormal)
     .dimensions {
             height(28.0.dp)
             startContentSize(16.0.dp)

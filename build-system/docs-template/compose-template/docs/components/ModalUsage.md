@@ -35,8 +35,8 @@ Modal(
 
 ```kotlin
 ModalStyle.builder()
-    .shadow(SddsServTheme.shadows.downHardM)
-    .shape(SddsServTheme.shapes.roundM)
+    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
+    .shape({{ docs-theme-codeReference }}.shapes.roundM)
     .dimensions {
         closeSize(16.0.dp)
         paddingStart(8.dp)

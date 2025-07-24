@@ -35,9 +35,9 @@ TabBar(style = TabBarHasLabelSolid.L.Divider.Rounded.Default.style()) {
 TabBarStyle.builder()
     .tabBarItemStyle(TabBarItemSolid.M.Label.Default.style())
     .topShape(CircleShape)
-    .shadow(SddsServTheme.shadows.upSoftM)
+    .shadow({{ docs-theme-codeReference }}.shadows.upSoftM)
     .colors {
-        backgroundColor(SddsServTheme.colors.surfaceDefaultSolidCard)
+        backgroundColor({{ docs-theme-codeReference }}.colors.surfaceDefaultSolidCard)
     }
     .dimensions {
         paddingStart(8.dp)
@@ -59,26 +59,26 @@ TabBarStyle.builder()
 
 ```kotlin
 TabBarItemStyle.builder()
-    .shape(SddsServTheme.shapes.roundL)
-    .labelStyle(SddsServTheme.typography.bodyMNormal)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .labelPlacement(TabBarLabelPlacement.Bottom)
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultClear.asStatefulValue(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asStatefulValue(
                 setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.surfaceDefaultSolidDefault,
+                        to {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidDefault,
             ),
         )
         labelColor(
-            SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asStatefulValue(
                 setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                        to {{ docs-theme-codeReference }}.colors.textInversePrimary,
             ),
         )
         iconColor(
-            SddsServTheme.colors.textDefaultSecondary.asStatefulValue(
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asStatefulValue(
                 setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInversePrimary,
+                        to {{ docs-theme-codeReference }}.colors.textInversePrimary,
             ),
         )
     }

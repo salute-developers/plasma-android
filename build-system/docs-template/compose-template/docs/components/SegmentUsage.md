@@ -36,10 +36,10 @@ SegmentStyle.builder()
     .segmentItemStyle(SegmentItem.Xl.Accent.style())
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asInteractive(),
         )
     }
-    .shape(SddsServTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
+    .shape({{ docs-theme-codeReference }}.shapes.roundXl.adjustBy(all = -2.0.dp))
     .dimensions {
         paddingStart(2.0.dp)
         paddingEnd(2.0.dp)

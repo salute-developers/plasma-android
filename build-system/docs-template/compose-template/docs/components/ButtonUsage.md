@@ -20,16 +20,16 @@ Button(
 
 ```kotlin
 ButtonStyle.basicButtonBuilder()
-    .shape(SddsServTheme.shapes.roundL)
-    .labelStyle(SddsServTheme.typography.bodyLBold)
-    .valueStyle(SddsServTheme.typography.bodyLBold)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
+    .valueStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
     .colors {
         spinnerColor(
-            SddsServTheme.colors.textOnLightPrimary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textOnLightPrimary.asInteractive(
                 setOf(InteractiveState.Pressed)
-                    to SddsServTheme.colors.textOnLightPrimaryActive,
+                    to {{ docs-theme-codeReference }}.colors.textOnLightPrimaryActive,
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textOnLightPrimaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textOnLightPrimaryHover,
             ),
         )
         iconColor(...),

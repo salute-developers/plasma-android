@@ -25,32 +25,32 @@ title: CheckBox
 CheckBoxStyle.builder()
     .colorValues {
         labelColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
         )
         descriptionColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
         )
         toggleColor(
-            SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asInteractive(
                 setOf(CheckBoxStates.Checked)
-                    to SddsServTheme.colors.surfaceDefaultNegative,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultNegative,
                 setOf(CheckBoxStates.Indeterminate)
-                    to SddsServTheme.colors.surfaceDefaultNegative,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultNegative,
             ),
         )
         toggleIconColor(
-            SddsServTheme.colors.textOnDarkPrimary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.textOnDarkPrimary.asInteractive(),
         )
         toggleBorderColor(
-            SddsServTheme.colors.outlineDefaultNegative.asInteractive(
+            {{ docs-theme-codeReference }}.colors.outlineDefaultNegative.asInteractive(
                 setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                    to SddsServTheme.colors.outlineDefaultNegative,
+                    to {{ docs-theme-codeReference }}.colors.outlineDefaultNegative,
             )
         )
         ...
-    .shape(SddsServTheme.shapes.roundXs)
-    .labelStyle(SddsServTheme.typography.bodyLNormal)
-    .descriptionStyle(SddsServTheme.typography.bodyMNormal)
+    .shape({{ docs-theme-codeReference }}.shapes.roundXs)
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
+    .descriptionStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
     .dimensionValues {
         toggleWidth(24.0.dp)
         toggleHeight(24.0.dp)

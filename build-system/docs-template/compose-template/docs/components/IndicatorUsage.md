@@ -21,7 +21,7 @@ title: Indicator
 IndicatorStyle.builder(this)
     .color {
         backgroundColor(
-            SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefault.asInteractive(),
         )
     }
     .dimensions {

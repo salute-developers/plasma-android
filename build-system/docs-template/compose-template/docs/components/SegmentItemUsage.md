@@ -24,44 +24,44 @@ SegmentItem(
 SegmentItemStyle.builder()
     .colors {
         labelColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textDefaultPrimaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultPrimaryHover,
                 ...
             ),
         )
         valueColor(
-            SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textDefaultSecondaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondaryHover,
                 ...
             ),
         )
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asInteractive(
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.surfaceDefaultClearHover,
+                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultClearHover,
                 ...
             ),
         )
         startContentColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textDefaultPrimaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultPrimaryHover,
                 ...
             ),
         )
         endContentColor(
-            SddsServTheme.colors.textDefaultPrimary.asInteractive(
+            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(
                 setOf(InteractiveState.Hovered)
-                    to SddsServTheme.colors.textDefaultPrimaryHover,
+                    to {{ docs-theme-codeReference }}.colors.textDefaultPrimaryHover,
                 ...
             ),
         )
     }
-    .shape(SddsServTheme.shapes.roundL.adjustBy(all = 0.0.dp))
-    .labelStyle(SddsServTheme.typography.bodyLBold)
-    .valueStyle(SddsServTheme.typography.bodyLBold)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL.adjustBy(all = 0.0.dp))
+    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
+    .valueStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
     .dimensions {
         minWidth(110.0.dp)
         minHeight(64.0.dp)

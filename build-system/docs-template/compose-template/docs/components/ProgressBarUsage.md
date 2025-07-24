@@ -22,10 +22,10 @@ title: ProgressBar
 ProgressBarStyle.builder()
     .colorValues {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asInteractive(),
         )
         indicatorColor(
-            SddsServTheme.colors.surfaceDefaultPositive.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultPositive.asInteractive(),
         )
     }
     .indicatorShape(CircleShape)

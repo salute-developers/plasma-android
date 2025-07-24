@@ -37,8 +37,8 @@ Tooltip(
 
 ```kotlin
 TooltipStyle.builder()
-    .shadow(SddsServTheme.shadows.downHardM)
-    .shape(SddsServTheme.shapes.roundL)
+    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
+    .shape({{ docs-theme-codeReference }}.shapes.roundL)
     .dimensions {
         offset(8.0.dp)
         tailWidth(20.0.dp)

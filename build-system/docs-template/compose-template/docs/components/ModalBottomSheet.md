@@ -40,7 +40,7 @@ ModalBottomSheet(
 
 ```kotlin
 ModalBottomSheetStyle.builder()
-    .shape(SddsServTheme.shapes.roundXl)
+    .shape({{ docs-theme-codeReference }}.shapes.roundXl)
     .handleShape(CircleShape)
     .dimensions {
         paddingStart(16.0.dp)
@@ -53,10 +53,10 @@ ModalBottomSheetStyle.builder()
     }
     .colors {
         backgroundColor(
-            SddsServTheme.colors.surfaceDefaultSolidCard.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidCard.asInteractive(),
         )
         handleColor(
-            SddsServTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
+            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidTertiary.asInteractive(),
         )
     }
     .handlePlacement(BottomSheetHandlePlacement.Auto)
