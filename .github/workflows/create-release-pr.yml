@@ -31,7 +31,7 @@ jobs:
         run: |
           DATE=$(date +'%d.%m.%Y')
           echo "DATE=$DATE" >> $GITHUB_ENV
-          echo "FROM_TAG=$(git merge-base --fork-point origin/main)" >> $GITHUB_ENV
+          echo "FROM_TAG=$(git merge-base origin/main HEAD)" >> $GITHUB_ENV
           echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
           SAFE_DATE=$(echo "$DATE" | tr '.' '-')
           NEW_TAG="release-$SAFE_DATE"
