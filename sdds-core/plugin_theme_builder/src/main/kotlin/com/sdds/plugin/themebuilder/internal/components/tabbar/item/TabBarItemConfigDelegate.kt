@@ -38,7 +38,6 @@ internal class TabBarItemConfigDelegate : ComponentConfigDelegate<TabBarItemConf
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
         indicatorStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.indicator",
-        badgeStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.badge",
         counterStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.counter",
     )
 }

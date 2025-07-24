@@ -9,7 +9,6 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class TabBarItemComposeVariationGenerator(
     private val indicatorStylesPackage: String,
-    private val badgeStylesPackage: String,
     private val counterStylesPackage: String,
     themeClassName: String,
     themePackage: String,
@@ -54,7 +53,6 @@ internal class TabBarItemComposeVariationGenerator(
             dimensionsCall(props, variationId),
             indicatorStyleCall(props, ktFileBuilder),
             counterStyleCall(props, ktFileBuilder),
-            badgeStyleCall(props, ktFileBuilder),
         )
     }
 
@@ -97,20 +95,6 @@ internal class TabBarItemComposeVariationGenerator(
                 it.value.getComponentStyle(
                     ktFileBuilder,
                     counterStylesPackage,
-                )
-            }.style())"
-        }
-    }
-
-    private fun badgeStyleCall(
-        props: TabBarItemProperties,
-        ktFileBuilder: KtFileBuilder,
-    ): String? {
-        return props.badgeStyle?.let {
-            ".badgeStyle(${
-                it.value.getComponentStyle(
-                    ktFileBuilder,
-                    badgeStylesPackage,
                 )
             }.style())"
         }

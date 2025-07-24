@@ -19,5 +19,4 @@ internal enum class TabBarExtraType {
     None,
     Counter,
     Indicator,
-    Badge,
 }

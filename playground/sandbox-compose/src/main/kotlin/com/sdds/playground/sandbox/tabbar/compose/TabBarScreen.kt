@@ -52,10 +52,6 @@ private fun getExtra(extraType: TabBarExtraType): (@Composable () -> Unit)? {
         TabBarExtraType.Indicator -> {
             { Indicator() }
         }
-
-        TabBarExtraType.Badge -> {
-            { Badge(label = "80%") }
-        }
     }
 }
 

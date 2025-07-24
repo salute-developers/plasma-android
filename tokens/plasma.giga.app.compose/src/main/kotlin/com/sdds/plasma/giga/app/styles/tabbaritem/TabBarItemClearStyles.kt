@@ -17,11 +17,6 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.plasma.giga.app.styles.badge.BadgeSolid
-import com.sdds.plasma.giga.app.styles.badge.Negative
-import com.sdds.plasma.giga.app.styles.badge.Pilled
-import com.sdds.plasma.giga.app.styles.badge.S
-import com.sdds.plasma.giga.app.styles.badge.Xs
 import com.sdds.plasma.giga.app.styles.counter.Counter
 import com.sdds.plasma.giga.app.styles.counter.Negative
 import com.sdds.plasma.giga.app.styles.counter.S
@@ -164,7 +159,6 @@ public val TabBarItemClear.M: WrapperTabBarItemClearM
         }
         .indicatorStyle(Indicator.M.Negative.style())
         .counterStyle(Counter.Xs.Negative.style())
-        .badgeStyle(BadgeSolid.Xs.Pilled.Negative.style())
         .wrap(::WrapperTabBarItemClearM)
 
 public val WrapperTabBarItemClearM.Label: WrapperTabBarItemClearMLabel
@@ -194,7 +188,6 @@ public val TabBarItemClear.L: WrapperTabBarItemClearL
         }
         .indicatorStyle(Indicator.L.Negative.style())
         .counterStyle(Counter.S.Negative.style())
-        .badgeStyle(BadgeSolid.S.Pilled.Negative.style())
         .wrap(::WrapperTabBarItemClearL)
 
 public val WrapperTabBarItemClearL.Label: WrapperTabBarItemClearLLabel

@@ -167,7 +167,6 @@ private val TabBarStyleBuilder.invariantProps: TabBarStyleBuilder
             contentPaddingTop(2.0.dp)
             contentPaddingBottom(2.0.dp)
             itemSpacing(2.0.dp)
-            dividerThickness(1.dp)
         }
 
 public val WrapperTabBarHasLabelSolidMView.Default: WrapperTabBarHasLabelSolidTerminate
