@@ -1,10 +1,10 @@
-# Package com.sdds.compose.uikit
-
-## TabBar
+---
+title: TabBar
+---
 
 Компонент для навигации между разделами интерфейса
 В качестве контента принимает либо [TabBarItem](#tabbaritem) либо произвольный контент.
-В качестве extra ожидает [Counter](CounterUsage), [Badge](BadgeUsage), [Indicator](IndicatorUsage) либо произвольный контент.
+В качестве extra ожидает [Counter](CounterUsage.md), [Badge](BadgeUsage.md), [Indicator](IndicatorUsage.md) либо произвольный контент.
 
 ```kotlin
 TabBar(style = TabBarHasLabelSolid.L.Divider.Rounded.Default.style()) {
@@ -53,7 +53,7 @@ TabBarStyle.builder()
 
 ## TabBarItem
 
-Элемент панели навигации [TabBar](#tabbar). При использовании в TabBar TabBarItem стилизуется автоматически. Также можно настроить стиль элемента с помощью TabBarItemStyle.builder().
+Элемент панели навигации TabBar. При использовании в TabBar TabBarItem стилизуется автоматически. Также можно настроить стиль элемента с помощью TabBarItemStyle.builder().
 
 ### Создание стиля с помощью builder()
 
