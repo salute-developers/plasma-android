@@ -1,0 +1,41 @@
+name: 'Clean Docs on PR'
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+      - main
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  clean:
+    name: Clean up
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract and sanitize PR name
+        id: extract
+        run: |
+          RAW_REF="${{ github.head_ref }}"
+          SANITIZED_REF="${RAW_REF//\//_}"
+          echo "PR_NAME=$SANITIZED_REF" >> $GITHUB_ENV
+
+      - name: Clean artifacts
+        if: env.PR_NAME != ''
+        uses: vitorsgomes/s3-rm-action@master
+        with:
+          args: --recursive
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          AWS_S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          AWS_REGION: ${{ secrets.S3_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
+          PATH_TO_DELETE: "pr/${PR_NAME}"

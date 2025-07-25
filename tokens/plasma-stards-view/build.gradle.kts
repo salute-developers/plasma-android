@@ -1,8 +1,11 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import utils.componentsName
 import utils.componentsVersion
+import utils.themeAlias
 import utils.themeUrl
+import utils.themeResPrefix
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -13,19 +16,20 @@ plugins {
     id("convention.testing")
     alias(libs.plugins.roborazzi)
     id("star-dimens-generator")
+    id("convention.docusaurus")
 }
 
 android {
     namespace = "com.sdkit.star.designsystem"
-    resourcePrefix = "sdkit"
+    resourcePrefix = themeResPrefix
 }
 
 themeBuilder {
     themeSource {
         url(themeUrl)
-        name("StarDs")
+        name(themeAlias)
     }
-    componentSource(name = "plasma_stards", componentsVersion, "StarDs")
+    componentSource(name = componentsName, componentsVersion, themeAlias)
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")
@@ -34,7 +38,7 @@ themeBuilder {
         setupShapeAppearance(sddsShape())
     }
     ktPackage("com.sdkit.star.designsystem")
-    resourcesPrefix(prefix = "sdkit")
+    resourcesPrefix(prefix = themeResPrefix)
     outputLocation(OutputLocation.SRC)
     autoGenerate(false)
     mode(ThemeBuilderMode.THEME)

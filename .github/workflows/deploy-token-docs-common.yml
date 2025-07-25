@@ -1,0 +1,75 @@
+name: 'Deploy tokens docs common'
+
+on:
+  workflow_call:
+    inputs:
+      modules:
+        type: string
+        description: 'Список модулей в формате json (например, [":tokens:plasma-stards", ":tokens:plasma-stards-compose"])'
+        required: true
+      ref:
+        type: string
+        description: 'Название ветки, тэга или хэш коммита'
+        required: true
+    outputs:
+      summary:
+        description: "Спиоск задеплоенных экземпляров документации"
+        value: ${{ jobs.summary.outputs.summary_text }}
+
+jobs:
+  deploy:
+    name: Deploy docs
+    runs-on: ubuntu-latest
+    if: inputs.modules != '' && inputs.modules != '[]' && inputs.ref != ''
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJson(inputs.modules) }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Install s3cmd
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y s3cmd
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+
+      - name: Run deploy and collect result
+        id: deploy
+        env:
+          S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          S3_REGION: ${{ secrets.S3_REGION }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+        run: ./gradlew ${{ matrix.module }}:docusaurusDeploy --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
+
+      - name: Prepare deploy artifacts
+        if: success()
+        shell: bash
+        run: |
+          module="${{ matrix.module }}"
+          module="${module#:}"
+          safe_path="${module//:/\/}"
+          artifact_name="docusaurus-${module//:/_}-result"
+          mkdir -p artifacts/$safe_path
+          cp $safe_path/build/generated/docusaurus/deploy.json artifacts/$safe_path/deploy.json
+          echo "Uploading $artifact_name from artifacts/$safe_path"
+          echo "ARTIFACT_NAME=$artifact_name" >> $GITHUB_ENV
+
+      - name: Upload deploy result
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: artifacts/

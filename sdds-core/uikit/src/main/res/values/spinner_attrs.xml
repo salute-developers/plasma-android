@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_spinnerStyle" format="reference" />
+
+    <declare-styleable name="Spinner" tools:ignore="ResourceName">
+
+        <!-- Толщина линии индикатора загрузки -->
+        <attr name="sd_strokeWidth" />
+        <!-- Окрас индикатора загрузки -->
+        <attr name="android:tint" />
+        <!-- Начальный цвет градиента индикатора загрузки -->
+        <attr name="sd_startColor" format="reference|color" />
+        <!-- Конечный цвет градиента индикатора загрузки -->
+        <attr name="sd_endColor" format="reference|color" />
+        <!-- Форма краев линии индикатора загрузки -->
+        <attr name="sd_strokeCap" format="enum">
+            <!-- Скругленная -->
+            <enum name="round" value="0" />
+            <!-- Квадратная -->
+            <enum name="square" value="1" />
+        </attr>
+        <!-- Угол дуги индикатора загрузки в градусах, определяет какую часть окружности занимает индикатор -->
+        <attr name="sd_sweepAngle" format="float" />
+        <attr name="android:padding" />
+        <attr name="android:maxHeight" />
+        <attr name="android:maxWidth" />
+        <attr name="android:minHeight" />
+        <attr name="android:minWidth" />
+    </declare-styleable>
+</resources>

@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.dropdownmenu.vs.DropdownMenuFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
+import com.sdds.playground.sandbox.image.vs.ImageFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.list.vs.ListFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
@@ -43,6 +44,7 @@ import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
 import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
+import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
@@ -76,6 +78,7 @@ import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
+import com.sdds.testing.vs.image.image
 import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.list.listView
 import com.sdds.testing.vs.modal.modalTrigger
@@ -96,6 +99,7 @@ import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.testing.vs.skeleton.rectSkeleton
 import com.sdds.testing.vs.skeleton.textSkeleton
+import com.sdds.testing.vs.spinner.spinner
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
 import com.sdds.testing.vs.textfield.TextFieldUiState
@@ -295,6 +299,12 @@ internal sealed class ComponentScreen(
     object Wheel : ComponentScreen(
         { item -> fragment<WheelFragment>(item.route, item.defaultBuilder) },
     )
+    object Spinner : ComponentScreen(
+        { item -> fragment<SpinnerFragment>(item.route, item.defaultBuilder) },
+    )
+    object Image : ComponentScreen(
+        { item -> fragment<ImageFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -318,6 +328,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.RADIOBOX -> ComponentScreen.RadioBox
         CoreComponent.RADIOBOX_GROUP -> ComponentScreen.RadioBoxGroup
         CoreComponent.SWITCH -> ComponentScreen.Switch
+        CoreComponent.SPINNER -> ComponentScreen.Spinner
         CoreComponent.TEXT_FIELD -> ComponentScreen.TextField
         CoreComponent.TEXT_AREA -> ComponentScreen.TextArea
         CoreComponent.SEGMENT -> ComponentScreen.Segment
@@ -338,6 +349,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LIST -> ComponentScreen.List
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.WHEEL -> ComponentScreen.Wheel
+        CoreComponent.IMAGE -> ComponentScreen.Image
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -363,6 +375,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.RADIOBOX -> R.id.nav_radiobox
         CoreComponent.RADIOBOX_GROUP -> R.id.nav_radiobox_group
         CoreComponent.SWITCH -> R.id.nav_switch
+        CoreComponent.SPINNER -> R.id.nav_spinner
         CoreComponent.TEXT_FIELD -> R.id.nav_textfield
         CoreComponent.TEXT_AREA -> R.id.nav_textarea
         CoreComponent.SEGMENT -> R.id.nav_segment
@@ -383,6 +396,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.LIST -> R.id.nav_list
         CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
         CoreComponent.WHEEL -> R.id.nav_wheel
+        CoreComponent.IMAGE -> R.id.nav_image
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -467,6 +481,8 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.LIST -> listView(context, style)
         CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
         CoreComponent.WHEEL -> wheel(context, style)
+        CoreComponent.IMAGE -> image(context, style)
+        CoreComponent.SPINNER -> spinner(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

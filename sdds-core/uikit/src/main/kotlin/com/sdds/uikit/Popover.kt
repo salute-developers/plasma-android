@@ -20,6 +20,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.allViews
+import androidx.core.view.children
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
@@ -478,6 +479,16 @@ open class Popover @JvmOverloads constructor(
         init {
             isFocusable = false
             outlineProvider = _selectorOutlineProvider
+        }
+
+        override fun setMinimumWidth(minWidth: Int) {
+            super.setMinimumWidth(minWidth)
+            children.forEach { it.minimumWidth = minWidth }
+        }
+
+        override fun setMinimumHeight(minHeight: Int) {
+            super.setMinimumHeight(minHeight)
+            children.forEach { it.minimumHeight = minHeight }
         }
 
         fun getSafePaddings(): Rect {

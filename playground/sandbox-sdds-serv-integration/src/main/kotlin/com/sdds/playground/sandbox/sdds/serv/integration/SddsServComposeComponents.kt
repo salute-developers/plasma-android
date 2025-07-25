@@ -21,6 +21,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.bottomsheet.SddsServBot
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServIconButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.card.SddsServCardClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.card.SddsServCardSolidVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.cell.compose.SddsServCellVariationsCompose
@@ -54,6 +56,14 @@ import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegment
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarHasLabelClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarHasLabelSolidVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarIslandClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarIslandHasLabelClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarIslandHasLabelSolidVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarIslandSolidVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.tabbar.SddsServTabBarSolidVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsCompose
@@ -293,6 +303,46 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Image,
                 SddsServImageVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                SddsServBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                SddsServIconButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarSolid", CoreComponent.TAB_BAR),
+                SddsServTabBarSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarClear", CoreComponent.TAB_BAR),
+                SddsServTabBarClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandSolid", CoreComponent.TAB_BAR),
+                SddsServTabBarIslandSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandClear", CoreComponent.TAB_BAR),
+                SddsServTabBarIslandClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarHasLabelSolid", CoreComponent.TAB_BAR),
+                SddsServTabBarHasLabelSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarHasLabelClear", CoreComponent.TAB_BAR),
+                SddsServTabBarHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandHasLabelSolid", CoreComponent.TAB_BAR),
+                SddsServTabBarIslandHasLabelSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
+                SddsServTabBarIslandHasLabelClearVariationsCompose,
             ),
         ).associateBy { it.key }
 }

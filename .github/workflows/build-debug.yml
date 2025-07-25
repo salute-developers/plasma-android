@@ -30,18 +30,29 @@ jobs:
       - name: Run assembleDebugAll
         run: ./gradlew assembleDebugAll --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload APK
+        id: upload_apk
+        if: success()
+        uses: actions/upload-artifact@v4.3.1
         with:
-          name: artifacts.zip
+          name: artifacts
           path: | 
-            **/build/outputs/apk/*/*.apk
-            **/build/outputs/aar/*.aar
+            **/build/outputs/apk/**/*.apk
+            
+      - name: Generate comment with artifact link
+        shell: bash
+        if: ${{ steps.upload_apk.outputs.artifact-url }}
+        run: |
+          echo "Artifact url is ${{ steps.upload_apk.outputs.artifact-url || 'empty' }}"
+          sed "s|__APK_URL__|${{ steps.upload_apk.outputs.artifact-url }}|g" \
+            .github/templates/apk-installation-instructions.md > build-summary.md
+          
+          cat build-summary.md
 
-      - name: Upload test theme
-        uses: actions/upload-artifact@v4
+      - name: Attach comment to PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: ${{ steps.upload_apk.outputs.artifact-url }}
         with:
-          name: generated-test-theme.zip
-          path: |
-            playground/theme-builder/build/generated/theme-builder
-            playground/theme-builder/build/generated/theme-builder-res   
+          header: apk
+          path: build-summary.md
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -15,6 +15,8 @@ import android.graphics.SweepGradient
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.view.animation.LinearInterpolator
+import com.sdds.uikit.Spinner
+import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
 
 /**
@@ -30,18 +32,25 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
     private var rotationDegrees: Float = 0f
     private var strokeCapDegrees: Float = 0f
     private var tint: ColorStateList? = null
+    private var currentColor: Int = Color.TRANSPARENT
+    private var _startColorList: ColorStateList? = null
+    private var _endColorList: ColorStateList? = null
+    private var _startColor: Int = Color.BLACK
+    private var _endColor: Int = COLOR_SEMITRANSPARENT_BLACK
+    private var _sweepAngle: Float = 360f
+    private var _strokeCap: Spinner.StrokeCap = Spinner.StrokeCap.Round
     private val paint: Paint by lazy {
         Paint().configure(
             strokeWidth = strokeWidth,
             style = Paint.Style.STROKE,
-            strokeCap = Paint.Cap.ROUND,
+            strokeCap = _strokeCap.paintCap,
             isAntiAlias = true,
         ).apply {
             shader = SweepGradient(
                 0f, 0f,
                 intArrayOf(
-                    COLOR_SEMITRANSPARENT_BLACK,
-                    Color.BLACK,
+                    _endColor,
+                    _startColor,
                 ),
                 floatArrayOf(0f, 1f),
             )
@@ -62,6 +71,86 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
         }
     }
 
+    /**
+     * Форма начала и конца дуги спиннера
+     */
+    var strokeCap: Spinner.StrokeCap
+        get() = _strokeCap
+        set(value) {
+            if (_strokeCap != value) {
+                _strokeCap = value
+                paint.strokeCap = _strokeCap.paintCap
+                invalidateSelf()
+            }
+        }
+
+    /**
+     * Угол дуги спиннера
+     */
+    var sweepAngle: Float
+        get() = _sweepAngle
+        set(value) {
+            if (_sweepAngle != value) {
+                _sweepAngle = value
+                invalidateSelf()
+            }
+        }
+
+    /**
+     * Устанавливает цвет начала градиента
+     * @param colorList цвета начала градиента
+     */
+    fun setStartTintList(colorList: ColorStateList?) {
+        if (_startColorList != colorList) {
+            _startColorList = colorList
+            _startColor = colorList.colorForState(state)
+            updateShader()
+            invalidateSelf()
+        }
+    }
+
+    /**
+     * Устанавливает цвет в конце градиента
+     * @param colorList цвета в конце градиента
+     */
+    fun setEndTintList(colorList: ColorStateList?) {
+        if (_endColorList != colorList) {
+            _endColorList = colorList
+            _endColor = colorList.colorForState(state)
+            updateShader()
+            invalidateSelf()
+        }
+    }
+
+    /**
+     * Устанавливает цвета градиента
+     * @param startColorList цвета начала градиента
+     * @param endColorList цвета в конце градиента
+     */
+    fun setStrokeGradient(startColorList: ColorStateList?, endColorList: ColorStateList?) {
+        val start = _startColorList != startColorList
+        val end = _endColorList != endColorList
+        if (start || end) {
+            _startColorList = startColorList
+            _startColor = startColorList.colorForState(state)
+            _endColorList = endColorList
+            _endColor = endColorList.colorForState(state)
+            updateShader()
+            invalidateSelf()
+        }
+    }
+
+    /**
+     * Устанавливает скорость вращения дуги
+     * @param duration длительность вращения в мс
+     */
+    fun setDuration(duration: Long) {
+        if (animator.duration != duration) {
+            animator.duration = duration
+            invalidateSelf()
+        }
+    }
+
     override fun draw(canvas: Canvas) {
         if (!isRunning) {
             start()
@@ -70,9 +159,34 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
             save()
             translate(bounds.exactCenterX(), bounds.exactCenterY())
             rotate(rotationDegrees)
-            drawArc(boundsF, strokeCapDegrees, 360 - 2 * strokeCapDegrees, false, paint)
+            drawArc(boundsF, strokeCapDegrees, sweepAngle - 2 * strokeCapDegrees, false, paint)
             restore()
         }
+    }
+
+    override fun onStateChange(state: IntArray): Boolean {
+        var change = false
+        var gradientChange = false
+        if (updateTint(state)) change = true
+        _startColorList?.let {
+            val sColor = _startColorList.colorForState(state)
+            if (sColor != _startColor) {
+                _startColor = sColor
+                gradientChange = true
+                change = true
+            }
+        }
+        _endColorList?.let {
+            val sColor = _endColorList.colorForState(state)
+            if (sColor != _endColor) {
+                _endColor = sColor
+                gradientChange = true
+                change = true
+            }
+        }
+        if (gradientChange) updateShader()
+        if (change) invalidateSelf()
+        return super.onStateChange(state) || change
     }
 
     override fun setAlpha(alpha: Int) {
@@ -101,27 +215,41 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
         updateTint(state)
     }
 
-    override fun setState(stateSet: IntArray): Boolean {
-        val handled = super.setState(stateSet)
-        updateTint(stateSet)
-        return handled
-    }
-
     override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         val radius = (minOf(bounds.width(), bounds.height()) - strokeWidth) / 2
         boundsF.set(-radius, -radius, radius, radius)
-        strokeCapDegrees = Math.toDegrees(strokeWidth.toDouble() / radius).toFloat()
+        strokeCapDegrees = Math.toDegrees(strokeWidth / 2.0 / radius).toFloat()
     }
 
-    private fun updateTint(state: IntArray) {
+    private fun updateTint(state: IntArray): Boolean {
         val tint = this.tint
+        var change = false
         if (tint == null) {
-            paint.colorFilter = null
-            return
+            if (paint.colorFilter != null) {
+                paint.colorFilter = null
+                change = true
+            }
+        } else {
+            val color = tint.getColorForState(state, tint.defaultColor)
+            if (color != currentColor) {
+                currentColor = color
+                paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+                change = true
+            }
         }
-        val color = tint.getColorForState(state, tint.defaultColor)
-        paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        return change
+    }
+
+    private fun updateShader() {
+        paint.shader = SweepGradient(
+            0f, 0f,
+            intArrayOf(
+                _endColor,
+                _startColor,
+            ),
+            floatArrayOf(0f, 1f),
+        )
     }
 
     private companion object {

@@ -105,8 +105,8 @@ internal fun NavigationViewMobile(
                     ComponentPreview(
                         key = menuItem.componentKey,
                         themeInfo = themeInfo,
-                    ) { style ->
-                        menuItem.destination.preview?.invoke(style)
+                    ) { style, key ->
+                        menuItem.destination.preview?.invoke(style, key)
                     }
                 },
             )
@@ -118,11 +118,11 @@ internal fun NavigationViewMobile(
 internal fun ComponentPreview(
     key: ComponentKey,
     themeInfo: ThemeInfoCompose,
-    component: @Composable (Style) -> Unit,
+    component: @Composable (Style, ComponentKey) -> Unit,
 ) {
     themeInfo.themeWrapper {
         val styleProvider = themeInfo.components.get<String, Style>(key).styleProvider
         val style = styleProvider.style("")
-        component(style)
+        component(style, key)
     }
 }

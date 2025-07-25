@@ -14,6 +14,8 @@ import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.shape.ShapeHelper
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
@@ -33,7 +35,10 @@ open class TextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.textViewStyle,
-) : AppCompatTextView(context, attrs, defStyleAttr), ViewStateHolder, ColorStateHolder {
+) : AppCompatTextView(context, attrs, defStyleAttr),
+    ViewStateHolder,
+    ColorStateHolder,
+    HasFocusSelector by FocusSelectorDelegate(context, attrs, defStyleAttr) {
 
     @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
@@ -71,6 +76,8 @@ open class TextView @JvmOverloads constructor(
         context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0).use {
             setTextColor(it.getColorValueStateList(context, R.styleable.TextView_sd_textColor))
         }
+        @Suppress("LeakingThis")
+        applySelector(this)
     }
 
     /**
@@ -113,6 +120,18 @@ open class TextView @JvmOverloads constructor(
         _textTint = tint
         updateBounds()
         invalidate()
+    }
+
+    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect)
+        updateFocusSelector(this, focused)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {

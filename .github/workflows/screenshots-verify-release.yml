@@ -14,9 +14,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  detect_changes:
+    name: Detect changes
+    uses: ./.github/workflows/detect-changes.yml
+
   test:
     runs-on: macos-latest
-
+    needs: detect_changes
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed_tokens)) != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJson(needs.detect_changes.outputs.changed_tokens) }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -24,29 +33,37 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
 
-      - name: verify screenshots-compose
+      - name: Get module dir
+        id: module_dir
+        run: |
+          module="${{ matrix.module }}"
+          module="${module#:}"
+          safe_path="${module//:/\/}"
+          echo "dir=$safe_path" >> $GITHUB_OUTPUT  
+
+      - name: verify screenshots
         id: verify-test
         run: |
           # If there is a difference between the screenshots, the test will fail.
-          ./gradlew :tokens:verifyRoborazziReleaseAll --stacktrace
+          ./gradlew ${{ matrix.module }}:verifyRoborazziRelease --stacktrace
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() }}
+        if: always()
         with:
           name: screenshot-diff-compose
-          path: tokens/**/build/outputs/roborazzi
+          path: tokens/${{ steps.module_dir.outputs.dir }}/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() }}
+        if: always()
         with:
           name: screenshot-diff-reports-compose
-          path: tokens/**/build/reports
+          path: tokens/${{ steps.module_dir.outputs.dir }}/build/reports
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() }}
+        if: always()
         with:
           name: screenshot-diff-test-results-compose
-          path: tokens/**/build/test-results
+          path: tokens/${{ steps.module_dir.outputs.dir }}/build/test-results
           retention-days: 30

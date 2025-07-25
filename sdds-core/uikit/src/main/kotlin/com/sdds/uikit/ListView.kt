@@ -250,6 +250,16 @@ abstract class ListViewAdapter<T : ListItem, VH : ListViewHolder> : ListAdapter<
  */
 class SimpleListViewAdapter : ListViewAdapter<ListItem, SimpleListViewHolder>(ListItemDiffCallback) {
 
+    private var _selectionListener: SelectionListener? = null
+    private var _lastSelectedItemPosition: Int = RecyclerView.NO_POSITION
+
+    /**
+     * Устанавливает слушатель выбора элементов [SelectionListener]
+     */
+    fun setSelectionListener(selectionListener: SelectionListener?) {
+        _selectionListener = selectionListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleListViewHolder {
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.sd_layout_simple_list_item, parent, false)
@@ -258,6 +268,17 @@ class SimpleListViewAdapter : ListViewAdapter<ListItem, SimpleListViewHolder>(Li
 
     override fun onBindViewHolder(holder: SimpleListViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    /**
+     * Слушатель выбора элемента в [SimpleListViewAdapter]
+     */
+    fun interface SelectionListener {
+
+        /**
+         * Колбэк выбора элемента [item]
+         */
+        fun onSelected(item: ListItem)
     }
 
     /**
@@ -274,6 +295,14 @@ class SimpleListViewAdapter : ListViewAdapter<ListItem, SimpleListViewHolder>(Li
             titleView.text = item.title
             disclosureEnabled = item.hasDisclosure
             item.colorState?.let { colorState = it }
+            isSelected = adapterPosition == _lastSelectedItemPosition
+            setOnClickListener {
+                val oldItem = _lastSelectedItemPosition
+                _lastSelectedItemPosition = adapterPosition
+                if (oldItem != RecyclerView.NO_POSITION) notifyItemChanged(oldItem)
+                notifyItemChanged(_lastSelectedItemPosition)
+                _selectionListener?.onSelected(item)
+            }
         }
     }
 

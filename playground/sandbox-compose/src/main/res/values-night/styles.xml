@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.Components.DropdownMenu" parent="Theme.Sandbox.BaseComponents.DropdownMenu">
+        <item name="sd_strokeWidth">0dp</item>
+        <item name="sd_strokeColor">?serv_outlineDefaultTransparentSecondary</item>
+    </style>
+
+</resources>

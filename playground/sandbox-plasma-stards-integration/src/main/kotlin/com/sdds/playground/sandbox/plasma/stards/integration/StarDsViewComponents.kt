@@ -23,6 +23,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.St
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.divider.StarDsDividerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDsDropdownMenuVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
@@ -35,6 +36,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadi
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsView
@@ -192,6 +194,14 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Wheel,
                 StarDsWheelVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Image,
+                StarDsImageVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Spinner,
+                StarDsSpinnerVariationsView,
             ),
         ).associateBy { it.key }
 }

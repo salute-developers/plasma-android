@@ -30,6 +30,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounter
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsView
@@ -44,6 +45,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServ
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
@@ -160,6 +162,10 @@ object SddsServViewComponents : ComponentsProviderView {
                 SddsServIndicatorVariationsView,
             ),
             ViewComponent(
+                ComponentKey.Image,
+                SddsServImageVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Flow,
                 ViewStyleProvider.Empty,
             ),
@@ -226,6 +232,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Switch,
                 SddsServSwitchVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Spinner,
+                SddsServSpinnerVariationsView,
             ),
             ViewComponent(
                 ComponentKey.TextField,

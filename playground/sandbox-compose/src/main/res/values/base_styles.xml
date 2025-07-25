@@ -4,6 +4,7 @@
     <style name="Theme.Sandbox.TextAppearanceNormal" parent="@style/Serv.Sdds.TextAppearance.BodyMNormal"/>
     <style name="Theme.Sandbox.TextAppearanceBold" parent="@style/Serv.Sdds.TextAppearance.BodyMBold"/>
     <style name="Theme.Sandbox.TextAppearanceLargeBold" parent="Serv.Sdds.TextAppearance.BodyLBold"/>
+    <style name="Theme.Sandbox.TextAppearanceDisplayBold" parent="Serv.Sdds.TextAppearance.DisplayLBold"/>
 
     <style name="Theme.Sandbox.BaseComponents" />
     <style name="Theme.Sandbox.BaseComponents.NavigationView" parent="@style/Serv.Sdds.Components.NavigationDrawer" />
@@ -13,4 +14,7 @@
     <style name="Theme.Sandbox.BaseComponents.ToolbarButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear" />
     <style name="Theme.Sandbox.BaseComponents.ResetButton" parent="@style/Serv.Sdds.Components.IconButton.Xs.Clear" />
     <style name="Theme.Sandbox.BaseComponents.PropertyEditorField" parent="@style/Serv.Sdds.Components.TextField.S.InnerLabel" />
+    <style name="Theme.Sandbox.BaseComponents.UpdateButton" parent="@style/Serv.Sdds.Components.BasicButton.Xs.Accent" />
+    <style name="Theme.Sandbox.BaseComponents.MainMenuButton" parent="@style/Serv.Sdds.Components.BasicButton.M.Secondary" />
+    <style name="Theme.Sandbox.BaseComponents.DropdownMenu" parent="@style/Serv.Sdds.Components.DropdownMenuTight.S"/>
 </resources>

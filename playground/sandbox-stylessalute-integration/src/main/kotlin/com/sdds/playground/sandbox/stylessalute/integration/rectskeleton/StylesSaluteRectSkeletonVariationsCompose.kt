@@ -5,6 +5,7 @@ import com.sdds.compose.uikit.RectSkeletonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.rectskeleton.Default
+import com.sdds.stylessalute.styles.rectskeleton.Lighter
 import com.sdds.stylessalute.styles.rectskeleton.RectSkeleton
 
 internal object StylesSaluteRectSkeletonVariationsCompose :
@@ -12,5 +13,6 @@ internal object StylesSaluteRectSkeletonVariationsCompose :
     override val variations: Map<String, @Composable () -> RectSkeletonStyle> =
         mapOf(
             "Default" to { RectSkeleton.Default.style() },
+            "Lighter" to { RectSkeleton.Lighter.style() },
         )
 }

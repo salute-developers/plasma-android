@@ -5,6 +5,7 @@ import com.sdds.compose.uikit.AccordionStyle
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.BadgeStyle
+import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.CellStyle
@@ -33,6 +34,7 @@ import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.ToastStyle
@@ -46,6 +48,8 @@ import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
 import com.sdds.playground.sandbox.badge.compose.IconBadgeScreen
 import com.sdds.playground.sandbox.bottomsheet.compose.BottomSheetScreen
+import com.sdds.playground.sandbox.buttongroup.compose.ButtonGroupPreview
+import com.sdds.playground.sandbox.buttongroup.compose.ButtonGroupScreen
 import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
@@ -62,8 +66,8 @@ import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
-import com.sdds.playground.sandbox.image.ImageScreen
-import com.sdds.playground.sandbox.image.ImageScreenPreview
+import com.sdds.playground.sandbox.image.compose.ImageScreen
+import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
@@ -79,8 +83,10 @@ import com.sdds.playground.sandbox.scrollbar.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
-import com.sdds.playground.sandbox.spinner.SpinnerScreen
+import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
+import com.sdds.playground.sandbox.tabbar.compose.TabBarPreview
+import com.sdds.playground.sandbox.tabbar.compose.TabBarScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
@@ -148,94 +154,111 @@ internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
 
 internal sealed class ComponentScreen(
     val composeScreen: @Composable (ComponentKey) -> Unit,
-    val preview: (@Composable (Style) -> Unit)? = null,
+    val preview: (@Composable (Style, ComponentKey) -> Unit)? = null,
 ) {
-    object Avatar : ComponentScreen({ AvatarScreen(it) }, { AvatarSizeM(it as AvatarStyle) })
-    object AvatarGroup : ComponentScreen({ AvatarGroupScreen(it) }, { AvatarGroupSizeS(it as AvatarGroupStyle) })
-    object Buttons : ComponentScreen({ BasicButtonScreen(it) }, { ButtonSizeLSecondary(it as ButtonStyle) })
-    object Badge : ComponentScreen({ BadgeScreen(it) }, { BadgeSizeLDefaultContentLeft(it as BadgeStyle) })
-    object IconButtons : ComponentScreen({ IconButtonScreen(it) }, { IconButtonLDefault(it as ButtonStyle) })
-    object IconBadge : ComponentScreen({ IconBadgeScreen(it) }, { IconBadgeCommon(it as BadgeStyle) })
+    object Avatar : ComponentScreen({ AvatarScreen(it) }, { it, _ -> AvatarSizeM(it as AvatarStyle) })
+    object AvatarGroup : ComponentScreen(
+        { AvatarGroupScreen(it) },
+        { it, _ -> AvatarGroupSizeS(it as AvatarGroupStyle) },
+    )
+    object Buttons : ComponentScreen({ BasicButtonScreen(it) }, { it, _ -> ButtonSizeLSecondary(it as ButtonStyle) })
+    object Badge : ComponentScreen({ BadgeScreen(it) }, { it, _ -> BadgeSizeLDefaultContentLeft(it as BadgeStyle) })
+    object IconButtons : ComponentScreen({ IconButtonScreen(it) }, { it, _ -> IconButtonLDefault(it as ButtonStyle) })
+    object IconBadge : ComponentScreen({ IconBadgeScreen(it) }, { it, _ -> IconBadgeCommon(it as BadgeStyle) })
     object BottomSheet : ComponentScreen(
         { BottomSheetScreen(it) },
-        { BottomSheetForSandbox(it as ModalBottomSheetStyle) },
+        { it, _ -> BottomSheetForSandbox(it as ModalBottomSheetStyle) },
     )
 
-    object LinkButtons : ComponentScreen({ LinkButtonScreen(it) }, { LinkButtonSizeLDefault(it as ButtonStyle) })
-    object Cell : ComponentScreen({ CellScreen(it) }, { CellMAvatarIcon(it as CellStyle) })
-    object Card : ComponentScreen({ CardScreen(it) }, { CardVertical(it as CardStyle) })
-    object CheckBox : ComponentScreen({ CheckBoxScreen(it) }, { CheckBoxSizeM(it as CheckBoxStyle) })
+    object LinkButtons : ComponentScreen(
+        { LinkButtonScreen(it) },
+        { it, _ -> LinkButtonSizeLDefault(it as ButtonStyle) },
+    )
+    object Cell : ComponentScreen({ CellScreen(it) }, { it, _ -> CellMAvatarIcon(it as CellStyle) })
+    object Card : ComponentScreen({ CardScreen(it) }, { it, _ -> CardVertical(it as CardStyle) })
+    object CheckBox : ComponentScreen({ CheckBoxScreen(it) }, { it, _ -> CheckBoxSizeM(it as CheckBoxStyle) })
     object CheckBoxGroup :
-        ComponentScreen({ CheckBoxGroupScreen(it) }, { CheckBoxGroupSizeM(it as CheckBoxGroupStyle) })
+        ComponentScreen({ CheckBoxGroupScreen(it) }, { it, _ -> CheckBoxGroupSizeM(it as CheckBoxGroupStyle) })
 
-    object RadioBox : ComponentScreen({ RadioBoxScreen(it) }, { RadioBoxSizeM(it as RadioBoxStyle) })
+    object RadioBox : ComponentScreen({ RadioBoxScreen(it) }, { it, _ -> RadioBoxSizeM(it as RadioBoxStyle) })
     object RadioBoxGroup :
-        ComponentScreen({ RadioBoxGroupScreen(it) }, { RadioBoxGroupSizeM(it as RadioBoxGroupStyle) })
+        ComponentScreen({ RadioBoxGroupScreen(it) }, { it, _ -> RadioBoxGroupSizeM(it as RadioBoxGroupStyle) })
 
-    object Switch : ComponentScreen({ SwitchScreen(it) }, { SwitchS(it as SwitchStyle) })
-    object Progress : ComponentScreen({ ProgressScreen(it) }, { ProgressBarDefault(it as ProgressBarStyle) })
+    object Switch : ComponentScreen({ SwitchScreen(it) }, { it, _ -> SwitchS(it as SwitchStyle) })
+    object Progress : ComponentScreen({ ProgressScreen(it) }, { it, _ -> ProgressBarDefault(it as ProgressBarStyle) })
     object CircularProgress :
-        ComponentScreen({ CircularProgressScreen(it) }, { CircularProgress(it as CircularProgressBarStyle) })
+        ComponentScreen({ CircularProgressScreen(it) }, { it, _ -> CircularProgress(it as CircularProgressBarStyle) })
 
-    object TextField : ComponentScreen({ TextFieldScreen(it) }, { TextFieldLDefaultInnerLeft(it as TextFieldStyle) })
+    object TextField : ComponentScreen(
+        { TextFieldScreen(it) },
+        { it, _ -> TextFieldLDefaultInnerLeft(it as TextFieldStyle) },
+    )
     object TextArea : ComponentScreen(
         { TextFieldScreen(it) },
-        { TextAreaLDefaultTBTA(it as TextFieldStyle) },
+        { it, _ -> TextAreaLDefaultTBTA(it as TextFieldStyle) },
     )
 
-    object Chip : ComponentScreen({ ChipScreen(it) }, { ChipSizeLDefault(it as ChipStyle) })
-    object ChipGroup : ComponentScreen({ ChipGroupScreen(it) }, { ChipGroupSizeLDense(it as ChipGroupStyle) })
-    object Indicator : ComponentScreen({ IndicatorScreen(it) }, { IndicatorCommon(it as IndicatorStyle) })
-    object Counter : ComponentScreen({ CounterScreen(it) }, { CounterCommon(it as CounterStyle) })
+    object Chip : ComponentScreen({ ChipScreen(it) }, { it, _ -> ChipSizeLDefault(it as ChipStyle) })
+    object ChipGroup : ComponentScreen({ ChipGroupScreen(it) }, { it, _ -> ChipGroupSizeLDense(it as ChipGroupStyle) })
+    object Indicator : ComponentScreen({ IndicatorScreen(it) }, { it, _ -> IndicatorCommon(it as IndicatorStyle) })
+    object Counter : ComponentScreen({ CounterScreen(it) }, { it, _ -> CounterCommon(it as CounterStyle) })
     object SegmentItem :
-        ComponentScreen({ SegmentItemScreen(it) }, { SegmentItemSizeMSecondaryPilled(it as SegmentItemStyle) })
+        ComponentScreen({ SegmentItemScreen(it) }, { it, _ -> SegmentItemSizeMSecondaryPilled(it as SegmentItemStyle) })
 
-    object Segment : ComponentScreen({ SegmentScreen(it) }, { SegmentSizeLCounter(it as SegmentStyle) })
-    object Divider : ComponentScreen({ DividerScreen(it) }, { DividerDefault(it as DividerStyle) })
+    object Segment : ComponentScreen({ SegmentScreen(it) }, { it, _ -> SegmentSizeLCounter(it as SegmentStyle) })
+    object Divider : ComponentScreen({ DividerScreen(it) }, { it, _ -> DividerDefault(it as DividerStyle) })
     object Overlay : ComponentScreen(
         { OverlayScreen(it) },
-        { OverlayForSandbox(it as OverlayStyle, IconButton.S.style()) },
+        { it, _ -> OverlayForSandbox(it as OverlayStyle, IconButton.S.style()) },
     )
 
     object Popover : ComponentScreen(
         { PopoverScreen(it) },
-        { PopoverForSandbox(it as PopoverStyle, BasicButton.S.Default.style()) },
+        { it, _ -> PopoverForSandbox(it as PopoverStyle, BasicButton.S.Default.style()) },
     )
 
-    object Tooltip : ComponentScreen({ TooltipScreen(it) }, { TooltipForSandbox(it as TooltipStyle) })
-    object Toast : ComponentScreen({ ToastScreen(it) }, { ToastForSandbox(it as ToastStyle) })
-    object Modal : ComponentScreen({ ModalScreen(it) }, { ModalForSandboxCompose(it as ModalStyle) })
+    object Tooltip : ComponentScreen({ TooltipScreen(it) }, { it, _ -> TooltipForSandbox(it as TooltipStyle) })
+    object Toast : ComponentScreen({ ToastScreen(it) }, { it, _ -> ToastForSandbox(it as ToastStyle) })
+    object Modal : ComponentScreen({ ModalScreen(it) }, { it, _ -> ModalForSandboxCompose(it as ModalStyle) })
     object Notification : ComponentScreen(
         { NotificationScreen(it) },
-        { NotificationForSandbox(it as NotificationStyle) },
+        { it, _ -> NotificationForSandbox(it as NotificationStyle) },
     )
 
     object RectSkeleton : ComponentScreen(
         { RectSkeletonScreen(it) },
-        { RectSkeletonForSandbox(it as RectSkeletonStyle) },
+        { it, _ -> RectSkeletonForSandbox(it as RectSkeletonStyle) },
     )
     object TextSkeleton : ComponentScreen(
         { TextSkeletonScreen(it) },
-        { TextSkeletonPreview(it as TextSkeletonStyle) },
+        { it, _ -> TextSkeletonPreview(it as TextSkeletonStyle) },
     )
 
-    object Spinner : ComponentScreen({ SpinnerScreen(it) }, { SpinnerTest(it as SpinnerStyle) })
-    object List : ComponentScreen({ ListScreen(it) }, { ListForSandbox(it as ListStyle) })
+    object Spinner : ComponentScreen({ SpinnerScreen(it) }, { it, _ -> SpinnerTest(it as SpinnerStyle) })
+    object List : ComponentScreen({ ListScreen(it) }, { it, _ -> ListForSandbox(it as ListStyle) })
     object DropdownMenu : ComponentScreen(
         { DropdownMenuScreen(it) },
-        { DropdownMenuPreview(it as DropdownMenuStyle) },
+        { it, _ -> DropdownMenuPreview(it as DropdownMenuStyle) },
     )
     object Accordion : ComponentScreen(
         { AccordionScreen(it) },
-        { AccordionPreview(it as AccordionStyle) },
+        { it, _ -> AccordionPreview(it as AccordionStyle) },
     )
     object ScrollBar : ComponentScreen(
         { ScrollBarScreen(it) },
-        { ScrollBarPreview(it as ScrollBarStyle) },
+        { it, _ -> ScrollBarPreview(it as ScrollBarStyle) },
     )
     object Image : ComponentScreen(
         { ImageScreen(it) },
-        { ImageScreenPreview(it as ImageStyle) },
+        { it, _ -> ImageScreenPreview(it as ImageStyle) },
+    )
+    object ButtonGroup : ComponentScreen(
+        { ButtonGroupScreen(it) },
+        { style, key -> ButtonGroupPreview(style as ButtonGroupStyle, key) },
+    )
+    object TabBar : ComponentScreen(
+        { TabBarScreen(it) },
+        { style, _ -> TabBarPreview(style as TabBarStyle) },
     )
     object Empty : ComponentScreen({})
 }
@@ -283,6 +306,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
         CoreComponent.IMAGE -> ComponentScreen.Image
+        CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
+        CoreComponent.TAB_BAR -> ComponentScreen.TabBar
         else -> ComponentScreen.Empty
     }
 }

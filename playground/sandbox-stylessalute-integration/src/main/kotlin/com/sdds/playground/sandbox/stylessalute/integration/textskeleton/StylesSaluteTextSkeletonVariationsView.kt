@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.s
 internal object StylesSaluteTextSkeletonVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
-            "Default" to s.Salute_StylesSalute_ComponentOverlays_TextSkeleton,
+            "Default" to s.Salute_StylesSalute_ComponentOverlays_TextSkeletonDefault,
+            "Lighter" to s.Salute_StylesSalute_ComponentOverlays_TextSkeletonLighter,
         )
 }

@@ -61,7 +61,7 @@ internal class ItemSelectorDecorator(
 
     @Suppress("RestrictedApi")
     fun moveToView(targetView: View) {
-        if (targetView == recyclerView) {
+        if (targetView == recyclerView || targetView.parent != recyclerView) {
             clear()
             navigationDrawer.invalidate()
             return

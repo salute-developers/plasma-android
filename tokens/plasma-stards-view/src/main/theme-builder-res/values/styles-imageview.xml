@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.ImageView" parent="Sdds.Components.ImageView"/>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_1_2">
+        <item name="sd_aspectRatio">0.5</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_1_2">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_1_2</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_9_16">
+        <item name="sd_aspectRatio">0.5625</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_9_16">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_9_16</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_3_4">
+        <item name="sd_aspectRatio">0.75</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_3_4">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_3_4</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_2_1">
+        <item name="sd_aspectRatio">2.0</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_2_1">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_2_1</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_16_9">
+        <item name="sd_aspectRatio">1.7777778</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_16_9">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_16_9</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_4_3">
+        <item name="sd_aspectRatio">1.3333334</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_4_3">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_4_3</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.ImageView.Ratio_1_1">
+        <item name="sd_aspectRatio">1.0</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.ImageViewRatio_1_1">
+        <item name="sd_imageViewStyle">@style/Sdkit.StarDs.Components.ImageView.Ratio_1_1</item>
+    </style>
+</resources>

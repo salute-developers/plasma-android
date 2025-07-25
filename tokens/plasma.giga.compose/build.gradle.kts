@@ -1,6 +1,10 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.componentsName
 import utils.componentsVersion
+import utils.themeAlias
+import utils.themeName
+import utils.themeResPrefix
 import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -12,16 +16,17 @@ plugins {
     id("convention.testing-compose")
     id(libs.plugins.themebuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
+    id("convention.docusaurus")
 }
 
 android {
     namespace = "com.sdds.plasma.giga.compose"
-    resourcePrefix = "giga_cmp"
+    resourcePrefix = themeResPrefix
 }
 
 themeBuilder {
-    themeSource(name = "plasma_giga", version = themeVersion, alias = "PlasmaGiga")
-    componentSource(name = "plasma_giga", version = componentsVersion, alias = "PlasmaGiga")
+    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
+    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
     compose()
     ktPackage(ktPackage = "com.sdds.plasma.giga")
     mode(THEME)

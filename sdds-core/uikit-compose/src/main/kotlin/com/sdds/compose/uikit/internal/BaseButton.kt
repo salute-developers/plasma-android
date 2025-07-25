@@ -9,18 +9,19 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.semantics.Role
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.zIndex
 import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.ButtonDimensions
 import com.sdds.compose.uikit.ButtonSpacing
@@ -44,7 +46,7 @@ import com.sdds.compose.uikit.internal.common.surface
 internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
-    shape: CornerBasedShape,
+    shape: Shape,
     colors: ButtonColors,
     loadingAlpha: Float,
     dimensions: ButtonDimensions,
@@ -73,6 +75,7 @@ internal fun BaseButton(
                 role = Role.Button,
                 interactionSource = interactionSource,
             )
+            .zIndex(if (isFocused.value) 1f else 0f)
             .padding(dimensions.paddingStart, 0.dp, dimensions.paddingEnd, 0.dp),
         contentAlignment = Alignment.Center,
     ) {
@@ -136,12 +139,17 @@ internal fun RowScope.ButtonText(
     value: String?,
 ) {
     if (!value.isNullOrEmpty()) {
+        val widthModifier = if (spacing == ButtonSpacing.SpaceBetween) {
+            modifier.fillMaxWidth().weight(1f, false)
+        } else {
+            modifier
+        }
         Row(
             horizontalArrangement = when (spacing) {
                 ButtonSpacing.Packed -> Arrangement.Center
                 ButtonSpacing.SpaceBetween -> Arrangement.SpaceBetween
             },
-            modifier = modifier.weight(1f, spacing == ButtonSpacing.SpaceBetween),
+            modifier = widthModifier,
         ) {
             Text(
                 text = label,

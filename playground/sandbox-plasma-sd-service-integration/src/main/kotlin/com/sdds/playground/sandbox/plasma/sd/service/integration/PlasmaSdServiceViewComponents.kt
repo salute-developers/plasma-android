@@ -30,6 +30,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuNormalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuTightVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdServiceImageVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsView
@@ -44,6 +45,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.
 import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.spinner.PlasmaSdServiceSpinnerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.PlasmaSdServiceTextFieldVariationsView
@@ -229,6 +231,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
                 PlasmaSdServiceSwitchVariationsView,
             ),
             ViewComponent(
+                ComponentKey.Spinner,
+                PlasmaSdServiceSpinnerVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.TextField,
                 PlasmaSdServiceTextFieldVariationsView,
             ),
@@ -243,6 +249,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Tooltip,
                 PlasmaSdServiceTooltipVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Image,
+                PlasmaSdServiceImageVariationsView,
             ),
         ).associateBy { it.key }
 }

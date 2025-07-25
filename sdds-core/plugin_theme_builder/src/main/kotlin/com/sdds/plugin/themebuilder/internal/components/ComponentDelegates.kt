@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegat
 import com.sdds.plugin.themebuilder.internal.components.bottomsheet.BottomSheetConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
+import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
@@ -35,6 +36,8 @@ import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDel
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.tabbar.TabBarConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.tabbar.item.TabBarItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
@@ -91,5 +94,8 @@ internal val componentDelegates by unsafeLazy {
         "wheel" to WheelConfigDelegate(),
         "scroll-bar" to ScrollBarConfigDelegate(),
         "image" to ImageConfigDelegate(),
+        "button-group" to ButtonGroupConfigDelegate(),
+        "tab-bar-item" to TabBarItemConfigDelegate(),
+        "tab-bar" to TabBarConfigDelegate(),
     )
 }

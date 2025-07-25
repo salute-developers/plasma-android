@@ -100,6 +100,9 @@ private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
             contentTextColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            iconColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .iconPlacement(AccordionIconPlacement.End)
         .iconRotation(90.0f)

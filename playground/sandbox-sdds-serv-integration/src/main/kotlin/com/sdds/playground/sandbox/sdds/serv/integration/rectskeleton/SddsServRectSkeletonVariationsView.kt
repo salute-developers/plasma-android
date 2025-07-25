@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.s
 internal object SddsServRectSkeletonVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
-            "Default" to s.Serv_Sdds_ComponentOverlays_RectSkeleton,
+            "Default" to s.Serv_Sdds_ComponentOverlays_RectSkeletonDefault,
+            "Lighter" to s.Serv_Sdds_ComponentOverlays_RectSkeletonLighter,
         )
 }

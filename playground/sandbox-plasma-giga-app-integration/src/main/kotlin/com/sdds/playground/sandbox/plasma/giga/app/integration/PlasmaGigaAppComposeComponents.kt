@@ -21,6 +21,8 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.bottomsheet.Plasm
 import com.sdds.playground.sandbox.plasma.giga.app.integration.button.basic.PlasmaGigaAppBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.button.icon.PlasmaGigaAppIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.button.link.PlasmaGigaAppLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.buttongroup.PlasmaGigaAppBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.buttongroup.PlasmaGigaAppIconButtonGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.card.PlasmaGigaAppCardClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.card.PlasmaGigaAppCardSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.cell.compose.PlasmaGigaAppCellVariationsCompose
@@ -54,6 +56,14 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.PlasmaGig
 import com.sdds.playground.sandbox.plasma.giga.app.integration.segment.item.PlasmaGigaAppSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.spinner.PlasmaGigaAppSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.switcher.PlasmaGigaAppSwitchVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarHasLabelClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarHasLabelSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarIslandClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarIslandHasLabelClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarIslandHasLabelSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarIslandSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.tabbar.PlasmaGigaAppTabBarSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.PlasmaGigaAppTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textarea.clear.PlasmaGigaAppTextAreaClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.textfield.PlasmaGigaAppTextFieldVariationsCompose
@@ -293,6 +303,46 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Image,
                 PlasmaGigaAppImageVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaGigaAppBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaGigaAppIconButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarSolid", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarClear", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandSolid", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarIslandSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandClear", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarIslandClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarHasLabelSolid", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarHasLabelSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarHasLabelClear", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandHasLabelSolid", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarIslandHasLabelSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
+                PlasmaGigaAppTabBarIslandHasLabelClearVariationsCompose,
             ),
         ).associateBy { it.key }
 }

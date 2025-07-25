@@ -176,8 +176,6 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         populate()
         updateControls()
         updateDescription()
-        clipChildren = false
-        clipToPadding = false
     }
 
     fun setData(items: List<Wheel.WheelItemEntry>) {
