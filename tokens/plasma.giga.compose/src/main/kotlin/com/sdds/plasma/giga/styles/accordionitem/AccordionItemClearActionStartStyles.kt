@@ -100,6 +100,9 @@ private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
             contentTextColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            iconColor(
+                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .dimensions {
             iconPadding(4.0.dp)

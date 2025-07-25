@@ -104,6 +104,9 @@ private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
             contentTextColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            iconColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .dimensions {
             iconPadding(4.0.dp)

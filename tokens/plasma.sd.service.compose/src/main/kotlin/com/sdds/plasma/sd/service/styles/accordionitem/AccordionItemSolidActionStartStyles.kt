@@ -104,6 +104,9 @@ private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
             contentTextColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .dimensions {
             iconPadding(4.0.dp)

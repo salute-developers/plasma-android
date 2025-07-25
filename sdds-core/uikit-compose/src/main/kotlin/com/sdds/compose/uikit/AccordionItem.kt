@@ -112,6 +112,13 @@ fun AccordionItem(
                 interactionSource = interactionSource,
             ) { onClick.invoke() },
     ) {
+        val iconContent: @Composable RowScope.() -> Unit = {
+            CompositionLocalProvider(
+                LocalTint provides style.colors.iconColor.colorForInteraction(interactionSource)
+            ) {
+                action.invoke()
+            }
+        }
         Cell(
             modifier = Modifier.padding(
                 start = style.dimensions.paddingStart,
@@ -125,8 +132,14 @@ fun AccordionItem(
                 iconPadding = style.dimensions.iconPadding,
             ),
             title = AnnotatedString(title),
-            startContent = startContent(action, style.iconPlacement),
-            endContent = endContent(action, style.iconPlacement),
+            startContent = startContent(
+                iconContent = iconContent,
+                iconPlacement = style.iconPlacement,
+            ),
+            endContent = endContent(
+                iconContent = iconContent,
+                iconPlacement = style.iconPlacement,
+            ),
             gravity = CellGravity.Center,
             disclosureContentEnabled = false,
             disclosureIconRes = null,
@@ -220,27 +233,21 @@ private fun AccordionAction(
 }
 
 private fun startContent(
-    action: @Composable () -> Unit,
+    iconContent: @Composable RowScope.() -> Unit,
     iconPlacement: AccordionIconPlacement,
 ): (@Composable RowScope.() -> Unit)? {
     return when (iconPlacement) {
-        AccordionIconPlacement.Start -> {
-            @Composable { action.invoke() }
-        }
-
+        AccordionIconPlacement.Start -> iconContent
         AccordionIconPlacement.End -> null
     }
 }
 
 private fun endContent(
-    action: @Composable () -> Unit,
+    iconContent: @Composable RowScope.() -> Unit,
     iconPlacement: AccordionIconPlacement,
 ): (@Composable RowScope.() -> Unit)? {
     return when (iconPlacement) {
-        AccordionIconPlacement.End -> {
-            @Composable { action.invoke() }
-        }
-
+        AccordionIconPlacement.End -> iconContent
         AccordionIconPlacement.Start -> null
     }
 }

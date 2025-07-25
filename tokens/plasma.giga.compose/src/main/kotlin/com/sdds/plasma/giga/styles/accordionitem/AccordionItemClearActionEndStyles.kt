@@ -100,6 +100,9 @@ private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
             contentTextColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            iconColor(
+                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .iconPlacement(AccordionIconPlacement.End)
         .iconRotation(90.0f)
