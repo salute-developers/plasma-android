@@ -30,7 +30,7 @@ jobs:
           else
             echo "Using ref from workflow_dispatch input"
             echo "ref=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
-          
+          fi
 
   deploy:
     name: Deploy docs

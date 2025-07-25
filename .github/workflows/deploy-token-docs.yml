@@ -38,6 +38,7 @@ jobs:
             echo "Using modules and tag from workflow_dispatch input"
             echo "modules=${{ github.event.inputs.modules }}" >> $GITHUB_OUTPUT
             echo "ref=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          fi
 
   deploy:
     name: Deploy docs
