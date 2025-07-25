@@ -113,9 +113,7 @@ fun AccordionItem(
             ) { onClick.invoke() },
     ) {
         val iconContent: @Composable RowScope.() -> Unit = {
-            CompositionLocalProvider(
-                LocalTint provides style.colors.iconColor.colorForInteraction(interactionSource)
-            ) {
+            CompositionLocalProvider(LocalTint provides style.colors.iconColor.colorForInteraction(interactionSource)) {
                 action.invoke()
             }
         }
@@ -132,14 +130,8 @@ fun AccordionItem(
                 iconPadding = style.dimensions.iconPadding,
             ),
             title = AnnotatedString(title),
-            startContent = startContent(
-                iconContent = iconContent,
-                iconPlacement = style.iconPlacement,
-            ),
-            endContent = endContent(
-                iconContent = iconContent,
-                iconPlacement = style.iconPlacement,
-            ),
+            startContent = startContent(iconContent, style.iconPlacement),
+            endContent = endContent(iconContent, style.iconPlacement),
             gravity = CellGravity.Center,
             disclosureContentEnabled = false,
             disclosureIconRes = null,
