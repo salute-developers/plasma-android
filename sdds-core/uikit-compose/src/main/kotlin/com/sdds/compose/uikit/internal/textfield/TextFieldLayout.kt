@@ -43,7 +43,6 @@ import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
-import com.sdds.compose.uikit.LocalChipStyle
 import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
@@ -348,7 +347,7 @@ private fun TextFieldContent(
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
-                chipContainerShape = LocalChipStyle.current.shape,
+                chipContainerShape = chipGroupStyle.chipStyle.shape,
             )
             .then(scrollState?.let { Modifier.horizontalScroll(it) } ?: Modifier),
         content = {

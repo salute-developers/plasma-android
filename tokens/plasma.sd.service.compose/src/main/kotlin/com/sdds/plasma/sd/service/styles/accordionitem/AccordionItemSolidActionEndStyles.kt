@@ -104,6 +104,9 @@ private val AccordionItemStyleBuilder.invariantProps: AccordionItemStyleBuilder
             contentTextColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .iconPlacement(AccordionIconPlacement.End)
         .iconRotation(90.0f)
