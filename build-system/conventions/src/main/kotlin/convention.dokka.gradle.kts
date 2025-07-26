@@ -10,7 +10,8 @@ import tasks.s3.getS3Bucket
 import tasks.s3.getS3Endpoint
 import tasks.s3.getS3Region
 import tasks.s3.getS3SecretAccessKey
-import utils.docsBaseUrl
+import utils.docsBaseProdUrl
+import utils.docsDeployUrl
 import utils.docsUrl
 import utils.withVersionCatalogs
 
@@ -52,7 +53,7 @@ tasks.register<S3UploadTask>("dokkaDeploy") {
     region.set(getS3Region())
     bucket.set(getS3Bucket())
     sourceFiles.set(outputDokkaDir)
-    destinationPath.set(docsBaseUrl)
+    destinationPath.set(docsDeployUrl)
 
     doLast {
         val jsonFile = buildDir
@@ -61,7 +62,7 @@ tasks.register<S3UploadTask>("dokkaDeploy") {
             .resolve("deploy.json")
         val gson = GsonBuilder().setPrettyPrinting().create()
         val json = JsonObject()
-        json.addProperty("deployUrl", "$docsUrl$docsBaseUrl")
+        json.addProperty("deployUrl", "$docsUrl$docsBaseProdUrl")
         jsonFile.writeText(gson.toJson(json))
     }
 }

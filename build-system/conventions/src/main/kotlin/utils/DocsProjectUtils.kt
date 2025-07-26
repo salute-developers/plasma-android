@@ -59,7 +59,7 @@ val Project.docsApiHref: String
     get() {
         val artifactId = if (isComposeLib()) "sdds-uikit-compose" else "sdds-uikit"
         val version = if (isComposeLib()) docsUikitComposeVersion else docsUikitVersion
-        return "$BASE_DOC_URL${getArtifactDocsBaseUrl(artifactId, version)}"
+        return "$BASE_DOC_URL${getArtifactDocsBaseUrl(artifactId, version, docsBranch())}"
     }
 
 /**
@@ -83,25 +83,37 @@ val Project.docsUrl: String
     get() = BASE_DOC_URL
 
 /**
- * Имя ветки документации. Может быть "current", "dev" или "pr/..." в зависимости от текущей ветки проекта.
+ * Имя ветки документации. Может быть "", "current", "dev" или "pr/..." в зависимости от текущей ветки проекта.
  */
-val Project.docsBranch: String
-    get() {
-        val branchName = getBranchName()
-        return when {
-            branchName.isReleaseBranch() ||
-            branchName.isHotfixBranch() ||
-            branchName.isFeatureBranch() -> "pr/${branchName.lowercase().replace("/", "_")}"
-            branchName.isMainBranch() -> "current"
-            else -> "dev"
-        }
+fun Project.docsBranch(deploy: Boolean = false): String {
+    val branchName = getBranchName()
+    return when {
+        branchName.isReleaseBranch() ||
+        branchName.isHotfixBranch() ||
+        branchName.isFeatureBranch() -> "pr/${branchName.lowercase().replace("/", "_")}"
+        branchName.isMainBranch() && deploy -> "current"
+        branchName.isMainBranch() -> ""
+        else -> "dev"
     }
+}
 
 /**
- * Возвращает относительный путь к документации артефакта на основе его ID и версии.
+ * Возвращает относительный путь к документации артефакта на основе его ID, версии и текущей ветки.
  */
 val Project.docsBaseUrl: String
-    get() = getArtifactDocsBaseUrl(docsArtifactId, versionInfo().name)
+    get() = getArtifactDocsBaseUrl(docsArtifactId, versionInfo().name, docsBranch())
+
+/**
+ * Возвращает относительный путь к документации артефакта на основе его ID и версии на ветке main.
+ */
+val Project.docsBaseProdUrl: String
+    get() = getArtifactDocsBaseUrl(docsArtifactId, versionInfo().name, "")
+
+/**
+ * Возвращает относительный путь для деплоя документации на основе его ID и версии.
+ */
+val Project.docsDeployUrl: String
+    get() = getArtifactDocsBaseUrl(docsArtifactId, versionInfo().name, docsBranch(true))
 
 /**
  * Преобразует шаблоны документации, подставляя значения из проекта в плейсхолдеры.
@@ -156,8 +168,9 @@ fun Project.getDocsDestinationDir(): File {
 /**
  * Возвращает относительный путь к документации артефакта на основе ветки, цели, ID и версии.
  */
-private fun Project.getArtifactDocsBaseUrl(artifactId: String, version: String): String {
-    return "/$docsBranch/$docsTarget/$artifactId/$version/"
+private fun Project.getArtifactDocsBaseUrl(artifactId: String, version: String, branch: String): String {
+    val branchSuffix = if (branch.isNotEmpty()) "/$branch" else ""
+    return "$branchSuffix/$docsTarget/$artifactId/$version/"
 }
 
 private const val BASE_DOC_URL = "https://plasma.sberdevices.ru"

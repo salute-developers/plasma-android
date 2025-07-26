@@ -7,7 +7,9 @@ import tasks.s3.getS3Endpoint
 import tasks.s3.getS3Region
 import tasks.s3.getS3SecretAccessKey
 import utils.AutoBumpTask
+import utils.docsBaseProdUrl
 import utils.docsBaseUrl
+import utils.docsDeployUrl
 import utils.docsUrl
 import utils.getDocsDestinationDir
 import utils.getDocsTemplateDir
@@ -99,7 +101,7 @@ val updateArchivedVersions by tasks.register("docusaurusBump") {
             .resolve("versionsArchived.json")
         val gson = GsonBuilder().setPrettyPrinting().create()
         val currentVersion = versionInfo.name
-        val url = "$docsUrl$docsBaseUrl"
+        val url = "$docsUrl$docsBaseProdUrl"
 
         val json = if (jsonFile.exists()) {
             gson.fromJson(jsonFile.readText(), JsonObject::class.java)
@@ -128,7 +130,7 @@ tasks.register<S3UploadTask>("docusaurusDeploy") {
     region.set(getS3Region())
     bucket.set(getS3Bucket())
     sourceFiles.set(docusaurusBuildDir)
-    destinationPath.set(docsBaseUrl)
+    destinationPath.set(docsDeployUrl)
 
     doLast {
         val jsonFile = docusaurusDestinationDir
