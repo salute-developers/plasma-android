@@ -36,6 +36,7 @@ jobs:
             echo "ref=${{ github.event.client_payload.tag }}" >> $GITHUB_OUTPUT
           else
             echo "Using modules and tag from workflow_dispatch input"
+            echo "Input modules ${{ github.event.inputs.modules }}"
             echo "modules=${{ github.event.inputs.modules }}" >> $GITHUB_OUTPUT
             echo "ref=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
           fi
