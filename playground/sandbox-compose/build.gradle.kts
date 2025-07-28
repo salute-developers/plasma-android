@@ -39,10 +39,12 @@ android {
         //comment following lines (freeCompilerArgs) to disable compose-metrics
         freeCompilerArgs += listOf(
             "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics")
+            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics"
+        )
         freeCompilerArgs += listOf(
             "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination="  + project.buildDir.absolutePath + "/compose_metrics")
+            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" + project.buildDir.absolutePath + "/compose_metrics"
+        )
     }
 
     flavorDimensions += "target"
@@ -112,8 +114,12 @@ tasks.register("generateVersionDescription") {
     doLast {
         val version = versionInfo()
         val json = buildJsonObject {
-            put(APP_DISTRIBUTION_NAME, version.code)
-            put(STAR_APP_DISTRIBUTION_NAME, version.code)
+            val versionObj = buildJsonObject {
+                put("code", version.code)
+                put("name", version.name)
+            }
+            put(APP_DISTRIBUTION_NAME, versionObj)
+            put(STAR_APP_DISTRIBUTION_NAME, versionObj)
         }
         outputFile.writeText(json.toString())
     }

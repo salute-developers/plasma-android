@@ -88,12 +88,10 @@ val Project.docsUrl: String
 fun Project.docsBranch(deploy: Boolean = false): String {
     val branchName = getBranchName()
     return when {
-        branchName.isReleaseBranch() ||
-        branchName.isHotfixBranch() ||
-        branchName.isFeatureBranch() -> "pr/${branchName.lowercase().replace("/", "_")}"
         branchName.isMainBranch() && deploy -> "current"
         branchName.isMainBranch() -> ""
-        else -> "dev"
+        branchName.isDevBranch() -> "dev"
+        else -> "pr/${branchName.lowercase().replace("/", "_")}"
     }
 }
 
