@@ -28,6 +28,7 @@ open class SegmentItem @JvmOverloads constructor(
     private var _contentStartSize: Int = 0
     private var _contentEndSize: Int = 0
     private var _iconSize: Int = 0
+    private var _counterText: String = ""
 
     /**
      * Включение counter
@@ -128,10 +129,11 @@ open class SegmentItem @JvmOverloads constructor(
             R.styleable.SegmentItem_sd_counterStyle,
             R.style.Sdds_Components_Counter,
         )
-        counterText = typedArray.getString(R.styleable.SegmentItem_sd_counterText) ?: "0"
         _contentStartSize = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_contentStartSize, 0)
         _contentEndSize = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_contentEndSize, 0)
         _iconSize = typedArray.getDimensionPixelSize(R.styleable.SegmentItem_sd_iconSize, 0)
+        _isCounterEnabled = typedArray.getBoolean(R.styleable.SegmentItem_sd_counterEnabled, false)
+        _counterText = typedArray.getString(R.styleable.SegmentItem_sd_counterText) ?: "0"
         typedArray.recycle()
         iconSize = getActualIconSize()
         counterObtainAttributes(counterStyleAttr)
@@ -158,6 +160,7 @@ open class SegmentItem @JvmOverloads constructor(
             drawableStart = null
             drawableEnd = null
         }
+        counterText = _counterText
     }
 
     override fun onDrawableSizeChange() {
