@@ -40,4 +40,7 @@
     <item type="id" name="list_view"/>
     <item type="id" name="dropdown_menu_trigger"/>
     <item type="id" name="wheel"/>
+    <item type="id" name="scroll_bar"/>
+    <item type="id" name="recycler"/>
+    <item type="id" name="scroll_container"/>
 </resources>

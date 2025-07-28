@@ -743,6 +743,8 @@
     <dimen name="sdkit_dropdown_menu_s_shape_adjustment">-4.0dp</dimen>
     <dimen name="sdkit_dropdown_menu_s_min_width">320.0dp</dimen>
     <dimen name="sdkit_dropdown_menu_xs_min_width">320.0dp</dimen>
+    <dimen name="sdkit_scroll_bar_s_thickness">4.0dp</dimen>
+    <dimen name="sdkit_scroll_bar_m_thickness">8.0dp</dimen>
     <dimen name="sdkit_wheel_h1_text_after_padding">4.0dp</dimen>
     <dimen name="sdkit_wheel_h1_description_padding">16.0dp</dimen>
     <dimen name="sdkit_wheel_h1_separator_spacing">80.0dp</dimen>

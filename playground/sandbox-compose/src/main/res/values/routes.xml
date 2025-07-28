@@ -42,4 +42,5 @@
     <item type="id" name="nav_wheel"/>
     <item type="id" name="nav_image"/>
     <item type="id" name="nav_spinner"/>
+    <item type="id" name="nav_scrollbar"/>
 </resources>

@@ -43,6 +43,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgre
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.scrollbar.SddsServScrollBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsView
@@ -232,6 +233,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Switch,
                 SddsServSwitchVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ScrollBar,
+                SddsServScrollBarVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Spinner,

@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.DrawableWrapper
 import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -53,7 +52,6 @@ open class ProgressBar @JvmOverloads constructor(
         }
         addUpdateListener { _, value, _ ->
             _currentProgress = value
-            Log.e("Progress", "onUpdate: $value")
             _progressListener?.onProgressChanged(_currentProgress)
             updateProgress()
         }

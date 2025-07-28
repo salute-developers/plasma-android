@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPo
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.scrollbar.StarDsScrollBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsView
@@ -202,6 +203,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Spinner,
                 StarDsSpinnerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ScrollBar,
+                StarDsScrollBarVariationsView,
             ),
         ).associateBy { it.key }
 }

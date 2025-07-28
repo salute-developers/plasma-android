@@ -30,6 +30,7 @@
     <string name="menu_progressbar">ProgressBar</string>
     <string name="menu_segment">Segment</string>
     <string name="menu_segment_item">SegmentItem</string>
+    <string name="menu_scrollBar">ScrollBar</string>
     <string name="menu_switch">Switch</string>
     <string name="menu_spinner">Spinner</string>
     <string name="menu_textfield">TextField</string>

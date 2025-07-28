@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.scrollbar
+package com.sdds.playground.sandbox.scrollbar.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
