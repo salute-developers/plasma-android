@@ -33,7 +33,7 @@ open class Badge @JvmOverloads constructor(
     TextDrawable.Delegate,
     Shapeable {
 
-    private val _badgeDrawable: BadgeDrawable = BadgeDrawable(
+    protected open var badgeDrawable: BadgeDrawable = BadgeDrawable(
         context = context,
         attrs = attrs,
         defStyleAttr = defStyleAttr,
@@ -49,7 +49,7 @@ open class Badge @JvmOverloads constructor(
      * @see Shapeable.shape
      */
     override val shape: ShapeModel?
-        get() = _badgeDrawable.shape
+        get() = badgeDrawable.shape
 
     /**
      * Состояние внешнего вида компонента [Badge]
@@ -67,18 +67,18 @@ open class Badge @JvmOverloads constructor(
      * Текст
      */
     open var text: CharSequence?
-        get() = _badgeDrawable.text
+        get() = badgeDrawable.text
         set(value) {
-            _badgeDrawable.text = value ?: ""
+            badgeDrawable.text = value ?: ""
         }
 
     /**
      * [Drawable] в начале компонента
      */
     open var drawableStart: Drawable?
-        get() = _badgeDrawable.drawableStart
+        get() = badgeDrawable.drawableStart
         set(value) {
-            _badgeDrawable.drawableStart = value
+            badgeDrawable.drawableStart = value
             refreshDrawableState()
         }
 
@@ -86,9 +86,9 @@ open class Badge @JvmOverloads constructor(
      * [Drawable] в конце компонента
      */
     open var drawableEnd: Drawable?
-        get() = _badgeDrawable.drawableEnd
+        get() = badgeDrawable.drawableEnd
         set(value) {
-            _badgeDrawable.drawableEnd = value
+            badgeDrawable.drawableEnd = value
             refreshDrawableState()
         }
 
@@ -97,7 +97,7 @@ open class Badge @JvmOverloads constructor(
      * @param colors цвета текста
      */
     open fun setTextColor(colors: ColorStateList?) {
-        _badgeDrawable.setTextColor(colors)
+        badgeDrawable.setTextColor(colors)
     }
 
     /**
@@ -105,7 +105,7 @@ open class Badge @JvmOverloads constructor(
      * @param appearanceId идентификатор стиля текста
      */
     open fun setTextAppearance(@StyleRes appearanceId: Int) {
-        _badgeDrawable.setTextAppearance(context, appearanceId)
+        badgeDrawable.setTextAppearance(context, appearanceId)
     }
 
     /**
@@ -113,7 +113,7 @@ open class Badge @JvmOverloads constructor(
      * @param drawableRes идентификатор ресурса [Drawable]
      */
     fun setDrawableStartRes(@DrawableRes drawableRes: Int) {
-        _badgeDrawable.setDrawableStartRes(context, drawableRes)
+        badgeDrawable.setDrawableStartRes(context, drawableRes)
     }
 
     /**
@@ -121,7 +121,7 @@ open class Badge @JvmOverloads constructor(
      * @param drawableRes идентификатор ресурса [Drawable]
      */
     fun setDrawableEndRes(@DrawableRes drawableRes: Int) {
-        _badgeDrawable.setDrawableEndRes(context, drawableRes)
+        badgeDrawable.setDrawableEndRes(context, drawableRes)
     }
 
     /**
@@ -129,7 +129,7 @@ open class Badge @JvmOverloads constructor(
      * @param colors цвета [Drawable] в начале
      */
     open fun setDrawableStartColors(colors: ColorStateList?) {
-        _badgeDrawable.setDrawableStartTint(colors)
+        badgeDrawable.setDrawableStartTint(colors)
         refreshDrawableState()
     }
 
@@ -146,7 +146,7 @@ open class Badge @JvmOverloads constructor(
      * @param colors цвета [Drawable] в конце
      */
     open fun setDrawableEndColors(colors: ColorStateList?) {
-        _badgeDrawable.setDrawableEndTint(colors)
+        badgeDrawable.setDrawableEndTint(colors)
         refreshDrawableState()
     }
 
@@ -160,15 +160,15 @@ open class Badge @JvmOverloads constructor(
 
     override fun setPadding(left: Int, top: Int, right: Int, bottom: Int) {
         super.setPadding(left, top, right, bottom)
-        _badgeDrawable.setPaddings(left, top, right, bottom)
+        badgeDrawable.setPaddings(left, top, right, bottom)
     }
 
     override fun setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int) {
         super.setPaddingRelative(start, top, end, bottom)
         if (layoutDirection == LAYOUT_DIRECTION_RTL) {
-            _badgeDrawable.setPaddings(end, top, start, bottom)
+            badgeDrawable.setPaddings(end, top, start, bottom)
         } else {
-            _badgeDrawable.setPaddings(start, top, end, bottom)
+            badgeDrawable.setPaddings(start, top, end, bottom)
         }
     }
 
@@ -180,8 +180,8 @@ open class Badge @JvmOverloads constructor(
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
-        val intrinsicWidth = _badgeDrawable.intrinsicWidth
-        val intrinsicHeight = _badgeDrawable.intrinsicHeight
+        val intrinsicWidth = badgeDrawable.intrinsicWidth
+        val intrinsicHeight = badgeDrawable.intrinsicHeight
 
         val width = when (widthMode) {
             MeasureSpec.AT_MOST -> minOf(specWidth, maxOf(minimumWidth, intrinsicWidth))
@@ -195,21 +195,21 @@ open class Badge @JvmOverloads constructor(
             else -> maxOf(minimumHeight, intrinsicHeight)
         }
         setMeasuredDimension(width, height)
-        _badgeDrawable.setBounds(0, 0, measuredWidth, measuredHeight)
+        badgeDrawable.setBounds(0, 0, measuredWidth, measuredHeight)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        _badgeDrawable.draw(canvas)
+        badgeDrawable.draw(canvas)
     }
 
     override fun verifyDrawable(who: Drawable): Boolean {
-        return super.verifyDrawable(who) || who == _badgeDrawable
+        return super.verifyDrawable(who) || who == badgeDrawable
     }
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        _badgeDrawable.state = drawableState
+        badgeDrawable.state = drawableState
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
