@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionClearActionEndVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionClearActionStartVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionSolidActionEndVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionSolidActionStartVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.StylesSaluteAvatarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.group.StylesSaluteAvatarGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBadgeClearVariationsView
@@ -55,6 +59,22 @@ object StylesSaluteViewComponents : ComponentsProviderView {
 
     override val all: Map<ComponentKey, ViewComponent<String>> =
         listOf(
+            ViewComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                StylesSaluteAccordionClearActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                StylesSaluteAccordionClearActionEndVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                StylesSaluteAccordionSolidActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                StylesSaluteAccordionSolidActionEndVariationsView,
+            ),
             ViewComponent(
                 ComponentKey.Avatar,
                 StylesSaluteAvatarVariationsView,

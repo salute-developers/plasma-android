@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart" parent="Sdds.Components.Accordion">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_solid_action_start_item_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.Xs">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartXs">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.S">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartS">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.M">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartM">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.L">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartL">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.H2">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH2</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartH2">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.H2</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.H3">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH3</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartH3">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.H3</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.H4">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH4</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartH4">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.H4</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionSolidActionStart.H5">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH5</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionSolidActionStartH5">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionSolidActionStart.H5</item>
+    </style>
+</resources>

@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionEndVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionStartVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionEndVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionStartVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.PlasmaSdServiceAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.PlasmaSdServiceAvatarGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeClearVariationsView
@@ -62,6 +66,22 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
 
     override val all: Map<ComponentKey, ViewComponent<String>> =
         listOf(
+            ViewComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionEndVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionEndVariationsView,
+            ),
             ViewComponent(
                 ComponentKey.Avatar,
                 PlasmaSdServiceAvatarVariationsView,

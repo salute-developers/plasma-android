@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_accordionStyle" format="reference" />
+    <attr name="sd_accordionItemViewStyle" format="reference" />
+
+    <declare-styleable name="Accordion" tools:ignore="ResourceName">
+        <attr name="sd_accordionItemViewStyleOverlay" format="reference" />
+        <attr name="sd_dividerStyleOverlay" />
+        <attr name="sd_itemDividerEnabled" />
+        <attr name="sd_itemSpacing" />
+    </declare-styleable>
+
+    <declare-styleable name="AccordionItemView" tools:ignore="ResourceName">
+
+        <attr name="sd_opened" format="boolean" />
+
+        <attr name="sd_titleAppearance" />
+        <attr name="sd_titleColor" />
+        <attr name="sd_title" format="string" />
+
+        <attr name="sd_contentTextAppearance" format="reference" />
+        <attr name="sd_contentTextColor" format="color|reference" />
+        <attr name="sd_contentText" format="string" />
+
+        <attr name="sd_iconPadding" />
+        <attr name="sd_iconPlacement" format="enum">
+            <enum name="start" value="0" />
+            <enum name="end" value="1" />
+        </attr>
+        <attr name="sd_closedIcon" format="reference" />
+        <attr name="sd_openedIcon" format="reference" />
+        <attr name="sd_iconColor" format="color" />
+        <attr name="sd_openedIconAppearAnimation" format="reference"/>
+        <attr name="sd_openedIconDisappearAnimation" format="reference"/>
+        <attr name="sd_closedIconAppearAnimation" format="reference"/>
+        <attr name="sd_closedIconDisappearAnimation" format="reference"/>
+
+        <attr name="sd_headerPadding" format="dimension" />
+        <attr name="sd_headerPaddingStart" format="dimension" />
+        <attr name="sd_headerPaddingEnd" format="dimension" />
+        <attr name="sd_headerPaddingTop" format="dimension" />
+        <attr name="sd_headerPaddingBottom" format="dimension" />
+
+        <attr name="sd_contentPadding" />
+        <attr name="sd_contentPaddingStart" />
+        <attr name="sd_contentPaddingEnd" />
+        <attr name="sd_contentPaddingTop" />
+        <attr name="sd_contentPaddingBottom" />
+
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_background" />
+    </declare-styleable>
+</resources>

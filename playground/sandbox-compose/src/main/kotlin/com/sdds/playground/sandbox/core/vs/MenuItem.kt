@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
 import androidx.navigation.fragment.fragment
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.accordion.view.AccordionFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarGroupFragment
 import com.sdds.playground.sandbox.badge.vs.BadgeFragment
@@ -53,6 +54,7 @@ import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
 import com.sdds.playground.sandbox.toast.vs.ToastFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
+import com.sdds.testing.vs.accordion.accordion
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
 import com.sdds.testing.vs.avatar.avatarGroup
@@ -310,6 +312,9 @@ internal sealed class ComponentScreen(
     object ScrollBar : ComponentScreen(
         { item -> fragment<ScrollBarFragment>(item.route, item.defaultBuilder) },
     )
+    object Accordion : ComponentScreen(
+        { item -> fragment<AccordionFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -356,6 +361,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.WHEEL -> ComponentScreen.Wheel
         CoreComponent.IMAGE -> ComponentScreen.Image
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
+        CoreComponent.ACCORDION -> ComponentScreen.Accordion
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -404,6 +410,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.WHEEL -> R.id.nav_wheel
         CoreComponent.IMAGE -> R.id.nav_image
         CoreComponent.SCROLL_BAR -> R.id.nav_scrollbar
+        CoreComponent.ACCORDION -> R.id.nav_accordion
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -491,6 +498,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.IMAGE -> image(context, style)
         CoreComponent.SCROLL_BAR -> scrollBar(context, style)
         CoreComponent.SPINNER -> spinner(context, style)
+        CoreComponent.ACCORDION -> accordion(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

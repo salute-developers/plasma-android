@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart" parent="Sdds.Components.AccordionItem">
+        <item name="sd_iconPlacement">start</item>
+        <item name="sd_background">?salute_surfaceDefaultSolidCard</item>
+        <item name="sd_titleColor">?salute_textDefaultPrimary</item>
+        <item name="sd_contentTextColor">?salute_textDefaultPrimary</item>
+        <item name="sd_iconColor">?salute_textDefaultPrimary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.Xs">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsBold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_xs_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_xs_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_xs_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_xs_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_xs_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_xs_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_xs_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartXs">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.S">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_accordion_item_solid_action_start_s_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodySBold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_s_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_s_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_s_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_s_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_s_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_s_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_s_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartS">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.M">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMBold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_m_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_m_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_m_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_m_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_m_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_m_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_m_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartM">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.L">
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_accordion_item_solid_action_start_l_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLBold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_l_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_l_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_l_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_l_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_l_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_l_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_l_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartL">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.H2">
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_accordion_item_solid_action_start_h2_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_24</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_24</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h2_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_h2_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h2_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_h2_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h2_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_h2_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h2_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH2">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.H2</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.H3">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH3Bold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_24</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_24</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h3_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_h3_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h3_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_h3_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h3_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_h3_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h3_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH3">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.H3</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.H4">
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_accordion_item_solid_action_start_h4_shape_adjustment</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h4_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_h4_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h4_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_h4_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h4_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_h4_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h4_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH4">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.H4</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionItemSolidActionStart.H5">
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH5Bold</item>
+        <item name="sd_contentTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h5_content_end_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/salute_accordion_item_solid_action_start_h5_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h5_content_bottom_padding</item>
+        <item name="sd_headerPaddingStart">@dimen/salute_accordion_item_solid_action_start_h5_header_padding_start</item>
+        <item name="sd_headerPaddingEnd">@dimen/salute_accordion_item_solid_action_start_h5_header_padding_end</item>
+        <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_solid_action_start_h5_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_solid_action_start_h5_header_padding_bottom</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemSolidActionStartH5">
+        <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemSolidActionStart.H5</item>
+    </style>
+</resources>

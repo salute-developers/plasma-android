@@ -58,8 +58,10 @@ internal fun Drawable.wrapWithInset(
     top: Int = 0,
     right: Int = 0,
     bottom: Int = 0,
-): InsetDrawable =
-    InsetDrawable(this, left, top, right, bottom)
+): Drawable {
+    val allEmpty = left == 0 && top == 0 && right == 0 && bottom == 0
+    return if (allEmpty) this else InsetDrawable(this, left, top, right, bottom)
+}
 
 /**
  * Функция для удобного конфигурирования и переиспользования [Paint]
