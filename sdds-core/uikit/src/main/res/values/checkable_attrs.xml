@@ -51,6 +51,14 @@
         <attr name="sd_buttonBorderColor" />
         <!-- Цвет маркера -->
         <attr name="sd_buttonMarkColor" />
+        <attr name="sd_buttonMarkColorMode" format="enum">
+            <enum name="add" value="0"/>
+            <enum name="src_over" value="1"/>
+            <enum name="src_in" value="2"/>
+            <enum name="src_atop" value="3"/>
+            <enum name="multiply" value="4"/>
+            <enum name="screen" value="5"/>
+        </attr>
 
         <attr name="sd_focusBorderEnabled" />
 
@@ -72,6 +80,7 @@
         <attr name="sd_buttonBorderColor" />
         <!-- Цвет маркера -->
         <attr name="sd_buttonMarkColor" />
+        <attr name="sd_buttonMarkColorMode" />
 
         <attr name="sd_focusBorderEnabled" />
     </declare-styleable>
@@ -83,6 +92,7 @@
         <attr name="sd_buttonTrackBorderColor" format="reference|color" />
         <!-- Цвет подвижной части переключателя -->
         <attr name="sd_buttonThumbColor" format="reference|color" />
+        <attr name="sd_buttonThumbColorMode"/>
     </declare-styleable>
 
     <declare-styleable name="SdCheckBoxDrawable">
@@ -98,7 +108,7 @@
         <attr name="sd_toggleIconWidth" format="dimension|float|reference"/>
         <attr name="sd_toggleIconHeight" format="dimension|float|reference"/>
         <attr name="sd_toggleBorderOffset" format="dimension|float|reference"/>
-
+        <attr name="sd_buttonMarkColorMode" />
     </declare-styleable>
 
     <declare-styleable name="SdRadioBoxDrawable">
@@ -112,6 +122,7 @@
         <attr name="sd_toggleIconWidth" />
         <attr name="sd_toggleIconHeight" />
         <attr name="sd_toggleBorderOffset" />
+        <attr name="sd_buttonMarkColorMode" />
     </declare-styleable>
 
     <declare-styleable name="SdSwitchDrawable">
@@ -122,6 +133,14 @@
         <attr name="sd_thumbHeight" format="dimension|float" />
         <attr name="sd_thumbPadding" format="dimension|float" />
         <attr name="sd_thumbShapeAppearance" format="reference" />
+        <attr name="sd_buttonThumbColorMode" format="enum">
+            <enum name="add" value="0"/>
+            <enum name="src_over" value="1"/>
+            <enum name="src_in" value="2"/>
+            <enum name="src_atop" value="3"/>
+            <enum name="multiply" value="4"/>
+            <enum name="screen" value="5"/>
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="CheckBoxGroup" tools:ignore="ResourceName">

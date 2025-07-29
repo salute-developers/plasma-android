@@ -311,6 +311,7 @@ open class Button @JvmOverloads constructor(
     init {
         obtainAttributes(attrs, defStyleAttr)
         applySelector(this, context, attrs, defStyleAttr)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     /**
