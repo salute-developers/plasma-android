@@ -7,16 +7,16 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.PixelFormat
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
+import androidx.core.graphics.toXfermode
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.dp
+import com.sdds.uikit.internal.base.getXfermode
 import com.sdds.uikit.internal.base.lerp
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeDrawable
@@ -204,9 +204,10 @@ internal class SwitchDrawable(
             context,
             typedArray.getResourceId(R.styleable.SdSwitchDrawable_sd_thumbShapeAppearance, 0),
         )
+        val xfermode = typedArray.getInt(R.styleable.SdSwitchDrawable_sd_buttonThumbColorMode, 0)
         _thumbDrawable = ShapeDrawable(thumbShape).apply {
             callback = this@SwitchDrawable.callback
-            setXfermode(PorterDuffXfermode(PorterDuff.Mode.ADD))
+            setXfermode(getXfermode(xfermode).toXfermode())
         }
         typedArray.recycle()
     }

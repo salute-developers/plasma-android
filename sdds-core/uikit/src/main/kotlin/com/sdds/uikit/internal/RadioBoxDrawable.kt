@@ -16,10 +16,12 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
 import androidx.core.content.withStyledAttributes
+import androidx.core.graphics.toXfermode
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.dp
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.getXfermode
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
@@ -62,6 +64,7 @@ internal class RadioBoxDrawable(
     private var _borderTintList: ColorStateList = DefaultBlackTint
     private var _checkMarkTintList: ColorStateList = DefaultWhiteTint
     private var _boxTintList: ColorStateList = DefaultBlackTint
+    private var _checkMarkTintMode: PorterDuffXfermode = XfermodeAdd
 
     private var _animatedMarkRadius: Float = 0f
     private var _padding: Int = 0
@@ -397,7 +400,7 @@ internal class RadioBoxDrawable(
     private fun Canvas.drawMark(color: Int, radius: Float) {
         if (radius > 0f) {
             // Рисуем основной круг при checked = true
-            _paint.xfermode = XfermodeAdd
+            _paint.xfermode = _checkMarkTintMode
             drawCircle(
                 _commonBounds.width() / 2f,
                 _commonBounds.height() / 2f,
@@ -444,6 +447,8 @@ internal class RadioBoxDrawable(
                 getNumberStateList(context, R.styleable.SdRadioBoxDrawable_sd_toggleIconWidth)
             _toggleIconHeight =
                 getNumberStateList(context, R.styleable.SdRadioBoxDrawable_sd_toggleIconHeight)
+            _checkMarkTintMode = getXfermode(getInt(R.styleable.SdRadioBoxDrawable_sd_buttonMarkColorMode, 0))
+                .toXfermode()
         }
     }
 

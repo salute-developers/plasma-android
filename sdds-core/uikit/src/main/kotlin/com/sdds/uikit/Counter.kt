@@ -73,6 +73,10 @@ open class Counter @JvmOverloads constructor(
             _counterDrawable.text = value
         }
 
+    init {
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
+    }
+
     /**
      * Устанавливает цвета текста
      * @param colors цвета текста
@@ -89,9 +93,10 @@ open class Counter @JvmOverloads constructor(
         _counterDrawable.setTextAppearance(context, appearanceId)
     }
 
+    @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
-        _viewAlphaHelper.updateAlphaByEnabledState(this)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
     }
 
     override fun setPadding(left: Int, top: Int, right: Int, bottom: Int) {

@@ -40,6 +40,7 @@ open class RadioBox @JvmOverloads constructor(
             isInEditMode = this@RadioBox.isInEditMode
         }
         obtainAttributes(attrs, defStyleAttr)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     /**
@@ -112,9 +113,16 @@ open class RadioBox @JvmOverloads constructor(
 
     override fun getButtonDrawable(): Drawable? = _buttonDrawable
 
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        _checkableDelegate?.updateDescriptionColor()
+        _buttonDrawable?.state = drawableState
+    }
+
+    @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
-        _viewAlphaHelper.updateAlphaByEnabledState(this)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

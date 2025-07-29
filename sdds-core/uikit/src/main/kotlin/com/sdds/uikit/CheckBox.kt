@@ -86,6 +86,7 @@ open class CheckBox @JvmOverloads constructor(
             isInEditMode = this@CheckBox.isInEditMode
         }
         obtainAttributes(attrs, defStyleAttr)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     /**
@@ -244,7 +245,7 @@ open class CheckBox @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        _checkableDelegate.updateDescriptionColor()
+        _checkableDelegate?.updateDescriptionColor()
         _buttonDrawable?.state = drawableState
     }
 

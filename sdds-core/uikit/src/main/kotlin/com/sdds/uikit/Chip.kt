@@ -82,6 +82,7 @@ open class Chip @JvmOverloads constructor(
     init {
         applySelector(this, context, attrs, defStyleAttr)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     /**
@@ -230,9 +231,10 @@ open class Chip @JvmOverloads constructor(
         setDrawableEndColors(ColorStateList.valueOf(color))
     }
 
+    @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
-        _viewAlphaHelper.updateAlphaByEnabledState(this)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
     }
 
     override fun setPadding(left: Int, top: Int, right: Int, bottom: Int) {

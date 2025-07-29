@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Paint
+import android.graphics.PorterDuff
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
@@ -183,3 +184,14 @@ internal val Int.sp: Int
         this.toFloat(),
         Resources.getSystem().displayMetrics,
     ).toInt()
+
+internal fun getXfermode(mode: Int): PorterDuff.Mode {
+    return when (mode) {
+        1 -> PorterDuff.Mode.SRC_OVER
+        2 -> PorterDuff.Mode.SRC_IN
+        3 -> PorterDuff.Mode.SRC_ATOP
+        4 -> PorterDuff.Mode.MULTIPLY
+        5 -> PorterDuff.Mode.SCREEN
+        else -> PorterDuff.Mode.ADD
+    }
+}
