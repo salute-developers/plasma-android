@@ -171,6 +171,15 @@ internal class ScrollBarDrawable(
         _thumbDrawable?.alpha = alpha
     }
 
+    override fun isStateful(): Boolean = _thumbColorList.isStateful || _trackColorList.isStateful
+
+    override fun onStateChange(state: IntArray): Boolean {
+        var change = false
+        if (_trackDrawable?.setState(state) == true) change = true
+        if (_thumbDrawable?.setState(state) == true) change = true
+        return super.onStateChange(state) || change
+    }
+
     override fun setColorFilter(colorFilter: ColorFilter?) = Unit
 
     @Suppress("OVERRIDE_DEPRECATION")

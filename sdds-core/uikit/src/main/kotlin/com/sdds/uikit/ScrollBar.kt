@@ -220,6 +220,11 @@ open class ScrollBar @JvmOverloads constructor(
         invalidateScroll()
     }
 
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        _scrollBarDrawable.state = drawableState
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val width = if (isVertical) {
             _scrollBarDrawable.thickness + paddingLeft + paddingRight
