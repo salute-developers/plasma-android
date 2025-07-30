@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.scrollbar
+package com.sdds.playground.sandbox.scrollbar.compose
 
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.horizontalScroll

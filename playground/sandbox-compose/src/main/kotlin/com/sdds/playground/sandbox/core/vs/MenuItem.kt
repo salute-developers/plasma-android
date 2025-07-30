@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
 import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
 import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
+import com.sdds.playground.sandbox.scrollbar.vs.ScrollBarFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
@@ -94,6 +95,7 @@ import com.sdds.testing.vs.progress.progressBar
 import com.sdds.testing.vs.radiobox.RadioBoxUiState
 import com.sdds.testing.vs.radiobox.radioBox
 import com.sdds.testing.vs.radiobox.radioBoxGroup
+import com.sdds.testing.vs.scrollbar.scrollBar
 import com.sdds.testing.vs.segement.SegmentUiState
 import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
@@ -305,6 +307,9 @@ internal sealed class ComponentScreen(
     object Image : ComponentScreen(
         { item -> fragment<ImageFragment>(item.route, item.defaultBuilder) },
     )
+    object ScrollBar : ComponentScreen(
+        { item -> fragment<ScrollBarFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -350,6 +355,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.WHEEL -> ComponentScreen.Wheel
         CoreComponent.IMAGE -> ComponentScreen.Image
+        CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -397,6 +403,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
         CoreComponent.WHEEL -> R.id.nav_wheel
         CoreComponent.IMAGE -> R.id.nav_image
+        CoreComponent.SCROLL_BAR -> R.id.nav_scrollbar
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -482,6 +489,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
         CoreComponent.WHEEL -> wheel(context, style)
         CoreComponent.IMAGE -> image(context, style)
+        CoreComponent.SCROLL_BAR -> scrollBar(context, style)
         CoreComponent.SPINNER -> spinner(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }

@@ -1178,4 +1178,6 @@
     <dimen name="plasma_dropdown_menu_normal_s_shape_adjustment">-2.0dp</dimen>
     <dimen name="plasma_dropdown_menu_normal_s_min_width">160.0dp</dimen>
     <dimen name="plasma_dropdown_menu_normal_xs_min_width">160.0dp</dimen>
+    <dimen name="plasma_scroll_bar_s_thickness">2.0dp</dimen>
+    <dimen name="plasma_scroll_bar_m_thickness">4.0dp</dimen>
 </resources>

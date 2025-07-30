@@ -37,6 +37,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.scrollbar.StylesSaluteScrollBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsView
@@ -201,6 +202,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Switch,
                 StylesSaluteSwitchVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ScrollBar,
+                StylesSaluteScrollBarVariationsView,
             ),
             ViewComponent(
                 ComponentKey.TextField,

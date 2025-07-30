@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.scrollbar
+package com.sdds.playground.sandbox.scrollbar.compose
 
 import com.sdds.playground.sandbox.core.compose.UiState
 

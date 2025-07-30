@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.ScrollBar">
+        <item name="sd_thumbWidth">2dp</item>
+        <item name="sd_hasTrack">true</item>
+        <item name="sd_hoverExpand">true</item>
+    </style>
+</resources>

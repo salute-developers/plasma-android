@@ -79,8 +79,8 @@ import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.rectskeleton.compose.RectSkeletonScreen
-import com.sdds.playground.sandbox.scrollbar.ScrollBarPreview
-import com.sdds.playground.sandbox.scrollbar.ScrollBarScreen
+import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
+import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
