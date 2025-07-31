@@ -29,4 +29,5 @@ include(
     ":sandbox-plasma-stards-integration",
     ":sandbox-plasma-giga-integration",
     ":sandbox-plasma-giga-app-integration",
+    ":sandbox-plasma-homeds-integration",
 )

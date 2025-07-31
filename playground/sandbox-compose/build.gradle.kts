@@ -145,6 +145,9 @@ dependencies {
     implementation("tokens:plasma.giga.app.compose")
     implementation(project(":sandbox-plasma-giga-app-integration"))
 
+    implementation("tokens:plasma.homeds.compose")
+    implementation(project(":sandbox-plasma-homeds-integration"))
+
     "starAppImplementation"("tokens:plasma-stards-view")
     "starAppImplementation"("tokens:plasma-stards-compose")
     "starAppImplementation"(project(":sandbox-plasma-stards-integration"))
