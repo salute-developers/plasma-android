@@ -6,9 +6,29 @@ title: Loader
 в качестве бесконечного прогресса, и [CircularProgressBar](CircularProgressBarUsage.md) - как конечный прогресс загрузки.  
 Для настройки Loader используются те же параметры, что и для каждого из компонентов [Spinner] и [CircularProgressBar].  
 
+Пример использования с помощью стиля самого Loader:
+
 ```kotlin
 Loader(
     style = Loader.Default.style(),
+    progress = 0.4f,
+    trackEnabled = true,
+    valueContent = {
+        Icon(
+            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+            contentDescription = "",
+        )
+    },
+    loaderType = LoaderType.Progress,
+)
+```
+
+Пример использования через стили [Spinner] и [CircularProgressBar]:
+
+```kotlin
+Loader(
+    spinnerStyle = Spinner.M.Default.style()
+    circularProgressStyle = CircularProgressBar.L.Positive.style()
     progress = 0.4f,
     trackEnabled = true,
     valueContent = {
@@ -44,3 +64,5 @@ enum LoaderType,  для отображения [Spinner] - LoaderType.Spinner, 
 При использовании Loader с конструктором, принимающим value и valueSuffix, используя готовую линейку  
 сгенерированных стилей, обратите внимание, что в размерах меньше Xl, параметр valueEnabled у CircularProgressBar,  
 выключен.
+Так же, стоит отметить, что возможно задать разные стили и размеры компонентов [Spinner] и [CircularProgressBar]  
+при этом, размер самого компонента Loader примет размеры большего из дочерних компонентов.

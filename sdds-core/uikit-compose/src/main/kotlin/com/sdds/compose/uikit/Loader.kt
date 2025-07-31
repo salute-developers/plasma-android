@@ -4,6 +4,7 @@ import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.requiredHeight
@@ -41,7 +42,7 @@ fun Loader(
     valueSuffix: String = "%",
     trackEnabled: Boolean? = null,
     loaderType: LoaderType = LoaderType.Spinner,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val spinnerSize = spinnerStyle.dimensions.size
     val progressWidth = circularProgressStyle.dimensions.width
@@ -97,7 +98,7 @@ fun Loader(
     valueContent: (@Composable () -> Unit)?,
     trackEnabled: Boolean? = null,
     loaderType: LoaderType = LoaderType.Spinner,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val spinnerSize = spinnerStyle.dimensions.size
     val progressWidth = circularProgressStyle.dimensions.width
