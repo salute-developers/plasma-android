@@ -55,17 +55,19 @@ fun CircularProgressBar(
         progress = progress,
         modifier = modifier,
         valueContent = {
-            Row {
-                StyledText(
-                    text = value,
-                    textStyle = style.valueStyle,
-                    textColor = valueColor.value,
-                )
-                StyledText(
-                    text = valueSuffix,
-                    textStyle = style.valueStyle,
-                    textColor = valueSuffixColor.value,
-                )
+            if (style.valueEnabled) {
+                Row {
+                    StyledText(
+                        text = value,
+                        textStyle = style.valueStyle,
+                        textColor = valueColor.value,
+                    )
+                    StyledText(
+                        text = valueSuffix,
+                        textStyle = style.valueStyle,
+                        textColor = valueSuffixColor.value,
+                    )
+                }
             }
         },
         style = style,
@@ -120,7 +122,7 @@ fun CircularProgressBar(
             )
         }
 
-        if (style.valueEnabled && valueContent != null) {
+        if (valueContent != null) {
             CompositionLocalProvider(
                 LocalTextStyle provides style.valueStyle.copy(
                     brush = valueColor.value,
