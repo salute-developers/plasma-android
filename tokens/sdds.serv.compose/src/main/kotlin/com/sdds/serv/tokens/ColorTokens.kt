@@ -3293,6 +3293,21 @@ public object DarkColorTokens {
     public val OutlineDefaultTransparentTertiary: Color = Color(0x8FFFFFFF)
 
     /**
+     * dark outline default outlineSolidDefaultHover
+     */
+    public val OutlineDefaultSolidDefaultHover: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline default outlineSolidDefaultActive
+     */
+    public val OutlineDefaultSolidDefaultActive: Color = Color(0xFFE0E0E0)
+
+    /**
+     * dark outline default outlineSolidDefault
+     */
+    public val OutlineDefaultSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
      * Основной непрозрачный цвет обводки на темном фоне
      */
     public val OutlineOnDarkSolidPrimaryHover: Color = Color(0xFFFFFFFF)
@@ -3666,6 +3681,21 @@ public object DarkColorTokens {
      * Третичный непрозрачный цвет обводки на темном фоне
      */
     public val OutlineOnDarkSolidTertiary: Color = Color(0xFF858585)
+
+    /**
+     * dark outline onDark outlineSolidDefault
+     */
+    public val OutlineOnDarkSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * dark outline onDark outlineSolidDefaultHover
+     */
+    public val OutlineOnDarkSolidDefaultHover: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline onDark outlineSolidDefaultActive
+     */
+    public val OutlineOnDarkSolidDefaultActive: Color = Color(0xFFE0E0E0)
 
     /**
      * Основной непрозрачный цвет обводки на светлом фоне
@@ -4043,6 +4073,21 @@ public object DarkColorTokens {
     public val OutlineOnLightTransparentTertiary: Color = Color(0x8F080808)
 
     /**
+     * dark outline onLight outlineSolidDefault
+     */
+    public val OutlineOnLightSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * dark outline onLight outlineSolidDefaultHover
+     */
+    public val OutlineOnLightSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onLight outlineSolidDefaultActive
+     */
+    public val OutlineOnLightSolidDefaultActive: Color = Color(0xFFC7C7C7)
+
+    /**
      * Инвертированный основной непрозрачный цвет обводки
      */
     public val OutlineInverseSolidPrimaryHover: Color = Color(0xFFABABAB)
@@ -4416,6 +4461,21 @@ public object DarkColorTokens {
      * Инвертированный вторичный непрозрачный цвет обводки
      */
     public val OutlineInverseSolidSecondary: Color = Color(0xFFB3B3B3)
+
+    /**
+     * dark outline inverse outlineSolidDefaultHover
+     */
+    public val OutlineInverseSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineSolidDefaultActive
+     */
+    public val OutlineInverseSolidDefaultActive: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline inverse outlineSolidDefault
+     */
+    public val OutlineInverseSolidDefault: Color = Color(0xFF080808)
 
     /**
      * Желтый цвет для данных
@@ -7888,6 +7948,21 @@ public object LightColorTokens {
     public val OutlineDefaultSolidSecondary: Color = Color(0xFFB3B3B3)
 
     /**
+     * light outline default outlineSolidDefault
+     */
+    public val OutlineDefaultSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * light outline default outlineSolidDefaultHover
+     */
+    public val OutlineDefaultSolidDefaultHover: Color = Color(0xFF595959)
+
+    /**
+     * light outline default outlineSolidDefaultActive
+     */
+    public val OutlineDefaultSolidDefaultActive: Color = Color(0xFF303030)
+
+    /**
      * Основной непрозрачный цвет обводки на темном фоне
      */
     public val OutlineOnDarkSolidPrimaryHover: Color = Color(0xFF787878)
@@ -8261,6 +8336,21 @@ public object LightColorTokens {
      * Третичный непрозрачный цвет обводки на темном фоне
      */
     public val OutlineOnDarkSolidTertiary: Color = Color(0xFF858585)
+
+    /**
+     * light outline onDark outlineSolidDefault
+     */
+    public val OutlineOnDarkSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * light outline onDark outlineSolidDefaultHover
+     */
+    public val OutlineOnDarkSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onDark outlineSolidDefaultActive
+     */
+    public val OutlineOnDarkSolidDefaultActive: Color = Color(0xFFC7C7C7)
 
     /**
      * Основной непрозрачный цвет обводки на светлом фоне
@@ -8638,6 +8728,21 @@ public object LightColorTokens {
     public val OutlineOnLightSolidSecondary: Color = Color(0xFFB3B3B3)
 
     /**
+     * light outline onLight outlineSolidDefault
+     */
+    public val OutlineOnLightSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * light outline onLight outlineSolidDefaultHover
+     */
+    public val OutlineOnLightSolidDefaultHover: Color = Color(0xFF595959)
+
+    /**
+     * light outline onLight outlineSolidDefaultActive
+     */
+    public val OutlineOnLightSolidDefaultActive: Color = Color(0xFF303030)
+
+    /**
      * Инвертированный основной непрозрачный цвет обводки
      */
     public val OutlineInverseSolidPrimaryHover: Color = Color(0xFF787878)
@@ -9011,6 +9116,21 @@ public object LightColorTokens {
      * Инвертированный третичный непрозрачный цвет обводки
      */
     public val OutlineInverseSolidTertiary: Color = Color(0xFF858585)
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public val OutlineInverseSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * light outline inverse outlineSolidDefaultHover
+     */
+    public val OutlineInverseSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineSolidDefaultActive
+     */
+    public val OutlineInverseSolidDefaultActive: Color = Color(0xFFC7C7C7)
 
     /**
      * Желтый цвет для данных

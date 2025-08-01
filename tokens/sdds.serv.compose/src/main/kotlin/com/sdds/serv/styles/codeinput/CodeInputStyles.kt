@@ -72,7 +72,7 @@ private val CodeInputStyleBuilder.invariantProps: CodeInputStyleBuilder
                 ),
             )
             strokeColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asStatefulValue(
+                SddsServTheme.colors.outlineDefaultSolidDefault.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to SddsServTheme.colors.outlineDefaultNegative,
                 ),
