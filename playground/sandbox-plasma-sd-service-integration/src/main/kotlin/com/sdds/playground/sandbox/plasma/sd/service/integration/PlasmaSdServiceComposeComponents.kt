@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.codeinput.PlasmaSdServiceCodeInputVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuNormalVariationsCompose
@@ -343,6 +344,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
                 PlasmaSdServiceTabBarIslandHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CodeInput,
+                PlasmaSdServiceCodeInputVariationsCompose,
             ),
         ).associateBy { it.key }
 }

@@ -22,6 +22,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.StarDsChipVari
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.codeinput.StarDsCodeInputVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDsDropdownMenuVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsCompose
@@ -208,6 +209,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
                 StarDsBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CodeInput,
+                StarDsCodeInputVariationsCompose,
             ),
         ).associateBy { it.key }
 }

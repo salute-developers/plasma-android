@@ -827,4 +827,25 @@
     <dimen name="sdkit_cmp_basic_button_group_spacing_l_no_gap">0.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_shapeAdjustment_l_no_gap_default">-4.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_shapeAdjustment_l_no_gap_segmented">-4.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_dot_size_s">24.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_stroke_width_s">2.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_height_s">136.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_width_s">80.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_spacing_s">8.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_group_spacing_s">32.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_caption_padding_s">48.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_dot_size_m">32.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_stroke_width_m">3.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_height_m">184.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_width_m">112.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_spacing_m">16.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_group_spacing_m">56.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_caption_padding_m">56.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_dot_size_l">48.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_stroke_width_l">4.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_height_l">256.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_width_l">160.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_item_spacing_l">24.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_group_spacing_l">72.0dp</dimen>
+    <dimen name="sdkit_cmp_code_input_caption_padding_l">80.0dp</dimen>
 </resources>
