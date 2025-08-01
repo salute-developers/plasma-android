@@ -22,6 +22,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_xs_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_xs_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_xs_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_xs_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndXs">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.Xs</item>
@@ -40,6 +41,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_s_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_s_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_s_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_s_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndS">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.S</item>
@@ -57,6 +59,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_m_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_m_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_m_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_m_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndM">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.M</item>
@@ -75,6 +78,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_l_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_l_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_l_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_l_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndL">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.L</item>
@@ -93,6 +97,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_h2_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_h2_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_h2_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_h2_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH2">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.H2</item>
@@ -110,6 +115,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_h3_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_h3_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_h3_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_h3_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH3">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.H3</item>
@@ -128,6 +134,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_h4_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_h4_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_h4_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_h4_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH4">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.H4</item>
@@ -145,6 +152,7 @@
         <item name="sd_headerPaddingEnd">@dimen/plasma_accordion_item_solid_action_end_h5_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_solid_action_end_h5_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_solid_action_end_h5_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_end_h5_icon_padding</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH5">
         <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemSolidActionEnd.H5</item>

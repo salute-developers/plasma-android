@@ -7,6 +7,7 @@
         <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
         <item name="sd_titleColor">?serv_textDefaultPrimary</item>
         <item name="sd_contentTextColor">?serv_textDefaultPrimary</item>
+        <item name="sd_iconColor">?serv_textDefaultPrimary</item>
     </style>
     <style name="Serv.Sdds.Components.AccordionItemSolidActionEnd.Xs">
         <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
@@ -21,6 +22,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_xs_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_xs_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_xs_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_xs_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndXs">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.Xs</item>
@@ -39,6 +41,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_s_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_s_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_s_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_s_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndS">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.S</item>
@@ -56,6 +59,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_m_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_m_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_m_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_m_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndM">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.M</item>
@@ -74,6 +78,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_l_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_l_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_l_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_l_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndL">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.L</item>
@@ -92,6 +97,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_h2_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_h2_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_h2_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_h2_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH2">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.H2</item>
@@ -109,6 +115,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_h3_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_h3_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_h3_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_h3_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH3">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.H3</item>
@@ -127,6 +134,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_h4_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_h4_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_h4_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_h4_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH4">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.H4</item>
@@ -144,6 +152,7 @@
         <item name="sd_headerPaddingEnd">@dimen/serv_accordion_item_solid_action_end_h5_header_padding_end</item>
         <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_solid_action_end_h5_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_solid_action_end_h5_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_end_h5_icon_padding</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH5">
         <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemSolidActionEnd.H5</item>

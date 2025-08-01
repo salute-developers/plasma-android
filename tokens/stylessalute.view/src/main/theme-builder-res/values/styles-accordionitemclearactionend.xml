@@ -16,6 +16,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_xs_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_xs_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_xs_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_xs_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndXs">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.Xs</item>
@@ -28,6 +29,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_s_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_s_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_s_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_s_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndS">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.S</item>
@@ -40,6 +42,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_m_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_m_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_m_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_m_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndM">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.M</item>
@@ -52,6 +55,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_l_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_l_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_l_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_l_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndL">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.L</item>
@@ -64,6 +68,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h2_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_h2_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h2_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_h2_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH2">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.H2</item>
@@ -76,6 +81,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h3_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_h3_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h3_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_h3_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH3">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.H3</item>
@@ -88,6 +94,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h4_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_h4_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h4_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_h4_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH4">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.H4</item>
@@ -100,6 +107,7 @@
         <item name="sd_contentPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h5_content_bottom_padding</item>
         <item name="sd_headerPaddingTop">@dimen/salute_accordion_item_clear_action_end_h5_header_padding_top</item>
         <item name="sd_headerPaddingBottom">@dimen/salute_accordion_item_clear_action_end_h5_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_end_h5_icon_padding</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH5">
         <item name="sd_accordionItemViewStyle">@style/Salute.StylesSalute.Components.AccordionItemClearActionEnd.H5</item>

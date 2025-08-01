@@ -100,6 +100,7 @@ internal class AccordionItemStyleGeneratorView(
         PADDING_END("sd_headerPaddingEnd", "header_padding_end"),
         PADDING_TOP("sd_headerPaddingTop", "header_padding_top"),
         PADDING_BOTTOM("sd_headerPaddingBottom", "header_padding_bottom"),
+        ICON_PADDING("sd_iconPadding", "icon_padding"),
         ;
 
         override fun provide(owner: AccordionItemProperties): Dimension? {
@@ -112,6 +113,7 @@ internal class AccordionItemStyleGeneratorView(
                 PADDING_END -> owner.paddingEnd
                 PADDING_TOP -> owner.paddingTop
                 PADDING_BOTTOM -> owner.paddingBottom
+                ICON_PADDING -> owner.iconPadding
             }?.copy(states = emptyList())
         }
     }

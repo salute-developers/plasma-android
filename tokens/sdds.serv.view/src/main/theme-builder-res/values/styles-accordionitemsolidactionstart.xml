@@ -4,9 +4,11 @@
 <resources>
     <style name="Serv.Sdds.Components.AccordionItemSolidActionStart" parent="Sdds.Components.AccordionItem">
         <item name="sd_iconPlacement">start</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_solid_action_start_icon_padding</item>
         <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
         <item name="sd_titleColor">?serv_textDefaultPrimary</item>
         <item name="sd_contentTextColor">?serv_textDefaultPrimary</item>
+        <item name="sd_iconColor">?serv_textDefaultPrimary</item>
     </style>
     <style name="Serv.Sdds.Components.AccordionItemSolidActionStart.Xs">
         <item name="sd_shapeAppearance">?serv_shapeRoundS</item>

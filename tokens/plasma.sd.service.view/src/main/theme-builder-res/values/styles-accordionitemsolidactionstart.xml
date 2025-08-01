@@ -4,6 +4,7 @@
 <resources>
     <style name="Plasma.SdService.Components.AccordionItemSolidActionStart" parent="Sdds.Components.AccordionItem">
         <item name="sd_iconPlacement">start</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_solid_action_start_icon_padding</item>
         <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
         <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
         <item name="sd_contentTextColor">?plasma_textDefaultPrimary</item>

@@ -80,7 +80,9 @@ open class AccordionItemView @JvmOverloads constructor(
         isFocusable = false
         foreground = null
     }
-    private val _headerTitle: TextView = TextView(context)
+    private val _headerTitle: TextView = TextView(context).apply {
+        respectLineHeightEnabled = true
+    }
     private val _headerIconOpened: ImageView = ImageView(context)
     private val _headerIconClosed: ImageView = ImageView(context)
     private val _headerIconContainer: FrameLayout = FrameLayout(context)
@@ -523,8 +525,8 @@ open class AccordionItemView @JvmOverloads constructor(
             }
             addView(_headerIconContainer, headerIconParams)
             when (_iconPlacement) {
-                ICON_PLACEMENT_END -> contentStartPadding = _iconPadding
-                else -> contentEndPadding = _iconPadding
+                ICON_PLACEMENT_END -> contentEndPadding = _iconPadding
+                else -> contentStartPadding = _iconPadding
             }
         }
         addView(_header, MarginLayoutParams(LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)))
@@ -609,6 +611,7 @@ open class AccordionItemView @JvmOverloads constructor(
         val contentTextView = _contentTextView
             ?: TextView(context).also {
                 _contentTextView = it
+                it.respectLineHeightEnabled = true
                 _content.addView(it, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
             }
 

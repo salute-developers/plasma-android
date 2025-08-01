@@ -4,6 +4,7 @@
 <resources>
     <style name="Salute.StylesSalute.Components.AccordionItemClearActionStart" parent="Sdds.Components.AccordionItem">
         <item name="sd_iconPlacement">start</item>
+        <item name="sd_iconPadding">@dimen/salute_accordion_item_clear_action_start_icon_padding</item>
         <item name="sd_titleColor">?salute_textDefaultPrimary</item>
         <item name="sd_contentTextColor">?salute_textDefaultPrimary</item>
         <item name="sd_iconColor">?salute_textDefaultPrimary</item>
