@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChip
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.codeinput.SddsServCodeInputVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsCompose
@@ -343,6 +344,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
                 SddsServTabBarIslandHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CodeInput,
+                SddsServCodeInputVariationsCompose,
             ),
         ).associateBy { it.key }
 }
