@@ -10,8 +10,6 @@ title: CodeInput
 Заполнение полей возможно только по порядку. Если требуется вернуться назад к одному из символов - необходимо удалить все впереди стоящие символы тоже.
 
 ```kotlin
-import javax.swing.GroupLayout.Alignment
-
 val focusRequester = remember { FocusRequester() }
 val validCode = "123456"
 val invalidChar = "q"
@@ -24,7 +22,7 @@ CodeInput(
     onCodeComplete = { it == validCode },
     isItemValid = { it != invalidChar },
     caption = "Caption",
-    captionAlignment = Alignment.CenterHorizontaly,
+    captionAlignment = Alignment.CenterHorizontally,
 )
 ```
 
