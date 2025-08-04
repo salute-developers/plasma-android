@@ -602,7 +602,7 @@ open class AccordionItemView @JvmOverloads constructor(
     }
 
     private fun updateContentText() {
-        doOnPreDraw { updateInitialBounds() }
+        doOnNextLayout { updateInitialBounds() }
         if (contentText == null && _contentTextView != null) {
             removeView(_contentTextView)
             _contentTextView = null
@@ -621,6 +621,7 @@ open class AccordionItemView @JvmOverloads constructor(
             setTextColor(contentTextColor)
         }
         invalidate()
+        requestLayout()
     }
 
     private fun updateIcon() {

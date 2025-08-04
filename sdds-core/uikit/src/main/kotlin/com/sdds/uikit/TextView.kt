@@ -52,7 +52,8 @@ open class TextView @JvmOverloads constructor(
     private var _calculatedLineHeight: Float = 0f
 
     /**
-     *
+     * Флаг включает режим установки высоты [TextView] по lineHeight.
+     * Только для однострочного текста.
      */
     var respectLineHeightEnabled: Boolean
         get() = _respectLineHeightEnabled
@@ -176,8 +177,8 @@ open class TextView @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        if (respectLineHeightEnabled && textSize <= lineHeight) {
-            setMeasuredDimension(measuredWidth, lineHeight * lineCount)
+        if (respectLineHeightEnabled && textSize <= lineHeight && lineCount == 1) {
+            setMeasuredDimension(measuredWidth, lineHeight)
         }
     }
 
