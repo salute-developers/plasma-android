@@ -597,6 +597,7 @@ open class AccordionItemView @JvmOverloads constructor(
             text = title
             setTextAppearance(titleAppearance)
             setTextColor(titleColor)
+            isGone = title.isNullOrBlank()
         }
         invalidate()
     }
@@ -619,6 +620,7 @@ open class AccordionItemView @JvmOverloads constructor(
             text = contentText
             setTextAppearance(contentTextAppearance)
             setTextColor(contentTextColor)
+            isGone = contentText.isNullOrBlank()
         }
         invalidate()
         requestLayout()
