@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Loader" parent="Sdds.Components.Loader">
+        <item name="sd_spinnerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SpinnerLDefault</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarLDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.Loader">
+        <item name="sd_loaderStyle">@style/Serv.Sdds.Components.Loader</item>
+    </style>
+</resources>

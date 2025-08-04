@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Loader" parent="Sdds.Components.Loader">
+        <item name="sd_spinnerStyleOverlay">@style/Plasma.SdService.ComponentOverlays.SpinnerLDefault</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarLDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.Loader">
+        <item name="sd_loaderStyle">@style/Plasma.SdService.Components.Loader</item>
+    </style>
+</resources>

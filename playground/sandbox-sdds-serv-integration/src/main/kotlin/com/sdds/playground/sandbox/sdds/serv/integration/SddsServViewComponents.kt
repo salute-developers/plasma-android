@@ -38,6 +38,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVari
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.loader.SddsServLoaderVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsView
@@ -277,6 +278,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Tooltip,
                 SddsServTooltipVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Loader,
+                SddsServLoaderVariationsView,
             ),
         ).associateBy { it.key }
 }
