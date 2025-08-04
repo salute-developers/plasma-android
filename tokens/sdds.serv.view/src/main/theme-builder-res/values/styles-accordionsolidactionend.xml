@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd" parent="Sdds.Components.Accordion">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_solid_action_end_item_spacing</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.Xs">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndXs">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.S">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndS">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.M">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndM">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.L">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndL">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.H2">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH2</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndH2">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.H2</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.H3">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH3</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndH3">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.H3</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.H4">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH4</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndH4">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.H4</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionSolidActionEnd.H5">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemSolidActionEndH5</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionSolidActionEndH5">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionEnd.H5</item>
+    </style>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd" parent="Sdds.Components.Accordion">
+        <item name="sd_dividerStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.Divider</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.Xs">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_xs_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndXs">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.S">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_s_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndS">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.M">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_m_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndM">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.L">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_l_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndL">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.H2">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_h2_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH2</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndH2">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.H2</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.H3">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_h3_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH3</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndH3">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.H3</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.H4">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_h4_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH4</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndH4">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.H4</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.AccordionClearActionEnd.H5">
+        <item name="sd_itemSpacing">@dimen/salute_accordion_clear_action_end_h5_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.AccordionItemClearActionEndH5</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AccordionClearActionEndH5">
+        <item name="sd_accordionStyle">@style/Salute.StylesSalute.Components.AccordionClearActionEnd.H5</item>
+    </style>
+</resources>

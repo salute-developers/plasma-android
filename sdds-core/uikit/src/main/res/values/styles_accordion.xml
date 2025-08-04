@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Accordion" parent="Sdds.Components.List">
+    </style>
+
+    <style name="Sdds.Components.AccordionItem">
+        <item name="android:focusable">true</item>
+        <item name="sd_closedIconAppearAnimation">@anim/sd_accordion_closed_icon_appear</item>
+        <item name="sd_closedIconDisappearAnimation">@anim/sd_accordion_closed_icon_disappear</item>
+        <item name="sd_openedIconAppearAnimation">@anim/sd_accordion_opened_icon_appear</item>
+        <item name="sd_openedIconDisappearAnimation">@anim/sd_accordion_opened_icon_disappear</item>
+    </style>
+</resources>

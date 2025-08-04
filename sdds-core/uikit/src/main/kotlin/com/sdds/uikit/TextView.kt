@@ -13,6 +13,7 @@ import androidx.core.graphics.toRectF
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
+import com.sdds.uikit.internal.base.TextAppearance
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
@@ -23,6 +24,7 @@ import com.sdds.uikit.statelist.setTextColorValue
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
+import kotlin.math.roundToInt
 
 /**
  * Компонент для отображения текста.
@@ -46,6 +48,22 @@ open class TextView @JvmOverloads constructor(
     private var _textTint: ColorValueStateList? = null
     private val _textBounds: Rect = Rect()
     private var _textShaderFactory: CachedShaderFactory = CachedShaderFactory.create()
+    private var _respectLineHeightEnabled: Boolean = false
+    private var _calculatedLineHeight: Float = 0f
+
+    /**
+     * Флаг включает режим установки высоты [TextView] по lineHeight.
+     * Только для однострочного текста.
+     */
+    var respectLineHeightEnabled: Boolean
+        get() = _respectLineHeightEnabled
+        set(value) {
+            if (_respectLineHeightEnabled != value) {
+                _respectLineHeightEnabled = value
+                invalidate()
+                requestLayout()
+            }
+        }
 
     /**
      * Состояние внешнего вида текста
@@ -78,6 +96,18 @@ open class TextView @JvmOverloads constructor(
         }
         @Suppress("LeakingThis")
         applySelector(this)
+    }
+
+    override fun getLineHeight(): Int {
+        if (respectLineHeightEnabled && _calculatedLineHeight > 0f) {
+            return _calculatedLineHeight.roundToInt()
+        }
+        return super.getLineHeight()
+    }
+
+    override fun setTextAppearance(resId: Int) {
+        super.setTextAppearance(resId)
+        _calculatedLineHeight = TextAppearance(context, resId).lineHeight
     }
 
     /**
@@ -143,6 +173,13 @@ open class TextView @JvmOverloads constructor(
             mergeDrawableStates(drawableState, colorState?.attrs)
         }
         return drawableState
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        if (respectLineHeightEnabled && textSize <= lineHeight && lineCount == 1) {
+            setMeasuredDimension(measuredWidth, lineHeight)
+        }
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

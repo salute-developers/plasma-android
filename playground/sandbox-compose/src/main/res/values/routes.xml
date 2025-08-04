@@ -43,4 +43,5 @@
     <item type="id" name="nav_image"/>
     <item type="id" name="nav_spinner"/>
     <item type="id" name="nav_scrollbar"/>
+    <item type="id" name="nav_accordion"/>
 </resources>

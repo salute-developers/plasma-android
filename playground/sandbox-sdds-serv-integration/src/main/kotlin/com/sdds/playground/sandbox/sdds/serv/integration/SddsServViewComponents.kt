@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionEndVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionStartVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionEndVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionStartVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.SddsServAvatarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.group.SddsServAvatarGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeClearVariationsView
@@ -62,6 +66,22 @@ object SddsServViewComponents : ComponentsProviderView {
 
     override val all: Map<ComponentKey, ViewComponent<String>> =
         listOf(
+            ViewComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionEndVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionEndVariationsView,
+            ),
             ViewComponent(
                 ComponentKey.Avatar,
                 SddsServAvatarVariationsView,

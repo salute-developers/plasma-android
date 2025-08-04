@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart" parent="Sdds.Components.Accordion">
+        <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.Xs">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_xs_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartXs">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.S">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_s_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartS">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.M">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_m_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartM">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.L">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_l_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartL">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.H2">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_h2_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartH2</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartH2">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.H2</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.H3">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_h3_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartH3</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartH3">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.H3</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.H4">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_h4_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartH4</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartH4">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.H4</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionClearActionStart.H5">
+        <item name="sd_itemSpacing">@dimen/serv_accordion_clear_action_start_h5_item_spacing</item>
+        <item name="sd_accordionItemViewStyleOverlay">@style/Serv.Sdds.ComponentOverlays.AccordionItemClearActionStartH5</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionClearActionStartH5">
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionClearActionStart.H5</item>
+    </style>
+</resources>

@@ -1,10 +1,14 @@
 package com.sdds.uikit.internal.base
 
 import android.animation.TimeInterpolator
+import android.content.Context
 import android.graphics.Color
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
+import androidx.annotation.AnimRes
 import androidx.annotation.FloatRange
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
@@ -64,5 +68,9 @@ internal object AnimationUtils {
         val g = (Color.green(color1) * inverseRatio) + (Color.green(color2) * ratio)
         val b = (Color.blue(color1) * inverseRatio) + (Color.blue(color2) * ratio)
         return Color.argb(a.toInt(), r.toInt(), g.toInt(), b.toInt())
+    }
+
+    fun loadAnimation(context: Context, @AnimRes id: Int): Animation? {
+        return runCatching { AnimationUtils.loadAnimation(context, id) }.getOrNull()
     }
 }
