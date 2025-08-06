@@ -1,0 +1,89 @@
+name: 'Get release changelog'
+
+description: 'Returns release changelog'
+
+inputs:
+  fromTag:
+    description: 'Тэг, название ветки или хэш коммита'
+    required: false
+  toTag:
+    description: 'Тэг, название ветки или хэш коммита'
+    required: false
+
+
+outputs:
+  changelog:
+    description: "Processed changelog"
+    value: ${{ steps.changelog.outputs.changelog }}
+  changelog_json:
+    description: "Processed changelog json"
+    value: ${{ steps.changelog.outputs.changelogJson }}
+  pull_requests:
+    description: "Pull requests"
+    value: ${{ steps.github_release.outputs.pull_requests }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Compute envs
+      shell: bash
+      run: |
+        if [ -z "${{ inputs.fromTag }}" ]; then
+          FROM_TAG=$(git tag --sort=-creatordate | sed -n '2p')
+        else
+          FROM_TAG="${{ inputs.fromTag }}"
+        fi
+
+        if [ -z "${{ inputs.toTag }}" ]; then
+          TO_TAG=$(git tag --sort=-creatordate | sed -n '1p')
+        else
+          TO_TAG="${{ inputs.toTag }}"
+        fi
+
+        echo "FROM_TAG=$FROM_TAG" >> $GITHUB_ENV
+        echo "TO_TAG=$TO_TAG" >> $GITHUB_ENV
+        echo "FROM_TAG = $FROM_TAG and TO_TAG = $TO_TAG"
+        DATE=$(date +'%d.%m.%Y')
+        echo "DATE=$DATE" >> $GITHUB_ENV
+        echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
+
+    - name: Build Changelog
+      id: github_release
+      uses: mikepenz/release-changelog-builder-action@v4.1.0
+      with:
+        fromTag: ${{ env.FROM_TAG }}
+        toTag:  ${{ env.TO_TAG }}
+        configuration: "./.github/changelog-builder-config.json"
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        cd .github/actions/preprocessing-release-changelog
+        npm ci
+
+    - name: Processing changelog data
+      id: changelog
+      uses: ./.github/actions/preprocessing-release-changelog
+      with:
+        data: |
+          ${{ steps.github_release.outputs.changelog }}
+
+    - name: Create "changelog_artifacts.md"
+      shell: bash
+      run: |
+        cat > "${{ env.FILE }}" <<EOF
+        ${{ steps.changelog.outputs.changelog }}
+        EOF   
+
+    - name: Debug print changelog_artifacts.md
+      shell: bash
+      run: |
+        echo "🔍 Contents of changelog_artifacts.md:"
+        cat "${{ env.FILE }}"
+
+    - name: Upload "changelog_artifacts.md"
+      if: false
+      uses: actions/upload-artifact@master
+      with:
+        name: release-changelog-artifacts
+        path: ${{ env.FILE }}
