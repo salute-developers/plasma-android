@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.IconButtonXsDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXxs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Wide.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXxs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.Dense.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupXsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.Xs.NoGap.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.IconButtonSDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Wide</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Wide.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Wide.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Wide.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXxs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Wide.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Dense</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Dense.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Dense.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Dense.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXxs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.Dense.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.NoGap.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.NoGap.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.S.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupSNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.S.NoGap.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.IconButtonMDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Wide</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Wide.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Wide.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Wide.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXxs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Wide.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Dense</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Dense.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Dense.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Dense.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXxs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.Dense.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.NoGap.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.NoGap.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.M.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupMNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.M.NoGap.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.IconButtonLDefault</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Wide</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Wide.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Wide.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Wide.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Wide.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Dense</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Dense.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Dense.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Dense.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundXs</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.Dense.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/salute_icon_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.NoGap</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?salute_shapeRoundL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.NoGap.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.NoGap.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButtonGroup.L.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?salute_shapeRoundL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonGroupLNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.IconButtonGroup.L.NoGap.Segmented</item>
+    </style>
+</resources>

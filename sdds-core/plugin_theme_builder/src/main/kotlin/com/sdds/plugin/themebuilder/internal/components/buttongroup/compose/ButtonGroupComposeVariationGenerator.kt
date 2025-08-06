@@ -1,8 +1,9 @@
-package com.sdds.plugin.themebuilder.internal.components.buttongroup
+package com.sdds.plugin.themebuilder.internal.components.buttongroup.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider

@@ -29,7 +29,7 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
 
     private val borderPaint = Paint().configure(style = Paint.Style.STROKE, isAntiAlias = true)
     private val colors: IntArray
-    private val shapeModel: ShapeModel
+    private var shapeModel: ShapeModel
     private val shapePath = Path()
     private var scrollX: Float = 0f
     private var scrollY: Float = 0f
@@ -66,6 +66,12 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
         borderPaint.strokeWidth = strokeWidth
     }
 
+    internal fun updateShapeModel(newModel: ShapeModel) {
+        shapeModel = newModel.adjust(offset)
+        updateShape()
+        invalidateSelf()
+    }
+
     override fun draw(canvas: Canvas) {
         if (!focused) return
         canvas.save()
@@ -88,11 +94,7 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
         super.onBoundsChange(bounds)
         drawingRect.set(bounds)
         drawingRect.inset(-offset, -offset)
-        shapePath.reset()
-        shapeModel.toPath(drawingRect, shapePath)
-        shapePath.close()
-        shape = shapeModel.getShape(drawingRect)
-        shape?.resize(drawingRect.width(), drawingRect.height())
+        updateShape()
         if (colors.size > 1) {
             borderPaint.shader = LinearGradient(
                 0f,
@@ -118,5 +120,13 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     override fun onScrollChange(v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         this.scrollX = scrollX.toFloat()
         this.scrollY = scrollY.toFloat()
+    }
+
+    private fun updateShape() {
+        shapePath.reset()
+        shapeModel.toPath(drawingRect, shapePath)
+        shapePath.close()
+        shape = shapeModel.getShape(drawingRect)
+        shape?.resize(drawingRect.width(), drawingRect.height())
     }
 }

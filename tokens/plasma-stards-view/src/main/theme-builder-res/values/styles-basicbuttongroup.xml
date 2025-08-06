@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.Wide.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXxs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.Wide.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.Dense.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXxs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.Dense.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.NoGap.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.Xs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.Xs.NoGap.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.Wide</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.Wide.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.Wide.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXxs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.Wide.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.Dense</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.Dense.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.Dense.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXxs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.Dense.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.NoGap.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.S.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupSNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.S.NoGap.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.Wide</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.Wide.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.Wide.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXxs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.Wide.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.Dense</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.Dense.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.Dense.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXxs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.Dense.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.NoGap.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.M.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupMNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.M.NoGap.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.Wide</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.Wide.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.Wide.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.Wide.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.Dense</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.Dense.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.Dense.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.Dense.Segmented</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/sdkit_basic_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.NoGap</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?sdkit_shapeRoundL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.NoGap.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButtonGroup.L.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?sdkit_shapeRoundL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonGroupLNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Sdkit.StarDs.Components.BasicButtonGroup.L.NoGap.Segmented</item>
+    </style>
+</resources>
