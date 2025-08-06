@@ -26,6 +26,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDs
 import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.loader.StarDsLoaderVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsView
@@ -207,6 +208,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.ScrollBar,
                 StarDsScrollBarVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Loader,
+                StarDsLoaderVariationsView,
             ),
         ).associateBy { it.key }
 }
