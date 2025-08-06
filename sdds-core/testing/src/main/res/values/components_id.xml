@@ -43,4 +43,5 @@
     <item type="id" name="scroll_bar"/>
     <item type="id" name="recycler"/>
     <item type="id" name="scroll_container"/>
+    <item type="id" name="accordion"/>
 </resources>
