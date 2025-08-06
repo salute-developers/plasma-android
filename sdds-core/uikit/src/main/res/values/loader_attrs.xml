@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+
+    <attr name="sd_loaderStyle" format="reference" />
+
+    <declare-styleable name="Loader">
+        <!-- Оверлэй стиль компонента Spinner -->
+        <attr name="sd_spinnerStyleOverlay" format="reference" />
+        <!-- Оверлэй стиль компонента CircularProgressBar -->
+        <attr name="sd_circularProgressBarStyleOverlay" format="reference" />
+        <!-- Текущий прогресс -->
+        <attr name="sd_progress" />
+        <!-- Максимальный прогресс -->
+        <attr name="sd_maxProgress" />
+        <!-- Минимальный прогресс -->
+        <attr name="sd_minProgress" />
+        <!-- Отображение линии фона прогресса -->
+        <attr name="sd_trackEnabled" />
+        <!-- Суффикс (единица измерения) прогресса -->
+        <attr name="sd_progressValueSuffix" />
+        <!-- Отображение значения прогресса -->
+        <attr name="sd_progressValueEnabled" />
+        <!-- Угол дуги индикатора загрузки в градусах, определяет какую часть окружности занимает индикатор спиннера -->
+        <attr name="sd_sweepAngle" />
+        <!-- Тип отображаемого индикатора загрузки Spinner или CircularProgressBar-->
+        <attr name="sd_loaderType" format="enum">
+            <enum name="spinner" value="0" />
+            <enum name="progress" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

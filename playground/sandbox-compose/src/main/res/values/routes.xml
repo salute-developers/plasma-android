@@ -44,4 +44,5 @@
     <item type="id" name="nav_spinner"/>
     <item type="id" name="nav_scrollbar"/>
     <item type="id" name="nav_accordion"/>
+    <item type="id" name="nav_loader"/>
 </resources>

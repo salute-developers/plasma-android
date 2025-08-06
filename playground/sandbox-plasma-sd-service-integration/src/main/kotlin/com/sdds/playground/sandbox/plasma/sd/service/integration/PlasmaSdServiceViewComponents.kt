@@ -38,6 +38,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.loader.PlasmaSdServiceLoaderVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsView
@@ -278,6 +279,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Image,
                 PlasmaSdServiceImageVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Loader,
+                PlasmaSdServiceLoaderVariationsView,
             ),
         ).associateBy { it.key }
 }
