@@ -173,6 +173,7 @@ data class ComponentKey(
         val Image = ComponentKey("Image", CoreComponent.IMAGE)
         val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
+        val Loader = ComponentKey("Loader", CoreComponent.LOADER)
     }
 }
 
@@ -242,4 +243,5 @@ enum class CoreComponent {
     SCROLL_BAR,
     IMAGE,
     TAB_BAR,
+    LOADER,
 }

@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.image.PlasmaGigaA
 import com.sdds.playground.sandbox.plasma.giga.app.integration.indicator.compose.PlasmaGigaAppIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.list.PlasmaGigaAppListNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.list.PlasmaGigaAppListTightVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.loader.PlasmaGigaAppLoaderVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.modal.PlasmaGigaAppModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.notification.PlasmaGigaAppNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.notification.PlasmaGigaAppNotificationLooseVariationsCompose
@@ -343,6 +344,10 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
                 PlasmaGigaAppTabBarIslandHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Loader,
+                PlasmaGigaAppLoaderVariationsCompose,
             ),
         ).associateBy { it.key }
 }

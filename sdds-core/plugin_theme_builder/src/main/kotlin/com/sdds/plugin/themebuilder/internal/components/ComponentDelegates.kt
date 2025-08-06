@@ -23,6 +23,7 @@ import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegat
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.loader.LoaderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
@@ -97,5 +98,6 @@ internal val componentDelegates by unsafeLazy {
         "button-group" to ButtonGroupConfigDelegate(),
         "tab-bar-item" to TabBarItemConfigDelegate(),
         "tab-bar" to TabBarConfigDelegate(),
+        "loader" to LoaderConfigDelegate(),
     )
 }

@@ -157,7 +157,7 @@ internal fun PropertyEditor(
                 propertyName = property.name,
                 currentValue = property.value.toString(),
                 style = style,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal, imeAction = ImeAction.Done),
             )
 
             is Property.StringProperty -> TextPropertyEditor(
