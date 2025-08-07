@@ -10,7 +10,7 @@ title: Loader
 
 ```xml
 <com.sdds.uikit.Loader
-    style="@style/Serv.Sdds.ComponentOverlays.Loader"
+    style="@style/{{ docs-theme-prefix }}.ComponentOverlays.Loader"
     app:sd_loaderType="progress"
     app:sd_progress="0.9"
     android:layout_width="wrap_content"
@@ -22,8 +22,8 @@ title: Loader
 
 ```xml
 <com.sdds.uikit.Loader
-    app:sd_circularProgressBarStyleOverlay="@style/Serv.Sdds.ComponentOverlays.CircularProgressBarXlAccent"
-    app:sd_spinnerStyleOverlay="@style/Serv.Sdds.ComponentOverlays.SpinnerLNegative"
+    app:sd_circularProgressBarStyleOverlay="@style/{{ docs-theme-prefix }}.ComponentOverlays.CircularProgressBarXlAccent"
+    app:sd_spinnerStyleOverlay="@style/{{ docs-theme-prefix }}.ComponentOverlays.SpinnerLNegative"
     app:sd_loaderType="spinner"
     app:sd_progress="0.9"
     android:layout_width="wrap_content"

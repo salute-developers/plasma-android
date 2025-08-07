@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="basic_button"/>
+    <item type="id" name="button_group"/>
     <item type="id" name="badge"/>
     <item type="id" name="link_button"/>
     <item type="id" name="radioBox"/>

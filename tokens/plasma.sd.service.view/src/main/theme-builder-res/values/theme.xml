@@ -1058,6 +1058,7 @@
         <item name="sd_imageViewStyle">@style/Plasma.SdService.Components.ImageView</item>
         <item name="sd_scrollBarStyle">@style/Plasma.SdService.Components.ScrollBar.M</item>
         <item name="sd_loaderStyle">@style/Plasma.SdService.Components.Loader</item>
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense.Default</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2115,6 +2116,7 @@
         <item name="sd_imageViewStyle">@style/Plasma.SdService.Components.ImageView</item>
         <item name="sd_scrollBarStyle">@style/Plasma.SdService.Components.ScrollBar.M</item>
         <item name="sd_loaderStyle">@style/Plasma.SdService.Components.Loader</item>
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense.Default</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.DayNight" parent="Plasma.SdService.MaterialComponents.Light"/>
     <style name="Plasma.SdService"/>

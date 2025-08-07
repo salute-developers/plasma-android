@@ -20,6 +20,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIcon
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServBasicButtonGroupVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServIconButtonGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.card.vs.SddsServCardClearVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.card.vs.SddsServCardSolidVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.cell.vs.SddsServCellVariationsView
@@ -282,6 +284,14 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Loader,
                 SddsServLoaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                SddsServBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                SddsServIconButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

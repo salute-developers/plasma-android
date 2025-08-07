@@ -20,6 +20,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.button.basic.StylesSaluteBasicButtonVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.button.icon.StylesSaluteIconButtonVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.button.link.StylesSaluteLinkButtonVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.buttongroup.StylesSaluteBasicButtonGroupVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.buttongroup.StylesSaluteIconButtonGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.cell.vs.StylesSaluteCellVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSaluteCheckBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsView
@@ -242,6 +244,14 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Tooltip,
                 StylesSaluteTooltipVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                StylesSaluteBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                StylesSaluteIconButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

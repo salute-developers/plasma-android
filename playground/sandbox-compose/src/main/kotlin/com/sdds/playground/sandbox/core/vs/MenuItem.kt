@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.avatar.vs.AvatarFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarGroupFragment
 import com.sdds.playground.sandbox.badge.vs.BadgeFragment
 import com.sdds.playground.sandbox.badge.vs.IconBadgeFragment
+import com.sdds.playground.sandbox.buttongroup.vs.ButtonGroupFragment
 import com.sdds.playground.sandbox.buttons.vs.BasicButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.IconButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment
@@ -64,6 +65,7 @@ import com.sdds.testing.vs.badge.badge
 import com.sdds.testing.vs.badge.iconBadge
 import com.sdds.testing.vs.button.ButtonUiState
 import com.sdds.testing.vs.button.basicButton
+import com.sdds.testing.vs.button.buttonGroup
 import com.sdds.testing.vs.button.iconButton
 import com.sdds.testing.vs.button.linkButton
 import com.sdds.testing.vs.card.CardUiState
@@ -320,6 +322,9 @@ internal sealed class ComponentScreen(
     object Loader : ComponentScreen(
         { item -> fragment<LoaderFragment>(item.route, item.defaultBuilder) },
     )
+    object ButtonGroup : ComponentScreen(
+        { item -> fragment<ButtonGroupFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -368,6 +373,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
+        CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -418,6 +424,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.SCROLL_BAR -> R.id.nav_scrollbar
         CoreComponent.LOADER -> R.id.nav_loader
         CoreComponent.ACCORDION -> R.id.nav_accordion
+        CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -507,6 +514,13 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.SPINNER -> spinner(context, style)
         CoreComponent.LOADER -> loader(context, style)
         CoreComponent.ACCORDION -> accordion(context, style)
+        CoreComponent.BUTTON_GROUP -> {
+            if (componentKey.value.contains("Icon")) {
+                buttonGroup(context, style, iconButton = true)
+            } else {
+                buttonGroup(context, style)
+            }
+        }
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIc
 import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeTransparentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.buttongroup.StarDsBasicButtonGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.card.vs.StarDsCardVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.cell.vs.StarDsCellVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.StarDsCheckBoxVariationsView
@@ -212,6 +213,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Loader,
                 StarDsLoaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                StarDsBasicButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

@@ -1,6 +1,8 @@
 package com.sdds.testing.vs.button
 
 import android.os.Parcelable
+import android.widget.LinearLayout.HORIZONTAL
+import android.widget.LinearLayout.VERTICAL
 import com.sdds.testing.vs.UiState
 import com.sdds.uikit.Button
 import kotlinx.parcelize.Parcelize
@@ -16,6 +18,8 @@ import com.sdds.icons.R.drawable as Icons
  * @property enabled включена ли кнопка
  * @property loading индикация загрузки
  * @property fixedSize режим фиксированного размера кнопки
+ * @property orientation ориентация группы кнопок
+ * @property amount количество кнопок в группе
  */
 @Parcelize
 data class ButtonUiState(
@@ -27,6 +31,8 @@ data class ButtonUiState(
     val enabled: Boolean = true,
     val loading: Boolean = false,
     val fixedSize: Boolean = false,
+    val orientation: GroupOrientation = GroupOrientation.Horizontal,
+    val amount: Int = 3,
 ) : Parcelable, UiState {
     override fun updateVariant(variant: String): UiState {
         return this.copy(variant = variant)
@@ -54,4 +60,14 @@ sealed class ButtonIcon(val iconId: Int = Icons.ic_plasma_24) : Parcelable {
      * Отсутствие иконки
      */
     object No : ButtonIcon(0)
+}
+
+/**
+ * Ориентация компонента ButtonGroup
+ * @property orientationState значение ориентации
+ */
+@Parcelize
+enum class GroupOrientation(val orientationState: Int) : Parcelable {
+    Horizontal(HORIZONTAL),
+    Vertical(VERTICAL),
 }

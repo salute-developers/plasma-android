@@ -187,6 +187,13 @@ internal val Int.sp: Int
         Resources.getSystem().displayMetrics,
     ).toInt()
 
+internal val Int.dp: Int
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics,
+    ).toInt()
+
 internal fun getXfermode(mode: Int): PorterDuff.Mode {
     return when (mode) {
         1 -> PorterDuff.Mode.SRC_OVER

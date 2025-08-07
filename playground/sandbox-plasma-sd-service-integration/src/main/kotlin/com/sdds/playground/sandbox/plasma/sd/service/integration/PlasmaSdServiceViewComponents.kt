@@ -20,6 +20,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.buttongroup.PlasmaSdServiceBasicButtonGroupVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.buttongroup.PlasmaSdServiceIconButtonGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.card.vs.PlasmaSdServiceCardClearVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.card.vs.PlasmaSdServiceCardSolidVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.vs.PlasmaSdServiceCellVariationsView
@@ -283,6 +285,14 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Loader,
                 PlasmaSdServiceLoaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                PlasmaSdServiceBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaSdServiceIconButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }
