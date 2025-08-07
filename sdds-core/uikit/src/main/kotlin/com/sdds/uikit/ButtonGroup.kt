@@ -16,6 +16,7 @@ import com.sdds.uikit.shape.ShapeModel
  * @param context контекст
  * @param attrs аттрибуты view
  * @param defStyleAttr аттрибут стиля по умолчанию
+ * @param defStyleRes ресурс стиля по умолчанию
  */
 open class ButtonGroup @JvmOverloads constructor(
     context: Context,
@@ -55,6 +56,38 @@ open class ButtonGroup @JvmOverloads constructor(
     val isVertical: Boolean
         get() = orientation == VERTICAL
 
+    /**
+     * Устанавливает новую форму скруглений для внешних углов
+     * крайних элементов [ButtonGroup]
+     */
+    open fun setExternalShape(newShape: ShapeModel) {
+        if (_externalShape != newShape) {
+            _externalShape = newShape
+            updateShapes()
+        }
+    }
+
+    /**
+     * Устанавливает новую форму скруглений углов
+     * элементов [ButtonGroup]
+     */
+    open fun setInternalShape(newShape: ShapeModel) {
+        if (_internalShape != newShape) {
+            _internalShape = newShape
+            updateShapes()
+        }
+    }
+
+    /**
+     * Устанавливает отступ между элементами группы [ButtonGroup]
+     */
+    open fun setSpacing(newSpacing: Int) {
+        if (_spacing != newSpacing) {
+            _spacing = newSpacing
+            updateSpacing()
+        }
+    }
+
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         if (child !is Button) return
         val viewIndex = index.coerceIn(0, childCount)
@@ -65,15 +98,14 @@ open class ButtonGroup @JvmOverloads constructor(
         )
         super.addView(child, viewIndex, layoutParams)
         buttons.add(buttonIndex, child)
-        applyShapes()
-        updateSpacing()
+        applySettingsToGroup()
     }
 
     override fun removeView(view: View?) {
         super.removeView(view)
         if (view is Button) {
             buttons.remove(view)
-            applyShapes()
+            updateShapes()
         }
     }
 
@@ -96,12 +128,30 @@ open class ButtonGroup @JvmOverloads constructor(
         }
     }
 
-    private fun applyShapes() {
-        buttons.forEachIndexed { index, b ->
+    private fun updateShapes() {
+        buttons.forEachIndexed { index, button ->
             updateShapeAt(index)
-            b.setOnFocusChangeListener { v, hasFocus ->
+            button.setOnFocusChangeListener { v, hasFocus ->
                 v.translationZ = if (hasFocus) 10f else 0f
             }
+        }
+    }
+
+    private fun applySettingsToGroup() {
+        buttons.forEachIndexed { index, button ->
+            updateShapeAt(index)
+            button.setOnFocusChangeListener { v, hasFocus ->
+                v.translationZ = if (hasFocus) 10f else 0f
+            }
+            val lp = button.layoutParams as? MarginLayoutParams ?: return@forEachIndexed
+            if (orientation == HORIZONTAL) {
+                lp.marginEnd = if (index != buttons.lastIndex) _spacing else 0
+                lp.bottomMargin = 0
+            } else {
+                lp.bottomMargin = if (index != buttons.lastIndex) _spacing else 0
+                lp.marginEnd = 0
+            }
+            button.layoutParams = lp
         }
     }
 
