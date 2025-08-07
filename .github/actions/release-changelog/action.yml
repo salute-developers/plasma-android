@@ -29,13 +29,13 @@ runs:
       shell: bash
       run: |
         if [ -z "${{ inputs.fromTag }}" ]; then
-          FROM_TAG=$(git tag --sort=-creatordate | sed -n '2p')
+          FROM_TAG=$(git tag --sort=-creatordate | grep '^release-' | sed -n '2p')
         else
           FROM_TAG="${{ inputs.fromTag }}"
         fi
 
         if [ -z "${{ inputs.toTag }}" ]; then
-          TO_TAG=$(git tag --sort=-creatordate | sed -n '1p')
+          TO_TAG=$(git tag --sort=-creatordate | grep '^release-' | sed -n '1p')
         else
           TO_TAG="${{ inputs.toTag }}"
         fi
