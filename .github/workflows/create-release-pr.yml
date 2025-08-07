@@ -79,28 +79,13 @@ jobs:
 
       - name: Build Changelog
         id: github_release
-        uses: mikepenz/release-changelog-builder-action@v4.1.0
+        uses: ./.github/actions/release-changelog
         with:
           fromTag: ${{ env.FROM_TAG }}
           toTag: HEAD
 
       - name: List pull request
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
-
-      - name: Create "changelog_artifacts.md"
-        # Пока отключаем генерацию changelog
-        if: false
-        run: |
-          cat > ${{ env.FILE }} <<'EOF'
-          ${{ steps.github_release.outputs.changelog }}
-
-      - name: Upload "changelog_artifacts.md"
-        uses: actions/upload-artifact@master
-        # Пока отключаем генерацию changelog
-        if: false
-        with:
-          name: release-changelog-artifacts
-          path: ${{ env.FILE }}
 
       - name: Create release branch
         id: release_branch
@@ -112,8 +97,17 @@ jobs:
 
       - name: Create release PR
         run: |
-          changelog='${{ steps.changelog.outputs.changelog }}'
-          gh pr create --base main --head ${{ steps.release_branch.outputs.branch_name }} --title "Release by ${{ env.DATE }}" --body "The name of tag to publish release: ${{ env.NEW_TAG }}"
+          BODY="$(cat <<EOF
+          The name of tag to publish release: ${{ env.NEW_TAG }}
+
+          ${{ steps.github_release.outputs.changelog }}
+          EOF
+          )"
+          gh pr create \
+            --base main \
+            --head ${{ steps.release_branch.outputs.branch_name }} \
+            --title "Release by ${{ env.DATE }}" \
+            --body "$BODY"
 
       - name: Extract JIRA IDs from PRs
         id: jira_tasks
