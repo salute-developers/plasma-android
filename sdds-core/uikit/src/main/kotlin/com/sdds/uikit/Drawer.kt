@@ -3,6 +3,8 @@ package com.sdds.uikit
 import android.animation.ValueAnimator
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
+import android.view.View
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
 import androidx.core.view.marginLeft
@@ -36,7 +38,7 @@ open class Drawer @JvmOverloads constructor(
 //        ).apply { gravity = Gravity.START }
 //    }
 
-    private val drawerView: View? = null
+    private var drawerView: View? = null
 
     private val drawerAnimation: ValueAnimator by lazy {
         ValueAnimator().apply {
@@ -104,6 +106,7 @@ open class Drawer @JvmOverloads constructor(
             val side = getInt(R.styleable.Drawer_sd_drawerPlacement, 0)
             _dSide = DrawerPlacement.values().getOrElse(side) { DrawerPlacement.LEFT }
             _focusDepended = getBoolean(R.styleable.Drawer_sd_focusDepended, false)
+            _shiftContent = getBoolean(R.styleable.Drawer_sd_shiftContent, false)
         }
     }
 
@@ -155,6 +158,13 @@ open class Drawer @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         super.onFinishInflate()
+        for (i in 0 until childCount) {
+            val child = getChildAt(i)
+            val lp = child.layoutParams as? LayoutParams
+            if (lp?.gravity == Gravity.START) {
+                drawerView = child
+            }
+            }
         children.filter { it != drawerView }.forEach { child ->
             val lp = (child.layoutParams as? MarginLayoutParams) ?: return@forEach
             when (_dSide) {

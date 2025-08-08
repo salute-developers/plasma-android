@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     app:sd_drawerPlacement="left"
     app:sd_focusDepended="true"
+    app:sd_shiftContent="true"
     android:clipChildren="false"
     android:padding="@dimen/sandbox_main_paddings">
 
