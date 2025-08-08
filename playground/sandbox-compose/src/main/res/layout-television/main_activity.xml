@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sdds.playground.sandbox.core.vs.DrawerFrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sdds.uikit.Drawer xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:sd_drawerPlacement="left"
+    app:sd_focusDepended="true"
     android:clipChildren="false"
     android:padding="@dimen/sandbox_main_paddings">
 
@@ -20,4 +22,5 @@
         android:layout_gravity="start"
         android:name="com.sdds.playground.sandbox.core.vs.ComponentListFragment"/>
 
-</com.sdds.playground.sandbox.core.vs.DrawerFrameLayout>
+</com.sdds.uikit.Drawer>
+

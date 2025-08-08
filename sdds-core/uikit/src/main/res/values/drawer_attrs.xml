@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_drawerStyle" format="reference" />
+
+    <declare-styleable name="Drawer" tools:ignore="ResourceName">
+        <attr name="sd_headerContent" format="boolean" />
+        <attr name="sd_footerContent" format="boolean" />
+        <attr name="sd_hasClose" format="boolean" />
+        <attr name="sd_closePlacement" format="enum">
+            <enum name="right" value="0" />
+            <enum name="left" value="1" />
+        </attr>
+        <attr name="sd_hasScroll" format="boolean" />
+        <attr name="sd_hasActions" format="boolean" />
+        <attr name="sd_actionsQuantity" format="integer" />
+        <attr name="sd_hasShadow" format="boolean" />
+        <attr name="sd_focusDepended" format="boolean" />
+        <attr name="sd_drawerPlacement" format="enum" >
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+</resources>
