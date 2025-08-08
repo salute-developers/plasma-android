@@ -10,6 +10,7 @@ import androidx.core.view.setPadding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.testing.R
+import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.ScrollBar
 import com.sdds.uikit.TextView
@@ -85,6 +86,7 @@ private class SimpleRecyclerAdapter : RecyclerView.Adapter<SimpleRecyclerAdapter
             )
             setPadding(5)
             textSize = 16f
+            setTextColor(context.getTextColorPrimary())
         }
         return ViewHolder(tv)
     }
