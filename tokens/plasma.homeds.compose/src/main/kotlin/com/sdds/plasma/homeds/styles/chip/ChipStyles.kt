@@ -314,7 +314,7 @@ public val Chip.Xxs: WrapperChipXxs
         .shape(PlasmaHomeDsTheme.shapes.roundXs)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            height(24.0.dp)
+            height(20.0.dp)
             paddingStart(8.0.dp)
             paddingEnd(8.0.dp)
             contentStartPadding(2.0.dp)

@@ -158,6 +158,10 @@ public val WrapperAvatarXxl.Pilled: WrapperAvatarXxlPilled
     @JvmName("WrapperAvatarXxlPilled")
     get() = builder
         .shape(PlasmaHomeDsTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
+        .dimensions {
+            statusOffsetX(0.0.dp)
+            statusOffsetY(0.0.dp)
+        }
         .statusStyle(
             Indicator.L.modify {
                 color {
@@ -207,6 +211,10 @@ public val WrapperAvatarL.Pilled: WrapperAvatarLPilled
     @JvmName("WrapperAvatarLPilled")
     get() = builder
         .shape(PlasmaHomeDsTheme.shapes.roundM)
+        .dimensions {
+            statusOffsetX(0.0.dp)
+            statusOffsetY(0.0.dp)
+        }
         .statusStyle(
             Indicator.M.modify {
                 color {
@@ -256,6 +264,10 @@ public val WrapperAvatarM.Pilled: WrapperAvatarMPilled
     @JvmName("WrapperAvatarMPilled")
     get() = builder
         .shape(PlasmaHomeDsTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .dimensions {
+            statusOffsetX(0.0.dp)
+            statusOffsetY(0.0.dp)
+        }
         .statusStyle(
             Indicator.M.modify {
                 color {

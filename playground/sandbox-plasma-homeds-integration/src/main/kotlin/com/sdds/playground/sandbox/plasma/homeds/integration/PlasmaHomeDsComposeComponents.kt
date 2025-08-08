@@ -10,6 +10,9 @@ import com.sdds.playground.sandbox.plasma.homeds.integration.avatar.group.Plasma
 import com.sdds.playground.sandbox.plasma.homeds.integration.badge.PlasmaHomeDsBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.badge.PlasmaHomeDsBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.badge.PlasmaHomeDsBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.badge.icon.PlasmaHomeDsIconBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.badge.icon.PlasmaHomeDsIconBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.badge.icon.PlasmaHomeDsIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.button.basic.PlasmaHomeDsBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.button.icon.PlasmaHomeDsIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.cell.PlasmaHomeDsCellVariationsCompose
@@ -52,6 +55,18 @@ object PlasmaHomeDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("BadgeTransparent", CoreComponent.BADGE),
                 PlasmaHomeDsBadgeTransparentVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconBadgeClear", CoreComponent.ICON_BADGE),
+                PlasmaHomeDsIconBadgeClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconBadgeSolid", CoreComponent.ICON_BADGE),
+                PlasmaHomeDsIconBadgeSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconBadgeTransparent", CoreComponent.ICON_BADGE),
+                PlasmaHomeDsIconBadgeTransparentVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.BasicButton,
