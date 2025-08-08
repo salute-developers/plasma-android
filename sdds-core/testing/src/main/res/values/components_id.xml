@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="basic_button"/>
+    <item type="id" name="button_group"/>
     <item type="id" name="badge"/>
     <item type="id" name="link_button"/>
     <item type="id" name="radioBox"/>
@@ -40,4 +41,8 @@
     <item type="id" name="list_view"/>
     <item type="id" name="dropdown_menu_trigger"/>
     <item type="id" name="wheel"/>
+    <item type="id" name="scroll_bar"/>
+    <item type="id" name="recycler"/>
+    <item type="id" name="scroll_container"/>
+    <item type="id" name="accordion"/>
 </resources>

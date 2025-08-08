@@ -61,6 +61,7 @@ jobs:
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
           STAR_RELEASE_KEY_ALIAS: ${{ secrets.STAR_RELEASE_KEY_ALIAS }}
           STAR_RELEASE_KEY_PASSWORD: ${{ secrets.STAR_RELEASE_KEY_PASSWORD }}
+          STAR_APP_ID: ${{ secrets.STAR_APP_ID }}
         run: ./gradlew :playground:sandbox-compose:assembleStarAppRelease
 
       - name: Upload APK

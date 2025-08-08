@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd" parent="Sdds.Components.AccordionItem">
+        <item name="sd_iconPlacement">end</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_contentTextColor">?serv_textDefaultPrimary</item>
+        <item name="sd_iconColor">?serv_textDefaultPrimary</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.Xs">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_16</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_16</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_xs_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_xs_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_xs_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_xs_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndXs">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.S">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_16</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_16</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_s_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_s_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_s_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_s_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndS">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.M">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_16</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_16</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_m_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_m_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_m_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_m_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndM">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.L">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_16</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_16</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_l_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_l_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_l_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_l_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndL">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.H2">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_24</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_24</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h2_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_h2_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h2_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_h2_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndH2">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.H2</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.H3">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.HeaderH3Bold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_24</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_24</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h3_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_h3_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h3_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_h3_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndH3">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.H3</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.H4">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_16</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_16</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h4_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_h4_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h4_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_h4_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndH4">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.H4</item>
+    </style>
+    <style name="Serv.Sdds.Components.AccordionItemClearActionEnd.H5">
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Bold</item>
+        <item name="sd_contentTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_plus_16</item>
+        <item name="sd_openedIcon">@drawable/ic_minus_16</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h5_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/serv_accordion_item_clear_action_end_h5_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/serv_accordion_item_clear_action_end_h5_header_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_accordion_item_clear_action_end_h5_icon_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AccordionItemClearActionEndH5">
+        <item name="sd_accordionItemViewStyle">@style/Serv.Sdds.Components.AccordionItemClearActionEnd.H5</item>
+    </style>
+</resources>

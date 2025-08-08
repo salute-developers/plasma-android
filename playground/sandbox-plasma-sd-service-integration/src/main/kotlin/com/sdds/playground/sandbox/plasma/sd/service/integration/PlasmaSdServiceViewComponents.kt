@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionEndVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionClearActionStartVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionEndVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.accordion.PlasmaSdServiceAccordionSolidActionStartVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.PlasmaSdServiceAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.PlasmaSdServiceAvatarGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeClearVariationsView
@@ -16,6 +20,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.buttongroup.PlasmaSdServiceBasicButtonGroupVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.buttongroup.PlasmaSdServiceIconButtonGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.card.vs.PlasmaSdServiceCardClearVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.card.vs.PlasmaSdServiceCardSolidVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.vs.PlasmaSdServiceCellVariationsView
@@ -34,6 +40,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.vs.PlasmaSdServiceIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.loader.PlasmaSdServiceLoaderVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsView
@@ -43,6 +50,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.Plasma
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.rectskeleton.PlasmaSdServiceRectSkeletonVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.scrollbar.PlasmaSdServiceScrollBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.PlasmaSdServiceSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.spinner.PlasmaSdServiceSpinnerVariationsView
@@ -61,6 +69,22 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
 
     override val all: Map<ComponentKey, ViewComponent<String>> =
         listOf(
+            ViewComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionClearActionEndVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                PlasmaSdServiceAccordionSolidActionEndVariationsView,
+            ),
             ViewComponent(
                 ComponentKey.Avatar,
                 PlasmaSdServiceAvatarVariationsView,
@@ -235,6 +259,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
                 PlasmaSdServiceSpinnerVariationsView,
             ),
             ViewComponent(
+                ComponentKey.ScrollBar,
+                PlasmaSdServiceScrollBarVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.TextField,
                 PlasmaSdServiceTextFieldVariationsView,
             ),
@@ -253,6 +281,18 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Image,
                 PlasmaSdServiceImageVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Loader,
+                PlasmaSdServiceLoaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                PlasmaSdServiceBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaSdServiceIconButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

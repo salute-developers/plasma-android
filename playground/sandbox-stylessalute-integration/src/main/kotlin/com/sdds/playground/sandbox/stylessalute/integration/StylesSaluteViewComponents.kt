@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionClearActionEndVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionClearActionStartVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionSolidActionEndVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.accordion.StylesSaluteAccordionSolidActionStartVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.StylesSaluteAvatarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.group.StylesSaluteAvatarGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBadgeClearVariationsView
@@ -16,6 +20,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.button.basic.StylesSaluteBasicButtonVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.button.icon.StylesSaluteIconButtonVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.button.link.StylesSaluteLinkButtonVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.buttongroup.StylesSaluteBasicButtonGroupVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.buttongroup.StylesSaluteIconButtonGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.cell.vs.StylesSaluteCellVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSaluteCheckBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsView
@@ -37,6 +43,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.rectskeleton.StylesSaluteRectSkeletonVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.scrollbar.StylesSaluteScrollBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsView
@@ -54,6 +61,22 @@ object StylesSaluteViewComponents : ComponentsProviderView {
 
     override val all: Map<ComponentKey, ViewComponent<String>> =
         listOf(
+            ViewComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                StylesSaluteAccordionClearActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                StylesSaluteAccordionClearActionEndVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                StylesSaluteAccordionSolidActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                StylesSaluteAccordionSolidActionEndVariationsView,
+            ),
             ViewComponent(
                 ComponentKey.Avatar,
                 StylesSaluteAvatarVariationsView,
@@ -203,6 +226,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
                 StylesSaluteSwitchVariationsView,
             ),
             ViewComponent(
+                ComponentKey.ScrollBar,
+                StylesSaluteScrollBarVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.TextField,
                 StylesSaluteTextFieldVariationsView,
             ),
@@ -217,6 +244,14 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Tooltip,
                 StylesSaluteTooltipVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                StylesSaluteBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                StylesSaluteIconButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

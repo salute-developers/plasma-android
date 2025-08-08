@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <attr name="sd_iconButtonStyle" format="reference"/>
-    <attr name="sd_linkButtonStyle" format="reference"/>
+    <attr name="sd_iconButtonStyle" format="reference" />
+    <attr name="sd_linkButtonStyle" format="reference" />
+    <attr name="sd_buttonGroupStyle" format="reference" />
 
     <!--
         Компонент "Кнопка".
@@ -57,9 +58,9 @@
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
-        <attr name="sd_disabledAlpha"/>
-        <attr name="android:checkable"/>
-        <attr name="android:checked"/>
+        <attr name="sd_disabledAlpha" />
+        <attr name="android:checkable" />
+        <attr name="android:checked" />
         <attr name="sd_fsAdditionalColor" />
         <attr name="sd_fsMainColor" />
         <attr name="sd_fsMode" />
@@ -68,6 +69,20 @@
         <attr name="sd_fsStrokeInset" />
         <attr name="sd_fsShapeAppearance" />
         <attr name="sd_fsShapeAdjustment" />
+    </declare-styleable>
+
+    <!-- Компонент - "Группа кнопок". Отображает такие компоненты как Button, IconButton.
+         Имеет собственную форму скругления углов, а так же форму скругления дочерних компонентов.
+     -->
+    <declare-styleable name="ButtonGroup" tools:ignore="ResourceName">
+        <!-- Оверлэй стиль кнопки -->
+        <attr name="sd_buttonStyleOverlay" format="reference" />
+        <!-- Форма скруглений наружних углов у крайних элементов группы -->
+        <attr name="sd_externalShapeAppearance" format="reference" />
+        <!-- Форма скруглений углов элементов группы -->
+        <attr name="sd_internalShapeAppearance" format="reference" />
+        <!-- Отступ между элементами внутри группы -->
+        <attr name="sd_buttonSpacing" format="dimension" />
     </declare-styleable>
 
 </resources>

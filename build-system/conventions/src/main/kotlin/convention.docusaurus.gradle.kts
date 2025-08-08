@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonObject
+import tasks.BuildTokenChangelogTask
 import tasks.s3.S3UploadTask
 import tasks.s3.getS3AccessKeyId
 import tasks.s3.getS3Bucket
@@ -7,6 +8,7 @@ import tasks.s3.getS3Endpoint
 import tasks.s3.getS3Region
 import tasks.s3.getS3SecretAccessKey
 import utils.AutoBumpTask
+import utils.docsArtifactId
 import utils.docsBaseProdUrl
 import utils.docsBaseUrl
 import utils.docsDeployUrl
@@ -58,10 +60,25 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
     }
 }
 
+val generateChangelog by tasks.register<BuildTokenChangelogTask>("generateChangelog") {
+    group = "documentation"
+    description = "Добавляет changelog в документацию"
+    mustRunAfter(generateInstanceTask)
+    releaseChangelogPath.set(rootProject.projectDir.resolve("release-changelog.md").absolutePath)
+    val overrideDocs = overrideDocsDir.also { it.mkdirs() }
+    libraryChangelogJsonPath.set(overrideDocs.resolve("changelog.json").absolutePath)
+    outputChangelogMdFile.set(
+        docusaurusDestinationDir
+            .resolve("docs")
+            .also { it.mkdirs() }
+            .resolve("CHANGELOG.md")
+    )
+}
+
 val docBuildTask by tasks.register("docusaurusBuild") {
     group = "documentation"
     description = "Собирает артефакты Docusaurus для дальнейшей публикации"
-    dependsOn(generateInstanceTask)
+    dependsOn(generateInstanceTask, generateChangelog)
     doLast {
         exec {
             workingDir = docusaurusDestinationDir
@@ -78,7 +95,7 @@ val docBuildTask by tasks.register("docusaurusBuild") {
 tasks.register("docusaurusRun") {
     group = "documentation"
     description = "Запускает просмотр Docusaurus локально в браузере"
-    dependsOn(generateInstanceTask)
+    dependsOn(generateInstanceTask, generateChangelog)
     doLast {
         exec {
             workingDir = docusaurusDestinationDir

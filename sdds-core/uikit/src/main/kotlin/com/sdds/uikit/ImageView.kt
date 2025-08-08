@@ -19,6 +19,7 @@ import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
+import com.sdds.uikit.statelist.ColorValueHolder
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
@@ -59,6 +60,7 @@ open class ImageView @JvmOverloads constructor(
     private var _aspectRatio: Float = 0f
     private var boundsPath: Path = Path()
     private var _backgroundStateList: ColorValueStateList? = null
+    private var _imageTintStateList: ColorValueStateList? = null
 
     init {
         setLayerType(LAYER_TYPE_HARDWARE, null)
@@ -257,6 +259,16 @@ open class ImageView @JvmOverloads constructor(
         _contentPaddingTop = top
         _contentPaddingRight = if (isRtl()) start else end
         _contentPaddingBottom = bottom
+    }
+
+    /**
+     * Устанавливает [ColorValueStateList] для окраса изображения.
+     */
+    fun setImageTintValueList(valueList: ColorValueStateList?) {
+        if (_imageTintStateList != valueList) {
+            _imageTintStateList = valueList
+            resetImageTintList(valueList)
+        }
     }
 
     /**
@@ -476,6 +488,7 @@ open class ImageView @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         setBackgroundValueList(_backgroundStateList)
+        setImageTintValueList(_imageTintStateList)
     }
 
     internal fun getShapePath(): Path = _shapeableImageDelegate?.getShapePath() ?: boundsPath
@@ -531,6 +544,20 @@ open class ImageView @JvmOverloads constructor(
 
     private fun isRtl(): Boolean {
         return layoutDirection == LAYOUT_DIRECTION_RTL
+    }
+
+    private fun resetImageTintList(colorValueStateList: ColorValueStateList?) {
+        if (colorValueStateList == null) return
+        val imageTintValue = if (colorValueStateList.isStateful()) {
+            colorValueStateList.getValueForState(drawableState)
+        } else {
+            colorValueStateList.getDefaultValue()
+        }
+        when (imageTintValue) {
+            is ColorValueHolder.ColorValue -> imageTintList = ColorStateList.valueOf(imageTintValue.value)
+            is ColorValueHolder.ColorListValue -> imageTintList = imageTintValue.value
+            else -> Unit
+        }
     }
 
     companion object {

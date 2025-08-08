@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart" parent="Sdds.Components.Accordion">
+        <item name="sd_itemSpacing">@dimen/plasma_accordion_solid_action_start_item_spacing</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.Xs">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartXs">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.S">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartS">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.M">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartM">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.L">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartL">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.H2">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartH2</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartH2">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.H2</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.H3">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartH3</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartH3">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.H3</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.H4">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartH4</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartH4">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.H4</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionStart.H5">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionStartH5</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionStartH5">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.H5</item>
+    </style>
+</resources>

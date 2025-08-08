@@ -12,7 +12,7 @@ import com.sdds.uikit.R
  * @param attrs аттрибуты
  * @param defStyleAttr аттрибут стиля по умолчанию
  */
-class BadgeDrawable(
+open class BadgeDrawable(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_badgeStyle,

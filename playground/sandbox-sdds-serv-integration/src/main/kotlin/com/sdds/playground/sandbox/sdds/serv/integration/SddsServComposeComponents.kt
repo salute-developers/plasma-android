@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVari
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.loader.SddsServLoaderVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsCompose
@@ -343,6 +344,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
                 SddsServTabBarIslandHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Loader,
+                SddsServLoaderVariationsCompose,
             ),
         ).associateBy { it.key }
 }

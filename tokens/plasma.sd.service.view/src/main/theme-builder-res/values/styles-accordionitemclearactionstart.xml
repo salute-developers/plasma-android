@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart" parent="Sdds.Components.AccordionItem">
+        <item name="sd_iconPlacement">start</item>
+        <item name="sd_iconPadding">@dimen/plasma_accordion_item_clear_action_start_icon_padding</item>
+        <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_contentTextColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_iconColor">?plasma_textDefaultPrimary</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.Xs">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsBold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_xs_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_xs_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_xs_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_xs_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartXs">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.S">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_s_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_s_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_s_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_s_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartS">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.M">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyMBold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_m_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_m_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_m_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_m_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartM">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.L">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLBold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_l_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_l_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_l_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_l_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartL">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.H2">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_24</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_24</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_h2_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h2_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_h2_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h2_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartH2">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.H2</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.H3">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.HeaderH3Bold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_24</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_24</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_h3_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h3_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_h3_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h3_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartH3">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.H3</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.H4">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_h4_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h4_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_h4_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h4_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartH4">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.H4</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionItemClearActionStart.H5">
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.HeaderH5Bold</item>
+        <item name="sd_contentTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_closedIcon">@drawable/ic_disclosure_down_fill_16</item>
+        <item name="sd_openedIcon">@drawable/ic_disclosure_up_fill_16</item>
+        <item name="sd_contentPaddingStart">@dimen/plasma_accordion_item_clear_action_start_h5_content_start_padding</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h5_content_bottom_padding</item>
+        <item name="sd_headerPaddingTop">@dimen/plasma_accordion_item_clear_action_start_h5_header_padding_top</item>
+        <item name="sd_headerPaddingBottom">@dimen/plasma_accordion_item_clear_action_start_h5_header_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionItemClearActionStartH5">
+        <item name="sd_accordionItemViewStyle">@style/Plasma.SdService.Components.AccordionItemClearActionStart.H5</item>
+    </style>
+</resources>

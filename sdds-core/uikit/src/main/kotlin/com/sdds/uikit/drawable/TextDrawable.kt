@@ -97,7 +97,7 @@ open class TextDrawable(
     /**
      * Текст
      */
-    var text: CharSequence
+    open var text: CharSequence
         get() = _text
         set(value) {
             if (_text != value) {

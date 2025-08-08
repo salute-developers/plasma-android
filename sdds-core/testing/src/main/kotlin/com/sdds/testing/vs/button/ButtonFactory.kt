@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import com.sdds.testing.R
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Button
+import com.sdds.uikit.ButtonGroup
 import com.sdds.uikit.IconButton
 import com.sdds.uikit.LinkButton
 
@@ -93,4 +94,45 @@ fun IconButton.applyState(state: ButtonUiState?): IconButton = apply {
     isLoading = state.loading
     isEnabled = state.enabled
     setIconResource(com.sdds.icons.R.drawable.ic_plasma_24)
+}
+
+/**
+ * Фабрика для создания [ButtonGroup]
+ */
+fun buttonGroup(
+    context: Context,
+    style: Int? = null,
+    state: ButtonUiState? = ButtonUiState(),
+    iconButton: Boolean = false,
+): ButtonGroup {
+    return ButtonGroup(context.styleWrapper(style))
+        .apply {
+            id = R.id.button_group
+        }
+        .applyState(state, iconButton)
+}
+
+/**
+ * Применяет [ButtonUiState] к [ButtonGroup]
+ */
+fun ButtonGroup.applyState(state: ButtonUiState?, iconButton: Boolean = false): ButtonGroup = apply {
+    state ?: return@apply
+    removeAllViews()
+    orientation = state.orientation.orientationState
+    isEnabled = state.enabled
+    repeat(state.amount) {
+        addView(
+            if (iconButton) {
+                iconButton(
+                    context = context,
+                    state = state,
+                ).apply { id = it }
+            } else {
+                basicButton(
+                    context = context,
+                    state = state,
+                ).apply { id = it }
+            },
+        )
+    }
 }

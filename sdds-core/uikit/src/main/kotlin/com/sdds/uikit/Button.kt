@@ -308,9 +308,14 @@ open class Button @JvmOverloads constructor(
     override val shape: ShapeModel?
         get() = _shapeHelper.shape
 
+    internal fun setShape(shape: ShapeModel) {
+        _shapeHelper.setShape(shape)
+    }
+
     init {
         obtainAttributes(attrs, defStyleAttr)
         applySelector(this, context, attrs, defStyleAttr)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     /**

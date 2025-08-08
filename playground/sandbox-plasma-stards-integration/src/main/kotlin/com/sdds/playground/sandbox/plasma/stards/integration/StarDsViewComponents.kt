@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIc
 import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeTransparentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.buttongroup.StarDsBasicButtonGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.card.vs.StarDsCardVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.cell.vs.StarDsCellVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.StarDsCheckBoxVariationsView
@@ -26,6 +27,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDs
 import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.loader.StarDsLoaderVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsView
@@ -34,6 +36,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPo
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.scrollbar.StarDsScrollBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.StarDsSegmentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.spinner.StarDsSpinnerVariationsView
@@ -202,6 +205,18 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Spinner,
                 StarDsSpinnerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ScrollBar,
+                StarDsScrollBarVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Loader,
+                StarDsLoaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                StarDsBasicButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

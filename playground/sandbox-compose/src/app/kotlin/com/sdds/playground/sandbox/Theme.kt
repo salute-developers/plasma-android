@@ -4,6 +4,8 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.PlasmaGigaAppComp
 import com.sdds.playground.sandbox.plasma.giga.app.integration.PlasmaGigaAppThemeWrapper
 import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaComposeComponents
 import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaThemeWrapper
+import com.sdds.playground.sandbox.plasma.homeds.integration.PlasmaHomeDsComposeComponents
+import com.sdds.playground.sandbox.plasma.homeds.integration.PlasmaHomeDsThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewComponents
@@ -20,6 +22,7 @@ internal enum class Theme {
     StylesSalute,
     PlasmaGiga,
     PlasmaGigaApp,
+    PlasmaHomeDs,
     ;
 
     internal companion object {
@@ -52,6 +55,11 @@ internal val composeThemes: List<ThemeInfoCompose> = listOf(
         theme = Theme.PlasmaGigaApp,
         components = PlasmaGigaAppComposeComponents,
         themeWrapper = { PlasmaGigaAppThemeWrapper(it) },
+    ),
+    ThemeInfoCompose(
+        theme = Theme.PlasmaHomeDs,
+        components = PlasmaHomeDsComposeComponents,
+        themeWrapper = { PlasmaHomeDsThemeWrapper(it) },
     ),
 )
 

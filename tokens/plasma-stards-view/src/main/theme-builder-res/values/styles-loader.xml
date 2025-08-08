@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Loader" parent="Sdds.Components.Loader">
+        <item name="sd_spinnerStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SpinnerLDefault</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CircularProgressBarLDefault</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.Loader">
+        <item name="sd_loaderStyle">@style/Sdkit.StarDs.Components.Loader</item>
+    </style>
+</resources>

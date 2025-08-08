@@ -5,6 +5,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionEndVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionClearActionStartVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionEndVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.accordion.SddsServAccordionSolidActionStartVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.SddsServAvatarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.group.SddsServAvatarGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeClearVariationsView
@@ -16,6 +20,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIcon
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServBasicButtonGroupVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.buttongroup.SddsServIconButtonGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.card.vs.SddsServCardClearVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.card.vs.SddsServCardSolidVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.cell.vs.SddsServCellVariationsView
@@ -34,6 +40,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVari
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.loader.SddsServLoaderVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsView
@@ -43,6 +50,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgre
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.rectskeleton.SddsServRectSkeletonVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.scrollbar.SddsServScrollBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegmentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsView
@@ -61,6 +69,22 @@ object SddsServViewComponents : ComponentsProviderView {
 
     override val all: Map<ComponentKey, ViewComponent<String>> =
         listOf(
+            ViewComponent(
+                ComponentKey("AccordionClearActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionClearActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionClearActionEndVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionStart", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionStartVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("AccordionSolidActionEnd", CoreComponent.ACCORDION),
+                SddsServAccordionSolidActionEndVariationsView,
+            ),
             ViewComponent(
                 ComponentKey.Avatar,
                 SddsServAvatarVariationsView,
@@ -234,6 +258,10 @@ object SddsServViewComponents : ComponentsProviderView {
                 SddsServSwitchVariationsView,
             ),
             ViewComponent(
+                ComponentKey.ScrollBar,
+                SddsServScrollBarVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Spinner,
                 SddsServSpinnerVariationsView,
             ),
@@ -252,6 +280,18 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Tooltip,
                 SddsServTooltipVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Loader,
+                SddsServLoaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.ButtonGroup,
+                SddsServBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                SddsServIconButtonGroupVariationsView,
             ),
         ).associateBy { it.key }
 }

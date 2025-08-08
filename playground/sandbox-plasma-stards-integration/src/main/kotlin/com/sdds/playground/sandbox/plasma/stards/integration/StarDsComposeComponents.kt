@@ -27,6 +27,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDs
 import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.loader.StarDsLoaderVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.overlay.compose.StarDsOverlayVariationsCompose
@@ -208,6 +209,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
                 StarDsBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Loader,
+                StarDsLoaderVariationsCompose,
             ),
         ).associateBy { it.key }
 }

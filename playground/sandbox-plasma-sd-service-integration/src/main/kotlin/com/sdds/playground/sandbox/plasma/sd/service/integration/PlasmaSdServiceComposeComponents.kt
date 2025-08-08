@@ -42,6 +42,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.list.PlasmaSdServiceListTightVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.loader.PlasmaSdServiceLoaderVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsCompose
@@ -343,6 +344,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TabBarIslandHasLabelClear", CoreComponent.TAB_BAR),
                 PlasmaSdServiceTabBarIslandHasLabelClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Loader,
+                PlasmaSdServiceLoaderVariationsCompose,
             ),
         ).associateBy { it.key }
 }

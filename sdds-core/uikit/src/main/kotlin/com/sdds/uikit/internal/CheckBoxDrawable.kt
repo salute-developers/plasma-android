@@ -19,12 +19,14 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
 import androidx.core.content.withStyledAttributes
+import androidx.core.graphics.toXfermode
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.CheckBox
 import com.sdds.uikit.R
 import com.sdds.uikit.dp
 import com.sdds.uikit.internal.base.AnimationUtils.lerp
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.getXfermode
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
@@ -81,6 +83,7 @@ internal class CheckBoxDrawable(
     private var _borderTintList: ColorStateList = DefaultBlackTint
     private var _boxTintList: ColorStateList = DefaultBlackTint
     private var _checkMarkTintList: ColorStateList = DefaultWhiteTint
+    private var _checkMarkTintMode: PorterDuffXfermode = XfermodeAdd
 
     private var _checkedIcon: Drawable? = null
     private var _checkIconTintList: ColorStateList? = null
@@ -486,7 +489,7 @@ internal class CheckBoxDrawable(
         crossCenterGravitation: Float,
         strokeWidth: Float,
     ) {
-        _paint.xfermode = XfermodeAdd
+        _paint.xfermode = _checkMarkTintMode
         val width = _commonBounds.width()
         val height = _commonBounds.height()
         // M0.3,0.5L0.46,0.625,L0.71,0.375
@@ -589,6 +592,8 @@ internal class CheckBoxDrawable(
                 getNumberStateList(context, R.styleable.SdCheckBoxDrawable_sd_toggleIconWidth)
             _toggleIconHeight =
                 getNumberStateList(context, R.styleable.SdCheckBoxDrawable_sd_toggleIconHeight)
+            _checkMarkTintMode = getXfermode(getInt(R.styleable.SdCheckBoxDrawable_sd_buttonMarkColorMode, 0))
+                .toXfermode()
         }
     }
 

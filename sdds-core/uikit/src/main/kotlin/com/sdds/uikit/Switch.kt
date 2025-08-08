@@ -50,6 +50,7 @@ open class Switch @JvmOverloads constructor(
         }
 
         obtainAttributes(attrs, defStyleAttr, defStyleRes)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     /**
@@ -128,9 +129,10 @@ open class Switch @JvmOverloads constructor(
 
     override fun getButtonDrawable(): Drawable? = _buttonDrawable
 
+    @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
-        _viewAlphaHelper.updateAlphaByEnabledState(this)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

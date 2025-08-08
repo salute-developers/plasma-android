@@ -20,6 +20,7 @@ import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
+import com.sdds.compose.uikit.LoaderStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.ModalStyle
 import com.sdds.compose.uikit.NotificationStyle
@@ -70,6 +71,7 @@ import com.sdds.playground.sandbox.image.compose.ImageScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
+import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
 import com.sdds.playground.sandbox.notification.compose.NotificationScreen
 import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
@@ -79,8 +81,8 @@ import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.rectskeleton.compose.RectSkeletonScreen
-import com.sdds.playground.sandbox.scrollbar.ScrollBarPreview
-import com.sdds.playground.sandbox.scrollbar.ScrollBarScreen
+import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
+import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
@@ -115,6 +117,7 @@ import com.sdds.testing.compose.counter.CounterCommon
 import com.sdds.testing.compose.divider.DividerDefault
 import com.sdds.testing.compose.indicator.IndicatorCommon
 import com.sdds.testing.compose.list.ListForSandbox
+import com.sdds.testing.compose.loader.LoaderForSandbox
 import com.sdds.testing.compose.modal.ModalForSandboxCompose
 import com.sdds.testing.compose.notification.NotificationForSandbox
 import com.sdds.testing.compose.overlay.OverlayForSandbox
@@ -260,6 +263,10 @@ internal sealed class ComponentScreen(
         { TabBarScreen(it) },
         { style, _ -> TabBarPreview(style as TabBarStyle) },
     )
+    object Loader : ComponentScreen(
+        { LoaderScreen(it) },
+        { style, _ -> LoaderForSandbox(style as LoaderStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -308,6 +315,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.IMAGE -> ComponentScreen.Image
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
         CoreComponent.TAB_BAR -> ComponentScreen.TabBar
+        CoreComponent.LOADER -> ComponentScreen.Loader
         else -> ComponentScreen.Empty
     }
 }

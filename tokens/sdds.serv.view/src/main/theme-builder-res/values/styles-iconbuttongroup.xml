@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.IconButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonXsDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.Xs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupXsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.Xs.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.S.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupSNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.S.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.M.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupMNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.M.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonLDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Wide.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLWidePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Wide.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Dense.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLDensePilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Dense.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_icon_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.NoGap.Pilled">
+        <item name="sd_externalShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_internalShapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLNoGapPilled">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.NoGap.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButtonGroup.L.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonGroupLNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.IconButtonGroup.L.NoGap.Segmented</item>
+    </style>
+</resources>

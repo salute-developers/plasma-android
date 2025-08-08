@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.BasicButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs">
+        <item name="sd_buttonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonXxsDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxs">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.Wide">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_xxs_wide_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsWide">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.Wide</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.Wide.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.Wide.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.Dense">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_xxs_dense_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsDense">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.Dense</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.Dense.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.Dense.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_xxs_no_gap_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.NoGap</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.NoGap.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xxs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xxs.NoGap.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonXsDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.Wide.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.Wide.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.Dense.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.Dense.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.NoGap.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.Xs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupXsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.Xs.NoGap.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonSDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.Wide</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.Wide.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.Wide.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.Wide.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.Dense</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.Dense.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.Dense.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.Dense.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.NoGap.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.S.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupSNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.S.NoGap.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonMDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Wide</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.Wide.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Wide.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Wide.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Dense</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.Dense.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Dense.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXxs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Dense.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.NoGap.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.M.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupMNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.NoGap.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonLDefault</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Wide</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.Wide.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Wide.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Wide.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.Dense.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/plasma_basic_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.NoGap</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.NoGap.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButtonGroup.L.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonGroupLNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.NoGap.Segmented</item>
+    </style>
+</resources>

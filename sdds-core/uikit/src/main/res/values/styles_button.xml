@@ -44,4 +44,9 @@
         <item name="sd_valuePadding">0dp</item>
         <item name="backgroundTint">@android:color/transparent</item>
     </style>
+
+    <style name="Sdds.Components.ButtonGroup" >
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 </resources>

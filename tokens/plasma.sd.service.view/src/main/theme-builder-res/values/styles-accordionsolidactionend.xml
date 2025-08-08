@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd" parent="Sdds.Components.Accordion">
+        <item name="sd_itemSpacing">@dimen/plasma_accordion_solid_action_end_item_spacing</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.Xs">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndXs">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.S">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndS">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.M">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndM">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.L">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndL">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.H2">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH2</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndH2">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.H2</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.H3">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH3</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndH3">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.H3</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.H4">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH4</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndH4">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.H4</item>
+    </style>
+    <style name="Plasma.SdService.Components.AccordionSolidActionEnd.H5">
+        <item name="sd_accordionItemViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AccordionItemSolidActionEndH5</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AccordionSolidActionEndH5">
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionEnd.H5</item>
+    </style>
+</resources>

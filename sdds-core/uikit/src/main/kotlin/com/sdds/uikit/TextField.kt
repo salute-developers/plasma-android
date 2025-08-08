@@ -563,13 +563,14 @@ open class TextField @JvmOverloads constructor(
         setActionTint(ColorStateList.valueOf(tint))
     }
 
+    @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         children.forEach {
             it.isEnabled = enabled
-            viewAlphaHelper.updateAlphaByEnabledState(it)
+            viewAlphaHelper?.updateAlphaByEnabledState(it)
         }
         _indicator?.let {
-            viewAlphaHelper.updateDrawableAlpha(it, enabled)
+            viewAlphaHelper?.updateDrawableAlpha(it, enabled)
         }
         super.setEnabled(enabled)
     }

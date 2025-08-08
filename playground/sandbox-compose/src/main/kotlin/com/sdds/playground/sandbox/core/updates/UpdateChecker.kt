@@ -75,7 +75,9 @@ internal class UpdateChecker(private val dispatcher: CoroutineDispatcher) {
         connection.connect()
 
         if (connection.responseCode != HttpURLConnection.HTTP_OK) return@withContext fallbackVersion
-        val versions = json.decodeFromStream<Map<String, AppVersion>>(connection.inputStream)
+        val versions = runCatching { json.decodeFromStream<Map<String, AppVersion>>(connection.inputStream) }
+            .onFailure { Log.e("UpdateChecker", "failed to get version info ${it.message}") }
+            .getOrElse { emptyMap() }
         versions[BuildConfig.DIST_NAME] ?: fallbackVersion
     }
 

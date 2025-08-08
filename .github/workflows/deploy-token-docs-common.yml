@@ -11,14 +11,28 @@ on:
         type: string
         description: 'Название ветки, тэга или хэш коммита'
         required: true
-    outputs:
-      summary:
-        description: "Спиоск задеплоенных экземпляров документации"
-        value: ${{ jobs.summary.outputs.summary_text }}
 
 jobs:
+  changelog:
+    name: Prepare changelog
+    runs-on: ubuntu-latest
+    outputs:
+      content: ${{ steps.build-changelog.outputs.changelog }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - name: Build Changelog
+        id: build-changelog
+        uses: ./.github/actions/release-changelog
+        with:
+          toTag: ${{ inputs.ref }}
   deploy:
     name: Deploy docs
+    needs: changelog
     runs-on: ubuntu-latest
     if: inputs.modules != '' && inputs.modules != '[]' && inputs.ref != ''
     strategy:
@@ -30,6 +44,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
+
+      - name: Create release-changelog.md
+        shell: bash
+        run: |
+          cat > "${{ github.workspace }}/tokens/release-changelog.md" <<EOF
+          ${{ needs.changelog.outputs.content }}
+          EOF
 
       - name: Install s3cmd
         run: |

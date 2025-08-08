@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.BasicButtonGroup" parent="Sdds.Components.ButtonGroup"/>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXxsDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxs">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_xxs_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_xxs_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_xxs_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xxs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXxsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xxs.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXsDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXs">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_xs_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_xs_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_xs_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.Xs.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupXsNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.Xs.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonSDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupS">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_s_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_s_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_s_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.S.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupSNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.S.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupM">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_m_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_m_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_m_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.M.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupMNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.NoGap.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonLDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupL">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.Wide">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_l_wide_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLWide">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Wide</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.Wide.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLWideDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Wide.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.Wide.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLWideSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Wide.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.Dense">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_l_dense_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLDense">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Dense</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.Dense.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLDenseDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Dense.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.Dense.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLDenseSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Dense.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.NoGap">
+        <item name="sd_buttonSpacing">@dimen/serv_basic_button_group_l_no_gap_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLNoGap">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.NoGap</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.NoGap.Default">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_internalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLNoGapDefault">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.NoGap.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButtonGroup.L.NoGap.Segmented">
+        <item name="sd_externalShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonGroupLNoGapSegmented">
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.NoGap.Segmented</item>
+    </style>
+</resources>

@@ -254,11 +254,15 @@ open class CellLayout @JvmOverloads constructor(
 
         var totalWidth = 0
         var totalHeight = 0
+        var hasCenterChildren = false
 
         for (index in 0 until childCount) {
             val child = getChildAt(index)
             val lp = child.layoutParams as LayoutParams
-            if (child.isGone || lp.cellContent.isCenterAlignment()) continue
+            if (child.isGone || lp.cellContent.isCenterAlignment()) {
+                hasCenterChildren = hasCenterChildren || (lp.cellContent.isCenterAlignment() && !child.isGone)
+                continue
+            }
             measureChildWithMargins(child, widthMeasureSpec, totalWidth, heightMeasureSpec, 0)
 
             val totalChildWidth = child.measuredWidth + lp.leftMargin + lp.rightMargin
@@ -296,6 +300,21 @@ open class CellLayout @JvmOverloads constructor(
             totalWidth += totalChildWidth
         }
 
+        val applyContentStartPadding = !_contentStartPaddingEnabled &&
+            _startContentBounds.width() > 0 &&
+            (hasCenterChildren || _endContentBounds.width() > 0)
+        if (applyContentStartPadding) {
+            _contentStartPaddingEnabled = true
+            totalWidth += _contentStartPadding
+        }
+        val applyContentEndPadding = !_contentEndPaddingEnabled &&
+            _endContentBounds.width() > 0 &&
+            (hasCenterChildren || _startContentBounds.width() > 0)
+        if (applyContentEndPadding) {
+            _contentEndPaddingEnabled = true
+            totalWidth += _contentEndPadding
+        }
+
         for (index in 0 until childCount) {
             val child = getChildAt(index)
             val lp = child.layoutParams as LayoutParams
@@ -311,20 +330,7 @@ open class CellLayout @JvmOverloads constructor(
                 right = maxOf(right, totalChildWidth)
             }
         }
-        val applyContentStartPadding = !_contentStartPaddingEnabled &&
-            _startContentBounds.width() > 0 &&
-            (_centerContentBounds.width() > 0 || _endContentBounds.width() > 0)
-        if (applyContentStartPadding) {
-            _contentStartPaddingEnabled = true
-            totalWidth += _contentStartPadding
-        }
-        val applyContentEndPadding = !_contentEndPaddingEnabled &&
-            _endContentBounds.width() > 0 &&
-            (_centerContentBounds.width() > 0 || _startContentBounds.width() > 0)
-        if (applyContentEndPadding) {
-            _contentEndPaddingEnabled = true
-            totalWidth += _contentEndPadding
-        }
+
         totalWidth += _centerContentBounds.width()
         totalHeight += maxOf(
             _startContentBounds.height(),

@@ -6,6 +6,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -39,7 +40,7 @@ fun Spinner(
     modifier: Modifier = Modifier,
     style: SpinnerStyle = LocalSpinnerStyle.current,
     animationSpec: InfiniteRepeatableSpec<Float> = DefaultSpinnerAnimationSpec,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val transition = rememberInfiniteTransition()
     val rotationAngle by transition.animateFloat(

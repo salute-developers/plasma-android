@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Paint
+import android.graphics.PorterDuff
 import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
@@ -57,8 +58,10 @@ internal fun Drawable.wrapWithInset(
     top: Int = 0,
     right: Int = 0,
     bottom: Int = 0,
-): InsetDrawable =
-    InsetDrawable(this, left, top, right, bottom)
+): Drawable {
+    val allEmpty = left == 0 && top == 0 && right == 0 && bottom == 0
+    return if (allEmpty) this else InsetDrawable(this, left, top, right, bottom)
+}
 
 /**
  * Функция для удобного конфигурирования и переиспользования [Paint]
@@ -183,3 +186,21 @@ internal val Int.sp: Int
         this.toFloat(),
         Resources.getSystem().displayMetrics,
     ).toInt()
+
+internal val Int.dp: Int
+    get() = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        this.toFloat(),
+        Resources.getSystem().displayMetrics,
+    ).toInt()
+
+internal fun getXfermode(mode: Int): PorterDuff.Mode {
+    return when (mode) {
+        1 -> PorterDuff.Mode.SRC_OVER
+        2 -> PorterDuff.Mode.SRC_IN
+        3 -> PorterDuff.Mode.SRC_ATOP
+        4 -> PorterDuff.Mode.MULTIPLY
+        5 -> PorterDuff.Mode.SCREEN
+        else -> PorterDuff.Mode.ADD
+    }
+}

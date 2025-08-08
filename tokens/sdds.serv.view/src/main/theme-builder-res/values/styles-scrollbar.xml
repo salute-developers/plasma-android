@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.ScrollBar" parent="Sdds.Components.ScrollBar">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_expandFactor">2.0</item>
+        <item name="sd_thumbColor">?serv_surfaceDefaultSolidTertiary</item>
+        <item name="sd_trackColor">?serv_surfaceDefaultTransparentPrimary</item>
+    </style>
+    <style name="Serv.Sdds.Components.ScrollBar.S">
+        <item name="sd_thickness">@dimen/serv_scroll_bar_s_thickness</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ScrollBarS">
+        <item name="sd_scrollBarStyle">@style/Serv.Sdds.Components.ScrollBar.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.ScrollBar.M">
+        <item name="sd_thickness">@dimen/serv_scroll_bar_m_thickness</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ScrollBarM">
+        <item name="sd_scrollBarStyle">@style/Serv.Sdds.Components.ScrollBar.M</item>
+    </style>
+</resources>

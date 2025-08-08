@@ -248,6 +248,17 @@ open class CircularProgressBar @JvmOverloads constructor(
         _trackDrawable.setTint(tint)
     }
 
+    /**
+     * Устанавливает суффикс для value
+     * @param suffix суффикс (единца измерения прогреса)
+     */
+    open fun setValueSuffix(suffix: String?) {
+        if (_progressValueSuffix != suffix) {
+            _progressValueSuffix = suffix
+            updateProgressValue()
+        }
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         setMeasuredDimension(

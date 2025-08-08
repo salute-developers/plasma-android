@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -28,6 +30,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.composeTheme
@@ -82,6 +85,8 @@ private fun <State : UiState, S : Style> MobileScaffold(
     ) { sheetHeight ->
         var top by remember { mutableFloatStateOf(0f) }
         val uiState by viewModel.uiState.collectAsState()
+        val density = LocalDensity.current
+        val statusBarHeight = WindowInsets.statusBars.getTop(density).toFloat()
         Box(
             modifier = Modifier
                 .align(componentAlignment(uiState))
@@ -90,7 +95,8 @@ private fun <State : UiState, S : Style> MobileScaffold(
                     top = pos.y
                 }
                 .graphicsLayer {
-                    val offset = (sheetState.progressFromCollapsedToExpanded * sheetHeight).coerceAtMost(top)
+                    val offset =
+                        (sheetState.progressFromCollapsedToExpanded * sheetHeight).coerceAtMost(top - statusBarHeight)
                     translationY = -offset
                 },
             contentAlignment = Alignment.Center,
@@ -181,6 +187,7 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
                     onReset = { viewModel.resetToDefault() },
                 )
             }
+
             is MenuPropertyContent.PropertyEditor -> {
                 PropertyEditor(
                     modifier = Modifier.fillMaxHeight(),

@@ -8,10 +8,12 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
 import androidx.navigation.fragment.fragment
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.accordion.view.AccordionFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarGroupFragment
 import com.sdds.playground.sandbox.badge.vs.BadgeFragment
 import com.sdds.playground.sandbox.badge.vs.IconBadgeFragment
+import com.sdds.playground.sandbox.buttongroup.vs.ButtonGroupFragment
 import com.sdds.playground.sandbox.buttons.vs.BasicButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.IconButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment
@@ -32,6 +34,7 @@ import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.image.vs.ImageFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.list.vs.ListFragment
+import com.sdds.playground.sandbox.loader.vs.LoaderFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
 import com.sdds.playground.sandbox.notification.vs.NotificationFragment
@@ -42,6 +45,7 @@ import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
 import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
 import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
+import com.sdds.playground.sandbox.scrollbar.vs.ScrollBarFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
@@ -52,6 +56,7 @@ import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
 import com.sdds.playground.sandbox.toast.vs.ToastFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
+import com.sdds.testing.vs.accordion.accordion
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
 import com.sdds.testing.vs.avatar.avatarGroup
@@ -60,6 +65,7 @@ import com.sdds.testing.vs.badge.badge
 import com.sdds.testing.vs.badge.iconBadge
 import com.sdds.testing.vs.button.ButtonUiState
 import com.sdds.testing.vs.button.basicButton
+import com.sdds.testing.vs.button.buttonGroup
 import com.sdds.testing.vs.button.iconButton
 import com.sdds.testing.vs.button.linkButton
 import com.sdds.testing.vs.card.CardUiState
@@ -81,6 +87,7 @@ import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.image.image
 import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.list.listView
+import com.sdds.testing.vs.loader.loader
 import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
@@ -94,6 +101,7 @@ import com.sdds.testing.vs.progress.progressBar
 import com.sdds.testing.vs.radiobox.RadioBoxUiState
 import com.sdds.testing.vs.radiobox.radioBox
 import com.sdds.testing.vs.radiobox.radioBoxGroup
+import com.sdds.testing.vs.scrollbar.scrollBar
 import com.sdds.testing.vs.segement.SegmentUiState
 import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
@@ -305,6 +313,18 @@ internal sealed class ComponentScreen(
     object Image : ComponentScreen(
         { item -> fragment<ImageFragment>(item.route, item.defaultBuilder) },
     )
+    object ScrollBar : ComponentScreen(
+        { item -> fragment<ScrollBarFragment>(item.route, item.defaultBuilder) },
+    )
+    object Accordion : ComponentScreen(
+        { item -> fragment<AccordionFragment>(item.route, item.defaultBuilder) },
+    )
+    object Loader : ComponentScreen(
+        { item -> fragment<LoaderFragment>(item.route, item.defaultBuilder) },
+    )
+    object ButtonGroup : ComponentScreen(
+        { item -> fragment<ButtonGroupFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -350,6 +370,10 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DROPDOWN_MENU -> ComponentScreen.DropdownMenu
         CoreComponent.WHEEL -> ComponentScreen.Wheel
         CoreComponent.IMAGE -> ComponentScreen.Image
+        CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
+        CoreComponent.LOADER -> ComponentScreen.Loader
+        CoreComponent.ACCORDION -> ComponentScreen.Accordion
+        CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -397,6 +421,10 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.DROPDOWN_MENU -> R.id.nav_dropdown_menu
         CoreComponent.WHEEL -> R.id.nav_wheel
         CoreComponent.IMAGE -> R.id.nav_image
+        CoreComponent.SCROLL_BAR -> R.id.nav_scrollbar
+        CoreComponent.LOADER -> R.id.nav_loader
+        CoreComponent.ACCORDION -> R.id.nav_accordion
+        CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -482,7 +510,17 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.DROPDOWN_MENU -> dropdownMenuTrigger(context, style).trigger
         CoreComponent.WHEEL -> wheel(context, style)
         CoreComponent.IMAGE -> image(context, style)
+        CoreComponent.SCROLL_BAR -> scrollBar(context, style)
         CoreComponent.SPINNER -> spinner(context, style)
+        CoreComponent.LOADER -> loader(context, style)
+        CoreComponent.ACCORDION -> accordion(context, style)
+        CoreComponent.BUTTON_GROUP -> {
+            if (componentKey.value.contains("Icon")) {
+                buttonGroup(context, style, iconButton = true)
+            } else {
+                buttonGroup(context, style)
+            }
+        }
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
