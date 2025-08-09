@@ -10,18 +10,18 @@
     android:clipChildren="false"
     android:padding="@dimen/sandbox_main_paddings">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:name="com.sdds.playground.sandbox.core.vs.ComponentListFragment"/>
+
     <include
         android:id="@+id/main_content"
         layout="@layout/main_activity_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:name="com.sdds.playground.sandbox.core.vs.ComponentListFragment"/>
 
 </com.sdds.uikit.Drawer>
 

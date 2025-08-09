@@ -16,6 +16,7 @@
         <attr name="sd_hasShadow" format="boolean" />
         <attr name="sd_focusDepended" format="boolean" />
         <attr name="sd_shiftContent" format="boolean" />
+        <attr name="sd_animationEnabled" format="boolean" />
         <attr name="sd_drawerPlacement" format="enum" >
             <enum name="left" value="0" />
             <enum name="top" value="1" />

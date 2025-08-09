@@ -7,11 +7,21 @@ import android.view.Gravity
 import android.view.View
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
+import androidx.core.view.marginBottom
 import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
 import androidx.core.view.marginTop
 import androidx.core.view.updateMargins
 import com.sdds.uikit.shape.ShapeModel
 
+/**
+ * Контейнер, котороый содержит выдвижную панель и основной
+ * контент экрана.
+ * @param context контекст
+ * @param attrs аттрибуты view
+ * @param defStyleAttr аттрибут стиля по умолчанию
+ * @param defStyleRes стиль по умолчанию
+ */
 open class Drawer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet?,
@@ -29,6 +39,7 @@ open class Drawer @JvmOverloads constructor(
     private var _dExpanded: Boolean = false
     private var _shiftContent: Boolean = false
     private var _focusDepended: Boolean = false
+    private var _animationEnabled: Boolean = true
 
 //    private val drawerView: LinearLayout = LinearLayout(context).apply {
 //        orientation = VERTICAL
@@ -101,12 +112,21 @@ open class Drawer @JvmOverloads constructor(
             }
         }
 
+    open var animationEnabled: Boolean
+        get() = _animationEnabled
+        set(value) {
+            if (_animationEnabled != value) {
+                _animationEnabled = value
+            }
+        }
+
     init {
         context.withStyledAttributes(attrs, R.styleable.Drawer, defStyleAttr, defStyleRes) {
             val side = getInt(R.styleable.Drawer_sd_drawerPlacement, 0)
             _dSide = DrawerPlacement.values().getOrElse(side) { DrawerPlacement.LEFT }
             _focusDepended = getBoolean(R.styleable.Drawer_sd_focusDepended, false)
             _shiftContent = getBoolean(R.styleable.Drawer_sd_shiftContent, false)
+            _animationEnabled = getBoolean(R.styleable.Drawer_sd_animationEnabled, true)
         }
     }
 
@@ -140,20 +160,20 @@ open class Drawer @JvmOverloads constructor(
      * Показывает [Drawer]
      * @param animated включение анимации при открытии
      */
-    open fun expand(animated: Boolean = true) {
+    open fun expand() {
         if (_dExpanded) return
         _dExpanded = true
-        animateDrawer(true, animated)
+        animateDrawer(true)
     }
 
     /**
      * Скрывает [Drawer]
      * @param animated включение анимации при закрытии
      */
-    open fun collapse(animated: Boolean = true) {
+    open fun collapse() {
         if (!_dExpanded) return
         _dExpanded = false
-        animateDrawer(false, animated)
+        animateDrawer(false)
     }
 
     override fun onFinishInflate() {
@@ -161,10 +181,10 @@ open class Drawer @JvmOverloads constructor(
         for (i in 0 until childCount) {
             val child = getChildAt(i)
             val lp = child.layoutParams as? LayoutParams
-            if (lp?.gravity == Gravity.START) {
+            if (lp?.gravity == Gravity.END) {
                 drawerView = child
             }
-            }
+        }
         children.filter { it != drawerView }.forEach { child ->
             val lp = (child.layoutParams as? MarginLayoutParams) ?: return@forEach
             when (_dSide) {
@@ -183,9 +203,10 @@ open class Drawer @JvmOverloads constructor(
             val child = getChildAt(i)
             val childWidth = child.measuredWidth
             val childHeight = child.measuredHeight
-            val marginLeft = child.marginLeft + paddingLeft
-            val marginTop = child.marginTop + paddingTop
-
+            val marginLeft = child.marginLeft
+            val marginTop = child.marginTop
+            val marginRight = child.marginRight
+            val marginBottom = child.marginBottom
             if (child == drawerView) {
                 var dLeft = 0
                 var dTop = 0
@@ -196,18 +217,18 @@ open class Drawer @JvmOverloads constructor(
                     }
 
                     DrawerPlacement.TOP -> {
-                        dLeft = width - _dOffset - childWidth + marginLeft
-                        dTop = marginTop
-                    }
-
-                    DrawerPlacement.RIGHT -> {
                         dLeft = marginLeft
                         dTop = -childHeight + _dOffset + marginTop
                     }
 
+                    DrawerPlacement.RIGHT -> {
+                        dLeft = width - _dOffset - marginRight
+                        dTop = marginTop
+                    }
+
                     DrawerPlacement.BOTTOM -> {
                         dLeft = marginLeft
-                        dTop = height - _dOffset - childHeight + marginTop
+                        dTop = height - _dOffset - marginBottom
                     }
                 }
                 child.layout(dLeft, dTop, dLeft + childWidth, dTop + childHeight)
@@ -218,22 +239,23 @@ open class Drawer @JvmOverloads constructor(
     }
 
     private fun moveChildrenByAxis(value: Float, axis: Axis) {
-        if (shouldToShiftContent) {
-            when (axis) {
-                Axis.X -> this@Drawer.children.filter { it != drawerView }.forEach {
-                    it.translationX = value
-                }
+        if (!shouldToShiftContent) return
+        when (axis) {
+            Axis.X -> this@Drawer.children.filter { it != drawerView }.forEach {
+                it.translationX = value
+            }
 
-                Axis.Y -> this@Drawer.children.filter { it != drawerView }.forEach {
-                    it.translationY = value
-                }
+            Axis.Y -> this@Drawer.children.filter { it != drawerView }.forEach {
+                it.translationY = value
             }
         }
+
     }
 
-    private fun animateDrawer(toExpand: Boolean, animated: Boolean) {
+    private fun animateDrawer(toExpand: Boolean) {
+        drawerView ?: return
         val (from, to) = determineFromTo(toExpand)
-        if (animated) {
+        if (animationEnabled) {
             drawerAnimation.setFloatValues(from, to)
             drawerAnimation.start()
         } else {
@@ -265,15 +287,14 @@ open class Drawer @JvmOverloads constructor(
     }
 
     private fun determineFromTo(toExpand: Boolean): Pair<Float, Float> {
-        val dSize = if (_dSide == DrawerPlacement.LEFT || _dSide == DrawerPlacement.RIGHT) {
-            drawerView?.width?.toFloat()
-        } else {
-            drawerView?.height?.toFloat()
+        val dSize = when (_dSide) {
+            DrawerPlacement.LEFT, DrawerPlacement.RIGHT -> drawerView?.width?.toFloat() ?: 0f
+            DrawerPlacement.TOP, DrawerPlacement.BOTTOM -> drawerView?.height?.toFloat() ?: 0f
         }
         val collapsedPos = 0f
         val expandedPos = when (_dSide) {
-            DrawerPlacement.LEFT, DrawerPlacement.RIGHT -> (dSize ?: 0f) - _dOffset
-            DrawerPlacement.TOP, DrawerPlacement.BOTTOM -> -((dSize ?: 0f) - _dOffset)
+            DrawerPlacement.LEFT, DrawerPlacement.TOP -> dSize - _dOffset
+            DrawerPlacement.RIGHT, DrawerPlacement.BOTTOM -> -(dSize - _dOffset)
         }
         return if (toExpand) {
             collapsedPos to expandedPos
