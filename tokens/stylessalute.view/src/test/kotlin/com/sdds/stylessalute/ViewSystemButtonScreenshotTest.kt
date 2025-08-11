@@ -218,4 +218,76 @@ class ViewSystemButtonScreenshotTest(
             linkButtonXsNegative(R.style.Salute_StylesSalute_ComponentOverlays_LinkButtonXsNegative)
         }
     }
+
+    @Test
+    override fun testButtonGroupSizeLDefaultNoGap() {
+        themedComponent {
+            buttonGroup(R.style.Salute_StylesSalute_ComponentOverlays_BasicButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeMDefaultDense() {
+        themedComponent {
+            buttonGroup(R.style.Salute_StylesSalute_ComponentOverlays_BasicButtonGroupMDenseDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeSWideSegmented() {
+        themedComponent {
+            buttonGroup(R.style.Salute_StylesSalute_ComponentOverlays_BasicButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXsDefaultNoGap() {
+        themedComponent {
+            buttonGroupVertical(R.style.Salute_StylesSalute_ComponentOverlays_BasicButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXxsNoGapSegmented() {
+        themedComponent {
+            buttonGroupAmountTen(R.style.Salute_StylesSalute_ComponentOverlays_BasicButtonGroupXsNoGapSegmented)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeLNoGapDefaultHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Salute_StylesSalute_ComponentOverlays_IconButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeMDensePilledHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Salute_StylesSalute_ComponentOverlays_IconButtonGroupMDensePilled)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeSWideSegmentedHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Salute_StylesSalute_ComponentOverlays_IconButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeXsNoGapDefaultVertical() {
+        themedComponent {
+            iconButtonGroupVertical(R.style.Salute_StylesSalute_ComponentOverlays_IconButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeLAmountTenNoGapSegmentedHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontalAmountTen(
+                R.style.Salute_StylesSalute_ComponentOverlays_IconButtonGroupLNoGapSegmented,
+            )
+        }
+    }
 }

@@ -124,6 +124,66 @@ class ViewSystemButtonScreenshotTest : ButtonTestCases("+night") {
         }
     }
 
+    @Test
+    override fun testButtonGroupSizeLDefaultNoGap() {
+        themedComponent {
+            buttonGroup(R.style.Sdkit_StarDs_ComponentOverlays_BasicButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeMDefaultDense() {
+        themedComponent {
+            buttonGroup(R.style.Sdkit_StarDs_ComponentOverlays_BasicButtonGroupMDenseDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeSWideSegmented() {
+        themedComponent {
+            buttonGroup(R.style.Sdkit_StarDs_ComponentOverlays_BasicButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXsDefaultNoGap() {
+        themedComponent {
+            buttonGroupVertical(R.style.Sdkit_StarDs_ComponentOverlays_BasicButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXxsNoGapSegmented() {
+        themedComponent {
+            buttonGroupAmountTen(R.style.Sdkit_StarDs_ComponentOverlays_BasicButtonGroupXsNoGapSegmented)
+        }
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testIconButtonGroupSizeLNoGapDefaultHorizontal() {
+        TODO("Not yet implemented")
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testIconButtonGroupSizeMDensePilledHorizontal() {
+        TODO("Not yet implemented")
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testIconButtonGroupSizeSWideSegmentedHorizontal() {
+        TODO("Not yet implemented")
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testIconButtonGroupSizeXsNoGapDefaultVertical() {
+        TODO("Not yet implemented")
+    }
+
+    @Ignore("Not yet implemented")
+    override fun testIconButtonGroupSizeLAmountTenNoGapSegmentedHorizontal() {
+        TODO("Not yet implemented")
+    }
+
     @Ignore("Not yet implemented")
     override fun testButtonSizeMAccent() {
     }
