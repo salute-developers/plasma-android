@@ -17,4 +17,5 @@ internal object CodeInputDefaults {
 
     const val DefaultShakeOffsetDp = 2
     const val DefaultShakeCount = 3
+    const val DefaultAnimationDurationMs = 300L
 }

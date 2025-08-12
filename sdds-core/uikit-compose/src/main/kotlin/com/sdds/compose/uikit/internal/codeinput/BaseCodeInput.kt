@@ -39,10 +39,12 @@ import com.sdds.compose.uikit.CodeInputStates
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.LocalCodeInputStyle
 import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.DefaultAnimationDurationMs
 import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.DefaultShakeCount
 import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.DefaultShakeOffsetDp
 import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.defaultCodeGroups
 import com.sdds.compose.uikit.internal.common.StyledText
+import kotlinx.coroutines.delay
 
 @Composable
 @Suppress("LongMethod")
@@ -58,6 +60,7 @@ internal fun BaseCodeInput(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
     codeGroupInfo: CodeGroupInfo = remember { defaultCodeGroups() },
 ) {
     var code by remember { mutableStateOf("") }
@@ -103,41 +106,42 @@ internal fun BaseCodeInput(
                         isCodeValid = true
                         code = ""
                     },
+                    animationSpec = animationSpec,
                 )
+                val shakeModifier = run {
+                    if (isCodeValid) {
+                        Modifier
+                    } else {
+                        Modifier.graphicsLayer { translationX = shakeOffset }
+                    }
+                }
                 Row(
-                    modifier = Modifier
-                        .graphicsLayer { translationX = shakeOffset },
+                    modifier = shakeModifier,
                     horizontalArrangement = Arrangement.spacedBy(dimensions.itemSpacing),
                 ) {
                     repeat(codeGroupInfo.groupCount) { groupIndex ->
                         repeat(codeGroupInfo.groups[groupIndex]) { itemIndex ->
-                            val absoluteIndex = codeGroupInfo.groups.take(groupIndex).sum() + itemIndex
+                            val absoluteIndex =
+                                codeGroupInfo.groups.take(groupIndex).sum() + itemIndex
                             val char = if (absoluteIndex < code.length) {
                                 code[absoluteIndex].toString()
                             } else {
                                 null
                             }
-
-                            Box(
-                                modifier = Modifier
-                                    .requiredHeight(dimensions.itemHeight.getDefaultValue())
-                                    .requiredWidth(dimensions.itemWidth.getDefaultValue()),
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                Item(
-                                    char = char,
-                                    hidden = hidden,
-                                    isItemValid = isItemValid,
-                                    isCodeValid = isCodeValid,
-                                    onStartShake = { inputEnabled = false },
-                                    onShakeComplete = {
-                                        inputEnabled = true
-                                        code = code.dropLast(1)
-                                    },
-                                    style = style,
-                                    interactionSource = interactionSource,
-                                )
-                            }
+                            Item(
+                                char = char,
+                                hidden = hidden,
+                                isItemValid = isItemValid,
+                                isCodeValid = isCodeValid,
+                                onStartShake = { inputEnabled = false },
+                                onShakeComplete = {
+                                    inputEnabled = true
+                                    code = code.dropLast(1)
+                                },
+                                style = style,
+                                animationSpec = animationSpec,
+                                interactionSource = interactionSource,
+                            )
                         }
                         if (groupIndex != codeGroupInfo.groups.lastIndex) {
                             Spacer(Modifier.width(dimensions.groupSpacing))
@@ -161,28 +165,38 @@ internal fun BaseCodeInput(
 }
 
 @Composable
+internal fun rememberShakeAnimationSpec(): AnimationSpec<Float> {
+    val shakeOffsetPx = with(LocalDensity.current) { DefaultShakeOffsetDp.dp.toPx() }
+    return remember {
+        keyframes {
+            durationMillis = DefaultAnimationDurationMs.toInt()
+            for (i in 1..DefaultShakeCount * 2) {
+                val offset = if (i % 2 == 0) shakeOffsetPx else -shakeOffsetPx
+                offset at i * (durationMillis / (DefaultShakeCount * 2))
+            }
+            0f at durationMillis
+        }
+    }
+}
+
+@Composable
 private fun rememberShakeAnimation(
     isActive: Boolean,
     onStart: () -> Unit,
     onFinish: () -> Unit,
-    shakeCount: Int = DefaultShakeCount,
-    shakeOffsetPx: Float = with(LocalDensity.current) { DefaultShakeOffsetDp.dp.toPx() },
+    animationSpec: AnimationSpec<Float>?,
 ): State<Float> {
     val animatable = remember { Animatable(0f) }
 
-    if (isActive && shakeCount != 0) {
-        val animationSpec: AnimationSpec<Float> = keyframes {
-            durationMillis = 300
-            for (i in 1..shakeCount * 2) {
-                val offset = if (i % 2 == 0) shakeOffsetPx else -shakeOffsetPx
-                offset at i * (durationMillis / (shakeCount * 2))
-            }
-            0f at durationMillis
-        }
-
+    if (isActive) {
         LaunchedEffect(animatable) {
             onStart.invoke()
-            animatable.animateTo(1f, animationSpec = animationSpec)
+            if (animationSpec != null) {
+                animatable.animateTo(targetValue = 1f, animationSpec = animationSpec)
+            } else {
+                // fallback delay if no animation spec
+                delay(DefaultAnimationDurationMs)
+            }
             onFinish.invoke()
         }
     }
@@ -199,40 +213,51 @@ private fun Item(
     onStartShake: () -> Unit,
     onShakeComplete: () -> Unit,
     style: CodeInputStyle,
+    animationSpec: AnimationSpec<Float>?,
     interactionSource: InteractionSource,
 ) {
-    val itemValid = char?.let { isItemValid.invoke(it) } ?: true
-    val errorStateSet = remember(itemValid, isCodeValid) {
-        if (itemValid && isCodeValid) emptySet() else setOf(CodeInputStates.Error)
-    }
-    if (char != null) {
-        val shakeOffset by rememberShakeAnimation(
-            isActive = !itemValid,
-            onStart = onStartShake,
-            onFinish = onShakeComplete,
-        )
-        if (hidden || !itemValid) {
-            FilledDot(
-                modifier = Modifier
-                    .graphicsLayer {
-                        translationX = shakeOffset
-                    },
-                color = style.colors.fillColor.getValue(interactionSource, errorStateSet),
-                size = style.dimensions.dotSize,
+    Box(
+        modifier = Modifier
+            .requiredHeight(style.dimensions.itemHeight.getDefaultValue())
+            .requiredWidth(style.dimensions.itemWidth.getDefaultValue()),
+        contentAlignment = Alignment.Center,
+    ) {
+        val itemValid = char?.let { isItemValid.invoke(it) } ?: true
+        val errorStateSet = remember(itemValid, isCodeValid) {
+            if (itemValid && isCodeValid) emptySet() else setOf(CodeInputStates.Error)
+        }
+        if (char != null) {
+            val shakeOffset by rememberShakeAnimation(
+                isActive = !itemValid,
+                onStart = onStartShake,
+                onFinish = onShakeComplete,
+                animationSpec = animationSpec,
             )
+            val shakeModifier = if (itemValid) {
+                Modifier
+            } else {
+                Modifier.graphicsLayer { translationX = shakeOffset }
+            }
+            if (hidden || !itemValid) {
+                FilledDot(
+                    modifier = shakeModifier,
+                    color = style.colors.fillColor.getValue(interactionSource, errorStateSet),
+                    size = style.dimensions.dotSize,
+                )
+            } else {
+                StyledText(
+                    text = char,
+                    textStyle = style.codeStyle,
+                    textColor = style.colors.codeColor.getValue(interactionSource, errorStateSet),
+                )
+            }
         } else {
-            StyledText(
-                text = char,
-                textStyle = style.codeStyle,
-                textColor = style.colors.codeColor.getValue(interactionSource, errorStateSet),
+            EmptyDot(
+                color = style.colors.strokeColor.getValue(interactionSource, errorStateSet),
+                size = style.dimensions.dotSize,
+                strokeWidth = style.dimensions.strokeWidth,
             )
         }
-    } else {
-        EmptyDot(
-            color = style.colors.strokeColor.getValue(interactionSource, errorStateSet),
-            size = style.dimensions.dotSize,
-            strokeWidth = style.dimensions.strokeWidth,
-        )
     }
 }
 
