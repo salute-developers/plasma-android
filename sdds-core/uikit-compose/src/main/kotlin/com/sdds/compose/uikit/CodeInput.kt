@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.annotation.IntRange
+import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.text.KeyboardActions
@@ -13,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
 import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.defaultCodeGroups
+import com.sdds.compose.uikit.internal.codeinput.rememberShakeAnimationSpec
 
 /**
  * Компонент CodeInput представляет собой горизонтальный ряд графических элементов (точек).
@@ -36,6 +38,7 @@ import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.defaultCodeGr
  * @param enabled включено ли поле ввода
  * @param keyboardOptions [KeyboardOptions]
  * @param keyboardActions [KeyboardActions]
+ * @param animationSpec настройки анимации смещения элементов и всего поля при неправильном вводе
  * @param interactionSource источник взаимодействий
  */
 @Composable
@@ -52,6 +55,7 @@ fun CodeInput(
     enabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
+    animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     BaseCodeInput(
@@ -66,6 +70,7 @@ fun CodeInput(
         interactionSource = interactionSource,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
+        animationSpec = animationSpec,
         codeGroupInfo = remember(codeLength) { defaultCodeGroups(codeLength) },
     )
 }
