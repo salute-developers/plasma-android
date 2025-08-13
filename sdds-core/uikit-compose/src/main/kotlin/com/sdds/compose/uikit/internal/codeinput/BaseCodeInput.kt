@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.requiredWidth
@@ -27,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawStyle
 import androidx.compose.ui.graphics.drawscope.Fill
@@ -34,10 +36,10 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.max
 import com.sdds.compose.uikit.CodeInputStates
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.LocalCodeInputStyle
@@ -208,22 +210,6 @@ private fun rememberShakeAnimation(
 }
 
 @Composable
-private fun rememberFontHeight(textStyle: TextStyle): Dp {
-    val textMeasurer = rememberTextMeasurer()
-    val measuredString = "123456"
-    val density = LocalDensity.current
-    return remember(density, textStyle) {
-        with(density) {
-            val textLayoutResult = textMeasurer.measure(
-                text = measuredString,
-                style = textStyle,
-            )
-            textLayoutResult.size.height.toDp()
-        }
-    }
-}
-
-@Composable
 private fun Item(
     char: String?,
     hidden: Boolean,
@@ -235,10 +221,9 @@ private fun Item(
     animationSpec: AnimationSpec<Float>?,
     interactionSource: InteractionSource,
 ) {
-    val itemHeightByFont = rememberFontHeight(style.codeStyle)
     Box(
         modifier = Modifier
-            .requiredHeight(max(style.dimensions.itemHeight.getDefaultValue(), itemHeightByFont))
+            .requiredHeight(style.dimensions.itemHeight.getDefaultValue())
             .requiredWidth(style.dimensions.itemWidth.getDefaultValue()),
         contentAlignment = Alignment.Center,
     ) {
@@ -265,10 +250,11 @@ private fun Item(
                     size = style.dimensions.dotSize,
                 )
             } else {
-                StyledText(
+                TextOnCanvas(
                     text = char,
+                    modifier = Modifier.fillMaxSize(),
                     textStyle = style.codeStyle,
-                    textColor = style.colors.codeColor.getValue(interactionSource, errorStateSet),
+                    color = style.colors.codeColor.getValue(interactionSource, errorStateSet),
                 )
             }
         } else {
@@ -328,5 +314,35 @@ private fun Dot(
                 )
             }
         },
+    )
+}
+
+@Composable
+private fun TextOnCanvas(
+    text: String,
+    textStyle: TextStyle,
+    modifier: Modifier,
+    color: Color,
+) {
+    val textMeasurer = rememberTextMeasurer()
+    val textLayoutResult = textMeasurer.measure(
+        text = text,
+        style = textStyle.copy(color = color),
+    )
+    Box(
+        modifier = modifier
+            .drawWithCache {
+                val offset = Offset(
+                    x = size.width / 2 - textLayoutResult.size.width / 2,
+                    y = size.height / 2 - textLayoutResult.size.height / 2,
+                )
+
+                onDrawBehind {
+                    drawText(
+                        textLayoutResult = textLayoutResult,
+                        topLeft = offset,
+                    )
+                }
+            },
     )
 }
