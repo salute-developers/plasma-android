@@ -23,7 +23,7 @@ fun Overlay(
     modifier: Modifier = Modifier,
     style: OverlayStyle = LocalOverlayStyle.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable BoxScope.() -> Unit,
+    content: @Composable BoxScope.() -> Unit = {},
 ) {
     Box(
         modifier = modifier

@@ -36,6 +36,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGiga
 import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.PlasmaGigaCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.drawer.PlasmaGigaDrawerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.image.PlasmaGigaImageVariationsCompose
@@ -176,6 +177,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Counter,
                 PlasmaGigaCounterVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Drawer,
+                PlasmaGigaDrawerVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

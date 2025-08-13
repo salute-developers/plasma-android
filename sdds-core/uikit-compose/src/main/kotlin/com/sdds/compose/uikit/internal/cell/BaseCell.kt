@@ -15,9 +15,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
+import com.sdds.compose.uikit.CellDimensions
 import com.sdds.compose.uikit.CellGravity
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
+import com.sdds.compose.uikit.LocalCellStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
@@ -27,10 +29,11 @@ import com.sdds.compose.uikit.internal.common.StyledText
 @Composable
 internal fun BaseCell(
     modifier: Modifier = Modifier,
-    style: CellStyle,
+    style: CellStyle = LocalCellStyle.current,
     gravity: CellGravity = CellGravity.Center,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,
     disclosureEnabled: Boolean = false,
+    dimensions: CellDimensions = style.dimensions,
     startContent: (@Composable RowScope.() -> Unit)? = null,
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
@@ -49,7 +52,7 @@ internal fun BaseCell(
         ) {
             startContent?.let {
                 startContent()
-                Spacer(Modifier.width(style.dimensions.contentPaddingStart))
+                Spacer(Modifier.width(dimensions.contentPaddingStart))
             }
             centerContent?.let {
                 Column(
@@ -62,7 +65,7 @@ internal fun BaseCell(
                 }
             }
             endContent?.let {
-                Spacer(Modifier.width(style.dimensions.contentPaddingEnd))
+                Spacer(Modifier.width(dimensions.contentPaddingEnd))
                 endContent()
             }
             if (disclosureEnabled && disclosureContent != null) { disclosureContent() }

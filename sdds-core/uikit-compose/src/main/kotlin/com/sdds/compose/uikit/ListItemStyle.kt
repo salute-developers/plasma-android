@@ -297,11 +297,11 @@ private class DefaultListItemDimensions(
 
         override fun build(): ListItemDimensions {
             return DefaultListItemDimensions(
-                contentPaddingEnd = contentPaddingEnd ?: 8.dp,
-                paddingStart = paddingStart ?: 14.dp,
-                paddingEnd = paddingEnd ?: 14.dp,
-                paddingTop = paddingTop ?: 14.dp,
-                paddingBottom = paddingBottom ?: 14.dp,
+                contentPaddingEnd = contentPaddingEnd ?: 0.dp,
+                paddingStart = paddingStart ?: 0.dp,
+                paddingEnd = paddingEnd ?: 0.dp,
+                paddingTop = paddingTop ?: 0.dp,
+                paddingBottom = paddingBottom ?: 0.dp,
                 height = height ?: 48.dp,
             )
         }
