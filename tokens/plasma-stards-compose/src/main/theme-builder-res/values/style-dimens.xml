@@ -869,4 +869,10 @@
     <dimen name="sdkit_cmp_code_input_item_spacing_l">24.0dp</dimen>
     <dimen name="sdkit_cmp_code_input_group_spacing_l">72.0dp</dimen>
     <dimen name="sdkit_cmp_code_input_caption_padding_l">80.0dp</dimen>
+    <dimen name="sdkit_cmp_drawer_padding_start">16.0dp</dimen>
+    <dimen name="sdkit_cmp_drawer_padding_end">16.0dp</dimen>
+    <dimen name="sdkit_cmp_drawer_padding_top">48.0dp</dimen>
+    <dimen name="sdkit_cmp_drawer_padding_bottom">36.0dp</dimen>
+    <dimen name="sdkit_cmp_drawer_shapeAdjustment_has_background">4.0dp</dimen>
+    <dimen name="sdkit_cmp_drawer_stroke_size_has_background">2.0dp</dimen>
 </resources>

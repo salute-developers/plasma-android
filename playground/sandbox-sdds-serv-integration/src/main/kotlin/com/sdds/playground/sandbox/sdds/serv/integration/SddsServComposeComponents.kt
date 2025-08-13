@@ -38,6 +38,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.codefield.SddsServCodeF
 import com.sdds.playground.sandbox.sdds.serv.integration.codeinput.SddsServCodeInputVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsCompose
@@ -183,6 +184,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Divider,
                 SddsServDividerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Drawer,
+                SddsServDrawerVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

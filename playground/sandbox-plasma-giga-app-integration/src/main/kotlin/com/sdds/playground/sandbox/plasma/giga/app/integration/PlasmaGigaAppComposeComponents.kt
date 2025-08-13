@@ -38,6 +38,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.codefield.PlasmaG
 import com.sdds.playground.sandbox.plasma.giga.app.integration.codeinput.PlasmaGigaAppCodeInputVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.counter.PlasmaGigaAppCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.divider.compose.PlasmaGigaAppDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.drawer.PlasmaGigaAppDrawerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.dropdownmenu.PlasmaGigaAppDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.dropdownmenu.PlasmaGigaAppDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.image.PlasmaGigaAppImageVariationsCompose
@@ -175,6 +176,10 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Counter,
                 PlasmaGigaAppCounterVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Drawer,
+                PlasmaGigaAppDrawerVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

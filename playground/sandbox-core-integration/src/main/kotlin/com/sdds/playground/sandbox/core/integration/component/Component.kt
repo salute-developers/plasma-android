@@ -177,6 +177,7 @@ data class ComponentKey(
         val Loader = ComponentKey("Loader", CoreComponent.LOADER)
         val CodeInput = ComponentKey("CodeInput", CoreComponent.CODE_INPUT)
         val CodeField = ComponentKey("CodeField", CoreComponent.CODE_FIELD)
+        val Drawer = ComponentKey("Drawer", CoreComponent.DRAWER)
     }
 }
 
@@ -250,4 +251,5 @@ enum class CoreComponent {
     LOADER,
     CODE_INPUT,
     CODE_FIELD,
+    DRAWER,
 }
