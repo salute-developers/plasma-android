@@ -1,12 +1,12 @@
-package com.sdds.serv
+package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
-import com.sdds.serv.styles.switcher.L
-import com.sdds.serv.styles.switcher.M
-import com.sdds.serv.styles.switcher.S
-import com.sdds.serv.styles.switcher.Switch
-import com.sdds.serv.styles.switcher.ToggleS
+import com.sdds.plasma.homeds.styles.switcher.L
+import com.sdds.plasma.homeds.styles.switcher.M
+import com.sdds.plasma.homeds.styles.switcher.S
+import com.sdds.plasma.homeds.styles.switcher.Switch
+import com.sdds.plasma.homeds.styles.switcher.ToggleS
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.switcher.SwitchMOff
