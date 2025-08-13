@@ -33,8 +33,11 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.max
 import com.sdds.compose.uikit.CodeInputStates
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.LocalCodeInputStyle
@@ -205,6 +208,22 @@ private fun rememberShakeAnimation(
 }
 
 @Composable
+private fun rememberFontHeight(textStyle: TextStyle): Dp {
+    val textMeasurer = rememberTextMeasurer()
+    val measuredString = "123456"
+    val density = LocalDensity.current
+    return remember(density, textStyle) {
+        with(density) {
+            val textLayoutResult = textMeasurer.measure(
+                text = measuredString,
+                style = textStyle,
+            )
+            textLayoutResult.size.height.toDp()
+        }
+    }
+}
+
+@Composable
 private fun Item(
     char: String?,
     hidden: Boolean,
@@ -216,9 +235,10 @@ private fun Item(
     animationSpec: AnimationSpec<Float>?,
     interactionSource: InteractionSource,
 ) {
+    val itemHeightByFont = rememberFontHeight(style.codeStyle)
     Box(
         modifier = Modifier
-            .requiredHeight(style.dimensions.itemHeight.getDefaultValue())
+            .requiredHeight(max(style.dimensions.itemHeight.getDefaultValue(), itemHeightByFont))
             .requiredWidth(style.dimensions.itemWidth.getDefaultValue()),
         contentAlignment = Alignment.Center,
     ) {
