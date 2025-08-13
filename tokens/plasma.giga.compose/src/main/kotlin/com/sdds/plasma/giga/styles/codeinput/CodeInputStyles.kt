@@ -89,8 +89,8 @@ public val CodeInput.S: WrapperCodeInputS
         .dimensions {
             dotSize(12.0.dp)
             strokeWidth(1.0.dp)
-            itemHeight(44.0.dp)
-            itemWidth(26.0.dp)
+            itemHeight(68.0.dp)
+            itemWidth(40.0.dp)
             itemSpacing(4.0.dp)
             groupSpacing(16.0.dp)
             captionPadding(24.0.dp)
@@ -107,8 +107,8 @@ public val CodeInput.M: WrapperCodeInputM
         .dimensions {
             dotSize(16.0.dp)
             strokeWidth(1.5.dp)
-            itemHeight(60.0.dp)
-            itemWidth(36.0.dp)
+            itemHeight(92.0.dp)
+            itemWidth(56.0.dp)
             itemSpacing(8.0.dp)
             groupSpacing(28.0.dp)
             captionPadding(28.0.dp)
@@ -125,8 +125,8 @@ public val CodeInput.L: WrapperCodeInputL
         .dimensions {
             dotSize(24.0.dp)
             strokeWidth(2.0.dp)
-            itemHeight(92.0.dp)
-            itemWidth(56.0.dp)
+            itemHeight(128.0.dp)
+            itemWidth(80.0.dp)
             itemSpacing(12.0.dp)
             groupSpacing(36.0.dp)
             captionPadding(40.0.dp)
