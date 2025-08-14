@@ -18,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConf
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
@@ -99,5 +100,6 @@ internal val componentDelegates by unsafeLazy {
         "tab-bar-item" to TabBarItemConfigDelegate(),
         "tab-bar" to TabBarConfigDelegate(),
         "loader" to LoaderConfigDelegate(),
+        "drawer" to DrawerConfigDelegate(),
     )
 }

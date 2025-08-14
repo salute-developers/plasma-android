@@ -36,6 +36,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdServiceImageVariationsCompose
@@ -180,6 +181,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Counter,
                 PlasmaSdServiceCounterVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Drawer,
+                PlasmaSdServiceDrawerVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

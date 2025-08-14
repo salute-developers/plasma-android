@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
+import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
@@ -65,6 +66,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
+import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
+import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
@@ -267,6 +270,11 @@ internal sealed class ComponentScreen(
         { LoaderScreen(it) },
         { style, _ -> LoaderForSandbox(style as LoaderStyle) },
     )
+
+    object Drawer : ComponentScreen(
+        { DrawerScreen(it) },
+        { style, _ -> DrawerPreview(style as DrawerStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -316,6 +324,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
         CoreComponent.TAB_BAR -> ComponentScreen.TabBar
         CoreComponent.LOADER -> ComponentScreen.Loader
+        CoreComponent.DRAWER -> ComponentScreen.Drawer
         else -> ComponentScreen.Empty
     }
 }
