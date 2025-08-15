@@ -3592,6 +3592,23 @@ public class SddsServColors(
     public var outlineDefaultSolidSecondary: Color by colors.obtain("outlineDefaultSolidSecondary")
 
     /**
+     * light outline default outlineSolidDefault
+     */
+    public var outlineDefaultSolidDefault: Color by colors.obtain("outlineDefaultSolidDefault")
+
+    /**
+     * light outline default outlineSolidDefaultHover
+     */
+    public var outlineDefaultSolidDefaultHover: Color by
+        colors.obtain("outlineDefaultSolidDefaultHover")
+
+    /**
+     * light outline default outlineSolidDefaultActive
+     */
+    public var outlineDefaultSolidDefaultActive: Color by
+        colors.obtain("outlineDefaultSolidDefaultActive")
+
+    /**
      * Основной непрозрачный цвет обводки на темном фоне
      */
     public var outlineOnDarkSolidPrimaryHover: Color by
@@ -4006,6 +4023,23 @@ public class SddsServColors(
      * Третичный непрозрачный цвет обводки на темном фоне
      */
     public var outlineOnDarkSolidTertiary: Color by colors.obtain("outlineOnDarkSolidTertiary")
+
+    /**
+     * light outline onDark outlineSolidDefault
+     */
+    public var outlineOnDarkSolidDefault: Color by colors.obtain("outlineOnDarkSolidDefault")
+
+    /**
+     * light outline onDark outlineSolidDefaultHover
+     */
+    public var outlineOnDarkSolidDefaultHover: Color by
+        colors.obtain("outlineOnDarkSolidDefaultHover")
+
+    /**
+     * light outline onDark outlineSolidDefaultActive
+     */
+    public var outlineOnDarkSolidDefaultActive: Color by
+        colors.obtain("outlineOnDarkSolidDefaultActive")
 
     /**
      * Основной непрозрачный цвет обводки на светлом фоне
@@ -4427,6 +4461,23 @@ public class SddsServColors(
     public var outlineOnLightSolidSecondary: Color by colors.obtain("outlineOnLightSolidSecondary")
 
     /**
+     * light outline onLight outlineSolidDefault
+     */
+    public var outlineOnLightSolidDefault: Color by colors.obtain("outlineOnLightSolidDefault")
+
+    /**
+     * light outline onLight outlineSolidDefaultHover
+     */
+    public var outlineOnLightSolidDefaultHover: Color by
+        colors.obtain("outlineOnLightSolidDefaultHover")
+
+    /**
+     * light outline onLight outlineSolidDefaultActive
+     */
+    public var outlineOnLightSolidDefaultActive: Color by
+        colors.obtain("outlineOnLightSolidDefaultActive")
+
+    /**
      * Инвертированный основной непрозрачный цвет обводки
      */
     public var outlineInverseSolidPrimaryHover: Color by
@@ -4844,6 +4895,23 @@ public class SddsServColors(
      * Инвертированный третичный непрозрачный цвет обводки
      */
     public var outlineInverseSolidTertiary: Color by colors.obtain("outlineInverseSolidTertiary")
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public var outlineInverseSolidDefault: Color by colors.obtain("outlineInverseSolidDefault")
+
+    /**
+     * light outline inverse outlineSolidDefaultHover
+     */
+    public var outlineInverseSolidDefaultHover: Color by
+        colors.obtain("outlineInverseSolidDefaultHover")
+
+    /**
+     * light outline inverse outlineSolidDefaultActive
+     */
+    public var outlineInverseSolidDefaultActive: Color by
+        colors.obtain("outlineInverseSolidDefaultActive")
 
     /**
      * Желтый цвет для данных
@@ -8407,6 +8475,21 @@ public class ColorOverrideScope {
     public val outlineDefaultSolidSecondary: String = "outlineDefaultSolidSecondary"
 
     /**
+     * light outline default outlineSolidDefault
+     */
+    public val outlineDefaultSolidDefault: String = "outlineDefaultSolidDefault"
+
+    /**
+     * light outline default outlineSolidDefaultHover
+     */
+    public val outlineDefaultSolidDefaultHover: String = "outlineDefaultSolidDefaultHover"
+
+    /**
+     * light outline default outlineSolidDefaultActive
+     */
+    public val outlineDefaultSolidDefaultActive: String = "outlineDefaultSolidDefaultActive"
+
+    /**
      * Основной непрозрачный цвет обводки на темном фоне
      */
     public val outlineOnDarkSolidPrimaryHover: String = "outlineOnDarkSolidPrimaryHover"
@@ -8791,6 +8874,21 @@ public class ColorOverrideScope {
      * Третичный непрозрачный цвет обводки на темном фоне
      */
     public val outlineOnDarkSolidTertiary: String = "outlineOnDarkSolidTertiary"
+
+    /**
+     * light outline onDark outlineSolidDefault
+     */
+    public val outlineOnDarkSolidDefault: String = "outlineOnDarkSolidDefault"
+
+    /**
+     * light outline onDark outlineSolidDefaultHover
+     */
+    public val outlineOnDarkSolidDefaultHover: String = "outlineOnDarkSolidDefaultHover"
+
+    /**
+     * light outline onDark outlineSolidDefaultActive
+     */
+    public val outlineOnDarkSolidDefaultActive: String = "outlineOnDarkSolidDefaultActive"
 
     /**
      * Основной непрозрачный цвет обводки на светлом фоне
@@ -9183,6 +9281,21 @@ public class ColorOverrideScope {
     public val outlineOnLightSolidSecondary: String = "outlineOnLightSolidSecondary"
 
     /**
+     * light outline onLight outlineSolidDefault
+     */
+    public val outlineOnLightSolidDefault: String = "outlineOnLightSolidDefault"
+
+    /**
+     * light outline onLight outlineSolidDefaultHover
+     */
+    public val outlineOnLightSolidDefaultHover: String = "outlineOnLightSolidDefaultHover"
+
+    /**
+     * light outline onLight outlineSolidDefaultActive
+     */
+    public val outlineOnLightSolidDefaultActive: String = "outlineOnLightSolidDefaultActive"
+
+    /**
      * Инвертированный основной непрозрачный цвет обводки
      */
     public val outlineInverseSolidPrimaryHover: String = "outlineInverseSolidPrimaryHover"
@@ -9571,6 +9684,21 @@ public class ColorOverrideScope {
      * Инвертированный третичный непрозрачный цвет обводки
      */
     public val outlineInverseSolidTertiary: String = "outlineInverseSolidTertiary"
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public val outlineInverseSolidDefault: String = "outlineInverseSolidDefault"
+
+    /**
+     * light outline inverse outlineSolidDefaultHover
+     */
+    public val outlineInverseSolidDefaultHover: String = "outlineInverseSolidDefaultHover"
+
+    /**
+     * light outline inverse outlineSolidDefaultActive
+     */
+    public val outlineInverseSolidDefaultActive: String = "outlineInverseSolidDefaultActive"
 
     /**
      * Желтый цвет для данных
@@ -10424,6 +10552,9 @@ internal fun SddsServColors.updateColorsFrom(other: SddsServColors) {
     outlineDefaultTransparentSecondary = other.outlineDefaultTransparentSecondary
     outlineDefaultTransparentTertiary = other.outlineDefaultTransparentTertiary
     outlineDefaultSolidSecondary = other.outlineDefaultSolidSecondary
+    outlineDefaultSolidDefault = other.outlineDefaultSolidDefault
+    outlineDefaultSolidDefaultHover = other.outlineDefaultSolidDefaultHover
+    outlineDefaultSolidDefaultActive = other.outlineDefaultSolidDefaultActive
     outlineOnDarkSolidPrimaryHover = other.outlineOnDarkSolidPrimaryHover
     outlineOnDarkSolidPrimaryActive = other.outlineOnDarkSolidPrimaryActive
     outlineOnDarkSolidSecondaryHover = other.outlineOnDarkSolidSecondaryHover
@@ -10499,6 +10630,9 @@ internal fun SddsServColors.updateColorsFrom(other: SddsServColors) {
     outlineOnDarkTransparentTertiary = other.outlineOnDarkTransparentTertiary
     outlineOnDarkSolidSecondary = other.outlineOnDarkSolidSecondary
     outlineOnDarkSolidTertiary = other.outlineOnDarkSolidTertiary
+    outlineOnDarkSolidDefault = other.outlineOnDarkSolidDefault
+    outlineOnDarkSolidDefaultHover = other.outlineOnDarkSolidDefaultHover
+    outlineOnDarkSolidDefaultActive = other.outlineOnDarkSolidDefaultActive
     outlineOnLightSolidPrimaryHover = other.outlineOnLightSolidPrimaryHover
     outlineOnLightSolidPrimaryActive = other.outlineOnLightSolidPrimaryActive
     outlineOnLightSolidSecondaryHover = other.outlineOnLightSolidSecondaryHover
@@ -10574,6 +10708,9 @@ internal fun SddsServColors.updateColorsFrom(other: SddsServColors) {
     outlineOnLightTransparentSecondary = other.outlineOnLightTransparentSecondary
     outlineOnLightTransparentTertiary = other.outlineOnLightTransparentTertiary
     outlineOnLightSolidSecondary = other.outlineOnLightSolidSecondary
+    outlineOnLightSolidDefault = other.outlineOnLightSolidDefault
+    outlineOnLightSolidDefaultHover = other.outlineOnLightSolidDefaultHover
+    outlineOnLightSolidDefaultActive = other.outlineOnLightSolidDefaultActive
     outlineInverseSolidPrimaryHover = other.outlineInverseSolidPrimaryHover
     outlineInverseSolidPrimaryActive = other.outlineInverseSolidPrimaryActive
     outlineInverseSolidSecondaryHover = other.outlineInverseSolidSecondaryHover
@@ -10649,6 +10786,9 @@ internal fun SddsServColors.updateColorsFrom(other: SddsServColors) {
     outlineInverseTransparentTertiary = other.outlineInverseTransparentTertiary
     outlineInverseSolidSecondary = other.outlineInverseSolidSecondary
     outlineInverseSolidTertiary = other.outlineInverseSolidTertiary
+    outlineInverseSolidDefault = other.outlineInverseSolidDefault
+    outlineInverseSolidDefaultHover = other.outlineInverseSolidDefaultHover
+    outlineInverseSolidDefaultActive = other.outlineInverseSolidDefaultActive
     dataDefaultYellow = other.dataDefaultYellow
     dataDefaultYellowHover = other.dataDefaultYellowHover
     dataDefaultYellowActive = other.dataDefaultYellowActive
@@ -12950,6 +13090,21 @@ public fun lightSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
+        "outlineDefaultSolidDefault",
+        LightColorTokens.OutlineDefaultSolidDefault,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidDefaultHover",
+        LightColorTokens.OutlineDefaultSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidDefaultActive",
+        LightColorTokens.OutlineDefaultSolidDefaultActive,
+        overwrite,
+    )
+    initial.add(
         "outlineOnDarkSolidPrimaryHover",
         LightColorTokens.OutlineOnDarkSolidPrimaryHover,
         overwrite,
@@ -13238,6 +13393,17 @@ public fun lightSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add(
         "outlineOnDarkSolidTertiary",
         LightColorTokens.OutlineOnDarkSolidTertiary,
+        overwrite,
+    )
+    initial.add("outlineOnDarkSolidDefault", LightColorTokens.OutlineOnDarkSolidDefault, overwrite)
+    initial.add(
+        "outlineOnDarkSolidDefaultHover",
+        LightColorTokens.OutlineOnDarkSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkSolidDefaultActive",
+        LightColorTokens.OutlineOnDarkSolidDefaultActive,
         overwrite,
     )
     initial.add(
@@ -13548,6 +13714,21 @@ public fun lightSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {
         overwrite,
     )
     initial.add(
+        "outlineOnLightSolidDefault",
+        LightColorTokens.OutlineOnLightSolidDefault,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidDefaultHover",
+        LightColorTokens.OutlineOnLightSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidDefaultActive",
+        LightColorTokens.OutlineOnLightSolidDefaultActive,
+        overwrite,
+    )
+    initial.add(
         "outlineInverseSolidPrimaryHover",
         LightColorTokens.OutlineInverseSolidPrimaryHover,
         overwrite,
@@ -13852,6 +14033,21 @@ public fun lightSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {
     initial.add(
         "outlineInverseSolidTertiary",
         LightColorTokens.OutlineInverseSolidTertiary,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidDefault",
+        LightColorTokens.OutlineInverseSolidDefault,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidDefaultHover",
+        LightColorTokens.OutlineInverseSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidDefaultActive",
+        LightColorTokens.OutlineInverseSolidDefaultActive,
         overwrite,
     )
     initial.add("dataDefaultYellow", LightColorTokens.DataDefaultYellow, overwrite)
@@ -16063,6 +16259,17 @@ public fun darkSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {}
         DarkColorTokens.OutlineDefaultSolidSecondary,
         overwrite,
     )
+    initial.add("outlineDefaultSolidDefault", DarkColorTokens.OutlineDefaultSolidDefault, overwrite)
+    initial.add(
+        "outlineDefaultSolidDefaultHover",
+        DarkColorTokens.OutlineDefaultSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineDefaultSolidDefaultActive",
+        DarkColorTokens.OutlineDefaultSolidDefaultActive,
+        overwrite,
+    )
     initial.add(
         "outlineOnDarkSolidPrimaryHover",
         DarkColorTokens.OutlineOnDarkSolidPrimaryHover,
@@ -16330,6 +16537,17 @@ public fun darkSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {}
         overwrite,
     )
     initial.add("outlineOnDarkSolidTertiary", DarkColorTokens.OutlineOnDarkSolidTertiary, overwrite)
+    initial.add("outlineOnDarkSolidDefault", DarkColorTokens.OutlineOnDarkSolidDefault, overwrite)
+    initial.add(
+        "outlineOnDarkSolidDefaultHover",
+        DarkColorTokens.OutlineOnDarkSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnDarkSolidDefaultActive",
+        DarkColorTokens.OutlineOnDarkSolidDefaultActive,
+        overwrite,
+    )
     initial.add(
         "outlineOnLightSolidPrimaryHover",
         DarkColorTokens.OutlineOnLightSolidPrimaryHover,
@@ -16621,6 +16839,17 @@ public fun darkSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {}
         DarkColorTokens.OutlineOnLightSolidSecondary,
         overwrite,
     )
+    initial.add("outlineOnLightSolidDefault", DarkColorTokens.OutlineOnLightSolidDefault, overwrite)
+    initial.add(
+        "outlineOnLightSolidDefaultHover",
+        DarkColorTokens.OutlineOnLightSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineOnLightSolidDefaultActive",
+        DarkColorTokens.OutlineOnLightSolidDefaultActive,
+        overwrite,
+    )
     initial.add(
         "outlineInverseSolidPrimaryHover",
         DarkColorTokens.OutlineInverseSolidPrimaryHover,
@@ -16910,6 +17139,17 @@ public fun darkSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {}
     initial.add(
         "outlineInverseSolidTertiary",
         DarkColorTokens.OutlineInverseSolidTertiary,
+        overwrite,
+    )
+    initial.add("outlineInverseSolidDefault", DarkColorTokens.OutlineInverseSolidDefault, overwrite)
+    initial.add(
+        "outlineInverseSolidDefaultHover",
+        DarkColorTokens.OutlineInverseSolidDefaultHover,
+        overwrite,
+    )
+    initial.add(
+        "outlineInverseSolidDefaultActive",
+        DarkColorTokens.OutlineInverseSolidDefaultActive,
         overwrite,
     )
     initial.add("dataDefaultYellow", DarkColorTokens.DataDefaultYellow, overwrite)

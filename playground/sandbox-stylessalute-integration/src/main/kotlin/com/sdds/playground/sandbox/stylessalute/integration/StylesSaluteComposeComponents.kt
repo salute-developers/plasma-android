@@ -31,6 +31,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSal
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.codeinput.StylesSaluteCodeInputVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuTightVariationsCompose
@@ -268,6 +269,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
                 StylesSaluteIconButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CodeInput,
+                StylesSaluteCodeInputVariationsCompose,
             ),
         ).associateBy { it.key }
 }
