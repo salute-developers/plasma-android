@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.CircularProgressBarStyle
+import com.sdds.compose.uikit.CodeFieldStyle
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
@@ -61,6 +62,8 @@ import com.sdds.playground.sandbox.checkbox.compose.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupScreen
 import com.sdds.playground.sandbox.chip.compose.ChipScreen
 import com.sdds.playground.sandbox.chip.compose.group.ChipGroupScreen
+import com.sdds.playground.sandbox.codefield.compose.CodeFieldPreview
+import com.sdds.playground.sandbox.codefield.compose.CodeFieldScreen
 import com.sdds.playground.sandbox.codeinput.compose.CodeInputPreview
 import com.sdds.playground.sandbox.codeinput.compose.CodeInputScreen
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -274,6 +277,10 @@ internal sealed class ComponentScreen(
         { CodeInputScreen(it) },
         { style, _ -> CodeInputPreview(style as CodeInputStyle) },
     )
+    object CodeField : ComponentScreen(
+        { CodeFieldScreen(it) },
+        { style, _ -> CodeFieldPreview(style as CodeFieldStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -324,6 +331,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TAB_BAR -> ComponentScreen.TabBar
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.CODE_INPUT -> ComponentScreen.CodeInput
+        CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
         else -> ComponentScreen.Empty
     }
 }

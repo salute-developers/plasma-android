@@ -9,20 +9,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputColors
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCursor
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputDimensions
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputTextStyles
 import com.sdds.compose.uikit.internal.codeinput.defaultCodeGroups
 
 /**
- * Компонент CodeInput представляет собой горизонтальный ряд графических элементов (точек).
- * Каждая точка вмещает в себя один символ, введеный с клавиатуры.
+ * Компонент CodeField представляет собой горизонтальный ряд текстовых полей.
+ * Каждое поле вмещает в себя один символ, введеный с клавиатуры.
  *
- * После каждого ввода символа происходит автоматических переход к следующему.
+ * После каждого ввода символа происходит автоматический переход к следующему.
  * После заполнения всех символов, если код верный, осуществляется автоматических переход к следующему действию.
  * Если код неверный - значения в полях сбрасываются и ввод осуществляется снова с первого символа.
  *
@@ -44,9 +44,9 @@ import com.sdds.compose.uikit.internal.codeinput.defaultCodeGroups
  * @param interactionSource источник взаимодействий
  */
 @Composable
-fun CodeInput(
+fun CodeField(
     modifier: Modifier = Modifier,
-    style: CodeInputStyle = LocalCodeInputStyle.current,
+    style: CodeFieldStyle = LocalCodeFieldStyle.current,
     @IntRange(from = 2)
     codeLength: Int = 4,
     hidden: Boolean = false,
@@ -62,37 +62,39 @@ fun CodeInput(
 ) {
     val colors = remember(style.colors) {
         BaseCodeInputColors(
-            valueColor = style.colors.codeColor,
+            valueColor = style.colors.valueColor,
             captionColor = style.colors.captionColor,
-            strokeColor = style.colors.strokeColor,
-            dotColor = style.colors.fillColor,
+            dotColor = style.colors.dotColor,
+            backgroundColor = style.colors.backgroundColor,
         )
     }
     val dimensions = remember(style.dimensions) {
         BaseCodeInputDimensions(
             dotSize = style.dimensions.dotSize,
-            strokeWidth = style.dimensions.strokeWidth,
-            height = style.dimensions.itemHeight,
-            width = style.dimensions.itemWidth,
+            height = style.dimensions.height.asStatefulValue(),
+            width = style.dimensions.width.asStatefulValue(),
             itemSpacing = style.dimensions.itemSpacing,
             groupSpacing = style.dimensions.groupSpacing,
-            captionPadding = style.dimensions.captionPadding,
+            captionPadding = style.dimensions.captionSpacing,
         )
     }
-    val textStyles = remember(style.captionStyle, style.codeStyle) {
+    val textStyles = remember(style.captionStyle, style.valueStyle) {
         BaseCodeInputTextStyles(
-            valueStyle = style.codeStyle,
+            valueStyle = style.valueStyle,
             captionStyle = style.captionStyle,
         )
+    }
+    val cursor = remember(style.colors.cursorColor) {
+        BaseCodeInputCursor(color = style.colors.cursorColor.getDefaultValue())
     }
     BaseCodeInput(
         modifier = modifier,
         colors = colors,
         dimensions = dimensions,
         textStyles = textStyles,
-        itemShape = null,
-        groupShape = null,
-        cursor = null,
+        itemShape = style.itemShape,
+        groupShape = style.groupShape,
+        cursor = cursor,
         onCodeComplete = onCodeComplete,
         isItemValid = isItemValid,
         caption = caption,
@@ -104,28 +106,5 @@ fun CodeInput(
         keyboardOptions = keyboardOptions,
         animationSpec = animationSpec,
         codeGroupInfo = remember(codeLength) { defaultCodeGroups(codeLength) },
-    )
-}
-
-/**
- * Состояния [CodeInput]
- */
-enum class CodeInputStates : ValueState {
-
-    /**
-     * Введен некорректный символ или код некорректный
-     */
-    Error,
-}
-
-@Composable
-@Preview(showBackground = true)
-private fun CodeInputPreview() {
-    CodeInput(
-        codeLength = 6,
-        hidden = false,
-        isItemValid = { it != "1" },
-        onCodeComplete = { it != "234567" },
-        caption = "Caption",
     )
 }

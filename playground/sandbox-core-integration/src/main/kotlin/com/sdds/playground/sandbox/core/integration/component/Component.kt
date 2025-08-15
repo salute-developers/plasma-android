@@ -175,6 +175,7 @@ data class ComponentKey(
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
         val Loader = ComponentKey("Loader", CoreComponent.LOADER)
         val CodeInput = ComponentKey("CodeInput", CoreComponent.CODE_INPUT)
+        val CodeField = ComponentKey("CodeField", CoreComponent.CODE_FIELD)
     }
 }
 
@@ -246,4 +247,5 @@ enum class CoreComponent {
     TAB_BAR,
     LOADER,
     CODE_INPUT,
+    CODE_FIELD,
 }

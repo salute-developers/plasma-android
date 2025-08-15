@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGiga
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.circularprogress.PlasmaGigaCircularProgressBarVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.codefield.PlasmaGigaCodeFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.codeinput.PlasmaGigaCodeInputVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
@@ -353,6 +354,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.CodeInput,
                 PlasmaGigaCodeInputVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CodeField,
+                PlasmaGigaCodeFieldVariationsCompose,
             ),
         ).associateBy { it.key }
 }

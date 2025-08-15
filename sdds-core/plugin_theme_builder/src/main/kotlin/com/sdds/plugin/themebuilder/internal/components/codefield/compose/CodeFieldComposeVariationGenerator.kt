@@ -1,17 +1,17 @@
-package com.sdds.plugin.themebuilder.internal.components.codeinput.compose
+package com.sdds.plugin.themebuilder.internal.components.codefield.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
-import com.sdds.plugin.themebuilder.internal.components.codeinput.CodeInputProperties
+import com.sdds.plugin.themebuilder.internal.components.codefield.CodeFieldProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 /**
- * Генератор вариаций CodeInput на Compose
+ * Генератор вариаций CodeField на Compose
  */
-internal class CodeInputComposeVariationGenerator(
+internal class CodeFieldComposeVariationGenerator(
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -22,7 +22,7 @@ internal class CodeInputComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
-) : ComposeVariationGenerator<CodeInputProperties>(
+) : ComposeVariationGenerator<CodeFieldProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
     dimensionsConfig = dimensionsConfig,
@@ -41,50 +41,68 @@ internal class CodeInputComposeVariationGenerator(
     override fun getCustomState(state: String): String {
         return when (state) {
             "error" -> "CodeInputStates.Error"
-            else -> throw IllegalStateException("Unknown state $state for CodeInput")
+            "activated" -> "InteractiveState.Activated"
+            else -> throw IllegalStateException("Unknown state $state for CodeField")
         }
     }
 
     override fun propsToBuilderCalls(
-        props: CodeInputProperties,
+        props: CodeFieldProperties,
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ): List<String> {
         return listOfNotNull(
-            codeStyleCall(props),
+            itemShapeCall(props, variationId),
+            groupShapeCall(props, variationId),
+            valueStyleCall(props),
             captionStyleCall(props),
             colorsCall(props),
             dimensionsCall(props, variationId),
         )
     }
 
-    private fun codeStyleCall(props: CodeInputProperties): String? {
-        return props.codeStyle?.let {
-            getTypography("codeStyle", it)
+    private fun itemShapeCall(props: CodeFieldProperties, variationId: String): String? {
+        return props.itemShape?.let {
+            getShape(it, variationId, "itemShape")
         }
     }
 
-    private fun captionStyleCall(props: CodeInputProperties): String? {
+    private fun groupShapeCall(props: CodeFieldProperties, variationId: String): String? {
+        return props.groupShape?.let {
+            getShape(it, variationId, "groupShape")
+        }
+    }
+
+    private fun valueStyleCall(props: CodeFieldProperties): String? {
+        return props.valueStyle?.let {
+            getTypography("valueStyle", it)
+        }
+    }
+
+    private fun captionStyleCall(props: CodeFieldProperties): String? {
         return props.captionStyle?.let {
             getTypography("captionStyle", it)
         }
     }
 
-    private fun colorsCall(props: CodeInputProperties): String? {
+    private fun colorsCall(props: CodeFieldProperties): String? {
         return if (props.hasColors()) {
             buildString {
                 appendLine(".colors {")
-                props.codeColor?.let {
-                    appendLine(getColor("codeColor", it, true))
+                props.valueColor?.let {
+                    appendLine(getColor("valueColor", it, true))
                 }
                 props.captionColor?.let {
                     appendLine(getColor("captionColor", it, true))
                 }
-                props.fillColor?.let {
-                    appendLine(getColor("fillColor", it, true))
+                props.dotColor?.let {
+                    appendLine(getColor("dotColor", it, true))
                 }
-                props.strokeColor?.let {
-                    appendLine(getColor("strokeColor", it, true))
+                props.backgroundColor?.let {
+                    appendLine(getColor("backgroundColor", it, true))
+                }
+                props.cursorColor?.let {
+                    appendLine(getColor("cursorColor", it, true))
                 }
                 append("}")
             }
@@ -93,15 +111,16 @@ internal class CodeInputComposeVariationGenerator(
         }
     }
 
-    private fun CodeInputProperties.hasColors(): Boolean {
-        return codeColor != null ||
+    private fun CodeFieldProperties.hasColors(): Boolean {
+        return valueColor != null ||
             captionColor != null ||
-            fillColor != null ||
-            strokeColor != null
+            dotColor != null ||
+            backgroundColor != null ||
+            cursorColor != null
     }
 
     private fun dimensionsCall(
-        props: CodeInputProperties,
+        props: CodeFieldProperties,
         variationId: String,
     ): String? {
         return if (props.hasDimensions()) {
@@ -110,14 +129,11 @@ internal class CodeInputComposeVariationGenerator(
                 props.dotSize?.let {
                     appendDimension("dot_size", it, variationId)
                 }
-                props.strokeWidth?.let {
-                    appendDimension("stroke_width", it, variationId)
+                props.height?.let {
+                    appendDimension("height", it, variationId)
                 }
-                props.itemHeight?.let {
-                    appendDimension("item_height", it, variationId)
-                }
-                props.itemWidth?.let {
-                    appendDimension("item_width", it, variationId)
+                props.width?.let {
+                    appendDimension("width", it, variationId)
                 }
                 props.itemSpacing?.let {
                     appendDimension("item_spacing", it, variationId)
@@ -125,8 +141,8 @@ internal class CodeInputComposeVariationGenerator(
                 props.groupSpacing?.let {
                     appendDimension("group_spacing", it, variationId)
                 }
-                props.captionPadding?.let {
-                    appendDimension("caption_padding", it, variationId)
+                props.captionSpacing?.let {
+                    appendDimension("caption_spacing", it, variationId)
                 }
                 append("}")
             }
@@ -135,13 +151,12 @@ internal class CodeInputComposeVariationGenerator(
         }
     }
 
-    private fun CodeInputProperties.hasDimensions(): Boolean {
+    private fun CodeFieldProperties.hasDimensions(): Boolean {
         return dotSize != null ||
-            strokeWidth != null ||
-            itemHeight != null ||
-            itemWidth != null ||
+            height != null ||
+            width != null ||
             itemSpacing != null ||
             groupSpacing != null ||
-            captionPadding != null
+            captionSpacing != null
     }
 }
