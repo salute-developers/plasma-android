@@ -27,7 +27,7 @@ internal class CodeInputViewModel(
                 value = errorItem,
                 onApply = {
                     internalUiState.value =
-                        internalUiState.value.copy(caption = it.first().toString())
+                        internalUiState.value.copy(errorItem = it.first().toString())
                 },
             ),
             Property.BooleanProperty(
