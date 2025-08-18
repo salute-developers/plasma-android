@@ -3,6 +3,7 @@ package com.sdds.testing.vs.button
 import com.sdds.testing.vs.ComponentScope
 import com.sdds.testing.vs.RoborazziConfig
 import com.sdds.uikit.Button
+import com.sdds.uikit.ButtonGroup
 import com.sdds.uikit.IconButton
 import com.sdds.uikit.LinkButton
 
@@ -60,6 +61,26 @@ abstract class ButtonTestCases(mode: String) : RoborazziConfig(mode) {
     abstract fun testLinkButtonDisabled()
     abstract fun testLinkButtonSWarning()
     abstract fun testLinkButtonXsNegative()
+
+    abstract fun testButtonGroupSizeLDefaultNoGap()
+
+    abstract fun testButtonGroupSizeMDefaultDense()
+
+    abstract fun testButtonGroupSizeSWideSegmented()
+
+    abstract fun testButtonGroupSizeXsDefaultNoGap()
+
+    abstract fun testButtonGroupSizeXxsNoGapSegmented()
+
+    abstract fun testIconButtonGroupSizeLNoGapDefaultHorizontal()
+
+    abstract fun testIconButtonGroupSizeMDensePilledHorizontal()
+
+    abstract fun testIconButtonGroupSizeSWideSegmentedHorizontal()
+
+    abstract fun testIconButtonGroupSizeXsNoGapDefaultVertical()
+
+    abstract fun testIconButtonGroupSizeLAmountTenNoGapSegmentedHorizontal()
 
     fun ComponentScope.buttonSizeLDefault(style: Int): Button =
         basicButton(
@@ -415,5 +436,89 @@ abstract class ButtonTestCases(mode: String) : RoborazziConfig(mode) {
                 loading = false,
                 enabled = true,
             ),
+        )
+
+    fun ComponentScope.buttonGroup(style: Int): ButtonGroup =
+        buttonGroup(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                buttonValue = "",
+                enabled = true,
+                loading = false,
+                orientation = GroupOrientation.Horizontal,
+                amount = 3,
+            ),
+        )
+
+    fun ComponentScope.buttonGroupVertical(style: Int): ButtonGroup =
+        buttonGroup(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                buttonValue = "",
+                enabled = true,
+                loading = false,
+                orientation = GroupOrientation.Vertical,
+                amount = 3,
+            ),
+        )
+
+    fun ComponentScope.buttonGroupAmountTen(style: Int): ButtonGroup =
+        buttonGroup(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                buttonValue = "",
+                enabled = true,
+                loading = false,
+                orientation = GroupOrientation.Horizontal,
+                amount = 10,
+            ),
+        )
+
+    fun ComponentScope.iconButtonGroupHorizontal(style: Int): ButtonGroup =
+        buttonGroup(
+            context = context,
+            style = style,
+            ButtonUiState(
+                enabled = true,
+                loading = false,
+                orientation = GroupOrientation.Horizontal,
+                amount = 3,
+            ),
+            iconButton = true,
+        )
+
+    fun ComponentScope.iconButtonGroupVertical(style: Int): ButtonGroup =
+        buttonGroup(
+            context = context,
+            style = style,
+            ButtonUiState(
+                enabled = true,
+                loading = false,
+                orientation = GroupOrientation.Vertical,
+                amount = 3,
+            ),
+            iconButton = true,
+        )
+
+    fun ComponentScope.iconButtonGroupHorizontalAmountTen(style: Int): ButtonGroup =
+        buttonGroup(
+            context = context,
+            style = style,
+            ButtonUiState(
+                enabled = true,
+                loading = false,
+                orientation = GroupOrientation.Horizontal,
+                amount = 10,
+            ),
+            iconButton = true,
         )
 }
