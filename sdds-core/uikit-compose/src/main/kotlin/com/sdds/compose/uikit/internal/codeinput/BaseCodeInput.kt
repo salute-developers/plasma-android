@@ -124,7 +124,8 @@ internal fun BaseCodeInput(
                             CodeItem(
                                 char = getCharOrNull(absoluteIndex, code),
                                 shape = getShape(
-                                    absoluteIndex = absoluteIndex,
+                                    itemIndex = itemIndex,
+                                    groupIndex = groupIndex,
                                     codeGroupInfo = codeGroupInfo,
                                     startShape = startShape,
                                     endShape = endShape,
@@ -288,15 +289,23 @@ private fun rememberShapes(
 }
 
 private fun getShape(
-    absoluteIndex: Int,
+    groupIndex: Int,
+    itemIndex: Int,
     codeGroupInfo: CodeGroupInfo,
     startShape: CornerBasedShape?,
     endShape: CornerBasedShape?,
     middleShape: CornerBasedShape?,
-) = when (absoluteIndex) {
-    0 -> startShape
-    codeGroupInfo.codeLength - 1 -> endShape
-    else -> middleShape
+): CornerBasedShape? {
+    val shapeType = when (itemIndex) {
+        0 -> CodeItemShapeType.GroupStart
+        codeGroupInfo.groups[groupIndex] - 1 -> CodeItemShapeType.GroupEnd
+        else -> CodeItemShapeType.GroupMiddle
+    }
+    return when (shapeType) {
+        CodeItemShapeType.GroupStart -> startShape
+        CodeItemShapeType.GroupMiddle -> middleShape
+        CodeItemShapeType.GroupEnd -> endShape
+    }
 }
 
 private fun getCharOrNull(absoluteIndex: Int, code: String): String? {
@@ -305,4 +314,8 @@ private fun getCharOrNull(absoluteIndex: Int, code: String): String? {
     } else {
         null
     }
+}
+
+private enum class CodeItemShapeType {
+    GroupStart, GroupMiddle, GroupEnd
 }
