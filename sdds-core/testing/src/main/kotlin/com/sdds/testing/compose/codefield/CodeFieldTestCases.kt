@@ -110,3 +110,23 @@ fun CodeFieldCodeLengthSixNoCaption(style: CodeFieldStyle) {
         animationSpec = null,
     )
 }
+
+/**
+ * Тест-кейс с длинным Caption
+ */
+@Composable
+fun CodeFieldCodeLongText(style: CodeFieldStyle) {
+    CodeField(
+        modifier = Modifier
+            .testTag("CodeField"),
+        style = style,
+        codeLength = 4,
+        hidden = false,
+        isItemValid = { it != "q" },
+        onCodeComplete = { it == "1234" },
+        caption = "Here is a very long caption to test the code field component",
+        captionAlignment = CodeFieldCaptionAlignment.Center,
+        enabled = true,
+        animationSpec = null,
+    )
+}

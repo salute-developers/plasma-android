@@ -15,6 +15,7 @@ import com.sdds.testing.compose.codefield.CodeFieldCodeLengthFive
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthFour
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthSix
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthSixNoCaption
+import com.sdds.testing.compose.codefield.CodeFieldCodeLongText
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -82,5 +83,12 @@ class ComposeCodeFieldScreenshotTest(
             CodeFieldCodeLengthFour(style = CodeField.L.style())
         }
         composeTestRule.onNodeWithTag("CodeField").performTextInput("q")
+    }
+
+    @Test
+    fun testCodeFieldLongText() {
+        composeTestRule.content {
+            CodeFieldCodeLongText(style = CodeField.L.style())
+        }
     }
 }
