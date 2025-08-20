@@ -2,19 +2,21 @@ package com.sdds.compose.uikit
 
 import androidx.annotation.IntRange
 import androidx.compose.animation.core.AnimationSpec
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
-import com.sdds.compose.uikit.internal.codeinput.CodeInputDefaults.defaultCodeGroups
-import com.sdds.compose.uikit.internal.codeinput.rememberShakeAnimationSpec
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCaptionAlignment
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputColors
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputDimensions
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputTextStyles
+import com.sdds.compose.uikit.internal.codeinput.defaultCodeGroups
 
 /**
  * Компонент CodeInput представляет собой горизонтальный ряд графических элементов (точек).
@@ -51,20 +53,50 @@ fun CodeInput(
     isItemValid: (String) -> Boolean = { true },
     onCodeComplete: (String) -> Boolean = { true },
     caption: String? = null,
-    captionAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
+    captionAlignment: CodeInputCaptionAlignment = CodeInputCaptionAlignment.Center,
     enabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
-    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val colors = remember(style.colors) {
+        BaseCodeInputColors(
+            valueColor = style.colors.codeColor,
+            captionColor = style.colors.captionColor,
+            strokeColor = style.colors.strokeColor,
+            dotColor = style.colors.fillColor,
+        )
+    }
+    val dimensions = remember(style.dimensions) {
+        BaseCodeInputDimensions(
+            dotSize = style.dimensions.dotSize,
+            strokeWidth = style.dimensions.strokeWidth,
+            height = style.dimensions.itemHeight,
+            width = style.dimensions.itemWidth,
+            itemSpacing = style.dimensions.itemSpacing,
+            groupSpacing = style.dimensions.groupSpacing,
+            captionPadding = style.dimensions.captionPadding,
+        )
+    }
+    val textStyles = remember(style.captionStyle, style.codeStyle) {
+        BaseCodeInputTextStyles(
+            valueStyle = style.codeStyle,
+            captionStyle = style.captionStyle,
+        )
+    }
     BaseCodeInput(
         modifier = modifier,
-        style = style,
+        colors = colors,
+        dimensions = dimensions,
+        textStyles = textStyles,
+        itemShape = null,
+        groupShape = null,
+        cursor = null,
         onCodeComplete = onCodeComplete,
         isItemValid = isItemValid,
         caption = caption,
-        captionAlignment = captionAlignment,
+        captionAlignment = captionAlignment.toBaseCaptionAlignment(),
         hidden = hidden,
         enabled = enabled,
         interactionSource = interactionSource,
@@ -85,6 +117,19 @@ enum class CodeInputStates : ValueState {
      */
     Error,
 }
+
+/**
+ * Выравнивание текста надписи
+ */
+enum class CodeInputCaptionAlignment {
+    Start, Center
+}
+
+internal fun CodeInputCaptionAlignment.toBaseCaptionAlignment(): BaseCodeInputCaptionAlignment =
+    when (this) {
+        CodeInputCaptionAlignment.Start -> BaseCodeInputCaptionAlignment.Start
+        CodeInputCaptionAlignment.Center -> BaseCodeInputCaptionAlignment.Center
+    }
 
 @Composable
 @Preview(showBackground = true)

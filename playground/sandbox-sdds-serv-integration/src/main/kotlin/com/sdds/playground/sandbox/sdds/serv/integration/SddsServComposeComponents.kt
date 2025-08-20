@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChip
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.codefield.SddsServCodeFieldVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.codeinput.SddsServCodeInputVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
@@ -353,6 +354,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.CodeInput,
                 SddsServCodeInputVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CodeField,
+                SddsServCodeFieldVariationsCompose,
             ),
         ).associateBy { it.key }
 }

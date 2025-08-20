@@ -41,7 +41,7 @@ internal class CodeInputComposeVariationGenerator(
     override fun getCustomState(state: String): String {
         return when (state) {
             "error" -> "CodeInputStates.Error"
-            else -> throw IllegalStateException("Unknown state $state for Switch")
+            else -> throw IllegalStateException("Unknown state $state for CodeInput")
         }
     }
 

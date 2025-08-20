@@ -16,6 +16,7 @@ import com.sdds.plugin.themebuilder.internal.components.checkbox.group.CheckBoxG
 import com.sdds.plugin.themebuilder.internal.components.chip.ChipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.codefield.CodeFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.codeinput.CodeInputConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
@@ -101,5 +102,6 @@ internal val componentDelegates by unsafeLazy {
         "tab-bar" to TabBarConfigDelegate(),
         "loader" to LoaderConfigDelegate(),
         "code-input" to CodeInputConfigDelegate(),
+        "code-field" to CodeFieldConfigDelegate(),
     )
 }

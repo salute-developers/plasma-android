@@ -35,7 +35,7 @@ internal fun CodeInputScreen(componentKey: ComponentKey = ComponentKey.CodeInput
                 onCodeComplete = { it == validCode },
                 isItemValid = { it != codeInputUiState.errorItem },
                 caption = codeInputUiState.caption,
-                captionAlignment = codeInputUiState.captionAlignment.alignment,
+                captionAlignment = codeInputUiState.captionAlignment,
             )
         },
     )

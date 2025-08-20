@@ -1,10 +1,10 @@
 package com.sdds.testing.compose.codeinput
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import com.sdds.compose.uikit.CodeInput
+import com.sdds.compose.uikit.CodeInputCaptionAlignment
 import com.sdds.compose.uikit.CodeInputStyle
 
 /**
@@ -25,7 +25,7 @@ fun CodeInputCodeLengthFour(style: CodeInputStyle) {
         caption = "Caption",
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
-        captionAlignment = Alignment.Start,
+        captionAlignment = CodeInputCaptionAlignment.Start,
         animationSpec = null,
     )
 }
@@ -44,7 +44,7 @@ fun CodeInputCodeLengthFive(style: CodeInputStyle) {
         caption = "Caption",
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeInputCaptionAlignment.Center,
         animationSpec = null,
     )
 }
@@ -64,7 +64,7 @@ fun CodeInputCodeLengthSixHidden(style: CodeInputStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
         enabled = true,
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeInputCaptionAlignment.Center,
         animationSpec = null,
     )
 }
@@ -83,7 +83,7 @@ fun CodeInputCodeLengthSix(style: CodeInputStyle) {
         caption = "Caption",
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeInputCaptionAlignment.Center,
     )
 }
 
@@ -101,7 +101,7 @@ fun CodeInputCodeLengthSixNoCaption(style: CodeInputStyle) {
         caption = "",
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeInputCaptionAlignment.Center,
         animationSpec = null,
     )
 }
