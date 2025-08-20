@@ -6,11 +6,8 @@ import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -29,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -40,6 +38,8 @@ import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.animation.ShakeAnimationDefaults.DefaultShakeAnimationDurationMs
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.common.StyledText
+import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.widthOrZero
 import kotlinx.coroutines.delay
 
 @Composable
@@ -95,88 +95,97 @@ internal fun BaseCodeInput(
             }
         },
         decorationBox = { _ ->
-            Column(Modifier.width(IntrinsicSize.Min)) {
-                val shakeOffset by rememberCodeInputShakeAnimation(
-                    isActive = !isCodeValid,
-                    onStart = { inputEnabled = false },
-                    onFinish = {
-                        inputEnabled = true
-                        isCodeValid = true
-                        code = ""
-                    },
-                    animationSpec = animationSpec,
-                )
-                val (startShape, middleShape, endShape) = rememberShapes(itemShape, groupShape)
-                Row(
-                    modifier = Modifier
-                        .codeInputShakeModifier(isCodeValid, shakeOffset),
-                    horizontalArrangement = Arrangement.spacedBy(dimensions.itemSpacing),
-                ) {
-                    repeat(codeGroupInfo.groupCount) { groupIndex ->
-                        repeat(codeGroupInfo.groups[groupIndex]) { itemIndex ->
-                            val isFieldFocused by interactionSource.collectIsFocusedAsState()
-                            val absoluteIndex =
-                                codeGroupInfo.groups.take(groupIndex).sum() + itemIndex
-                            val hasPrevious = absoluteIndex in 1..code.length
-                            val isPreviousValid =
-                                hasPrevious && isItemValid.invoke(code[absoluteIndex - 1].toString())
-                            val canActivate = isPreviousValid || absoluteIndex == 0
-                            val isActivated =
-                                absoluteIndex == code.length && isFieldFocused && canActivate
+            SubcomposeLayout { constraints ->
+                val fieldPlaceable = subcompose("Field") {
+                    val shakeOffset by rememberCodeInputShakeAnimation(
+                        isActive = !isCodeValid,
+                        onStart = { inputEnabled = false },
+                        onFinish = {
+                            inputEnabled = true
+                            isCodeValid = true
+                            code = ""
+                        },
+                        animationSpec = animationSpec,
+                    )
+                    val (startShape, middleShape, endShape) = rememberShapes(itemShape, groupShape)
+                    Row(
+                        modifier = Modifier
+                            .codeInputShakeModifier(isCodeValid, shakeOffset),
+                        horizontalArrangement = Arrangement.spacedBy(dimensions.itemSpacing),
+                    ) {
+                        repeat(codeGroupInfo.groupCount) { groupIndex ->
+                            repeat(codeGroupInfo.groups[groupIndex]) { itemIndex ->
+                                val isFieldFocused by interactionSource.collectIsFocusedAsState()
+                                val absoluteIndex =
+                                    codeGroupInfo.groups.take(groupIndex).sum() + itemIndex
+                                val hasPrevious = absoluteIndex in 1..code.length
+                                val isPreviousValid =
+                                    hasPrevious && isItemValid.invoke(code[absoluteIndex - 1].toString())
+                                val canActivate = isPreviousValid || absoluteIndex == 0
+                                val isActivated =
+                                    absoluteIndex == code.length && isFieldFocused && canActivate
 
-                            CodeItem(
-                                char = getCharOrNull(absoluteIndex, code),
-                                shape = getShape(
-                                    itemIndex = itemIndex,
-                                    groupIndex = groupIndex,
-                                    codeGroupInfo = codeGroupInfo,
-                                    startShape = startShape,
-                                    endShape = endShape,
-                                    middleShape = middleShape,
-                                ),
-                                hidden = hidden,
-                                isActivated = isActivated,
-                                isItemValid = isItemValid,
-                                isCodeValid = isCodeValid,
-                                onStartShake = { inputEnabled = false },
-                                onShakeComplete = {
-                                    inputEnabled = true
-                                    code = code.dropLast(1)
+                                CodeItem(
+                                    char = getCharOrNull(absoluteIndex, code),
+                                    shape = getShape(
+                                        itemIndex = itemIndex,
+                                        groupIndex = groupIndex,
+                                        codeGroupInfo = codeGroupInfo,
+                                        startShape = startShape,
+                                        endShape = endShape,
+                                        middleShape = middleShape,
+                                    ),
+                                    hidden = hidden,
+                                    isActivated = isActivated,
+                                    isItemValid = isItemValid,
+                                    isCodeValid = isCodeValid,
+                                    onStartShake = { inputEnabled = false },
+                                    onShakeComplete = {
+                                        inputEnabled = true
+                                        code = code.dropLast(1)
+                                    },
+                                    dimensions = dimensions,
+                                    colors = colors,
+                                    codeStyle = textStyles.valueStyle,
+                                    animationSpec = animationSpec,
+                                    cursor = cursor,
+                                    interactionSource = interactionSource,
+                                )
+                            }
+                            if (groupIndex != codeGroupInfo.groups.lastIndex) {
+                                Spacer(Modifier.width(dimensions.groupSpacing))
+                            }
+                        }
+                    }
+                }.firstOrNull()?.measure(constraints)
+
+                val captionPlaceable = subcompose("Caption") {
+                    if (!caption.isNullOrEmpty()) {
+                        val textStyle = remember(textStyles.captionStyle, captionAlignment) {
+                            textStyles.captionStyle.copy(
+                                textAlign = when (captionAlignment) {
+                                    BaseCodeInputCaptionAlignment.Start -> TextAlign.Start
+                                    BaseCodeInputCaptionAlignment.Center -> TextAlign.Center
                                 },
-                                dimensions = dimensions,
-                                colors = colors,
-                                codeStyle = textStyles.valueStyle,
-                                animationSpec = animationSpec,
-                                cursor = cursor,
-                                interactionSource = interactionSource,
                             )
                         }
-                        if (groupIndex != codeGroupInfo.groups.lastIndex) {
-                            Spacer(Modifier.width(dimensions.groupSpacing))
-                        }
-                    }
-                }
-
-                if (!caption.isNullOrEmpty()) {
-                    val textStyle = remember(textStyles.captionStyle, captionAlignment) {
-                        textStyles.captionStyle.copy(
-                            textAlign = when (captionAlignment) {
-                                BaseCodeInputCaptionAlignment.Start -> TextAlign.Start
-                                BaseCodeInputCaptionAlignment.Center -> TextAlign.Center
-                            },
+                        StyledText(
+                            modifier = Modifier
+                                .width(fieldPlaceable.widthOrZero().toDp())
+                                .padding(top = dimensions.captionPadding),
+                            text = caption,
+                            textStyle = textStyle,
+                            textColor = colors.captionColor.getValue(
+                                interactionSource,
+                                captionErrorState,
+                            ),
                         )
                     }
-                    StyledText(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = dimensions.captionPadding),
-                        text = caption,
-                        textStyle = textStyle,
-                        textColor = colors.captionColor.getValue(
-                            interactionSource,
-                            captionErrorState,
-                        ),
-                    )
+                }.firstOrNull()?.measure(constraints.copy(maxWidth = fieldPlaceable.widthOrZero()))
+
+                layout(fieldPlaceable.widthOrZero(), fieldPlaceable.heightOrZero() + captionPlaceable.heightOrZero()) {
+                    fieldPlaceable?.place(0, 0)
+                    captionPlaceable?.place(0, fieldPlaceable.heightOrZero())
                 }
             }
         },
