@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
+import com.sdds.playground.sandbox.drawer.vs.DrawerFragment
 import com.sdds.playground.sandbox.dropdownmenu.vs.DropdownMenuFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.image.vs.ImageFragment
@@ -81,6 +82,7 @@ import com.sdds.testing.vs.chip.chipGroup
 import com.sdds.testing.vs.counter.CounterUiState
 import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
+import com.sdds.testing.vs.drawer.drawer
 import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
@@ -325,6 +327,9 @@ internal sealed class ComponentScreen(
     object ButtonGroup : ComponentScreen(
         { item -> fragment<ButtonGroupFragment>(item.route, item.defaultBuilder) },
     )
+    object Drawer : ComponentScreen(
+        { item -> fragment<DrawerFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -374,6 +379,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
+        CoreComponent.DRAWER -> ComponentScreen.Drawer
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -425,6 +431,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.LOADER -> R.id.nav_loader
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
+        CoreComponent.DRAWER -> R.id.nav_drawer
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -514,6 +521,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.SPINNER -> spinner(context, style)
         CoreComponent.LOADER -> loader(context, style)
         CoreComponent.ACCORDION -> accordion(context, style)
+        CoreComponent.DRAWER -> drawer(context, style)
         CoreComponent.BUTTON_GROUP -> {
             if (componentKey.value.contains("Icon")) {
                 buttonGroup(context, style, iconButton = true)
