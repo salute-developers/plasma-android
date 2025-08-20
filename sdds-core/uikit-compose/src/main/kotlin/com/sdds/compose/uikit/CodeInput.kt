@@ -7,12 +7,12 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCaptionAlignment
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputColors
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputDimensions
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputTextStyles
@@ -53,7 +53,7 @@ fun CodeInput(
     isItemValid: (String) -> Boolean = { true },
     onCodeComplete: (String) -> Boolean = { true },
     caption: String? = null,
-    captionAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
+    captionAlignment: CodeInputCaptionAlignment = CodeInputCaptionAlignment.Center,
     enabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -96,7 +96,7 @@ fun CodeInput(
         onCodeComplete = onCodeComplete,
         isItemValid = isItemValid,
         caption = caption,
-        captionAlignment = captionAlignment,
+        captionAlignment = captionAlignment.toBaseCaptionAlignment(),
         hidden = hidden,
         enabled = enabled,
         interactionSource = interactionSource,
@@ -117,6 +117,19 @@ enum class CodeInputStates : ValueState {
      */
     Error,
 }
+
+/**
+ * Выравнивание текста надписи
+ */
+enum class CodeInputCaptionAlignment {
+    Start, Center
+}
+
+internal fun CodeInputCaptionAlignment.toBaseCaptionAlignment(): BaseCodeInputCaptionAlignment =
+    when (this) {
+        CodeInputCaptionAlignment.Start -> BaseCodeInputCaptionAlignment.Start
+        CodeInputCaptionAlignment.Center -> BaseCodeInputCaptionAlignment.Center
+    }
 
 @Composable
 @Preview(showBackground = true)

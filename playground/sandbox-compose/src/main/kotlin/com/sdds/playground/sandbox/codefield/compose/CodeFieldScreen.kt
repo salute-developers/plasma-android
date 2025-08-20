@@ -35,7 +35,7 @@ internal fun CodeFieldScreen(componentKey: ComponentKey = ComponentKey.CodeField
                 onCodeComplete = { it == validCode },
                 isItemValid = { it != codeFieldUiState.errorItem },
                 caption = codeFieldUiState.caption,
-                captionAlignment = codeFieldUiState.captionAlignment.alignment,
+                captionAlignment = codeFieldUiState.captionAlignment,
             )
         },
     )

@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.codeinput.compose
 
-import androidx.compose.ui.Alignment
+import com.sdds.compose.uikit.CodeInputCaptionAlignment
 import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class CodeInputUiState(
@@ -9,15 +9,10 @@ internal data class CodeInputUiState(
     val codeLength: Int = 4,
     val hidden: Boolean = false,
     val caption: String = "Caption",
-    val captionAlignment: CaptionAlignment = CaptionAlignment.Center,
+    val captionAlignment: CodeInputCaptionAlignment = CodeInputCaptionAlignment.Center,
 ) : UiState {
 
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)
     }
-}
-
-internal enum class CaptionAlignment(val alignment: Alignment.Horizontal) {
-    Start(Alignment.Start),
-    Center(Alignment.CenterHorizontally),
 }

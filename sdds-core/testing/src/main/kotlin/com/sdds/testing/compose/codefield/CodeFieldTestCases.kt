@@ -1,10 +1,10 @@
 package com.sdds.testing.compose.codefield
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import com.sdds.compose.uikit.CodeField
+import com.sdds.compose.uikit.CodeFieldCaptionAlignment
 import com.sdds.compose.uikit.CodeFieldStyle
 
 /**
@@ -25,7 +25,7 @@ fun CodeFieldCodeLengthFour(style: CodeFieldStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
         caption = "Caption",
-        captionAlignment = Alignment.Start,
+        captionAlignment = CodeFieldCaptionAlignment.Start,
         enabled = true,
         animationSpec = null,
     )
@@ -45,7 +45,7 @@ fun CodeFieldCodeLengthFive(style: CodeFieldStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "12345" },
         caption = "Caption",
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeFieldCaptionAlignment.Center,
         enabled = true,
         animationSpec = null,
     )
@@ -65,7 +65,7 @@ fun CodeFieldCodeHidden(style: CodeFieldStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
         caption = "Caption",
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeFieldCaptionAlignment.Center,
         enabled = true,
         animationSpec = null,
     )
@@ -85,7 +85,7 @@ fun CodeFieldCodeLengthSix(style: CodeFieldStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "123456" },
         caption = "Caption",
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeFieldCaptionAlignment.Center,
         enabled = true,
         animationSpec = null,
     )
@@ -105,7 +105,7 @@ fun CodeFieldCodeLengthSixNoCaption(style: CodeFieldStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "123456" },
         caption = "",
-        captionAlignment = Alignment.CenterHorizontally,
+        captionAlignment = CodeFieldCaptionAlignment.Center,
         enabled = true,
         animationSpec = null,
     )

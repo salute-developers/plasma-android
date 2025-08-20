@@ -7,11 +7,11 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
+import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCaptionAlignment
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputColors
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputCursor
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInputDimensions
@@ -53,7 +53,7 @@ fun CodeField(
     isItemValid: (String) -> Boolean = { true },
     onCodeComplete: (String) -> Boolean = { true },
     caption: String? = null,
-    captionAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
+    captionAlignment: CodeFieldCaptionAlignment = CodeFieldCaptionAlignment.Center,
     enabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -98,7 +98,7 @@ fun CodeField(
         onCodeComplete = onCodeComplete,
         isItemValid = isItemValid,
         caption = caption,
-        captionAlignment = captionAlignment,
+        captionAlignment = captionAlignment.toBaseCaptionAlignment(),
         hidden = hidden,
         enabled = enabled,
         interactionSource = interactionSource,
@@ -108,3 +108,16 @@ fun CodeField(
         codeGroupInfo = remember(codeLength) { defaultCodeGroups(codeLength) },
     )
 }
+
+/**
+ * Выравнивание текста надписи
+ */
+enum class CodeFieldCaptionAlignment {
+    Start, Center
+}
+
+internal fun CodeFieldCaptionAlignment.toBaseCaptionAlignment(): BaseCodeInputCaptionAlignment =
+    when (this) {
+        CodeFieldCaptionAlignment.Start -> BaseCodeInputCaptionAlignment.Start
+        CodeFieldCaptionAlignment.Center -> BaseCodeInputCaptionAlignment.Center
+    }

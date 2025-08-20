@@ -7,8 +7,10 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -24,11 +26,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CodeInputStates
@@ -53,7 +55,7 @@ internal fun BaseCodeInput(
     onCodeComplete: (String) -> Boolean = { true },
     isItemValid: (String) -> Boolean = { true },
     caption: String? = null,
-    captionAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
+    captionAlignment: BaseCodeInputCaptionAlignment = BaseCodeInputCaptionAlignment.Center,
     hidden: Boolean = false,
     enabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -70,30 +72,30 @@ internal fun BaseCodeInput(
         if (!isCaptionError) emptySet() else setOf(CodeInputStates.Error)
     }
 
-    Column {
-        BasicTextField(
-            modifier = modifier,
-            value = code,
-            singleLine = true,
-            enabled = enabled,
-            keyboardActions = keyboardActions,
-            keyboardOptions = keyboardOptions,
-            interactionSource = interactionSource,
-            onValueChange = { newValue ->
-                if (inputEnabled && newValue.length <= codeGroupInfo.codeLength) {
-                    code = newValue
-                    if (newValue.length == codeGroupInfo.codeLength && isItemValid.invoke(
-                            newValue.last().toString(),
-                        )
-                    ) {
-                        isCodeValid = onCodeComplete.invoke(newValue)
-                        isCaptionError = !isCodeValid
-                    } else {
-                        isCaptionError = false
-                    }
+    BasicTextField(
+        modifier = modifier,
+        value = code,
+        singleLine = true,
+        enabled = enabled,
+        keyboardActions = keyboardActions,
+        keyboardOptions = keyboardOptions,
+        interactionSource = interactionSource,
+        onValueChange = { newValue ->
+            if (inputEnabled && newValue.length <= codeGroupInfo.codeLength) {
+                code = newValue
+                if (newValue.length == codeGroupInfo.codeLength && isItemValid.invoke(
+                        newValue.last().toString(),
+                    )
+                ) {
+                    isCodeValid = onCodeComplete.invoke(newValue)
+                    isCaptionError = !isCodeValid
+                } else {
+                    isCaptionError = false
                 }
-            },
-            decorationBox = { _ ->
+            }
+        },
+        decorationBox = { _ ->
+            Column(Modifier.width(IntrinsicSize.Min)) {
                 val shakeOffset by rememberCodeInputShakeAnimation(
                     isActive = !isCodeValid,
                     onStart = { inputEnabled = false },
@@ -106,7 +108,9 @@ internal fun BaseCodeInput(
                 )
                 val (startShape, middleShape, endShape) = rememberShapes(itemShape, groupShape)
                 Row(
-                    modifier = Modifier.codeInputShakeModifier(isCodeValid, shakeOffset),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .codeInputShakeModifier(isCodeValid, shakeOffset),
                     horizontalArrangement = Arrangement.spacedBy(dimensions.itemSpacing),
                 ) {
                     repeat(codeGroupInfo.groupCount) { groupIndex ->
@@ -153,20 +157,35 @@ internal fun BaseCodeInput(
                         }
                     }
                 }
-            },
-        )
 
-        if (!caption.isNullOrEmpty()) {
-            StyledText(
-                text = caption,
-                textStyle = textStyles.captionStyle,
-                textColor = colors.captionColor.getValue(interactionSource, captionErrorState),
-                modifier = Modifier
-                    .padding(top = dimensions.captionPadding)
-                    .align(captionAlignment),
-            )
-        }
-    }
+                if (!caption.isNullOrEmpty()) {
+                    val textStyle = remember(textStyles.captionStyle, captionAlignment) {
+                        textStyles.captionStyle.copy(
+                            textAlign = when (captionAlignment) {
+                                BaseCodeInputCaptionAlignment.Start -> TextAlign.Start
+                                BaseCodeInputCaptionAlignment.Center -> TextAlign.Center
+                            },
+                        )
+                    }
+                    StyledText(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = dimensions.captionPadding),
+                        text = caption,
+                        textStyle = textStyle,
+                        textColor = colors.captionColor.getValue(
+                            interactionSource,
+                            captionErrorState,
+                        ),
+                    )
+                }
+            }
+        },
+    )
+}
+
+internal enum class BaseCodeInputCaptionAlignment {
+    Start, Center
 }
 
 @Immutable
