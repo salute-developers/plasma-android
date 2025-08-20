@@ -109,7 +109,6 @@ internal fun BaseCodeInput(
                 val (startShape, middleShape, endShape) = rememberShapes(itemShape, groupShape)
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
                         .codeInputShakeModifier(isCodeValid, shakeOffset),
                     horizontalArrangement = Arrangement.spacedBy(dimensions.itemSpacing),
                 ) {
