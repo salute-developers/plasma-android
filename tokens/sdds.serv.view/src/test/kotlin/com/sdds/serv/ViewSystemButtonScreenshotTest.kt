@@ -260,4 +260,74 @@ class ViewSystemButtonScreenshotTest(
             linkButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsDefault)
         }
     }
+
+    @Test
+    override fun testButtonGroupSizeLDefaultNoGap() {
+        themedComponent {
+            buttonGroup(R.style.Serv_Sdds_ComponentOverlays_BasicButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeMDefaultDense() {
+        themedComponent {
+            buttonGroup(R.style.Serv_Sdds_ComponentOverlays_BasicButtonGroupMDenseDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeSWideSegmented() {
+        themedComponent {
+            buttonGroup(R.style.Serv_Sdds_ComponentOverlays_BasicButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXsDefaultNoGap() {
+        themedComponent {
+            buttonGroupVertical(R.style.Serv_Sdds_ComponentOverlays_BasicButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXxsNoGapSegmented() {
+        themedComponent {
+            buttonGroupAmountTen(R.style.Serv_Sdds_ComponentOverlays_BasicButtonGroupXxsNoGapSegmented)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeLNoGapDefaultHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Serv_Sdds_ComponentOverlays_IconButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeMDensePilledHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Serv_Sdds_ComponentOverlays_IconButtonGroupMDensePilled)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeSWideSegmentedHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Serv_Sdds_ComponentOverlays_IconButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeXsNoGapDefaultVertical() {
+        themedComponent {
+            iconButtonGroupVertical(R.style.Serv_Sdds_ComponentOverlays_IconButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeLAmountTenNoGapSegmentedHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontalAmountTen(R.style.Serv_Sdds_ComponentOverlays_IconButtonGroupLNoGapSegmented)
+        }
+    }
 }

@@ -28,4 +28,15 @@ class ViewSystemRectSkeletonScreenshotTest(
         }
         captureScreenRoboImage()
     }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testRectSkeletonLighter() {
+        themedComponent(
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            rectSkeletonTest(style = R.style.Serv_Sdds_ComponentOverlays_RectSkeletonLighter)
+        }
+        captureScreenRoboImage()
+    }
 }

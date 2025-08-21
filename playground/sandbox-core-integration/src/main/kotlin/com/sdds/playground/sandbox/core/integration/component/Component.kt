@@ -174,6 +174,8 @@ data class ComponentKey(
         val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
         val Loader = ComponentKey("Loader", CoreComponent.LOADER)
+        val CodeInput = ComponentKey("CodeInput", CoreComponent.CODE_INPUT)
+        val CodeField = ComponentKey("CodeField", CoreComponent.CODE_FIELD)
     }
 }
 
@@ -244,4 +246,6 @@ enum class CoreComponent {
     IMAGE,
     TAB_BAR,
     LOADER,
+    CODE_INPUT,
+    CODE_FIELD,
 }

@@ -70,7 +70,7 @@ private fun ButtonGroupContent(
             orientation = orientation,
         )
     }
-    val middleShape = remember(style.internalShape) { style.internalShape }
+    val middleShape = style.internalShape
     scope.buttons.forEachIndexed { index, itemContent ->
         val shape = when (index) {
             0 -> startShape

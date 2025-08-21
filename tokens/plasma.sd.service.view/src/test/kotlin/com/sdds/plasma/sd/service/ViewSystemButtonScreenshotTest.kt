@@ -260,4 +260,76 @@ class ViewSystemButtonScreenshotTest(
             linkButtonLDefault(R.style.Plasma_SdService_ComponentOverlays_LinkButtonXxsDefault)
         }
     }
+
+    @Test
+    override fun testButtonGroupSizeLDefaultNoGap() {
+        themedComponent {
+            buttonGroup(R.style.Plasma_SdService_ComponentOverlays_BasicButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeMDefaultDense() {
+        themedComponent {
+            buttonGroup(R.style.Plasma_SdService_ComponentOverlays_BasicButtonGroupMDenseDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeSWideSegmented() {
+        themedComponent {
+            buttonGroup(R.style.Plasma_SdService_ComponentOverlays_BasicButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXsDefaultNoGap() {
+        themedComponent {
+            buttonGroupVertical(R.style.Plasma_SdService_ComponentOverlays_BasicButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testButtonGroupSizeXxsNoGapSegmented() {
+        themedComponent {
+            buttonGroupAmountTen(R.style.Plasma_SdService_ComponentOverlays_BasicButtonGroupXxsNoGapSegmented)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeLNoGapDefaultHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Plasma_SdService_ComponentOverlays_IconButtonGroupLNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeMDensePilledHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Plasma_SdService_ComponentOverlays_IconButtonGroupMDensePilled)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeSWideSegmentedHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontal(R.style.Plasma_SdService_ComponentOverlays_IconButtonGroupSWideSegmented)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeXsNoGapDefaultVertical() {
+        themedComponent {
+            iconButtonGroupVertical(R.style.Plasma_SdService_ComponentOverlays_IconButtonGroupXsNoGapDefault)
+        }
+    }
+
+    @Test
+    override fun testIconButtonGroupSizeLAmountTenNoGapSegmentedHorizontal() {
+        themedComponent {
+            iconButtonGroupHorizontalAmountTen(
+                R.style.Plasma_SdService_ComponentOverlays_IconButtonGroupLNoGapSegmented,
+            )
+        }
+    }
 }

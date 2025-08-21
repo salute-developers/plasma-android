@@ -6,6 +6,7 @@ import com.sdds.stylessalute.styles.switcher.L
 import com.sdds.stylessalute.styles.switcher.M
 import com.sdds.stylessalute.styles.switcher.S
 import com.sdds.stylessalute.styles.switcher.Switch
+import com.sdds.stylessalute.styles.switcher.ToggleS
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.switcher.SwitchMOff
@@ -61,6 +62,20 @@ class ComposeSwitchScreenshotTest(
     fun testSwitchOffDisabled() {
         composeTestRule.content {
             SwitchOffDisabled(style = Switch.M.style())
+        }
+    }
+
+    @Test
+    fun testSwitchLToggleS() {
+        composeTestRule.content {
+            SwitchLOn(style = Switch.L.ToggleS.style())
+        }
+    }
+
+    @Test
+    fun testSwitchSToggleS() {
+        composeTestRule.content {
+            SwitchMOff(style = Switch.S.ToggleS.style())
         }
     }
 }

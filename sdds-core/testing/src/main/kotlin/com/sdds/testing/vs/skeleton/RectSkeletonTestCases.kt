@@ -12,6 +12,8 @@ abstract class RectSkeletonTestCases(mode: String) : RoborazziConfig(mode) {
 
     abstract fun testRectSkeleton()
 
+    abstract fun testRectSkeletonLighter()
+
     fun ComponentScope.rectSkeletonTest(style: Int): RectSkeleton =
         rectSkeleton(
             context = context,
