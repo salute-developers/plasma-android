@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Drawer" parent="Sdds.Components.Drawer">
+        <item name="android:paddingStart">@dimen/plasma_drawer_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_drawer_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_drawer_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_drawer_padding_bottom</item>
+        <item name="sd_closeIconPadding">@dimen/plasma_drawer_close_icon_padding</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.Drawer.NoShadow"/>
+    <style name="Plasma.SdService.ComponentOverlays.DrawerNoShadow">
+        <item name="sd_drawerStyle">@style/Plasma.SdService.Components.Drawer.NoShadow</item>
+    </style>
+    <style name="Plasma.SdService.Components.Drawer.HasShadow">
+        <item name="sd_shadowAppearance">?plasma_shadowDownSoftL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DrawerHasShadow">
+        <item name="sd_drawerStyle">@style/Plasma.SdService.Components.Drawer.HasShadow</item>
+    </style>
+</resources>

@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbe
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsView
@@ -292,6 +293,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
                 SddsServIconButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Drawer,
+                SddsServDrawerVariationsView,
             ),
         ).associateBy { it.key }
 }

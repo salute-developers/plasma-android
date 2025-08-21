@@ -41,6 +41,7 @@ fun scrollBar(
         adapter = SimpleRecyclerAdapter().apply {
             setItems(state.itemsAmount)
         }
+        adapter
     }
     val scroll = ScrollBar(actualContext).apply {
         id = R.id.scroll_bar

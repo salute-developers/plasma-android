@@ -34,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuNormalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuTightVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdServiceImageVariationsView
@@ -293,6 +294,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
                 PlasmaSdServiceIconButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Drawer,
+                PlasmaSdServiceDrawerVariationsView,
             ),
         ).associateBy { it.key }
 }
