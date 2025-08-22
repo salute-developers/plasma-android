@@ -25,6 +25,7 @@ import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.LoaderStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.ModalStyle
+import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.OverlayStyle
 import com.sdds.compose.uikit.PopoverStyle
@@ -80,6 +81,8 @@ import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
 import com.sdds.playground.sandbox.notification.compose.NotificationScreen
+import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentPreview
+import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentScreen
 import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
 import com.sdds.playground.sandbox.popover.compose.PopoverScreen
 import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
@@ -234,6 +237,11 @@ internal sealed class ComponentScreen(
         { it, _ -> NotificationForSandbox(it as NotificationStyle) },
     )
 
+    object NotificationContent : ComponentScreen(
+        { NotificationContentScreen(it) },
+        { it, _ -> NotificationContentPreview(it as NotificationContentStyle) },
+    )
+
     object RectSkeleton : ComponentScreen(
         { RectSkeletonScreen(it) },
         { it, _ -> RectSkeletonForSandbox(it as RectSkeletonStyle) },
@@ -319,6 +327,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOAST -> ComponentScreen.Toast
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
+        CoreComponent.NOTIFICATION_CONTENT -> ComponentScreen.NotificationContent
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         CoreComponent.TEXT_SKELETON -> ComponentScreen.TextSkeleton
         CoreComponent.SPINNER -> ComponentScreen.Spinner

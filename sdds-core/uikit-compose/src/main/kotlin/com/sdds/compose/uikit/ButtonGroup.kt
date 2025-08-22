@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.shape.CircleShape
@@ -8,7 +9,6 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,27 +28,12 @@ fun ButtonGroup(
     style: ButtonGroupStyle = LocalButtonGroupStyle.current,
     content: ButtonGroupScope.() -> Unit,
 ) {
-    val buttonGroupContent = @Composable { ButtonGroupContent(orientation, style, content) }
-    val movableContent = remember(buttonGroupContent) { movableContentOf(buttonGroupContent) }
-    when (orientation) {
-        ButtonGroupOrientation.Vertical -> Column(
-            modifier = modifier,
-            verticalArrangement = Arrangement.spacedBy(style.dimensions.spacing),
-        ) {
-            movableContent.invoke()
-        }
-
-        ButtonGroupOrientation.Horizontal -> Row(
-            modifier = modifier,
-            horizontalArrangement = Arrangement.spacedBy(style.dimensions.spacing),
-        ) {
-            movableContent.invoke()
-        }
-    }
+    ButtonGroupContent(modifier, orientation, style, content)
 }
 
 @Composable
 private fun ButtonGroupContent(
+    modifier: Modifier,
     orientation: ButtonGroupOrientation = ButtonGroupOrientation.Horizontal,
     style: ButtonGroupStyle = LocalButtonGroupStyle.current,
     content: ButtonGroupScope.() -> Unit,
@@ -71,21 +56,99 @@ private fun ButtonGroupContent(
         )
     }
     val middleShape = style.internalShape
-    scope.buttons.forEachIndexed { index, itemContent ->
-        val shape = when (index) {
-            0 -> startShape
-            scope.buttons.lastIndex -> endShape
-            else -> middleShape
-        }
-        CompositionLocalProvider(
-            LocalButtonForceShape provides shape,
-            LocalButtonStyle provides style.buttonStyle,
-            LocalIconButtonStyle provides style.buttonStyle,
-        ) {
-            itemContent()
+    when (orientation) {
+        ButtonGroupOrientation.Vertical -> VerticalContent(
+            modifier = modifier,
+            style = style,
+            scope = scope,
+            startShape = startShape,
+            middleShape = middleShape,
+            endShape = endShape,
+        )
+
+        ButtonGroupOrientation.Horizontal -> HorizontalContent(
+            modifier = modifier,
+            style = style,
+            scope = scope,
+            startShape = startShape,
+            middleShape = middleShape,
+            endShape = endShape,
+        )
+    }
+
+    scope.reset()
+}
+
+@Composable
+private fun VerticalContent(
+    modifier: Modifier,
+    style: ButtonGroupStyle,
+    scope: ButtonGroupScopeImpl,
+    startShape: CornerBasedShape,
+    middleShape: CornerBasedShape,
+    endShape: CornerBasedShape,
+) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(style.dimensions.spacing),
+    ) {
+        scope.buttons.forEachIndexed { index, item ->
+            val shape = when (index) {
+                0 -> startShape
+                scope.buttons.lastIndex -> endShape
+                else -> middleShape
+            }
+            CompositionLocalProvider(
+                LocalButtonForceShape provides shape,
+                LocalButtonStyle provides style.buttonStyle,
+                LocalIconButtonStyle provides style.buttonStyle,
+            ) {
+                val weightModifier = run {
+                    item.weight?.let { Modifier.weight(item.weight) } ?: Modifier
+                }
+                Box(
+                    modifier = weightModifier,
+                    propagateMinConstraints = true,
+                ) { item.content.invoke() }
+            }
         }
     }
-    scope.reset()
+}
+
+@Composable
+private fun HorizontalContent(
+    modifier: Modifier,
+    style: ButtonGroupStyle,
+    scope: ButtonGroupScopeImpl,
+    startShape: CornerBasedShape,
+    middleShape: CornerBasedShape,
+    endShape: CornerBasedShape,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(style.dimensions.spacing),
+    ) {
+        scope.buttons.forEachIndexed { index, item ->
+            val shape = when (index) {
+                0 -> startShape
+                scope.buttons.lastIndex -> endShape
+                else -> middleShape
+            }
+            CompositionLocalProvider(
+                LocalButtonForceShape provides shape,
+                LocalButtonStyle provides style.buttonStyle,
+                LocalIconButtonStyle provides style.buttonStyle,
+            ) {
+                val weightModifier = run {
+                    item.weight?.let { Modifier.weight(item.weight) } ?: Modifier
+                }
+                Box(
+                    modifier = weightModifier,
+                    propagateMinConstraints = true,
+                ) { item.content.invoke() }
+            }
+        }
+    }
 }
 
 private fun calculateStartShape(
@@ -141,6 +204,11 @@ interface ButtonGroupScope {
      * Добавляет кнопку [content] в [ButtonGroup]
      */
     fun button(content: @Composable () -> Unit)
+
+    /**
+     * Добавляет кнопку [content] с весом [weight] в [ButtonGroup]
+     */
+    fun button(weight: Float?, content: @Composable () -> Unit)
 }
 
 /**
@@ -152,14 +220,23 @@ enum class ButtonGroupOrientation {
 }
 
 private class ButtonGroupScopeImpl : ButtonGroupScope {
-    val buttons = mutableListOf<@Composable () -> Unit>()
+    val buttons = mutableListOf<ButtonGroupItem>()
     override fun button(content: @Composable () -> Unit) {
-        buttons.add { content() }
+        buttons.add(ButtonGroupItem(content))
+    }
+
+    override fun button(weight: Float?, content: @Composable () -> Unit) {
+        buttons.add(ButtonGroupItem(content, weight))
     }
 
     fun reset() {
         buttons.clear()
     }
+
+    class ButtonGroupItem(
+        val content: @Composable () -> Unit,
+        val weight: Float? = null,
+    )
 }
 
 @Preview

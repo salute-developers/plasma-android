@@ -5,7 +5,8 @@ import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class NotificationUiState(
     override val variant: String = "",
-    val text: String = "Notification",
+    val title: String = "Title",
+    val text: String = "Notification Text",
     val hasClose: Boolean = true,
     val focusable: Boolean = false,
     val autoDismiss: Boolean = true,

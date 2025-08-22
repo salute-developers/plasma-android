@@ -48,6 +48,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.loader.SddsServLoaderVa
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.notificationcontent.SddsServNotificationContentCompactVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.notificationcontent.SddsServNotificationContentLooseVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.overlay.compose.SddsServOverlayVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.popover.SddsServPopoverVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
@@ -254,6 +256,14 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 SddsServNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentLoose", CoreComponent.NOTIFICATION_CONTENT),
+                SddsServNotificationContentLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentCompact", CoreComponent.NOTIFICATION_CONTENT),
+                SddsServNotificationContentCompactVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RectSkeleton,

@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class NotificationComposeVariationGenerator(
+    private val notificationContentStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -45,11 +46,26 @@ internal class NotificationComposeVariationGenerator(
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ) = listOfNotNull(
+        notificationContentStyleCall(props, ktFileBuilder),
         shapeCall(props, variationId),
         shadowCall(props),
         colorsCall(props),
         dimensionsCall(props, variationId),
     )
+
+    private fun notificationContentStyleCall(
+        props: NotificationProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.notificationContentStyle?.let {
+            ".notificationContentStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    notificationContentStylesPackage,
+                )
+            }.style())"
+        }
+    }
 
     private fun shapeCall(props: NotificationProperties, variationId: String): String? {
         return props.shape?.let {

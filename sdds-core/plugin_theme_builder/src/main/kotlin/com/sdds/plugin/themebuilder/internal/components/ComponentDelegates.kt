@@ -28,6 +28,7 @@ import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfig
 import com.sdds.plugin.themebuilder.internal.components.loader.LoaderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
@@ -86,6 +87,7 @@ internal val componentDelegates by unsafeLazy {
         "toast" to ToastConfigDelegate(),
         "modal" to ModalConfigDelegate(),
         "notification" to NotificationConfigDelegate(),
+        "notification-content" to NotificationContentConfigDelegate(),
         "rect-skeleton" to RectSkeletonConfigDelegate(),
         "spinner" to SpinnerConfigDelegate(),
         "list" to ListConfigDelegate(),

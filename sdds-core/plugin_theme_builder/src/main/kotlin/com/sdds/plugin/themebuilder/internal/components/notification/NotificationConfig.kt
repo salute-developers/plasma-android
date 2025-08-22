@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.notification
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
@@ -10,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -24,6 +26,7 @@ internal data class NotificationProperties(
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
+    val notificationContentStyle: ComponentStyle<NotificationContentProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -40,6 +43,7 @@ internal data class NotificationProperties(
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
+            notificationContentStyle = notificationContentStyle ?: otherProps.notificationContentStyle,
         )
     }
 }

@@ -54,6 +54,11 @@ interface NotificationStyle : Style {
      */
     val closeAlignment: NotificationCloseAlignment
 
+    /**
+     * Стиль контента [NotificationContentStyle]
+     */
+    val notificationContentStyle: NotificationContentStyle
+
     companion object {
         /**
          * Возвращает экземпляр [NotificationStyleBuilder]
@@ -76,6 +81,11 @@ interface NotificationStyleBuilder : StyleBuilder<NotificationStyle> {
      * Устанавливает тень [shadow] компонента
      */
     fun shadow(shadow: ShadowAppearance): NotificationStyleBuilder
+
+    /**
+     * Устанавливает стиль контента [notificationContentStyle]
+     */
+    fun notificationContentStyle(notificationContentStyle: NotificationContentStyle): NotificationStyleBuilder
 
     /**
      * Устанавливает выравнивание [closeAlignment] иконки закрытия
@@ -101,6 +111,7 @@ private class DefaultNotificationStyle(
     override val dimensions: NotificationDimensions,
     override val colors: NotificationColors,
     override val closeAlignment: NotificationCloseAlignment,
+    override val notificationContentStyle: NotificationContentStyle,
 ) : NotificationStyle {
 
     class Builder : NotificationStyleBuilder {
@@ -109,6 +120,7 @@ private class DefaultNotificationStyle(
         private var closeAlignment: NotificationCloseAlignment? = null
         private val colorsBuilder = NotificationColors.builder()
         private val dimensionsBuilder = NotificationDimensions.builder()
+        private var notificationContentStyle: NotificationContentStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -116,6 +128,10 @@ private class DefaultNotificationStyle(
 
         override fun shadow(shadow: ShadowAppearance) = apply {
             this.shadow = shadow
+        }
+
+        override fun notificationContentStyle(notificationContentStyle: NotificationContentStyle) = apply {
+            this.notificationContentStyle = notificationContentStyle
         }
 
         override fun closeAlignment(closeAlignment: NotificationCloseAlignment) = apply {
@@ -140,6 +156,7 @@ private class DefaultNotificationStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 closeAlignment = NotificationCloseAlignment.TopEnd,
+                notificationContentStyle = notificationContentStyle ?: NotificationContentStyle.builder().style(),
             )
         }
     }

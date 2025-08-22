@@ -16,7 +16,11 @@ import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.giga.styles.notificationcontent.Default
+import com.sdds.plasma.giga.styles.notificationcontent.NoIcon
+import com.sdds.plasma.giga.styles.notificationcontent.NotificationContentLoose
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -55,6 +59,7 @@ public value class WrapperNotificationLooseS(
 private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
+        .notificationContentStyle(NotificationContentLoose.NoIcon.Default.style())
         .colors {
             backgroundColor(
                 SolidColor(PlasmaGigaTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),

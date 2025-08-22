@@ -48,6 +48,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.loader.PlasmaGigaLoad
 import com.sdds.playground.sandbox.plasma.giga.integration.modal.PlasmaGigaModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.notification.PlasmaGigaNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.notification.PlasmaGigaNotificationLooseVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.notificationcontent.PlasmaGigaNotificationContentCompactVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.notificationcontent.PlasmaGigaNotificationContentLooseVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.overlay.compose.PlasmaGigaOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.popover.PlasmaGigaPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.progress.PlasmaGigaProgressVariationsCompose
@@ -254,6 +256,14 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 PlasmaGigaNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentLoose", CoreComponent.NOTIFICATION_CONTENT),
+                PlasmaGigaNotificationContentLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentCompact", CoreComponent.NOTIFICATION_CONTENT),
+                PlasmaGigaNotificationContentCompactVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RectSkeleton,

@@ -47,5 +47,8 @@ internal class NotificationConfigDelegate : ComponentConfigDelegate<Notification
         componentName = component.styleName.techToSnakeCase(),
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+        notificationContentStylesPackage = "${deps.packageResolver.getPackage(
+            TargetPackage.STYLES,
+        )}.notificationcontent",
     )
 }

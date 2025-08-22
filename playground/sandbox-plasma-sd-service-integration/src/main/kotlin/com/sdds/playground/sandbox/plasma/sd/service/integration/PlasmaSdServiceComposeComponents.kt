@@ -48,6 +48,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.loader.PlasmaSd
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.notificationcontent.PlasmaSdServiceNotificationContentCompactVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.notificationcontent.PlasmaSdServiceNotificationContentLooseVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.compose.PlasmaSdServiceOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.PlasmaSdServicePopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
@@ -254,6 +256,14 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 PlasmaSdServiceNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentLoose", CoreComponent.NOTIFICATION_CONTENT),
+                PlasmaSdServiceNotificationContentLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentCompact", CoreComponent.NOTIFICATION_CONTENT),
+                PlasmaSdServiceNotificationContentCompactVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RectSkeleton,
