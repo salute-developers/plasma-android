@@ -41,6 +41,8 @@ import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteLis
 import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationLooseVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.notificationcontent.StylesSaluteNotificationContentCompactVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.notificationcontent.StylesSaluteNotificationContentLooseVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.popover.StylesSalutePopoverVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
@@ -217,6 +219,14 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("NotificationCompact", CoreComponent.NOTIFICATION),
                 StylesSaluteNotificationCompactVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentLoose", CoreComponent.NOTIFICATION_CONTENT),
+                StylesSaluteNotificationContentLooseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("NotificationContentCompact", CoreComponent.NOTIFICATION_CONTENT),
+                StylesSaluteNotificationContentCompactVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RectSkeleton,
