@@ -51,15 +51,13 @@ internal fun BaseCell(
                 startContent()
                 Spacer(Modifier.width(style.dimensions.contentPaddingStart))
             }
-            centerContent?.let {
-                Column(
-                    modifier = Modifier
-                        .weight(1f, fill = false)
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.Start,
-                ) {
-                    centerContent()
-                }
+            Column(
+                modifier = Modifier
+                    .weight(1f, fill = false)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.Start,
+            ) {
+                centerContent?.invoke(this)
             }
             endContent?.let {
                 Spacer(Modifier.width(style.dimensions.contentPaddingEnd))
