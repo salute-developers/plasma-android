@@ -3,6 +3,7 @@ package com.sdds.testing.compose.list
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -21,6 +22,7 @@ import com.sdds.compose.uikit.fs.focusSelector
 @Composable
 fun ListAmountThreeHasDisclosure(style: ListStyle) {
     com.sdds.compose.uikit.List(
+        modifier = Modifier.fillMaxWidth(),
         style = style,
     ) {
         items(3) {
@@ -46,6 +48,7 @@ fun ListAmountThreeHasDisclosure(style: ListStyle) {
 @Composable
 fun ListAmountThreeNoDisclosure(style: ListStyle) {
     com.sdds.compose.uikit.List(
+        modifier = Modifier.fillMaxWidth(),
         style = style,
     ) {
         items(3) {
@@ -71,6 +74,7 @@ fun ListAmountThreeNoDisclosure(style: ListStyle) {
 @Composable
 fun ListAmountTwenty(style: ListStyle) {
     com.sdds.compose.uikit.List(
+        modifier = Modifier.fillMaxWidth(),
         style = style,
     ) {
         items(20) {
@@ -96,6 +100,7 @@ fun ListAmountTwenty(style: ListStyle) {
 @Composable
 fun ListForSandbox(style: ListStyle) {
     com.sdds.compose.uikit.List(
+        modifier = Modifier.fillMaxWidth(),
         style = style,
     ) {
         items(3) {
