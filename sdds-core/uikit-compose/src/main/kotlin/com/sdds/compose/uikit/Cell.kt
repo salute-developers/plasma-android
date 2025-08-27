@@ -82,7 +82,6 @@ fun Cell(
                 )
             }
         },
-        interactionSource = interactionSource,
     )
 }
 
@@ -157,7 +156,6 @@ fun Cell(
                         )
                     }
         },
-        interactionSource = interactionSource,
     )
 }
 
@@ -196,7 +194,6 @@ fun Cell(
         startContent = startContent,
         centerContent = centerContent,
         endContent = endContent,
-        interactionSource = interactionSource,
     )
 }
 

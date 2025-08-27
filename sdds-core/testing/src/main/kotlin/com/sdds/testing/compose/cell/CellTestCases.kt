@@ -1,10 +1,12 @@
 package com.sdds.testing.compose.cell
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.uikit.Avatar
@@ -25,6 +27,7 @@ import com.sdds.icons.R
 @Composable
 fun CellSizeLAvatarHasDisclosure(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
@@ -43,6 +46,7 @@ fun CellSizeLAvatarHasDisclosure(cellStyle: CellStyle) {
 @Composable
 fun CellSizeMTitleAvatar(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString(""),
@@ -61,6 +65,7 @@ fun CellSizeMTitleAvatar(cellStyle: CellStyle) {
 @Composable
 fun CellSizeSSubtitleHasDisclosure(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString(""),
         subtitle = AnnotatedString("Subtitle"),
@@ -75,6 +80,7 @@ fun CellSizeSSubtitleHasDisclosure(cellStyle: CellStyle) {
 @Composable
 fun CellSizeXsLabelAvatar(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString(""),
         subtitle = AnnotatedString(""),
@@ -94,6 +100,7 @@ fun CellSizeXsLabelAvatar(cellStyle: CellStyle) {
 @Composable
 fun CellSizeLHasDisclosureDisclosureText(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
@@ -109,6 +116,7 @@ fun CellSizeLHasDisclosureDisclosureText(cellStyle: CellStyle) {
 @Composable
 fun CellMAvatarIcon(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString(""),
@@ -134,6 +142,7 @@ fun CellMAvatarIcon(cellStyle: CellStyle) {
 @Composable
 fun CellSizeSIconHasDisclosureDisclosureText(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
@@ -155,6 +164,7 @@ fun CellSizeSIconHasDisclosureDisclosureText(cellStyle: CellStyle) {
 @Composable
 fun CellSizeXsRadioBoxAvatar(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString("Subtitle"),
@@ -181,6 +191,7 @@ fun CellSizeXsRadioBoxAvatar(cellStyle: CellStyle) {
 @Composable
 fun CellSizeLSwitchCheckBox(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString("Title"),
         subtitle = AnnotatedString(""),
@@ -203,6 +214,7 @@ fun CellSizeLSwitchCheckBox(cellStyle: CellStyle) {
 @Composable
 fun CellSizeMCheckBoxHasDisclosure(cellStyle: CellStyle) {
     Cell(
+        modifier = Modifier.fillMaxWidth(),
         style = cellStyle,
         title = AnnotatedString(""),
         subtitle = AnnotatedString(""),
