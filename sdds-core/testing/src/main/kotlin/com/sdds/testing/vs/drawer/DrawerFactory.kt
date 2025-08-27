@@ -7,6 +7,8 @@ import androidx.annotation.StyleRes
 import com.sdds.testing.R
 import com.sdds.testing.vs.button.basicButton
 import com.sdds.testing.vs.getTextColorPrimary
+import com.sdds.testing.vs.scrollbar.ScrollBarUiState
+import com.sdds.testing.vs.scrollbar.ScrollOrientation
 import com.sdds.testing.vs.scrollbar.scrollBar
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Drawer
@@ -32,7 +34,7 @@ fun drawer(
     val actualContext = context.styleWrapper(style)
     val drawerLayout = DrawerLayout(context).apply {
         id = R.id.drawer_layout
-        drawerPlacement = DrawerLayout.DrawerPlacement.LEFT
+        drawerPlacement = DrawerLayout.DrawerPlacement.TOP
         shouldToShiftContent = false
     }
     val drawer = Drawer(actualContext).apply {
@@ -100,6 +102,7 @@ private fun Drawer.addFooter() {
  * Применяет [DrawerUiState] к [DrawerLayout]
  */
 fun DrawerLayout.applyState(newState: DrawerUiState) = apply {
+    val oldAlignment = drawerPlacement
     enableOverlay = newState.hasOverlay
     drawer?.setHasClose(newState.hasClose)
     val closeAlignment = when (newState.closeIconPlacement) {
@@ -110,6 +113,7 @@ fun DrawerLayout.applyState(newState: DrawerUiState) = apply {
     gesturesEnabled = newState.gesturesEnabled
     peekHeight = if (newState.hasPeekOffset) 30.dp else 0.dp
     shouldToShiftContent = newState.moveContentEnabled
+    wrapContent = newState.wrapContent
     drawer?.setCloseIconAlignment(closeAlignment)
     when (newState.header) {
         true -> drawer?.addHeader()
@@ -118,5 +122,16 @@ fun DrawerLayout.applyState(newState: DrawerUiState) = apply {
     when (newState.footer) {
         true -> drawer?.addFooter()
         else -> drawer?.clearFooter()
+    }
+    if (oldAlignment != newState.alignment) {
+        drawer?.setBody(
+            when (newState.alignment) {
+                DrawerLayout.DrawerPlacement.LEFT, DrawerLayout.DrawerPlacement.RIGHT ->
+                    scrollBar(context, state = ScrollBarUiState().copy(orientation = ScrollOrientation.VERTICAL))
+
+                DrawerLayout.DrawerPlacement.TOP, DrawerLayout.DrawerPlacement.BOTTOM ->
+                    scrollBar(context)
+            },
+        )
     }
 }

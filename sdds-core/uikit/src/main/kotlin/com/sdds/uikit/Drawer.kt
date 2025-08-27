@@ -10,6 +10,7 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.sdds.uikit.statelist.ColorValueStateList
@@ -36,10 +37,10 @@ open class Drawer @JvmOverloads constructor(
     private var footer: FrameLayout? = null
     private var userHeaderSection: FrameLayout? = null
     private var closeIconSection: FrameLayout? = null
-    private var _closeIconSize: Int = DEFAULT_ICON_SIZE
-    private var _closeIconPadding: Int = 0
-    private var _closeIconAlignment: CloseIconAlignment = CloseIconAlignment.END
-    private var _backgroundList: ColorValueStateList? = null
+    private var closeIconSize: Int = DEFAULT_ICON_SIZE
+    private var closeIconPadding: Int = 0
+    private var closeIconAlignment: CloseIconAlignment = CloseIconAlignment.END
+    private var backgroundList: ColorValueStateList? = null
     private val closeIconView: ImageView = ImageView(context).apply {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             defaultFocusHighlightEnabled = false
@@ -58,11 +59,11 @@ open class Drawer @JvmOverloads constructor(
             val icon = getDrawable(R.styleable.Drawer_sd_closeIcon)
             closeIconView.setImageDrawable(icon)
             setHasClose(icon != null)
-            _closeIconSize = getDimensionPixelSize(R.styleable.Drawer_sd_closeIconSize, DEFAULT_ICON_SIZE)
-            _closeIconPadding = getDimensionPixelSize(R.styleable.Drawer_sd_closeIconPadding, 0)
+            closeIconSize = getDimensionPixelSize(R.styleable.Drawer_sd_closeIconSize, DEFAULT_ICON_SIZE)
+            closeIconPadding = getDimensionPixelSize(R.styleable.Drawer_sd_closeIconPadding, 0)
             val cAl = getInt(R.styleable.Drawer_sd_drawerCloseAlignment, 0)
-            _closeIconAlignment = CloseIconAlignment.values().getOrElse(cAl) { CloseIconAlignment.END }
-            _backgroundList = getColorValueStateList(context, R.styleable.Drawer_sd_background)
+            closeIconAlignment = CloseIconAlignment.values().getOrElse(cAl) { CloseIconAlignment.END }
+            backgroundList = getColorValueStateList(context, R.styleable.Drawer_sd_background)
         }
         buildLayout()
     }
@@ -163,7 +164,7 @@ open class Drawer @JvmOverloads constructor(
      * @param hasClose если true - visible, false - gone
      */
     open fun setHasClose(hasClose: Boolean) {
-        closeIconView.isVisible = hasClose
+        closeIconSection?.isVisible = hasClose
     }
 
     /**
@@ -180,15 +181,15 @@ open class Drawer @JvmOverloads constructor(
      * @see [CloseIconAlignment]
      */
     fun setCloseIconAlignment(alignment: CloseIconAlignment) {
-        if (_closeIconAlignment == alignment) return
-        _closeIconAlignment = alignment
+        if (closeIconAlignment == alignment) return
+        closeIconAlignment = alignment
         header?.removeAllViews()
         populateHeader()
     }
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        setBackgroundValueList(_backgroundList)
+        setBackgroundValueList(backgroundList)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -223,8 +224,7 @@ open class Drawer @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        val movableChildren = (0 until childCount)
-            .map { getChildAt(it) }
+        val movableChildren = children
             .filter { it != header && it != body && it != footer }
         movableChildren.forEach { child ->
             val lp = child.layoutParams as? ContentLayoutParams
@@ -286,18 +286,18 @@ open class Drawer @JvmOverloads constructor(
     }
 
     private fun placeCloseIcon() {
-        val iconGravity = getIconGravity(_closeIconAlignment)
+        val iconGravity = getIconGravity(closeIconAlignment)
         header?.addView(
             closeIconSection,
             FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
                 gravity = iconGravity
-                marginEnd = if (_closeIconAlignment == CloseIconAlignment.START) {
-                    _closeIconPadding
+                marginEnd = if (closeIconAlignment == CloseIconAlignment.START) {
+                    closeIconPadding
                 } else {
                     0
                 }
-                marginStart = if (_closeIconAlignment == CloseIconAlignment.END) {
-                    _closeIconPadding
+                marginStart = if (closeIconAlignment == CloseIconAlignment.END) {
+                    closeIconPadding
                 } else {
                     0
                 }
@@ -314,13 +314,13 @@ open class Drawer @JvmOverloads constructor(
         addView(footer, ContentLayoutParams(WRAP_CONTENT, WRAP_CONTENT))
         userHeaderSection = FrameLayout(context)
         closeIconSection = FrameLayout(context)
-        closeIconSection?.addView(closeIconView, FrameLayout.LayoutParams(_closeIconSize, _closeIconSize))
+        closeIconSection?.addView(closeIconView, FrameLayout.LayoutParams(closeIconSize, closeIconSize))
         populateHeader()
     }
 
     private fun populateHeader() {
         header ?: return
-        if (_closeIconAlignment == CloseIconAlignment.START) {
+        if (closeIconAlignment == CloseIconAlignment.START) {
             placeCloseIcon()
             userHeaderSection?.let { header?.addView(it, LayoutParams(0, WRAP_CONTENT, 1f)) }
         } else {

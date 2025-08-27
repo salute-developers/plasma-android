@@ -38,6 +38,7 @@ internal class DrawerViewModel(
             DrawerProperty.HasPeekOffset.value -> currentState.copy(hasPeekOffset = valueString.toBoolean())
             DrawerProperty.Header.value -> currentState.copy(header = valueString.toBoolean())
             DrawerProperty.Footer.value -> currentState.copy(footer = valueString.toBoolean())
+            DrawerProperty.WrapContent.value -> currentState.copy(wrapContent = valueString.toBoolean())
             else -> currentState
         }
     }
@@ -80,6 +81,10 @@ internal class DrawerViewModel(
                 name = "footer",
                 value = footer,
             ),
+            Property.BooleanProperty(
+                name = "wrapContent",
+                value = wrapContent,
+            ),
         )
     }
 
@@ -93,6 +98,7 @@ internal class DrawerViewModel(
         HasPeekOffset("hasPeekOffset"),
         Header("header"),
         Footer("footer"),
+        WrapContent("wrapContent"),
     }
 }
 

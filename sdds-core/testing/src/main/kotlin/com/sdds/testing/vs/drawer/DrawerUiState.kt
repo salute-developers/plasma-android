@@ -17,6 +17,7 @@ import kotlinx.parcelize.Parcelize
  * @property hasPeekOffset видимая часть панели
  * @property header отображение заголовка
  * @property footer отображение нижнего колонтитула
+ * @property wrapContent ширина выдвижной панели по контенту
  */
 @Parcelize
 data class DrawerUiState(
@@ -30,6 +31,7 @@ data class DrawerUiState(
     val hasPeekOffset: Boolean = false,
     val header: Boolean = true,
     val footer: Boolean = true,
+    val wrapContent: Boolean = true,
 ) : UiState, Parcelable {
 
     override fun updateVariant(variant: String): UiState {

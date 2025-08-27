@@ -34,18 +34,18 @@ open class DrawerLayout @JvmOverloads constructor(
     defStyleRes: Int = 0,
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    private var _pHeight: Int = 0
-    private var _dMargin: Int = 0
-    private var _dSide: DrawerPlacement? = null
-    private var _dExpanded: Boolean = false
-    private var _shiftContent: Boolean = false
+    private var pHeight: Int = 0
+    private var dMargin: Int = 0
+    private var dSide: DrawerPlacement? = null
+    private var expanded: Boolean = false
+    private var shiftContent: Boolean = false
     private var _focusDepended: Boolean = false
     private var _animationEnabled: Boolean = true
     private var drawerView: View? = null
-    private var _overlay: OverlayView = OverlayView(context, attrs)
-    private var _blackout: Boolean = false
-    private var dOffset: Float = 0f
-    private var sOffset: Float = 0f
+    private var overlay: OverlayView = OverlayView(context, attrs)
+    private var blackout: Boolean = false
+    private var drawerOffset: Float = 0f
+    private var startOffset: Float = 0f
     private var isDrag: Boolean = false
     private var startX: Float = 0f
     private var startY: Float = 0f
@@ -54,16 +54,16 @@ open class DrawerLayout @JvmOverloads constructor(
     private var activePointerId = MotionEvent.INVALID_POINTER_ID
     private var _gesturesEnabled: Boolean = true
     private var autoAnimate: Boolean = false
-    private var _canClose: Boolean = true
-    private var _canOpen: Boolean = true
-    private var _wrap: Boolean = true
+    private var canClose: Boolean = true
+    private var canOpen: Boolean = true
+    private var wrap: Boolean = true
 
     private val drawerAnimation: ValueAnimator by lazy {
         ValueAnimator().apply {
             setDuration(200)
             addUpdateListener { animator ->
                 val value = animator.animatedValue as Float
-                when (_dSide) {
+                when (dSide) {
                     DrawerPlacement.LEFT, DrawerPlacement.RIGHT -> {
                         drawerView?.translationX = value
                         moveChildrenByAxis(value, Axis.X)
@@ -86,10 +86,10 @@ open class DrawerLayout @JvmOverloads constructor(
      * когда [Drawer] в expanded состоянии
      */
     open var enableOverlay: Boolean
-        get() = _blackout
+        get() = blackout
         set(value) {
-            if (_blackout != value) {
-                _blackout = value
+            if (blackout != value) {
+                blackout = value
             }
         }
 
@@ -97,10 +97,10 @@ open class DrawerLayout @JvmOverloads constructor(
      * Величина видимой части панели [Drawer] в collapsed состоянии
      */
     open var peekHeight: Int
-        get() = _pHeight
+        get() = pHeight
         set(value) {
-            if (_pHeight != value) {
-                _pHeight = value
+            if (pHeight != value) {
+                pHeight = value
                 requestLayout()
                 invalidate()
             }
@@ -110,10 +110,10 @@ open class DrawerLayout @JvmOverloads constructor(
      * Отступ основного контента от панели [Drawer]
      */
     open var drawerMargin: Int
-        get() = _dMargin
+        get() = dMargin
         set(value) {
-            if (_dMargin != value) {
-                _dMargin = value
+            if (dMargin != value) {
+                dMargin = value
                 requestLayout()
                 invalidate()
             }
@@ -124,10 +124,10 @@ open class DrawerLayout @JvmOverloads constructor(
      * когда [Drawer] выезжает
      */
     open var shouldToShiftContent: Boolean
-        get() = _shiftContent
+        get() = shiftContent
         set(value) {
-            if (_shiftContent != value) {
-                _shiftContent = value
+            if (shiftContent != value) {
+                shiftContent = value
                 requestLayout()
             }
         }
@@ -137,13 +137,13 @@ open class DrawerLayout @JvmOverloads constructor(
      * @see DrawerPlacement
      */
     open var drawerPlacement: DrawerPlacement?
-        get() = _dSide
+        get() = dSide
         set(value) {
-            if (_dSide != value) {
+            if (dSide != value) {
                 if (isExpanded) {
                     forceCollapse()
                 }
-                _dSide = value
+                dSide = value
                 updateLayoutParams()
             }
         }
@@ -189,10 +189,10 @@ open class DrawerLayout @JvmOverloads constructor(
      * когда [DrawerPlacement] LEFT или RIGHT.
      */
     open var wrapContent: Boolean
-        get() = _wrap
+        get() = wrap
         set(value) {
-            if (_wrap != value) {
-                _wrap = value
+            if (wrap != value) {
+                wrap = value
                 updateLayoutParams()
             }
         }
@@ -201,18 +201,13 @@ open class DrawerLayout @JvmOverloads constructor(
      * Проверяет открытое состояние [Drawer] в данный момент
      */
     val isExpanded: Boolean
-        get() = _dExpanded
+        get() = expanded
 
     /**
      * Ссылка на [Drawer] для взаимодействия с его публичными свойствами
      */
     val drawer: Drawer?
-        get() =
-            if (drawerView != null && drawerView is Drawer) {
-                drawerView as Drawer
-            } else {
-                null
-            }
+        get() = drawerView as? Drawer
 
     init {
         isChildrenDrawingOrderEnabled = true
@@ -224,11 +219,11 @@ open class DrawerLayout @JvmOverloads constructor(
         )
         context.withStyledAttributes(attrs, R.styleable.DrawerLayout, defStyleAttr, defStyleRes) {
             _focusDepended = getBoolean(R.styleable.DrawerLayout_sd_focusDepended, false)
-            _shiftContent = getBoolean(R.styleable.DrawerLayout_sd_shiftContent, false)
+            shiftContent = getBoolean(R.styleable.DrawerLayout_sd_shiftContent, false)
             _animationEnabled = getBoolean(R.styleable.DrawerLayout_sd_animationEnabled, true)
-            _pHeight = getDimensionPixelSize(R.styleable.DrawerLayout_sd_peakHeight, 0)
-            _dMargin = getDimensionPixelSize(R.styleable.DrawerLayout_sd_drawerMargin, 0)
-            _wrap = getBoolean(R.styleable.DrawerLayout_sd_wrapContent, true)
+            pHeight = getDimensionPixelSize(R.styleable.DrawerLayout_sd_peakHeight, 0)
+            dMargin = getDimensionPixelSize(R.styleable.DrawerLayout_sd_drawerMargin, 0)
+            wrap = getBoolean(R.styleable.DrawerLayout_sd_wrapContent, true)
         }
         attachOverlay()
     }
@@ -277,8 +272,8 @@ open class DrawerLayout @JvmOverloads constructor(
      * Позволяет заблокировать закрытие [Drawer]
      */
     open fun setCanClose(canClose: Boolean) {
-        if (_canClose != canClose) {
-            _canClose = canClose
+        if (this.canClose != canClose) {
+            this.canClose = canClose
         }
     }
 
@@ -286,8 +281,8 @@ open class DrawerLayout @JvmOverloads constructor(
      * Позволяет заблокировать открытие [Drawer]
      */
     open fun setCanOpen(canOpen: Boolean) {
-        if (_canOpen != canOpen) {
-            _canOpen = canOpen
+        if (this.canOpen != canOpen) {
+            this.canOpen = canOpen
         }
     }
 
@@ -300,7 +295,7 @@ open class DrawerLayout @JvmOverloads constructor(
                 activePointerId = event.getPointerId(0)
                 startX = event.x
                 startY = event.y
-                sOffset = calculateStartOffset()
+                startOffset = calculateStartOffset()
                 isDrag = false
             }
 
@@ -325,9 +320,9 @@ open class DrawerLayout @JvmOverloads constructor(
                     val dx = event.x - startX
                     val dy = event.y - startY
                     if (isOpening(dx, dy)) {
-                        expandWithPosition(dOffset)
+                        expandWithPosition(drawerOffset)
                     } else {
-                        collapseWithPosition(dOffset)
+                        collapseWithPosition(drawerOffset)
                     }
                 }
                 if (event.actionMasked == MotionEvent.ACTION_UP) performClick()
@@ -344,9 +339,8 @@ open class DrawerLayout @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-        for (i in 0 until childCount) {
-            val child = getChildAt(i)
-            val lp = child?.layoutParams as? DrawerLayoutParams
+        children.forEach { child ->
+            val lp = child.layoutParams as? DrawerLayoutParams
             initDrawerIfNeeded(child, lp)
         }
         setupFocusListener()
@@ -354,8 +348,7 @@ open class DrawerLayout @JvmOverloads constructor(
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
-        for (i in 0 until childCount) {
-            val child = getChildAt(i)
+        children.forEach { child ->
             if (child == drawerView) {
                 layoutDrawerView(child)
             }
@@ -376,7 +369,7 @@ open class DrawerLayout @JvmOverloads constructor(
     private fun initDrawerIfNeeded(child: View?, lp: DrawerLayoutParams?) {
         if (drawerView == null && (child is Drawer || lp?.drawerPlacement != null)) {
             drawerView = child
-            lp?.drawerPlacement?.let { _dSide = it }
+            lp?.drawerPlacement?.let { dSide = it }
             applyInitialSettings()
             updateLayoutParams()
         }
@@ -443,44 +436,44 @@ open class DrawerLayout @JvmOverloads constructor(
     private fun followFinger(dx: Float, dy: Float) {
         val dSize = calculateDrawerSize()
         val threshold = dSize / 3
-        when (_dSide) {
+        when (dSide) {
             DrawerPlacement.LEFT -> {
-                dOffset = (sOffset + dx).coerceIn(0f, dSize - peekHeight)
-                drawerView?.translationX = dOffset
-                moveChildrenByAxis(dOffset, Axis.X)
+                drawerOffset = (startOffset + dx).coerceIn(0f, dSize - peekHeight)
+                drawerView?.translationX = drawerOffset
+                moveChildrenByAxis(drawerOffset, Axis.X)
             }
 
             DrawerPlacement.TOP -> {
-                dOffset = (sOffset + dy).coerceIn(0f, dSize - peekHeight)
-                drawerView?.translationY = dOffset
-                moveChildrenByAxis(dOffset, Axis.Y)
+                drawerOffset = (startOffset + dy).coerceIn(0f, dSize - peekHeight)
+                drawerView?.translationY = drawerOffset
+                moveChildrenByAxis(drawerOffset, Axis.Y)
             }
 
             DrawerPlacement.RIGHT -> {
-                dOffset = (sOffset + dx).coerceIn(-dSize + peekHeight, 0f)
-                drawerView?.translationX = dOffset
-                moveChildrenByAxis(dOffset, Axis.X)
+                drawerOffset = (startOffset + dx).coerceIn(-dSize + peekHeight, 0f)
+                drawerView?.translationX = drawerOffset
+                moveChildrenByAxis(drawerOffset, Axis.X)
             }
 
             DrawerPlacement.BOTTOM -> {
-                dOffset = (sOffset + dy).coerceIn(-dSize + peekHeight, 0f)
-                drawerView?.translationY = dOffset
-                moveChildrenByAxis(dOffset, Axis.Y)
+                drawerOffset = (startOffset + dy).coerceIn(-dSize + peekHeight, 0f)
+                drawerView?.translationY = drawerOffset
+                moveChildrenByAxis(drawerOffset, Axis.Y)
             }
 
             null -> {}
         }
-        if (isOpening(dx, dy) && abs(dOffset) > threshold) {
+        if (isOpening(dx, dy) && abs(drawerOffset) > threshold) {
             autoAnimate = true
-            expandWithPosition(dOffset)
-        } else if (!isOpening(dx, dy) && abs(dOffset) < dSize - threshold) {
+            expandWithPosition(drawerOffset)
+        } else if (!isOpening(dx, dy) && abs(drawerOffset) < dSize - threshold) {
             autoAnimate = true
-            collapseWithPosition(dOffset)
+            collapseWithPosition(drawerOffset)
         }
     }
 
     private fun isSwipeInMainAxis(dx: Float, dy: Float): Boolean {
-        return when (_dSide) {
+        return when (dSide) {
             DrawerPlacement.LEFT, DrawerPlacement.RIGHT ->
                 abs(dx) > touchSlop && abs(dx) > abs(dy)
 
@@ -492,7 +485,7 @@ open class DrawerLayout @JvmOverloads constructor(
     }
 
     private fun isOpening(dx: Float, dy: Float): Boolean {
-        return when (_dSide) {
+        return when (dSide) {
             DrawerPlacement.LEFT -> dx > 0
             DrawerPlacement.RIGHT -> dx < 0
             DrawerPlacement.TOP -> dy > 0
@@ -502,28 +495,27 @@ open class DrawerLayout @JvmOverloads constructor(
     }
 
     private fun attachOverlay() {
-        _overlay.visibility = INVISIBLE
+        overlay.visibility = INVISIBLE
         val lp = DrawerLayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT,
         )
-        addView(_overlay, lp)
+        addView(overlay, lp)
     }
 
     private fun applyInitialSettings() {
         drawerView?.let { drawer ->
             children.filter { it != drawer }.forEach { child ->
                 val lp = (child.layoutParams as? MarginLayoutParams) ?: return@forEach
-                when (_dSide) {
-                    DrawerPlacement.LEFT -> lp.updateMargins(left = _pHeight + _dMargin)
-                    DrawerPlacement.TOP -> lp.updateMargins(top = _pHeight + _dMargin)
-                    DrawerPlacement.RIGHT -> lp.updateMargins(right = _pHeight + _dMargin)
-                    DrawerPlacement.BOTTOM -> lp.updateMargins(bottom = _pHeight + _dMargin)
+                when (dSide) {
+                    DrawerPlacement.LEFT -> lp.updateMargins(left = pHeight + dMargin)
+                    DrawerPlacement.TOP -> lp.updateMargins(top = pHeight + dMargin)
+                    DrawerPlacement.RIGHT -> lp.updateMargins(right = pHeight + dMargin)
+                    DrawerPlacement.BOTTOM -> lp.updateMargins(bottom = pHeight + dMargin)
                     null -> {}
                 }
                 child.layoutParams = lp
             }
-            drawer.translationZ = 1000f
         }
     }
 
@@ -536,11 +528,11 @@ open class DrawerLayout @JvmOverloads constructor(
         val marginBottom = child.marginBottom
         val childWidth = child.measuredWidth
         val childHeight = child.measuredHeight
-        val (dLeft, dTop) = when (_dSide) {
-            DrawerPlacement.LEFT -> (pL - childWidth + _pHeight + marginLeft) to (pT + marginTop)
-            DrawerPlacement.TOP -> (pL + marginLeft) to (pT - childHeight + _pHeight + marginTop)
-            DrawerPlacement.RIGHT -> (width - _pHeight - marginRight - paddingRight) to (pT + marginTop)
-            DrawerPlacement.BOTTOM -> (pL + marginLeft) to (height - _pHeight - marginBottom - paddingBottom)
+        val (dLeft, dTop) = when (dSide) {
+            DrawerPlacement.LEFT -> (pL - childWidth + pHeight + marginLeft) to (pT + marginTop)
+            DrawerPlacement.TOP -> (pL + marginLeft) to (pT - childHeight + pHeight + marginTop)
+            DrawerPlacement.RIGHT -> (width - pHeight - marginRight - paddingRight) to (pT + marginTop)
+            DrawerPlacement.BOTTOM -> (pL + marginLeft) to (height - pHeight - marginBottom - paddingBottom)
             null -> 0 to 0
         }
         val wasExpanded = isExpanded
@@ -573,7 +565,7 @@ open class DrawerLayout @JvmOverloads constructor(
             drawerAnimation.setFloatValues(from, to)
             drawerAnimation.start()
         } else {
-            when (_dSide) {
+            when (dSide) {
                 DrawerPlacement.LEFT, DrawerPlacement.RIGHT -> {
                     drawerView?.translationX = to
                     moveChildrenByAxis(to, Axis.X)
@@ -632,7 +624,7 @@ open class DrawerLayout @JvmOverloads constructor(
         }
     }
 
-    private fun calculateDrawerSize() = when (_dSide) {
+    private fun calculateDrawerSize() = when (dSide) {
         DrawerPlacement.LEFT, DrawerPlacement.RIGHT -> drawerView?.width?.toFloat() ?: 0f
         DrawerPlacement.TOP, DrawerPlacement.BOTTOM -> drawerView?.height?.toFloat() ?: 0f
         null -> 0f
@@ -640,34 +632,34 @@ open class DrawerLayout @JvmOverloads constructor(
 
     private fun calculateExpandedPos(): Float {
         val dSize = calculateDrawerSize()
-        return when (_dSide) {
-            DrawerPlacement.LEFT, DrawerPlacement.TOP -> dSize - _pHeight
-            DrawerPlacement.RIGHT, DrawerPlacement.BOTTOM -> _pHeight - dSize
+        return when (dSide) {
+            DrawerPlacement.LEFT, DrawerPlacement.TOP -> dSize - pHeight
+            DrawerPlacement.RIGHT, DrawerPlacement.BOTTOM -> pHeight - dSize
             null -> 0f
         }
     }
 
     private fun expandWithPosition(position: Float = 0f) {
-        if (_dExpanded) return
-        if (_canOpen) {
+        if (isExpanded) return
+        if (canOpen) {
             animateDrawer(true, position)
-            if (enableOverlay) _overlay.visibility = VISIBLE
-            _dExpanded = true
+            if (enableOverlay) overlay.visibility = VISIBLE
+            expanded = true
         }
     }
 
     private fun collapseWithPosition(position: Float = 0f) {
-        if (!_dExpanded) return
-        if (_canClose) {
+        if (!isExpanded) return
+        if (canClose) {
             animateDrawer(false, position)
-            if (enableOverlay) _overlay.visibility = INVISIBLE
-            _dExpanded = false
+            if (enableOverlay) overlay.visibility = INVISIBLE
+            expanded = false
         }
     }
 
     private fun updateLayoutParams() {
         drawerView ?: return
-        val lp = when (_dSide) {
+        val lp = when (dSide) {
             DrawerPlacement.TOP, DrawerPlacement.BOTTOM -> {
                 DrawerLayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
@@ -676,7 +668,7 @@ open class DrawerLayout @JvmOverloads constructor(
             }
 
             else -> {
-                if (_wrap) {
+                if (wrap) {
                     DrawerLayoutParams(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.MATCH_PARENT,
@@ -689,38 +681,38 @@ open class DrawerLayout @JvmOverloads constructor(
                 }
             }
         }
-        lp.drawerPlacement = _dSide
+        lp.drawerPlacement = dSide
         drawerView?.layoutParams = lp
     }
 
     private fun forceCollapse() {
         val tempAnimation = animationEnabled
-        val tempCanClose = _canClose
+        val tempCanClose = canClose
         animationEnabled = false
-        _canClose = true
+        canClose = true
         collapse()
         animationEnabled = tempAnimation
-        _canClose = tempCanClose
+        canClose = tempCanClose
     }
 
     private fun forceExpand() {
         val tempAnimation = animationEnabled
-        val tempCanOpen = _canOpen
+        val tempCanOpen = canOpen
         animationEnabled = false
-        _canOpen = true
+        canOpen = true
         expand()
         animationEnabled = tempAnimation
-        _canOpen = tempCanOpen
+        canOpen = tempCanOpen
     }
 
     private fun resolveDragOpen(dx: Float, dy: Float) {
-        if (isOpening(dx, dy) && _canOpen) {
+        if (isOpening(dx, dy) && canOpen) {
             followFinger(dx, dy)
         }
     }
 
     private fun resolveDragClose(dx: Float, dy: Float) {
-        if (!isOpening(dx, dy) && _canClose) {
+        if (!isOpening(dx, dy) && canClose) {
             followFinger(dx, dy)
         }
     }
