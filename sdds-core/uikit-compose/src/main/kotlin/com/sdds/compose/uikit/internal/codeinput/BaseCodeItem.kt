@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.internal.codeinput
 
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -41,6 +42,7 @@ import com.sdds.compose.uikit.interactions.getValue
 internal fun CodeItem(
     char: String?,
     hidden: Boolean,
+    showFocusSelector: Boolean,
     isActivated: Boolean,
     isCodeValid: Boolean,
     isItemValid: (String) -> Boolean,
@@ -56,13 +58,17 @@ internal fun CodeItem(
 ) {
     val shapeModifier = shape?.let { Modifier.clip(it) } ?: Modifier
     val itemValid = char?.let { isItemValid.invoke(it) } ?: true
-    val itemStateSet = remember(itemValid, isCodeValid, isActivated) {
-        if (!itemValid || !isCodeValid) {
-            setOf(CodeInputStates.Error)
-        } else if (isActivated) {
-            setOf(InteractiveState.Activated)
-        } else {
-            emptySet()
+    val itemStateSet = remember(
+        itemValid,
+        isCodeValid,
+        isActivated,
+        showFocusSelector,
+    ) {
+        when {
+            showFocusSelector -> setOf(CodeInputStates.Focused)
+            !itemValid || !isCodeValid -> setOf(CodeInputStates.Error)
+            isActivated -> setOf(InteractiveState.Activated)
+            else -> emptySet()
         }
     }
     val shakeOffset by rememberCodeInputShakeAnimation(
@@ -84,7 +90,7 @@ internal fun CodeItem(
             if (hidden) {
                 FilledDot(
                     color = colors.dotColor.getValue(interactionSource, itemStateSet),
-                    size = dimensions.dotSize,
+                    size = dimensions.dotSize.getValue(interactionSource, itemStateSet),
                 )
             } else {
                 TextOnCanvas(
@@ -98,7 +104,7 @@ internal fun CodeItem(
             if (cursor != null && isActivated) Cursor(cursor)
             EmptyDot(
                 color = colors.strokeColor.getValue(interactionSource, itemStateSet),
-                size = dimensions.dotSize,
+                size = dimensions.dotSize.getValue(interactionSource, itemStateSet),
                 strokeWidth = dimensions.strokeWidth,
             )
         }
@@ -171,6 +177,7 @@ private fun FilledDot(
 
 @Composable
 private fun EmptyDot(
+    modifier: Modifier = Modifier,
     color: Color,
     size: Dp,
     strokeWidth: Dp,
@@ -179,6 +186,7 @@ private fun EmptyDot(
     val strokeWidthPx = with(LocalDensity.current) { strokeWidth.toPx() }
     val stroke = remember(strokeWidthPx) { Stroke(width = strokeWidthPx) }
     Dot(
+        modifier = modifier,
         color = color,
         size = size,
         drawStyle = stroke,
@@ -192,9 +200,10 @@ private fun Dot(
     size: Dp,
     drawStyle: DrawStyle,
 ) {
+    val animatedSize = animateDpAsState(size)
     Box(
         modifier = modifier.drawWithCache {
-            val sizePx = size.toPx() / 2f
+            val sizePx = animatedSize.value.toPx() / 2f
             onDrawBehind {
                 drawCircle(
                     color = color,

@@ -75,6 +75,8 @@ private val CodeInputStyleBuilder.invariantProps: CodeInputStyleBuilder
                 StylesSaluteTheme.colors.outlineDefaultSolidDefault.asStatefulValue(
                     setOf(CodeInputStates.Error)
                         to StylesSaluteTheme.colors.outlineDefaultNegative,
+                    setOf(CodeInputStates.Focused)
+                        to StylesSaluteTheme.colors.outlineDefaultAccent,
                 ),
             )
         }
@@ -87,7 +89,11 @@ public val CodeInput.S: WrapperCodeInputS
         .codeStyle(StylesSaluteTheme.typography.displaySBold)
         .captionStyle(StylesSaluteTheme.typography.headerH5Normal)
         .dimensions {
-            dotSize(12.0.dp)
+            circleSize(
+                12.0.dp.asStatefulValue(
+                    setOf(CodeInputStates.Focused) to 16.0.dp,
+                ),
+            )
             strokeWidth(1.0.dp)
             itemHeight(44.0.dp)
             itemWidth(26.0.dp)
@@ -105,7 +111,11 @@ public val CodeInput.M: WrapperCodeInputM
         .codeStyle(StylesSaluteTheme.typography.displayMBold)
         .captionStyle(StylesSaluteTheme.typography.headerH4Normal)
         .dimensions {
-            dotSize(16.0.dp)
+            circleSize(
+                16.0.dp.asStatefulValue(
+                    setOf(CodeInputStates.Focused) to 24.0.dp,
+                ),
+            )
             strokeWidth(1.5.dp)
             itemHeight(60.0.dp)
             itemWidth(36.0.dp)
@@ -123,7 +133,11 @@ public val CodeInput.L: WrapperCodeInputL
         .codeStyle(StylesSaluteTheme.typography.displayLBold)
         .captionStyle(StylesSaluteTheme.typography.headerH3Normal)
         .dimensions {
-            dotSize(24.0.dp)
+            circleSize(
+                24.0.dp.asStatefulValue(
+                    setOf(CodeInputStates.Focused) to 36.0.dp,
+                ),
+            )
             strokeWidth(2.0.dp)
             itemHeight(92.0.dp)
             itemWidth(56.0.dp)

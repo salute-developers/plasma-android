@@ -70,7 +70,7 @@ fun CodeField(
     }
     val dimensions = remember(style.dimensions) {
         BaseCodeInputDimensions(
-            dotSize = style.dimensions.dotSize,
+            dotSize = style.dimensions.dotSize.asStatefulValue(),
             height = style.dimensions.height.asStatefulValue(),
             width = style.dimensions.width.asStatefulValue(),
             itemSpacing = style.dimensions.itemSpacing,
@@ -102,6 +102,7 @@ fun CodeField(
         hidden = hidden,
         enabled = enabled,
         interactionSource = interactionSource,
+        hasItemFocusSelector = false,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
         animationSpec = animationSpec,

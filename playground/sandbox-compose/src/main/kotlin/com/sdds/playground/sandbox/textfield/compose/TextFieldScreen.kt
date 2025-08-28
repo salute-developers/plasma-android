@@ -28,9 +28,9 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.style.style
+import com.sdds.playground.sandbox.FieldFocusSelectorModeSwitch
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.TextFieldFocusSelectorModeSwitch
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.serv.styles.basicbutton.BasicButton
@@ -55,7 +55,7 @@ internal fun TextFieldScreen(componentKey: ComponentKey = ComponentKey.TextField
         viewModel = textFieldViewModel,
         component = { textFieldUiState, style ->
             val focusManager = LocalFocusManager.current
-            var isFocusSelectorOn by remember { mutableStateOf(!TextFieldFocusSelectorModeSwitch) }
+            var isFocusSelectorOn by remember { mutableStateOf(!FieldFocusSelectorModeSwitch) }
             Column {
                 TextField(
                     value = textFieldUiState.textFieldValue,
@@ -93,7 +93,7 @@ internal fun TextFieldScreen(componentKey: ComponentKey = ComponentKey.TextField
                     },
                 )
 
-                if (TextFieldFocusSelectorModeSwitch) {
+                if (FieldFocusSelectorModeSwitch) {
                     Spacer(Modifier.size(64.dp))
                     Switch(
                         active = isFocusSelectorOn,

@@ -9,6 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.animation.rememberShakeAnimationSpec
 import com.sdds.compose.uikit.internal.codeinput.BaseCodeInput
@@ -58,6 +60,7 @@ fun CodeInput(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     animationSpec: AnimationSpec<Float>? = rememberShakeAnimationSpec(),
+    hasItemFocusSelector: Boolean = LocalFocusSelectorSettings.current.isEnabled(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val colors = remember(style.colors) {
@@ -70,7 +73,7 @@ fun CodeInput(
     }
     val dimensions = remember(style.dimensions) {
         BaseCodeInputDimensions(
-            dotSize = style.dimensions.dotSize,
+            dotSize = style.dimensions.circleSize,
             strokeWidth = style.dimensions.strokeWidth,
             height = style.dimensions.itemHeight,
             width = style.dimensions.itemWidth,
@@ -100,6 +103,7 @@ fun CodeInput(
         hidden = hidden,
         enabled = enabled,
         interactionSource = interactionSource,
+        hasItemFocusSelector = hasItemFocusSelector,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
         animationSpec = animationSpec,
@@ -116,6 +120,11 @@ enum class CodeInputStates : ValueState {
      * Введен некорректный символ или код некорректный
      */
     Error,
+
+    /**
+     * Компонент находится в фокусе, ввод не активен.
+     */
+    Focused,
 }
 
 /**
