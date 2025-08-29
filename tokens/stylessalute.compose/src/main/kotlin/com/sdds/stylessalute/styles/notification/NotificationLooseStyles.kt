@@ -19,8 +19,8 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.stylessalute.styles.notificationcontent.Default
-import com.sdds.stylessalute.styles.notificationcontent.NoIcon
-import com.sdds.stylessalute.styles.notificationcontent.NotificationContentLoose
+import com.sdds.stylessalute.styles.notificationcontent.NoButtonStretch
+import com.sdds.stylessalute.styles.notificationcontent.NotificationContent
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -59,7 +59,7 @@ public value class WrapperNotificationLooseS(
 private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
-        .notificationContentStyle(NotificationContentLoose.NoIcon.Default.style())
+        .notificationContentStyle(NotificationContent.NoButtonStretch.Default.style())
         .colors {
             backgroundColor(
                 SolidColor(StylesSaluteTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),

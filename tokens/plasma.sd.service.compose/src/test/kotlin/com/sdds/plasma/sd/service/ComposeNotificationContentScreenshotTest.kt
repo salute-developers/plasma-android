@@ -2,14 +2,14 @@ package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.notificationcontent.ButtonStretch
 import com.sdds.plasma.sd.service.styles.notificationcontent.Default
 import com.sdds.plasma.sd.service.styles.notificationcontent.IconStart
 import com.sdds.plasma.sd.service.styles.notificationcontent.IconTop
 import com.sdds.plasma.sd.service.styles.notificationcontent.Info
 import com.sdds.plasma.sd.service.styles.notificationcontent.Negative
-import com.sdds.plasma.sd.service.styles.notificationcontent.NoIcon
-import com.sdds.plasma.sd.service.styles.notificationcontent.NotificationContentCompact
-import com.sdds.plasma.sd.service.styles.notificationcontent.NotificationContentLoose
+import com.sdds.plasma.sd.service.styles.notificationcontent.NoButtonStretch
+import com.sdds.plasma.sd.service.styles.notificationcontent.NotificationContent
 import com.sdds.plasma.sd.service.styles.notificationcontent.Positive
 import com.sdds.plasma.sd.service.styles.notificationcontent.Warning
 import com.sdds.testing.compose.RoborazziConfigCompose
@@ -35,42 +35,42 @@ class ComposeNotificationContentScreenshotTest(
     @Test
     fun testNotificationContentNoIconDefault() {
         composeTestRule.content {
-            NotificationContentHasAction(style = NotificationContentCompact.NoIcon.Default.style())
+            NotificationContentHasAction(style = NotificationContent.ButtonStretch.Default.style())
         }
     }
 
     @Test
     fun testNotificationContentIconTopPositiveNoTitle() {
         composeTestRule.content {
-            NotificationContentNoTitle(style = NotificationContentCompact.IconTop.Positive.style())
+            NotificationContentNoTitle(style = NotificationContent.ButtonStretch.IconTop.Positive.style())
         }
     }
 
     @Test
     fun testNotificationContentIconStartNegative() {
         composeTestRule.content {
-            NotificationContentNoText(style = NotificationContentCompact.IconStart.Negative.style())
+            NotificationContentNoText(style = NotificationContent.ButtonStretch.IconStart.Negative.style())
         }
     }
 
     @Test
     fun testNotificationContentIconTopWarning() {
         composeTestRule.content {
-            NotificationContentNoTitleNoText(style = NotificationContentCompact.IconTop.Warning.style())
+            NotificationContentNoTitleNoText(style = NotificationContent.ButtonStretch.IconTop.Warning.style())
         }
     }
 
     @Test
     fun testNotificationContentIconStartInfo() {
         composeTestRule.content {
-            NotificationContentLongText(style = NotificationContentCompact.IconStart.Info.style())
+            NotificationContentLongText(style = NotificationContent.ButtonStretch.IconStart.Info.style())
         }
     }
 
     @Test
     fun testNotificationContentLooseIconStartDefault() {
         composeTestRule.content {
-            NotificationContentHasAction(style = NotificationContentLoose.IconStart.Default.style())
+            NotificationContentHasAction(style = NotificationContent.NoButtonStretch.IconStart.Default.style())
         }
     }
 }

@@ -9,14 +9,14 @@ import com.sdds.testing.compose.notificationcontent.NotificationContentNoText
 import com.sdds.testing.compose.notificationcontent.NotificationContentNoTitle
 import com.sdds.testing.compose.notificationcontent.NotificationContentNoTitleNoText
 import com.sdds.testing.vs.SDK_NUMBER
+import com.sdkit.star.designsystem.styles.notificationcontent.ButtonStretch
 import com.sdkit.star.designsystem.styles.notificationcontent.Default
 import com.sdkit.star.designsystem.styles.notificationcontent.IconStart
 import com.sdkit.star.designsystem.styles.notificationcontent.IconTop
 import com.sdkit.star.designsystem.styles.notificationcontent.Info
 import com.sdkit.star.designsystem.styles.notificationcontent.Negative
-import com.sdkit.star.designsystem.styles.notificationcontent.NoIcon
-import com.sdkit.star.designsystem.styles.notificationcontent.NotificationContentCompact
-import com.sdkit.star.designsystem.styles.notificationcontent.NotificationContentLoose
+import com.sdkit.star.designsystem.styles.notificationcontent.NoButtonStretch
+import com.sdkit.star.designsystem.styles.notificationcontent.NotificationContent
 import com.sdkit.star.designsystem.styles.notificationcontent.Positive
 import com.sdkit.star.designsystem.styles.notificationcontent.Warning
 import org.junit.Test
@@ -33,42 +33,42 @@ class ComposeNotificationContentScreenshotTest : RoborazziConfigCompose("+night"
     @Test
     fun testNotificationContentNoIconDefault() {
         composeTestRule.content {
-            NotificationContentHasAction(style = NotificationContentCompact.NoIcon.Default.style())
+            NotificationContentHasAction(style = NotificationContent.ButtonStretch.Default.style())
         }
     }
 
     @Test
     fun testNotificationContentIconTopPositiveNoTitle() {
         composeTestRule.content {
-            NotificationContentNoTitle(style = NotificationContentCompact.IconTop.Positive.style())
+            NotificationContentNoTitle(style = NotificationContent.ButtonStretch.IconTop.Positive.style())
         }
     }
 
     @Test
     fun testNotificationContentIconStartNegative() {
         composeTestRule.content {
-            NotificationContentNoText(style = NotificationContentCompact.IconStart.Negative.style())
+            NotificationContentNoText(style = NotificationContent.ButtonStretch.IconStart.Negative.style())
         }
     }
 
     @Test
     fun testNotificationContentIconTopWarning() {
         composeTestRule.content {
-            NotificationContentNoTitleNoText(style = NotificationContentCompact.IconTop.Warning.style())
+            NotificationContentNoTitleNoText(style = NotificationContent.ButtonStretch.IconTop.Warning.style())
         }
     }
 
     @Test
     fun testNotificationContentIconStartInfo() {
         composeTestRule.content {
-            NotificationContentLongText(style = NotificationContentCompact.IconStart.Info.style())
+            NotificationContentLongText(style = NotificationContent.ButtonStretch.IconStart.Info.style())
         }
     }
 
     @Test
     fun testNotificationContentLooseIconStartDefault() {
         composeTestRule.content {
-            NotificationContentHasAction(style = NotificationContentLoose.IconStart.Default.style())
+            NotificationContentHasAction(style = NotificationContent.NoButtonStretch.IconStart.Default.style())
         }
     }
 }

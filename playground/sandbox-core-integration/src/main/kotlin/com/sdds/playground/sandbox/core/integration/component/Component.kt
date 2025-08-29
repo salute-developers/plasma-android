@@ -162,7 +162,7 @@ data class ComponentKey(
         val Toast = ComponentKey("Toast", CoreComponent.TOAST)
         val Modal = ComponentKey("Modal", CoreComponent.MODAL)
         val Notification = ComponentKey("Notification", CoreComponent.NOTIFICATION)
-        val NotificationContent = ComponentKey("Notification", CoreComponent.NOTIFICATION_CONTENT)
+        val NotificationContent = ComponentKey("NotificationContent", CoreComponent.NOTIFICATION_CONTENT)
         val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
         val Spinner = ComponentKey("Spinner", CoreComponent.SPINNER)
         val List = ComponentKey("List", CoreComponent.LIST)

@@ -20,8 +20,8 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.styles.notificationcontent.Default
-import com.sdkit.star.designsystem.styles.notificationcontent.NoIcon
-import com.sdkit.star.designsystem.styles.notificationcontent.NotificationContentLoose
+import com.sdkit.star.designsystem.styles.notificationcontent.NoButtonStretch
+import com.sdkit.star.designsystem.styles.notificationcontent.NotificationContent
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -60,7 +60,7 @@ public value class WrapperNotificationLooseS(
 private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
-        .notificationContentStyle(NotificationContentLoose.NoIcon.Default.style())
+        .notificationContentStyle(NotificationContent.NoButtonStretch.Default.style())
         .colors {
             backgroundColor(
                 SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),

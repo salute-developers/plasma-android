@@ -48,8 +48,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.loader.PlasmaSd
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsCompose
-import com.sdds.playground.sandbox.plasma.sd.service.integration.notificationcontent.PlasmaSdServiceNotificationContentCompactVariationsCompose
-import com.sdds.playground.sandbox.plasma.sd.service.integration.notificationcontent.PlasmaSdServiceNotificationContentLooseVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.notificationcontent.PlasmaSdServiceNotificationContentVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.compose.PlasmaSdServiceOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.PlasmaSdServicePopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
@@ -258,12 +257,8 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
                 PlasmaSdServiceNotificationCompactVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey("NotificationContentLoose", CoreComponent.NOTIFICATION_CONTENT),
-                PlasmaSdServiceNotificationContentLooseVariationsCompose,
-            ),
-            ComposeComponent(
-                ComponentKey("NotificationContentCompact", CoreComponent.NOTIFICATION_CONTENT),
-                PlasmaSdServiceNotificationContentCompactVariationsCompose,
+                ComponentKey.NotificationContent,
+                PlasmaSdServiceNotificationContentVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RectSkeleton,

@@ -31,8 +31,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.list.StarDsListVari
 import com.sdds.playground.sandbox.plasma.stards.integration.loader.StarDsLoaderVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsCompose
-import com.sdds.playground.sandbox.plasma.stards.integration.notificationcontent.StarDsNotificationContentCompactVariationsCompose
-import com.sdds.playground.sandbox.plasma.stards.integration.notificationcontent.StarDsNotificationContentLooseVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.notificationcontent.StarDsNotificationContentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.overlay.compose.StarDsOverlayVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.popover.StarDsPopoverVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
@@ -190,12 +189,8 @@ object StarDsComposeComponents : ComponentsProviderCompose {
                 StarDsNotificationCompactVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey("NotificationContentLoose", CoreComponent.NOTIFICATION_CONTENT),
-                StarDsNotificationContentLooseVariationsCompose,
-            ),
-            ComposeComponent(
-                ComponentKey("NotificationContentCompact", CoreComponent.NOTIFICATION_CONTENT),
-                StarDsNotificationContentCompactVariationsCompose,
+                ComponentKey.NotificationContent,
+                StarDsNotificationContentVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Spinner,

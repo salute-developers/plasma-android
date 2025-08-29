@@ -21,6 +21,7 @@ import com.sdds.serv.styles.buttongroup.BasicButtonGroup
 import com.sdds.serv.styles.buttongroup.Default
 import com.sdds.serv.styles.buttongroup.Dense
 import com.sdds.serv.styles.buttongroup.Xs
+import com.sdds.serv.styles.buttongroup.Xxs
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -29,7 +30,7 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperNotificationContentCompact :
+public interface WrapperNotificationContent :
     BuilderWrapper<NotificationContentStyle, NotificationContentStyleBuilder>
 
 /**
@@ -38,41 +39,65 @@ public interface WrapperNotificationContentCompact :
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperNotificationContentCompactView : WrapperNotificationContentCompact
+public interface WrapperNotificationContentView : WrapperNotificationContent
 
 /**
  * Терминальная обертка
  */
 @JvmInline
-public value class WrapperNotificationContentCompactTerminate(
+public value class WrapperNotificationContentTerminate(
     public override val builder: NotificationContentStyleBuilder,
-) : WrapperNotificationContentCompact
+) : WrapperNotificationContent
 
 /**
- * Обертка для вариации NoIcon
+ * Обертка для вариации ButtonStretch
  */
 @JvmInline
-public value class WrapperNotificationContentCompactNoIcon(
+public value class WrapperNotificationContentButtonStretch(
     public override val builder: NotificationContentStyleBuilder,
-) : WrapperNotificationContentCompactView
+) : WrapperNotificationContentView
 
 /**
- * Обертка для вариации IconTop
+ * Обертка для вариации ButtonStretchIconTop
  */
 @JvmInline
-public value class WrapperNotificationContentCompactIconTop(
+public value class WrapperNotificationContentButtonStretchIconTop(
     public override val builder: NotificationContentStyleBuilder,
-) : WrapperNotificationContentCompactView
+) : WrapperNotificationContentView
 
 /**
- * Обертка для вариации IconStart
+ * Обертка для вариации ButtonStretchIconStart
  */
 @JvmInline
-public value class WrapperNotificationContentCompactIconStart(
+public value class WrapperNotificationContentButtonStretchIconStart(
     public override val builder: NotificationContentStyleBuilder,
-) : WrapperNotificationContentCompactView
+) : WrapperNotificationContentView
 
-public val WrapperNotificationContentCompactView.Default: WrapperNotificationContentCompactTerminate
+/**
+ * Обертка для вариации NoButtonStretch
+ */
+@JvmInline
+public value class WrapperNotificationContentNoButtonStretch(
+    public override val builder: NotificationContentStyleBuilder,
+) : WrapperNotificationContentView
+
+/**
+ * Обертка для вариации NoButtonStretchIconTop
+ */
+@JvmInline
+public value class WrapperNotificationContentNoButtonStretchIconTop(
+    public override val builder: NotificationContentStyleBuilder,
+) : WrapperNotificationContentView
+
+/**
+ * Обертка для вариации NoButtonStretchIconStart
+ */
+@JvmInline
+public value class WrapperNotificationContentNoButtonStretchIconStart(
+    public override val builder: NotificationContentStyleBuilder,
+) : WrapperNotificationContentView
+
+public val WrapperNotificationContentView.Default: WrapperNotificationContentTerminate
     @Composable
     get() = builder
         .colors {
@@ -86,10 +111,9 @@ public val WrapperNotificationContentCompactView.Default: WrapperNotificationCon
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperNotificationContentCompactTerminate)
+        .wrap(::WrapperNotificationContentTerminate)
 
-public val WrapperNotificationContentCompactView.Positive:
-    WrapperNotificationContentCompactTerminate
+public val WrapperNotificationContentView.Positive: WrapperNotificationContentTerminate
     @Composable
     get() = builder
         .colors {
@@ -103,10 +127,9 @@ public val WrapperNotificationContentCompactView.Positive:
                 SddsServTheme.colors.textDefaultPositive.asInteractive(),
             )
         }
-        .wrap(::WrapperNotificationContentCompactTerminate)
+        .wrap(::WrapperNotificationContentTerminate)
 
-public val WrapperNotificationContentCompactView.Negative:
-    WrapperNotificationContentCompactTerminate
+public val WrapperNotificationContentView.Negative: WrapperNotificationContentTerminate
     @Composable
     get() = builder
         .colors {
@@ -120,9 +143,9 @@ public val WrapperNotificationContentCompactView.Negative:
                 SddsServTheme.colors.textDefaultNegative.asInteractive(),
             )
         }
-        .wrap(::WrapperNotificationContentCompactTerminate)
+        .wrap(::WrapperNotificationContentTerminate)
 
-public val WrapperNotificationContentCompactView.Warning: WrapperNotificationContentCompactTerminate
+public val WrapperNotificationContentView.Warning: WrapperNotificationContentTerminate
     @Composable
     get() = builder
         .colors {
@@ -136,9 +159,9 @@ public val WrapperNotificationContentCompactView.Warning: WrapperNotificationCon
                 SddsServTheme.colors.textDefaultWarning.asInteractive(),
             )
         }
-        .wrap(::WrapperNotificationContentCompactTerminate)
+        .wrap(::WrapperNotificationContentTerminate)
 
-public val WrapperNotificationContentCompactView.Info: WrapperNotificationContentCompactTerminate
+public val WrapperNotificationContentView.Info: WrapperNotificationContentTerminate
     @Composable
     get() = builder
         .colors {
@@ -152,55 +175,93 @@ public val WrapperNotificationContentCompactView.Info: WrapperNotificationConten
                 SddsServTheme.colors.textDefaultInfo.asInteractive(),
             )
         }
-        .wrap(::WrapperNotificationContentCompactTerminate)
+        .wrap(::WrapperNotificationContentTerminate)
 
 private val NotificationContentStyleBuilder.invariantProps: NotificationContentStyleBuilder
     @Composable
     get() = this
-        .buttonLayout(NotificationContentButtonLayout.Stretch)
-        .buttonGroupStyle(BasicButtonGroup.Xs.Dense.Default.style())
         .icon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
         .titleStyle(SddsServTheme.typography.bodySBold)
         .textStyle(SddsServTheme.typography.textSNormal)
         .dimensions {
             iconSize(24.0.dp)
             textPadding(4.0.dp)
-            contentStartPadding(4.0.dp)
-            contentTopPadding(2.0.dp)
             textBoxBottomPadding(6.0.dp)
             buttonGroupTopPadding(6.0.dp)
         }
 
-public val NotificationContentCompact.NoIcon: WrapperNotificationContentCompactNoIcon
+public val NotificationContent.ButtonStretch: WrapperNotificationContentButtonStretch
     @Composable
-    @JvmName("WrapperNotificationContentCompactNoIcon")
+    @JvmName("WrapperNotificationContentButtonStretch")
     get() = NotificationContentStyle.builder(this)
         .invariantProps
-        .iconPlacement(NotificationContentIconPlacement.None)
-        .wrap(::WrapperNotificationContentCompactNoIcon)
+        .buttonLayout(NotificationContentButtonLayout.Stretch)
+        .buttonGroupStyle(BasicButtonGroup.Xs.Dense.Default.style())
+        .dimensions {
+            contentStartPadding(4.0.dp)
+            contentTopPadding(2.0.dp)
+        }
+        .wrap(::WrapperNotificationContentButtonStretch)
 
-public val NotificationContentCompact.IconTop: WrapperNotificationContentCompactIconTop
+public val WrapperNotificationContentButtonStretch.IconTop:
+    WrapperNotificationContentButtonStretchIconTop
     @Composable
-    @JvmName("WrapperNotificationContentCompactIconTop")
-    get() = NotificationContentStyle.builder(this)
-        .invariantProps
+    @JvmName("WrapperNotificationContentButtonStretchIconTop")
+    get() = builder
         .iconPlacement(NotificationContentIconPlacement.Top)
         .dimensions {
             iconMargin(8.0.dp)
             contentEndPadding(6.0.dp)
             textBoxStartPadding(2.0.dp)
         }
-        .wrap(::WrapperNotificationContentCompactIconTop)
+        .wrap(::WrapperNotificationContentButtonStretchIconTop)
 
-public val NotificationContentCompact.IconStart: WrapperNotificationContentCompactIconStart
+public val WrapperNotificationContentButtonStretch.IconStart:
+    WrapperNotificationContentButtonStretchIconStart
     @Composable
-    @JvmName("WrapperNotificationContentCompactIconStart")
-    get() = NotificationContentStyle.builder(this)
-        .invariantProps
+    @JvmName("WrapperNotificationContentButtonStretchIconStart")
+    get() = builder
         .iconPlacement(NotificationContentIconPlacement.Start)
         .dimensions {
             iconMargin(6.0.dp)
             textBoxStartPadding(2.0.dp)
             textBoxTopPadding(3.0.dp)
         }
-        .wrap(::WrapperNotificationContentCompactIconStart)
+        .wrap(::WrapperNotificationContentButtonStretchIconStart)
+
+public val NotificationContent.NoButtonStretch: WrapperNotificationContentNoButtonStretch
+    @Composable
+    @JvmName("WrapperNotificationContentNoButtonStretch")
+    get() = NotificationContentStyle.builder(this)
+        .invariantProps
+        .buttonLayout(NotificationContentButtonLayout.Normal)
+        .buttonGroupStyle(BasicButtonGroup.Xxs.Dense.Default.style())
+        .dimensions {
+            contentTopPadding(4.0.dp)
+            textBoxStartPadding(2.0.dp)
+            textBoxTopPadding(3.0.dp)
+        }
+        .wrap(::WrapperNotificationContentNoButtonStretch)
+
+public val WrapperNotificationContentNoButtonStretch.IconTop:
+    WrapperNotificationContentNoButtonStretchIconTop
+    @Composable
+    @JvmName("WrapperNotificationContentNoButtonStretchIconTop")
+    get() = builder
+        .iconPlacement(NotificationContentIconPlacement.Top)
+        .dimensions {
+            iconMargin(8.0.dp)
+        }
+        .wrap(::WrapperNotificationContentNoButtonStretchIconTop)
+
+public val WrapperNotificationContentNoButtonStretch.IconStart:
+    WrapperNotificationContentNoButtonStretchIconStart
+    @Composable
+    @JvmName("WrapperNotificationContentNoButtonStretchIconStart")
+    get() = builder
+        .iconPlacement(NotificationContentIconPlacement.Start)
+        .dimensions {
+            iconMargin(6.0.dp)
+            buttonGroupStartPadding(32.0.dp)
+        }
+        .wrap(::WrapperNotificationContentNoButtonStretchIconStart)

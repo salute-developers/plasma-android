@@ -8,7 +8,7 @@ title: NotificationContent
 ```kotlin
 NotificationContent(
     modifier = Modifier.fillMaxWidth(),
-    style = NotificationContentCompact.IconStart.Positive.style(),
+    style = NotificationContent.ButtonStretch.IconStart.Positive.style(),
     title = "Title",
     text = "Notification Text",
     buttons = {

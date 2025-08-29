@@ -18,9 +18,9 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.giga.app.styles.notificationcontent.ButtonStretch
 import com.sdds.plasma.giga.app.styles.notificationcontent.Default
-import com.sdds.plasma.giga.app.styles.notificationcontent.NoIcon
-import com.sdds.plasma.giga.app.styles.notificationcontent.NotificationContentCompact
+import com.sdds.plasma.giga.app.styles.notificationcontent.NotificationContent
 import com.sdds.plasma.giga.app.theme.PlasmaGigaAppTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -59,7 +59,7 @@ public value class WrapperNotificationCompactS(
 private val NotificationStyleBuilder.invariantProps: NotificationStyleBuilder
     @Composable
     get() = this
-        .notificationContentStyle(NotificationContentCompact.NoIcon.Default.style())
+        .notificationContentStyle(NotificationContent.ButtonStretch.Default.style())
         .colors {
             backgroundColor(
                 SolidColor(PlasmaGigaAppTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
