@@ -44,7 +44,7 @@ private val LightColor = lightStarDsColors()
 private val DarkGradients = darkStarDsGradients()
 private val LightGradients = lightStarDsGradients()
 
-internal const val TextFieldFocusSelectorModeSwitch = false
+internal const val FieldFocusSelectorModeSwitch = false
 
 /**
  * Тема демо-приложения
