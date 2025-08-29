@@ -76,7 +76,7 @@ private val CodeInputStyleBuilder.invariantProps: CodeInputStyleBuilder
                     setOf(CodeInputStates.Error)
                         to StylesSaluteTheme.colors.outlineDefaultNegative,
                     setOf(CodeInputStates.Focused)
-                        to StylesSaluteTheme.colors.outlineDefaultAccent,
+                        to StylesSaluteTheme.colors.outlineDefaultAccentMain,
                 ),
             )
         }

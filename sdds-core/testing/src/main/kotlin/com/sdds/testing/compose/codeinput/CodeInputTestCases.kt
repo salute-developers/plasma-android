@@ -27,6 +27,7 @@ fun CodeInputCodeLengthFour(style: CodeInputStyle) {
         onCodeComplete = { it == "1234" },
         captionAlignment = CodeInputCaptionAlignment.Start,
         animationSpec = null,
+        hasItemFocusSelector = false,
     )
 }
 
@@ -46,6 +47,7 @@ fun CodeInputCodeLengthFive(style: CodeInputStyle) {
         onCodeComplete = { it == "1234" },
         captionAlignment = CodeInputCaptionAlignment.Center,
         animationSpec = null,
+        hasItemFocusSelector = false,
     )
 }
 
@@ -66,6 +68,7 @@ fun CodeInputCodeLengthSixHidden(style: CodeInputStyle) {
         enabled = true,
         captionAlignment = CodeInputCaptionAlignment.Center,
         animationSpec = null,
+        hasItemFocusSelector = false,
     )
 }
 
@@ -84,6 +87,7 @@ fun CodeInputCodeLengthSix(style: CodeInputStyle) {
         isItemValid = { it != "q" },
         onCodeComplete = { it == "1234" },
         captionAlignment = CodeInputCaptionAlignment.Center,
+        hasItemFocusSelector = false,
     )
 }
 
@@ -103,5 +107,6 @@ fun CodeInputCodeLengthSixNoCaption(style: CodeInputStyle) {
         onCodeComplete = { it == "1234" },
         captionAlignment = CodeInputCaptionAlignment.Center,
         animationSpec = null,
+        hasItemFocusSelector = false,
     )
 }
