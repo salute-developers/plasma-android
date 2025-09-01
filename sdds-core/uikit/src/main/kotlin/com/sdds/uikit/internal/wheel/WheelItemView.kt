@@ -93,7 +93,10 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         get() = _listView.visibleCount
         set(value) {
             _listView.visibleCount = value
-            updateDescription()
+            _descriptionView.apply {
+                isGone = description.isNullOrBlank() || value == 0
+                _listView.extraItemOffsetEnabled = isVisible
+            }
         }
 
     var controlsEnabled: Boolean
@@ -138,7 +141,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         set(value) {
             if (_listView.entryMinSpacing != value) {
                 _listView.entryMinSpacing = value
-                resetPositions()
+                resetPositions(true)
             }
         }
 
@@ -153,7 +156,12 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         set(value) {
             if (_description != value) {
                 _description = value
-                updateDescription()
+                _descriptionView.apply {
+                    isGone = value.isNullOrBlank() || visibleItemsCount == 0
+                    _listView.extraItemOffsetEnabled = isVisible
+                    text = value
+                    resetPositions()
+                }
             }
         }
 
@@ -162,7 +170,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         set(value) {
             if (_descriptionPadding != value) {
                 _descriptionPadding = value
-                updateDescription()
+                _descriptionView.updatePadding(top = value)
             }
         }
 
@@ -189,14 +197,14 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     fun setDescriptionTextAppearance(@StyleRes appearanceId: Int) {
         if (_descriptionTextAppearance != appearanceId) {
             _descriptionTextAppearance = appearanceId
-            updateDescription()
+            _descriptionView.setTextAppearance(appearanceId)
         }
     }
 
     fun setDescriptionTextColor(colorValueStateList: ColorValueStateList?) {
         if (_descriptionTextColor != colorValueStateList) {
             _descriptionTextColor = colorValueStateList
-            updateDescription()
+            _descriptionView.setTextColor(colorValueStateList)
         }
     }
 
@@ -346,7 +354,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         _upButton.isVisible = controlsEnabled
         _downButton.isVisible = controlsEnabled
         _listView.itemsFocusable = !controlsEnabled
-        resetPositions()
+        resetPositions(true)
     }
 
     private fun updateDescription() {
@@ -361,14 +369,14 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         resetPositions()
     }
 
-    private fun resetPositions() {
+    private fun resetPositions(reselect: Boolean = false) {
         val current = _listView.getSelectedPosition()
         _listView.doOnPreDraw {
             _descriptionView.translationY = getDescriptionPosition().toFloat()
-            _listView.setSelectedPosition(current, false)
+            if (reselect) _listView.setSelectedPosition(current, false)
         }
         invalidate()
-        requestLayout()
+        if (reselect) requestLayout()
     }
 
     private fun getDescriptionPosition(): Int {
