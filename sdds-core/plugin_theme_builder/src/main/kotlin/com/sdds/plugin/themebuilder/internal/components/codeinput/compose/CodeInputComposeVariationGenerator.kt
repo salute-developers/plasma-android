@@ -45,6 +45,13 @@ internal class CodeInputComposeVariationGenerator(
         }
     }
 
+    override fun mapInteractionState(state: InteractiveState): String {
+        return when (state) {
+            InteractiveState.Focused -> "CodeInputStates.Focused"
+            else -> super.mapInteractionState(state)
+        }
+    }
+
     override fun propsToBuilderCalls(
         props: CodeInputProperties,
         ktFileBuilder: KtFileBuilder,
@@ -108,7 +115,7 @@ internal class CodeInputComposeVariationGenerator(
             buildString {
                 appendLine(".dimensions {")
                 props.dotSize?.let {
-                    appendDimension("dot_size", it, variationId)
+                    appendDimension("circle_size", it, variationId)
                 }
                 props.strokeWidth?.let {
                     appendDimension("stroke_width", it, variationId)
