@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_codeFieldStyle" format="reference" />
+
+    <declare-styleable name="CodeField" tools:ignore="ResourceName">
+        <attr name="sd_valueAppearance" />
+        <attr name="sd_captionAppearance" />
+        <attr name="sd_itemShapeAppearance" format="reference" />
+        <attr name="sd_groupShapeAppearance" format="reference" />
+        <attr name="sd_cellHeight" format="dimension" />
+        <attr name="sd_cellWidth" format="dimension" />
+        <attr name="sd_dotSize" format="dimension" />
+        <attr name="sd_itemSpacing"  />
+        <attr name="sd_groupSpacing" format="dimension" />
+        <attr name="sd_captionPadding" format="dimension" />
+        <attr name="sd_valueColor" />
+        <attr name="sd_captionColor" />
+        <attr name="sd_cursorColor" format="reference|color" />
+        <attr name="sd_dotColor" format="reference|color" />
+        <attr name="sd_background" />
+    </declare-styleable>
+</resources>
