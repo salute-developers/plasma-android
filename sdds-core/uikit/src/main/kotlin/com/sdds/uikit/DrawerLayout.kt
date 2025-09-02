@@ -42,7 +42,7 @@ open class DrawerLayout @JvmOverloads constructor(
     private var _focusDepended: Boolean = false
     private var _animationEnabled: Boolean = true
     private var drawerView: View? = null
-    private var overlay: OverlayView = OverlayView(context, attrs)
+    private var overlay: OverlayView = OverlayView(context)
     private var blackout: Boolean = false
     private var drawerOffset: Float = 0f
     private var startOffset: Float = 0f
