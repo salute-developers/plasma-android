@@ -53,10 +53,10 @@ internal fun DrawerScreen(componentKey: ComponentKey = ComponentKey.Drawer) {
             Drawer(
                 drawerState = drawerState,
                 style = style,
-                closeIconPlacement = uiState.closeIconPlacement,
+                closeIconAlignment = uiState.closeIconAlignment,
+                closeIconAbsolute = uiState.closeIconAbsolute,
                 peekOffset = (56.dp).takeIf { uiState.hasPeekOffset } ?: 0.dp,
                 overlayEnabled = uiState.hasOverlay,
-                hasClose = uiState.hasClose,
                 gesturesEnabled = uiState.gesturesEnabled,
                 moveContentEnabled = uiState.moveContentEnabled,
                 drawerHeader = if (uiState.header) {
@@ -110,12 +110,13 @@ private fun Footer() {
 @Composable
 private fun Body() {
     List {
-        items(10) {
+        items(20) {
             var isFocused by remember { mutableStateOf(false) }
             ListItem(
                 text = "item $it",
                 style = DrawerListItemStyle,
                 modifier = Modifier
+                    .fillMaxWidth()
                     .focusableItem { focus -> isFocused = focus.isFocused }
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,

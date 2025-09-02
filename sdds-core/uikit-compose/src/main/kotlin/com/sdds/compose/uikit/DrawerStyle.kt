@@ -58,6 +58,18 @@ interface DrawerStyle : Style {
     @get:DrawableRes
     val closeIconRes: Int
 
+    /**
+     * Расположение иконки
+     * @see CloseIconPlacement
+     */
+    val closeIconPlacement: CloseIconPlacement
+
+    /**
+     * Выравнивание иконки
+     * @see CloseIconAlignment
+     */
+    val closeIconAlignment: CloseIconAlignment
+
     companion object {
         /**
          * Возвращает новый [DrawerStyleBuilder] для создания стиля панели.
@@ -136,6 +148,20 @@ interface DrawerStyleBuilder : StyleBuilder<DrawerStyle> {
      * @param closeIconRes ID ресурса иконки.
      */
     fun closeIconRes(@DrawableRes closeIconRes: Int): DrawerStyleBuilder
+
+    /**
+     * Устанавливает расположение иконки [CloseIconPlacement]
+     *
+     * @param closeIconPlacement расположение иконки
+     */
+    fun closeIconPlacement(closeIconPlacement: CloseIconPlacement): DrawerStyleBuilder
+
+    /**
+     * Устанавливает выравнивание иконки [CloseIconAlignment]
+     *
+     * @param closeIconAlignment выравнивание иконки
+     */
+    fun closeIconAlignment(closeIconAlignment: CloseIconAlignment): DrawerStyleBuilder
 }
 
 /**
@@ -237,9 +263,19 @@ interface DrawerDimensions {
     val paddings: PaddingValues
 
     /**
-     * Отступ от иконки закрытия до заголовка
+     * Отступ от иконки закрытия до заголовка. Работает только при [CloseIconPlacement.Inner]
      */
-    val closeIconPadding: Dp
+    val closeIconHeaderPadding: Dp
+
+    /**
+     * Смещение иконки закрытия от панели по горизонтали. Работает только при [CloseIconPlacement.Outer]
+     */
+    val closeIconOffsetX: Dp
+
+    /**
+     * Смещение иконки закрытия от панели по вертикали. Работает только при [CloseIconPlacement.Outer]
+     */
+    val closeIconOffsetY: Dp
 }
 
 /**
@@ -280,7 +316,17 @@ interface DrawerDimensionsBuilder {
     /**
      * Устанавливает отступ от иконки закрытия до заголовка
      */
-    fun closeIconPadding(closeIconPadding: Dp): DrawerDimensionsBuilder
+    fun closeIconHeaderPadding(closeIconHeaderPadding: Dp): DrawerDimensionsBuilder
+
+    /**
+     * Устанавливает смещение иконки закрытия от панели по горизонтали. Работает только при [CloseIconPlacement.Outer]
+     */
+    fun closeIconOffsetX(closeIconOffsetX: Dp): DrawerDimensionsBuilder
+
+    /**
+     * Устанавливает смещение иконки закрытия от панели по вертикали. Работает только при [CloseIconPlacement.Outer]
+     */
+    fun closeIconOffsetY(closeIconOffsetY: Dp): DrawerDimensionsBuilder
 
     /**
      * Создает [DrawerDimensions]
@@ -341,7 +387,9 @@ private class DefaultDrawerDimensions(
     override val strokeWidth: Dp,
     override val peekSize: Dp,
     override val paddings: PaddingValues,
-    override val closeIconPadding: Dp,
+    override val closeIconHeaderPadding: Dp,
+    override val closeIconOffsetX: Dp,
+    override val closeIconOffsetY: Dp,
 ) : DrawerDimensions {
     class Builder : DrawerDimensionsBuilder {
 
@@ -351,7 +399,9 @@ private class DefaultDrawerDimensions(
         private var pBottom: Dp? = null
         private var peekSize: Dp? = null
         private var strokeWidth: Dp? = null
-        private var closeIconPadding: Dp? = null
+        private var closeIconHeaderPadding: Dp? = null
+        private var closeIconOffsetX: Dp? = null
+        private var closeIconOffsetY: Dp? = null
 
         override fun paddingStart(pStart: Dp): DrawerDimensionsBuilder = apply {
             this.pStart = pStart
@@ -377,8 +427,16 @@ private class DefaultDrawerDimensions(
             this.peekSize = size
         }
 
-        override fun closeIconPadding(closeIconPadding: Dp): DrawerDimensionsBuilder = apply {
-            this.closeIconPadding = closeIconPadding
+        override fun closeIconHeaderPadding(closeIconHeaderPadding: Dp): DrawerDimensionsBuilder = apply {
+            this.closeIconHeaderPadding = closeIconHeaderPadding
+        }
+
+        override fun closeIconOffsetX(closeIconOffsetX: Dp): DrawerDimensionsBuilder = apply {
+            this.closeIconOffsetX = closeIconOffsetX
+        }
+
+        override fun closeIconOffsetY(closeIconOffsetY: Dp): DrawerDimensionsBuilder = apply {
+            this.closeIconOffsetY = closeIconOffsetY
         }
 
         override fun build(): DrawerDimensions {
@@ -391,7 +449,9 @@ private class DefaultDrawerDimensions(
                 ),
                 strokeWidth = strokeWidth ?: Dp.Unspecified,
                 peekSize = peekSize ?: 0.dp,
-                closeIconPadding = closeIconPadding ?: 0.dp,
+                closeIconHeaderPadding = closeIconHeaderPadding ?: 0.dp,
+                closeIconOffsetX = closeIconOffsetX ?: 0.dp,
+                closeIconOffsetY = closeIconOffsetY ?: 0.dp,
             )
         }
     }
@@ -404,6 +464,8 @@ private class DefaultDrawerStyle(
     override val dimensions: DrawerDimensions,
     override val closeIconRes: Int,
     override val shadow: ShadowAppearance,
+    override val closeIconPlacement: CloseIconPlacement,
+    override val closeIconAlignment: CloseIconAlignment,
 ) : DrawerStyle {
 
     class Builder(receiver: Any?) : DrawerStyleBuilder {
@@ -412,6 +474,8 @@ private class DefaultDrawerStyle(
         private var shadow: ShadowAppearance? = null
         private var dimensionsBuilder: DrawerDimensionsBuilder = DrawerDimensionsBuilder.builder()
         private var closeIconRes: Int = -1
+        private var closeIconPlacement = CloseIconPlacement.Inner
+        private var closeIconAlignment = CloseIconAlignment.End
 
         @Composable
         override fun colors(builder: @Composable (DrawerColorsBuilder.() -> Unit)): DrawerStyleBuilder = apply {
@@ -438,6 +502,14 @@ private class DefaultDrawerStyle(
             this.closeIconRes = closeIconRes
         }
 
+        override fun closeIconPlacement(closeIconPlacement: CloseIconPlacement): DrawerStyleBuilder = apply {
+            this.closeIconPlacement = closeIconPlacement
+        }
+
+        override fun closeIconAlignment(closeIconAlignment: CloseIconAlignment): DrawerStyleBuilder = apply {
+            this.closeIconAlignment = closeIconAlignment
+        }
+
         override fun style(): DrawerStyle {
             return DefaultDrawerStyle(
                 colors = colorsBuilder.build(),
@@ -445,6 +517,8 @@ private class DefaultDrawerStyle(
                 dimensions = dimensionsBuilder.build(),
                 closeIconRes = closeIconRes,
                 shadow = shadow ?: ShadowAppearance(),
+                closeIconPlacement = closeIconPlacement,
+                closeIconAlignment = closeIconAlignment,
             )
         }
     }

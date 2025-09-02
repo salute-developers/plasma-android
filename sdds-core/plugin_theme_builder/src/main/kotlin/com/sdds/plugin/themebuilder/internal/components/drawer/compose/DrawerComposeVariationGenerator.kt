@@ -19,6 +19,7 @@ internal class DrawerComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderName: String,
 ) : ComposeVariationGenerator<DrawerProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -26,14 +27,19 @@ internal class DrawerComposeVariationGenerator(
     dimensAggregator = dimensAggregator,
     resourceReferenceProvider = resourceReferenceProvider,
     namespace = namespace,
+    styleBuilderName = styleBuilderName,
     ktFileBuilderFactory = ktFileBuilderFactory,
     componentPackage = componentPackage,
     outputLocation = outputLocation,
     componentName = componentName,
 ) {
 
+    override val componentStyleName: String = "DrawerStyle"
+
     override fun KtFileBuilder.onAddImports() {
         addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
+        addImport("com.sdds.compose.uikit", listOf("CloseIconPlacement"))
+        addImport("com.sdds.compose.uikit", listOf("CloseIconAlignment"))
     }
 
     override fun propsToBuilderCalls(
@@ -46,7 +52,30 @@ internal class DrawerComposeVariationGenerator(
         colorsCall(props),
         dimensionsCall(props, variationId),
         closeIconCall(props),
+        closeIconPlacementCall(props),
+        closeIconAlignmentCall(props),
     )
+
+    private fun closeIconPlacementCall(props: DrawerProperties): String? {
+        return props.closeIconPlacement?.let {
+            val enumValue = when {
+                it.value.equals("inner", ignoreCase = true) -> "Inner"
+                it.value.equals("outer", ignoreCase = true) -> "Outer"
+                else -> "None"
+            }
+            ".closeIconPlacement(CloseIconPlacement.$enumValue)"
+        }
+    }
+
+    private fun closeIconAlignmentCall(props: DrawerProperties): String? {
+        return props.closeIconAlignment?.let {
+            val enumValue = when {
+                it.value.equals("start", ignoreCase = true) -> "Start"
+                else -> "End"
+            }
+            ".closeIconAlignment(CloseIconAlignment.$enumValue)"
+        }
+    }
 
     private fun shapeCall(props: DrawerProperties, variationId: String): String? {
         return props.shape?.let {
@@ -102,8 +131,14 @@ internal class DrawerComposeVariationGenerator(
                 props.peekSize?.let {
                     appendDimension("peek_size", it, variationId)
                 }
-                props.closeIconPadding?.let {
-                    appendDimension("close_icon_padding", it, variationId)
+                props.closeIconHeaderPadding?.let {
+                    appendDimension("close_icon_header_padding", it, variationId)
+                }
+                props.closeIconOffsetX?.let {
+                    appendDimension("close_icon_offset_x", it, variationId)
+                }
+                props.closeIconOffsetY?.let {
+                    appendDimension("close_icon_offset_y", it, variationId)
                 }
                 append("}")
             }
@@ -124,7 +159,10 @@ internal class DrawerComposeVariationGenerator(
             paddingStart != null ||
             paddingEnd != null ||
             paddingTop != null ||
-            paddingBottom != null
+            paddingBottom != null ||
+            closeIconHeaderPadding != null ||
+            closeIconOffsetX != null ||
+            closeIconOffsetY != null
     }
 
     private fun DrawerProperties.hasColors() =

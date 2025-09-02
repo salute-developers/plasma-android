@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.drawer.compose
 
-import com.sdds.compose.uikit.CloseIconPlacement
+import com.sdds.compose.uikit.CloseIconAlignment
 import com.sdds.compose.uikit.DrawerAlignment
 import com.sdds.playground.sandbox.core.compose.UiState
 
@@ -10,11 +10,11 @@ import com.sdds.playground.sandbox.core.compose.UiState
 internal data class DrawerUiState(
     override val variant: String = "",
     val alignment: DrawerAlignment = DrawerAlignment.Bottom,
-    val closeIconPlacement: CloseIconPlacement = CloseIconPlacement.End,
+    val closeIconAlignment: CloseIconAlignment = CloseIconAlignment.End,
+    val closeIconAbsolute: Boolean = false,
     val header: Boolean = false,
     val footer: Boolean = false,
-    val hasOverlay: Boolean = false,
-    val hasClose: Boolean = false,
+    val hasOverlay: Boolean = true,
     val hasPeekOffset: Boolean = false,
     val gesturesEnabled: Boolean = true,
     val moveContentEnabled: Boolean = false,

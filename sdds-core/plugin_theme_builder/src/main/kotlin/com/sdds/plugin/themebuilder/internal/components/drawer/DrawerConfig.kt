@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import kotlinx.serialization.Serializable
 
@@ -23,10 +24,14 @@ internal data class DrawerProperties(
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
-    val closeIconPadding: Dimension? = null,
+    val closeIconHeaderPadding: Dimension? = null,
+    val closeIconOffsetX: Dimension? = null,
+    val closeIconOffsetY: Dimension? = null,
     val peekSize: Dimension? = null,
     val strokeSize: Dimension? = null,
     val closeIcon: Icon? = null,
+    val closeIconPlacement: Value? = null,
+    val closeIconAlignment: Value? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -42,10 +47,14 @@ internal data class DrawerProperties(
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
-            closeIconPadding = closeIconPadding ?: otherProps.closeIconPadding,
+            closeIconHeaderPadding = closeIconHeaderPadding ?: otherProps.closeIconHeaderPadding,
+            closeIconOffsetX = closeIconOffsetX ?: otherProps.closeIconOffsetX,
+            closeIconOffsetY = closeIconOffsetY ?: otherProps.closeIconOffsetY,
             closeIcon = closeIcon ?: otherProps.closeIcon,
             strokeSize = strokeSize ?: otherProps.strokeSize,
             peekSize = peekSize ?: otherProps.peekSize,
+            closeIconPlacement = closeIconPlacement ?: otherProps.closeIconPlacement,
+            closeIconAlignment = closeIconAlignment ?: otherProps.closeIconAlignment,
         )
     }
 }

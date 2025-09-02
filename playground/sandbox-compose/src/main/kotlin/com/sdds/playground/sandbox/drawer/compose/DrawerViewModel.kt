@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.drawer.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.compose.uikit.CloseIconPlacement
+import com.sdds.compose.uikit.CloseIconAlignment
 import com.sdds.compose.uikit.DrawerAlignment
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.playground.sandbox.bottomsheet.compose.BottomSheetParametersViewModel
@@ -27,9 +27,14 @@ internal class DrawerViewModel(
                 onApply = { updateAlignment(it) },
             ),
             enumProperty(
-                name = "closeIconPlacement",
-                value = closeIconPlacement,
-                onApply = { updateCloseIconPlacement(it) },
+                name = "closeIconAlignment",
+                value = closeIconAlignment,
+                onApply = { updateCloseIconAlignment(it) },
+            ),
+            Property.BooleanProperty(
+                name = "closeIconAbsolute",
+                value = closeIconAbsolute,
+                onApply = { updateCloseIconAbsolute(it) },
             ),
             Property.BooleanProperty(
                 name = "header",
@@ -45,11 +50,6 @@ internal class DrawerViewModel(
                 name = "hasOverlay",
                 value = hasOverlay,
                 onApply = { updateHasOverlay(it) },
-            ),
-            Property.BooleanProperty(
-                name = "hasClose",
-                value = hasClose,
-                onApply = { updateHasClose(it) },
             ),
             Property.BooleanProperty(
                 name = "hasPeekOffset",
@@ -75,9 +75,15 @@ internal class DrawerViewModel(
         )
     }
 
-    private fun updateCloseIconPlacement(closeIconPlacement: CloseIconPlacement) {
+    private fun updateCloseIconAlignment(closeIconAlignment: CloseIconAlignment) {
         internalUiState.value = internalUiState.value.copy(
-            closeIconPlacement = closeIconPlacement,
+            closeIconAlignment = closeIconAlignment,
+        )
+    }
+
+    private fun updateCloseIconAbsolute(closeIconAbsolute: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            closeIconAbsolute = closeIconAbsolute,
         )
     }
 
@@ -96,12 +102,6 @@ internal class DrawerViewModel(
     private fun updateHasOverlay(hasOverlay: Boolean) {
         internalUiState.value = internalUiState.value.copy(
             hasOverlay = hasOverlay,
-        )
-    }
-
-    private fun updateHasClose(hasClose: Boolean) {
-        internalUiState.value = internalUiState.value.copy(
-            hasClose = hasClose,
         )
     }
 

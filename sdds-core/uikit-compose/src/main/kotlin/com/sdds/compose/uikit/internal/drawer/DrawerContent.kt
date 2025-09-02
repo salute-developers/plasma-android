@@ -7,7 +7,7 @@ import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.gestures.DraggableAnchors
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.movableContentOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -39,7 +40,11 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isSpecified
 import com.sdds.compose.uikit.CellDimensions
+import com.sdds.compose.uikit.CellGravity
+import com.sdds.compose.uikit.CloseIconAlignment
 import com.sdds.compose.uikit.CloseIconPlacement
+import com.sdds.compose.uikit.CloseIconPlacement.Inner
+import com.sdds.compose.uikit.CloseIconPlacement.Outer
 import com.sdds.compose.uikit.DrawerAlignment
 import com.sdds.compose.uikit.DrawerAlignment.Bottom
 import com.sdds.compose.uikit.DrawerAlignment.End
@@ -65,26 +70,52 @@ internal fun DrawerContent(
     onClose: () -> Unit,
     interactionSource: InteractionSource,
     peekOffset: Dp,
+    closeIconAlignment: CloseIconAlignment,
+    closeIconPlacement: CloseIconPlacement,
     modifier: Modifier = Modifier,
     openOnFocus: Boolean = false,
+    closeIconAbsolute: Boolean = false,
     header: (@Composable () -> Unit)? = null,
-    closeIconPlacement: CloseIconPlacement = CloseIconPlacement.Start,
     closeIcon: (@Composable () -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
     content: @Composable () -> Unit,
 ) {
+    val movableCloseIcon = remember(closeIconPlacement, closeIconAlignment, closeIcon) {
+        closeIcon?.takeIf { closeIconPlacement != CloseIconPlacement.None }?.let {
+            val offsetModifier = when (closeIconAlignment) {
+                CloseIconAlignment.Start -> Modifier.padding(
+                    end = style.dimensions.closeIconOffsetX,
+                    top = style.dimensions.closeIconOffsetY,
+                )
+                CloseIconAlignment.End -> Modifier.padding(
+                    start = style.dimensions.closeIconOffsetX,
+                    top = style.dimensions.closeIconOffsetY,
+                )
+            }
+            movableContentOf {
+                Box(
+                    modifier = offsetModifier,
+                    propagateMinConstraints = false,
+                    content = { it.invoke() },
+                )
+            }
+        }
+    }
     DraggableContainer(
         modifier = modifier,
         drawerConstraints = drawerConstraints,
         drawerState = drawerState,
-        style = style,
         onClose = onClose,
-        interactionSource = interactionSource,
+        closeIcon = movableCloseIcon,
+        closeIconPlacement = closeIconPlacement,
+        closeIconAlignment = closeIconAlignment,
         peekOffset = peekOffset,
     ) {
-        Layout(
+        DrawerSurface(
             modifier = if (drawerState.alignment.isHorizontal()) Modifier.fillMaxHeight() else Modifier.fillMaxWidth(),
-            measurePolicy = remember { DrawerMeasurePolicy() },
+            style = style,
+            interactionSource = interactionSource,
+            headerOverlap = closeIconAbsolute && closeIconPlacement == Inner && header == null && closeIcon != null,
             content = {
                 var hasFocus by remember { mutableStateOf(false) }
                 val focusModifier = if (openOnFocus) {
@@ -99,9 +130,10 @@ internal fun DrawerContent(
                 }
 
                 DrawerContentHeader(
-                    closeIcon = closeIcon,
+                    closeIcon = movableCloseIcon,
                     closeIconPlacement = closeIconPlacement,
-                    closeIconPadding = style.dimensions.closeIconPadding,
+                    closeIconAlignment = closeIconAlignment,
+                    closeIconPadding = style.dimensions.closeIconHeaderPadding,
                     modifier = Modifier
                         .layoutId(HEADER)
                         .fillMaxWidth()
@@ -134,15 +166,44 @@ internal fun DrawerContent(
 }
 
 @Composable
+private fun DrawerSurface(
+    modifier: Modifier = Modifier,
+    style: DrawerStyle,
+    headerOverlap: Boolean,
+    interactionSource: InteractionSource,
+    content: @Composable () -> Unit,
+) {
+    val background by style.colors.background.getValueAsState(interactionSource)
+    val backgroundColor = style.colors.backgroundColor?.colorForInteractionAsState(interactionSource)
+    val borderStrokeModifier = if (style.dimensions.strokeWidth.isSpecified) {
+        val strokeColor by style.colors.stroke.colorForInteractionAsState(interactionSource)
+        Modifier.border(BorderStroke(style.dimensions.strokeWidth, strokeColor), style.shape)
+    } else {
+        Modifier
+    }
+    Layout(
+        modifier = modifier
+            .shadow(style.shadow, style.shape)
+            .background(background, backgroundColor?.value, style.shape)
+            .then(borderStrokeModifier)
+            .padding(style.dimensions.paddings),
+        measurePolicy = remember(headerOverlap) { DrawerMeasurePolicy(headerOverlap) },
+        content = content,
+    )
+}
+
+@Composable
 private fun DrawerContentHeader(
     closeIcon: (@Composable () -> Unit)?,
     closeIconPlacement: CloseIconPlacement,
+    closeIconAlignment: CloseIconAlignment,
     closeIconPadding: Dp,
     modifier: Modifier = Modifier,
     content: (@Composable () -> Unit)?,
 ) {
-    val isIconStart = closeIcon != null && closeIconPlacement == CloseIconPlacement.Start
-    val isIconEnd = closeIcon != null && closeIconPlacement == CloseIconPlacement.End
+    val hasIcon = closeIconPlacement == Inner
+    val isIconStart = hasIcon && closeIcon != null && closeIconAlignment == CloseIconAlignment.Start
+    val isIconEnd = hasIcon && closeIcon != null && closeIconAlignment == CloseIconAlignment.End
     BaseCell(
         modifier = modifier,
         dimensions = CellDimensions.builder()
@@ -167,22 +228,14 @@ private fun DrawerContentHeader(
 internal fun DraggableContainer(
     drawerConstraints: Constraints,
     drawerState: DrawerState,
-    style: DrawerStyle,
     onClose: () -> Unit,
-    interactionSource: InteractionSource,
     peekOffset: Dp,
+    closeIcon: @Composable (() -> Unit)?,
+    closeIconPlacement: CloseIconPlacement,
+    closeIconAlignment: CloseIconAlignment,
     modifier: Modifier = Modifier,
-    content: @Composable BoxScope.() -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
 ) {
-    val background by style.colors.background.getValueAsState(interactionSource)
-    val backgroundColor = style.colors.backgroundColor?.colorForInteractionAsState(interactionSource)
-    val borderStrokeModifier = if (style.dimensions.strokeWidth.isSpecified) {
-        val strokeColor by style.colors.stroke.colorForInteractionAsState(interactionSource)
-        Modifier.border(BorderStroke(style.dimensions.strokeWidth, strokeColor), style.shape)
-    } else {
-        Modifier
-    }
-
     val alignment = drawerState.alignment
     val density = LocalDensity.current
     var draggableSize by remember { mutableStateOf<IntSize?>(null) }
@@ -192,7 +245,10 @@ internal fun DraggableContainer(
         draggableSize?.let { drawerState.updateAnchorsFor(it, peekOffsetPx) }
     }
 
-    Box(
+    val hasIconStart = closeIconPlacement == Outer && closeIconAlignment == CloseIconAlignment.Start
+    val hasIconEnd = closeIconPlacement == Outer && closeIconAlignment == CloseIconAlignment.End
+
+    BaseCell(
         modifier = with(density) {
             modifier
                 .sizeIn(
@@ -221,12 +277,11 @@ internal fun DraggableContainer(
                     }
                 }
             }
-            .pointerInput(Unit) {}
-            .shadow(style.shadow, style.shape)
-            .background(background, backgroundColor?.value, style.shape)
-            .then(borderStrokeModifier)
-            .padding(style.dimensions.paddings),
-        content = content,
+            .pointerInput(Unit) {},
+        startContent = if (hasIconStart) { { closeIcon?.invoke() } } else { null },
+        endContent = if (hasIconEnd) { { closeIcon?.invoke() } } else { null },
+        gravity = CellGravity.Top,
+        centerContent = content,
     )
 }
 
@@ -273,7 +328,7 @@ private fun DrawerState.updateAnchorsFor(size: IntSize, peekOffset: Float) {
     anchoredDraggableState.updateAnchors(anchors, newTarget)
 }
 
-private class DrawerMeasurePolicy : MeasurePolicy {
+private class DrawerMeasurePolicy(private val headerOverlap: Boolean) : MeasurePolicy {
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
         constraints: Constraints,
@@ -291,8 +346,13 @@ private class DrawerMeasurePolicy : MeasurePolicy {
 
         val headerHeight = headerPlaceable.heightOrZero()
         val footerHeight = footerPlaceable.heightOrZero()
-        val bodyConstraints =
-            looseConstraints.copy(maxHeight = layoutHeight - headerHeight - footerHeight)
+        val bodyConstraints = looseConstraints.copy(
+            maxHeight = if (headerOverlap) {
+                layoutHeight - footerHeight
+            } else {
+                layoutHeight - headerHeight - footerHeight
+            },
+        )
 
         val bodyPlaceable = body?.measure(bodyConstraints)
         val bodyHeight = bodyPlaceable.heightOrZero()
@@ -303,7 +363,7 @@ private class DrawerMeasurePolicy : MeasurePolicy {
             height = layoutHeight,
         ) {
             headerPlaceable?.placeRelative(0, 0)
-            bodyPlaceable?.placeRelative(0, headerHeight)
+            bodyPlaceable?.placeRelative(0, if (headerOverlap) 0 else headerHeight)
             footerPlaceable?.placeRelative(0, layoutHeight - footerHeight)
         }
     }

@@ -51,8 +51,10 @@ import kotlin.math.roundToInt
  * @param gesturesEnabled включает управление жестами.
  * @param overlayEnabled включает затемняющий оверлей под панелью.
  * @param moveContentEnabled сдвигает основной контент при открытии панели.
- * @param hasClose отображать ли кнопку закрытия внутри панели.
- * @param closeIconPlacement расположение иконки закрытия внутри заголовка.
+ * @param closeIconPlacement расположение иконки закрытия относительно панели.
+ * @param closeIconAlignment выравнивание иконки закрытия относительно панели.
+ * @param closeIconAbsolute включает абсолютное расположение иконки закрытия.
+ * Иконка закрытия будет накладываться на контент внутри [drawerContent]. Работает только при [CloseIconPlacement.Inner]
  * @param peekOffset видимая «подсказка» (величина подглядывания) закрытой панели.
  * @param interactionSource источник интеракций для иконки закрытия.
  * @param closeIcon кастомная иконка закрытия; если не задана — используется из [style].
@@ -70,8 +72,9 @@ fun Drawer(
     overlayEnabled: Boolean = true,
     moveContentEnabled: Boolean = false,
     openOnFocus: Boolean = true,
-    hasClose: Boolean = false,
-    closeIconPlacement: CloseIconPlacement = CloseIconPlacement.End,
+    closeIconPlacement: CloseIconPlacement = style.closeIconPlacement,
+    closeIconAlignment: CloseIconAlignment = style.closeIconAlignment,
+    closeIconAbsolute: Boolean = false,
     peekOffset: Dp = style.dimensions.peekSize,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     closeIcon: (@Composable () -> Unit)? = null,
@@ -124,10 +127,12 @@ fun Drawer(
             interactionSource = interactionSource,
             header = drawerHeader,
             openOnFocus = openOnFocus,
-            closeIcon = getCloseIcon(style.closeIconRes, style.colors.closeIconColor, closeIcon, hasClose) {
+            closeIcon = getCloseIcon(style.closeIconRes, style.colors.closeIconColor, closeIcon, closeIconPlacement) {
                 scope.launch { drawerState.close() }
             },
             closeIconPlacement = closeIconPlacement,
+            closeIconAlignment = closeIconAlignment,
+            closeIconAbsolute = closeIconAbsolute,
             peekOffset = peekOffset,
             footer = drawerFooter,
             content = drawerContent,
@@ -184,14 +189,35 @@ enum class DrawerValue {
 }
 
 /**
- * Расположение иконки закрытия внутри шапки панели.
+ * Выравнивание иконки закрытия относительно панели Drawer
  */
-enum class CloseIconPlacement {
+enum class CloseIconAlignment {
     /** Иконка слева. */
     Start,
 
     /** Иконка справа. */
     End,
+}
+
+/**
+ * Расположение иконки закрытия панели Drawer
+ */
+enum class CloseIconPlacement {
+
+    /**
+     * Иконка отсутствует
+     */
+    None,
+
+    /**
+     * Иконка внутри панели Drawer
+     */
+    Inner,
+
+    /**
+     * Иконка снаружи панели Drawer
+     */
+    Outer,
 }
 
 /**
@@ -295,10 +321,10 @@ private fun getCloseIcon(
     closeIconRes: Int,
     closeIconColor: InteractiveColor,
     closeIcon: @Composable (() -> Unit)?,
-    hasClose: Boolean,
+    closeIconPlacement: CloseIconPlacement,
     onClose: () -> Unit,
 ): (@Composable () -> Unit)? {
-    return if (hasClose) {
+    return if (closeIconPlacement != CloseIconPlacement.None) {
         {
             val interactionSource = remember { MutableInteractionSource() }
             val color by closeIconColor.colorForInteractionAsState(interactionSource)

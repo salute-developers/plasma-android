@@ -38,7 +38,9 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.codefield.Plasm
 import com.sdds.playground.sandbox.plasma.sd.service.integration.codeinput.PlasmaSdServiceCodeInputVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
-import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerCloseInnerVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerCloseNoneVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerCloseOuterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.dropdownmenu.PlasmaSdServiceDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.image.PlasmaSdServiceImageVariationsCompose
@@ -186,8 +188,16 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
                 PlasmaSdServiceCounterVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey.Drawer,
-                PlasmaSdServiceDrawerVariationsCompose,
+                ComponentKey("DrawerCloseNone", CoreComponent.DRAWER),
+                PlasmaSdServiceDrawerCloseNoneVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseInner", CoreComponent.DRAWER),
+                PlasmaSdServiceDrawerCloseInnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseOuter", CoreComponent.DRAWER),
+                PlasmaSdServiceDrawerCloseOuterVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

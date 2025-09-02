@@ -10,6 +10,7 @@ package com.sdkit.star.designsystem.styles.drawer
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.dimensionResource
+import com.sdds.compose.uikit.CloseIconPlacement
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DrawerStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -52,6 +53,7 @@ private val DrawerStyleBuilder.invariantProps: DrawerStyleBuilder
             paddingTop(dimensionResource(R.dimen.sdkit_cmp_drawer_padding_top))
             paddingBottom(dimensionResource(R.dimen.sdkit_cmp_drawer_padding_bottom))
         }
+        .closeIconPlacement(CloseIconPlacement.None)
 
 public val Drawer.HasBackground: WrapperDrawerHasBackground
     @Composable
@@ -70,7 +72,7 @@ public val Drawer.HasBackground: WrapperDrawerHasBackground
             )
         }
         .dimensions {
-            strokeWidth(dimensionResource(R.dimen.sdkit_cmp_drawer_stroke_size_has_background))
+            strokeWidth(dimensionResource(R.dimen.sdkit_cmp_drawer_stroke_width_has_background))
         }
         .wrap(::WrapperDrawerHasBackground)
 
