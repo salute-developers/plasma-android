@@ -129,8 +129,8 @@ fun Modifier.focusSelector(
 ): Modifier {
     val scale = 1f + settings.scale.scaleFactor
     return this
-        .then(settings.scale.run { applyScaleToModifier(isFocused) })
-        .then(settings.border.run { applyBorderToModifier(scale, shape, isFocused) })
+        .then(settings.scale.run { Modifier.applyScaleToModifier(isFocused) })
+        .then(settings.border.run { Modifier.applyBorderToModifier(scale, shape, isFocused) })
 }
 
 @Immutable
