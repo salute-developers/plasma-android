@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,7 +51,11 @@ fun Notification(
                 bottom = style.dimensions.paddingBottom,
             ),
     ) {
-        content()
+        CompositionLocalProvider(
+            LocalNotificationContentStyle provides style.notificationContentStyle,
+        ) {
+            content()
+        }
         if (hasClose && closeIcon != null) {
             val closeSize = style.dimensions.closeSize
             val closeInteractionSource = remember { MutableInteractionSource() }
