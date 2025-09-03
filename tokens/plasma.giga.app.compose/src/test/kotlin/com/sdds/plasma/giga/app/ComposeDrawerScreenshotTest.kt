@@ -10,16 +10,20 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.basicbutton.BasicButton
 import com.sdds.plasma.giga.app.styles.basicbutton.Default
 import com.sdds.plasma.giga.app.styles.basicbutton.L
-import com.sdds.plasma.giga.app.styles.drawer.Drawer
+import com.sdds.plasma.giga.app.styles.drawer.DrawerCloseInner
+import com.sdds.plasma.giga.app.styles.drawer.DrawerCloseNone
+import com.sdds.plasma.giga.app.styles.drawer.DrawerCloseOuter
 import com.sdds.plasma.giga.app.styles.drawer.HasShadow
-import com.sdds.plasma.giga.app.styles.drawer.NoShadow
+import com.sdds.plasma.giga.app.styles.drawer.M
 import com.sdds.plasma.giga.app.styles.listitem.L
 import com.sdds.plasma.giga.app.styles.listitem.ListItemNormal
 import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.drawer.DrawerHasShadowTopEndFooterHasOverlayPeekOffSet
-import com.sdds.testing.compose.drawer.DrawerNoShadowBottomStart
-import com.sdds.testing.compose.drawer.DrawerNoShadowEndStartHeaderFooterHasClose
-import com.sdds.testing.compose.drawer.DrawerNoShadowStartHeaderOverlayHasClose
+import com.sdds.testing.compose.drawer.DrawerCloseIconAbsolute
+import com.sdds.testing.compose.drawer.DrawerCloseInnerMStartHeader
+import com.sdds.testing.compose.drawer.DrawerCloseInnerNoShadowBottomEnd
+import com.sdds.testing.compose.drawer.DrawerCloseInnerPeakOffSet
+import com.sdds.testing.compose.drawer.DrawerCloseNoneEndStartHeaderFooter
+import com.sdds.testing.compose.drawer.DrawerCloseOuterMShadowTopEndFooterHasOverlay
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -35,10 +39,10 @@ class ComposeDrawerScreenshotTest(
 ) : RoborazziConfigCompose(theme) {
 
     @Test
-    fun testDrawerNoShadowStartHeaderHasOverlay() {
+    fun testDrawerCloseInnerMStartHeader() {
         composeTestRule.content {
-            DrawerNoShadowStartHeaderOverlayHasClose(
-                style = Drawer.NoShadow.style(),
+            DrawerCloseInnerMStartHeader(
+                style = DrawerCloseInner.M.style(),
                 listItemStyle = ListItemNormal.L.style(),
                 buttonStyle = BasicButton.L.Default.style(),
             )
@@ -48,10 +52,10 @@ class ComposeDrawerScreenshotTest(
     }
 
     @Test
-    fun testDrawerHasShadowTopEndFooterHasOverlayPeekOffSet() {
+    fun testDrawerCloseOuterMShadowTopEndFooterHasOverlay() {
         composeTestRule.content {
-            DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
-                style = Drawer.HasShadow.style(),
+            DrawerCloseOuterMShadowTopEndFooterHasOverlay(
+                style = DrawerCloseOuter.M.HasShadow.style(),
                 listItemStyle = ListItemNormal.L.style(),
                 buttonStyle = BasicButton.L.Default.style(),
             )
@@ -63,10 +67,10 @@ class ComposeDrawerScreenshotTest(
     }
 
     @Test
-    fun testDrawerNoShadowEndStartHeaderFooterHasClose() {
+    fun testDrawerCloseNoneEndStartHeaderFooter() {
         composeTestRule.content {
-            DrawerNoShadowEndStartHeaderFooterHasClose(
-                style = Drawer.NoShadow.style(),
+            DrawerCloseNoneEndStartHeaderFooter(
+                style = DrawerCloseNone.M.style(),
                 listItemStyle = ListItemNormal.L.style(),
                 buttonStyle = BasicButton.L.Default.style(),
             )
@@ -78,8 +82,8 @@ class ComposeDrawerScreenshotTest(
     @Test
     fun testDrawerNoShadowBottomStart() {
         composeTestRule.content {
-            DrawerNoShadowBottomStart(
-                style = Drawer.NoShadow.style(),
+            DrawerCloseInnerNoShadowBottomEnd(
+                style = DrawerCloseInner.M.style(),
                 listItemStyle = ListItemNormal.L.style(),
                 buttonStyle = BasicButton.L.Default.style(),
             )
@@ -96,11 +100,23 @@ class ComposeDrawerScreenshotTest(
     @Test
     fun testDrawerHasPeakOffSet() {
         composeTestRule.content {
-            DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
-                style = Drawer.HasShadow.style(),
+            DrawerCloseInnerPeakOffSet(
+                style = DrawerCloseInner.M.HasShadow.style(),
                 listItemStyle = ListItemNormal.L.style(),
                 buttonStyle = BasicButton.L.Default.style(),
             )
         }
+    }
+
+    @Test
+    fun testDrawerCloseIconAbsolute() {
+        composeTestRule.content {
+            DrawerCloseIconAbsolute(
+                style = DrawerCloseInner.M.style(),
+                listItemStyle = ListItemNormal.L.style(),
+                buttonStyle = BasicButton.L.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithTag("DrawerButton").performClick()
     }
 }

@@ -8,10 +8,12 @@ import androidx.compose.ui.test.swipeDown
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
 import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.drawer.DrawerHasShadowTopEndFooterHasOverlayPeekOffSet
-import com.sdds.testing.compose.drawer.DrawerNoShadowBottomStart
-import com.sdds.testing.compose.drawer.DrawerNoShadowEndStartHeaderFooterHasClose
-import com.sdds.testing.compose.drawer.DrawerNoShadowStartHeaderOverlayHasClose
+import com.sdds.testing.compose.drawer.DrawerCloseIconAbsolute
+import com.sdds.testing.compose.drawer.DrawerCloseInnerMStartHeader
+import com.sdds.testing.compose.drawer.DrawerCloseInnerNoShadowBottomEnd
+import com.sdds.testing.compose.drawer.DrawerCloseInnerPeakOffSet
+import com.sdds.testing.compose.drawer.DrawerCloseNoneEndStartHeaderFooter
+import com.sdds.testing.compose.drawer.DrawerCloseOuterMShadowTopEndFooterHasOverlay
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.basicbutton.BasicButton
 import com.sdkit.star.designsystem.styles.basicbutton.L
@@ -34,7 +36,7 @@ class ComposeDrawerScreenshotTest : RoborazziConfigCompose("+night") {
     @Test
     fun testDrawerNoBackgroundStartHeaderHasOverlay() {
         composeTestRule.content {
-            DrawerNoShadowStartHeaderOverlayHasClose(
+            DrawerCloseInnerMStartHeader(
                 style = Drawer.NoBackground.style(),
                 listItemStyle = ListItem.L.style(),
                 buttonStyle = BasicButton.L.style(),
@@ -47,7 +49,7 @@ class ComposeDrawerScreenshotTest : RoborazziConfigCompose("+night") {
     @Test
     fun testDrawerHasBackgroundTopEndFooterHasOverlayPeekOffSet() {
         composeTestRule.content {
-            DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
+            DrawerCloseOuterMShadowTopEndFooterHasOverlay(
                 style = Drawer.HasBackground.style(),
                 listItemStyle = ListItem.L.style(),
                 buttonStyle = BasicButton.L.style(),
@@ -62,7 +64,7 @@ class ComposeDrawerScreenshotTest : RoborazziConfigCompose("+night") {
     @Test
     fun testDrawerNoBackgroundEndStartHeaderFooterHasClose() {
         composeTestRule.content {
-            DrawerNoShadowEndStartHeaderFooterHasClose(
+            DrawerCloseNoneEndStartHeaderFooter(
                 style = Drawer.NoBackground.style(),
                 listItemStyle = ListItem.L.style(),
                 buttonStyle = BasicButton.L.style(),
@@ -73,9 +75,9 @@ class ComposeDrawerScreenshotTest : RoborazziConfigCompose("+night") {
     }
 
     @Test
-    fun testDrawerNoBackgroundBottomStart() {
+    fun testDrawerNoBackgroundBottomEnd() {
         composeTestRule.content {
-            DrawerNoShadowBottomStart(
+            DrawerCloseInnerNoShadowBottomEnd(
                 style = Drawer.NoBackground.style(),
                 listItemStyle = ListItem.L.style(),
                 buttonStyle = BasicButton.L.style(),
@@ -93,11 +95,23 @@ class ComposeDrawerScreenshotTest : RoborazziConfigCompose("+night") {
     @Test
     fun testDrawerHasPeakOffSet() {
         composeTestRule.content {
-            DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
+            DrawerCloseInnerPeakOffSet(
                 style = Drawer.HasBackground.style(),
                 listItemStyle = ListItem.L.style(),
                 buttonStyle = BasicButton.L.style(),
             )
         }
+    }
+
+    @Test
+    fun testDrawerCloseIconAbsolute() {
+        composeTestRule.content {
+            DrawerCloseIconAbsolute(
+                style = Drawer.NoBackground.style(),
+                listItemStyle = ListItem.L.style(),
+                buttonStyle = BasicButton.L.style(),
+            )
+        }
+        composeTestRule.onNodeWithTag("DrawerButton").performClick()
     }
 }

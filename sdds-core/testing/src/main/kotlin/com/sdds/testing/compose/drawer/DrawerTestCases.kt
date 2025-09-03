@@ -17,6 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CloseIconAlignment
 import com.sdds.compose.uikit.CloseIconPlacement
 import com.sdds.compose.uikit.Drawer
 import com.sdds.compose.uikit.DrawerAlignment
@@ -40,7 +41,7 @@ import kotlinx.coroutines.launch
  * PLASMA-T2236
  */
 @Composable
-fun DrawerNoShadowStartHeaderOverlayHasClose(
+fun DrawerCloseInnerMStartHeader(
     style: DrawerStyle,
     listItemStyle: ListItemStyle,
     buttonStyle: ButtonStyle,
@@ -54,14 +55,15 @@ fun DrawerNoShadowStartHeaderOverlayHasClose(
         Drawer(
             drawerState = drawerState,
             style = style,
-            hasClose = true,
             gesturesEnabled = true,
-            overlayEnabled = true,
+            overlayEnabled = false,
             moveContentEnabled = true,
             drawerHeader = { Header() },
             drawerContent = { Body(style = listItemStyle) },
-            drawerFooter = {},
-            closeIconPlacement = CloseIconPlacement.Start,
+            drawerFooter = null,
+            closeIconPlacement = CloseIconPlacement.Inner,
+            closeIconAlignment = CloseIconAlignment.Start,
+            closeIconAbsolute = false,
             closeIcon = {
                 Icon(
                     painter = painterResource(R.drawable.ic_close_24),
@@ -69,18 +71,16 @@ fun DrawerNoShadowStartHeaderOverlayHasClose(
                 )
             },
             content = {
-                Button(
-                    style = buttonStyle,
-                    label = "Показать Drawer",
-                    modifier = Modifier
-                        .testTag("DrawerButton")
-                        .align(Alignment.Center),
-                    onClick = {
-                        scope.launch {
-                            drawerState.open()
-                        }
-                    },
-                )
+                Box(modifier = Modifier.align(Alignment.Center)) {
+                    ButtonDrawer(
+                        buttonStyle = buttonStyle,
+                        onClick = {
+                            scope.launch {
+                                drawerState.open()
+                            }
+                        },
+                    )
+                }
             },
         )
     }
@@ -90,7 +90,7 @@ fun DrawerNoShadowStartHeaderOverlayHasClose(
  * PLASMA-T2237
  */
 @Composable
-fun DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
+fun DrawerCloseOuterMShadowTopEndFooterHasOverlay(
     style: DrawerStyle,
     listItemStyle: ListItemStyle,
     buttonStyle: ButtonStyle,
@@ -105,7 +105,6 @@ fun DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
             modifier = Modifier.testTag("Drawer"),
             drawerState = drawerState,
             style = style,
-            hasClose = true,
             gesturesEnabled = true,
             peekOffset = 56.dp,
             overlayEnabled = true,
@@ -113,7 +112,9 @@ fun DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
             drawerHeader = {},
             drawerContent = { Body(style = listItemStyle) },
             drawerFooter = { Footer() },
-            closeIconPlacement = CloseIconPlacement.End,
+            closeIconPlacement = CloseIconPlacement.Outer,
+            closeIconAlignment = CloseIconAlignment.End,
+            closeIconAbsolute = false,
             closeIcon = {
                 Icon(
                     painter = painterResource(R.drawable.ic_close_24),
@@ -121,18 +122,16 @@ fun DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
                 )
             },
             content = {
-                Button(
-                    style = buttonStyle,
-                    label = "Показать Drawer",
-                    modifier = Modifier
-                        .testTag("DrawerButton")
-                        .align(Alignment.Center),
-                    onClick = {
-                        scope.launch {
-                            drawerState.open()
-                        }
-                    },
-                )
+                Box(modifier = Modifier.align(Alignment.Center)) {
+                    ButtonDrawer(
+                        buttonStyle = buttonStyle,
+                        onClick = {
+                            scope.launch {
+                                drawerState.open()
+                            }
+                        },
+                    )
+                }
             },
         )
     }
@@ -142,7 +141,7 @@ fun DrawerHasShadowTopEndFooterHasOverlayPeekOffSet(
  * PLASMA-T2238
  */
 @Composable
-fun DrawerNoShadowEndStartHeaderFooterHasClose(
+fun DrawerCloseNoneEndStartHeaderFooter(
     style: DrawerStyle,
     listItemStyle: ListItemStyle,
     buttonStyle: ButtonStyle,
@@ -156,33 +155,26 @@ fun DrawerNoShadowEndStartHeaderFooterHasClose(
         Drawer(
             drawerState = drawerState,
             style = style,
-            hasClose = true,
             gesturesEnabled = true,
             overlayEnabled = false,
             moveContentEnabled = false,
             drawerHeader = { Header() },
             drawerContent = { Body(style = listItemStyle) },
             drawerFooter = { Footer() },
-            closeIconPlacement = CloseIconPlacement.Start,
-            closeIcon = {
-                Icon(
-                    painter = painterResource(R.drawable.ic_close_24),
-                    "",
-                )
-            },
+            closeIconPlacement = CloseIconPlacement.None,
+            closeIconAbsolute = false,
+            closeIcon = null,
             content = {
-                Button(
-                    style = buttonStyle,
-                    label = "Показать Drawer",
-                    modifier = Modifier
-                        .testTag("DrawerButton")
-                        .align(Alignment.Center),
-                    onClick = {
-                        scope.launch {
-                            drawerState.open()
-                        }
-                    },
-                )
+                Box(modifier = Modifier.align(Alignment.Center)) {
+                    ButtonDrawer(
+                        buttonStyle = buttonStyle,
+                        onClick = {
+                            scope.launch {
+                                drawerState.open()
+                            }
+                        },
+                    )
+                }
             },
         )
     }
@@ -192,7 +184,7 @@ fun DrawerNoShadowEndStartHeaderFooterHasClose(
  * PLASMA-T2239
  */
 @Composable
-fun DrawerNoShadowBottomStart(
+fun DrawerCloseInnerNoShadowBottomEnd(
     style: DrawerStyle,
     listItemStyle: ListItemStyle,
     buttonStyle: ButtonStyle,
@@ -207,14 +199,15 @@ fun DrawerNoShadowBottomStart(
             modifier = Modifier.testTag("Drawer"),
             drawerState = drawerState,
             style = style,
-            hasClose = false,
             gesturesEnabled = false,
             overlayEnabled = false,
             moveContentEnabled = false,
             drawerHeader = {},
             drawerContent = { Body(style = listItemStyle) },
             drawerFooter = {},
-            closeIconPlacement = CloseIconPlacement.Start,
+            closeIconPlacement = CloseIconPlacement.Inner,
+            closeIconAlignment = CloseIconAlignment.End,
+            closeIconAbsolute = false,
             closeIcon = {
                 Icon(
                     painter = painterResource(R.drawable.ic_close_24),
@@ -222,21 +215,129 @@ fun DrawerNoShadowBottomStart(
                 )
             },
             content = {
-                Button(
-                    style = buttonStyle,
-                    label = "Показать Drawer",
-                    modifier = Modifier
-                        .testTag("DrawerButton")
-                        .align(Alignment.Center),
-                    onClick = {
-                        scope.launch {
-                            drawerState.open()
-                        }
-                    },
-                )
+                Box(modifier = Modifier.align(Alignment.Center)) {
+                    ButtonDrawer(
+                        buttonStyle = buttonStyle,
+                        onClick = {
+                            scope.launch {
+                                drawerState.open()
+                            }
+                        },
+                    )
+                }
             },
         )
     }
+}
+
+/**
+ * PLASMA-T2242
+ */
+@Composable
+fun DrawerCloseInnerPeakOffSet(
+    style: DrawerStyle,
+    listItemStyle: ListItemStyle,
+    buttonStyle: ButtonStyle,
+) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        val drawerState = rememberDrawerState(
+            initialValue = DrawerValue.Closed,
+            alignment = DrawerAlignment.End,
+        )
+        val scope = rememberCoroutineScope()
+        Drawer(
+            drawerState = drawerState,
+            style = style,
+            gesturesEnabled = true,
+            peekOffset = 56.dp,
+            overlayEnabled = true,
+            moveContentEnabled = true,
+            drawerHeader = { Header() },
+            drawerContent = { Body(style = listItemStyle) },
+            drawerFooter = {},
+            closeIconPlacement = CloseIconPlacement.Inner,
+            closeIconAlignment = CloseIconAlignment.Start,
+            closeIconAbsolute = false,
+            closeIcon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_close_24),
+                    "",
+                )
+            },
+            content = {
+                Box(modifier = Modifier.align(Alignment.Center)) {
+                    ButtonDrawer(
+                        buttonStyle = buttonStyle,
+                        onClick = {
+                            scope.launch {
+                                drawerState.open()
+                            }
+                        },
+                    )
+                }
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T2260
+ */
+@Composable
+fun DrawerCloseIconAbsolute(
+    style: DrawerStyle,
+    listItemStyle: ListItemStyle,
+    buttonStyle: ButtonStyle,
+) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        val drawerState = rememberDrawerState(
+            initialValue = DrawerValue.Closed,
+            alignment = DrawerAlignment.Start,
+        )
+        val scope = rememberCoroutineScope()
+        Drawer(
+            drawerState = drawerState,
+            style = style,
+            gesturesEnabled = true,
+            overlayEnabled = false,
+            moveContentEnabled = true,
+            drawerHeader = null,
+            drawerContent = { Body(style = listItemStyle) },
+            drawerFooter = null,
+            closeIconPlacement = CloseIconPlacement.Inner,
+            closeIconAlignment = CloseIconAlignment.Start,
+            closeIconAbsolute = true,
+            closeIcon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_close_24),
+                    "",
+                )
+            },
+            content = {
+                Box(modifier = Modifier.align(Alignment.Center)) {
+                    ButtonDrawer(
+                        buttonStyle = buttonStyle,
+                        onClick = {
+                            scope.launch {
+                                drawerState.open()
+                            }
+                        },
+                    )
+                }
+            },
+        )
+    }
+}
+
+@Composable
+private fun ButtonDrawer(buttonStyle: ButtonStyle, onClick: () -> Unit) {
+    Button(
+        style = buttonStyle,
+        label = "Показать Drawer",
+        modifier = Modifier
+            .testTag("DrawerButton"),
+        onClick = onClick,
+    )
 }
 
 @Composable
@@ -264,7 +365,7 @@ private fun Footer() {
 @Composable
 private fun Body(style: ListItemStyle) {
     com.sdds.compose.uikit.List {
-        items(10) {
+        items(20) {
             var isFocused by remember { mutableStateOf(false) }
             ListItem(
                 text = "item $it",
