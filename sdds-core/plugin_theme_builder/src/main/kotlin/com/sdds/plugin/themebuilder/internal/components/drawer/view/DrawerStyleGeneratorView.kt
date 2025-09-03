@@ -62,6 +62,8 @@ internal class DrawerStyleGeneratorView(
 
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.shadow?.let { shadowAttribute(it.value) }
+        props.closeIcon?.let { iconAttribute("sd_closeIcon", it.value) }
+        props.closeIconPlacement?.let { valueAttribute("sd_closeIconPlacement", it.value) }
     }
 
     internal enum class DrawerColorProperty(
@@ -69,13 +71,13 @@ internal class DrawerStyleGeneratorView(
         override val colorFileSuffix: String,
     ) : ProvidableColorProperty<DrawerProperties> {
         BACKGROUND_COLOR("sd_background", "bg_color"),
-        CONTENT_START_COLOR("sd_closeIconTint", "close_icon_color"),
+        CLOSE_COLOR("sd_closeIconTint", "close_icon_color"),
         ;
 
         override fun provide(owner: DrawerProperties): Color? {
             return when (this) {
                 BACKGROUND_COLOR -> owner.backgroundColor
-                CONTENT_START_COLOR -> owner.closeColor
+                CLOSE_COLOR -> owner.closeColor
             }
         }
     }
@@ -88,18 +90,20 @@ internal class DrawerStyleGeneratorView(
         PADDING_END("android:paddingEnd", "padding_end"),
         PADDING_TOP("android:paddingTop", "padding_top"),
         PADDING_BOTTOM("android:paddingBottom", "padding_bottom"),
-        CLOSE_SIZE("sd_closeIconSize", "close_icon_size"),
-        CLOSE_PADDING("sd_closeIconPadding", "close_icon_padding"),
+        CLOSE_PADDING("sd_closeIconHeaderPadding", "close_icon_header_padding"),
+        CLOSE_OFFSET_X("sd_closeIconOffsetX", "close_icon_offset_x"),
+        CLOSE_OFFSET_Y("sd_closeIconOffsetY", "close_icon_offset_y"),
         ;
 
         override fun provide(owner: DrawerProperties): Dimension? {
             return when (this) {
-                CLOSE_SIZE -> owner.closeSize
                 PADDING_START -> owner.paddingStart
                 PADDING_END -> owner.paddingEnd
                 PADDING_TOP -> owner.paddingTop
                 PADDING_BOTTOM -> owner.paddingBottom
-                CLOSE_PADDING -> owner.closeIconPadding
+                CLOSE_PADDING -> owner.closeIconHeaderPadding
+                CLOSE_OFFSET_X -> owner.closeIconOffsetX
+                CLOSE_OFFSET_Y -> owner.closeIconOffsetY
             }?.copy(states = emptyList())
         }
     }

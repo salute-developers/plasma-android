@@ -1261,7 +1261,7 @@
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Dense.Default</item>
         <item name="sd_scrollBarStyle">@style/Serv.Sdds.Components.ScrollBar.M</item>
         <item name="sd_loaderStyle">@style/Serv.Sdds.Components.Loader</item>
-        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.Drawer.NoShadow</item>
+        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2522,7 +2522,7 @@
         <item name="sd_scrollBarStyle">@style/Serv.Sdds.Components.ScrollBar.M</item>
         <item name="sd_loaderStyle">@style/Serv.Sdds.Components.Loader</item>
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Dense.Default</item>
-        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.Drawer.NoShadow</item>
+        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

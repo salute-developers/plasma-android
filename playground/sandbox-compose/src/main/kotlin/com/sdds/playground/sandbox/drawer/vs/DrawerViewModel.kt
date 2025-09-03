@@ -23,12 +23,11 @@ internal class DrawerViewModel(
         val valueString = value?.toString() ?: return
         val currentState = internalUiState.value
         internalUiState.value = when (name) {
-            DrawerProperty.HasClose.value -> currentState.copy(hasClose = valueString.toBoolean())
             DrawerProperty.HasOverlay.value ->
                 currentState.copy(hasOverlay = valueString.toBoolean())
 
-            DrawerProperty.CloseIconPlacement.value ->
-                currentState.copy(closeIconPlacement = CloseAlignment.valueOf(valueString))
+            DrawerProperty.CloseIconAlignment.value ->
+                currentState.copy(closeIconAlignment = CloseAlignment.valueOf(valueString))
 
             DrawerProperty.Alignment.value ->
                 currentState.copy(alignment = DrawerLayout.DrawerPlacement.valueOf(valueString))
@@ -38,7 +37,6 @@ internal class DrawerViewModel(
             DrawerProperty.HasPeekOffset.value -> currentState.copy(hasPeekOffset = valueString.toBoolean())
             DrawerProperty.Header.value -> currentState.copy(header = valueString.toBoolean())
             DrawerProperty.Footer.value -> currentState.copy(footer = valueString.toBoolean())
-            DrawerProperty.WrapContent.value -> currentState.copy(wrapContent = valueString.toBoolean())
             else -> currentState
         }
     }
@@ -49,13 +47,9 @@ internal class DrawerViewModel(
                 name = "hasOverlay",
                 value = hasOverlay,
             ),
-            Property.BooleanProperty(
-                name = "hasClose",
-                value = hasClose,
-            ),
             enumProperty(
-                name = "closeIconPlacement",
-                value = closeIconPlacement,
+                name = "closeIconAlignment",
+                value = closeIconAlignment,
             ),
             enumProperty(
                 name = "alignment",
@@ -81,24 +75,18 @@ internal class DrawerViewModel(
                 name = "footer",
                 value = footer,
             ),
-            Property.BooleanProperty(
-                name = "wrapContent",
-                value = wrapContent,
-            ),
         )
     }
 
     private enum class DrawerProperty(val value: String) {
-        HasClose("hasClose"),
         HasOverlay("hasOverlay"),
-        CloseIconPlacement("closeIconPlacement"),
+        CloseIconAlignment("closeIconAlignment"),
         Alignment("alignment"),
         GesturesEnabled("gesturesEnabled"),
         MoveContentEnabled("moveContentEnabled"),
         HasPeekOffset("hasPeekOffset"),
         Header("header"),
         Footer("footer"),
-        WrapContent("wrapContent"),
     }
 }
 

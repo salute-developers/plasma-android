@@ -5,9 +5,11 @@ import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import kotlinx.serialization.Serializable
 
@@ -21,8 +23,11 @@ internal data class DrawerProperties(
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
-    val closeSize: Dimension? = null,
-    val closeIconPadding: Dimension? = null,
+    val closeIconHeaderPadding: Dimension? = null,
+    val closeIconOffsetX: Dimension? = null,
+    val closeIconOffsetY: Dimension? = null,
+    val closeIcon: Icon? = null,
+    val closeIconPlacement: Value? = null,
 ) : PropertyOwner {
 
     override fun merge(parent: PropertyOwner): PropertyOwner {
@@ -36,8 +41,11 @@ internal data class DrawerProperties(
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
-            closeSize = closeSize ?: otherProps.closeSize,
-            closeIconPadding = closeIconPadding ?: otherProps.closeIconPadding,
+            closeIconHeaderPadding = closeIconHeaderPadding ?: otherProps.closeIconHeaderPadding,
+            closeIconOffsetX = closeIconOffsetX ?: otherProps.closeIconOffsetX,
+            closeIconOffsetY = closeIconOffsetY ?: otherProps.closeIconOffsetY,
+            closeIcon = closeIcon ?: otherProps.closeIcon,
+            closeIconPlacement = closeIconPlacement ?: otherProps.closeIconPlacement,
         )
     }
 }

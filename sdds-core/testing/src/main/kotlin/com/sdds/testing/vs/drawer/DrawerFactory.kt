@@ -104,8 +104,7 @@ private fun Drawer.addFooter() {
 fun DrawerLayout.applyState(newState: DrawerUiState) = apply {
     val oldAlignment = drawerPlacement
     enableOverlay = newState.hasOverlay
-    drawer?.setHasClose(newState.hasClose)
-    val closeAlignment = when (newState.closeIconPlacement) {
+    val closeAlignment = when (newState.closeIconAlignment) {
         CloseAlignment.Left -> Drawer.CloseIconAlignment.START
         CloseAlignment.Right -> Drawer.CloseIconAlignment.END
     }
@@ -113,7 +112,6 @@ fun DrawerLayout.applyState(newState: DrawerUiState) = apply {
     gesturesEnabled = newState.gesturesEnabled
     peekHeight = if (newState.hasPeekOffset) 30.dp else 0.dp
     shouldToShiftContent = newState.moveContentEnabled
-    wrapContent = newState.wrapContent
     drawer?.setCloseIconAlignment(closeAlignment)
     when (newState.header) {
         true -> drawer?.addHeader()

@@ -39,8 +39,18 @@
         <attr name="sd_closeIcon" />
         <attr name="sd_closeIconTint" />
         <attr name="sd_closeIconSize" />
-        <!-- Отступ от иконки закрытия -->
-        <attr name="sd_closeIconPadding" format="dimension"/>
+        <!-- Расположение иконки закрытия -->
+        <attr name="sd_closeIconPlacement" format="enum">
+            <enum name="inner" value="0" />
+            <enum name="outer" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <!-- Отступ от иконки закрытия, при внутреннем расположении -->
+        <attr name="sd_closeIconHeaderPadding" format="dimension"/>
+        <!-- Смещение иконки закрытия по оси х, при расположении снаружи -->
+        <attr name="sd_closeIconOffsetX" format="dimension"/>
+        <!-- Смещение иконки закрытия по оси у, при расположении снаружи -->
+        <attr name="sd_closeIconOffsetY" format="dimension"/>
         <!-- Выравнивание иконки закрытия -->
         <attr name="sd_drawerCloseAlignment" format="enum" >
             <enum name="end" value="0" />
