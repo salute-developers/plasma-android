@@ -15,7 +15,7 @@ import org.robolectric.annotation.GraphicsMode
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Television1080p)
-class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+night") {
+class ViewSystemNavigationDrawerLayoutScreenshotTest : NavigationDrawerTestCases("+night") {
 
     @Test
     override fun testNavigationDrawerLabelAmountOne() {

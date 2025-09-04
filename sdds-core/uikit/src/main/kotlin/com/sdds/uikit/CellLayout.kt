@@ -11,6 +11,7 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.annotation.StyleRes
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -22,6 +23,7 @@ import com.sdds.uikit.CellLayout.CellContent.LABEL
 import com.sdds.uikit.CellLayout.CellContent.START
 import com.sdds.uikit.CellLayout.CellContent.SUBTITLE
 import com.sdds.uikit.CellLayout.CellContent.TITLE
+import com.sdds.uikit.DrawerLayout.DrawerLayoutParams
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.isClippedToOutline
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
@@ -694,7 +696,15 @@ open class CellLayout @JvmOverloads constructor(
 
         constructor(width: Int, height: Int) : super(width, height)
         constructor(source: MarginLayoutParams?) : super(source)
-        constructor(source: ViewGroup.LayoutParams?) : super(source)
+        constructor(source: ViewGroup.LayoutParams?) : super(source) {
+            when (source) {
+                is FrameLayout.LayoutParams -> this.gravity = source.gravity
+                is android.widget.LinearLayout.LayoutParams -> this.gravity = source.gravity
+            }
+            if (source is LayoutParams) {
+                this.cellContent = source.cellContent
+            }
+        }
     }
 
     /**
