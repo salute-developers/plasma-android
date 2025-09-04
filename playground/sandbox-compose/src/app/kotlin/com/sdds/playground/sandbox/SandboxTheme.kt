@@ -45,7 +45,6 @@ import com.sdds.playground.sandbox.core.compose.SandboxStyle
 import com.sdds.playground.sandbox.core.compose.TopBarStyle
 import com.sdds.serv.styles.avatar.Avatar
 import com.sdds.serv.styles.avatar.M
-import com.sdds.serv.styles.avatar.S
 import com.sdds.serv.styles.avatargroup.AvatarGroup
 import com.sdds.serv.styles.avatargroup.S
 import com.sdds.serv.styles.basicbutton.BasicButton
@@ -85,7 +84,6 @@ import com.sdds.serv.styles.switcher.Switch
 import com.sdds.serv.styles.switcher.ToggleS
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.InnerLabel
-import com.sdds.serv.styles.textfield.L
 import com.sdds.serv.styles.textfield.M
 import com.sdds.serv.styles.textfield.OuterLabel
 import com.sdds.serv.styles.textfield.S
@@ -102,7 +100,7 @@ private val LightColors = lightSddsServColors()
 private val DarkGradients = darkSddsServGradients()
 private val LightGradients = lightSddsServGradients()
 
-internal const val TextFieldFocusSelectorModeSwitch = true
+internal const val FieldFocusSelectorModeSwitch = true
 
 /**
  * Тема демо-приложения

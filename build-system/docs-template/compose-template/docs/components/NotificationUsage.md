@@ -3,6 +3,7 @@ title: Notification
 --- 
 
 Всплывающий элемент — уведомление поверх контента.
+В качестве контента ожидает [NotificationContent](NotificationContentUsage.md) либо произвольный контент.
 
 Для корректной работы компонента необходимо обернуть контент в OverlayHost либо вручную провайдить менеджер уведомлений в [LocalOverlayManager](#overlaymanager).
 
@@ -22,12 +23,16 @@ Button(
                 closeIcon = painterResource(R.drawable.ic_close_24),
                 onClose = { overlayManager.remove(it) },
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(end = 32.dp),
-                ) {
-                    Text(text = "Notification text")
-                }
+                NotificationContent(
+                    modifier = Modifier.fillMaxWidth(),
+                    style = NotificationContent.ButtonStretch.IconStart.Positive.style(),
+                    title = "Title",
+                    text = "Notification Text",
+                    buttons = {
+                        button { Button(label = "Ok", onClick = {}) }
+                        button { Button(label = "Cancel", onClick = {}) }
+                    },
+                )
             }
         }
     },
@@ -56,6 +61,7 @@ NotificationStyle.builder()
         backgroundColor(SolidColor(Color.Gray))
         closeColor(Color.LightGray)
     }
+    .notificationContentStyle(NotificationContent.ButtonStretch.Info.style())
     .style()
 ```
 

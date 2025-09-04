@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.list.compose
 
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -28,7 +29,9 @@ internal fun ListScreen(componentKey: ComponentKey = ComponentKey.List) {
                 items(uiState.amount) {
                     val interactionSource = remember { MutableInteractionSource() }
                     ListItem(
-                        modifier = Modifier.focusable(interactionSource = interactionSource),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .focusable(interactionSource = interactionSource),
                         text = "${uiState.title} $it",
                         disclosureEnabled = uiState.hasDisclosure,
                         interactionSource = interactionSource,

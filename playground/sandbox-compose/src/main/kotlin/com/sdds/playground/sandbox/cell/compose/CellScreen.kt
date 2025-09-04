@@ -4,7 +4,7 @@ import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.Cell
@@ -42,7 +41,7 @@ internal fun CellScreen(componentKey: ComponentKey = ComponentKey.Cell) {
 
             Cell(
                 modifier = Modifier
-                    .width(300.dp)
+                    .fillMaxWidth(0.8f)
                     .focusable(interactionSource = interactionSource)
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,

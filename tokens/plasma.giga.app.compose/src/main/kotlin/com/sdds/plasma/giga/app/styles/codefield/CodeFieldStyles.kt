@@ -95,7 +95,7 @@ private val CodeFieldStyleBuilder.invariantProps: CodeFieldStyleBuilder
         }
         .dimensions {
             itemSpacing(2.0.dp)
-            groupSpacing(4.0.dp)
+            groupSpacing(8.0.dp)
         }
 
 public val CodeField.L: WrapperCodeFieldL

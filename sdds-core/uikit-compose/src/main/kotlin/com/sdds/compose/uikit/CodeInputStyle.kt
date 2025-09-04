@@ -266,7 +266,13 @@ interface CodeInputDimensions {
     /**
      * Размер точки
      */
+    @Deprecated("Use circleSize instead")
     val dotSize: Dp
+
+    /**
+     * Размер круга
+     */
+    val circleSize: StatefulValue<Dp>
 
     /**
      * Ширина обводки точки
@@ -313,7 +319,19 @@ interface CodeInputDimensionsBuilder {
     /**
      * Устанавливает размер точки [dotSize]
      */
+    @Deprecated("Use circleSize() instead")
     fun dotSize(dotSize: Dp): CodeInputDimensionsBuilder
+
+    /**
+     * Устанавливает размер круга [circleSize]
+     */
+    fun circleSize(circleSize: StatefulValue<Dp>): CodeInputDimensionsBuilder
+
+    /**
+     * Устанавливает размер круга [circleSize]
+     */
+    fun circleSize(circleSize: Dp): CodeInputDimensionsBuilder =
+        circleSize(circleSize.asStatefulValue())
 
     /**
      * Устанавливает ширину обводки точки [strokeWidth]
@@ -364,6 +382,7 @@ interface CodeInputDimensionsBuilder {
 }
 
 private data class DefaultCodeInputDimensions(
+    @Deprecated("Use circleSize instead")
     override val dotSize: Dp,
     override val strokeWidth: Dp,
     override val itemHeight: StatefulValue<Dp>,
@@ -371,9 +390,11 @@ private data class DefaultCodeInputDimensions(
     override val itemSpacing: Dp,
     override val groupSpacing: Dp,
     override val captionPadding: Dp,
+    override val circleSize: StatefulValue<Dp>,
 ) : CodeInputDimensions {
     class Builder : CodeInputDimensionsBuilder {
         private var dotSize: Dp? = null
+        private var circleSize: StatefulValue<Dp>? = null
         private var strokeWidth: Dp? = null
         private var itemHeight: StatefulValue<Dp>? = null
         private var itemWidth: StatefulValue<Dp>? = null
@@ -381,9 +402,15 @@ private data class DefaultCodeInputDimensions(
         private var groupSpacing: Dp? = null
         private var captionPadding: Dp? = null
 
+        @Deprecated("Use circleSize() instead")
         override fun dotSize(dotSize: Dp): CodeInputDimensionsBuilder = apply {
-            this.dotSize =
-                dotSize
+            this.dotSize = dotSize
+            this.circleSize = dotSize.asStatefulValue()
+        }
+
+        override fun circleSize(circleSize: StatefulValue<Dp>) = apply {
+            this.dotSize = circleSize.getDefaultValue()
+            this.circleSize = circleSize
         }
 
         override fun strokeWidth(strokeWidth: Dp): CodeInputDimensionsBuilder = apply {
@@ -418,6 +445,7 @@ private data class DefaultCodeInputDimensions(
             itemSpacing = itemSpacing ?: 4.dp,
             groupSpacing = groupSpacing ?: 16.dp,
             captionPadding = captionPadding ?: 24.dp,
+            circleSize = circleSize ?: dotSize?.asStatefulValue() ?: 12.dp.asStatefulValue(),
         )
     }
 }

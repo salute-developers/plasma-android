@@ -646,12 +646,20 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     private fun List<String>.toStateEnums(): String {
-        val interactiveStates = asInteractiveStates().map { "InteractiveState.${it.name}" }
+        val interactiveStates = asInteractiveStates().map(::mapInteractionState)
         return (interactiveStates + excludeInteractiveStates().map { getCustomState(it) })
             .joinToString()
     }
 
     protected open fun getCustomState(state: String): String = state
+
+    /**
+     * Преобразует инетрактивное состояние [state] в строку, содержащую значение enum.
+     * Enum может быть как стандартным [InteractiveState] так и любым пользовательским.
+     * Эту функцию необходимо переопределить,
+     * если нужно интерпертировать стандартные интерактивные состояния focused, hovered, pressed используя пользовательский enum состояний компонента.
+     */
+    protected open fun mapInteractionState(state: InteractiveState): String = "InteractiveState.${state.name}"
 
     private fun KtFileBuilder.addCommonImports() {
         onAddImports()

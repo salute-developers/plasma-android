@@ -203,7 +203,12 @@ internal class WheelListView(context: Context) : ListView(context) {
 
     fun getSelectedEntry(): WheelItemEntry? {
         val currentPosition = getSelectedPosition()
-        return _wheelItemAdapter.currentList.getOrNull(currentPosition)
+        val normalizedPosition = if (infiniteScrollEnabled) {
+            currentPosition % _wheelItemAdapter.currentList.size
+        } else {
+            currentPosition
+        }
+        return _wheelItemAdapter.currentList.getOrNull(normalizedPosition)
     }
 
     fun getSelectedPosition(): Int {
@@ -233,7 +238,6 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     private fun refresh() {
-        _wheelItemAdapter.forceRefreshHolders()
         doOnPreDraw {
             if (infiniteScrollEnabled) {
                 applyInfiniteScroll()
@@ -241,6 +245,7 @@ internal class WheelListView(context: Context) : ListView(context) {
                 setSelectedPosition(getSelectedPosition(), false)
             }
         }
+        _wheelItemAdapter.forceRefreshHolders()
     }
 
     private val estimateChild: View?
