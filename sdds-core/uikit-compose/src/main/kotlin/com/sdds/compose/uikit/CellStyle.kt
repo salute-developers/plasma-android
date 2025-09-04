@@ -319,7 +319,7 @@ interface CellDimensionsBuilder {
     fun contentPaddingStart(contentPaddingStart: Dp): CellDimensionsBuilder
 
     /**
-     * Устанавливает отступ между контентом вначале и контентом в конце
+     * Устанавливает отступ между контентом по середине и контентом в конце
      */
     fun contentPaddingEnd(contentPaddingEnd: Dp): CellDimensionsBuilder
 

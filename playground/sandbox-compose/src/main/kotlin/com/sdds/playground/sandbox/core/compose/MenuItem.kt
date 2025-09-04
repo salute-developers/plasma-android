@@ -18,6 +18,7 @@ import com.sdds.compose.uikit.CodeFieldStyle
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
+import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
@@ -72,6 +73,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.divider.compose.DividerScreen
+import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
+import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
@@ -289,6 +292,11 @@ internal sealed class ComponentScreen(
         { CodeFieldScreen(it) },
         { style, _ -> CodeFieldPreview(style as CodeFieldStyle) },
     )
+
+    object Drawer : ComponentScreen(
+        { DrawerScreen(it) },
+        { style, _ -> DrawerPreview(style as DrawerStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -341,6 +349,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.CODE_INPUT -> ComponentScreen.CodeInput
         CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
+        CoreComponent.DRAWER -> ComponentScreen.Drawer
         else -> ComponentScreen.Empty
     }
 }
