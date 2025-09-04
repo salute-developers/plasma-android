@@ -11,9 +11,14 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.LinearLayout.HORIZONTAL
+import android.widget.LinearLayout.LayoutParams
+import android.widget.LinearLayout.VERTICAL
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import com.sdds.uikit.DrawerOld.CloseIconAlignment
+import com.sdds.uikit.DrawerOld.ContentLayoutParams
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
@@ -26,19 +31,21 @@ import com.sdds.uikit.statelist.setBackgroundValueList
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @param defStyleRes стиль по умолчанию
  */
-open class DrawerOld @JvmOverloads constructor(
+open class Drawer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_drawerStyle,
     defStyleRes: Int = R.style.Sdds_Components_Drawer,
-) : LinearLayout(context) {
+) : FrameLayout(context) {
 
-    private var innerDrawer: com.sdds.uikit.LinearLayout =
-        com.sdds.uikit.LinearLayout(context, attrs, defStyleAttr, defStyleRes)
-            .apply { orientation = VERTICAL }
+    private var cell: CellLayout = CellLayout(context)
     private var header: LinearLayout = LinearLayout(context).apply { orientation = HORIZONTAL }
     private var body: FrameLayout = FrameLayout(context)
     private var footer: FrameLayout = FrameLayout(context)
+    private var innerDrawer: com.sdds.uikit.LinearLayout =
+        com.sdds.uikit.LinearLayout(context, attrs, defStyleAttr, defStyleRes)
+            .apply { orientation = VERTICAL }
+
     private var userHeaderSection: FrameLayout = FrameLayout(context)
     private var closeIconSection: FrameLayout = FrameLayout(context)
 
@@ -48,7 +55,6 @@ open class DrawerOld @JvmOverloads constructor(
     private var closeIconAlignment: CloseIconAlignment = CloseIconAlignment.END
     private var closeIconPlacement: CloseIconPlacement = CloseIconPlacement.NONE
     private var backgroundList: ColorValueStateList? = null
-
     private val closeIconView: ImageView = ImageView(context).apply {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             defaultFocusHighlightEnabled = false
@@ -56,7 +62,6 @@ open class DrawerOld @JvmOverloads constructor(
     }
 
     init {
-        orientation = HORIZONTAL
         context.withStyledAttributes(
             attrs,
             R.styleable.Drawer,
@@ -74,7 +79,7 @@ open class DrawerOld @JvmOverloads constructor(
             val cAl = getInt(R.styleable.Drawer_sd_drawerCloseAlignment, 0)
             closeIconAlignment = CloseIconAlignment.values().getOrElse(cAl) { CloseIconAlignment.END }
             backgroundList = getColorValueStateList(context, R.styleable.Drawer_sd_background)
-            closeIconSection.isVisible = closeIconPlacement != CloseIconPlacement.NONE
+            closeIconSection.isVisible = closeIconPlacement == CloseIconPlacement.INNER
         }
         buildLayout()
     }
@@ -192,19 +197,6 @@ open class DrawerOld @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает расположение иконки закрытия.
-     * @param placement [CloseIconPlacement]
-     * если placement == CLoseIconPlacement.NONE, то visibility = gone
-     */
-    open fun setCloseIconPlacement(placement: CloseIconPlacement) {
-        if (closeIconPlacement != placement) {
-            closeIconPlacement = placement
-        }
-        closeIconSection.isVisible = placement != CloseIconPlacement.NONE
-        populateHeader()
-    }
-
-    /**
      * Устанавливает слушатель нажатий на иконку закрытия.
      * @param listener колбэк нажатий
      */
@@ -228,43 +220,13 @@ open class DrawerOld @JvmOverloads constructor(
         innerDrawer.setBackgroundValueList(backgroundList)
     }
 
-//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-//        val parentWidthMode = MeasureSpec.getMode(widthMeasureSpec)
-//        val parentWidthSize = MeasureSpec.getSize(widthMeasureSpec)
-//        val horizontalPadding = innerDrawer.paddingLeft + innerDrawer.paddingRight
-//
-//        var maxWidth = 0
-//        innerDrawer.children.forEach { child ->
-//            if (!child.isGone) {
-//                maxWidth = maxOf(child.measuredWidth, maxWidth)
-//            }
-//        }
-//
-//        val targetWidth = when (parentWidthMode) {
-//            MeasureSpec.EXACTLY -> parentWidthSize - horizontalPadding
-//            else -> maxWidth
-//        }
-//        innerDrawer.children.forEach { child ->
-//            if (!child.isGone) {
-//                val childWidthSpec = MeasureSpec.makeMeasureSpec(targetWidth, MeasureSpec.EXACTLY)
-//                val childHeightSpec = MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
-//                child.measure(childWidthSpec, childHeightSpec)
-//            }
-//        }
-//        setMeasuredDimension(
-//            resolveSize(targetWidth + horizontalPadding, widthMeasureSpec),
-//            measuredHeight,
-//        )
-//    }
-
     override fun onFinishInflate() {
         super.onFinishInflate()
         val movableChildren = children
-            .filter { it != innerDrawer && it != closeIconSection }
+            .filter { it != cell }
         movableChildren.forEach { child ->
             val lp = child.layoutParams as? ContentLayoutParams
-            val placement = lp?.contentPlacement ?: ContentPlacement.BODY
+            val placement = lp?.contentPlacement ?: com.sdds.uikit.Drawer.ContentPlacement.BODY
             (child.parent as? ViewGroup)?.removeView(child)
             when (placement) {
                 ContentPlacement.HEADER -> userHeaderSection.addView(child)
@@ -296,7 +258,7 @@ open class DrawerOld @JvmOverloads constructor(
     /**
      * Параметры расположения дочерних [View] в [Drawer]
      */
-    class ContentLayoutParams : LinearLayout.LayoutParams {
+    class ContentLayoutParams : FrameLayout.LayoutParams {
 
         /**
          * Роль [View] внутри [Drawer]
@@ -313,7 +275,6 @@ open class DrawerOld @JvmOverloads constructor(
         }
 
         constructor(width: Int, height: Int) : super(width, height)
-        constructor(width: Int, height: Int, weight: Float) : super(width, height, weight)
         constructor(source: ViewGroup.LayoutParams) : super(source) {
             if (source is ContentLayoutParams) {
                 this.contentPlacement = source.contentPlacement
@@ -325,7 +286,7 @@ open class DrawerOld @JvmOverloads constructor(
         val iconGravity = getIconGravity(closeIconAlignment)
         header.addView(
             closeIconSection,
-            FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+            LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
                 gravity = iconGravity
                 marginEnd = if (closeIconAlignment == CloseIconAlignment.START) closeIconHeaderPadding else 0
                 marginStart = if (closeIconAlignment == CloseIconAlignment.END) closeIconHeaderPadding else 0
@@ -334,45 +295,59 @@ open class DrawerOld @JvmOverloads constructor(
     }
 
     private fun placeCloseIconOuter() {
-        this.removeAllViews()
-        val lp = ContentLayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+        (closeIconSection.parent as? ViewGroup)?.removeView(closeIconSection)
+        val lp = CellLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
             gravity = Gravity.TOP
             marginEnd = if (closeIconAlignment == CloseIconAlignment.START) closeIconOffsetX else 0
             marginStart = if (closeIconAlignment == CloseIconAlignment.END) closeIconOffsetX else 0
             topMargin = closeIconOffsetY
         }
         if (closeIconAlignment == CloseIconAlignment.START) {
-            addView(closeIconSection, lp)
-            addView(innerDrawer)
+            cell.addView(closeIconSection, lp
+                .apply { cellContent = CellLayout.CellContent.START })
         } else {
-            addView(innerDrawer)
-            addView(closeIconSection, lp)
+            cell.addView(closeIconSection, lp
+                .apply { cellContent = CellLayout.CellContent.END })
         }
-    }
-
-    private fun buildLayout() {
-        innerDrawer.addView(header, ContentLayoutParams(WRAP_CONTENT, WRAP_CONTENT))
-        innerDrawer.addView(body, ContentLayoutParams(WRAP_CONTENT, 0, 1f))
-        innerDrawer.addView(footer, ContentLayoutParams(WRAP_CONTENT, WRAP_CONTENT))
-        closeIconSection.addView(closeIconView, FrameLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT))
-        addView(innerDrawer, ContentLayoutParams(MATCH_PARENT, WRAP_CONTENT, 1f))
-        populateHeader()
     }
 
     private fun populateHeader() {
-        header.removeAllViews()
-        if (closeIconPlacement == CloseIconPlacement.OUTER) {
-            header.addView(userHeaderSection, LayoutParams(0, WRAP_CONTENT, 1f))
-            placeCloseIconOuter()
-        } else {
-            if (closeIconAlignment == CloseIconAlignment.START) {
-                placeCloseIconInner()
+        when (closeIconPlacement) {
+            CloseIconPlacement.INNER -> {
+                header.removeAllViews()
+                if (closeIconAlignment == CloseIconAlignment.START) {
+                    placeCloseIconInner()
+                    header.addView(userHeaderSection, LayoutParams(0, WRAP_CONTENT, 1f))
+                } else {
+                    header.addView(userHeaderSection, LayoutParams(0, WRAP_CONTENT, 1f))
+                    placeCloseIconInner()
+                }
+            }
+            CloseIconPlacement.OUTER -> {
+                header.removeAllViews()
                 header.addView(userHeaderSection, LayoutParams(0, WRAP_CONTENT, 1f))
-            } else {
+                placeCloseIconOuter()
+            }
+            CloseIconPlacement.NONE -> {
+                header.removeAllViews()
                 header.addView(userHeaderSection, LayoutParams(0, WRAP_CONTENT, 1f))
-                placeCloseIconInner()
             }
         }
+
+
+    }
+
+    private fun buildLayout() {
+        addView(cell, ContentLayoutParams(MATCH_PARENT, MATCH_PARENT))
+        innerDrawer.addView(header, LayoutParams(WRAP_CONTENT, WRAP_CONTENT))
+        innerDrawer.addView(body, LayoutParams(WRAP_CONTENT, 0, 1f))
+        innerDrawer.addView(footer, LayoutParams(WRAP_CONTENT, WRAP_CONTENT))
+        Log.d("closeIconSection", "width = ${closeIconSection.width}, height = ${closeIconSection.height}")
+        closeIconSection.addView(closeIconView)
+        Log.d("closeIconSection", "width = ${closeIconSection.width}, height = ${closeIconSection.height}")
+        Log.d("closeIconView", "width = ${closeIconView.width}, height = ${closeIconView.height}")
+        populateHeader()
+        cell.addView(innerDrawer, CellLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply { cellContent = CellLayout.CellContent.CENTER })
     }
 
     private fun getIconGravity(alignment: CloseIconAlignment): Int {
