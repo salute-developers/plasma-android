@@ -8,14 +8,16 @@ import kotlinx.parcelize.Parcelize
 /**
  * Состояние компонента Drawer
  * @property variant вариация
- * @property hasOverlay отображение Overlay при открытии панели
- * @property closeIconAlignment расположение кнопки закрытия
  * @property alignment начальное положение выдвижной панели
- * @property gesturesEnabled управление жестами
- * @property moveContentEnabled основной контент двигается вместе с панелью
- * @property hasPeekOffset видимая часть панели
+ * @property closeIconAlignment расположение кнопки закрытия
  * @property header отображение заголовка
  * @property footer отображение нижнего колонтитула
+ * @property hasOverlay отображение Overlay при открытии панели
+ * @property hasPeekOffset видимая часть панели
+ * @property gesturesEnabled управление жестами
+ * @property moveContentEnabled основной контент двигается вместе с панелью
+ * @property absoluteClosePlacement размещает иконку закрытия поверх body
+ * если header отсутствует
  */
 @Parcelize
 data class DrawerUiState(
@@ -28,6 +30,7 @@ data class DrawerUiState(
     val hasPeekOffset: Boolean = false,
     val gesturesEnabled: Boolean = true,
     val moveContentEnabled: Boolean = false,
+    val absoluteClosePlacement: Boolean = false,
 ) : UiState, Parcelable {
 
     override fun updateVariant(variant: String): UiState {

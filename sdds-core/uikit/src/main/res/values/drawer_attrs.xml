@@ -13,8 +13,6 @@
         <attr name="sd_shiftContent" format="boolean" />
         <!-- Включение анимации выдвижения панели -->
         <attr name="sd_animationEnabled" format="boolean" />
-        <!-- Позволяет Drawer занять ширину по контенту, когда sd_drawerPlacement left или right-->
-        <attr name="sd_wrapContent" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DrawerLayout_Layout" tools:ignore="ResourceName" >
@@ -38,13 +36,20 @@
         <attr name="sd_background" />
         <attr name="sd_closeIcon" />
         <attr name="sd_closeIconTint" />
-        <attr name="sd_closeIconSize" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
         <!-- Расположение иконки закрытия -->
         <attr name="sd_closeIconPlacement" format="enum">
             <enum name="inner" value="0" />
             <enum name="outer" value="1" />
             <enum name="none" value="2" />
         </attr>
+        <!-- Расположение иконки закрытия над контентом body,
+                позволяет достичь еффекта левитации иконки закрытия
+                при этом скроллируемый контент в body "уходит" под
+                иконку. Работает только когда в секции header нет
+                контента.-->
+        <attr name="sd_absoluteClosePlacement" format="boolean" />
         <!-- Отступ от иконки закрытия, при внутреннем расположении -->
         <attr name="sd_closeIconHeaderPadding" format="dimension"/>
         <!-- Смещение иконки закрытия по оси х, при расположении снаружи -->

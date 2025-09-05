@@ -72,12 +72,14 @@ internal class DrawerStyleGeneratorView(
     ) : ProvidableColorProperty<DrawerProperties> {
         BACKGROUND_COLOR("sd_background", "bg_color"),
         CLOSE_COLOR("sd_closeIconTint", "close_icon_color"),
+        STROKE_COLOR("sd_strokeColor", "stroke_color"),
         ;
 
         override fun provide(owner: DrawerProperties): Color? {
             return when (this) {
                 BACKGROUND_COLOR -> owner.backgroundColor
                 CLOSE_COLOR -> owner.closeColor
+                STROKE_COLOR ->owner.strokeColor
             }
         }
     }
@@ -93,6 +95,7 @@ internal class DrawerStyleGeneratorView(
         CLOSE_PADDING("sd_closeIconHeaderPadding", "close_icon_header_padding"),
         CLOSE_OFFSET_X("sd_closeIconOffsetX", "close_icon_offset_x"),
         CLOSE_OFFSET_Y("sd_closeIconOffsetY", "close_icon_offset_y"),
+        STROKE_SIZE("sd_strokeWidth", "stroke_width"),
         ;
 
         override fun provide(owner: DrawerProperties): Dimension? {
@@ -104,6 +107,7 @@ internal class DrawerStyleGeneratorView(
                 CLOSE_PADDING -> owner.closeIconHeaderPadding
                 CLOSE_OFFSET_X -> owner.closeIconOffsetX
                 CLOSE_OFFSET_Y -> owner.closeIconOffsetY
+                STROKE_SIZE -> owner.strokeSize
             }?.copy(states = emptyList())
         }
     }

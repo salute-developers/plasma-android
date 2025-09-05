@@ -56,7 +56,6 @@ open class DrawerLayout @JvmOverloads constructor(
     private var autoAnimate: Boolean = false
     private var canClose: Boolean = true
     private var canOpen: Boolean = true
-    private var wrap: Boolean = true
 
     private val drawerAnimation: ValueAnimator by lazy {
         ValueAnimator().apply {
@@ -185,19 +184,6 @@ open class DrawerLayout @JvmOverloads constructor(
         }
 
     /**
-     * Позволяет [Drawer] занять ширину по контенту,
-     * когда [DrawerPlacement] LEFT или RIGHT.
-     */
-    open var wrapContent: Boolean
-        get() = wrap
-        set(value) {
-            if (wrap != value) {
-                wrap = value
-                updateLayoutParams()
-            }
-        }
-
-    /**
      * Проверяет открытое состояние [Drawer] в данный момент
      */
     val isExpanded: Boolean
@@ -223,7 +209,6 @@ open class DrawerLayout @JvmOverloads constructor(
             _animationEnabled = getBoolean(R.styleable.DrawerLayout_sd_animationEnabled, true)
             pHeight = getDimensionPixelSize(R.styleable.DrawerLayout_sd_peakHeight, 0)
             dMargin = getDimensionPixelSize(R.styleable.DrawerLayout_sd_drawerMargin, 0)
-            wrap = getBoolean(R.styleable.DrawerLayout_sd_wrapContent, true)
         }
         attachOverlay()
     }
@@ -668,17 +653,10 @@ open class DrawerLayout @JvmOverloads constructor(
             }
 
             else -> {
-                if (wrap) {
-                    DrawerLayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                    )
-                } else {
-                    DrawerLayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                    )
-                }
+                DrawerLayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                )
             }
         }
         lp.drawerPlacement = dSide

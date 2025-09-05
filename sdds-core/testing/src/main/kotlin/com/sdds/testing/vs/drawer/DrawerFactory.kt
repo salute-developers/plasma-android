@@ -34,8 +34,8 @@ fun drawer(
     val actualContext = context.styleWrapper(style)
     val drawerLayout = DrawerLayout(context).apply {
         id = R.id.drawer_layout
-        drawerPlacement = DrawerLayout.DrawerPlacement.TOP
-        shouldToShiftContent = false
+        drawerPlacement = state.alignment
+        shouldToShiftContent = state.moveContentEnabled
     }
     val drawer = Drawer(actualContext).apply {
         setCloseIconClickListener {
@@ -113,6 +113,7 @@ fun DrawerLayout.applyState(newState: DrawerUiState) = apply {
     peekHeight = if (newState.hasPeekOffset) 30.dp else 0.dp
     shouldToShiftContent = newState.moveContentEnabled
     drawer?.setCloseIconAlignment(closeAlignment)
+    drawer?.absoluteClosePlacement = newState.absoluteClosePlacement
     when (newState.header) {
         true -> drawer?.addHeader()
         else -> drawer?.clearHeader()

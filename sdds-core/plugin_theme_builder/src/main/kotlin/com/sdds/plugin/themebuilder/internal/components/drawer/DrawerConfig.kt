@@ -19,6 +19,7 @@ internal data class DrawerProperties(
     val shadow: Shadow? = null,
     val backgroundColor: Color? = null,
     val closeColor: Color? = null,
+    val strokeColor: Color? = null,
     val paddingStart: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
@@ -26,6 +27,7 @@ internal data class DrawerProperties(
     val closeIconHeaderPadding: Dimension? = null,
     val closeIconOffsetX: Dimension? = null,
     val closeIconOffsetY: Dimension? = null,
+    val strokeSize: Dimension? = null,
     val closeIcon: Icon? = null,
     val closeIconPlacement: Value? = null,
 ) : PropertyOwner {
@@ -37,6 +39,7 @@ internal data class DrawerProperties(
             shadow = shadow ?: otherProps.shadow,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             closeColor = closeColor ?: otherProps.closeColor,
+            strokeColor = strokeColor ?: otherProps.strokeColor,
             paddingStart = paddingStart ?: otherProps.paddingStart,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
@@ -44,6 +47,7 @@ internal data class DrawerProperties(
             closeIconHeaderPadding = closeIconHeaderPadding ?: otherProps.closeIconHeaderPadding,
             closeIconOffsetX = closeIconOffsetX ?: otherProps.closeIconOffsetX,
             closeIconOffsetY = closeIconOffsetY ?: otherProps.closeIconOffsetY,
+            strokeSize = strokeSize ?: otherProps.strokeSize,
             closeIcon = closeIcon ?: otherProps.closeIcon,
             closeIconPlacement = closeIconPlacement ?: otherProps.closeIconPlacement,
         )
