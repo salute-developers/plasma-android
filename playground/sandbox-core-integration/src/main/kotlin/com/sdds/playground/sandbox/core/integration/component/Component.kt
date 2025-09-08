@@ -175,9 +175,9 @@ data class ComponentKey(
         val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
         val Loader = ComponentKey("Loader", CoreComponent.LOADER)
+        val Drawer = ComponentKey("Drawer", CoreComponent.DRAWER)
         val CodeInput = ComponentKey("CodeInput", CoreComponent.CODE_INPUT)
         val CodeField = ComponentKey("CodeField", CoreComponent.CODE_FIELD)
-        val Drawer = ComponentKey("Drawer", CoreComponent.DRAWER)
     }
 }
 
@@ -211,6 +211,8 @@ enum class CoreComponent {
     COUNTER,
 
     DIVIDER,
+
+    DRAWER,
 
     FLOW,
 
@@ -251,5 +253,4 @@ enum class CoreComponent {
     LOADER,
     CODE_INPUT,
     CODE_FIELD,
-    DRAWER,
 }

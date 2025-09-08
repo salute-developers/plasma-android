@@ -761,4 +761,10 @@
     <dimen name="sdkit_basic_button_group_l_wide_spacing">16.0dp</dimen>
     <dimen name="sdkit_basic_button_group_l_dense_spacing">4.0dp</dimen>
     <dimen name="sdkit_basic_button_group_l_no_gap_spacing">0.0dp</dimen>
+    <dimen name="sdkit_drawer_padding_start">16.0dp</dimen>
+    <dimen name="sdkit_drawer_padding_end">16.0dp</dimen>
+    <dimen name="sdkit_drawer_padding_top">48.0dp</dimen>
+    <dimen name="sdkit_drawer_padding_bottom">36.0dp</dimen>
+    <dimen name="sdkit_drawer_has_background_shape_adjustment">4.0dp</dimen>
+    <dimen name="sdkit_drawer_has_background_stroke_width">2.0dp</dimen>
 </resources>

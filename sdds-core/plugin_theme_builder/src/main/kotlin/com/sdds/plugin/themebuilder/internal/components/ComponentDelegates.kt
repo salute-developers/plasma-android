@@ -104,6 +104,7 @@ internal val componentDelegates by unsafeLazy {
         "tab-bar-item" to TabBarItemConfigDelegate(),
         "tab-bar" to TabBarConfigDelegate(),
         "loader" to LoaderConfigDelegate(),
+        "drawer" to DrawerConfigDelegate(),
         "code-input" to CodeInputConfigDelegate(),
         "code-field" to CodeFieldConfigDelegate(),
         "drawer" to DrawerConfigDelegate(),
