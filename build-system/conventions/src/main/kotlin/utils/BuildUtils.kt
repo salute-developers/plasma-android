@@ -73,3 +73,9 @@ fun Project.isAndroidLib(): Boolean =
  */
 fun Project.isComposeLib(): Boolean =
     extensions.findByType<LibraryExtension>()?.buildFeatures?.compose ?: false
+
+/**
+ * Возвращает true, если текущий проект - интеграционный модуль песочницы, иначе false
+ */
+fun Project.isSandboxIntegrationModule(): Boolean =
+    name.endsWith("integration") && !name.contains("core")
