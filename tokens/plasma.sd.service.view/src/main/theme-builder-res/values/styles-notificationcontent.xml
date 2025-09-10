@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.NotificationContent" parent="Sdds.Components.NotificationContent">
+        <item name="sd_textAppearance">@style/Plasma.SdService.TextAppearance.TextSNormal</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+        <item name="sd_icon">@drawable/ic_info_circle_outline_24</item>
+        <item name="sd_iconSize">@dimen/plasma_notification_content_icon_size</item>
+        <item name="sd_textPadding">@dimen/plasma_notification_content_text_padding</item>
+        <item name="sd_textBoxBottomPadding">@dimen/plasma_notification_content_tbox_bottom_padding</item>
+        <item name="sd_buttonGroupTopPadding">@dimen/plasma_notification_content_btn_group_top_padding</item>
+        <item name="sd_titleColor">@color/plasma_notification_content_title_color</item>
+        <item name="sd_textColor">@color/plasma_notification_content_text_color</item>
+        <item name="sd_iconTint">@color/plasma_notification_content_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.NotificationContentColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch">
+        <item name="sd_buttonLayout">stretch</item>
+        <item name="sd_buttonGroupStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonGroupXsDenseDefault</item>
+        <item name="sd_contentStartPadding">@dimen/plasma_notification_content_button_stretch_content_start_padding</item>
+        <item name="sd_contentTopPadding">@dimen/plasma_notification_content_button_stretch_content_top_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretch">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.Default">
+        <item name="plasma_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchDefault">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.Positive">
+        <item name="plasma_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchPositive">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.Negative">
+        <item name="plasma_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchNegative">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.Warning">
+        <item name="plasma_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchWarning">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.Info">
+        <item name="plasma_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchInfo">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop">
+        <item name="sd_notificationIconPlacement">top</item>
+        <item name="sd_iconMargin">@dimen/plasma_notification_content_button_stretch_icon_top_icon_margin</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_notification_content_button_stretch_icon_top_content_end_padding</item>
+        <item name="sd_textBoxStartPadding">@dimen/plasma_notification_content_button_stretch_icon_top_tbox_start_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconTop">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Default">
+        <item name="plasma_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconTopDefault">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Positive">
+        <item name="plasma_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconTopPositive">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Negative">
+        <item name="plasma_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconTopNegative">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Warning">
+        <item name="plasma_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconTopWarning">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Info">
+        <item name="plasma_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconTopInfo">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconTop.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart">
+        <item name="sd_notificationIconPlacement">start</item>
+        <item name="sd_iconMargin">@dimen/plasma_notification_content_button_stretch_icon_start_icon_margin</item>
+        <item name="sd_textBoxStartPadding">@dimen/plasma_notification_content_button_stretch_icon_start_tbox_start_padding</item>
+        <item name="sd_textBoxTopPadding">@dimen/plasma_notification_content_button_stretch_icon_start_tbox_top_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconStart">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Default">
+        <item name="plasma_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconStartDefault">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Positive">
+        <item name="plasma_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconStartPositive">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Negative">
+        <item name="plasma_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconStartNegative">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Warning">
+        <item name="plasma_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconStartWarning">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Info">
+        <item name="plasma_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentButtonStretchIconStartInfo">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.IconStart.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch">
+        <item name="sd_buttonLayout">normal</item>
+        <item name="sd_buttonGroupStyleOverlay">@style/Plasma.SdService.ComponentOverlays.BasicButtonGroupXxsDenseDefault</item>
+        <item name="sd_contentTopPadding">@dimen/plasma_notification_content_no_button_stretch_content_top_padding</item>
+        <item name="sd_textBoxStartPadding">@dimen/plasma_notification_content_no_button_stretch_tbox_start_padding</item>
+        <item name="sd_textBoxTopPadding">@dimen/plasma_notification_content_no_button_stretch_tbox_top_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretch">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.Default">
+        <item name="plasma_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchDefault">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.Positive">
+        <item name="plasma_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchPositive">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.Negative">
+        <item name="plasma_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchNegative">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.Warning">
+        <item name="plasma_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchWarning">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.Info">
+        <item name="plasma_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchInfo">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop">
+        <item name="sd_notificationIconPlacement">top</item>
+        <item name="sd_iconMargin">@dimen/plasma_notification_content_no_button_stretch_icon_top_icon_margin</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTop">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Default">
+        <item name="plasma_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTopDefault">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Positive">
+        <item name="plasma_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTopPositive">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Negative">
+        <item name="plasma_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTopNegative">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Warning">
+        <item name="plasma_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTopWarning">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Info">
+        <item name="plasma_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconTopInfo">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconTop.Info</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart">
+        <item name="sd_notificationIconPlacement">start</item>
+        <item name="sd_iconMargin">@dimen/plasma_notification_content_no_button_stretch_icon_start_icon_margin</item>
+        <item name="sd_buttonGroupStartPadding">@dimen/plasma_notification_content_no_button_stretch_icon_start_btn_group_start_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStart">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Default">
+        <item name="plasma_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStartDefault">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Positive">
+        <item name="plasma_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStartPositive">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Negative">
+        <item name="plasma_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStartNegative">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Warning">
+        <item name="plasma_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStartWarning">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Info">
+        <item name="plasma_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchIconStartInfo">
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.NoButtonStretch.IconStart.Info</item>
+    </style>
+</resources>

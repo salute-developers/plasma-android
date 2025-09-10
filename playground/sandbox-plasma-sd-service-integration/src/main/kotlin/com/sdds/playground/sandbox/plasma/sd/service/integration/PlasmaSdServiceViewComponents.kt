@@ -47,6 +47,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.loader.PlasmaSd
 import com.sdds.playground.sandbox.plasma.sd.service.integration.modal.PlasmaSdServiceModalVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.notification.PlasmaSdServiceNotificationLooseVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.notificationcontent.PlasmaSdServiceNotificationContentVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.overlay.vs.PlasmaSdServiceOverlayVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.popover.vs.PlasmaSdServicePopoverVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressBarVariationsView
@@ -212,6 +213,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
                 PlasmaSdServiceNotificationLooseVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.NotificationContent,
+                PlasmaSdServiceNotificationContentVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Overlay,

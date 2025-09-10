@@ -3,6 +3,7 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.NotificationCompact" parent="Sdds.Components.Notification">
+        <item name="sd_notificationContentStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchDefault</item>
         <item name="sd_closeIconAlignment">topEnd</item>
         <item name="sd_background">?sdkit_surfaceDefaultSolidCard</item>
         <item name="sd_closeIconTint">?sdkit_textDefaultSecondary</item>

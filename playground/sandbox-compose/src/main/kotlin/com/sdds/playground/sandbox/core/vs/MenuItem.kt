@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.loader.vs.LoaderFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
 import com.sdds.playground.sandbox.notification.vs.NotificationFragment
+import com.sdds.playground.sandbox.notificationcontent.vs.NotificationContentFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
@@ -94,6 +95,7 @@ import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
 import com.sdds.testing.vs.notification.notificationTrigger
+import com.sdds.testing.vs.notificationcontent.notificationContent
 import com.sdds.testing.vs.overlay.overlayWithTrigger
 import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
@@ -294,6 +296,10 @@ internal sealed class ComponentScreen(
         { item -> fragment<NotificationFragment>(item.route, item.defaultBuilder) },
     )
 
+    object NotificationContent : ComponentScreen(
+        { item -> fragment<NotificationContentFragment>(item.route, item.defaultBuilder) },
+    )
+
     object RectSkeleton : ComponentScreen(
         { item -> fragment<RectSkeletonFragment>(item.route, item.defaultBuilder) },
     )
@@ -369,6 +375,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOAST -> ComponentScreen.Toast
         CoreComponent.MODAL -> ComponentScreen.Modal
         CoreComponent.NOTIFICATION -> ComponentScreen.Notification
+        CoreComponent.NOTIFICATION_CONTENT -> ComponentScreen.NotificationContent
         CoreComponent.RECT_SKELETON -> ComponentScreen.RectSkeleton
         CoreComponent.TEXT_SKELETON -> ComponentScreen.TextSkeleton
         CoreComponent.LIST -> ComponentScreen.List
@@ -421,6 +428,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.TOAST -> R.id.nav_toast
         CoreComponent.MODAL -> R.id.nav_modal
         CoreComponent.NOTIFICATION -> R.id.nav_notification
+        CoreComponent.NOTIFICATION_CONTENT -> R.id.nav_notification_content
         CoreComponent.RECT_SKELETON -> R.id.nav_rect_skeleton
         CoreComponent.TEXT_SKELETON -> R.id.nav_text_skeleton
         CoreComponent.LIST -> R.id.nav_list
@@ -511,6 +519,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.TOAST -> toastTrigger(context, style)
         CoreComponent.MODAL -> modalTrigger(context, style)
         CoreComponent.NOTIFICATION -> notificationTrigger(context, style)
+        CoreComponent.NOTIFICATION_CONTENT -> notificationContent(context, style)
         CoreComponent.RECT_SKELETON -> rectSkeleton(context, style)
         CoreComponent.TEXT_SKELETON -> textSkeleton(context, style)
         CoreComponent.LIST -> listView(context, style)

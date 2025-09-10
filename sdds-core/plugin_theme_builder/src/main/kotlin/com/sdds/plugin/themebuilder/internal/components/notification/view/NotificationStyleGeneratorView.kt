@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.base.view.camelCaseValue
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -60,6 +61,9 @@ internal class NotificationStyleGeneratorView(
     private fun Element.addProps(variation: String, variationNode: VariationNode<NotificationProperties>) {
         val props = variationNode.value.props
 
+        props.notificationContentStyle?.let {
+            componentOverlayAttribute("sd_notificationContentStyleOverlay", it.camelCaseValue(""))
+        }
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.shadow?.let { shadowAttribute(it.value) }
         props.closeAlignment?.let { valueAttribute("sd_closeIconAlignment", it.value.asIconAlignment()) }
