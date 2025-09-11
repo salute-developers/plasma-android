@@ -12,6 +12,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
+import androidx.core.view.isVisible
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateHolder
 
@@ -196,27 +197,26 @@ open class NotificationContent @JvmOverloads constructor(
             text = _title
             _titleAppearance?.let(::setTextAppearance)
             setTextColor(_titleColor)
+            isVisible = !_title.isNullOrEmpty()
         }
     }
 
     private fun setupText() {
         textTv = TextView(context)
-        updateTextLayout()
         updateText()
     }
 
     private fun updateText() {
         textTv?.apply {
+            layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                .apply {
+                    val topPadding = if (_title.isNullOrEmpty() || titleTv == null) 0 else _textPadding
+                    setMargins(0, topPadding, 0, 0)
+                }
             text = _text
             _textAppearance?.let(::setTextAppearance)
             setTextColor(_textColor)
-        }
-    }
-
-    private fun updateTextLayout() {
-        textTv?.apply {
-            layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-                .apply { setPadding(0, _textPadding, 0, 0) }
+            isVisible = !_text.isNullOrEmpty()
         }
     }
 
@@ -397,6 +397,7 @@ open class NotificationContent @JvmOverloads constructor(
             if (_title != value) {
                 _title = value
                 updateTitle()
+                updateText()
             }
         }
 
@@ -474,7 +475,7 @@ open class NotificationContent @JvmOverloads constructor(
         set(value) {
             if (_textPadding != value) {
                 _textPadding = value
-                updateTextLayout()
+                updateText()
             }
         }
 

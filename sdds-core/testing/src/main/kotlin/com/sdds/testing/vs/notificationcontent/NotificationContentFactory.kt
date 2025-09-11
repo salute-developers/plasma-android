@@ -27,6 +27,9 @@ fun notificationContent(
  * Применяет [NotificationContentUiState] к [NotificationContent]
  */
 fun NotificationContent.applyState(state: NotificationContentUiState) = apply {
+    clipChildren = false
+    isFocusable = false
+    isFocusableInTouchMode = false
     title = state.title
     text = state.text
     buttonGroup?.let { removeView(it) }

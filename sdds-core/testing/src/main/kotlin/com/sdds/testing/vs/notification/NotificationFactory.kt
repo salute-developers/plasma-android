@@ -51,10 +51,6 @@ fun notification(
                 text = state.text,
                 hasActions = state.focusable,
             ),
-        ).apply {
-            clipChildren = false
-            isFocusable = false
-            isFocusableInTouchMode = false
-        }
+        )
     }
 }

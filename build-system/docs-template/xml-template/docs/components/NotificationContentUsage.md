@@ -39,7 +39,7 @@ title: NotificationContent
 |     sd_buttonGroupTopPadding     |  отступ группы кнопок сверху  |   dimension   |
 |   sd_buttonGroupBottomPadding    |  отступ группы кнопок снизу   |   dimension   |
 
-## Использование в Notification
+## Использование NotificationContent в коде
 
 ```kotlin
 val context = requireContext()
@@ -62,4 +62,34 @@ val trigger = Button(context).apply {
     text = "Show Notification"
     setOnClickListener { notification.show() }
 }
+```
+
+## Использование NotificationContent в xml
+
+```xml
+<com.sdds.uikit.NotificationContent
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="300dp"
+        app:sd_notificationIconPlacement="start"
+        app:sd_buttonLayout="stretch"
+        app:sd_text="Notification Text"
+        app:sd_title="Notification Title">
+
+        <com.sdds.uikit.ButtonGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.sdds.uikit.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ok" />
+
+            <com.sdds.uikit.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel" />
+        </com.sdds.uikit.ButtonGroup>
+
+    </com.sdds.uikit.NotificationContent>
 ```
