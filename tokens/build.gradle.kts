@@ -3,6 +3,7 @@
 plugins {
     id("convention.root-project")
     id("convention.core-dependencies")
+    id("convention.project-summary")
     alias(libs.plugins.android.lib) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.jvm) apply false
