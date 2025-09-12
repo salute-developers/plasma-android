@@ -67,6 +67,7 @@ fun drawer(
     }
     drawerLayout.addView(drawer)
     drawerLayout.addView(button, lParams)
+    drawerLayout.applyState(state)
     return drawerLayout
 }
 
