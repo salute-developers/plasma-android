@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Drawer" parent="Sdds.Components.Drawer">
+        <item name="sd_closeIconPlacement">none</item>
+        <item name="android:paddingStart">@dimen/sdkit_drawer_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_drawer_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_drawer_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_drawer_padding_bottom</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Drawer.HasBackground">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXl</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_drawer_has_background_shape_adjustment</item>
+        <item name="sd_strokeWidth">@dimen/sdkit_drawer_has_background_stroke_width</item>
+        <item name="sd_background">?sdkit_surfaceDefaultTransparentSecondary</item>
+        <item name="sd_strokeColor">?sdkit_outlineDefaultTransparentPrimary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DrawerHasBackground">
+        <item name="sd_drawerStyle">@style/Sdkit.StarDs.Components.Drawer.HasBackground</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Drawer.NoBackground">
+        <item name="sd_background">?sdkit_surfaceDefaultClear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.DrawerNoBackground">
+        <item name="sd_drawerStyle">@style/Sdkit.StarDs.Components.Drawer.NoBackground</item>
+    </style>
+</resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.FOCUS_AFTER_DESCENDANTS
 import android.widget.FrameLayout
 import androidx.annotation.StyleRes
 import androidx.core.view.setPadding
@@ -33,6 +34,7 @@ fun scrollBar(
     val actualContext = context.styleWrapper(style)
     val recycler = RecyclerView(context).apply {
         id = R.id.recycler
+        descendantFocusability = FOCUS_AFTER_DESCENDANTS
         layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -41,6 +43,7 @@ fun scrollBar(
         adapter = SimpleRecyclerAdapter().apply {
             setItems(state.itemsAmount)
         }
+        adapter
     }
     val scroll = ScrollBar(actualContext).apply {
         id = R.id.scroll_bar
@@ -87,6 +90,8 @@ private class SimpleRecyclerAdapter : RecyclerView.Adapter<SimpleRecyclerAdapter
             setPadding(5)
             textSize = 16f
             setTextColor(context.getTextColorPrimary())
+            isFocusable = true
+            applySelector(this)
         }
         return ViewHolder(tv)
     }

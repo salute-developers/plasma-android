@@ -23,6 +23,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsCh
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.divider.StarDsDividerVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.drawer.StarDsDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDsDropdownMenuVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
@@ -217,6 +218,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.ButtonGroup,
                 StarDsBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Drawer,
+                StarDsDrawerVariationsView,
             ),
         ).associateBy { it.key }
 }

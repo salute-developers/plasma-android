@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.DrawerCloseInner" parent="Sdds.Components.Drawer">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_closeIconPlacement">inner</item>
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?plasma_textDefaultSecondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.DrawerCloseInner.M">
+        <item name="android:paddingStart">@dimen/plasma_drawer_close_inner_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_drawer_close_inner_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/plasma_drawer_close_inner_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_drawer_close_inner_m_padding_bottom</item>
+        <item name="sd_closeIconHeaderPadding">@dimen/plasma_drawer_close_inner_m_close_icon_header_padding</item>
+        <item name="sd_closeIconOffsetX">@dimen/plasma_drawer_close_inner_m_close_icon_offset_x</item>
+        <item name="sd_closeIconOffsetY">@dimen/plasma_drawer_close_inner_m_close_icon_offset_y</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DrawerCloseInnerM">
+        <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.DrawerCloseInner.M.HasShadow">
+        <item name="sd_shadowAppearance">?plasma_shadowDownSoftL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.DrawerCloseInnerMHasShadow">
+        <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M.HasShadow</item>
+    </style>
+</resources>

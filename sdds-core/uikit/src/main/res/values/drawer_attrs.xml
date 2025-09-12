@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_drawerStyle" format="reference" />
+
+    <declare-styleable name="DrawerLayout" tools:ignore="ResourceName">
+        <!-- Видимая часть выдвижной панели -->
+        <attr name="sd_peakHeight" format="dimension" />
+        <!-- Отступ основного контента от выдвижной панели -->
+        <attr name="sd_drawerMargin" format="dimension" />
+        <!-- Будет ли панель двигаться при получении/потери фокуса -->
+        <attr name="sd_focusDepended" format="boolean" />
+        <!-- Будет ли основной контент смещаться вместе с панелью -->
+        <attr name="sd_shiftContent" format="boolean" />
+        <!-- Включение анимации выдвижения панели -->
+        <attr name="sd_animationEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawerLayout_Layout" tools:ignore="ResourceName" >
+        <!-- Расположение панели на экране-->
+        <attr name="sd_drawerPlacement" format="enum" >
+            <!-- Слева-->
+            <enum name="left" value="0" />
+            <!-- Сверху-->
+            <enum name="top" value="1" />
+            <!-- Справа-->
+            <enum name="right" value="2" />
+            <!-- Снизу-->
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
+
+    <declare-styleable name="Drawer" tools:ignore="ResourceName" >
+        <attr name="sd_shadowAppearance" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_background" />
+        <attr name="sd_closeIcon" />
+        <attr name="sd_closeIconTint" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
+        <!-- Расположение иконки закрытия -->
+        <attr name="sd_closeIconPlacement" format="enum">
+            <enum name="inner" value="0" />
+            <enum name="outer" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <!-- Расположение иконки закрытия над контентом body,
+                позволяет достичь еффекта левитации иконки закрытия
+                при этом скроллируемый контент в body "уходит" под
+                иконку. Работает только когда в секции header нет
+                контента.-->
+        <attr name="sd_absoluteClosePlacement" format="boolean" />
+        <!-- Отступ от иконки закрытия, при внутреннем расположении -->
+        <attr name="sd_closeIconHeaderPadding" format="dimension"/>
+        <!-- Смещение иконки закрытия по оси х, при расположении снаружи -->
+        <attr name="sd_closeIconOffsetX" format="dimension"/>
+        <!-- Смещение иконки закрытия по оси у, при расположении снаружи -->
+        <attr name="sd_closeIconOffsetY" format="dimension"/>
+        <!-- Выравнивание иконки закрытия -->
+        <attr name="sd_drawerCloseAlignment" format="enum" >
+            <enum name="end" value="0" />
+            <enum name="start" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Drawer_Layout" tools:ignore="ResourceName" >
+        <!-- расположение контента в Drawer-->
+        <attr name="sd_contentPlacement" format="enum">
+            <!-- В заголовке-->
+            <enum name="header" value="0" />
+            <!-- Как основной контент-->
+            <enum name="body" value="1" />
+            <!-- В нижнем колонтитуле-->
+            <enum name="footer" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>
