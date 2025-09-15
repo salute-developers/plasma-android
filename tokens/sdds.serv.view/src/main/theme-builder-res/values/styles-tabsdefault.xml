@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.TabsDefault" parent="Sdds.Components.Tabs">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
+        <item name="sd_tabIndicatorColor">?serv_surfaceDefaultSolidDefault</item>
+        <item name="sd_overflowNextIconColor">?serv_textDefaultSecondary</item>
+        <item name="sd_overflowPrevIconColor">?serv_textDefaultSecondary</item>
+        <item name="sd_disclosureColor">@color/serv_tabs_default_disclosure_color</item>
+        <item name="sd_tabIndicatorThickness">@dimen/serv_tabs_default_indicator_thickness</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.L">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultL">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.L.Vertical">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultLVertical</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_l_vertical_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultLVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.L.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.L.Horizontal">
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultLHorizontal</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_l_horizontal_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultLHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.L.Horizontal</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.M">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultM">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.M.Vertical">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultMVertical</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_m_vertical_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultMVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.M.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.M.Horizontal">
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultMHorizontal</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_m_horizontal_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultMHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.M.Horizontal</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.S">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultS">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.S.Vertical">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultSVertical</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_s_vertical_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultSVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.S.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.S.Horizontal">
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultSHorizontal</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_s_horizontal_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultSHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.S.Horizontal</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.Xs">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultXs">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.Xs.Vertical">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultXsVertical</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_xs_vertical_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultXsVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.Xs.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsDefault.Xs.Horizontal">
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultXsHorizontal</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_xs_horizontal_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsDefaultXsHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.Xs.Horizontal</item>
+    </style>
+</resources>

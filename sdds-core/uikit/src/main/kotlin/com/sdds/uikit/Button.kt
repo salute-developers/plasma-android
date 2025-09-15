@@ -412,6 +412,10 @@ open class Button @JvmOverloads constructor(
         }
     }
 
+    override fun getText(): CharSequence? {
+        return _label
+    }
+
     override fun setText(text: CharSequence?, type: BufferType?) {
         if (_label != text) {
             _label = text

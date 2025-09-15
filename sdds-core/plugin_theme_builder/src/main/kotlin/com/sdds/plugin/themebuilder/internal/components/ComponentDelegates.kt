@@ -43,6 +43,9 @@ import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDel
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tabbar.TabBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tabbar.item.TabBarItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.tabs.TabsConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.tabs.item.TabItemComponent
+import com.sdds.plugin.themebuilder.internal.components.tabs.item.TabItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
@@ -108,5 +111,8 @@ internal val componentDelegates by unsafeLazy {
         "code-input" to CodeInputConfigDelegate(),
         "code-field" to CodeFieldConfigDelegate(),
         "drawer" to DrawerConfigDelegate(),
+        "tabs" to TabsConfigDelegate(),
+        "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
+        "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
     )
 }

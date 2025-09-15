@@ -51,6 +51,8 @@ import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
+import com.sdds.playground.sandbox.tabs.IconTabsFragment
+import com.sdds.playground.sandbox.tabs.TabsFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
 import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
@@ -112,6 +114,8 @@ import com.sdds.testing.vs.skeleton.textSkeleton
 import com.sdds.testing.vs.spinner.spinner
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
+import com.sdds.testing.vs.tabs.iconTabs
+import com.sdds.testing.vs.tabs.tabs
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
@@ -330,6 +334,13 @@ internal sealed class ComponentScreen(
     object Drawer : ComponentScreen(
         { item -> fragment<DrawerFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Tabs : ComponentScreen(
+        { item -> fragment<TabsFragment>(item.route, item.defaultBuilder) },
+    )
+    object IconTabs : ComponentScreen(
+        { item -> fragment<IconTabsFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -380,6 +391,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
         CoreComponent.DRAWER -> ComponentScreen.Drawer
+        CoreComponent.TABS -> ComponentScreen.Tabs
+        CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -432,6 +445,8 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
         CoreComponent.DRAWER -> R.id.nav_drawer
+        CoreComponent.TABS -> R.id.nav_tabs
+        CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -529,6 +544,8 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 buttonGroup(context, style)
             }
         }
+        CoreComponent.TABS -> tabs(context, style)
+        CoreComponent.ICON_TABS -> iconTabs(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

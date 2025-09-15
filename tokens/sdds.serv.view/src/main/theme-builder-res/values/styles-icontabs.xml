@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.IconTabs" parent="Sdds.Components.Tabs">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="sd_disclosureIcon">@drawable/ic_dots_horizontal_outline_24</item>
+        <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
+        <item name="sd_tabIndicatorColor">?serv_surfaceDefaultSolidDefault</item>
+        <item name="sd_overflowNextIconColor">?serv_textDefaultSecondary</item>
+        <item name="sd_overflowPrevIconColor">?serv_textDefaultSecondary</item>
+        <item name="sd_disclosureColor">@color/serv_icon_tabs_disclosure_color</item>
+        <item name="sd_tabIndicatorThickness">@dimen/serv_icon_tabs_indicator_thickness</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_icon_tabs_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.L">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconTabItemL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsL">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.L.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsLVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.L.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.L.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsLHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.L.Horizontal</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.M">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconTabItemM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsM">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.M.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsMVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.M.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.M.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsMHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.M.Horizontal</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.S">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconTabItemM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsS">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.S.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsSVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.S.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.S.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsSHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.S.Horizontal</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.Xs">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconTabItemXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsXs">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.Xs.Vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsXsVertical">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.Xs.Vertical</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabs.Xs.Horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabsXsHorizontal">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.IconTabs.Xs.Horizontal</item>
+    </style>
+</resources>
