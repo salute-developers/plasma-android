@@ -29,12 +29,14 @@ import com.sdds.compose.uikit.internal.ButtonText
  * в зависимости от стиля.
  *
  * @param iconRes иконка
- * @param onClick обработчик нажатий
  * @param modifier модификатор
+ * @param iconContentDescription описание иконки
  * @param style стиль кнопки
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
+ * @param indication [Indication] кнопки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClick обработчик нажатий
  */
 @Composable
 fun IconButton(

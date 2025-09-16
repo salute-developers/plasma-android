@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.buttons.compose
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.IconButton
@@ -22,7 +21,7 @@ internal fun IconButtonScreen(componentKey: ComponentKey = ComponentKey.IconButt
         ),
         component = { buttonState, style ->
             IconButton(
-                icon = painterResource(buttonState.icon.iconId),
+                iconRes = buttonState.icon.iconId,
                 onClick = { },
                 style = style,
                 enabled = buttonState.enabled,
