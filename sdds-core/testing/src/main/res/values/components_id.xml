@@ -47,4 +47,5 @@
     <item type="id" name="scroll_container"/>
     <item type="id" name="accordion"/>
     <item type="id" name="drawer_layout"/>
+    <item type="id" name="notification_content"/>
 </resources>
