@@ -67,4 +67,22 @@ class ViewSystemNotificationContentScreenshotTest : NotificationContentTestCases
             )
         }
     }
+
+    @Test
+    override fun testNotificationContentButtonStretchPositive() {
+        themedComponent {
+            notificationContentButtonStretchDefaultTitleTextHasAction(
+                R.style.Sdkit_StarDs_ComponentOverlays_NotificationContentButtonStretchPositive,
+            )
+        }
+    }
+
+    @Test
+    override fun testNotificationContentButtonStretchWarning() {
+        themedComponent {
+            notificationContentButtonStretchDefaultTitleTextHasAction(
+                R.style.Sdkit_StarDs_ComponentOverlays_NotificationContentButtonStretchWarning,
+            )
+        }
+    }
 }

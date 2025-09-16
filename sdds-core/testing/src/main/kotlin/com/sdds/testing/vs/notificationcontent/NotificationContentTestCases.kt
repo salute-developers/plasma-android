@@ -40,6 +40,16 @@ abstract class NotificationContentTestCases(mode: String) : RoborazziConfig(mode
      */
     abstract fun testNotificationContentNoButtonStretchIconStartDefault()
 
+    /**
+     * PLASMA-T2267
+     */
+    abstract fun testNotificationContentButtonStretchPositive()
+
+    /**
+     * PLASMA-T2268
+     */
+    abstract fun testNotificationContentButtonStretchWarning()
+
     fun ComponentScope.notificationContentButtonStretchDefaultTitleTextHasAction(style: Int) =
         notificationContent(
             style = style,

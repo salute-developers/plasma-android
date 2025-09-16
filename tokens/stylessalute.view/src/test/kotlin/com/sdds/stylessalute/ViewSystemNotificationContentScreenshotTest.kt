@@ -69,4 +69,22 @@ class ViewSystemNotificationContentScreenshotTest(
             )
         }
     }
+
+    @Test
+    override fun testNotificationContentButtonStretchPositive() {
+        themedComponent {
+            notificationContentButtonStretchDefaultTitleTextHasAction(
+                R.style.Salute_StylesSalute_ComponentOverlays_NotificationContentButtonStretchPositive,
+            )
+        }
+    }
+
+    @Test
+    override fun testNotificationContentButtonStretchWarning() {
+        themedComponent {
+            notificationContentButtonStretchDefaultTitleTextHasAction(
+                R.style.Salute_StylesSalute_ComponentOverlays_NotificationContentButtonStretchWarning,
+            )
+        }
+    }
 }

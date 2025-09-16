@@ -69,4 +69,22 @@ class ViewSystemNotificationContentScreenshotTest(
             )
         }
     }
+
+    @Test
+    override fun testNotificationContentButtonStretchPositive() {
+        themedComponent {
+            notificationContentButtonStretchDefaultTitleTextHasAction(
+                R.style.Plasma_SdService_ComponentOverlays_NotificationContentButtonStretchPositive,
+            )
+        }
+    }
+
+    @Test
+    override fun testNotificationContentButtonStretchWarning() {
+        themedComponent {
+            notificationContentButtonStretchDefaultTitleTextHasAction(
+                R.style.Plasma_SdService_ComponentOverlays_NotificationContentButtonStretchWarning,
+            )
+        }
+    }
 }

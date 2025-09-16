@@ -73,4 +73,18 @@ class ComposeNotificationContentScreenshotTest(
             NotificationContentHasAction(style = NotificationContent.NoButtonStretch.IconStart.Default.style())
         }
     }
+
+    @Test
+    fun testNotificationContentPositive() {
+        composeTestRule.content {
+            NotificationContentHasAction(style = NotificationContent.ButtonStretch.Positive.style())
+        }
+    }
+
+    @Test
+    fun testNotificationContentWarning() {
+        composeTestRule.content {
+            NotificationContentHasAction(style = NotificationContent.ButtonStretch.Warning.style())
+        }
+    }
 }
