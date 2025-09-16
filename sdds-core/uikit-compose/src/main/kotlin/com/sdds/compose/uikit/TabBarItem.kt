@@ -38,6 +38,7 @@ import com.sdds.compose.uikit.internal.common.StyledText
  * Элемент [TabBar]
  *
  * @param modifier модификатор
+ * @param isSelected выбран ли элемент
  * @param onClick обработчик нажатия
  * @param style стиль компонента
  * @param defaultIcon иконка при [isSelected] == false

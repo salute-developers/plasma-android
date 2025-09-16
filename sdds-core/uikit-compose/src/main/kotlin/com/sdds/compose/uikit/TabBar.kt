@@ -86,10 +86,17 @@ fun TabBar(
     ) {
         val scope = remember { TabBarScopeImpl() }
         scope.content()
-        scope.tabs.forEach { tabItemContent ->
-            Box(Modifier.weight(1f)) {
+        scope.tabs.forEach { item ->
+            Box(
+                modifier = Modifier
+                    .run {
+                        item.weight?.let {
+                            Modifier.weight(item.weight)
+                        } ?: Modifier
+                    },
+            ) {
                 CompositionLocalProvider(LocalTabBarItemStyle provides style.tabBarItemStyle) {
-                    tabItemContent.invoke()
+                    item.content.invoke()
                 }
             }
         }
@@ -122,14 +129,20 @@ private fun Modifier.drawDivider(
 }
 
 private class TabBarScopeImpl : TabBarScope {
-    val tabs = mutableListOf<@Composable () -> Unit>()
-    override fun tabItem(content: @Composable () -> Unit) {
-        tabs.add { content() }
+    val tabs = mutableListOf<TabItem>()
+
+    override fun tabItem(weight: Float?, content: @Composable (() -> Unit)) {
+        tabs.add(TabItem(content, weight))
     }
 
     fun reset() {
         tabs.clear()
     }
+
+    class TabItem(
+        val content: @Composable () -> Unit,
+        val weight: Float? = null,
+    )
 }
 
 /**
@@ -138,9 +151,11 @@ private class TabBarScopeImpl : TabBarScope {
 interface TabBarScope {
 
     /**
-     * Добавляет элемент [content] в [TabBar]
+     * Добавляет элемент [content] с весом [weight] в [TabBar].
+     * По умолчанию все элементы добавляются с весом 1f, чтобы равномерно занять доступную ширину в TabBar.
+     * Если необходимо, чтобы элемент занимал минимально необходимую ширину, нужно указать weight = null.
      */
-    fun tabItem(content: @Composable () -> Unit)
+    fun tabItem(weight: Float? = 1f, content: @Composable () -> Unit)
 }
 
 @Composable
