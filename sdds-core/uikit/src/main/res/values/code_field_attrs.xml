@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_codeFieldStyle" format="reference" />
+
+    <declare-styleable name="CodeField" tools:ignore="ResourceName">
+        <!-- Длина кода (количество ячеек для ввода) -->
+        <attr name="sd_codeLength" format="integer" />
+        <!-- Форма скруглений ячейки -->
+        <attr name="sd_itemShapeAppearance" format="reference" />
+        <!-- Форма скруглений группы ячеек (наружние углы крайних ячеек) -->
+        <attr name="sd_groupShapeAppearance" format="reference" />
+        <!-- Высота ячейки -->
+        <attr name="sd_itemHeight" format="dimension" />
+        <!-- Ширина ячейки -->
+        <attr name="sd_itemWidth" format="dimension" />
+        <!-- Отступ между ячейками -->
+        <attr name="sd_itemSpacing" />
+        <!-- Отступ между группами ячеек -->
+        <attr name="sd_groupSpacing" format="dimension" />
+        <!-- Отступ поля для подписи(caption) -->
+        <attr name="sd_captionPadding" format="dimension" />
+        <!-- Ресурс стиля текста подписи -->
+        <attr name="sd_captionAppearance" />
+        <!-- Цвет текста подписи -->
+        <attr name="sd_captionColor" />
+        <!-- Текст подписи -->
+        <attr name="sd_caption" />
+        <!-- Выравнивание текста в поле caption -->
+        <attr name="sd_captionAlignment" format="enum">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <!-- Отображение курсора -->
+        <attr name="sd_hasCursor" format="boolean" />
+        <!-- Включение фокуса у ячейки -->
+        <attr name="sd_focusGain" format="boolean" />
+        <attr name="android:inputType" />
+        <attr name="android:imeOptions" />
+
+        <!-- Ресурс стиля текста -->
+        <attr name="sd_valueAppearance" />
+        <!-- Цвет текста -->
+        <attr name="sd_valueColor" />
+        <!-- Толщина обводки(бордера) точки, скрывающей вводимые символы  -->
+        <attr name="sd_strokeWidth" />
+        <!-- Цвет обводки(бордера) точки, скрывающей вводимые символы  -->
+        <attr name="sd_strokeColor" />
+        <!-- Размер (диаметр) точки, скрывающей вводимые символы  -->
+        <attr name="sd_dotSize" format="dimension|float|reference" />
+        <!-- Цвет точки, скрывающей вводимые символы  -->
+        <attr name="sd_dotColor" format="reference|color" />
+        <!-- Цвет фона ячейки  -->
+        <attr name="sd_background" />
+        <!-- Цвет курсора  -->
+        <attr name="sd_cursorColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="SdCodeItemDrawable">
+        <attr name="sd_valueAppearance" />
+        <attr name="sd_valueColor" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_dotSize" />
+        <attr name="sd_dotColor" />
+        <attr name="sd_background" />
+        <attr name="sd_cursorColor" />
+    </declare-styleable>
+</resources>

@@ -23,6 +23,7 @@ import com.sdds.playground.sandbox.checkbox.vs.CheckBoxFragment
 import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
 import com.sdds.playground.sandbox.chip.vs.ChipFragment
 import com.sdds.playground.sandbox.chip.vs.group.ChipGroupFragment
+import com.sdds.playground.sandbox.codefield.vs.CodeFieldFragment
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
@@ -80,6 +81,7 @@ import com.sdds.testing.vs.checkbox.checkBoxGroup
 import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.chip
 import com.sdds.testing.vs.chip.chipGroup
+import com.sdds.testing.vs.codefield.codeField
 import com.sdds.testing.vs.counter.CounterUiState
 import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
@@ -336,6 +338,9 @@ internal sealed class ComponentScreen(
     object Drawer : ComponentScreen(
         { item -> fragment<DrawerFragment>(item.route, item.defaultBuilder) },
     )
+    object CodeField : ComponentScreen(
+        { item -> fragment<CodeFieldFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -386,6 +391,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
+        CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         else -> throw NoSuchElementException("Component not implemented")
     }
@@ -439,6 +445,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.LOADER -> R.id.nav_loader
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
+        CoreComponent.CODE_FIELD -> R.id.nav_code_field
         CoreComponent.DRAWER -> R.id.nav_drawer
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
@@ -531,6 +538,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.LOADER -> loader(context, style)
         CoreComponent.ACCORDION -> accordion(context, style)
         CoreComponent.DRAWER -> drawer(context, style)
+        CoreComponent.CODE_FIELD -> codeField(context, style)
         CoreComponent.BUTTON_GROUP -> {
             if (componentKey.value.contains("Icon")) {
                 buttonGroup(context, style, iconButton = true)

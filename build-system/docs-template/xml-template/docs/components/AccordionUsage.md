@@ -24,7 +24,6 @@ title: Accordion
 | `sd_accordionItemViewStyleOverlay` | Позволяет переопределить стиль элементов `AccordionItemView` внутри `Accordion` | reference |
 | `sd_dividerStyleOverlay` | Позволяет переопределить стиль разделителей между элементами | reference |
 
-
 Атрибуты применяются к `AccordionItemView`, который используется адаптером:
 
 | Атрибут | Описание | Тип |
@@ -56,6 +55,7 @@ title: Accordion
 ```
 
 ### Kotlin: Простая настройка
+
 ```kotlin
 val accordion = findViewById<Accordion>(R.id.accordion)
 // Используем простой адапетр из пакета com.sdds.uikit
@@ -132,6 +132,7 @@ class MyAccordionAdapter : AccordionAdapter<MyItem, MyViewHolder>() {
 ```
 
 ### Примечание
+
 - Используйте AccordionAdapter для управления состоянием и анимацией.
 - Методы isOpened(id: Long) и shouldAnimate(id: Long) можно переопределить для реализации кастомного поведения.
 - AccordionItemView можно использовать повторно в разных стилях через sd_accordionItemViewStyleOverlay.

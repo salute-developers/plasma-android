@@ -1061,6 +1061,7 @@
         <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense.Default</item>
         <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M</item>
         <item name="sd_overlayViewStyle">@style/Plasma.SdService.Components.OverlayView</item>
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2121,6 +2122,7 @@
         <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.L.Dense.Default</item>
         <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M</item>
         <item name="sd_overlayViewStyle">@style/Plasma.SdService.Components.OverlayView</item>
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.DayNight" parent="Plasma.SdService.MaterialComponents.Light"/>
     <style name="Plasma.SdService"/>

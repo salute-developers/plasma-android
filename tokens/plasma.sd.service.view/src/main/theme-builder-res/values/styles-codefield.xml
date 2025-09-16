@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.CodeField" parent="Sdds.Components.CodeField">
+        <item name="sd_itemSpacing">@dimen/plasma_code_field_item_spacing</item>
+        <item name="sd_groupSpacing">@dimen/plasma_code_field_group_spacing</item>
+        <item name="sd_valueColor">@color/plasma_code_field_value_color</item>
+        <item name="sd_cursorColor">?plasma_textDefaultAccent</item>
+        <item name="sd_dotColor">@color/plasma_code_field_dot_color</item>
+        <item name="sd_captionColor">@color/plasma_code_field_caption_color</item>
+        <item name="sd_background">@color/plasma_code_field_background</item>
+    </style>
+    <style name="Plasma.SdService.Components.CodeField.L">
+        <item name="sd_itemHeight">@dimen/plasma_code_field_l_item_height</item>
+        <item name="sd_itemWidth">@dimen/plasma_code_field_l_item_width</item>
+        <item name="sd_dotSize">@dimen/plasma_code_field_l_dot_size</item>
+        <item name="sd_captionPadding">@dimen/plasma_code_field_l_caption_padding</item>
+        <item name="sd_itemShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Plasma.SdService.TextAppearance.BodyLBold</item>
+        <item name="sd_captionAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CodeFieldL">
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.CodeField.L.Segmented">
+        <item name="sd_itemShapeAppearance">?plasma_shapeRoundXs</item>
+        <item name="sd_groupShapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CodeFieldLSegmented">
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.L.Segmented</item>
+    </style>
+    <style name="Plasma.SdService.Components.CodeField.M">
+        <item name="sd_itemHeight">@dimen/plasma_code_field_m_item_height</item>
+        <item name="sd_itemWidth">@dimen/plasma_code_field_m_item_width</item>
+        <item name="sd_dotSize">@dimen/plasma_code_field_m_dot_size</item>
+        <item name="sd_captionPadding">@dimen/plasma_code_field_m_caption_padding</item>
+        <item name="sd_itemShapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Plasma.SdService.TextAppearance.BodyMBold</item>
+        <item name="sd_captionAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CodeFieldM">
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.CodeField.M.Segmented">
+        <item name="sd_itemShapeAppearance">?plasma_shapeRoundXxs</item>
+        <item name="sd_groupShapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CodeFieldMSegmented">
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M.Segmented</item>
+    </style>
+</resources>

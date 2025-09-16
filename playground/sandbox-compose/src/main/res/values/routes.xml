@@ -47,5 +47,6 @@
     <item type="id" name="nav_button_group"/>
     <item type="id" name="nav_accordion"/>
     <item type="id" name="nav_loader"/>
+    <item type="id" name="nav_code_field"/>
     <item type="id" name="nav_drawer"/>
 </resources>
