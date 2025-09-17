@@ -2,13 +2,11 @@ package com.sdds.testing.vs.notification
 
 import android.content.Context
 import android.view.View
-import android.view.ViewGroup.LayoutParams
 import com.sdds.testing.vs.button.basicButton
-import com.sdds.testing.vs.getTextColorPrimary
+import com.sdds.testing.vs.notificationcontent.NotificationContentUiState
+import com.sdds.testing.vs.notificationcontent.notificationContent
 import com.sdds.testing.vs.styleWrapper
-import com.sdds.uikit.CellLayout
 import com.sdds.uikit.Notification
-import com.sdds.uikit.TextView
 import com.sdds.uikit.overlays.OverlayManager
 import com.sdds.uikit.overlays.getAnimationSpec
 
@@ -47,37 +45,12 @@ fun notification(
         isFocusable = state.focusable,
         hasClose = state.hasClose,
     ) { ctx, _ ->
-        if (state.focusable) {
-            focusableNotificationContent(context, state)
-        } else {
-            notificationContent(context, state)
-        }
-    }
-}
-
-private fun notificationContent(context: Context, state: NotificationUiState): View {
-    return TextView(context).apply {
-        text = state.text
-        setTextColor(context.getTextColorPrimary())
-    }
-}
-
-private fun focusableNotificationContent(context: Context, state: NotificationUiState): View {
-    val textView = TextView(context).apply {
-        text = state.text
-        setTextColor(context.getTextColorPrimary())
-    }
-    val button = basicButton(context).apply {
-        text = "Action"
-        layoutParams = CellLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-            cellContent = CellLayout.CellContent.END
-        }
-    }
-    return CellLayout(context).apply {
-        clipChildren = false
-        isFocusable = false
-        isFocusableInTouchMode = false
-        addView(textView)
-        addView(button)
+        notificationContent(
+            context = ctx,
+            state = NotificationContentUiState(
+                text = state.text,
+                hasActions = state.focusable,
+            ),
+        )
     }
 }

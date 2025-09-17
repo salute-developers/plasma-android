@@ -3,6 +3,7 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.NotificationLoose" parent="Sdds.Components.Notification">
+        <item name="sd_notificationContentStyleOverlay">@style/Plasma.SdService.ComponentOverlays.NotificationContentNoButtonStretchDefault</item>
         <item name="sd_closeIconAlignment">topEnd</item>
         <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
         <item name="sd_closeIconTint">?plasma_textDefaultSecondary</item>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ServNotificationContentColorState">
+        <attr format="boolean" name="serv_notificationcontent_state_default"/>
+        <attr format="boolean" name="serv_notificationcontent_state_positive"/>
+        <attr format="boolean" name="serv_notificationcontent_state_negative"/>
+        <attr format="boolean" name="serv_notificationcontent_state_warning"/>
+        <attr format="boolean" name="serv_notificationcontent_state_info"/>
+    </declare-styleable>
+    <declare-styleable name="NotificationContent" tools:ignore="ResourceName">
+        <attr format="enum" name="serv_notificationcontentColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_positive" value="1"/>
+            <enum name="state_negative" value="2"/>
+            <enum name="state_warning" value="3"/>
+            <enum name="state_info" value="4"/>
+        </attr>
+    </declare-styleable>
+</resources>

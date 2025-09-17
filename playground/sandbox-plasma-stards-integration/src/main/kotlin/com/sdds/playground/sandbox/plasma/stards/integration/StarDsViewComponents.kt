@@ -32,6 +32,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.loader.StarDsLoader
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.notificationcontent.StarDsNotificationContentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.overlay.vs.StarDsOverlayVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPopoverVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
@@ -146,6 +147,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
                 StarDsNotificationLooseVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.NotificationContent,
+                StarDsNotificationContentVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Overlay,
