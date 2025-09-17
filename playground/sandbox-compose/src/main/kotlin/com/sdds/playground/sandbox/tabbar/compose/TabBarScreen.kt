@@ -1,8 +1,13 @@
 package com.sdds.playground.sandbox.tabbar.compose
 
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Counter
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.TabBar
 import com.sdds.compose.uikit.TabBarItem
@@ -22,18 +27,27 @@ internal fun TabBarScreen(componentKey: ComponentKey = ComponentKey.TabBar) {
         viewModel = tabBarViewModel,
         component = { uiState, style ->
             TabBar(style = style) {
-                uiState.items.map {
+                uiState.items.forEachIndexed { i, item ->
                     tabItem {
                         TabBarItem(
-                            isSelected = tabBarViewModel.isSelected(it),
+                            isSelected = tabBarViewModel.isSelected(item),
                             defaultIcon = R.drawable.ic_smile_outline_36,
                             selectedIcon = R.drawable.ic_smile_fill_36,
                             label = uiState.label,
                             extra = getExtra(uiState.extraType),
                             onClick = {
-                                tabBarViewModel.onSelect(it)
+                                tabBarViewModel.onSelect(item)
                             },
                         )
+                    }
+                    if (uiState.customWeight && i == (uiState.items.size / 2) - 1) {
+                        tabItem(weight = null) {
+                            Icon(
+                                modifier = Modifier.width(44.dp),
+                                painter = painterResource(R.drawable.ic_home_alt_fill_36),
+                                contentDescription = null,
+                            )
+                        }
                     }
                 }
             }
