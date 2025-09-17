@@ -6,7 +6,7 @@ internal data class TabBarUiState(
     override val variant: String = "",
     val label: String = "Label",
     val items: List<Int> = listOf(1, 2, 3),
-    val showAssistant: Boolean = false,
+    val customWeight: Boolean = false,
     val current: Int = items.first(),
     val extraType: TabBarExtraType = TabBarExtraType.Counter,
 ) : UiState {

@@ -41,10 +41,10 @@ internal class TabBarViewModel(
                 onApply = { internalUiState.value = internalUiState.value.copy(extraType = it) },
             ),
             Property.BooleanProperty(
-                name = "showAssistant",
-                value = showAssistant,
+                name = "customWeight",
+                value = customWeight,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(showAssistant = it)
+                    internalUiState.value = internalUiState.value.copy(customWeight = it)
                 },
             ),
         )

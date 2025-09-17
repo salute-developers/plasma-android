@@ -40,7 +40,7 @@ internal fun TabBarScreen(componentKey: ComponentKey = ComponentKey.TabBar) {
                             },
                         )
                     }
-                    if (uiState.showAssistant && i == (uiState.items.size / 2) - 1) {
+                    if (uiState.customWeight && i == (uiState.items.size / 2) - 1) {
                         tabItem(weight = null) {
                             Icon(
                                 modifier = Modifier.width(44.dp),
