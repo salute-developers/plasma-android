@@ -170,6 +170,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:Input
     abstract val dimensionsConfig: Property<DimensionsConfig>
 
+    /**
+     * Дефолтная типографика в теме
+     */
+    @get:Input
+    abstract val defaultThemeTypography: Property<DefaultThemeTypography>
+
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
@@ -201,6 +207,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             themeName = themeName.get(),
             dimensionsConfig = dimensionsConfig.get(),
             packageResolver = packageResolver,
+            defaultThemeTypography = defaultThemeTypography.get(),
         )
     }
 

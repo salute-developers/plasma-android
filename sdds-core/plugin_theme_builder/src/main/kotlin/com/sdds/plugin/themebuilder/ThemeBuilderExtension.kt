@@ -24,6 +24,7 @@ open class ThemeBuilderExtension {
     internal var outputLocation = OutputLocation.BUILD
     internal var dimensionsConfig = DimensionsConfig()
     internal var autoGenerate: Boolean = true
+    internal var defaultThemeTypography = DefaultThemeTypography.DYNAMIC
 
     /**
      * Временный способ установки любого url для конфигов компонентов
@@ -174,6 +175,13 @@ open class ThemeBuilderExtension {
     fun dimensions(dimensionsConfigBuilder: DimensionsConfigBuilder.() -> Unit) {
         val builder = DimensionsConfigBuilder().apply(dimensionsConfigBuilder)
         this.dimensionsConfig = builder.build()
+    }
+
+    /**
+     * Устанавливает дефолтное значение [typography] типографики в теме.
+     */
+    fun defaultTypography(typography: DefaultThemeTypography) {
+        this.defaultThemeTypography = typography
     }
 
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
@@ -381,6 +389,28 @@ data class BreakPoints(
          */
         const val DEFAULT_LARGE = 960
     }
+}
+
+/**
+ * Дефолтное значение для типографики в теме
+ */
+enum class DefaultThemeTypography {
+    /**
+     * Типографика определяется динамически в зависимости от класса экрана
+      */
+    DYNAMIC,
+    /**
+     * Типографика для маленьких экранов
+     */
+    SMALL,
+    /**
+     * Типографика для средних экранов
+     */
+    MEDIUM,
+    /**
+     * Типографика для больших экранов
+     */
+    LARGE,
 }
 
 /**
