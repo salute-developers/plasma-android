@@ -33,6 +33,7 @@ internal fun BasicButtonScreen(componentKey: ComponentKey = ComponentKey.BasicBu
                     ButtonIcon.No -> null
                     ButtonIcon.Start -> ButtonIcons(startRes = icon.iconId)
                 },
+                onClickLabel = "Протестировать текст для Accessibility",
                 onClick = {},
             )
         },

@@ -48,6 +48,7 @@ import com.sdds.compose.uikit.internal.common.surface
 internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
+    onClickLabel: String? = null,
     shape: Shape,
     colors: ButtonColors,
     loadingAlpha: Float,
@@ -70,6 +71,7 @@ internal fun BaseButton(
             .surface(
                 shape = shape,
                 onClick = onClick,
+                onClickLabel = onClickLabel,
                 backgroundColor = { SolidColor(backgroundColor) },
                 indication = indication,
                 enabled = enabled,

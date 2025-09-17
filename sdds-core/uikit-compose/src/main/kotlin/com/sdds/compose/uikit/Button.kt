@@ -37,6 +37,7 @@ import com.sdds.compose.uikit.internal.ButtonText
  * @param indication [Indication] кнопки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
  * @param onClick обработчик нажатий
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
 fun IconButton(
@@ -49,6 +50,7 @@ fun IconButton(
     loading: Boolean = false,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
     onClick: () -> Unit,
 ) {
     val dimensions = style.dimensions
@@ -64,6 +66,7 @@ fun IconButton(
         disabledAlpha = style.disableAlpha,
         indication = indication,
         interactionSource = interactionSource,
+        onClickLabel = onClickLabel,
     ) {
         ButtonIcon(
             iconRes = iconRes,
@@ -87,6 +90,7 @@ fun IconButton(
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
 @NonRestartableComposable
@@ -100,6 +104,7 @@ fun IconButton(
     loading: Boolean = false,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
 ) {
     IconButton(
         icon = icon,
@@ -111,6 +116,7 @@ fun IconButton(
         indication = indication,
         interactionSource = interactionSource,
         iconContentDescription = null,
+        onClickLabel = onClickLabel,
     )
 }
 
@@ -128,6 +134,7 @@ fun IconButton(
  * @param loading флаг загрузки
  * @param iconContentDescription описание иконки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
 @Deprecated("Use IconButton with iconRes parameter")
@@ -141,11 +148,13 @@ fun IconButton(
     indication: Indication? = null,
     iconContentDescription: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
 ) {
     val dimensions = style.dimensions
     BaseButton(
         modifier = modifier.requiredSize(dimensions.height),
         onClick = onClick,
+        onClickLabel = onClickLabel,
         shape = LocalButtonForceShape.current ?: style.shape,
         dimensions = dimensions,
         colors = style.colors,
@@ -180,6 +189,7 @@ fun IconButton(
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
 fun Button(
@@ -194,6 +204,7 @@ fun Button(
     loading: Boolean = false,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
 ) {
     val dimensions = style.dimensions.let {
         var paddingStart = it.paddingStart
@@ -215,6 +226,7 @@ fun Button(
         modifier = modifier,
         onClick = onClick,
         colors = colors,
+        onClickLabel = onClickLabel,
         loadingAlpha = style.loadingAlpha,
         disabledAlpha = style.disableAlpha,
         enabled = enabled,
