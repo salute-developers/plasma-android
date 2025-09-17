@@ -3,55 +3,55 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <!--Typography-->
-    <attr format="reference" name="plasma_typographyDisplayLNormal"/>
     <attr format="reference" name="plasma_typographyDisplayLBold"/>
-    <attr format="reference" name="plasma_typographyDisplayMNormal"/>
-    <attr format="reference" name="plasma_typographyDisplayMBold"/>
-    <attr format="reference" name="plasma_typographyDisplaySNormal"/>
-    <attr format="reference" name="plasma_typographyDisplaySBold"/>
-    <attr format="reference" name="plasma_typographyHeaderH1Normal"/>
-    <attr format="reference" name="plasma_typographyHeaderH1Bold"/>
-    <attr format="reference" name="plasma_typographyHeaderH2Normal"/>
-    <attr format="reference" name="plasma_typographyHeaderH2Bold"/>
-    <attr format="reference" name="plasma_typographyHeaderH3Normal"/>
-    <attr format="reference" name="plasma_typographyHeaderH3Bold"/>
-    <attr format="reference" name="plasma_typographyHeaderH4Normal"/>
-    <attr format="reference" name="plasma_typographyHeaderH4Bold"/>
-    <attr format="reference" name="plasma_typographyHeaderH5Normal"/>
-    <attr format="reference" name="plasma_typographyHeaderH5Bold"/>
-    <attr format="reference" name="plasma_typographyBodyLNormal"/>
-    <attr format="reference" name="plasma_typographyBodyLBold"/>
-    <attr format="reference" name="plasma_typographyBodyMNormal"/>
-    <attr format="reference" name="plasma_typographyBodyMBold"/>
-    <attr format="reference" name="plasma_typographyBodySNormal"/>
-    <attr format="reference" name="plasma_typographyBodySBold"/>
-    <attr format="reference" name="plasma_typographyBodyXsNormal"/>
-    <attr format="reference" name="plasma_typographyBodyXsBold"/>
-    <attr format="reference" name="plasma_typographyBodyXxsNormal"/>
-    <attr format="reference" name="plasma_typographyBodyXxsBold"/>
-    <attr format="reference" name="plasma_typographyTextLNormal"/>
-    <attr format="reference" name="plasma_typographyTextLBold"/>
-    <attr format="reference" name="plasma_typographyTextMNormal"/>
-    <attr format="reference" name="plasma_typographyTextMBold"/>
-    <attr format="reference" name="plasma_typographyTextSNormal"/>
-    <attr format="reference" name="plasma_typographyTextSBold"/>
-    <attr format="reference" name="plasma_typographyTextXsNormal"/>
-    <attr format="reference" name="plasma_typographyTextXsBold"/>
     <attr format="reference" name="plasma_typographyDisplayLMedium"/>
+    <attr format="reference" name="plasma_typographyDisplayLNormal"/>
+    <attr format="reference" name="plasma_typographyDisplayMBold"/>
     <attr format="reference" name="plasma_typographyDisplayMMedium"/>
+    <attr format="reference" name="plasma_typographyDisplayMNormal"/>
+    <attr format="reference" name="plasma_typographyDisplaySBold"/>
     <attr format="reference" name="plasma_typographyDisplaySMedium"/>
+    <attr format="reference" name="plasma_typographyDisplaySNormal"/>
+    <attr format="reference" name="plasma_typographyHeaderH1Bold"/>
     <attr format="reference" name="plasma_typographyHeaderH1Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH1Normal"/>
+    <attr format="reference" name="plasma_typographyHeaderH2Bold"/>
     <attr format="reference" name="plasma_typographyHeaderH2Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH2Normal"/>
+    <attr format="reference" name="plasma_typographyHeaderH3Bold"/>
     <attr format="reference" name="plasma_typographyHeaderH3Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH3Normal"/>
+    <attr format="reference" name="plasma_typographyHeaderH4Bold"/>
     <attr format="reference" name="plasma_typographyHeaderH4Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH4Normal"/>
+    <attr format="reference" name="plasma_typographyHeaderH5Bold"/>
     <attr format="reference" name="plasma_typographyHeaderH5Medium"/>
+    <attr format="reference" name="plasma_typographyHeaderH5Normal"/>
+    <attr format="reference" name="plasma_typographyBodyLBold"/>
     <attr format="reference" name="plasma_typographyBodyLMedium"/>
+    <attr format="reference" name="plasma_typographyBodyLNormal"/>
+    <attr format="reference" name="plasma_typographyBodyMBold"/>
     <attr format="reference" name="plasma_typographyBodyMMedium"/>
+    <attr format="reference" name="plasma_typographyBodyMNormal"/>
+    <attr format="reference" name="plasma_typographyBodySBold"/>
     <attr format="reference" name="plasma_typographyBodySMedium"/>
+    <attr format="reference" name="plasma_typographyBodySNormal"/>
+    <attr format="reference" name="plasma_typographyBodyXsBold"/>
     <attr format="reference" name="plasma_typographyBodyXsMedium"/>
+    <attr format="reference" name="plasma_typographyBodyXsNormal"/>
+    <attr format="reference" name="plasma_typographyBodyXxsBold"/>
     <attr format="reference" name="plasma_typographyBodyXxsMedium"/>
+    <attr format="reference" name="plasma_typographyBodyXxsNormal"/>
+    <attr format="reference" name="plasma_typographyTextLBold"/>
     <attr format="reference" name="plasma_typographyTextLMedium"/>
+    <attr format="reference" name="plasma_typographyTextLNormal"/>
+    <attr format="reference" name="plasma_typographyTextMBold"/>
     <attr format="reference" name="plasma_typographyTextMMedium"/>
+    <attr format="reference" name="plasma_typographyTextMNormal"/>
+    <attr format="reference" name="plasma_typographyTextSBold"/>
     <attr format="reference" name="plasma_typographyTextSMedium"/>
+    <attr format="reference" name="plasma_typographyTextSNormal"/>
+    <attr format="reference" name="plasma_typographyTextXsBold"/>
     <attr format="reference" name="plasma_typographyTextXsMedium"/>
+    <attr format="reference" name="plasma_typographyTextXsNormal"/>
 </resources>
