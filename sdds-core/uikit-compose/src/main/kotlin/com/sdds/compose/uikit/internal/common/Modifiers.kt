@@ -76,10 +76,9 @@ internal fun Modifier.enable(
  * @param backgroundColor цвет бэкграунда
  * @param indication индикация нажатия
  * @param onClick обработчик нажатий
- * @param role тип элемента для Accesabillity
+ * @param onClickLabel текст для Accessibility
+ * @param role тип элемента для Accessibility
  * @param enabled включен ли компонент
- * @param enabledAlpha альфа в состоянии [enabled] == true
- * @param disabledAlpha альфа в состоянии [enabled] == true
  * @param interactionSource источник взаимодействий
  */
 @Stable
@@ -89,6 +88,7 @@ internal fun Modifier.surface(
     alpha: (Boolean) -> Float = { enable: Boolean -> if (enable) 1f else 0f },
     indication: Indication? = null,
     onClick: (() -> Unit)? = null,
+    onClickLabel: String? = null,
     role: Role? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource,
@@ -99,6 +99,7 @@ internal fun Modifier.surface(
             indication = indication,
             enabled = enabled,
             role = role,
+            onClickLabel = onClickLabel,
             onClick = onClick,
         )
     } ?: Modifier.focusable(enabled, interactionSource)

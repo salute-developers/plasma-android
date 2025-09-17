@@ -1,7 +1,10 @@
 package com.sdds.compose.uikit
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -25,6 +28,61 @@ import com.sdds.compose.uikit.internal.ButtonText
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
  * в зависимости от стиля.
  *
+ * @param iconRes иконка
+ * @param modifier модификатор
+ * @param iconContentDescription описание иконки
+ * @param style стиль кнопки
+ * @param enabled флаг доступности кнопки
+ * @param loading флаг загрузки
+ * @param indication [Indication] кнопки
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClick обработчик нажатий
+ * @param onClickLabel надпись для Accessibility
+ */
+@Composable
+fun IconButton(
+    @DrawableRes
+    iconRes: Int,
+    modifier: Modifier = Modifier,
+    iconContentDescription: String? = null,
+    style: ButtonStyle = LocalIconButtonStyle.current,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    indication: Indication? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
+    onClick: () -> Unit,
+) {
+    val dimensions = style.dimensions
+    BaseButton(
+        modifier = modifier.requiredSize(dimensions.height),
+        onClick = onClick,
+        shape = LocalButtonForceShape.current ?: style.shape,
+        dimensions = dimensions,
+        colors = style.colors,
+        enabled = enabled,
+        loading = loading,
+        loadingAlpha = style.loadingAlpha,
+        disabledAlpha = style.disableAlpha,
+        indication = indication,
+        interactionSource = interactionSource,
+        onClickLabel = onClickLabel,
+    ) {
+        ButtonIcon(
+            iconRes = iconRes,
+            contentDescription = iconContentDescription,
+            size = dimensions.iconSize,
+            iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+        )
+    }
+}
+
+/**
+ * Кнопка с иконкой.
+ * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
+ * На время анимации загрузки контент будет скрыт или станет полупрозрачным
+ * в зависимости от стиля.
+ *
  * @param icon иконка
  * @param onClick обработчик нажатий
  * @param modifier модификатор
@@ -32,9 +90,11 @@ import com.sdds.compose.uikit.internal.ButtonText
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
 @NonRestartableComposable
+@Deprecated("Use IconButton with iconRes parameter")
 fun IconButton(
     icon: Painter,
     onClick: () -> Unit,
@@ -44,6 +104,7 @@ fun IconButton(
     loading: Boolean = false,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
 ) {
     IconButton(
         icon = icon,
@@ -55,6 +116,7 @@ fun IconButton(
         indication = indication,
         interactionSource = interactionSource,
         iconContentDescription = null,
+        onClickLabel = onClickLabel,
     )
 }
 
@@ -72,8 +134,10 @@ fun IconButton(
  * @param loading флаг загрузки
  * @param iconContentDescription описание иконки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
+@Deprecated("Use IconButton with iconRes parameter")
 fun IconButton(
     icon: Painter,
     onClick: () -> Unit,
@@ -84,11 +148,13 @@ fun IconButton(
     indication: Indication? = null,
     iconContentDescription: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
 ) {
     val dimensions = style.dimensions
     BaseButton(
         modifier = modifier.requiredSize(dimensions.height),
         onClick = onClick,
+        onClickLabel = onClickLabel,
         shape = LocalButtonForceShape.current ?: style.shape,
         dimensions = dimensions,
         colors = style.colors,
@@ -123,6 +189,7 @@ fun IconButton(
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
  */
 @Composable
 fun Button(
@@ -137,15 +204,16 @@ fun Button(
     loading: Boolean = false,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
 ) {
     val dimensions = style.dimensions.let {
         var paddingStart = it.paddingStart
         var paddingEnd = it.paddingEnd
         when {
-            icons?.start != null && paddingStart > IconPaddingOffset ->
+            (icons?.start != null || icons?.startRes != null) && paddingStart > IconPaddingOffset ->
                 paddingStart -= IconPaddingOffset
 
-            icons?.end != null && paddingEnd > IconPaddingOffset ->
+            (icons?.end != null || icons?.endRes != null) && paddingEnd > IconPaddingOffset ->
                 paddingEnd -= IconPaddingOffset
 
             else -> {}
@@ -158,6 +226,7 @@ fun Button(
         modifier = modifier,
         onClick = onClick,
         colors = colors,
+        onClickLabel = onClickLabel,
         loadingAlpha = style.loadingAlpha,
         disabledAlpha = style.disableAlpha,
         enabled = enabled,
@@ -167,15 +236,8 @@ fun Button(
         indication = indication,
         interactionSource = interactionSource,
     ) {
-        if (icons?.start != null) {
-            ButtonIcon(
-                icon = icons.start,
-                contentDescription = icons.startContentDescription,
-                size = dimensions.iconSize,
-                marginEnd = dimensions.iconMargin,
-                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
-            )
-        }
+        StartButtonIcon(icons, dimensions, style.colors, interactionSource)
+
         val labelColor = colors.labelColor.colorForInteraction(interactionSource)
         val valueColor = colors.valueColor.colorForInteraction(interactionSource)
         ButtonText(
@@ -189,15 +251,7 @@ fun Button(
             valueMargin = dimensions.valueMargin,
         )
 
-        if (icons?.end != null) {
-            ButtonIcon(
-                icon = icons.end,
-                contentDescription = icons.endContentDescription,
-                size = dimensions.iconSize,
-                marginStart = dimensions.iconMargin,
-                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
-            )
-        }
+        EndButtonIcon(icons, dimensions, style.colors, interactionSource)
     }
 }
 
@@ -247,16 +301,22 @@ enum class ButtonSpacing {
 
 /**
  * Иконки кнопки
- * @property start иконка, которая будет добавлена в начале
- * @property end иконка, которая будет добавлена в конце
+ * @property startRes иконка, которая будет добавлена в yfxfkt
+ * @property endRes иконка, которая будет добавлена в конце
  * @property startContentDescription описание иконки в начале
  * @property endContentDescription описание иконки в конце
  */
 class ButtonIcons(
+    @Deprecated("Use startRes instead")
     val start: Painter? = null,
+    @Deprecated("Use endRes instead")
     val end: Painter? = null,
     val startContentDescription: String? = null,
     val endContentDescription: String? = null,
+    @DrawableRes
+    val startRes: Int? = null,
+    @DrawableRes
+    val endRes: Int? = null,
 ) {
 
     /**
@@ -277,5 +337,57 @@ class ButtonIcons(
 
 internal val LocalButtonForceShape: ProvidableCompositionLocal<Shape?> =
     compositionLocalOf(structuralEqualityPolicy()) { null }
+
+@Composable
+private fun RowScope.StartButtonIcon(
+    icons: ButtonIcons?,
+    dimensions: ButtonDimensions,
+    colors: ButtonColors,
+    interactionSource: InteractionSource,
+) {
+    if (icons?.startRes != null) {
+        ButtonIcon(
+            iconRes = icons.startRes,
+            contentDescription = icons.startContentDescription,
+            size = dimensions.iconSize,
+            marginEnd = dimensions.iconMargin,
+            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+        )
+    } else if (icons?.start != null) {
+        ButtonIcon(
+            icon = icons.start,
+            contentDescription = icons.startContentDescription,
+            size = dimensions.iconSize,
+            marginEnd = dimensions.iconMargin,
+            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+        )
+    }
+}
+
+@Composable
+private fun RowScope.EndButtonIcon(
+    icons: ButtonIcons?,
+    dimensions: ButtonDimensions,
+    colors: ButtonColors,
+    interactionSource: InteractionSource,
+) {
+    if (icons?.endRes != null) {
+        ButtonIcon(
+            iconRes = icons.endRes,
+            contentDescription = icons.endContentDescription,
+            size = dimensions.iconSize,
+            marginStart = dimensions.iconMargin,
+            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+        )
+    } else if (icons?.end != null) {
+        ButtonIcon(
+            icon = icons.end,
+            contentDescription = icons.endContentDescription,
+            size = dimensions.iconSize,
+            marginStart = dimensions.iconMargin,
+            iconColor = colors.iconColor.colorForInteraction(interactionSource),
+        )
+    }
+}
 
 private val IconPaddingOffset = 2.dp
