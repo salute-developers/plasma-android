@@ -83,6 +83,19 @@ open class ShimmerLayout @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает список [ColorValueStateList] для эффекта мерцания.
+     * В указанном [list] может быть либо ссылка на [ShapeDrawable] с установленным [ShaderFactory], либо ссылка
+     * на стиль шейдера
+     */
+    fun setShimmerShaderList(list: ColorValueStateList?) {
+        if (_shimmerList != list) {
+            _shimmerList = list
+            updateShaderFactory()
+            invalidate()
+        }
+    }
+
+    /**
      * Устанавливает [ShaderFactory] для эффекта мерцания.
      * [ShaderFactory] должен вернуть градиент, который будет использован для отрисовки эффекта мерцания.
      * @see ShaderFactory
@@ -90,6 +103,7 @@ open class ShimmerLayout @JvmOverloads constructor(
     fun setShimmerShader(shaderFactory: ShaderFactory) {
         shimmerShaderFactory = shaderFactory
         createShader()
+        invalidate()
     }
 
     /**
@@ -100,6 +114,10 @@ open class ShimmerLayout @JvmOverloads constructor(
         if (shimmerDuration != durationMillis) {
             shimmerDuration = durationMillis
             animator.duration = durationMillis
+            if (isShimmerStarted) {
+                stopShimmer()
+                startShimmer()
+            }
         }
     }
 
@@ -160,6 +178,10 @@ open class ShimmerLayout @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
+        updateShaderFactory()
+    }
+
+    private fun updateShaderFactory() {
         shimmerShaderFactory = when (val shimmer = _shimmerList?.getValueForState(drawableState)) {
             is ColorValueHolder.DrawableValue -> (shimmer.value as? ShapeDrawable)?.shaderFactory
             is ColorValueHolder.ShaderValue -> shimmer.value
