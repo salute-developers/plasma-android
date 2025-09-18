@@ -1,19 +1,31 @@
 package com.sdds.compose.uikit.internal
 
+import android.graphics.Typeface
+import android.text.TextPaint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.Placeable
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalFontFamilyResolver
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontSynthesis
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.isSpecified
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlin.math.roundToInt
 
 /**
  * Рассчитывает линейную интерполяцию между значениями [a] в [b]
@@ -68,3 +80,39 @@ private val DummyInteractionSource = object : MutableInteractionSource {
 
 internal fun Modifier.clickableWithoutIndication(onClick: () -> Unit): Modifier =
     this.clickable(indication = null, interactionSource = DummyInteractionSource) { onClick.invoke() }
+
+@Composable
+internal fun resolveLineHeightPx(style: TextStyle, fallbackTypeface: Typeface = Typeface.DEFAULT): Int {
+    val density = LocalDensity.current
+    val resolver = LocalFontFamilyResolver.current
+
+    return remember(style, density, resolver) {
+        val textSizePx = with(density) { style.fontSize.roundToPx() }
+        val androidTypeface: Typeface = runCatching {
+            val state = resolver.resolve(
+                style.fontFamily,
+                style.fontWeight ?: FontWeight.Normal,
+                style.fontStyle ?: FontStyle.Normal,
+                style.fontSynthesis ?: FontSynthesis.All,
+            )
+            (state.value as? Typeface) ?: fallbackTypeface
+        }.getOrDefault(fallbackTypeface)
+
+        val paint = TextPaint().apply {
+            isAntiAlias = true
+            textSize = textSizePx.toFloat()
+            this.typeface = androidTypeface
+        }
+
+        val fm = paint.fontMetrics
+        val natural = (fm.descent - fm.ascent + fm.leading).roundToInt() // «естественная» высота строки
+
+        val target = if (style.lineHeight.isSpecified) {
+            with(density) { style.lineHeight.roundToPx() }
+        } else {
+            natural
+        }
+
+        maxOf(natural, target)
+    }
+}

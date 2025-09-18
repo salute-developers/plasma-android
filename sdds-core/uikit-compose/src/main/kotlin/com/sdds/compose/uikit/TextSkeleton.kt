@@ -1,16 +1,16 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.internal.resolveLineHeightPx
 import kotlin.random.Random
 
 /**
@@ -41,15 +41,14 @@ fun TextSkeleton(
     shape: Shape = style.shape,
 ) {
     if (lineCount < 1) throw IllegalStateException("RectSkeleton: line count must be greater than 0")
-    val lineSpacing = with(LocalDensity.current) { (textStyle.lineHeight.toDp() - textStyle.fontSize.toDp()) }
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(lineSpacing),
-    ) {
+    val textSize = with(LocalDensity.current) { textStyle.fontSize.toDp() }
+    val lineHeight = with(LocalDensity.current) { resolveLineHeightPx(textStyle).toDp() }
+    Column(modifier = modifier) {
         for (lineIndex in 0 until lineCount) {
             RectSkeleton(
                 modifier = Modifier
-                    .height(textStyle.fontSize.value.dp)
+                    .height(lineHeight)
+                    .padding(vertical = (lineHeight - textSize) / 2)
                     .fillMaxWidth(fraction = lineWidthProvider.widthFactor(lineIndex, lineCount)),
                 duration = duration,
                 brush = brush,
