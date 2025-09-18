@@ -72,7 +72,7 @@ public fun PlasmaHomeDsTheme(
     gradients: PlasmaHomeDsGradients = PlasmaHomeDsTheme.gradients,
     shapes: PlasmaHomeDsShapes = defaultPlasmaHomeDsShapes(),
     shadows: PlasmaHomeDsShadows = defaultPlasmaHomeDsShadows(),
-    typography: PlasmaHomeDsTypography = dynamicPlasmaHomeDsTypography(),
+    typography: PlasmaHomeDsTypography = smallPlasmaHomeDsTypography(),
     spacing: PlasmaHomeDsSpacing = defaultPlasmaHomeDsSpacing(),
     content: @Composable () -> Unit,
 ) {

@@ -295,6 +295,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             outputResDirPath.set(extension.outputLocation.getResourcePath())
             namespace.set(getProjectNameSpace())
             dimensionsConfig.set(extension.dimensionsConfig)
+            defaultThemeTypography.set(extension.defaultThemeTypography)
             dependsOn(unzipTask)
         }
     }

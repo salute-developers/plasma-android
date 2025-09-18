@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
+import com.sdds.plugin.themebuilder.DefaultThemeTypography
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
@@ -21,6 +22,7 @@ internal class ComposeThemeGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     themeName: String,
+    private val defaultThemeTypography: DefaultThemeTypography,
 ) : SimpleBaseGenerator {
 
     private val themeKtFileBuilder by unsafeLazy {
@@ -114,7 +116,7 @@ internal class ComposeThemeGenerator(
                     KtFileBuilder.FunParameter(
                         name = "typography",
                         type = typographyAttributesClassType,
-                        defValue = "dynamic${camelThemeName}Typography()",
+                        defValue = defaultThemeTypography.typographyCall(),
                     ),
                     KtFileBuilder.FunParameter(
                         name = "spacing",
@@ -133,6 +135,11 @@ internal class ComposeThemeGenerator(
                 description = "Базовая тема $camelThemeName",
             )
         }
+    }
+
+    private fun DefaultThemeTypography.typographyCall(): String {
+        val prefix = this.name.lowercase()
+        return "$prefix${camelThemeName}Typography()"
     }
 
     private fun buildThemeFunBody(): String {

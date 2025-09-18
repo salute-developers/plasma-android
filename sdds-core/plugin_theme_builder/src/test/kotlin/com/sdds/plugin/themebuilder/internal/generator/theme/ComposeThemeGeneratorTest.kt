@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme
 
+import com.sdds.plugin.themebuilder.DefaultThemeTypography
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -53,6 +54,7 @@ class ComposeThemeGeneratorTest {
             ktFileBuilderFactory,
             KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Test",
+            DefaultThemeTypography.DYNAMIC,
         )
         underTest.setColorTokenData(colorAttrsWithDefaultColors)
         underTest.setTypographyTokenData(typographyAttrs)
@@ -71,6 +73,7 @@ class ComposeThemeGeneratorTest {
             ktFileBuilderFactory,
             KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Test",
+            DefaultThemeTypography.DYNAMIC,
         )
         underTest.setColorTokenData(TokenData(emptyMap(), emptyMap()))
         underTest.setTypographyTokenData(

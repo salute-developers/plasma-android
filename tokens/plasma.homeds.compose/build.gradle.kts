@@ -1,3 +1,4 @@
+import com.sdds.plugin.themebuilder.DefaultThemeTypography.SMALL
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 import utils.componentsName
@@ -32,6 +33,7 @@ themeBuilder {
     mode(THEME)
     outputLocation(SRC)
     autoGenerate(false)
+    defaultTypography(SMALL)
 }
 
 dependencies {

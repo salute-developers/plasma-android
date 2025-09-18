@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.DefaultThemeTypography
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
@@ -73,6 +74,7 @@ internal class GeneratorFactory(
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
     private val packageResolver: PackageResolver,
+    private val defaultThemeTypography: DefaultThemeTypography,
 ) {
 
     private val outputDir: File by unsafeLazy {
@@ -223,6 +225,7 @@ internal class GeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
+            defaultThemeTypography = defaultThemeTypography,
         )
     }
 
