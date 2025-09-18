@@ -59,7 +59,7 @@ jobs:
           done
 
       - name: Update tokens summary
-        run: /gradlew :tokens:generateSummary
+        run: ./gradlew :tokens:generateSummary
 
       - name: Commit bumped versions
         run: |
