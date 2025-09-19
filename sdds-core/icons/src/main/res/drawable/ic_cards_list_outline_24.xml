@@ -1,0 +1,30 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M5.653 16.508C6.41 16.585 7 17.223 7 18v2l-0.008 0.153c-0.071 0.706-0.633 1.268-1.339 1.34L5.5 21.5h-2c-0.777 0-1.415-0.59-1.492-1.347L2 20v-2c0-0.828 0.672-1.5 1.5-1.5h2l0.153 0.008ZM3.5 20h2v-2h-2v2Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M20.653 16.508C21.41 16.585 22 17.223 22 18v2l-0.008 0.153c-0.072 0.706-0.633 1.268-1.339 1.34L20.5 21.5h-10c-0.777 0-1.415-0.59-1.492-1.347L9 20v-2c0-0.828 0.672-1.5 1.5-1.5h10l0.153 0.008ZM10.5 20h10v-2h-10v2Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M5.653 9.508C6.41 9.585 7 10.223 7 11v2l-0.008 0.153c-0.071 0.706-0.633 1.268-1.339 1.34L5.5 14.5h-2c-0.777 0-1.415-0.59-1.492-1.347L2 13v-2c0-0.828 0.672-1.5 1.5-1.5h2l0.153 0.008ZM3.5 13h2v-2h-2v2Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M20.653 9.508C21.41 9.585 22 10.223 22 11v2l-0.008 0.153c-0.072 0.706-0.633 1.268-1.339 1.34L20.5 14.5h-10c-0.777 0-1.415-0.59-1.492-1.347L9 13v-2c0-0.828 0.672-1.5 1.5-1.5h10l0.153 0.008ZM10.5 13h10v-2h-10v2Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M5.653 2.508C6.41 2.585 7 3.223 7 4v2L6.992 6.153C6.921 6.86 6.36 7.421 5.653 7.493L5.5 7.5h-2c-0.777 0-1.415-0.59-1.492-1.347L2 6V4c0-0.828 0.672-1.5 1.5-1.5h2l0.153 0.008ZM3.5 6h2V4h-2v2Z"/>
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M20.653 2.508C21.41 2.585 22 3.223 22 4v2l-0.008 0.153c-0.072 0.706-0.633 1.268-1.339 1.34L20.5 7.5h-10c-0.777 0-1.415-0.59-1.492-1.347L9 6V4c0-0.828 0.672-1.5 1.5-1.5h10l0.153 0.008ZM10.5 6h10V4h-10v2Z"/>
+</vector>
