@@ -186,6 +186,8 @@ internal class ShapeHelper(
         val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
         if (hasShape) {
             setShape(ShapeModel.create(view.context, attributeSet, defStyleAttr, defStyleRes))
+        } else {
+            setShape(ShapeModel())
         }
         typedArray.recycle()
     }

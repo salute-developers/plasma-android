@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.NotificationContent" parent="Sdds.Components.NotificationContent">
+        <item name="sd_textAppearance">@style/Sdkit.StarDs.TextAppearance.TextSNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+        <item name="sd_icon">@drawable/ic_info_circle_outline_24</item>
+        <item name="sd_iconSize">@dimen/sdkit_notification_content_icon_size</item>
+        <item name="sd_textPadding">@dimen/sdkit_notification_content_text_padding</item>
+        <item name="sd_textBoxBottomPadding">@dimen/sdkit_notification_content_tbox_bottom_padding</item>
+        <item name="sd_buttonGroupTopPadding">@dimen/sdkit_notification_content_btn_group_top_padding</item>
+        <item name="sd_titleColor">@color/sdkit_notification_content_title_color</item>
+        <item name="sd_textColor">@color/sdkit_notification_content_text_color</item>
+        <item name="sd_iconTint">@color/sdkit_notification_content_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.NotificationContentColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch">
+        <item name="sd_buttonLayout">stretch</item>
+        <item name="sd_buttonGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsDenseDefault</item>
+        <item name="sd_contentStartPadding">@dimen/sdkit_notification_content_button_stretch_content_start_padding</item>
+        <item name="sd_contentTopPadding">@dimen/sdkit_notification_content_button_stretch_content_top_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretch">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Default">
+        <item name="sdkit_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchDefault">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Positive">
+        <item name="sdkit_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchPositive">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Negative">
+        <item name="sdkit_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchNegative">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Warning">
+        <item name="sdkit_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchWarning">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Info">
+        <item name="sdkit_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchInfo">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop">
+        <item name="sd_notificationIconPlacement">top</item>
+        <item name="sd_iconMargin">@dimen/sdkit_notification_content_button_stretch_icon_top_icon_margin</item>
+        <item name="sd_contentEndPadding">@dimen/sdkit_notification_content_button_stretch_icon_top_content_end_padding</item>
+        <item name="sd_textBoxStartPadding">@dimen/sdkit_notification_content_button_stretch_icon_top_tbox_start_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconTop">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Default">
+        <item name="sdkit_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconTopDefault">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Positive">
+        <item name="sdkit_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconTopPositive">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Negative">
+        <item name="sdkit_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconTopNegative">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Warning">
+        <item name="sdkit_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconTopWarning">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Info">
+        <item name="sdkit_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconTopInfo">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconTop.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart">
+        <item name="sd_notificationIconPlacement">start</item>
+        <item name="sd_iconMargin">@dimen/sdkit_notification_content_button_stretch_icon_start_icon_margin</item>
+        <item name="sd_textBoxStartPadding">@dimen/sdkit_notification_content_button_stretch_icon_start_tbox_start_padding</item>
+        <item name="sd_textBoxTopPadding">@dimen/sdkit_notification_content_button_stretch_icon_start_tbox_top_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconStart">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Default">
+        <item name="sdkit_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconStartDefault">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Positive">
+        <item name="sdkit_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconStartPositive">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Negative">
+        <item name="sdkit_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconStartNegative">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Warning">
+        <item name="sdkit_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconStartWarning">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Info">
+        <item name="sdkit_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentButtonStretchIconStartInfo">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.IconStart.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch">
+        <item name="sd_buttonLayout">normal</item>
+        <item name="sd_buttonGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonGroupXsDenseDefault</item>
+        <item name="sd_contentTopPadding">@dimen/sdkit_notification_content_no_button_stretch_content_top_padding</item>
+        <item name="sd_textBoxStartPadding">@dimen/sdkit_notification_content_no_button_stretch_tbox_start_padding</item>
+        <item name="sd_textBoxTopPadding">@dimen/sdkit_notification_content_no_button_stretch_tbox_top_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretch">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Default">
+        <item name="sdkit_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchDefault">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Positive">
+        <item name="sdkit_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchPositive">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Negative">
+        <item name="sdkit_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchNegative">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Warning">
+        <item name="sdkit_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchWarning">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Info">
+        <item name="sdkit_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchInfo">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop">
+        <item name="sd_notificationIconPlacement">top</item>
+        <item name="sd_iconMargin">@dimen/sdkit_notification_content_no_button_stretch_icon_top_icon_margin</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconTop">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Default">
+        <item name="sdkit_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconTopDefault">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Positive">
+        <item name="sdkit_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconTopPositive">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Negative">
+        <item name="sdkit_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconTopNegative">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Warning">
+        <item name="sdkit_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconTopWarning">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Info">
+        <item name="sdkit_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconTopInfo">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconTop.Info</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart">
+        <item name="sd_notificationIconPlacement">start</item>
+        <item name="sd_iconMargin">@dimen/sdkit_notification_content_no_button_stretch_icon_start_icon_margin</item>
+        <item name="sd_buttonGroupStartPadding">@dimen/sdkit_notification_content_no_button_stretch_icon_start_btn_group_start_padding</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconStart">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Default">
+        <item name="sdkit_notificationcontentColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconStartDefault">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Positive">
+        <item name="sdkit_notificationcontentColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconStartPositive">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Negative">
+        <item name="sdkit_notificationcontentColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconStartNegative">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Warning">
+        <item name="sdkit_notificationcontentColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconStartWarning">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Info">
+        <item name="sdkit_notificationcontentColors">state_info</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.NotificationContentNoButtonStretchIconStartInfo">
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.NoButtonStretch.IconStart.Info</item>
+    </style>
+</resources>

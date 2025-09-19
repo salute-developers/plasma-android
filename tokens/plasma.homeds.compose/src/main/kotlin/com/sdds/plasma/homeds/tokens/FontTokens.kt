@@ -91,52 +91,32 @@ public object FontTokens {
      */
     public val text: FontFamily = FontFamily(
         Font(
-            R.font.s_b_sans_text_light,
+            R.font.s_b_sans_display_light,
             FontWeight(300),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_italic,
-            FontWeight(400),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_semibold_italic,
-            FontWeight(600),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_thin,
+            R.font.s_b_sans_display_thin,
             FontWeight(100),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_regular,
+            R.font.s_b_sans_display_bold,
+            FontWeight(700),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_regular,
             FontWeight(400),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_semibold,
+            R.font.s_b_sans_display_semibold,
             FontWeight(600),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_light_italic,
-            FontWeight(300),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_bold,
-            FontWeight(700),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_text_bold_italic,
-            FontWeight(700),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_medium,
+            R.font.s_b_sans_display_medium,
             FontWeight(500),
             FontStyle.Normal,
         ),
@@ -147,52 +127,32 @@ public object FontTokens {
      */
     public val body: FontFamily = FontFamily(
         Font(
-            R.font.s_b_sans_text_light,
+            R.font.s_b_sans_display_light,
             FontWeight(300),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_italic,
-            FontWeight(400),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_semibold_italic,
-            FontWeight(600),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_thin,
+            R.font.s_b_sans_display_thin,
             FontWeight(100),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_regular,
+            R.font.s_b_sans_display_bold,
+            FontWeight(700),
+            FontStyle.Normal,
+        ),
+        Font(
+            R.font.s_b_sans_display_regular,
             FontWeight(400),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_semibold,
+            R.font.s_b_sans_display_semibold,
             FontWeight(600),
             FontStyle.Normal,
         ),
         Font(
-            R.font.s_b_sans_text_light_italic,
-            FontWeight(300),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_bold,
-            FontWeight(700),
-            FontStyle.Normal,
-        ),
-        Font(
-            R.font.s_b_sans_text_bold_italic,
-            FontWeight(700),
-            FontStyle.Italic,
-        ),
-        Font(
-            R.font.s_b_sans_text_medium,
+            R.font.s_b_sans_display_medium,
             FontWeight(500),
             FontStyle.Normal,
         ),

@@ -1,5 +1,6 @@
 import com.diffplug.gradle.spotless.SpotlessExtension
 import com.diffplug.gradle.spotless.SpotlessPlugin
+import utils.isSandboxIntegrationModule
 import utils.withVersionCatalogs
 
 apply<SpotlessPlugin>()
@@ -18,6 +19,11 @@ configure<SpotlessExtension> {
         trimTrailingWhitespace()
         indentWithSpaces()
         endWithNewline()
+        val maxLineLengthValue = if (project.isSandboxIntegrationModule()) {
+            "disabled"
+        } else {
+            120
+        }
         withVersionCatalogs {
             ktlint(versions.staticAnalysis.ktlint.get())
                 .editorConfigOverride(
@@ -28,7 +34,7 @@ configure<SpotlessExtension> {
                         "ktlint_standard_package-name" to "disabled",
                         "ktlint_standard_enum-entry-name-case" to "disabled",
                         "ktlint_standard_filename" to "disabled",
-                        "max_line_length" to 120,
+                        "max_line_length" to maxLineLengthValue,
                     ),
                 )
         }

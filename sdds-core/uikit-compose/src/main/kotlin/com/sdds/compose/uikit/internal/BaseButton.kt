@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit.internal
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
@@ -24,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
@@ -46,6 +48,7 @@ import com.sdds.compose.uikit.internal.common.surface
 internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
+    onClickLabel: String? = null,
     shape: Shape,
     colors: ButtonColors,
     loadingAlpha: Float,
@@ -68,6 +71,7 @@ internal fun BaseButton(
             .surface(
                 shape = shape,
                 onClick = onClick,
+                onClickLabel = onClickLabel,
                 backgroundColor = { SolidColor(backgroundColor) },
                 indication = indication,
                 enabled = enabled,
@@ -101,6 +105,7 @@ internal fun BaseButton(
  *
  */
 @Composable
+@Deprecated("Use ButtonIcon with iconRes prarameter")
 internal fun RowScope.ButtonIcon(
     icon: Painter,
     size: Dp,
@@ -114,6 +119,34 @@ internal fun RowScope.ButtonIcon(
     }
     Icon(
         painter = icon,
+        contentDescription = contentDescription,
+        modifier = Modifier.requiredSize(size),
+        tint = iconColor,
+    )
+    if (marginEnd.value > 0) {
+        Spacer(modifier = Modifier.width(marginEnd))
+    }
+}
+
+/**
+ * Иконка кнопки. Умеет подставлять отступы в начале и в конце.
+ *
+ */
+@Composable
+internal fun RowScope.ButtonIcon(
+    @DrawableRes
+    iconRes: Int,
+    size: Dp,
+    marginStart: Dp = 0.dp,
+    marginEnd: Dp = 0.dp,
+    iconColor: Color,
+    contentDescription: String? = null,
+) {
+    if (marginStart.value > 0) {
+        Spacer(modifier = Modifier.width(marginStart))
+    }
+    Icon(
+        painter = painterResource(iconRes),
         contentDescription = contentDescription,
         modifier = Modifier.requiredSize(size),
         tint = iconColor,

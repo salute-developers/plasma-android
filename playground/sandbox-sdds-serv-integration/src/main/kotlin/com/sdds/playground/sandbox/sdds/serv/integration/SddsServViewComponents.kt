@@ -34,6 +34,9 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbe
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseInnerVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseNoneVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseOuterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsView
@@ -44,6 +47,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.loader.SddsServLoaderVa
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.notificationcontent.SddsServNotificationContentVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.overlay.vs.SddsServOverlayVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.popover.vs.SddsServPopoverVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
@@ -214,6 +218,10 @@ object SddsServViewComponents : ComponentsProviderView {
                 SddsServNotificationLooseVariationsView,
             ),
             ViewComponent(
+                ComponentKey.NotificationContent,
+                SddsServNotificationContentVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Overlay,
                 SddsServOverlayVariationsView,
             ),
@@ -292,6 +300,18 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
                 SddsServIconButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DrawerCloseInner", CoreComponent.DRAWER),
+                SddsServDrawerCloseInnerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DrawerCloseOuter", CoreComponent.DRAWER),
+                SddsServDrawerCloseOuterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("DrawerCloseNone", CoreComponent.DRAWER),
+                SddsServDrawerCloseNoneVariationsView,
             ),
         ).associateBy { it.key }
 }

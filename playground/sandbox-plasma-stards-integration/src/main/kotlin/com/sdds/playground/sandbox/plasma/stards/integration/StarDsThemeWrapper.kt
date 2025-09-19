@@ -1,6 +1,14 @@
 package com.sdds.playground.sandbox.plasma.stards.integration
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import com.sdds.compose.uikit.LocalListStyle
+import com.sdds.compose.uikit.LocalOverlayStyle
+import com.sdds.compose.uikit.style.style
+import com.sdkit.star.designsystem.styles.list.List
+import com.sdkit.star.designsystem.styles.list.M
+import com.sdkit.star.designsystem.styles.overlay.Default
+import com.sdkit.star.designsystem.styles.overlay.Overlay
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import com.sdkit.star.designsystem.theme.darkStarDsColors
 import com.sdkit.star.designsystem.theme.darkStarDsGradients
@@ -17,6 +25,11 @@ fun StarDsThemeWrapper(content: @Composable () -> Unit) {
         colors = Colors,
         gradients = Gradients,
     ) {
-        content()
+        CompositionLocalProvider(
+            LocalOverlayStyle provides Overlay.Default.style(),
+            LocalListStyle provides List.M.style(),
+        ) {
+            content()
+        }
     }
 }

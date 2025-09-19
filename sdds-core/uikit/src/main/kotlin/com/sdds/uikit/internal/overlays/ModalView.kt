@@ -37,7 +37,7 @@ internal open class ModalView @JvmOverloads constructor(
             setHasClose(icon != null)
             _closeIconSize = getDimensionPixelSize(R.styleable.ModalView_sd_closeIconSize, DEFAULT_ICON_SIZE)
             _closeIconContentPadding = getDimensionPixelSize(R.styleable.ModalView_sd_closeIconContentPadding, 0)
-            _closeIconContentPadding = getInt(R.styleable.ModalView_sd_closeIconAlignment, ICON_ALIGNMENT_TOP_END)
+            _closeIconAlignment = getInt(R.styleable.ModalView_sd_closeIconAlignment, ICON_ALIGNMENT_TOP_END)
         }
     }
 

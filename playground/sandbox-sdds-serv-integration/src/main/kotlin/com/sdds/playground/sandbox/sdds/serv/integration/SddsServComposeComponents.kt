@@ -38,6 +38,9 @@ import com.sdds.playground.sandbox.sdds.serv.integration.codefield.SddsServCodeF
 import com.sdds.playground.sandbox.sdds.serv.integration.codeinput.SddsServCodeInputVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseInnerVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseNoneVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseOuterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.dropdownmenu.SddsServDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.image.SddsServImageVariationsCompose
@@ -183,6 +186,18 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Divider,
                 SddsServDividerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseNone", CoreComponent.DRAWER),
+                SddsServDrawerCloseNoneVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseInner", CoreComponent.DRAWER),
+                SddsServDrawerCloseInnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseOuter", CoreComponent.DRAWER),
+                SddsServDrawerCloseOuterVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

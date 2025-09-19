@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.DrawerCloseInner" parent="Sdds.Components.Drawer">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_closeIconPlacement">inner</item>
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?serv_textDefaultSecondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.DrawerCloseInner.M">
+        <item name="android:paddingStart">@dimen/serv_drawer_close_inner_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_drawer_close_inner_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_drawer_close_inner_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_drawer_close_inner_m_padding_bottom</item>
+        <item name="sd_closeIconHeaderPadding">@dimen/serv_drawer_close_inner_m_close_icon_header_padding</item>
+        <item name="sd_closeIconOffsetX">@dimen/serv_drawer_close_inner_m_close_icon_offset_x</item>
+        <item name="sd_closeIconOffsetY">@dimen/serv_drawer_close_inner_m_close_icon_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DrawerCloseInnerM">
+        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.DrawerCloseInner.M.HasShadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DrawerCloseInnerMHasShadow">
+        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M.HasShadow</item>
+    </style>
+</resources>

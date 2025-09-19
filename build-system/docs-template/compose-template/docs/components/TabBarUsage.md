@@ -3,13 +3,16 @@ title: TabBar
 ---
 
 Компонент для навигации между разделами интерфейса
-В качестве контента принимает либо [TabBarItem](#tabbaritem) либо произвольный контент.
-В качестве extra ожидает [Counter](CounterUsage.md), [Badge](BadgeUsage.md), [Indicator](IndicatorUsage.md) либо произвольный контент.
+В качестве контента принимает либо [TabBarItem](#tabbaritem) либо произвольный контент. 
+TabBarItem в качестве extra ожидает [Counter](CounterUsage.md), [Badge](BadgeUsage.md), [Indicator](IndicatorUsage.md) либо произвольный контент.
+
+По умолчанию элементы добавляются с weight = 1 и равномерно занимают доступную ширину TabBar.
+Если необходимо добавить элемент произвольной ширины, необходимо при использовании функции tabItem() установить параметр weight = null.
 
 ```kotlin
 TabBar(style = TabBarHasLabelSolid.L.Divider.Rounded.Default.style()) {
     tabBarViewModel.items.map {
-        tabItem {
+        tabItem(weight = 1f) {
             TabBarItem(
                 isSelected = tabBarViewModel.isSelected(it.id),
                 defaultIcon = R.drawable.ic_smile_outline_36,

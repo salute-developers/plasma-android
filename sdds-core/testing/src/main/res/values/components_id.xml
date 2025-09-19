@@ -35,6 +35,7 @@
     <item type="id" name="navigation_drawer_footer" />
     <item type="id" name="circular_progress_bar"/>
     <item type="id" name="popover_trigger"/>
+    <item type="id" name="drawer_trigger"/>
     <item type="id" name="text_skeleton"/>
     <item type="id" name="text_over_skeleton"/>
     <item type="id" name="overlay"/>
@@ -45,4 +46,6 @@
     <item type="id" name="recycler"/>
     <item type="id" name="scroll_container"/>
     <item type="id" name="accordion"/>
+    <item type="id" name="drawer_layout"/>
+    <item type="id" name="notification_content"/>
 </resources>

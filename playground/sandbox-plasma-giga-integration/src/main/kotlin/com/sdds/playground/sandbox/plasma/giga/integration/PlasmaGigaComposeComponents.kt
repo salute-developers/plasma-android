@@ -38,6 +38,9 @@ import com.sdds.playground.sandbox.plasma.giga.integration.codefield.PlasmaGigaC
 import com.sdds.playground.sandbox.plasma.giga.integration.codeinput.PlasmaGigaCodeInputVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.drawer.PlasmaGigaDrawerCloseInnerVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.drawer.PlasmaGigaDrawerCloseNoneVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.drawer.PlasmaGigaDrawerCloseOuterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuNormalVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.dropdownmenu.PlasmaGigaDropdownMenuTightVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.image.PlasmaGigaImageVariationsCompose
@@ -179,6 +182,18 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Counter,
                 PlasmaGigaCounterVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseNone", CoreComponent.DRAWER),
+                PlasmaGigaDrawerCloseNoneVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseInner", CoreComponent.DRAWER),
+                PlasmaGigaDrawerCloseInnerVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("DrawerCloseOuter", CoreComponent.DRAWER),
+                PlasmaGigaDrawerCloseOuterVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

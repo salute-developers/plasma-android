@@ -23,6 +23,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsCh
 import com.sdds.playground.sandbox.plasma.stards.integration.circularprogress.StarDsCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.divider.StarDsDividerVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.drawer.StarDsDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.dropdownmenu.StarDsDropdownMenuVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.image.StarDsImageVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsView
@@ -31,6 +32,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.loader.StarDsLoader
 import com.sdds.playground.sandbox.plasma.stards.integration.navdrawer.StarDsNavDrawerVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationCompactVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.notification.StarDsNotificationLooseVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.notificationcontent.StarDsNotificationContentVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.overlay.vs.StarDsOverlayVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.popover.vs.StarDsPopoverVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressBarVariationsView
@@ -147,6 +149,10 @@ object StarDsViewComponents : ComponentsProviderView {
                 StarDsNotificationLooseVariationsView,
             ),
             ViewComponent(
+                ComponentKey.NotificationContent,
+                StarDsNotificationContentVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.Overlay,
                 StarDsOverlayVariationsView,
             ),
@@ -217,6 +223,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.ButtonGroup,
                 StarDsBasicButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Drawer,
+                StarDsDrawerVariationsView,
             ),
         ).associateBy { it.key }
 }

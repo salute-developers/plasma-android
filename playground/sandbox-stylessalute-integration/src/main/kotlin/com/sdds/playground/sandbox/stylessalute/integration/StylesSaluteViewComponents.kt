@@ -38,6 +38,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.list.StylesSaluteLis
 import com.sdds.playground.sandbox.stylessalute.integration.modal.StylesSaluteModalVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationCompactVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.notification.StylesSaluteNotificationLooseVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.notificationcontent.StylesSaluteNotificationContentVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.popover.vs.StylesSalutePopoverVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
@@ -188,6 +189,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("NotificationLoose", CoreComponent.NOTIFICATION),
                 StylesSaluteNotificationLooseVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.NotificationContent,
+                StylesSaluteNotificationContentVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Popover,

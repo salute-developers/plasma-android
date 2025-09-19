@@ -20,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.components.codefield.CodeFieldConfi
 import com.sdds.plugin.themebuilder.internal.components.codeinput.CodeInputConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
@@ -103,7 +104,9 @@ internal val componentDelegates by unsafeLazy {
         "tab-bar-item" to TabBarItemConfigDelegate(),
         "tab-bar" to TabBarConfigDelegate(),
         "loader" to LoaderConfigDelegate(),
+        "drawer" to DrawerConfigDelegate(),
         "code-input" to CodeInputConfigDelegate(),
         "code-field" to CodeFieldConfigDelegate(),
+        "drawer" to DrawerConfigDelegate(),
     )
 }

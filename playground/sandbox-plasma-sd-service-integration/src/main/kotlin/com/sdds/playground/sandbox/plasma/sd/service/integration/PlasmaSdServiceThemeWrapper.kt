@@ -2,6 +2,14 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import com.sdds.compose.uikit.LocalListStyle
+import com.sdds.compose.uikit.LocalOverlayStyle
+import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.list.ListNormal
+import com.sdds.plasma.sd.service.styles.list.M
+import com.sdds.plasma.sd.service.styles.overlay.Default
+import com.sdds.plasma.sd.service.styles.overlay.Overlay
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceColors
 import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceGradients
@@ -18,6 +26,11 @@ fun PlasmaSdServiceThemeWrapper(content: @Composable () -> Unit) {
         colors = if (isDark) darkPlasmaSdServiceColors() else lightPlasmaSdServiceColors(),
         gradients = if (isDark) darkPlasmaSdServiceGradients() else lightPlasmaSdServiceGradients(),
     ) {
-        content()
+        CompositionLocalProvider(
+            LocalOverlayStyle provides Overlay.Default.style(),
+            LocalListStyle provides ListNormal.M.style(),
+        ) {
+            content()
+        }
     }
 }

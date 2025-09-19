@@ -2,8 +2,54 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_notificationStyle" format="reference"/>
+    <attr name="sd_notificationContentStyle" format="reference"/>
+    <attr name="sd_notificationContentStyleOverlay" format="reference"/>
 
     <declare-styleable name="Notification" tools:ignore="ResourceName">
+        <attr name="sd_notificationContentStyleOverlay"/>
+    </declare-styleable>
 
+    <declare-styleable name="NotificationContent" tools:ignore="ResourceName">
+        <attr name="sd_buttonGroupStyleOverlay" format="reference"/>
+        <attr name="sd_buttonLayout" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="stretch" value="1" />
+        </attr>
+
+        <attr name="sd_icon" />
+        <attr name="sd_iconSize" />
+        <attr name="sd_iconTint" />
+        <attr name="sd_iconMargin" format="dimension" />
+        <attr name="sd_notificationIconPlacement" format="enum">
+            <enum name="none" value="0" />
+            <enum name="start" value="1" />
+            <enum name="top" value="2" />
+        </attr>
+
+        <attr name="sd_title" />
+        <attr name="sd_titleAppearance" />
+        <attr name="sd_titleColor" />
+
+        <attr name="sd_text" />
+        <attr name="sd_textPadding" format="dimension" />
+        <attr name="sd_textAppearance" format="reference" />
+        <attr name="sd_textColor" />
+
+        <attr name="sd_contentStartPadding" />
+        <attr name="sd_contentEndPadding" />
+        <attr name="sd_contentTopPadding" format="dimension" />
+        <attr name="sd_contentBottomPadding" format="dimension" />
+
+        <attr name="sd_textBoxStartPadding" format="dimension" />
+        <attr name="sd_textBoxEndPadding" format="dimension" />
+        <attr name="sd_textBoxTopPadding" format="dimension" />
+        <attr name="sd_textBoxBottomPadding" format="dimension" />
+
+        <attr name="sd_buttonGroupStartPadding" format="dimension" />
+        <attr name="sd_buttonGroupEndPadding" format="dimension" />
+        <attr name="sd_buttonGroupTopPadding" format="dimension" />
+        <attr name="sd_buttonGroupBottomPadding" format="dimension" />
+
+        <attr name="sd_viewState" />
     </declare-styleable>
 </resources>

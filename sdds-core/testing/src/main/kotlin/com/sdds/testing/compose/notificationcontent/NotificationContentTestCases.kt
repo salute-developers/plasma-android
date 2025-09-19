@@ -89,9 +89,6 @@ fun NotificationContentLongText(style: NotificationContentStyle) {
         style = style,
         title = "This is a long title for testing purposes",
         text = "This is a long text for testing purposes",
-        buttons = {
-            button { Button("Label", {}) }
-            button { Button("Label", {}) }
-        },
+        buttons = {},
     )
 }

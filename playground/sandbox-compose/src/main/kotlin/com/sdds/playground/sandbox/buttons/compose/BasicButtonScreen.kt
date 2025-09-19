@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.buttons.compose
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
@@ -30,10 +29,11 @@ internal fun BasicButtonScreen(componentKey: ComponentKey = ComponentKey.BasicBu
                 loading = buttonState.loading,
                 spacing = buttonState.spacing,
                 icons = when (val icon = buttonState.icon) {
-                    ButtonIcon.End -> ButtonIcons(end = painterResource(id = icon.iconId))
+                    ButtonIcon.End -> ButtonIcons(endRes = icon.iconId)
                     ButtonIcon.No -> null
-                    ButtonIcon.Start -> ButtonIcons(start = painterResource(id = icon.iconId))
+                    ButtonIcon.Start -> ButtonIcons(startRes = icon.iconId)
                 },
+                onClickLabel = "Протестировать текст для Accessibility",
                 onClick = {},
             )
         },

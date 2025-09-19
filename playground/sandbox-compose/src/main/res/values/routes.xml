@@ -35,6 +35,7 @@
     <item type="id" name="nav_toast"/>
     <item type="id" name="nav_modal"/>
     <item type="id" name="nav_notification"/>
+    <item type="id" name="nav_notification_content"/>
     <item type="id" name="nav_rect_skeleton"/>
     <item type="id" name="nav_text_skeleton"/>
     <item type="id" name="nav_list"/>
@@ -46,4 +47,5 @@
     <item type="id" name="nav_button_group"/>
     <item type="id" name="nav_accordion"/>
     <item type="id" name="nav_loader"/>
+    <item type="id" name="nav_drawer"/>
 </resources>

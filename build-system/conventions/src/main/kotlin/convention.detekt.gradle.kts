@@ -2,6 +2,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import utils.findDetektBaselineAll
+import utils.isSandboxIntegrationModule
 import utils.withVersionCatalogs
 
 apply<DetektPlugin>()
@@ -18,7 +19,12 @@ configure<DetektExtension> {
     if (!project.displayName.contains("generatePrecompiledScriptPluginAccessors")) {
         try {
             val buildSystemProjectDir = gradle.includedBuild("build-system").projectDir.path
-            val configFilePath = "$buildSystemProjectDir/.detekt/config.yml"
+            val detektDirPath = if (project.isSandboxIntegrationModule()) {
+                project.parent?.projectDir?.path ?: buildSystemProjectDir
+            } else {
+                buildSystemProjectDir
+            }
+            val configFilePath = "$detektDirPath/.detekt/config.yml"
             if (file(configFilePath).exists()) {
                 config = files(configFilePath)
             } else {

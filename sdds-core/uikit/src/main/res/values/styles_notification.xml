@@ -2,4 +2,20 @@
 <resources>
 
     <style name="Sdds.Components.Notification" parent="Sdds.Components.Modal"/>
+
+    <style name="Sdds.Components.NotificationContent">
+        <item name="android:minWidth">240dp</item>
+        <item name="sd_notificationIconPlacement">none</item>
+        <item name="sd_buttonLayout">normal</item>
+        <item name="sd_titleAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_titleColor">#000</item>
+        <item name="sd_textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_textColor">#F5171717</item>
+        <item name="sd_textPadding">4dp</item>
+        <item name="sd_textBoxBottomPadding">6dp</item>
+        <item name="sd_contentTopPadding">2dp</item>
+        <item name="sd_contentStartPadding">4dp</item>
+        <item name="sd_buttonGroupTopPadding">6dp</item>
+    </style>
+
 </resources>

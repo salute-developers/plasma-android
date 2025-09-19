@@ -20,6 +20,7 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Constraints
+import com.sdds.compose.uikit.CellDimensions
 import com.sdds.compose.uikit.CellGravity
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
@@ -40,6 +41,7 @@ internal fun BaseCell(
     gravity: CellGravity = CellGravity.Center,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,
     disclosureEnabled: Boolean = false,
+    dimensions: CellDimensions = style.dimensions,
     startContent: (@Composable RowScope.() -> Unit)? = null,
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
@@ -59,7 +61,7 @@ internal fun BaseCell(
                     Row(
                         modifier = Modifier
                             .layoutId("StartContent")
-                            .padding(end = style.dimensions.contentPaddingStart),
+                            .padding(end = dimensions.contentPaddingStart),
                         verticalAlignment = Alignment.CenterVertically,
                     ) { startContent() }
                 }
@@ -74,7 +76,7 @@ internal fun BaseCell(
                 if (endContent != null || (disclosureEnabled && disclosureContent != null)) {
                     Row(
                         modifier = Modifier
-                            .padding(start = style.dimensions.contentPaddingEnd)
+                            .padding(start = dimensions.contentPaddingEnd)
                             .layoutId("EndContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {

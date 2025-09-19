@@ -37,7 +37,7 @@ class Notification private constructor(
             if (hasClose) {
                 setCloseIconClickListener { hide() }
             }
-            setContentView(viewFactory(context, this@Notification))
+            setContentView(viewFactory(this.context, this@Notification))
         }
     }
 

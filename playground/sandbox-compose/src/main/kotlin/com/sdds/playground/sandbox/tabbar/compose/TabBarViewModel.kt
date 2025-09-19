@@ -29,7 +29,7 @@ internal class TabBarViewModel(
                 name = "amount",
                 value = items.size,
                 onApply = { amount ->
-                    if (amount in 3..6) {
+                    if (amount in 2..6) {
                         internalUiState.value =
                             internalUiState.value.copy(items = MutableList(amount) { it })
                     }
@@ -39,6 +39,13 @@ internal class TabBarViewModel(
                 name = "extraType",
                 value = extraType,
                 onApply = { internalUiState.value = internalUiState.value.copy(extraType = it) },
+            ),
+            Property.BooleanProperty(
+                name = "customWeight",
+                value = customWeight,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(customWeight = it)
+                },
             ),
         )
     }

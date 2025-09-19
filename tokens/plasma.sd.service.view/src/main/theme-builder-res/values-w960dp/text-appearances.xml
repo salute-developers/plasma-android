@@ -2,16 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!--typography l display-l-->
-    <style name="Plasma.SdService.TextAppearance.DisplayLNormal">
-        <item name="fontFamily">@font/s_b_sans_display_light</item>
-        <item name="fontWeight">300</item>
-        <item name="android:textFontWeight" tools:targetApi="p">300</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_display_l_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_l_normal_line_height</item>
-    </style>
     <!--typography l display-l-bold-->
     <style name="Plasma.SdService.TextAppearance.DisplayLBold">
         <item name="fontFamily">@font/s_b_sans_display_semibold</item>
@@ -22,15 +12,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_display_l_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_l_bold_line_height</item>
     </style>
-    <!--typography l display-m-->
-    <style name="Plasma.SdService.TextAppearance.DisplayMNormal">
+    <!--typography l display-l-medium-->
+    <style name="Plasma.SdService.TextAppearance.DisplayLMedium">
+        <item name="fontFamily">@font/s_b_sans_display_regular</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_display_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_l_medium_line_height</item>
+    </style>
+    <!--typography l display-l-->
+    <style name="Plasma.SdService.TextAppearance.DisplayLNormal">
         <item name="fontFamily">@font/s_b_sans_display_light</item>
         <item name="fontWeight">300</item>
         <item name="android:textFontWeight" tools:targetApi="p">300</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_display_m_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_m_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_display_l_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_l_normal_line_height</item>
     </style>
     <!--typography l display-m-bold-->
     <style name="Plasma.SdService.TextAppearance.DisplayMBold">
@@ -42,15 +42,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_display_m_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_m_bold_line_height</item>
     </style>
-    <!--typography l display-s-->
-    <style name="Plasma.SdService.TextAppearance.DisplaySNormal">
+    <!--typography l display-m-medium-->
+    <style name="Plasma.SdService.TextAppearance.DisplayMMedium">
+        <item name="fontFamily">@font/s_b_sans_display_regular</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_display_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_m_medium_line_height</item>
+    </style>
+    <!--typography l display-m-->
+    <style name="Plasma.SdService.TextAppearance.DisplayMNormal">
         <item name="fontFamily">@font/s_b_sans_display_light</item>
         <item name="fontWeight">300</item>
         <item name="android:textFontWeight" tools:targetApi="p">300</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_display_s_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_s_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_display_m_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_m_normal_line_height</item>
     </style>
     <!--typography l display-s-bold-->
     <style name="Plasma.SdService.TextAppearance.DisplaySBold">
@@ -62,15 +72,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_display_s_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_s_bold_line_height</item>
     </style>
-    <!--typography l header-h1-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH1Normal">
+    <!--typography l display-s-medium-->
+    <style name="Plasma.SdService.TextAppearance.DisplaySMedium">
         <item name="fontFamily">@font/s_b_sans_display_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h1_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h1_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_display_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_s_medium_line_height</item>
+    </style>
+    <!--typography l display-s-->
+    <style name="Plasma.SdService.TextAppearance.DisplaySNormal">
+        <item name="fontFamily">@font/s_b_sans_display_light</item>
+        <item name="fontWeight">300</item>
+        <item name="android:textFontWeight" tools:targetApi="p">300</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_display_s_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_s_normal_line_height</item>
     </style>
     <!--typography l header-h1-bold-->
     <style name="Plasma.SdService.TextAppearance.HeaderH1Bold">
@@ -82,15 +102,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_header_h1_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h1_bold_line_height</item>
     </style>
-    <!--typography l header-h2-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH2Normal">
+    <!--typography l header-h1-medium-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH1Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h1_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h1_medium_line_height</item>
+    </style>
+    <!--typography l header-h1-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH1Normal">
         <item name="fontFamily">@font/s_b_sans_display_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h2_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h2_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h1_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h1_normal_line_height</item>
     </style>
     <!--typography l header-h2-bold-->
     <style name="Plasma.SdService.TextAppearance.HeaderH2Bold">
@@ -102,15 +132,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_header_h2_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h2_bold_line_height</item>
     </style>
-    <!--typography l header-h3-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH3Normal">
+    <!--typography l header-h2-medium-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH2Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h2_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h2_medium_line_height</item>
+    </style>
+    <!--typography l header-h2-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH2Normal">
         <item name="fontFamily">@font/s_b_sans_display_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h3_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h3_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h2_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h2_normal_line_height</item>
     </style>
     <!--typography l header-h3-bold-->
     <style name="Plasma.SdService.TextAppearance.HeaderH3Bold">
@@ -122,15 +162,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_header_h3_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h3_bold_line_height</item>
     </style>
-    <!--typography l header-h4-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH4Normal">
+    <!--typography l header-h3-medium-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH3Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h3_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h3_medium_line_height</item>
+    </style>
+    <!--typography l header-h3-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH3Normal">
         <item name="fontFamily">@font/s_b_sans_display_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h4_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h4_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h3_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h3_normal_line_height</item>
     </style>
     <!--typography l header-h4-bold-->
     <style name="Plasma.SdService.TextAppearance.HeaderH4Bold">
@@ -142,15 +192,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_header_h4_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h4_bold_line_height</item>
     </style>
-    <!--typography l header-h5-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH5Normal">
+    <!--typography l header-h4-medium-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH4Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h4_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h4_medium_line_height</item>
+    </style>
+    <!--typography l header-h4-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH4Normal">
         <item name="fontFamily">@font/s_b_sans_display_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h5_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h5_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h4_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h4_normal_line_height</item>
     </style>
     <!--typography l header-h5-bold-->
     <style name="Plasma.SdService.TextAppearance.HeaderH5Bold">
@@ -162,15 +222,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_header_h5_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h5_bold_line_height</item>
     </style>
-    <!--typography l body-l-->
-    <style name="Plasma.SdService.TextAppearance.BodyLNormal">
-        <item name="fontFamily">@font/s_b_sans_text_regular</item>
+    <!--typography l header-h5-medium-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH5Medium">
+        <item name="fontFamily">@font/s_b_sans_display_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h5_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h5_medium_line_height</item>
+    </style>
+    <!--typography l header-h5-->
+    <style name="Plasma.SdService.TextAppearance.HeaderH5Normal">
+        <item name="fontFamily">@font/s_b_sans_display_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_l_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_l_normal_line_height</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_header_h5_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h5_normal_line_height</item>
     </style>
     <!--typography l body-l-bold-->
     <style name="Plasma.SdService.TextAppearance.BodyLBold">
@@ -182,15 +252,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_body_l_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_l_bold_line_height</item>
     </style>
-    <!--typography l body-m-->
-    <style name="Plasma.SdService.TextAppearance.BodyMNormal">
+    <!--typography l body-l-medium-->
+    <style name="Plasma.SdService.TextAppearance.BodyLMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_l_medium_line_height</item>
+    </style>
+    <!--typography l body-l-->
+    <style name="Plasma.SdService.TextAppearance.BodyLNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_m_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_m_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_l_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_l_normal_line_height</item>
     </style>
     <!--typography l body-m-bold-->
     <style name="Plasma.SdService.TextAppearance.BodyMBold">
@@ -202,15 +282,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_body_m_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_m_bold_line_height</item>
     </style>
-    <!--typography l body-s-->
-    <style name="Plasma.SdService.TextAppearance.BodySNormal">
+    <!--typography l body-m-medium-->
+    <style name="Plasma.SdService.TextAppearance.BodyMMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_m_medium_line_height</item>
+    </style>
+    <!--typography l body-m-->
+    <style name="Plasma.SdService.TextAppearance.BodyMNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_s_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_s_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_m_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_m_normal_line_height</item>
     </style>
     <!--typography l body-s-bold-->
     <style name="Plasma.SdService.TextAppearance.BodySBold">
@@ -222,15 +312,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_body_s_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_s_bold_line_height</item>
     </style>
-    <!--typography l body-xs-->
-    <style name="Plasma.SdService.TextAppearance.BodyXsNormal">
+    <!--typography l body-s-medium-->
+    <style name="Plasma.SdService.TextAppearance.BodySMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_s_medium_line_height</item>
+    </style>
+    <!--typography l body-s-->
+    <style name="Plasma.SdService.TextAppearance.BodySNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_xs_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xs_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_s_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_s_normal_line_height</item>
     </style>
     <!--typography l body-xs-bold-->
     <style name="Plasma.SdService.TextAppearance.BodyXsBold">
@@ -242,15 +342,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_body_xs_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xs_bold_line_height</item>
     </style>
-    <!--typography l body-xxs-->
-    <style name="Plasma.SdService.TextAppearance.BodyXxsNormal">
+    <!--typography l body-xs-medium-->
+    <style name="Plasma.SdService.TextAppearance.BodyXsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_xs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xs_medium_line_height</item>
+    </style>
+    <!--typography l body-xs-->
+    <style name="Plasma.SdService.TextAppearance.BodyXsNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_xxs_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xxs_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_xs_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xs_normal_line_height</item>
     </style>
     <!--typography l body-xxs-bold-->
     <style name="Plasma.SdService.TextAppearance.BodyXxsBold">
@@ -262,15 +372,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_body_xxs_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xxs_bold_line_height</item>
     </style>
-    <!--typography l text-l-->
-    <style name="Plasma.SdService.TextAppearance.TextLNormal">
+    <!--typography l body-xxs-medium-->
+    <style name="Plasma.SdService.TextAppearance.BodyXxsMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_xxs_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xxs_medium_line_height</item>
+    </style>
+    <!--typography l body-xxs-->
+    <style name="Plasma.SdService.TextAppearance.BodyXxsNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_l_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_l_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_body_xxs_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xxs_normal_line_height</item>
     </style>
     <!--typography l text-l-bold-->
     <style name="Plasma.SdService.TextAppearance.TextLBold">
@@ -282,15 +402,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_text_l_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_l_bold_line_height</item>
     </style>
-    <!--typography l text-m-->
-    <style name="Plasma.SdService.TextAppearance.TextMNormal">
+    <!--typography l text-l-medium-->
+    <style name="Plasma.SdService.TextAppearance.TextLMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_l_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_l_medium_line_height</item>
+    </style>
+    <!--typography l text-l-->
+    <style name="Plasma.SdService.TextAppearance.TextLNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_m_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_m_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_l_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_l_normal_line_height</item>
     </style>
     <!--typography l text-m-bold-->
     <style name="Plasma.SdService.TextAppearance.TextMBold">
@@ -302,15 +432,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_text_m_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_m_bold_line_height</item>
     </style>
-    <!--typography l text-s-->
-    <style name="Plasma.SdService.TextAppearance.TextSNormal">
+    <!--typography l text-m-medium-->
+    <style name="Plasma.SdService.TextAppearance.TextMMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_m_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_m_medium_line_height</item>
+    </style>
+    <!--typography l text-m-->
+    <style name="Plasma.SdService.TextAppearance.TextMNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_s_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_s_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_m_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_m_normal_line_height</item>
     </style>
     <!--typography l text-s-bold-->
     <style name="Plasma.SdService.TextAppearance.TextSBold">
@@ -322,15 +462,25 @@
         <item name="android:textSize">@dimen/plasma_screen_l_text_s_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_s_bold_line_height</item>
     </style>
-    <!--typography l text-xs-->
-    <style name="Plasma.SdService.TextAppearance.TextXsNormal">
+    <!--typography l text-s-medium-->
+    <style name="Plasma.SdService.TextAppearance.TextSMedium">
+        <item name="fontFamily">@font/s_b_sans_text_medium</item>
+        <item name="fontWeight">500</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_s_medium_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_s_medium_line_height</item>
+    </style>
+    <!--typography l text-s-->
+    <style name="Plasma.SdService.TextAppearance.TextSNormal">
         <item name="fontFamily">@font/s_b_sans_text_regular</item>
         <item name="fontWeight">400</item>
         <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_xs_normal_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_xs_normal_line_height</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_s_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_s_normal_line_height</item>
     </style>
     <!--typography l text-xs-bold-->
     <style name="Plasma.SdService.TextAppearance.TextXsBold">
@@ -342,166 +492,6 @@
         <item name="android:textSize">@dimen/plasma_screen_l_text_xs_bold_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_xs_bold_line_height</item>
     </style>
-    <!--typography l display-l-medium-->
-    <style name="Plasma.SdService.TextAppearance.DisplayLMedium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_display_l_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_l_medium_line_height</item>
-    </style>
-    <!--typography l display-m-medium-->
-    <style name="Plasma.SdService.TextAppearance.DisplayMMedium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_display_m_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_m_medium_line_height</item>
-    </style>
-    <!--typography l display-s-medium-->
-    <style name="Plasma.SdService.TextAppearance.DisplaySMedium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_display_s_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_display_s_medium_line_height</item>
-    </style>
-    <!--typography l header-h1-medium-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH1Medium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h1_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h1_medium_line_height</item>
-    </style>
-    <!--typography l header-h2-medium-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH2Medium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h2_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h2_medium_line_height</item>
-    </style>
-    <!--typography l header-h3-medium-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH3Medium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h3_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h3_medium_line_height</item>
-    </style>
-    <!--typography l header-h4-medium-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH4Medium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h4_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h4_medium_line_height</item>
-    </style>
-    <!--typography l header-h5-medium-->
-    <style name="Plasma.SdService.TextAppearance.HeaderH5Medium">
-        <item name="fontFamily">@font/s_b_sans_display_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">0.0</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_header_h5_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_header_h5_medium_line_height</item>
-    </style>
-    <!--typography l body-l-medium-->
-    <style name="Plasma.SdService.TextAppearance.BodyLMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_l_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_l_medium_line_height</item>
-    </style>
-    <!--typography l body-m-medium-->
-    <style name="Plasma.SdService.TextAppearance.BodyMMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_m_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_m_medium_line_height</item>
-    </style>
-    <!--typography l body-s-medium-->
-    <style name="Plasma.SdService.TextAppearance.BodySMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_s_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_s_medium_line_height</item>
-    </style>
-    <!--typography l body-xs-medium-->
-    <style name="Plasma.SdService.TextAppearance.BodyXsMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_xs_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xs_medium_line_height</item>
-    </style>
-    <!--typography l body-xxs-medium-->
-    <style name="Plasma.SdService.TextAppearance.BodyXxsMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_body_xxs_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_body_xxs_medium_line_height</item>
-    </style>
-    <!--typography l text-l-medium-->
-    <style name="Plasma.SdService.TextAppearance.TextLMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_l_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_l_medium_line_height</item>
-    </style>
-    <!--typography l text-m-medium-->
-    <style name="Plasma.SdService.TextAppearance.TextMMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_m_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_m_medium_line_height</item>
-    </style>
-    <!--typography l text-s-medium-->
-    <style name="Plasma.SdService.TextAppearance.TextSMedium">
-        <item name="fontFamily">@font/s_b_sans_text_medium</item>
-        <item name="fontWeight">500</item>
-        <item name="android:textFontWeight" tools:targetApi="p">500</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:letterSpacing">-0.02</item>
-        <item name="android:textSize">@dimen/plasma_screen_l_text_s_medium_text_size</item>
-        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_s_medium_line_height</item>
-    </style>
     <!--typography l text-xs-medium-->
     <style name="Plasma.SdService.TextAppearance.TextXsMedium">
         <item name="fontFamily">@font/s_b_sans_text_medium</item>
@@ -511,5 +501,15 @@
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textSize">@dimen/plasma_screen_l_text_xs_medium_text_size</item>
         <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_xs_medium_line_height</item>
+    </style>
+    <!--typography l text-xs-->
+    <style name="Plasma.SdService.TextAppearance.TextXsNormal">
+        <item name="fontFamily">@font/s_b_sans_text_regular</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textSize">@dimen/plasma_screen_l_text_xs_normal_text_size</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/plasma_screen_l_text_xs_normal_line_height</item>
     </style>
 </resources>
