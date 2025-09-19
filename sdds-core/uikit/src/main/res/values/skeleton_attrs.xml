@@ -8,5 +8,8 @@
     <declare-styleable name="TextSkeleton" tools:ignore="ResourceName" >
         <attr name="sd_lineCount" format="integer" />
         <attr name="android:textAppearance" />
+        <attr name="sd_shimmer" />
+        <attr name="sd_shimmerDuration" />
+        <attr name="sd_autoStart"/>
     </declare-styleable>
 </resources>

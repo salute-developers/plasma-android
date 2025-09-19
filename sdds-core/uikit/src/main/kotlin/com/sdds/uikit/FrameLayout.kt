@@ -9,7 +9,7 @@ import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
-import com.sdds.uikit.shape.shapeable
+import com.sdds.uikit.shape.shapeHelper
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
@@ -36,7 +36,7 @@ open class FrameLayout @JvmOverloads constructor(
     Shapeable,
     HasFocusSelector by FocusSelectorDelegate() {
 
-    private val _shapeable: Shapeable = shapeable(attrs, defStyleAttr, defStyleRes)
+    private val _shapeable = shapeHelper(attrs, defStyleAttr, defStyleRes)
     private var _backgroundList: ColorValueStateList? = null
 
     /**
@@ -69,5 +69,11 @@ open class FrameLayout @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         setBackgroundValueList(_backgroundList)
+    }
+
+    internal fun setShape(shapeModel: ShapeModel?) {
+        if (shapeModel != null) {
+            _shapeable.setShape(shapeModel)
+        }
     }
 }

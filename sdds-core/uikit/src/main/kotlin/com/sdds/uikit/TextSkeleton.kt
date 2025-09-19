@@ -1,15 +1,23 @@
 package com.sdds.uikit
 
 import android.content.Context
+import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.children
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
+import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.TextAppearance
+import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.sp
+import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.shape.shapeHelper
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
 import kotlin.math.roundToInt
 import kotlin.random.Random
 
@@ -22,15 +30,21 @@ import kotlin.random.Random
  */
 open class TextSkeleton @JvmOverloads constructor(
     context: Context,
-    private val attrs: AttributeSet? = null,
-    private val defStyleAttr: Int = R.attr.sd_textSkeletonStyle,
-    private val defStyleRes: Int = R.style.Sdds_Components_TextSkeleton,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = R.attr.sd_textSkeletonStyle,
+    defStyleRes: Int = R.style.Sdds_Components_TextSkeleton,
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
 
+    private val _shapeHelper = shapeHelper(attrs, defStyleAttr, defStyleRes)
     private var _lineCount: Int = 0
-    private var _textAppearance: TextAppearance? = null
     private var _textAppearanceRes: Int = 0
     private var _lineWidthProvider: SkeletonLineWidthProvider = SkeletonLineWidthProvider.RandomDeviation()
+    private var _resolvedLineHeight: Int = 0
+    private var _resolvedTextSize: Int = 0
+    private var _fontCallback: CancelableFontCallback? = null
+    private var _autoStart: Boolean = false
+    private var _shimmerList: ColorValueStateList? = null
+    private var _shimmerDuration: Long = DEFAULT_DURATION.toLong()
 
     /**
      * Состояние внешнего вида компонента [TextSkeleton]
@@ -51,6 +65,24 @@ open class TextSkeleton @JvmOverloads constructor(
         }
         return drawableState
     }
+
+    /**
+     * Включает/выключает автоматический запуск анимации эффекта мерцания
+     */
+    open var autoStart: Boolean
+        get() = _autoStart
+        set(value) {
+            if (_autoStart != value) {
+                _autoStart = value
+                modifyChildren { it.autoStart = value }
+            }
+        }
+
+    /**
+     * Возвращает `true`, если анимация эффекта мерцания запущена
+     */
+    val isShimmerStarted: Boolean
+        get() = children.any { (it as? RectSkeleton)?.isShimmerStarted == true }
 
     /**
      * Количество, отображаемых строк.
@@ -83,46 +115,118 @@ open class TextSkeleton @JvmOverloads constructor(
     fun setTextAppearance(@StyleRes resId: Int) {
         if (_textAppearanceRes != resId) {
             _textAppearanceRes = resId
-            _textAppearance = TextAppearance(context, resId)
-            placeSkeletons()
+            resolveTextMeasurements { placeSkeletons() }
         }
+    }
+
+    /**
+     * Запускает анимацию эффекта мерцания
+     */
+    open fun startShimmer() {
+        modifyChildren { it.startShimmer() }
+    }
+
+    /**
+     * Останавливает анимацию эффекта мерцания
+     */
+    open fun stopShimmer() {
+        modifyChildren { it.stopShimmer() }
+    }
+
+    /**
+     * Устанавливает [ShaderFactory] для эффекта мерцания.
+     * [ShaderFactory] должен вернуть градиент, который будет использован для отрисовки эффекта мерцания.
+     * @see ShaderFactory
+     */
+    fun setShimmerShader(shaderFactory: ShaderFactory) {
+        modifyChildren { it.setShimmerShader(shaderFactory) }
+    }
+
+    /**
+     * Устанавливает [durationMillis] - длительность анимации эффекта мерцания в миллисекундах.
+     * Длительность должна быть ус
+     */
+    fun setShimmerDuration(durationMillis: Long) {
+        modifyChildren { it.setShimmerDuration(durationMillis) }
     }
 
     init {
         orientation = VERTICAL
         context.withStyledAttributes(attrs, R.styleable.TextSkeleton, defStyleAttr, defStyleRes) {
             _lineCount = getInt(R.styleable.TextSkeleton_sd_lineCount, 0)
-            _textAppearanceRes = getResourceId(R.styleable.TextSkeleton_android_textAppearance, 0)
-            if (_textAppearanceRes != 0) {
-                _textAppearance = TextAppearance(context, _textAppearanceRes)
-            }
+            _autoStart = getBoolean(R.styleable.TextSkeleton_sd_autoStart, false)
+            _shimmerDuration = (getInt(R.styleable.TextSkeleton_sd_shimmerDuration, DEFAULT_DURATION).toLong())
+            _shimmerList = getColorValueStateList(context, R.styleable.TextSkeleton_sd_shimmer)
+            setTextAppearance(getResourceId(R.styleable.TextSkeleton_android_textAppearance, 0))
         }
+    }
+
+    private fun modifyChildren(block: (ShimmerLayout) -> Unit) {
+        children.filterIsInstance<ShimmerLayout>().forEach(block)
     }
 
     private fun placeSkeletons() {
         removeAllViews()
         if (lineCount < 1) return
-        val textSize = (_textAppearance?.textSize)?.toInt() ?: 16.sp
-        val lineHeight = (_textAppearance?.lineHeight)?.toInt() ?: 24.sp
-        val lineSpacing = lineHeight - textSize
         repeat(lineCount) { lineIndex ->
             val widthFactor = lineWidthProvider.widthFactor(lineIndex, lineCount)
-            val skeletonView = object : RectSkeleton(context, attrs, defStyleAttr, defStyleRes) {
-                override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-                    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-                    setMeasuredDimension((measuredWidth * widthFactor).roundToInt(), measuredHeight)
-                }
-            }.apply {
-                colorState = this@TextSkeleton.colorState
-                layoutParams = LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    textSize,
-                ).apply {
-                    if (lineIndex > 0) topMargin = lineSpacing
-                }
-            }
+            val skeletonView = createSkeletonItem(widthFactor)
             addView(skeletonView)
         }
+    }
+
+    private fun resolveTextMeasurements(onResolve: () -> Unit) {
+        val textPaint = TextPaint()
+        var textAppearance: TextAppearance? = null
+        _fontCallback?.cancel()
+
+        val apply = {
+            applyTextMeasurement(textPaint, textAppearance)
+            onResolve()
+        }
+        _fontCallback = textPaint.applyTextAppearance(
+            context = context,
+            styleId = _textAppearanceRes,
+            tCallback = { textAppearance = it },
+            applyFont = { apply() },
+        )
+        apply()
+    }
+
+    private fun applyTextMeasurement(textPaint: TextPaint, textAppearance: TextAppearance?) {
+        val fontMetrics = textPaint.fontMetrics
+        val natural = (fontMetrics.descent - fontMetrics.ascent + fontMetrics.leading).roundToInt()
+        val lineHeight = textAppearance?.lineHeight?.roundToInt() ?: 16.sp
+        _resolvedTextSize = textAppearance?.textSize?.roundToInt() ?: 20.sp
+        _resolvedLineHeight = maxOf(natural, lineHeight)
+    }
+
+    private fun createSkeletonItem(widthFactor: Float): ShimmerLayout {
+        val lineSpacing = _resolvedLineHeight - _resolvedTextSize
+        return object : RectSkeleton(context) {
+            override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+                super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+                setMeasuredDimension((measuredWidth * widthFactor).roundToInt(), measuredHeight)
+            }
+        }.apply {
+            setShape(_shapeHelper.shape)
+            setShimmerShaderList(_shimmerList)
+            setShimmerDuration(_shimmerDuration)
+            autoStart = this@TextSkeleton.autoStart
+            colorState = this@TextSkeleton.colorState
+            layoutParams = LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                _resolvedTextSize,
+            ).apply {
+                val halfSpacing = (lineSpacing / 2f).roundToInt()
+                topMargin = halfSpacing
+                bottomMargin = halfSpacing
+            }
+        }
+    }
+
+    private companion object {
+        const val DEFAULT_DURATION = 1000
     }
 }
 
