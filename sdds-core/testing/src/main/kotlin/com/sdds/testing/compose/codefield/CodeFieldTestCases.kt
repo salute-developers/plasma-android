@@ -130,3 +130,23 @@ fun CodeFieldCodeLongText(style: CodeFieldStyle) {
         animationSpec = null,
     )
 }
+
+/**
+ * Тест-кейс с четырехзначным кодом и Caption center
+ */
+@Composable
+fun CodeFieldCodeLengthFourCaptionCenter(style: CodeFieldStyle) {
+    CodeField(
+        modifier = Modifier
+            .testTag("CodeField"),
+        style = style,
+        codeLength = 4,
+        hidden = false,
+        isItemValid = { it != "q" },
+        onCodeComplete = { it == "1234" },
+        caption = "Caption",
+        captionAlignment = CodeFieldCaptionAlignment.Center,
+        enabled = true,
+        animationSpec = null,
+    )
+}
