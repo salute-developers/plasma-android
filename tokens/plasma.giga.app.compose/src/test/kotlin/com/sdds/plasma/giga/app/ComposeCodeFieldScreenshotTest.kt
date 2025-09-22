@@ -13,6 +13,7 @@ import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.codefield.CodeFieldCodeHidden
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthFive
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthFour
+import com.sdds.testing.compose.codefield.CodeFieldCodeLengthFourCaptionCenter
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthSix
 import com.sdds.testing.compose.codefield.CodeFieldCodeLengthSixNoCaption
 import com.sdds.testing.compose.codefield.CodeFieldCodeLongText
@@ -72,7 +73,7 @@ class ComposeCodeFieldScreenshotTest(
     @Test
     fun testCodeFieldSizeLInputWrongCode() {
         composeTestRule.content {
-            CodeFieldCodeLengthFour(style = CodeField.L.style())
+            CodeFieldCodeLengthFourCaptionCenter(style = CodeField.L.style())
         }
         composeTestRule.onNodeWithTag("CodeField").performTextInput("2222")
     }
@@ -80,7 +81,7 @@ class ComposeCodeFieldScreenshotTest(
     @Test
     fun testCodeFieldSizeLInputLetter() {
         composeTestRule.content {
-            CodeFieldCodeLengthFour(style = CodeField.L.style())
+            CodeFieldCodeLengthFourCaptionCenter(style = CodeField.L.style())
         }
         composeTestRule.onNodeWithTag("CodeField").performTextInput("q")
     }
@@ -90,5 +91,13 @@ class ComposeCodeFieldScreenshotTest(
         composeTestRule.content {
             CodeFieldCodeLongText(style = CodeField.L.style())
         }
+    }
+
+    @Test
+    fun testCodeFieldSizeLInputCorrectCode() {
+        composeTestRule.content {
+            CodeFieldCodeLengthFourCaptionCenter(style = CodeField.L.style())
+        }
+        composeTestRule.onNodeWithTag("CodeField").performTextInput("1234")
     }
 }
