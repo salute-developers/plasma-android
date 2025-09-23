@@ -918,8 +918,9 @@ open class CodeField @JvmOverloads constructor(
             }
             focusGain = getBoolean(R.styleable.CodeField_sd_focusGain, false)
             val inputType = getInt(
-                R.styleable.CodeField_android_inputType, InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-                        or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                R.styleable.CodeField_android_inputType,
+                InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                    or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD,
             )
             setInputType(inputType)
             val imeOptions = getInt(R.styleable.CodeField_android_imeOptions, EditorInfo.IME_FLAG_NO_EXTRACT_UI)

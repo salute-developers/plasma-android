@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_codeInputStyle" format="reference" />
+
+    <declare-styleable name="CodeInput" tools:ignore="ResourceName">
+        <!-- Длина кода (количество ячеек для ввода) -->
+        <attr name="sd_codeLength" />
+        <!-- Высота ячейки -->
+        <attr name="sd_itemHeight" />
+        <!-- Ширина ячейки -->
+        <attr name="sd_itemWidth" />
+        <!-- Отступ между ячейками -->
+        <attr name="sd_itemSpacing" />
+        <!-- Отступ между группами ячеек -->
+        <attr name="sd_groupSpacing" />
+        <!-- Отступ поля для подписи(caption) -->
+        <attr name="sd_captionPadding" />
+        <!-- Ресурс стиля текста подписи -->
+        <attr name="sd_captionAppearance" />
+        <!-- Цвет текста подписи -->
+        <attr name="sd_captionColor" />
+        <!-- Текст подписи -->
+        <attr name="sd_caption" />
+        <!-- Выравнивание текста в поле caption -->
+        <attr name="sd_captionAlignment" />
+        <!-- Включение фокуса у ячейки -->
+        <attr name="sd_focusGain" />
+        <attr name="android:inputType" />
+        <attr name="android:imeOptions" />
+        <!-- Поведение при обработке некорректного символа  -->
+        <attr name="sd_charValidateBehavior" />
+        <!-- Поведение при обработке некорректного кода  -->
+        <attr name="sd_codeValidateBehavior" />
+
+        <!-- Ресурс стиля текста -->
+        <attr name="sd_valueAppearance" />
+        <!-- Цвет текста -->
+        <attr name="sd_valueColor" />
+        <!-- Толщина обводки(бордера) точки, скрывающей вводимые символы  -->
+        <attr name="sd_strokeWidth" />
+        <!-- Цвет обводки(бордера) точки, скрывающей вводимые символы  -->
+        <attr name="sd_strokeColor" />
+        <!-- Размер (диаметр) точки, скрывающей вводимые символы  -->
+        <attr name="sd_dotSize" />
+        <!-- Цвет точки, скрывающей вводимые символы  -->
+        <attr name="sd_dotColor" />
+    </declare-styleable>
+</resources>

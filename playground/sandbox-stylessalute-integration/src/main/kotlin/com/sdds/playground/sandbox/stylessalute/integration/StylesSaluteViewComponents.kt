@@ -29,6 +29,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChi
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteEmbeddedChipVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteEmbeddedChipGroupVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.codeinput.StylesSaluteCodeInputVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuNormalVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.dropdownmenu.StylesSaluteDropdownMenuTightVariationsView
@@ -257,6 +258,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
                 StylesSaluteIconButtonGroupVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CodeInput,
+                StylesSaluteCodeInputVariationsView,
             ),
         ).associateBy { it.key }
 }
