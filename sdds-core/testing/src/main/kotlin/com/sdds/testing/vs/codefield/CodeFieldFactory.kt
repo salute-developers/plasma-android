@@ -31,4 +31,7 @@ fun CodeField.applyState(state: CodeFieldUiState) = apply {
     captionText = state.caption
     setCaptionAlignment(state.captionAlignment)
     hidden = state.hidden
+    charValidateBehavior = state.charValidateBehavior
+    codeValidateBehavior = state.codeValidateBehavior
+    isEnabled = state.enabled
 }

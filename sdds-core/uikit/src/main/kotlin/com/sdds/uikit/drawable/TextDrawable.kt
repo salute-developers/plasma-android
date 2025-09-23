@@ -86,7 +86,7 @@ open class TextDrawable(
     private var _lineHeight: Float = 0f
     private var _textAlignment: TextAlignment = TextAlignment.CENTER
     private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
-
+    private var _ellipsize: TextUtils.TruncateAt? = TextUtils.TruncateAt.END
     private val _textWidth: Int
         get() = if (_text.isNotBlank()) {
             textPaint.measureText(text, 0, text.length).roundToInt()
@@ -155,6 +155,18 @@ open class TextDrawable(
             if (_textAlignment != value) {
                 _textAlignment = value
                 updateTextBounds()
+                invalidateSelf()
+            }
+        }
+
+    /**
+     * Обрезка текста
+     */
+    var ellipsize: TextUtils.TruncateAt?
+        get() = _ellipsize
+        set(value) {
+            if (_ellipsize != value) {
+                _ellipsize = value
                 invalidateSelf()
             }
         }
@@ -423,7 +435,7 @@ open class TextDrawable(
                 )
                 .setMaxLines(1)
                 .setIncludePad(false)
-                .setEllipsize(TextUtils.TruncateAt.END)
+                .setEllipsize(ellipsize)
                 .setAlignment(Layout.Alignment.ALIGN_CENTER)
                 .build()
         }
