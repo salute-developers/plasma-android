@@ -42,7 +42,10 @@ internal class CodeItemDrawable(
     private var _focused: Boolean = false
     private var dotSize: Int = 0
     private var dotSizeNumberList: NumberStateList? = null
-    private val textDrawable: TextDrawable = TextDrawable(context).apply { callback = this@CodeItemDrawable.callback }
+    private val textDrawable: TextDrawable = TextDrawable(context).apply {
+        callback = this@CodeItemDrawable.callback
+        ellipsize = null
+    }
     private val dotDrawable: ShapeDrawable = ShapeDrawable().apply { callback = this@CodeItemDrawable.callback }
     private var strokeDotDrawable: ShapeDrawable = ShapeDrawable().apply { callback = this@CodeItemDrawable.callback }
     private var codeItemState: CodeItem.CodeItemState = CodeItem.CodeItemState.ORDINARY

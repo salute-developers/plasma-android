@@ -90,6 +90,7 @@ internal class CodeItem @JvmOverloads constructor(
         isClickable = false
         isLongClickable = false
         isFocusableInTouchMode = false
+        clipToOutline = false
     }
 
     /**

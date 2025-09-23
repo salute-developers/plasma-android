@@ -36,8 +36,17 @@ internal class CodeFieldParametersViewModel(
             PropertyName.Hidden -> currentState.copy(hidden = valueString.toBoolean())
             PropertyName.ErrorItem -> currentState.copy(errorItem = valueString)
             PropertyName.Caption -> currentState.copy(caption = valueString)
+            PropertyName.Enabled -> currentState.copy(enabled = valueString.toBoolean())
             PropertyName.CaptionAlignment -> currentState.copy(
                 captionAlignment = CodeField.CaptionAlignment.valueOf(valueString),
+            )
+
+            PropertyName.CodeValidateBehavior -> currentState.copy(
+                codeValidateBehavior = CodeField.CodeErrorBehavior.valueOf(valueString),
+            )
+
+            PropertyName.CharValidateBehavior -> currentState.copy(
+                charValidateBehavior = CodeField.CharErrorBehavior.valueOf(valueString),
             )
         }
     }
@@ -59,6 +68,11 @@ internal class CodeFieldParametersViewModel(
                 value = hidden,
             ),
 
+            Property.BooleanProperty(
+                name = PropertyName.Enabled.value,
+                value = enabled,
+            ),
+
             Property.StringProperty(
                 name = PropertyName.Caption.value,
                 value = caption,
@@ -66,6 +80,14 @@ internal class CodeFieldParametersViewModel(
             enumProperty(
                 name = PropertyName.CaptionAlignment.value,
                 value = captionAlignment,
+            ),
+            enumProperty(
+                name = PropertyName.CodeValidateBehavior.value,
+                value = codeValidateBehavior,
+            ),
+            enumProperty(
+                name = PropertyName.CharValidateBehavior.value,
+                value = charValidateBehavior,
             ),
         )
     }
@@ -75,7 +97,10 @@ internal class CodeFieldParametersViewModel(
         CodeLength("codeLength"),
         Hidden("hidden"),
         Caption("caption"),
+        Enabled("enabled"),
         CaptionAlignment("captionAlignment"),
+        CodeValidateBehavior("codeValidateBehavior"),
+        CharValidateBehavior("charValidateBehavior"),
     }
 }
 

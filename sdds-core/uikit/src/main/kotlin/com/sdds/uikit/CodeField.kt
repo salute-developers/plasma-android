@@ -4,6 +4,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.os.Build
 import android.text.Editable
 import android.text.InputFilter
 import android.text.InputType
@@ -22,8 +23,10 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.animation.doOnEnd
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.children
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateHolder
+import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.base.dp
 import com.sdds.uikit.internal.codefield.CodeContent
 import com.sdds.uikit.internal.codefield.CodeGroup
@@ -85,16 +88,11 @@ open class CodeField @JvmOverloads constructor(
     private var startItemShape: ShapeModel = ShapeModel()
     private var endItemShape: ShapeModel = ShapeModel()
 
-    private val editField = object : AppCompatEditText(context) {
-        override fun onSelectionChanged(selStart: Int, selEnd: Int) {
-            super.onSelectionChanged(selStart, selEnd)
-            post {
-                for (i in 0 until codeLength) {
-                    updateItemState(i)
-                }
-            }
-        }
-    }.apply {
+    private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
+    private var _charValidateBehavior: CharErrorBehavior = CharErrorBehavior.Remove
+    private var _codeValidateBehavior: CodeErrorBehavior = CodeErrorBehavior.Remove
+
+    private val editField = AppCompatEditText(context).apply {
         background = null
         isCursorVisible = false
         setTextColor(Color.TRANSPARENT)
@@ -104,12 +102,13 @@ open class CodeField @JvmOverloads constructor(
         isClickable = false
         isFocusableInTouchMode = true
         isSingleLine = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            importantForAutofill = View.IMPORTANT_FOR_AUTOFILL_NO
+        }
     }
 
     private val captionView: CaptionView = CaptionView(context).apply {
         text = ""
-        isSingleLine = true
-        gravity = Gravity.START
         isFocusable = false
     }
 
@@ -170,12 +169,48 @@ open class CodeField @JvmOverloads constructor(
     /**
      * Наличие курсора
      */
-    var hasCursor: Boolean = true
+    open var hasCursor: Boolean = true
         set(value) {
             if (field != value) {
                 field = value
                 codeItems.forEach { it.setCursorEnabled(value) }
             }
+        }
+
+    /**
+     * Поведение при обработке введенного некорректно символа
+     */
+    open var charValidateBehavior: CharErrorBehavior
+        get() = _charValidateBehavior
+        set(value) {
+            if (_charValidateBehavior != value) {
+                _charValidateBehavior = value
+            }
+        }
+
+    /**
+     * Поведение при обработке введенного некорректно кода
+     */
+    open var codeValidateBehavior: CodeErrorBehavior
+        get() = _codeValidateBehavior
+        set(value) {
+            if (_codeValidateBehavior != value) {
+                _codeValidateBehavior = value
+            }
+        }
+
+    /**
+     * Состояние внешнего вида [CodeField]
+     * @see ColorState
+     */
+    override var colorState: ColorState? = null
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+            captionView.colorState = field
+            codeItems.forEach { it.colorState = field }
         }
 
     /**
@@ -187,6 +222,46 @@ open class CodeField @JvmOverloads constructor(
      * Колбэк для проверки введенного кода
      */
     var onCodeComplete: ((String) -> Boolean) = { true }
+
+    /**
+     * Поведение отдельной ячейки при обработке
+     * введенного некорректного символа
+     */
+    enum class CharErrorBehavior {
+
+        /**
+         *  Автоматическое очищение после ввода некорректного символа
+         */
+        Remove,
+
+        /**
+         *  Некорректный символ останется после его ввода (автоматического удаления не произойдет)
+         */
+        Keep,
+
+        /**
+         * Ввод некорректного символа никак не обрабатывается.
+         * Фактически ввод не произойдет, ячейка останется пустой, пока не будет введен корректный символ
+         */
+        None,
+    }
+
+    /**
+     * Поведение всего кодового поля
+     * при обработке введенного кода целиком
+     */
+    enum class CodeErrorBehavior {
+
+        /**
+         *  Автоматическое очищение после ввода некорректного кода
+         */
+        Remove,
+
+        /**
+         *  Некорректный код останется после его ввода (автоматического удаления не произойдет)
+         */
+        Keep,
+    }
 
     /**
      * Выравнивание caption относительно поля ввода
@@ -204,18 +279,10 @@ open class CodeField @JvmOverloads constructor(
         Center,
     }
 
-    override var colorState: ColorState? = null
-        set(value) {
-            if (field != value) {
-                field = value
-                refreshDrawableState()
-            }
-            captionView.colorState = field
-            codeItems.forEach { it.colorState = field }
-        }
-
     init {
         isFocusable = false
+        clipToPadding = false
+        clipChildren = false
         obtainAttributes(attrs, defStyleAttr, defStyleRes)
         repeat(_codeLength) {
             codeItems.add(CodeItem(context, attrs, defStyleAttr).apply { setCursorEnabled(hasCursor) })
@@ -234,8 +301,15 @@ open class CodeField @JvmOverloads constructor(
         if (captionAlignment != alignment) {
             captionAlignment = alignment
             when (alignment) {
-                CaptionAlignment.Start -> captionView.gravity = Gravity.START
-                CaptionAlignment.Center -> captionView.gravity = Gravity.CENTER_HORIZONTAL
+                CaptionAlignment.Start -> {
+                    captionView.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+                    captionView.gravity = Gravity.START
+                }
+
+                CaptionAlignment.Center -> {
+                    captionView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                    captionView.gravity = Gravity.CENTER_HORIZONTAL
+                }
             }
         }
     }
@@ -402,7 +476,7 @@ open class CodeField @JvmOverloads constructor(
      * @param options опции
      */
     open fun setImeOptions(options: Int) {
-        editField.imeOptions = options
+        editField.imeOptions = options or EditorInfo.IME_FLAG_NO_EXTRACT_UI
     }
 
     /**
@@ -410,7 +484,16 @@ open class CodeField @JvmOverloads constructor(
      * @param type
      */
     open fun setInputType(type: Int) {
-        editField.inputType = type
+        editField.inputType = type or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+    }
+
+    @Suppress("UNNECESSARY_SAFE_CALL")
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
+        this.children.forEach {
+            it.isEnabled = enabled
+        }
     }
 
     override fun addView(child: View?, index: Int, params: LayoutParams?) {
@@ -420,29 +503,38 @@ open class CodeField @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        val widthSize = MeasureSpec.getSize(widthMeasureSpec)
         val summaryGroupsSpacing = (codeGroup.groupCount - 1) * groupSpacing
         val editWidth =
             paddingStart + paddingEnd + codeLength * itemWidth + (codeLength - 1) * itemSpacing + summaryGroupsSpacing
         val editHeight = paddingTop + paddingBottom + itemHeight
-        measureChild(captionView, widthMeasureSpec, heightMeasureSpec)
+        val captionWidthSpec =
+            when (widthMode) {
+                MeasureSpec.EXACTLY -> MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY)
+                else -> MeasureSpec.makeMeasureSpec(editWidth, MeasureSpec.EXACTLY)
+            }
+        captionView.measure(captionWidthSpec, heightMeasureSpec)
         val captionHeight = captionView.measuredHeight
-        val captionWidth = captionView.measuredWidth
-        val desiredW = maxOf(editWidth, captionWidth)
         val desiredH = captionHeight + editHeight + captionSpacing
-        val w = resolveSize(desiredW, widthMeasureSpec)
+        val w = when (widthMode) {
+            MeasureSpec.EXACTLY -> widthSize
+            else -> editWidth
+        }
         val h = resolveSize(desiredH, heightMeasureSpec)
         setMeasuredDimension(w, h)
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val width = r - l
+        val captionLeft = (width - captionView.measuredWidth) / 2
+        val captionTop = paddingTop + itemHeight + captionSpacing
 //        Устанавливаем высоту для editField равной 1, для того чтоб исключить перемещение курсора, при получении
 //        клика на редактируемом поле.
         editField.layout(0, 0, width, 1)
         setItemsBounds()
-        val captionTop = paddingTop + itemHeight + captionSpacing
         captionView.layout(
-            paddingLeft,
+            captionLeft,
             captionTop,
             width - paddingRight,
             captionTop + captionView.measuredHeight,
@@ -456,13 +548,37 @@ open class CodeField @JvmOverloads constructor(
         addTextChangeListener()
         addOnKeyListener()
         setOnClickListener {
-            requestFocusOnEditField()
+            editField.requestFocus()
         }
-        setOnFocusChangeListener { _, _ ->
-            if (editField.selectionStart < codeLength) updateItemState()
+        setOnFocusChangeListener { _, hasFocus ->
+            val char = getErrorChar()
+            val length = editField.text?.length ?: 0
+
+            if (char == null && editField.selectionStart < codeLength) {
+                updateItemState()
+            }
+            if (hasFocus) {
+                if (char != null) setSelectionIfErrorKept(char)
+            } else {
+                editField.setSelection(length)
+            }
         }
-        editField.setOnFocusChangeListener { _, _ ->
-            if (editField.selectionStart < codeLength) updateItemState()
+        editField.setOnFocusChangeListener { v, hasFocus ->
+            val char = getErrorChar()
+            val length = editField.text?.length ?: 0
+
+            if (char == null && editField.selectionStart < codeLength) {
+                updateItemState()
+            }
+            if (hasFocus) {
+                val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(editField, InputMethodManager.SHOW_IMPLICIT)
+                if (char != null) setSelectionIfErrorKept(char)
+            } else {
+                val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+                editField.setSelection(length)
+            }
         }
         setInputFilter()
     }
@@ -499,7 +615,11 @@ open class CodeField @JvmOverloads constructor(
     }
 
     private fun setItemsBounds() {
-        var left = paddingLeft
+        val width = measuredWidth
+        val summaryGroupsSpacing = (codeGroup.groupCount - 1) * groupSpacing
+        val editWidth =
+            paddingStart + paddingEnd + codeLength * itemWidth + (codeLength - 1) * itemSpacing + summaryGroupsSpacing
+        var left = (width - editWidth) / 2
         val top = paddingTop
         var codeIndex = 0
         for (groupIndex in 0 until codeGroup.groupCount) {
@@ -593,15 +713,17 @@ open class CodeField @JvmOverloads constructor(
     private fun setInputFilter() {
         val old = editField.filters?.toMutableList() ?: mutableListOf()
         val inputFilter = InputFilter { source, start, end, _, _, _ ->
+            if (!editField.isFocused || !isEnabled) return@InputFilter ""
             if (end - start > 1) {
                 ""
             } else if (source.isNotEmpty()) {
                 val char = source[start]
                 val valid = onCharValidate.invoke(char.toString())
                 if (!valid) {
-                    onErrorInput(char)
-                    ""
+                    val result = errorProcessing(char)
+                    result
                 } else {
+                    itemErrors.fill(null)
                     null
                 }
             } else {
@@ -609,6 +731,27 @@ open class CodeField @JvmOverloads constructor(
             }
         }
         editField.filters = (old + inputFilter).toTypedArray()
+    }
+
+    private fun errorProcessing(char: Char): String {
+        return when (charValidateBehavior) {
+            CharErrorBehavior.Remove -> {
+                onErrorInputWithSaveError(char)
+                ""
+            }
+
+            CharErrorBehavior.Keep -> {
+                val error = getErrorChar()
+                if (error != null) {
+                    onErrorInputAgain()
+                } else {
+                    onErrorInputWithSaveError(char)
+                }
+                char.toString()
+            }
+
+            else -> ""
+        }
     }
 
     private fun setGlobalError(enabled: Boolean) {
@@ -634,11 +777,16 @@ open class CodeField @JvmOverloads constructor(
         return result
     }
 
-    private fun onErrorInput(char: Char) {
+    private fun onErrorInputWithSaveError(char: Char) {
         val index = findIndexUnderCurrentInput()
         itemErrors[index] = char
         updateItemState()
         updateItemContent(index)
+        shakeCodeItem(codeItems[index])
+    }
+
+    private fun onErrorInputAgain() {
+        val index = itemErrors.indexOf(getErrorChar())
         shakeCodeItem(codeItems[index])
     }
 
@@ -703,9 +851,11 @@ open class CodeField @JvmOverloads constructor(
         shakeItemAnimator.start()
         shakeItemAnimator.doOnEnd {
             val index = codeItems.indexOf(codeItem)
-            itemErrors[index] = null
-            updateItemContent(index)
-            updateItemState(index)
+            if (charValidateBehavior == CharErrorBehavior.Remove) {
+                itemErrors[index] = null
+                updateItemContent(index)
+                updateItemState(index)
+            }
         }
     }
 
@@ -725,10 +875,12 @@ open class CodeField @JvmOverloads constructor(
             }
             doOnEnd {
                 setGlobalError(false)
-                code = ""
-                editField.text?.clear()
-                for (i in 0 until codeLength) {
-                    updateItemState(i)
+                if (codeValidateBehavior == CodeErrorBehavior.Remove) {
+                    code = ""
+                    editField.text?.clear()
+                    for (i in 0 until codeLength) {
+                        updateItemState(i)
+                    }
                 }
             }
         }
@@ -736,7 +888,7 @@ open class CodeField @JvmOverloads constructor(
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.withStyledAttributes(attrs, R.styleable.CodeField, defStyleAttr, defStyleRes) {
-            hasCursor = getBoolean(R.styleable.CodeField_sd_hasCursor, true)
+            hasCursor = getBoolean(R.styleable.CodeField_sd_hasCursor, false)
             itemWidth = getDimensionPixelSize(R.styleable.CodeField_sd_itemWidth, 0)
             itemHeight = getDimensionPixelSize(R.styleable.CodeField_sd_itemHeight, 0)
             itemSpacing = getDimensionPixelSize(R.styleable.CodeField_sd_itemSpacing, 0)
@@ -765,13 +917,17 @@ open class CodeField @JvmOverloads constructor(
                 1 -> captionView.gravity = Gravity.CENTER_HORIZONTAL
             }
             focusGain = getBoolean(R.styleable.CodeField_sd_focusGain, false)
-            editField.apply {
-                inputType = getInt(R.styleable.CodeField_android_inputType, InputType.TYPE_CLASS_TEXT)
-                imeOptions = getInt(
-                    R.styleable.CodeField_android_imeOptions,
-                    EditorInfo.IME_ACTION_UNSPECIFIED,
-                )
-            }
+            val inputType = getInt(
+                R.styleable.CodeField_android_inputType, InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                        or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            )
+            setInputType(inputType)
+            val imeOptions = getInt(R.styleable.CodeField_android_imeOptions, EditorInfo.IME_FLAG_NO_EXTRACT_UI)
+            setImeOptions(imeOptions)
+            val charBehavior = getInt(R.styleable.CodeField_sd_charValidateBehavior, 0)
+            val codeBehavior = getInt(R.styleable.CodeField_sd_codeValidateBehavior, 0)
+            charValidateBehavior = CharErrorBehavior.values().getOrElse(charBehavior) { CharErrorBehavior.Remove }
+            codeValidateBehavior = CodeErrorBehavior.values().getOrElse(codeBehavior) { CodeErrorBehavior.Remove }
 
             dotStrokeWidth = getDimensionPixelSize(R.styleable.CodeField_sd_strokeWidth, 0).toFloat()
             dotSizeNumberList = getNumberStateList(context, R.styleable.CodeField_sd_dotSize)
@@ -784,6 +940,14 @@ open class CodeField @JvmOverloads constructor(
         }
     }
 
+    private fun getErrorChar() = itemErrors.find { it != null }
+
+    private fun setSelectionIfErrorKept(char: Char?) {
+        val currentIndex = editField.selectionStart
+        val errorIndex = itemErrors.indexOf(char)
+        editField.setSelection(errorIndex, currentIndex)
+    }
+
     private fun addTextChangeListener() {
         editField.addTextChangedListener(
             object : TextWatcher {
@@ -792,13 +956,29 @@ open class CodeField @JvmOverloads constructor(
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
 
                 override fun afterTextChanged(s: Editable?) {
-                    code = s?.toString().orEmpty()
-                    for (i in 0 until codeLength) updateItemContent(i)
-                    if (code.isNotEmpty()) refreshCaptionError()
-                    if (code.length == _codeLength) {
-                        val isValid = onCodeComplete.invoke(code)
-                        if (!isValid) {
-                            onErrorCode()
+                    val char = getErrorChar()
+                    if (char != null) {
+                        val currentIndex = editField.selectionStart
+                        val errorIndex = itemErrors.indexOf(char)
+                        if (errorIndex == editField.text?.length) {
+                            itemErrors[errorIndex] = null
+                            updateItemState(errorIndex)
+                            updateItemContent(errorIndex)
+                        } else {
+                            editField.setSelection(errorIndex, currentIndex)
+                        }
+                    } else {
+                        for (i in 0 until codeLength) {
+                            updateItemState(i)
+                        }
+                        code = s?.toString().orEmpty()
+                        for (i in 0 until codeLength) updateItemContent(i)
+                        if (code.isNotEmpty()) refreshCaptionError()
+                        if (code.length == _codeLength) {
+                            val isValid = onCodeComplete.invoke(code)
+                            if (!isValid) {
+                                onErrorCode()
+                            }
                         }
                     }
                 }
@@ -820,16 +1000,6 @@ open class CodeField @JvmOverloads constructor(
             val next = v.focusSearch(direction)
             next?.requestFocus()
             true
-        }
-    }
-
-    private fun requestFocusOnEditField() {
-        editField.requestFocus()
-        val length = editField.text?.length ?: 0
-        editField.setSelection(length)
-        editField.post {
-            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(editField, InputMethodManager.SHOW_IMPLICIT)
         }
     }
 
