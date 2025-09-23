@@ -33,6 +33,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.circularprogress.PlasmaSdServiceCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.codefield.PlasmaSdServiceCodeFieldVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.codeinput.PlasmaSdServiceCodeInputVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.vs.PlasmaSdServiceDividerVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.drawer.PlasmaSdServiceDrawerCloseInnerVariationsView
@@ -318,6 +319,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.CodeField,
                 PlasmaSdServiceCodeFieldVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CodeInput,
+                PlasmaSdServiceCodeInputVariationsView,
             ),
         ).associateBy { it.key }
 }

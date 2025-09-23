@@ -24,6 +24,7 @@ import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
 import com.sdds.playground.sandbox.chip.vs.ChipFragment
 import com.sdds.playground.sandbox.chip.vs.group.ChipGroupFragment
 import com.sdds.playground.sandbox.codefield.vs.CodeFieldFragment
+import com.sdds.playground.sandbox.codeinput.vs.CodeInputFragment
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
@@ -84,6 +85,7 @@ import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.chip
 import com.sdds.testing.vs.chip.chipGroup
 import com.sdds.testing.vs.codefield.codeField
+import com.sdds.testing.vs.codeinput.codeInput
 import com.sdds.testing.vs.counter.CounterUiState
 import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
@@ -352,6 +354,9 @@ internal sealed class ComponentScreen(
     object IconTabs : ComponentScreen(
         { item -> fragment<IconTabsFragment>(item.route, item.defaultBuilder) },
     )
+    object CodeInput : ComponentScreen(
+        { item -> fragment<CodeInputFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -403,6 +408,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
         CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
+        CoreComponent.CODE_INPUT -> ComponentScreen.CodeInput
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
@@ -459,6 +465,7 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
         CoreComponent.CODE_FIELD -> R.id.nav_code_field
+        CoreComponent.CODE_INPUT -> R.id.nav_code_input
         CoreComponent.DRAWER -> R.id.nav_drawer
         CoreComponent.TABS -> R.id.nav_tabs
         CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
@@ -554,6 +561,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.ACCORDION -> accordion(context, style)
         CoreComponent.DRAWER -> drawer(context, style)
         CoreComponent.CODE_FIELD -> codeField(context, style)
+        CoreComponent.CODE_INPUT -> codeInput(context, style)
         CoreComponent.BUTTON_GROUP -> {
             if (componentKey.value.contains("Icon")) {
                 buttonGroup(context, style, iconButton = true)

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.CodeInput" >
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_hasCursor">false</item>
+        <item name="sd_focusGain">true</item>
+    </style>
+</resources>

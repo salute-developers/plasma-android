@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?salute_outlineDefaultNegative" app:sd_state_error="true"/>
+    <item android:color="?salute_outlineDefaultSolidDefault"/>
+</selector>
