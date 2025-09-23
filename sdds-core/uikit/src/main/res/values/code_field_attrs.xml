@@ -54,6 +54,18 @@
         <attr name="sd_background" />
         <!-- Цвет курсора  -->
         <attr name="sd_cursorColor" format="reference|color" />
+        <attr name="sd_disabledAlpha" />
+        <!-- Поведение при обработке некорректного символа  -->
+        <attr name="sd_charValidateBehavior" format="enum">
+            <enum name="remove" value="0" />
+            <enum name="keep" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <!-- Поведение при обработке некорректного кода  -->
+        <attr name="sd_codeValidateBehavior" format="enum">
+            <enum name="remove" value="0" />
+            <enum name="keep" value="1" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="SdCodeItemDrawable">
