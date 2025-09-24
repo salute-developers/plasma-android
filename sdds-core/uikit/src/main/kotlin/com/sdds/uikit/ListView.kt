@@ -15,9 +15,8 @@ import com.sdds.uikit.SimpleListViewAdapter.SimpleListViewHolder
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
-import com.sdds.uikit.fs.FocusSelectorSettings
-import com.sdds.uikit.internal.base.SelectorOutlineProvider
 import com.sdds.uikit.internal.base.isClippedToOutline
+import com.sdds.uikit.internal.scrollable.ScrollableDelegate
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeHelper
@@ -40,15 +39,14 @@ open class ListView @JvmOverloads constructor(
 ) : RecyclerView(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr), Shapeable {
 
     private val _shapeHelper = shapeHelper(attrs, defStyleAttr, defStyleRes)
-    private val _selectorSettings = FocusSelectorSettings.fromAttrs(context, attrs, defStyleAttr, defStyleRes)
+    private val _scrollableDelegate = ScrollableDelegate(context, attrs, defStyleAttr, defStyleRes)
 
     init {
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
-        resetOutline()
+        @Suppress("LeakingThis")
+        _scrollableDelegate.init(this, _shapeHelper.shape)
         viewTreeObserver.addOnGlobalFocusChangeListener { _, _ ->
-            if (shouldExtendOutline()) {
-                updateOutlineOnScroll()
-            }
+            _scrollableDelegate.updateOutlineOnScroll()
         }
     }
 
@@ -57,71 +55,12 @@ open class ListView @JvmOverloads constructor(
 
     override fun onScrollStateChanged(state: Int) {
         super.onScrollStateChanged(state)
-        updateOutlineOnScroll()
+        _scrollableDelegate.updateOutlineOnScroll()
     }
 
     internal fun setShape(shapeModel: ShapeModel) {
         _shapeHelper.setShape(shapeModel)
-        resetOutline()
-    }
-
-    private fun resetOutline() {
-        outlineProvider = SelectorOutlineProvider(_selectorSettings, _shapeHelper.shape)
-    }
-
-    private fun updateOutlineOnScroll() {
-        (outlineProvider as? SelectorOutlineProvider)?.apply {
-            // Если ориентация вертикальная, нужно отключить расширение outline по вертикали,
-            // чтобы элементы не вылезали за границы List при скролле
-            extendTop = shouldExtendTopOutline()
-            extendBottom = shouldExtendBottomOutline()
-            // Если ориентация горизонтальная, нужно отключить расширение outline по горизонтали,
-            // чтобы элементы не вылезали за границы List при скролле
-            extendStart = shouldExtendLeftOutline()
-            extendEnd = shouldExtendRightOutline()
-        }
-        invalidateOutline()
-    }
-
-    private fun shouldExtendOutline(): Boolean {
-        return hasFocus() && !isFocused
-    }
-
-    private fun shouldExtendTopOutline(): Boolean {
-        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.TOP)
-    }
-
-    private fun shouldExtendBottomOutline(): Boolean {
-        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.BOTTOM)
-    }
-
-    private fun shouldExtendLeftOutline(): Boolean {
-        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.LEFT)
-    }
-
-    private fun shouldExtendRightOutline(): Boolean {
-        return shouldExtendOutline() && isFocusedChildNearEdge(EDGE.RIGHT)
-    }
-
-    /**
-     * Проверяет, находится ли сфокусированный дочерний элемент близко к указанной стороне (edge) с учетом threshold.
-     */
-    private fun isFocusedChildNearEdge(edge: EDGE, threshold: Int = 0): Boolean {
-        val child = focusedChild ?: return false
-
-        return when (edge) {
-            EDGE.TOP -> child.top - threshold <= paddingTop
-            EDGE.BOTTOM -> child.bottom + threshold >= height - paddingBottom
-            EDGE.LEFT -> child.left - threshold <= paddingLeft
-            EDGE.RIGHT -> child.right + threshold >= width - paddingRight
-        }
-    }
-
-    private enum class EDGE {
-        LEFT,
-        TOP,
-        RIGHT,
-        BOTTOM,
+        _scrollableDelegate.resetOutline(this, shapeModel)
     }
 
     companion object {

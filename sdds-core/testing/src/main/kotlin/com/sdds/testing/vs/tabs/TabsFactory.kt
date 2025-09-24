@@ -1,8 +1,6 @@
 package com.sdds.testing.vs.tabs
 
 import android.content.Context
-import android.view.ViewGroup.LayoutParams
-import android.widget.FrameLayout
 import com.sdds.testing.R
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Button
@@ -19,10 +17,6 @@ fun tabs(
     return Tabs(context.styleWrapper(style))
         .apply {
             id = R.id.tabs
-            val layoutParams = state.currentLayoutParams(orientation)
-            if (layoutParams != null) {
-                this.layoutParams = layoutParams
-            }
         }
         .applyState(state)
 }
@@ -38,10 +32,6 @@ fun iconTabs(
     return Tabs(context.styleWrapper(style))
         .apply {
             id = R.id.icon_tabs
-            val layoutParams = state.currentLayoutParams(orientation)
-            if (layoutParams != null) {
-                this.layoutParams = layoutParams
-            }
         }
         .applyIconsState(state)
 }
@@ -52,6 +42,7 @@ fun iconTabs(
 fun Tabs.applyIconsState(state: TabsUiState): Tabs = apply {
     displayMode = state.displayMode.mode
     dividerEnabled = state.dividerEnabled
+    indicatorEnabled = state.indicatorEnabled
     addIconTabsWith(state)
     isEnabled = state.enabled
 }
@@ -62,6 +53,7 @@ fun Tabs.applyIconsState(state: TabsUiState): Tabs = apply {
 fun Tabs.applyState(state: TabsUiState): Tabs = apply {
     displayMode = state.displayMode.mode
     dividerEnabled = state.dividerEnabled
+    indicatorEnabled = state.indicatorEnabled
     addTabsWith(state)
     isEnabled = state.enabled
 }
@@ -102,19 +94,11 @@ private fun Tabs.addIconTabsWith(state: TabsUiState) = apply {
             Tabs.IconTab.builder(context)
                 .setId(it)
                 .setIcon(TabItemIcon.Start.iconId)
-                .setCounterText(state.count)
+                .setCounterText(if (it == 0) state.count else null)
                 .setDisclosureText(state.tabItemLabel)
                 .setCounterEnabled(state.counter)
                 .setActionEnabled(state.actionEnabled)
                 .build(),
         )
-    }
-}
-
-private fun TabsUiState.currentLayoutParams(orientation: Int): LayoutParams? {
-    return if (displayMode == DisplayMode.STRETCH && orientation == Tabs.HORIZONTAL) {
-        FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-    } else {
-        null
     }
 }

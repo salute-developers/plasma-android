@@ -6,11 +6,11 @@
         <item name="sd_action">@drawable/ic_close_36</item>
         <item name="android:textColor">@color/serv_tab_item_header_text_color</item>
         <item name="sd_valueTextColor">@color/serv_tab_item_header_value_text_color</item>
+        <item name="sd_iconTint">@color/serv_tab_item_header_icon_tint</item>
         <item name="sd_actionTint">@color/serv_tab_item_header_action_tint</item>
     </style>
     <style name="Serv.Sdds.Components.TabItemHeader.H1">
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH1Normal</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_header_h1_min_height</item>
         <item name="android:paddingStart">@dimen/serv_tab_item_header_h1_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_tab_item_header_h1_padding_end</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_header_h1_value_padding</item>
@@ -22,7 +22,6 @@
     </style>
     <style name="Serv.Sdds.Components.TabItemHeader.H2">
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Normal</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_header_h2_min_height</item>
         <item name="android:paddingStart">@dimen/serv_tab_item_header_h2_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_tab_item_header_h2_padding_end</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_header_h2_value_padding</item>
@@ -33,7 +32,6 @@
     </style>
     <style name="Serv.Sdds.Components.TabItemHeader.H3">
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH3Normal</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_header_h3_min_height</item>
         <item name="android:paddingStart">@dimen/serv_tab_item_header_h3_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_tab_item_header_h3_padding_end</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_header_h3_value_padding</item>
@@ -45,7 +43,6 @@
     </style>
     <style name="Serv.Sdds.Components.TabItemHeader.H4">
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Normal</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_header_h4_min_height</item>
         <item name="android:paddingStart">@dimen/serv_tab_item_header_h4_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_tab_item_header_h4_padding_end</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_header_h4_value_padding</item>
@@ -57,7 +54,6 @@
     </style>
     <style name="Serv.Sdds.Components.TabItemHeader.H5">
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Normal</item>
-        <item name="android:minHeight">@dimen/serv_tab_item_header_h5_min_height</item>
         <item name="android:paddingStart">@dimen/serv_tab_item_header_h5_padding_start</item>
         <item name="android:paddingEnd">@dimen/serv_tab_item_header_h5_padding_end</item>
         <item name="sd_valuePadding">@dimen/serv_tab_item_header_h5_value_padding</item>

@@ -10,6 +10,8 @@
         <item name="sd_disclosureText">Show All</item>
         <item name="sd_dividerEnabled">true</item>
         <item name="sd_overflowIconsEnabled">true</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
     </style>
     <style name="Sdds.Components.TabItem" parent="Sdds.Components.SegmentItem">
         <item name="android:minWidth">0dp</item>
@@ -22,6 +24,7 @@
         <item name="sd_action">@drawable/sd_ic_close_24</item>
         <item name="sd_actionEnabled">true</item>
         <item name="sd_disclosureText">Show All</item>
+        <item name="sd_shapeAppearance">@null</item>
     </style>
     <style name="Sdds.Components.IconTabItem" parent="Sdds.Components.TabItem">
         <item name="sd_iconPadding">0dp</item>

@@ -29,6 +29,7 @@
         <attr name="sd_overflowPrevIconColor" format="color|reference" />
 
         <attr name="sd_tabIndicatorColor" format="color|reference" />
+        <attr name="sd_tabIndicatorEnabled" format="boolean"/>
         <attr name="sd_tabIndicatorThickness" format="dimension" />
 
         <attr name="android:orientation" />

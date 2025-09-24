@@ -68,6 +68,8 @@ internal class TabsStyleGeneratorView(
         props.overflowPrevIcon?.let { iconAttribute("sd_overflowPrevIcon", it.value) }
         props.disclosureIcon?.let { iconAttribute("sd_disclosureIcon", it.value) }
         props.orientation?.let { valueAttribute("android:orientation", it.value) }
+        props.dividerEnabled?.let { booleanAttribute("sd_dividerEnabled", it.value) }
+        props.indicatorEnabled?.let { booleanAttribute("sd_tabIndicatorEnabled", it.value) }
         props.tabItemStyle?.let {
             componentOverlayAttribute("sd_tabItemStyleOverlay", it.camelCaseValue(""))
         }

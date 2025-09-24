@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components.tabs
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -36,6 +37,8 @@ internal data class TabsProperties(
     val disclosureIcon: Icon? = null,
     val disclosureTextStyle: Typography? = null,
     val orientation: Value? = null,
+    val dividerEnabled: BooleanValue? = null,
+    val indicatorEnabled: BooleanValue? = null,
     val tabItemStyle: ComponentStyle<TabBarItemProperties>? = null,
     val dividerStyle: ComponentStyle<DividerProperties>? = null,
 ) : PropertyOwner {
@@ -64,6 +67,8 @@ internal data class TabsProperties(
             orientation = orientation ?: otherProps.orientation,
             tabItemStyle = tabItemStyle ?: otherProps.tabItemStyle,
             dividerStyle = dividerStyle ?: otherProps.dividerStyle,
+            indicatorEnabled = indicatorEnabled ?: otherProps.indicatorEnabled,
+            dividerEnabled = dividerEnabled ?: otherProps.dividerEnabled,
         )
     }
 }

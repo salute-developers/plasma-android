@@ -6,6 +6,8 @@
         <item name="sd_overflowNextIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_left_outline_24</item>
         <item name="android:orientation">horizontal</item>
+        <item name="sd_dividerEnabled">false</item>
+        <item name="sd_tabIndicatorEnabled">false</item>
         <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
         <item name="sd_tabIndicatorColor">?serv_surfaceDefaultSolidDefault</item>
         <item name="sd_overflowNextIconColor">?serv_textDefaultSecondary</item>

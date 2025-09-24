@@ -28,6 +28,7 @@ internal class IconTabsViewModel(
             PropertyName.Enabled -> currentState.copy(enabled = valueString.toBoolean())
             PropertyName.ActionEnabled -> currentState.copy(actionEnabled = valueString.toBoolean())
             PropertyName.DividerEnabled -> currentState.copy(dividerEnabled = valueString.toBoolean())
+            PropertyName.IndicatorEnabled -> currentState.copy(indicatorEnabled = valueString.toBoolean())
             PropertyName.DisplayMode -> currentState.copy(displayMode = DisplayMode.valueOf(valueString))
 
             PropertyName.Counter -> {
@@ -60,6 +61,10 @@ internal class IconTabsViewModel(
                 name = PropertyName.DividerEnabled.value,
                 value = dividerEnabled,
             ),
+            Property.BooleanProperty(
+                name = PropertyName.IndicatorEnabled.value,
+                value = indicatorEnabled,
+            ),
             enumProperty(
                 name = PropertyName.DisplayMode.value,
                 value = displayMode,
@@ -80,6 +85,7 @@ internal class IconTabsViewModel(
         Enabled("enabled"),
         ActionEnabled("hasAction"),
         DividerEnabled("hasDivider"),
+        IndicatorEnabled("hasIndicator"),
         DisplayMode("displayMode"),
         Counter("hasExtra"),
         Count("count"),

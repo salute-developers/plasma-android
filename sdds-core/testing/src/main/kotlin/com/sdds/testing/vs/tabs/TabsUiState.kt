@@ -18,6 +18,7 @@ import kotlinx.parcelize.Parcelize
  * @property count текст счетчика
  * @property actionEnabled включена ли иконка действия
  * @property dividerEnabled включен ли разделитель
+ * @property indicatorEnabled включен ли индикатор
  */
 @Parcelize
 data class TabsUiState(
@@ -32,6 +33,7 @@ data class TabsUiState(
     val count: String = "1",
     val actionEnabled: Boolean = false,
     val dividerEnabled: Boolean = true,
+    val indicatorEnabled: Boolean = true,
 ) : Parcelable, UiState {
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)

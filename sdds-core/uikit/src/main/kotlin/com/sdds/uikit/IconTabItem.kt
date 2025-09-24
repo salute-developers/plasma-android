@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.Log
 import androidx.core.content.withStyledAttributes
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.Button.IconPosition
@@ -92,14 +93,22 @@ open class IconTabItem @JvmOverloads constructor(
             _counterOffsetX = getDimensionPixelSize(R.styleable.IconTabItem_sd_counterOffsetX, 0)
             _counterOffsetY = getDimensionPixelSize(R.styleable.IconTabItem_sd_counterOffsetY, 0)
         }
+        getCounterDrawable()?.apply {
+            callback = this@IconTabItem
+        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         if (isCounterEnabled) {
             val counterWidth = getCounterDrawable()?.intrinsicWidth ?: 0
+            Log.e("IconTab", "onMeasure counter $id: $counterWidth")
             setMeasuredDimension(maxOf(counterWidth, measuredWidth), measuredHeight)
         }
+    }
+
+    override fun verifyDrawable(who: Drawable): Boolean {
+        return super.verifyDrawable(who) || who == getCounterDrawable()
     }
 
     override fun draw(canvas: Canvas) {
@@ -117,6 +126,7 @@ open class IconTabItem @JvmOverloads constructor(
             .coerceIn(0, measuredWidth - counter.intrinsicWidth)
         val counterTop = (iconTop - counterOffsetY)
             .coerceIn(0, measuredHeight - counter.intrinsicHeight)
+        Log.e("IconTab", "drawCounter $id: $counterText")
         canvas.withTranslation(x = counterLeft.toFloat(), y = counterTop.toFloat()) {
             counter.draw(canvas)
         }

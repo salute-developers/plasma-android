@@ -5,5 +5,6 @@
         <item name="sd_clipToOutline">false</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:clipChildren">false</item>
+        <item name="sd_shapeAppearance">@style/Sdds.Shape.Round</item>
     </style>
 </resources>

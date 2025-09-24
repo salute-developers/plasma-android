@@ -7,8 +7,10 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
@@ -71,7 +73,12 @@ open class Tabs @JvmOverloads constructor(
         set(value) {
             if (field != value) {
                 field = value
-                tabsContainer.setSelectedTab(value?.let { tabsStorage[it.id] })
+                val tab = value?.let { tabsStorage[it.id] }
+                tabsContainer.setSelectedTab(tab)
+                if (value != null) {
+                    val scroll = getTabCompletelyVisibleScrollOffset(value)
+                    scrollBy(scroll[0], scroll[1])
+                }
             }
         }
 
@@ -105,6 +112,7 @@ open class Tabs @JvmOverloads constructor(
     }
 
     private var _dividerEnabled: Boolean = false
+    private var _indicatorEnabled: Boolean = false
     private var _overflowIconsEnabled: Boolean = false
 
     private var _disclosureColor: ColorStateList? = null
@@ -185,6 +193,18 @@ open class Tabs @JvmOverloads constructor(
         }
 
     /**
+     * Включает/выключает отрисовку индикатора выбранной вкладки.
+     */
+    var indicatorEnabled: Boolean
+        get() = _indicatorEnabled
+        set(value) {
+            if (_indicatorEnabled != value) {
+                _indicatorEnabled = value
+                invalidate()
+            }
+        }
+
+    /**
      * Показывать ли кнопки перелистывания (prev/next) в режиме скролла.
      */
     var overflowIconsEnabled: Boolean
@@ -230,6 +250,7 @@ open class Tabs @JvmOverloads constructor(
             }
             _tabsMinSpacing = getDimensionPixelSize(R.styleable.Tabs_sd_tabsMinSpacing, 0)
             _dividerEnabled = getBoolean(R.styleable.Tabs_sd_dividerEnabled, false)
+            _indicatorEnabled = getBoolean(R.styleable.Tabs_sd_tabIndicatorEnabled, false)
             _overflowIconsEnabled = getBoolean(R.styleable.Tabs_sd_overflowIconsEnabled, false)
         }
         populate()
@@ -298,8 +319,6 @@ open class Tabs @JvmOverloads constructor(
         tab.view.isSelected = true
         selectedItem?.isSelected = false
         selectedItem = tab.view
-        scrollToTab(tab)
-        tabsContainer.setSelectedTab(tab)
         invalidate()
     }
 
@@ -312,38 +331,58 @@ open class Tabs @JvmOverloads constructor(
         scrollToTab(index)
     }
 
+    override fun scrollTo(x: Int, y: Int) {
+        scrollableContainer?.scrollTo(x, y)
+    }
+
+    override fun scrollBy(x: Int, y: Int) {
+        scrollableContainer?.scrollBy(x, y)
+    }
+
+    private fun scrollToTab(tabView: AndroidView) {
+        if (orientation == HORIZONTAL) {
+            scrollTo(tabView.left, 0)
+        } else {
+            scrollTo(0, tabView.top)
+        }
+    }
+
     private fun scrollToTab(index: Int) {
         val tab = tabsContainer.getChildAt(index).takeIf { it != _disclosureTab?.view } ?: return
-        scrollableContainer?.run {
-            if (orientation == HORIZONTAL) {
-                scrollTo(tab.left, 0)
-            } else {
-                scrollTo(0, tab.top)
-            }
-        }
+        scrollToTab(tab)
     }
 
     private fun scrollToNext() {
         val tab = findLastCompletelyVisibleTab() ?: return
+        val tabIndex = tabsContainer.indexOfChild(tab.view)
+        val prevTab = tabsContainer.getChildAt(tabIndex + 1) ?: return
+        val prevScrollOffset = getTabCompletelyVisibleScrollOffset(prevTab)
+        if (prevScrollOffset[0] != 0 || prevScrollOffset[1] != 0) {
+            scrollBy(prevScrollOffset[0], prevScrollOffset[1])
+            return
+        }
         val tabSpacing = calculateTabSpacing()
-        scrollableContainer?.run {
-            if (orientation == HORIZONTAL) {
-                scrollBy(tab.view.fullWidth() + tabSpacing, 0)
-            } else {
-                scrollBy(0, tab.view.fullHeight() + tabSpacing)
-            }
+        if (orientation == HORIZONTAL) {
+            scrollBy(tab.view.fullWidth() + tabSpacing, 0)
+        } else {
+            scrollBy(0, tab.view.fullHeight() + tabSpacing)
         }
     }
 
     private fun scrollToPrev() {
         val tab = findFirstCompletelyVisibleTab() ?: return
+        val tabIndex = tabsContainer.indexOfChild(tab.view)
+        val prevTab = tabsContainer.getChildAt(tabIndex - 1) ?: return
+        val prevScrollOffset = getTabCompletelyVisibleScrollOffset(prevTab)
+        if (prevScrollOffset[0] != 0 || prevScrollOffset[1] != 0) {
+            scrollBy(prevScrollOffset[0], prevScrollOffset[1])
+            return
+        }
         val tabSpacing = calculateTabSpacing()
-        scrollableContainer?.run {
-            if (orientation == HORIZONTAL) {
-                scrollBy(-tab.view.fullWidth() - tabSpacing, 0)
-            } else {
-                scrollBy(0, -tab.view.fullHeight() - tabSpacing)
-            }
+        if (orientation == HORIZONTAL) {
+            scrollBy(-tab.view.fullWidth() - tabSpacing, 0)
+        } else {
+            scrollBy(0, -tab.view.fullHeight() - tabSpacing)
         }
     }
 
@@ -358,6 +397,45 @@ open class Tabs @JvmOverloads constructor(
                 tab.view.top - container.scrollY >= 0
             }
         }
+    }
+
+    private fun getTabCompletelyVisibleScrollOffset(tab: AndroidView): IntArray {
+        val container = scrollableContainer
+            ?.takeIf { displayMode == DISPLAY_MODE_SCROLL }
+            ?: return intArrayOf(0, 0)
+
+        // Visible window bounds inside the scroll container
+        val visibleLeft = container.scrollX
+        val visibleTop = container.scrollY
+        val visibleRight = visibleLeft + container.measuredWidth
+        val visibleBottom = visibleTop + container.measuredHeight
+
+        var dx = 0
+        var dy = 0
+
+        if (orientation == HORIZONTAL) {
+            val left = tab.left
+            val right = tab.right
+            // If the tab starts before the visible area, scroll left (negative dx)
+            if (left < visibleLeft) {
+                dx = left - visibleLeft
+            } else if (right > visibleRight) {
+                // If the tab ends after the visible area, scroll right (positive dx)
+                dx = right - visibleRight
+            }
+        } else { // VERTICAL
+            val top = tab.top
+            val bottom = tab.bottom
+            // If the tab starts above the visible area, scroll up (negative dy)
+            if (top < visibleTop) {
+                dy = top - visibleTop
+            } else if (bottom > visibleBottom) {
+                // If the tab ends below the visible area, scroll down (positive dy)
+                dy = bottom - visibleBottom
+            }
+        }
+
+        return intArrayOf(dx, dy)
     }
 
     private fun findLastCompletelyVisibleTab(): Tab? {
@@ -416,7 +494,11 @@ open class Tabs @JvmOverloads constructor(
 
         children.forEach { child ->
             val lp = child.layoutParams as MarginLayoutParams
-            val childLeft = left + lp.leftMargin
+            val childLeft = if (orientation == HORIZONTAL) {
+                left + lp.leftMargin
+            } else {
+                (measuredWidth - child.fullWidth()) / 2
+            }
             val childTop = if (orientation == HORIZONTAL) {
                 (measuredHeight - child.fullHeight()) / 2
             } else {
@@ -437,8 +519,6 @@ open class Tabs @JvmOverloads constructor(
     }
 
     private fun measureHorizontal(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val specWidth = MeasureSpec.getSize(widthMeasureSpec)
-
         // Измеряем контейнер табов, чтобы понять, нужно ли включать кнопки для скролла
         measureChildWithMargins(container, widthMeasureSpec, 0, heightMeasureSpec, 0)
         var totalHeight = container.fullHeight()
@@ -468,8 +548,6 @@ open class Tabs @JvmOverloads constructor(
     }
 
     private fun measureVertical(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val specHeight = MeasureSpec.getSize(heightMeasureSpec)
-
         // Измеряем контейнер табов, чтобы понять, нужно ли включать кнопки для скролла
         measureChildWithMargins(container, widthMeasureSpec, 0, heightMeasureSpec, 0)
         var totalWidth = container.fullWidth()
@@ -558,6 +636,9 @@ open class Tabs @JvmOverloads constructor(
             getScrollContainer(context, orientation).also {
                 it.isVerticalScrollBarEnabled = false
                 it.isHorizontalScrollBarEnabled = false
+                it.clipChildren = false
+                it.clipToPadding = false
+                it.clipToOutline = true
                 it.addView(tabsContainer, MarginLayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
                 it.setOnScrollChangeListener { _, _, _, _, _ -> updateControls() }
             }
@@ -961,6 +1042,8 @@ open class Tabs @JvmOverloads constructor(
         private var selectedTab: Tab? = null
 
         init {
+            clipChildren = false
+            clipToPadding = false
             setWillNotDraw(false)
         }
 
@@ -1003,14 +1086,14 @@ open class Tabs @JvmOverloads constructor(
         }
 
         override fun draw(canvas: Canvas) {
-            super.draw(canvas)
             // Таб может быть выбран из dropdown списка, а это значит, что таб на самом деле не отрисован и не может
             // являться целью для инидкатора, поэтому допольнительно проверяем состояние isSelected
-            if (selectedTab?.view?.isSelected == true) {
+            if (indicatorEnabled && selectedTab?.view?.isSelected == true) {
                 updateIndicatorPosition()
                 indicatorDrawable.draw(canvas)
             }
             if (dividerEnabled) divider.draw(canvas)
+            super.draw(canvas)
         }
 
         override fun verifyDrawable(who: Drawable): Boolean {
@@ -1041,6 +1124,13 @@ open class Tabs @JvmOverloads constructor(
             } else {
                 measureVertical(widthMeasureSpec, heightMeasureSpec)
             }
+        }
+
+        override fun drawChild(canvas: Canvas, child: View?, drawingTime: Long): Boolean {
+            if (child != _disclosureTab?.view && indexOfChild(child) >= laidOutTabs) {
+                return false
+            }
+            return super.drawChild(canvas, child, drawingTime)
         }
 
         override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -1081,6 +1171,7 @@ open class Tabs @JvmOverloads constructor(
                 .toList()
 
             tabs.forEach { tab ->
+                Log.e("Tabs", "measureHorizontal: counter = ${(tab as TabItem).counterText}")
                 measureTabWithMargins(
                     tab,
                     widthMeasureSpec,
@@ -1282,7 +1373,7 @@ open class Tabs @JvmOverloads constructor(
         }
 
         private fun updateIndicatorPosition() {
-            val tabView = selectedTab?.view?.takeIf { it.isSelected } ?: return
+            val tabView = selectedTab?.view?.takeIf { it.isSelected && indicatorEnabled } ?: return
             val bounds = indicatorDrawable.bounds
             if (orientation == HORIZONTAL) {
                 indicatorDrawable.setBounds(
@@ -1330,8 +1421,8 @@ open class Tabs @JvmOverloads constructor(
 
         private fun getScrollContainer(context: Context, orientation: Int): ViewGroup {
             return when (orientation) {
-                HORIZONTAL -> HorizontalScrollView(context)
-                else -> ScrollView(context)
+                HORIZONTAL -> com.sdds.uikit.HorizontalScrollView(context)
+                else -> com.sdds.uikit.ScrollView(context)
             }
         }
 

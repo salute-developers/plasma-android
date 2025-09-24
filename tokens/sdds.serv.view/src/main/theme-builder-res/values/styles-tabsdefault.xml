@@ -5,6 +5,8 @@
     <style name="Serv.Sdds.Components.TabsDefault" parent="Sdds.Components.Tabs">
         <item name="sd_overflowNextIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="sd_dividerEnabled">true</item>
+        <item name="sd_tabIndicatorEnabled">true</item>
         <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
         <item name="sd_tabIndicatorColor">?serv_surfaceDefaultSolidDefault</item>
         <item name="sd_overflowNextIconColor">?serv_textDefaultSecondary</item>
@@ -20,6 +22,8 @@
         <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.L</item>
     </style>
     <style name="Serv.Sdds.Components.TabsDefault.L.Vertical">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_down_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_up_outline_24</item>
         <item name="android:orientation">vertical</item>
         <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultLVertical</item>
         <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_l_vertical_min_spacing</item>
@@ -43,6 +47,8 @@
         <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.M</item>
     </style>
     <style name="Serv.Sdds.Components.TabsDefault.M.Vertical">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_down_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_up_outline_24</item>
         <item name="android:orientation">vertical</item>
         <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultMVertical</item>
         <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_m_vertical_min_spacing</item>
@@ -66,6 +72,8 @@
         <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.S</item>
     </style>
     <style name="Serv.Sdds.Components.TabsDefault.S.Vertical">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_down_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_up_outline_24</item>
         <item name="android:orientation">vertical</item>
         <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultSVertical</item>
         <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_s_vertical_min_spacing</item>
@@ -89,6 +97,8 @@
         <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsDefault.Xs</item>
     </style>
     <style name="Serv.Sdds.Components.TabsDefault.Xs.Vertical">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_down_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_up_outline_24</item>
         <item name="android:orientation">vertical</item>
         <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemDefaultXsVertical</item>
         <item name="sd_tabsMinSpacing">@dimen/serv_tabs_default_xs_vertical_min_spacing</item>
