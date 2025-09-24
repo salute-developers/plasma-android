@@ -3,6 +3,7 @@ package com.sdds.serv
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.rectskeleton.Default
+import com.sdds.serv.styles.rectskeleton.Lighter
 import com.sdds.serv.styles.rectskeleton.RectSkeleton
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.rectskeleton.RectSkeletonTest
@@ -24,6 +25,13 @@ class ComposeRectSkeletonScreenshotTest(
     fun testRectSkeleton() {
         composeTestRule.content {
             RectSkeletonTest(style = RectSkeleton.Default.style())
+        }
+    }
+
+    @Test
+    fun testRectSkeletonLighter() {
+        composeTestRule.content {
+            RectSkeletonTest(style = RectSkeleton.Lighter.style())
         }
     }
 }

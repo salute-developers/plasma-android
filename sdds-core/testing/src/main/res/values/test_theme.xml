@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="TestTheme">
         <item name="testingShapeTint">#000</item>
         <item name="testingShape">@style/Testing.Shape.Round</item>
         <item name="testingTextColorPrimary">#000</item>
+        <item name="testTextAppearance">@style/TestTextStyle</item>
+    </style>
+    <style name="TestTextStyle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="fontWeight">600</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineHeight" tools:targetApi="p">22sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 </resources>

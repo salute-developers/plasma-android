@@ -43,4 +43,18 @@ class ViewSystemSwitchScreenshotTest(
             switchDisabled(R.style.Serv_Sdds_ComponentOverlays_SwitchM)
         }
     }
+
+    @Test
+    override fun testSwitchSizeLToggleS() {
+        themedComponent {
+            switchSizeL(R.style.Serv_Sdds_ComponentOverlays_SwitchLToggleS)
+        }
+    }
+
+    @Test
+    override fun testSwitchSizeSToggleS() {
+        themedComponent {
+            switchToggleOff(R.style.Serv_Sdds_ComponentOverlays_SwitchSToggleS)
+        }
+    }
 }
