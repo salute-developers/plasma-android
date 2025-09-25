@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Tabs" >
+        <item name="sd_tabIndicatorColor">#000</item>
+        <item name="sd_tabIndicatorThickness">2dp</item>
+        <item name="sd_overflowNextIconColor">#000</item>
+        <item name="sd_overflowPrevIconColor">#000</item>
+        <item name="android:gravity">center</item>
+        <item name="sd_disclosureText">Show All</item>
+        <item name="sd_dividerEnabled">true</item>
+        <item name="sd_overflowIconsEnabled">true</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+    <style name="Sdds.Components.TabItem" parent="Sdds.Components.SegmentItem">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="sd_action">@drawable/sd_ic_close_24</item>
+        <item name="sd_actionEnabled">true</item>
+        <item name="sd_disclosureText">Show All</item>
+        <item name="sd_shapeAppearance">@null</item>
+    </style>
+    <style name="Sdds.Components.IconTabItem" parent="Sdds.Components.TabItem">
+        <item name="sd_iconPadding">0dp</item>
+    </style>
+</resources>

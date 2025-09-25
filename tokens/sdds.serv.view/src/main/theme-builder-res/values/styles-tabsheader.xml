@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.TabsHeader" parent="Sdds.Components.Tabs">
+        <item name="sd_overflowNextIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="sd_overflowPrevIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_dividerEnabled">false</item>
+        <item name="sd_tabIndicatorEnabled">false</item>
+        <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
+        <item name="sd_tabIndicatorColor">?serv_surfaceDefaultSolidDefault</item>
+        <item name="sd_overflowNextIconColor">?serv_textDefaultSecondary</item>
+        <item name="sd_overflowPrevIconColor">?serv_textDefaultSecondary</item>
+        <item name="sd_disclosureColor">@color/serv_tabs_header_disclosure_color</item>
+        <item name="sd_tabIndicatorThickness">@dimen/serv_tabs_header_indicator_thickness</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsHeader.H1">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.HeaderH1Bold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemHeaderH1</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_header_h1_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsHeaderH1">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsHeader.H1</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsHeader.H2">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemHeaderH2</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_header_h2_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsHeaderH2">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsHeader.H2</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsHeader.H3">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.HeaderH3Bold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemHeaderH3</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_header_h3_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsHeaderH3">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsHeader.H3</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsHeader.H4">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Bold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemHeaderH4</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_header_h4_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsHeaderH4">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsHeader.H4</item>
+    </style>
+    <style name="Serv.Sdds.Components.TabsHeader.H5">
+        <item name="sd_disclosureTextAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Bold</item>
+        <item name="sd_tabItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TabItemHeaderH5</item>
+        <item name="sd_tabsMinSpacing">@dimen/serv_tabs_header_h5_min_spacing</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TabsHeaderH5">
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsHeader.H5</item>
+    </style>
+</resources>

@@ -59,6 +59,9 @@ import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegment
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tabs.SddsServIconTabsVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tabs.SddsServTabsDefaultVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tabs.SddsServTabsHeaderVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textskeleton.SddsServTextSkeletonVariationsView
@@ -272,6 +275,18 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Spinner,
                 SddsServSpinnerVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("TabsDefault", CoreComponent.TABS),
+                SddsServTabsDefaultVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("TabsHeader", CoreComponent.TABS),
+                SddsServTabsHeaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.IconTabs,
+                SddsServIconTabsVariationsView,
             ),
             ViewComponent(
                 ComponentKey.TextField,

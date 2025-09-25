@@ -46,6 +46,9 @@
     <item type="id" name="recycler"/>
     <item type="id" name="scroll_container"/>
     <item type="id" name="accordion"/>
+    <item type="id" name="tabs"/>
+    <item type="id" name="icon_tabs"/>
+    <item type="id" name="tab_item"/>
     <item type="id" name="drawer_layout"/>
     <item type="id" name="notification_content"/>
 </resources>
