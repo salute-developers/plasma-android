@@ -43,4 +43,18 @@ class ViewSystemSwitchScreenshotTest(
             switchDisabled(R.style.Plasma_SdService_ComponentOverlays_SwitchM)
         }
     }
+
+    @Test
+    override fun testSwitchSizeLToggleS() {
+        themedComponent {
+            switchSizeL(R.style.Plasma_SdService_ComponentOverlays_SwitchLToggleS)
+        }
+    }
+
+    @Test
+    override fun testSwitchSizeSToggleS() {
+        themedComponent {
+            switchToggleOff(R.style.Plasma_SdService_ComponentOverlays_SwitchSToggleS)
+        }
+    }
 }
