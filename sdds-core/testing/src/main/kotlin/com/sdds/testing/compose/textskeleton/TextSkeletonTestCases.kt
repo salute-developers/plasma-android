@@ -7,7 +7,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.SkeletonLineWidthProvider
-import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextSkeleton
 import com.sdds.compose.uikit.TextSkeletonStyle
 
@@ -22,10 +21,6 @@ import com.sdds.compose.uikit.TextSkeletonStyle
 fun TextSkeletonDefaultNoTextRandom(style: TextSkeletonStyle) {
     Box(modifier = Modifier.fillMaxWidth()) {
         val defaultTextStyle = LocalTextStyle.current
-        Text(
-            text = "",
-            style = defaultTextStyle,
-        )
         TextSkeleton(
             style = style,
             lineCount = 3,
@@ -53,10 +48,6 @@ fun TextSkeletonDefaultFullWidth(
             lineCount = 10,
             duration = 5000,
             lineWidthProvider = SkeletonLineWidthProvider.FillMaxWidth,
-        )
-        Text(
-            text = "",
-            style = defaultTextStyle,
         )
     }
 }
