@@ -35,7 +35,7 @@ abstract class ProjectSummaryTask : DefaultTask() {
                     version = it.versionInfo().name,
                     links = ProjectLinks(
                         documentation = ProjectLink(docsUrl),
-                        changelog = ProjectLink("${docsUrl}CHANGELOG"),
+                        changelog = ProjectLink("${docsUrl}CHANGELOG/"),
                     )
                 )
             }
