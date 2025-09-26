@@ -1127,7 +1127,16 @@ open class Tabs @JvmOverloads constructor(
         }
 
         override fun drawChild(canvas: Canvas, child: View?, drawingTime: Long): Boolean {
-            if (child != _disclosureTab?.view && indexOfChild(child) >= laidOutTabs) {
+            if (child == _disclosureTab?.view) {
+                val shouldDrawDisclosure =
+                    displayMode == DISPLAY_MODE_IF_ROOM && (childCount - 1) > laidOutTabs
+                return if (shouldDrawDisclosure) {
+                    super.drawChild(canvas, child, drawingTime)
+                } else {
+                    false
+                }
+            }
+            if (indexOfChild(child) >= laidOutTabs) {
                 return false
             }
             return super.drawChild(canvas, child, drawingTime)

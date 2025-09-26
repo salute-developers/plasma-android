@@ -94,7 +94,7 @@ private fun Tabs.addIconTabsWith(state: TabsUiState) = apply {
             Tabs.IconTab.builder(context)
                 .setId(it)
                 .setIcon(TabItemIcon.Start.iconId)
-                .setCounterText(if (it == 0) state.count else null)
+                .setCounterText(state.count)
                 .setDisclosureText(state.tabItemLabel)
                 .setCounterEnabled(state.counter)
                 .setActionEnabled(state.actionEnabled)
