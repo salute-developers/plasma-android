@@ -28,6 +28,7 @@ import com.sdds.playground.sandbox.plasma.homeds.integration.radiobox.PlasmaHome
 import com.sdds.playground.sandbox.plasma.homeds.integration.radiobox.group.PlasmaHomeDsRadioBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.switcher.PlasmaHomeDsSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.tabbar.PlasmaHomeDsTabBarVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.wheel.PlasmaHomeDsWheelVariationsCompose
 
 /**
  *
@@ -128,6 +129,10 @@ object PlasmaHomeDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.TabBar,
                 PlasmaHomeDsTabBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Wheel,
+                PlasmaHomeDsWheelVariationsCompose,
             ),
         ).associateBy { it.key }
 }
