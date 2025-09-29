@@ -91,9 +91,9 @@ internal fun BaseCell(
                         CompositionLocalProvider(LocalTint provides iconTint) {
                             endContent?.invoke(this)
                         }
-                            if (disclosureEnabled && disclosureContent != null) {
-                                disclosureContent()
-                            }
+                        if (disclosureEnabled && disclosureContent != null) {
+                            disclosureContent()
+                        }
                     }
                 }
             },

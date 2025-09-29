@@ -4,6 +4,7 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -164,6 +165,7 @@ fun DropDownMenuSStrictTopCenter(style: DropdownMenuStyle, buttonStyle: ButtonSt
                 val items = listOf("Item 1", "Item 2", "Item 3")
                 items(items.size) { index ->
                     ListItem(
+                        modifier = Modifier.fillMaxWidth(),
                         text = "",
                         disclosureEnabled = false,
                     )
@@ -210,6 +212,7 @@ fun DropDownMenuXsStrictCenter(style: DropdownMenuStyle, buttonStyle: ButtonStyl
             ) {
                 items(3) {
                     ListItem(
+                        modifier = Modifier.fillMaxWidth(),
                         text = "Title",
                         disclosureEnabled = false,
                     )
@@ -291,6 +294,7 @@ fun DropDownMenuXlLooseTopEndDivider(style: DropdownMenuStyle, buttonStyle: Butt
                 val items = listOf("Item 1", "Item 2", "Item 3")
                 items(items.size) { index ->
                     ListItem(
+                        modifier = Modifier.fillMaxWidth(),
                         text = "Title",
                         disclosureEnabled = true,
                     )
@@ -418,6 +422,7 @@ fun ListForDropDownMenu() {
     ) {
         items(3) {
             ListItem(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Title",
                 disclosureEnabled = true,
             )
@@ -435,6 +440,7 @@ fun ListForDropDownMenuAmountTen() {
     ) {
         items(10) {
             ListItem(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Title",
                 disclosureEnabled = true,
             )

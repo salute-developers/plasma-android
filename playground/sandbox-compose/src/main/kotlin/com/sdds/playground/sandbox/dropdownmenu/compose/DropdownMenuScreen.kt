@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.dropdownmenu.compose
 
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
@@ -68,7 +69,9 @@ internal fun DropdownMenuScreen(componentKey: ComponentKey = ComponentKey.Dropdo
                     items(dropdownMenuUiState.amount) {
                         val interactionSource = remember { MutableInteractionSource() }
                         ListItem(
-                            modifier = Modifier.focusable(interactionSource = interactionSource),
+                            modifier = Modifier
+                                .focusable(interactionSource = interactionSource)
+                                .fillMaxWidth(),
                             title = "${dropdownMenuUiState.itemTitle} $it",
                             disclosureEnabled = dropdownMenuUiState.hasDisclosure,
                             interactionSource = interactionSource,
