@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.CodeField" parent="Sdds.Components.CodeField">
+        <item name="sd_itemSpacing">@dimen/salute_code_field_item_spacing</item>
+        <item name="sd_groupSpacing">@dimen/salute_code_field_group_spacing</item>
+        <item name="sd_valueColor">@color/salute_code_field_value_color</item>
+        <item name="sd_cursorColor">?salute_textDefaultAccent</item>
+        <item name="sd_captionColor">@color/salute_code_field_caption_color</item>
+        <item name="sd_background">@color/salute_code_field_background</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeField.L">
+        <item name="sd_itemHeight">@dimen/salute_code_field_l_item_height</item>
+        <item name="sd_itemWidth">@dimen/salute_code_field_l_item_width</item>
+        <item name="sd_captionPadding">@dimen/salute_code_field_l_caption_padding</item>
+        <item name="sd_itemShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLBold</item>
+        <item name="sd_captionAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeFieldL">
+        <item name="sd_codeFieldStyle">@style/Salute.StylesSalute.Components.CodeField.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeField.L.Segmented">
+        <item name="sd_itemShapeAppearance">?salute_shapeRoundXs</item>
+        <item name="sd_groupShapeAppearance">?salute_shapeRoundL</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeFieldLSegmented">
+        <item name="sd_codeFieldStyle">@style/Salute.StylesSalute.Components.CodeField.L.Segmented</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeField.M">
+        <item name="sd_itemHeight">@dimen/salute_code_field_m_item_height</item>
+        <item name="sd_itemWidth">@dimen/salute_code_field_m_item_width</item>
+        <item name="sd_captionPadding">@dimen/salute_code_field_m_caption_padding</item>
+        <item name="sd_itemShapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMBold</item>
+        <item name="sd_captionAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeFieldM">
+        <item name="sd_codeFieldStyle">@style/Salute.StylesSalute.Components.CodeField.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeField.M.Segmented">
+        <item name="sd_itemShapeAppearance">?salute_shapeRoundXxs</item>
+        <item name="sd_groupShapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeFieldMSegmented">
+        <item name="sd_codeFieldStyle">@style/Salute.StylesSalute.Components.CodeField.M.Segmented</item>
+    </style>
+</resources>

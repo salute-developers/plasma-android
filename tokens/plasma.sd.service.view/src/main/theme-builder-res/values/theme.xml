@@ -142,7 +142,9 @@
         <item name="plasma_textInverseWarning">@color/plasma_dark_text_inverse_warning</item>
         <item name="plasma_textInverseNegative">@color/plasma_dark_text_inverse_negative</item>
         <item name="plasma_textInversePrimaryHover">@color/plasma_dark_text_inverse_primary_hover</item>
+        <item name="plasma_textInversePrimaryHoverBrightness">@color/plasma_dark_text_inverse_primary_hover_brightness</item>
         <item name="plasma_textInversePrimaryActive">@color/plasma_dark_text_inverse_primary_active</item>
+        <item name="plasma_textInversePrimaryActiveBrightness">@color/plasma_dark_text_inverse_primary_active_brightness</item>
         <item name="plasma_textInverseSecondaryHover">@color/plasma_dark_text_inverse_secondary_hover</item>
         <item name="plasma_textInverseSecondaryActive">@color/plasma_dark_text_inverse_secondary_active</item>
         <item name="plasma_textInverseTertiaryHover">@color/plasma_dark_text_inverse_tertiary_hover</item>
@@ -177,6 +179,7 @@
         <item name="plasma_textInverseNegativeMinor">@color/plasma_dark_text_inverse_negative_minor</item>
         <item name="plasma_textInverseInfoMinor">@color/plasma_dark_text_inverse_info_minor</item>
         <item name="plasma_surfaceDefaultSolidDefault">@color/plasma_dark_surface_default_solid_default</item>
+        <item name="plasma_surfaceDefaultSolidDefaultBrightness">@color/plasma_dark_surface_default_solid_default_brightness</item>
         <item name="plasma_surfaceDefaultSolidPrimary">@color/plasma_dark_surface_default_solid_primary</item>
         <item name="plasma_surfaceDefaultSolidPrimaryBrightness">@color/plasma_dark_surface_default_solid_primary_brightness</item>
         <item name="plasma_surfaceDefaultSolidSecondary">@color/plasma_dark_surface_default_solid_secondary</item>
@@ -229,7 +232,9 @@
         <item name="plasma_surfaceDefaultInfoMinor">@color/plasma_dark_surface_default_info_minor</item>
         <item name="plasma_surfaceDefaultTransparentInfo">@color/plasma_dark_surface_default_transparent_info</item>
         <item name="plasma_surfaceDefaultSolidDefaultHover">@color/plasma_dark_surface_default_solid_default_hover</item>
+        <item name="plasma_surfaceDefaultSolidDefaultHoverBrightness">@color/plasma_dark_surface_default_solid_default_hover_brightness</item>
         <item name="plasma_surfaceDefaultSolidDefaultActive">@color/plasma_dark_surface_default_solid_default_active</item>
+        <item name="plasma_surfaceDefaultSolidDefaultActiveBrightness">@color/plasma_dark_surface_default_solid_default_active_brightness</item>
         <item name="plasma_surfaceDefaultSolidPrimaryHover">@color/plasma_dark_surface_default_solid_primary_hover</item>
         <item name="plasma_surfaceDefaultSolidPrimaryActive">@color/plasma_dark_surface_default_solid_primary_active</item>
         <item name="plasma_surfaceDefaultSolidSecondaryHover">@color/plasma_dark_surface_default_solid_secondary_hover</item>
@@ -1062,6 +1067,7 @@
         <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M</item>
         <item name="sd_overlayViewStyle">@style/Plasma.SdService.Components.OverlayView</item>
         <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M</item>
+        <item name="sd_codeInputStyle">@style/Plasma.SdService.Components.CodeInput.S</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -1203,7 +1209,9 @@
         <item name="plasma_textInverseWarning">@color/plasma_light_text_inverse_warning</item>
         <item name="plasma_textInverseNegative">@color/plasma_light_text_inverse_negative</item>
         <item name="plasma_textInversePrimaryHover">@color/plasma_light_text_inverse_primary_hover</item>
+        <item name="plasma_textInversePrimaryHoverBrightness">@color/plasma_light_text_inverse_primary_hover_brightness</item>
         <item name="plasma_textInversePrimaryActive">@color/plasma_light_text_inverse_primary_active</item>
+        <item name="plasma_textInversePrimaryActiveBrightness">@color/plasma_light_text_inverse_primary_active_brightness</item>
         <item name="plasma_textInverseSecondaryHover">@color/plasma_light_text_inverse_secondary_hover</item>
         <item name="plasma_textInverseSecondaryActive">@color/plasma_light_text_inverse_secondary_active</item>
         <item name="plasma_textInverseTertiaryHover">@color/plasma_light_text_inverse_tertiary_hover</item>
@@ -1238,6 +1246,7 @@
         <item name="plasma_textInverseNegativeMinor">@color/plasma_light_text_inverse_negative_minor</item>
         <item name="plasma_textInverseInfoMinor">@color/plasma_light_text_inverse_info_minor</item>
         <item name="plasma_surfaceDefaultSolidDefault">@color/plasma_light_surface_default_solid_default</item>
+        <item name="plasma_surfaceDefaultSolidDefaultBrightness">@color/plasma_light_surface_default_solid_default_brightness</item>
         <item name="plasma_surfaceDefaultSolidPrimary">@color/plasma_light_surface_default_solid_primary</item>
         <item name="plasma_surfaceDefaultSolidPrimaryBrightness">@color/plasma_light_surface_default_solid_primary_brightness</item>
         <item name="plasma_surfaceDefaultSolidSecondary">@color/plasma_light_surface_default_solid_secondary</item>
@@ -1290,7 +1299,9 @@
         <item name="plasma_surfaceDefaultInfoMinor">@color/plasma_light_surface_default_info_minor</item>
         <item name="plasma_surfaceDefaultTransparentInfo">@color/plasma_light_surface_default_transparent_info</item>
         <item name="plasma_surfaceDefaultSolidDefaultHover">@color/plasma_light_surface_default_solid_default_hover</item>
+        <item name="plasma_surfaceDefaultSolidDefaultHoverBrightness">@color/plasma_light_surface_default_solid_default_hover_brightness</item>
         <item name="plasma_surfaceDefaultSolidDefaultActive">@color/plasma_light_surface_default_solid_default_active</item>
+        <item name="plasma_surfaceDefaultSolidDefaultActiveBrightness">@color/plasma_light_surface_default_solid_default_active_brightness</item>
         <item name="plasma_surfaceDefaultSolidPrimaryHover">@color/plasma_light_surface_default_solid_primary_hover</item>
         <item name="plasma_surfaceDefaultSolidPrimaryActive">@color/plasma_light_surface_default_solid_primary_active</item>
         <item name="plasma_surfaceDefaultSolidSecondaryHover">@color/plasma_light_surface_default_solid_secondary_hover</item>
@@ -2123,6 +2134,7 @@
         <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M</item>
         <item name="sd_overlayViewStyle">@style/Plasma.SdService.Components.OverlayView</item>
         <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M</item>
+        <item name="sd_codeInputStyle">@style/Plasma.SdService.Components.CodeInput.S</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.DayNight" parent="Plasma.SdService.MaterialComponents.Light"/>
     <style name="Plasma.SdService"/>

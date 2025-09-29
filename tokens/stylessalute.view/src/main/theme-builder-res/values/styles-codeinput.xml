@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.CodeInput" parent="Sdds.Components.CodeInput">
+        <item name="sd_valueColor">@color/salute_code_input_value_color</item>
+        <item name="sd_dotColor">@color/salute_code_input_dot_color</item>
+        <item name="sd_captionColor">@color/salute_code_input_caption_color</item>
+        <item name="sd_strokeColor">@color/salute_code_input_stroke_color</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeInput.S">
+        <item name="sd_itemHeight">@dimen/salute_code_input_s_item_height</item>
+        <item name="sd_itemWidth">@dimen/salute_code_input_s_item_width</item>
+        <item name="sd_dotSize">@dimen/salute_code_input_s_dot_size</item>
+        <item name="sd_itemSpacing">@dimen/salute_code_input_s_item_spacing</item>
+        <item name="sd_groupSpacing">@dimen/salute_code_input_s_group_spacing</item>
+        <item name="sd_captionPadding">@dimen/salute_code_input_s_caption_padding</item>
+        <item name="sd_strokeWidth">@dimen/salute_code_input_s_stroke_width</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.DisplaySBold</item>
+        <item name="sd_captionAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH5Normal</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeInputS">
+        <item name="sd_codeInputStyle">@style/Salute.StylesSalute.Components.CodeInput.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeInput.M">
+        <item name="sd_itemHeight">@dimen/salute_code_input_m_item_height</item>
+        <item name="sd_itemWidth">@dimen/salute_code_input_m_item_width</item>
+        <item name="sd_dotSize">@dimen/salute_code_input_m_dot_size</item>
+        <item name="sd_itemSpacing">@dimen/salute_code_input_m_item_spacing</item>
+        <item name="sd_groupSpacing">@dimen/salute_code_input_m_group_spacing</item>
+        <item name="sd_captionPadding">@dimen/salute_code_input_m_caption_padding</item>
+        <item name="sd_strokeWidth">@dimen/salute_code_input_m_stroke_width</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.DisplayMBold</item>
+        <item name="sd_captionAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH4Normal</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeInputM">
+        <item name="sd_codeInputStyle">@style/Salute.StylesSalute.Components.CodeInput.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.CodeInput.L">
+        <item name="sd_itemHeight">@dimen/salute_code_input_l_item_height</item>
+        <item name="sd_itemWidth">@dimen/salute_code_input_l_item_width</item>
+        <item name="sd_dotSize">@dimen/salute_code_input_l_dot_size</item>
+        <item name="sd_itemSpacing">@dimen/salute_code_input_l_item_spacing</item>
+        <item name="sd_groupSpacing">@dimen/salute_code_input_l_group_spacing</item>
+        <item name="sd_captionPadding">@dimen/salute_code_input_l_caption_padding</item>
+        <item name="sd_strokeWidth">@dimen/salute_code_input_l_stroke_width</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.DisplayLBold</item>
+        <item name="sd_captionAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH3Normal</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.CodeInputL">
+        <item name="sd_codeInputStyle">@style/Salute.StylesSalute.Components.CodeInput.L</item>
+    </style>
+</resources>

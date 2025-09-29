@@ -51,5 +51,6 @@
     <item type="id" name="tab_item"/>
     <item type="id" name="drawer_layout"/>
     <item type="id" name="notification_content"/>
+    <item type="id" name="code_input"/>
     <item type="id" name="code_field"/>
 </resources>

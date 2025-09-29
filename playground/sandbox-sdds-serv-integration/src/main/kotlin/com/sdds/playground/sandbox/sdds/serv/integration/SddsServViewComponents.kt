@@ -33,6 +33,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChip
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.codefield.SddsServCodeFieldVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.codeinput.SddsServCodeInputVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseInnerVariationsView
@@ -332,6 +333,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.CodeField,
                 SddsServCodeFieldVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CodeInput,
+                SddsServCodeInputVariationsView,
             ),
         ).associateBy { it.key }
 }
