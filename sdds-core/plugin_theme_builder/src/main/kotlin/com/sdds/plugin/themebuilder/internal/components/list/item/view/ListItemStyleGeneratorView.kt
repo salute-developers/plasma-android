@@ -62,6 +62,8 @@ internal class ListItemStyleGeneratorView(
 
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.titleStyle?.let { typographyAttribute("sd_titleAppearance", it.value) }
+        props.subtitleStyle?.let { typographyAttribute("sd_subtitleAppearance", it.value) }
+        props.labelStyle?.let { typographyAttribute("sd_labelAppearance", it.value) }
         props.disclosureIcon?.let { iconAttribute("sd_disclosureIcon", it.value) }
     }
 
@@ -71,6 +73,8 @@ internal class ListItemStyleGeneratorView(
     ) : ProvidableColorProperty<ListItemProperties> {
         BACKGROUND_COLOR("sd_background", "bg_color"),
         TITLE_COLOR("sd_titleColor", "text_color"),
+        SUBTITLE_COLOR("sd_subtitleColor", "subtitle_color"),
+        LABEL_COLOR("sd_labelColor", "label_color"),
         DISCLOSURE_ICON_COLOR("sd_disclosureColor", "disclosure_icon_color"),
         ;
 
@@ -79,6 +83,8 @@ internal class ListItemStyleGeneratorView(
                 BACKGROUND_COLOR -> owner.backgroundColor
                 TITLE_COLOR -> owner.titleColor
                 DISCLOSURE_ICON_COLOR -> owner.disclosureIconColor
+                SUBTITLE_COLOR -> owner.subtitleColor
+                LABEL_COLOR -> owner.labelColor
             }
         }
     }

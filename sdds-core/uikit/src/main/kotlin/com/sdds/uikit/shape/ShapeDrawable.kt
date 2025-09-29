@@ -19,6 +19,7 @@ import android.graphics.drawable.shapes.Shape
 import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
+import androidx.annotation.Keep
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
@@ -40,6 +41,7 @@ import kotlin.math.roundToInt
  * Drawable рисующий форму согласно [ShapeModel].
  * @author Малышев Александр on 29.07.2024
  */
+@Keep
 open class ShapeDrawable() : Drawable(), Shapeable {
 
     private val _drawingBounds: RectF = RectF()

@@ -73,6 +73,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             titleColor(
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            subtitleColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColor(
                 StylesSaluteTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -91,6 +97,8 @@ public val ListItemTight.Xl: WrapperListItemTightXl
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundL)
         .titleStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .subtitleStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .labelStyle(StylesSaluteTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -109,6 +117,8 @@ public val ListItemTight.L: WrapperListItemTightL
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .subtitleStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .labelStyle(StylesSaluteTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -127,6 +137,8 @@ public val ListItemTight.M: WrapperListItemTightM
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundM)
         .titleStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .subtitleStyle(StylesSaluteTheme.typography.bodySNormal)
+        .labelStyle(StylesSaluteTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -145,6 +157,8 @@ public val ListItemTight.S: WrapperListItemTightS
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(StylesSaluteTheme.typography.bodySNormal)
+        .subtitleStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
@@ -163,6 +177,8 @@ public val ListItemTight.Xs: WrapperListItemTightXs
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundS)
         .titleStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .subtitleStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)

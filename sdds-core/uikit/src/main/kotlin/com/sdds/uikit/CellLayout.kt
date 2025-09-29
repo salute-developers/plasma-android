@@ -513,66 +513,75 @@ open class CellLayout @JvmOverloads constructor(
         )
     }
 
-    @Suppress("CyclomaticComplexMethod")
     private fun View.applyContentRole(cellParams: LayoutParams) {
         isDuplicateParentStateEnabled = cellParams.forceDuplicateParentState && _forceDuplicateParentState
         (this as? TextView)?.apply {
             when (cellParams.cellContent) {
-                LABEL -> {
-                    setTextAppearance(_labelAppearance)
-                    _labelColor?.let(::setTextColor)
-                    TextViewCompat.setCompoundDrawableTintList(this, _labelColor)
-                    state = ViewState.SECONDARY
-                }
-
-                TITLE -> {
-                    setTextAppearance(_titleAppearance)
-                    _titleColor?.let(::setTextColor)
-                    TextViewCompat.setCompoundDrawableTintList(this, _titleColor)
-                    state = ViewState.PRIMARY
-                }
-
-                SUBTITLE -> {
-                    setTextAppearance(_subtitleAppearance)
-                    _subtitleColor?.let(::setTextColor)
-                    TextViewCompat.setCompoundDrawableTintList(this, _subtitleColor)
-                    state = ViewState.SECONDARY
-                }
-
+                LABEL -> this@apply.applyLabelRole()
+                TITLE -> this@apply.applyTitleRole()
+                SUBTITLE -> this@apply.applySubtitleRole()
                 else -> Unit
             }
         }
+        if ((cellParams.cellContent == START || cellParams.cellContent == END) && this is ImageView) {
+            if (imageTintList == null) imageTintList = _titleColor
+        }
         if (cellParams.cellContent == DISCLOSURE) {
-            when (this) {
-                is ImageView -> imageTintList = _disclosureColor
-                is TextView -> {
-                    setTextAppearance(_disclosureTextAppearance)
-                    _disclosureTextColor?.let(::setTextColor)
-                    if (compoundDrawablesRelative.all { it == null }) {
-                        setCompoundDrawablesRelativeWithIntrinsicBounds(
-                            null,
-                            null,
-                            _disclosureIcon,
-                            null,
-                        )
-                    }
-                    TextViewCompat.setCompoundDrawableTintList(this, _disclosureColor)
-                    state = ViewState.SECONDARY
-                }
+            this.applyDisclosureRole()
+        }
+    }
 
-                is Button -> {
-                    if (icon == null) icon = _disclosureIcon
-                    setIconTintList(_disclosureColor)
-                    state = ViewState.SECONDARY
-                }
+    private fun TextView.applyLabelRole() {
+        setTextAppearance(_labelAppearance)
+        _labelColor?.let(::setTextColor)
+        TextViewCompat.setCompoundDrawableTintList(this, _labelColor)
+        state = ViewState.SECONDARY
+    }
 
-                is DisclosureView -> {
-                    setTextAppearance(_disclosureTextAppearance)
-                    if (_disclosureTextColor != null) {
-                        setColor(_disclosureTextColor, _disclosureColor)
-                    } else {
-                        setColor(_disclosureColor)
-                    }
+    private fun TextView.applyTitleRole() {
+        setTextAppearance(_titleAppearance)
+        _titleColor?.let(::setTextColor)
+        TextViewCompat.setCompoundDrawableTintList(this, _titleColor)
+        state = ViewState.PRIMARY
+    }
+
+    private fun TextView.applySubtitleRole() {
+        setTextAppearance(_subtitleAppearance)
+        _subtitleColor?.let(::setTextColor)
+        TextViewCompat.setCompoundDrawableTintList(this, _subtitleColor)
+        state = ViewState.SECONDARY
+    }
+
+    private fun View.applyDisclosureRole() {
+        when (this) {
+            is ImageView -> imageTintList = _disclosureColor
+            is TextView -> {
+                setTextAppearance(_disclosureTextAppearance)
+                _disclosureTextColor?.let(::setTextColor)
+                if (compoundDrawablesRelative.all { it == null }) {
+                    setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        null,
+                        null,
+                        _disclosureIcon,
+                        null,
+                    )
+                }
+                TextViewCompat.setCompoundDrawableTintList(this, _disclosureColor)
+                state = ViewState.SECONDARY
+            }
+
+            is Button -> {
+                if (icon == null) icon = _disclosureIcon
+                setIconTintList(_disclosureColor)
+                state = ViewState.SECONDARY
+            }
+
+            is DisclosureView -> {
+                setTextAppearance(_disclosureTextAppearance)
+                if (_disclosureTextColor != null) {
+                    setColor(_disclosureTextColor, _disclosureColor)
+                } else {
+                    setColor(_disclosureColor)
                 }
             }
         }

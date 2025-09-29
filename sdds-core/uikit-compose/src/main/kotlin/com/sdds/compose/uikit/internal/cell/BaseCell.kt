@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.internal.cell
 
 import androidx.compose.foundation.interaction.InteractionSource
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -29,6 +30,7 @@ import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
+import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
@@ -45,7 +47,9 @@ internal fun BaseCell(
     startContent: (@Composable RowScope.() -> Unit)? = null,
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
+    val iconTint = style.colors.titleColor.colorForInteraction(interactionSource)
     CompositionLocalProvider(
         LocalAvatarStyle provides style.avatarStyle,
         LocalIconButtonStyle provides style.iconButtonStyle,
@@ -63,7 +67,11 @@ internal fun BaseCell(
                             .layoutId("StartContent")
                             .padding(end = dimensions.contentPaddingStart),
                         verticalAlignment = Alignment.CenterVertically,
-                    ) { startContent() }
+                    ) {
+                        CompositionLocalProvider(LocalTint provides iconTint) {
+                            startContent()
+                        }
+                    }
                 }
                 centerContent?.let {
                     Column(
@@ -80,10 +88,12 @@ internal fun BaseCell(
                             .layoutId("EndContent"),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        endContent?.invoke(this)
-                        if (disclosureEnabled && disclosureContent != null) {
-                            disclosureContent()
+                        CompositionLocalProvider(LocalTint provides iconTint) {
+                            endContent?.invoke(this)
                         }
+                            if (disclosureEnabled && disclosureContent != null) {
+                                disclosureContent()
+                            }
                     }
                 }
             },

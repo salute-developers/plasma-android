@@ -41,6 +41,16 @@ interface ListItemStyle : Style {
     val titleStyle: TextStyle
 
     /**
+     * Стиль сабтайтла
+     */
+    val subtitleStyle: TextStyle
+
+    /**
+     * Стиль лэйбла
+     */
+    val labelStyle: TextStyle
+
+    /**
      * Иконка disclosure
      */
     @Deprecated("Use disclosureIconRes instead")
@@ -74,6 +84,8 @@ interface ListItemStyle : Style {
 private data class DefaultListItemStyle(
     override val shape: Shape,
     override val titleStyle: TextStyle,
+    override val subtitleStyle: TextStyle,
+    override val labelStyle: TextStyle,
     @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
     override val disclosureIconRes: Int?,
@@ -83,6 +95,8 @@ private data class DefaultListItemStyle(
     class Builder : ListItemStyleBuilder {
         private var shape: Shape? = null
         private var titleStyle: TextStyle? = null
+        private var subtitleStyle: TextStyle? = null
+        private var labelStyle: TextStyle? = null
         private var disclosureIcon: Painter? = null
         private var disclosureIconRes: Int? = null
         private var colorsBuilder: ListItemColorsBuilder = ListItemColors.builder()
@@ -94,6 +108,14 @@ private data class DefaultListItemStyle(
 
         override fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder = apply {
             this.titleStyle = titleStyle
+        }
+
+        override fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder = apply {
+            this.subtitleStyle = subtitleStyle
+        }
+
+        override fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder = apply {
+            this.labelStyle = labelStyle
         }
 
         @Deprecated("Use disclosureIcon with drawable res")
@@ -120,6 +142,8 @@ private data class DefaultListItemStyle(
             return DefaultListItemStyle(
                 shape = shape ?: RectangleShape,
                 titleStyle = titleStyle ?: TextStyle.Default,
+                subtitleStyle = subtitleStyle ?: TextStyle.Default,
+                labelStyle = labelStyle ?: TextStyle.Default,
                 disclosureIcon = disclosureIcon,
                 disclosureIconRes = disclosureIconRes,
                 colors = colorsBuilder.build(),
@@ -143,6 +167,16 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
      * Устанавливает стиль тайтла
      */
     fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль тайтла
+     */
+    fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль тайтла
+     */
+    fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder
 
     /**
      * Устанавливает иконку disclosure
@@ -320,6 +354,16 @@ interface ListItemColors {
     val titleColor: InteractiveColor
 
     /**
+     * Цвет сабтайтла
+     */
+    val subtitleColor: InteractiveColor
+
+    /**
+     * Цвет лэйбла
+     */
+    val labelColor: InteractiveColor
+
+    /**
      * Цвет фона
      */
     val backgroundColor: InteractiveColor
@@ -366,6 +410,28 @@ interface ListItemColorsBuilder {
     fun titleColor(titleColor: InteractiveColor): ListItemColorsBuilder
 
     /**
+     * Устанавливает цвет тайтла
+     */
+    fun subtitleColor(subtitleColor: Color): ListItemColorsBuilder =
+        subtitleColor(subtitleColor.asInteractive())
+
+    /**
+     * Устанавливает цвет тайтла
+     */
+    fun subtitleColor(subtitleColor: InteractiveColor): ListItemColorsBuilder
+
+    /**
+     * Устанавливает цвет тайтла
+     */
+    fun labelColor(labelColor: Color): ListItemColorsBuilder =
+        labelColor(labelColor.asInteractive())
+
+    /**
+     * Устанавливает цвет тайтла
+     */
+    fun labelColor(labelColor: InteractiveColor): ListItemColorsBuilder
+
+    /**
      * Устанавливает цвет иконки disclosure
      */
     fun disclosureIconColor(disclosureIconColor: Color): ListItemColorsBuilder =
@@ -387,14 +453,26 @@ private class DefaultListItemColors(
     override val titleColor: InteractiveColor,
     override val disclosureIconColor: InteractiveColor,
     override val backgroundColor: InteractiveColor,
+    override val subtitleColor: InteractiveColor,
+    override val labelColor: InteractiveColor,
 ) : ListItemColors {
     class Builder : ListItemColorsBuilder {
         private var titleColor: InteractiveColor? = null
+        private var subtitleColor: InteractiveColor? = null
+        private var labelColor: InteractiveColor? = null
         private var backgroundColor: InteractiveColor? = null
         private var disclosureIconColor: InteractiveColor? = null
 
         override fun titleColor(titleColor: InteractiveColor) = apply {
             this.titleColor = titleColor
+        }
+
+        override fun subtitleColor(subtitleColor: InteractiveColor) = apply {
+            this.subtitleColor = subtitleColor
+        }
+
+        override fun labelColor(labelColor: InteractiveColor) = apply {
+            this.labelColor = labelColor
         }
 
         override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
@@ -408,6 +486,8 @@ private class DefaultListItemColors(
         override fun build(): ListItemColors {
             return DefaultListItemColors(
                 titleColor = titleColor ?: Color.Black.asInteractive(),
+                subtitleColor = subtitleColor ?: Color.LightGray.asInteractive(),
+                labelColor = labelColor ?: Color.LightGray.asInteractive(),
                 backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
                 disclosureIconColor = disclosureIconColor ?: Color.Black.asInteractive(),
             )
