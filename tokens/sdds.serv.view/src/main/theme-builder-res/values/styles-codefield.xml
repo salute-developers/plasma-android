@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.CodeField" parent="Sdds.Components.CodeField">
+        <item name="sd_itemSpacing">@dimen/serv_code_field_item_spacing</item>
+        <item name="sd_groupSpacing">@dimen/serv_code_field_group_spacing</item>
+        <item name="sd_valueColor">@color/serv_code_field_value_color</item>
+        <item name="sd_cursorColor">?serv_textDefaultAccent</item>
+        <item name="sd_dotColor">@color/serv_code_field_dot_color</item>
+        <item name="sd_captionColor">@color/serv_code_field_caption_color</item>
+        <item name="sd_background">@color/serv_code_field_background</item>
+    </style>
+    <style name="Serv.Sdds.Components.CodeField.L">
+        <item name="sd_itemHeight">@dimen/serv_code_field_l_item_height</item>
+        <item name="sd_itemWidth">@dimen/serv_code_field_l_item_width</item>
+        <item name="sd_dotSize">@dimen/serv_code_field_l_dot_size</item>
+        <item name="sd_captionPadding">@dimen/serv_code_field_l_caption_padding</item>
+        <item name="sd_itemShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_captionAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CodeFieldL">
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.CodeField.L.Segmented">
+        <item name="sd_itemShapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_groupShapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CodeFieldLSegmented">
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.L.Segmented</item>
+    </style>
+    <style name="Serv.Sdds.Components.CodeField.M">
+        <item name="sd_itemHeight">@dimen/serv_code_field_m_item_height</item>
+        <item name="sd_itemWidth">@dimen/serv_code_field_m_item_width</item>
+        <item name="sd_dotSize">@dimen/serv_code_field_m_dot_size</item>
+        <item name="sd_captionPadding">@dimen/serv_code_field_m_caption_padding</item>
+        <item name="sd_itemShapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_captionAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CodeFieldM">
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.CodeField.M.Segmented">
+        <item name="sd_itemShapeAppearance">?serv_shapeRoundXxs</item>
+        <item name="sd_groupShapeAppearance">?serv_shapeRoundM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CodeFieldMSegmented">
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M.Segmented</item>
+    </style>
+</resources>
