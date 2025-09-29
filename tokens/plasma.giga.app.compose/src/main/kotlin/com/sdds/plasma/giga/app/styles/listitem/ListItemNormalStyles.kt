@@ -73,6 +73,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             titleColor(
                 PlasmaGigaAppTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            subtitleColor(
+                PlasmaGigaAppTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            labelColor(
+                PlasmaGigaAppTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColor(
                 PlasmaGigaAppTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -91,6 +97,8 @@ public val ListItemNormal.Xl: WrapperListItemNormalXl
         .invariantProps
         .shape(PlasmaGigaAppTheme.shapes.roundL)
         .titleStyle(PlasmaGigaAppTheme.typography.bodyLNormal)
+        .subtitleStyle(PlasmaGigaAppTheme.typography.bodyMNormal)
+        .labelStyle(PlasmaGigaAppTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -109,6 +117,8 @@ public val ListItemNormal.L: WrapperListItemNormalL
         .invariantProps
         .shape(PlasmaGigaAppTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaAppTheme.typography.bodyLNormal)
+        .subtitleStyle(PlasmaGigaAppTheme.typography.bodyMNormal)
+        .labelStyle(PlasmaGigaAppTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -127,6 +137,8 @@ public val ListItemNormal.M: WrapperListItemNormalM
         .invariantProps
         .shape(PlasmaGigaAppTheme.shapes.roundM)
         .titleStyle(PlasmaGigaAppTheme.typography.bodyMNormal)
+        .subtitleStyle(PlasmaGigaAppTheme.typography.bodySNormal)
+        .labelStyle(PlasmaGigaAppTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -145,6 +157,8 @@ public val ListItemNormal.S: WrapperListItemNormalS
         .invariantProps
         .shape(PlasmaGigaAppTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaAppTheme.typography.bodySNormal)
+        .subtitleStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
+        .labelStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
@@ -163,6 +177,8 @@ public val ListItemNormal.Xs: WrapperListItemNormalXs
         .invariantProps
         .shape(PlasmaGigaAppTheme.shapes.roundS)
         .titleStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
+        .subtitleStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
+        .labelStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)

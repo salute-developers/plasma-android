@@ -44,6 +44,8 @@ internal class ListItemComposeVariationGenerator(
         return listOfNotNull(
             shapeCall(props, variationId),
             titleStyleCall(props),
+            subtitleStyleCall(props),
+            labelStyleCall(props),
             disclosureIconCall(props),
             colorsCall(props),
             dimensionsCall(props, variationId),
@@ -104,6 +106,12 @@ internal class ListItemComposeVariationGenerator(
                 props.titleColor?.let {
                     appendLine(getColor("titleColor", it))
                 }
+                props.subtitleColor?.let {
+                    appendLine(getColor("subtitleColor", it))
+                }
+                props.labelColor?.let {
+                    appendLine(getColor("labelColor", it))
+                }
                 props.backgroundColor?.let {
                     appendLine(getColor("backgroundColor", it))
                 }
@@ -126,6 +134,18 @@ internal class ListItemComposeVariationGenerator(
     private fun titleStyleCall(props: ListItemProperties): String? {
         return props.titleStyle?.let {
             getTypography("titleStyle", it)
+        }
+    }
+
+    private fun subtitleStyleCall(props: ListItemProperties): String? {
+        return props.subtitleStyle?.let {
+            getTypography("subtitleStyle", it)
+        }
+    }
+
+    private fun labelStyleCall(props: ListItemProperties): String? {
+        return props.labelStyle?.let {
+            getTypography("labelStyle", it)
         }
     }
 

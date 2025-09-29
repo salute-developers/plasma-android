@@ -69,6 +69,18 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
                         to StarDsTheme.colors.textInversePrimary,
                 ),
             )
+            subtitleColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
+            )
+            labelColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
+            )
             backgroundColor(
                 StarDsTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Focused)
@@ -97,6 +109,8 @@ public val ListItem.L: WrapperListItemL
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyLBold)
+        .subtitleStyle(StarDsTheme.typography.bodyMNormal)
+        .labelStyle(StarDsTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_l))
@@ -120,6 +134,8 @@ public val ListItem.M: WrapperListItemM
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyMBold)
+        .subtitleStyle(StarDsTheme.typography.bodySNormal)
+        .labelStyle(StarDsTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_m))
@@ -138,6 +154,8 @@ public val ListItem.S: WrapperListItemS
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .titleStyle(StarDsTheme.typography.bodySBold)
+        .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_s))
@@ -161,6 +179,8 @@ public val ListItem.Xs: WrapperListItemXs
             ),
         )
         .titleStyle(StarDsTheme.typography.bodyXsBold)
+        .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
+        .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_list_item_content_padding_end_xs))

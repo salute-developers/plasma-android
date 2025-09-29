@@ -73,6 +73,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             titleColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            subtitleColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -91,6 +97,8 @@ public val ListItemTight.Xl: WrapperListItemTightXl
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .subtitleStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -109,6 +117,8 @@ public val ListItemTight.L: WrapperListItemTightL
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .subtitleStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -127,6 +137,8 @@ public val ListItemTight.M: WrapperListItemTightM
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .subtitleStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -145,6 +157,8 @@ public val ListItemTight.S: WrapperListItemTightS
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .subtitleStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
@@ -163,6 +177,8 @@ public val ListItemTight.Xs: WrapperListItemTightXs
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .subtitleStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)

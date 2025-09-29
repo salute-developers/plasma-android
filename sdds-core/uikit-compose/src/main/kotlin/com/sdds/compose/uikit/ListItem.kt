@@ -3,7 +3,9 @@ package com.sdds.compose.uikit
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -24,6 +26,10 @@ import androidx.compose.ui.unit.dp
  * @param disclosureEnabled включена ли иконка
  * @param disclosureIconRes иконка disclosure
  * @param interactionSource источник взаимодействий
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param label лэйбл
+ * @param subtitle сабтайтл
  */
 @Composable
 fun ListItem(
@@ -33,6 +39,10 @@ fun ListItem(
     disclosureEnabled: Boolean = false,
     @DrawableRes disclosureIconRes: Int? = style.disclosureIconRes,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    startContent: (@Composable RowScope.() -> Unit)? = null,
+    endContent: (@Composable RowScope.() -> Unit)? = null,
+    label: String? = null,
+    subtitle: String? = null,
 ) {
     Cell(
         style = style.toCellStyle(),
@@ -41,7 +51,7 @@ fun ListItem(
                 color = style.colors.backgroundColor.colorForInteraction(interactionSource),
                 shape = style.shape,
             )
-            .height(style.dimensions.height)
+            .heightIn(min = style.dimensions.height)
             .padding(
                 start = style.dimensions.paddingStart,
                 top = style.dimensions.paddingTop,
@@ -49,9 +59,13 @@ fun ListItem(
                 bottom = style.dimensions.paddingBottom,
             ),
         title = AnnotatedString(text),
+        subtitle = subtitle?.let { AnnotatedString(it) } ?: AnnotatedString(""),
+        label = label?.let { AnnotatedString(it) } ?: AnnotatedString(""),
         gravity = CellGravity.Center,
         disclosureContentEnabled = disclosureEnabled,
         disclosureIconRes = disclosureIconRes,
+        startContent = startContent,
+        endContent = endContent,
         interactionSource = interactionSource,
     )
 }
@@ -102,9 +116,13 @@ fun ListItem(
 private fun ListItemStyle.toCellStyle(): CellStyle {
     return CellStyle.builder().apply {
         titleStyle(titleStyle)
+        subtitleStyle(subtitleStyle)
+        labelStyle(labelStyle)
         disclosureIconRes?.let { disclosureIcon(it) }
         colors {
             titleColor(colors.titleColor)
+            subtitleColor(colors.subtitleColor)
+            labelColor(colors.labelColor)
             disclosureIconColor(colors.disclosureIconColor)
         }
         dimensions {

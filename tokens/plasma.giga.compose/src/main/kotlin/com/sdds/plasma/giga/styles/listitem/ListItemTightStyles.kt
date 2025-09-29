@@ -73,6 +73,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             titleColor(
                 PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            subtitleColor(
+                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            labelColor(
+                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColor(
                 PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -91,6 +97,8 @@ public val ListItemTight.Xl: WrapperListItemTightXl
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL)
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .subtitleStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -109,6 +117,8 @@ public val ListItemTight.L: WrapperListItemTightL
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .subtitleStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -127,6 +137,8 @@ public val ListItemTight.M: WrapperListItemTightM
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM)
         .titleStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .subtitleStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -145,6 +157,8 @@ public val ListItemTight.S: WrapperListItemTightS
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .subtitleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
@@ -163,6 +177,8 @@ public val ListItemTight.Xs: WrapperListItemTightXs
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundS)
         .titleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .subtitleStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)

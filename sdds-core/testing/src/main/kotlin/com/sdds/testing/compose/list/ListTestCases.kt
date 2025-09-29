@@ -30,6 +30,7 @@ fun ListAmountThreeHasDisclosure(style: ListStyle) {
             val isFocused = interactionSource.collectIsFocusedAsState()
             ListItem(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .focusable(interactionSource = interactionSource)
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,
@@ -108,6 +109,7 @@ fun ListForSandbox(style: ListStyle) {
             val isFocused = interactionSource.collectIsFocusedAsState()
             ListItem(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .focusable(interactionSource = interactionSource)
                     .focusSelector(
                         settings = LocalFocusSelectorSettings.current,
