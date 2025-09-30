@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.internal.wheel
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.interaction.InteractionSource
@@ -39,6 +40,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
@@ -104,9 +106,10 @@ internal fun BaseWheel(
 
     val maxDistanceFromCenter by remember { derivedStateOf { state.layoutInfo.viewportSize.height / 2f } }
     var itemHeight by remember(visibleItemsCount) { mutableIntStateOf(0) }
-    var descriptionHeight by remember { mutableIntStateOf(0) }
+    var descriptionHeight by remember(description, descriptionStyle) { mutableIntStateOf(0) }
     val scaledWheelHeight = rememberCalculatedWheelHeight(itemHeight, visibleItemsCount)
-    val labelOffsetFromCenter = calculateLabelOffset(scaledWheelHeight, itemHeight, itemSpacing.toPx())
+    val labelOffsetFromCenter =
+        calculateLabelOffset(scaledWheelHeight, itemHeight, itemSpacing.toPx())
     onLabelPositionCalculated?.invoke(labelOffsetFromCenter)
 
     Column(modifier = modifier) {
@@ -173,7 +176,7 @@ internal fun BaseWheel(
                         flingBehavior = rememberSnapFlingBehavior(lazyListState = state),
                     ) {
                         items(count = extendedList.size) { index ->
-                            val distanceFromCenter by remember {
+                            val distanceFromCenter by remember(visibleItemsCount) {
                                 derivedStateOf {
                                     val viewIndex = index - state.firstVisibleItemIndex
                                     val itemsInfo = state.layoutInfo.visibleItemsInfo
@@ -194,7 +197,7 @@ internal fun BaseWheel(
                             val alpha = getAlphaByDistanceFactor(factor)
                             val scale = getScaleByDistanceFactor(factor).coerceIn(0f, 1f)
                             var itemWidth by remember { mutableIntStateOf(0) }
-                            val translation by remember {
+                            val translation by remember(visibleItemsCount, alignment) {
                                 derivedStateOf {
                                     val viewIndex = index - state.firstVisibleItemIndex
                                     val layoutInfo = state.layoutInfo
@@ -215,13 +218,15 @@ internal fun BaseWheel(
                             Item(
                                 modifier = Modifier
                                     .onSizeChanged { itemWidth = it.width }
+                                    .debugBorder(Color.Green)
                                     .graphicsLayer {
                                         this.scaleX = scale
                                         this.scaleY = scale
                                         this.alpha = alpha
                                         this.translationY = translation?.itemTranslationY ?: 0f
                                         this.translationX = translation?.itemTranslationX ?: 0f
-                                    },
+                                    }
+                                    .debugBorder(Color.Red),
                                 title = extendedList[index].text,
                                 description = description,
                                 textAfter = extendedList[index].textAfter,
@@ -337,7 +342,7 @@ private fun rememberExtendedList(
     dataEdgePlacement: DataEdgePlacement,
     middleIndex: Int,
 ): List<WheelItemData> {
-    return remember(dataEdgePlacement, items) {
+    return remember(dataEdgePlacement, items, middleIndex) {
         val dummyItems = List(middleIndex) { WheelItemData() }
         when (dataEdgePlacement) {
             DataEdgePlacement.WheelEdge -> items
@@ -396,8 +401,11 @@ private fun Item(
         Row(modifier = Modifier.offset(y = descriptionOffset.toDp())) {
             val textColor = textColor.colorForInteraction(interactionSource)
             Text(
+                modifier = Modifier.debugBorder(Color.Magenta),
                 text = title,
                 style = textStyle.copy(textColor),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
             if (!textAfter.isNullOrEmpty() && title.isNotEmpty()) {
                 val textAfterColor = textAfterColor.colorForInteraction(interactionSource)
@@ -412,6 +420,7 @@ private fun Item(
         if (!description.isNullOrEmpty()) {
             val fakeStyle = remember(descriptionStyle) { descriptionStyle.copy(Color.Transparent) }
             Description(
+                modifier = Modifier.debugBorder(Color.Gray),
                 text = description,
                 descriptionPadding = descriptionPadding,
                 style = fakeStyle,
@@ -634,3 +643,8 @@ private fun BaseWheelPreview() {
         hasControls = true,
     )
 }
+
+private fun Modifier.debugBorder(color: Color): Modifier =
+    if (DEBUG_MODE) this.border(1.dp, color) else this
+
+private const val DEBUG_MODE = false

@@ -21,6 +21,11 @@ internal class WheelViewModel(
 
     override fun WheelUiState.toProps(): List<Property<*>> {
         return listOf(
+            Property.BooleanProperty(
+                name = "hasControls",
+                value = hasControls,
+                onApply = { internalUiState.value = internalUiState.value.copy(hasControls = it) },
+            ),
             Property.StringProperty(
                 name = "itemLabel",
                 value = itemLabel,
@@ -43,7 +48,7 @@ internal class WheelViewModel(
                 value = wheelCount,
                 onApply = {
                     internalUiState.value =
-                        internalUiState.value.copy(wheelCount = it.coerceIn(1..3))
+                        internalUiState.value.copy(wheelCount = it.coerceIn(1..5))
                 },
             ),
             Property.IntProperty(

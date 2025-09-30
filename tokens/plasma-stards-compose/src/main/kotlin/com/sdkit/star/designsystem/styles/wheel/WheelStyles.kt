@@ -15,8 +15,11 @@ import com.sdds.compose.uikit.WheelStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.divider.Default
+import com.sdkit.star.designsystem.styles.divider.Divider
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -74,6 +77,7 @@ private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
         .controlIconDown(com.sdds.icons.R.drawable.ic_disclosure_down_outline_36)
         .wheelCount(3)
         .visibleItemsCount(5)
+        .dividerStyle(Divider.Default.style())
         .colors {
             itemTextColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),

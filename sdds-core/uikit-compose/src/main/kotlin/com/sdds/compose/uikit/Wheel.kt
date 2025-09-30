@@ -61,6 +61,7 @@ fun Wheel(
         .copy(style.colors.separatorColor.colorForInteraction(interactionSource))
     val dividerColor =
         style.dividerStyle.color.backgroundColor.colorForInteraction(interactionSource)
+    val separatorColor = style.colors.separatorColor.colorForInteraction(interactionSource)
     Row(modifier) {
         repeat(wheelCount) { wheelIndex ->
             val data = onSetData(wheelIndex)
@@ -71,6 +72,7 @@ fun Wheel(
                         style = style,
                         wheelSeparator = wheelSeparator,
                         dividerColor = dividerColor,
+                        separatorColor = separatorColor,
                         textMeasurer = textMeasurer,
                         separatorTextStyle = separatorTextStyle,
                         labelOffsetFromCenter = labelOffsetFromCenter,
@@ -136,6 +138,7 @@ private fun Modifier.drawSeparator(
     style: WheelStyle,
     wheelSeparator: WheelSeparator,
     dividerColor: Color,
+    separatorColor: Color,
     textMeasurer: TextMeasurer,
     separatorTextStyle: TextStyle,
     labelOffsetFromCenter: Float,
@@ -158,7 +161,7 @@ private fun Modifier.drawSeparator(
                     textMeasurer.measure(SEPARATOR_TEXT, separatorTextStyle)
                 drawText(
                     textLayoutResult = textLayoutResult,
-                    color = Color.Black,
+                    color = separatorColor,
                     topLeft = Offset(
                         -separatorCenter - textLayoutResult.size.width / 2f,
                         center.y + labelOffsetFromCenter,

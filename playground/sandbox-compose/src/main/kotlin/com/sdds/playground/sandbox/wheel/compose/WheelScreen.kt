@@ -35,6 +35,7 @@ internal fun WheelScreen(componentKey: ComponentKey = ComponentKey.Wheel) {
         ),
         component = { wheelUiState, style ->
             Wheel(
+                modifier = Modifier,
                 style = style,
                 hasControls = wheelUiState.hasControls,
                 wheelCount = wheelUiState.wheelCount,
@@ -68,7 +69,7 @@ internal fun WheelPreview(style: WheelStyle) {
         wheelSeparator = WheelSeparator.None,
     ) { wheelIndex ->
         WheelDataSet(
-            List(10) {
+            List(20) {
                 WheelItemData(
                     "Label",
                     "TA",
