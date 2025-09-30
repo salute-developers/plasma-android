@@ -105,7 +105,7 @@ internal fun BaseWheel(
     }
 
     val maxDistanceFromCenter by remember { derivedStateOf { state.layoutInfo.viewportSize.height / 2f } }
-    var itemHeight by remember(visibleItemsCount) { mutableIntStateOf(0) }
+    var itemHeight by remember(visibleItemsCount, description) { mutableIntStateOf(0) }
     var descriptionHeight by remember(description, descriptionStyle) { mutableIntStateOf(0) }
     val scaledWheelHeight = rememberCalculatedWheelHeight(itemHeight, visibleItemsCount)
     val labelOffsetFromCenter =
@@ -197,7 +197,7 @@ internal fun BaseWheel(
                             val alpha = getAlphaByDistanceFactor(factor)
                             val scale = getScaleByDistanceFactor(factor).coerceIn(0f, 1f)
                             var itemWidth by remember { mutableIntStateOf(0) }
-                            val translation by remember(visibleItemsCount, alignment) {
+                            val translation by remember(visibleItemsCount, alignment, descriptionHeight) {
                                 derivedStateOf {
                                     val viewIndex = index - state.firstVisibleItemIndex
                                     val layoutInfo = state.layoutInfo
@@ -358,7 +358,7 @@ private fun rememberMostWideItem(items: List<WheelItemData>): WheelItemData = re
 
 @Composable
 private fun rememberCalculatedWheelHeight(itemHeight: Int, visibleItemsCount: Int) =
-    remember(itemHeight) {
+    remember(itemHeight, visibleItemsCount) {
         calculateWheelHeight(itemHeight, visibleItemsCount)
     }
 
