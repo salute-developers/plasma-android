@@ -94,7 +94,7 @@ internal fun BaseWheel(
     val state: LazyListState = rememberLazyListState(initialIndex)
     val middleIndex = visibleItemsCount / 2
     val extendedList = rememberExtendedList(items, dataEdgePlacement, middleIndex)
-    val mostWideItem = rememberMostWideItem(extendedList)
+    val mostWideItem = rememberMostWideItem(items)
     var selectedIndex by remember { mutableIntStateOf(middleIndex) }
 
     LaunchedEffect(state.firstVisibleItemIndex) {
@@ -107,7 +107,7 @@ internal fun BaseWheel(
     val maxDistanceFromCenter by remember { derivedStateOf { state.layoutInfo.viewportSize.height / 2f } }
     var itemHeight by remember(visibleItemsCount, description) { mutableIntStateOf(0) }
     var descriptionHeight by remember(description, descriptionStyle) { mutableIntStateOf(0) }
-    val scaledWheelHeight = rememberCalculatedWheelHeight(itemHeight, visibleItemsCount)
+    val scaledWheelHeight = rememberCalculatedWheelHeight(itemHeight, descriptionHeight, visibleItemsCount)
     val labelOffsetFromCenter =
         calculateLabelOffset(scaledWheelHeight, itemHeight, itemSpacing.toPx())
     onLabelPositionCalculated?.invoke(labelOffsetFromCenter)
@@ -120,6 +120,7 @@ internal fun BaseWheel(
         Box(
             modifier = Modifier
                 .height(scaledWheelHeight.toDp())
+                .debugBorder(Color.Blue)
                 .graphicsLayer { clip = true },
             contentAlignment = alignment.getBoxContentAlignment(),
         ) {
@@ -194,7 +195,9 @@ internal fun BaseWheel(
                                 }
                             }
                             val factor = distanceFromCenter / maxDistanceFromCenter
-                            val alpha = getAlphaByDistanceFactor(factor)
+                            val isEmptyItem = dataEdgePlacement == DataEdgePlacement.WheelCenter &&
+                                (index < middleIndex || index > extendedList.lastIndex - middleIndex)
+                            val alpha = if (isEmptyItem) 0f else getAlphaByDistanceFactor(factor)
                             val scale = getScaleByDistanceFactor(factor).coerceIn(0f, 1f)
                             var itemWidth by remember { mutableIntStateOf(0) }
                             val translation by remember(visibleItemsCount, alignment, descriptionHeight) {
@@ -343,7 +346,7 @@ private fun rememberExtendedList(
     middleIndex: Int,
 ): List<WheelItemData> {
     return remember(dataEdgePlacement, items, middleIndex) {
-        val dummyItems = List(middleIndex) { WheelItemData() }
+        val dummyItems = List(middleIndex) { WheelItemData("Empty") }
         when (dataEdgePlacement) {
             DataEdgePlacement.WheelEdge -> items
             DataEdgePlacement.WheelCenter -> dummyItems + items + dummyItems
@@ -357,9 +360,9 @@ private fun rememberMostWideItem(items: List<WheelItemData>): WheelItemData = re
 }
 
 @Composable
-private fun rememberCalculatedWheelHeight(itemHeight: Int, visibleItemsCount: Int) =
-    remember(itemHeight, visibleItemsCount) {
-        calculateWheelHeight(itemHeight, visibleItemsCount)
+private fun rememberCalculatedWheelHeight(itemHeight: Int, descriptionHeight: Int, visibleItemsCount: Int) =
+    remember(itemHeight, descriptionHeight, visibleItemsCount) {
+        calculateWheelHeight(itemHeight, descriptionHeight, visibleItemsCount)
     }
 
 private fun calculateLabelOffset(
@@ -571,13 +574,22 @@ private fun getTranslationForDistance(
     return direction * translateYGeneral
 }
 
-private fun calculateWheelHeight(itemHeight: Int, visibleCount: Int): Float {
+private fun calculateWheelHeight(
+    itemHeight: Int,
+    descriptionHeight: Int,
+    visibleCount: Int,
+): Float {
     val maxDist = visibleCount * itemHeight / 2f
     var estimateHeight = 0f
     var childrenCenter = itemHeight / 2f
     var distance = maxDist - childrenCenter
     repeat(visibleCount) {
-        val heightForDistance = getItemHeightForDistance(itemHeight, distance, maxDist)
+        val heightForDistance = getItemHeightForDistance(
+            itemHeight = itemHeight,
+            descriptionHeight = descriptionHeight,
+            distance = distance,
+            maxDist = maxDist,
+        )
         estimateHeight += heightForDistance
         childrenCenter += itemHeight
         distance = maxDist - childrenCenter
@@ -585,10 +597,16 @@ private fun calculateWheelHeight(itemHeight: Int, visibleCount: Int): Float {
     return estimateHeight
 }
 
-private fun getItemHeightForDistance(itemHeight: Int, distance: Float, maxDist: Float): Float {
+private fun getItemHeightForDistance(
+    itemHeight: Int,
+    descriptionHeight: Int,
+    distance: Float,
+    maxDist: Float,
+): Float {
     val factor = getDistanceFactor(distance, maxDist)
     val scale = getScaleByDistanceFactor(factor)
-    return (itemHeight) * scale
+    val descriptionCompensation = if (factor == 0f) 0 else descriptionHeight
+    return (itemHeight - descriptionCompensation) * scale
 }
 
 private fun getDistanceFactor(distance: Float, maxDist: Float): Float {
