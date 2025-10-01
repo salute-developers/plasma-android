@@ -48,6 +48,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.Star
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.StarDsTextFieldVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textfield.clear.StarDsTextFieldClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.tooltip.StarDsTooltipVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.wheel.StarDsWheelVariationsCompose
 
 /**
  *
@@ -228,6 +229,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.CodeInput,
                 StarDsCodeInputVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Wheel,
+                StarDsWheelVariationsCompose,
             ),
         ).associateBy { it.key }
 }

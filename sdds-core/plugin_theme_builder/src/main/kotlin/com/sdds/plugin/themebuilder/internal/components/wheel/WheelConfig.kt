@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.wheel
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
@@ -10,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -32,6 +34,7 @@ internal data class WheelProperties(
     val separatorColor: Color? = null,
     val controlIconUp: Icon? = null,
     val controlIconDown: Icon? = null,
+    val dividerStyle: ComponentStyle<DividerProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
