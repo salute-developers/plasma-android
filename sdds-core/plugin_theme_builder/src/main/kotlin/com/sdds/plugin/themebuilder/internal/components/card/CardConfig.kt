@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import kotlinx.serialization.Serializable
@@ -19,11 +20,19 @@ internal data class CardProperties(
     val contentMinWidth: Dimension? = null,
     val contentMinHeight: Dimension? = null,
     val backgroundColor: Color? = null,
+    val labelStyle: Typography? = null,
+    val orientation: Value? = null,
 
     val paddingStart: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
+
+    val contentPaddingStart: Dimension? = null,
+    val contentPaddingEnd: Dimension? = null,
+    val contentPaddingTop: Dimension? = null,
+    val contentPaddingBottom: Dimension? = null,
+    val mainAxisGap: Dimension? = null,
 
     val fsBorderMode: Value? = null,
     val fsStrokeInset: FloatValue? = null,
@@ -40,10 +49,17 @@ internal data class CardProperties(
             contentMinWidth = contentMinWidth ?: otherProps.contentMinWidth,
             contentMinHeight = contentMinHeight ?: otherProps.contentMinHeight,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
+            labelStyle = labelStyle ?: otherProps.labelStyle,
+            orientation = orientation ?: otherProps.orientation,
             paddingStart = paddingStart ?: otherProps.paddingStart,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
+            contentPaddingStart = contentPaddingStart ?: otherProps.contentPaddingStart,
+            contentPaddingEnd = contentPaddingEnd ?: otherProps.contentPaddingEnd,
+            contentPaddingTop = contentPaddingTop ?: otherProps.contentPaddingTop,
+            contentPaddingBottom = contentPaddingBottom ?: otherProps.contentPaddingBottom,
+            mainAxisGap = mainAxisGap ?: otherProps.mainAxisGap,
             fsBorderMode = fsBorderMode ?: otherProps.fsBorderMode,
             fsStrokeInset = fsStrokeInset ?: otherProps.fsStrokeInset,
             fsTarget = fsTarget ?: otherProps.fsTarget,
