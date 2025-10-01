@@ -48,7 +48,7 @@ internal fun WheelScreen(componentKey: ComponentKey = ComponentKey.Wheel) {
                 WheelDataSet(
                     dataSet = List(30) {
                         WheelItemData(
-                            text = "${wheelUiState.itemLabel}$wheelIndex",
+                            text = wheelUiState.itemLabel,
                             textAfter = wheelUiState.itemTextAfter,
                         )
                     },

@@ -416,6 +416,8 @@ private fun Item(
                     modifier = Modifier.padding(start = textAfterPadding),
                     text = textAfter,
                     style = textAfterStyle.copy(textAfterColor),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
         }
@@ -447,6 +449,8 @@ private fun Description(
         modifier = modifier.padding(top = descriptionPadding),
         text = text,
         style = style.copy(descriptionColor),
+        maxLines = 1,
+        overflow = TextOverflow.Ellipsis,
     )
 }
 
