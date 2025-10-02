@@ -31,6 +31,7 @@ internal class StyleGeneratorDependencies(
     val viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     val colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
     val target: ThemeBuilderTarget,
+    val variationsInfoProviderFactory: VariationsInfoProviderFactory,
 ) {
     val dimensAggregator by unsafeLazy { DimensAggregator() }
     val dimensGenerator by unsafeLazy {
