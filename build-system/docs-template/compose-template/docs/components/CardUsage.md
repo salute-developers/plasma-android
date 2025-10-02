@@ -46,6 +46,28 @@ Card(
 }
 ```
 
+Еще один вариант функции Card, в компановку которой добавлены слоты для Label и Extra, возможность указать  
+ориентацию (вид компановки контента внутри карточки) и отступы внутри слота Content.
+
+```kotlin
+Card(
+    style = CardSolid.L.style(),
+    label = { Text("Title") },
+    extra = {
+        IconButton(
+            Icons.ic_plasma_24,
+            modifier = Modifier.align(Alignment.BottomEnd),
+        ) { }
+    },
+    ) {
+        Image(
+            contentScale = ContentScale.Crop,
+            painter = painterResource(id = R.drawable.il_avatar_test),
+            contentDescription = "Android",
+        )
+}
+```
+
 ## Стиль Card
 
 Стиль Card можно настроить с помощью CardStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -70,3 +92,9 @@ CardStyle.builder()
     }
     .style()
 ```
+
+### Примечание
+
+При установке contentPaddings, отступы будут применятся на внутренний контент, при этом слот extra  
+будет игнорировать эти паддинги.  При смене orintation, контент будет размещаться в Row (для горизонталоной  
+ориентации) или в Column (для вертикальной ориентации).

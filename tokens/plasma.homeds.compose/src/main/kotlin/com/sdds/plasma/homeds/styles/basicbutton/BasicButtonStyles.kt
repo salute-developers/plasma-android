@@ -58,6 +58,14 @@ public value class WrapperBasicButtonS(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
+/**
+ * Обертка для вариации Xs
+ */
+@JvmInline
+public value class WrapperBasicButtonXs(
+    public override val builder: BasicButtonStyleBuilder,
+) : WrapperBasicButtonView
+
 public val WrapperBasicButtonView.Default: WrapperBasicButtonTerminate
     @Composable
     get() = builder
@@ -148,6 +156,54 @@ public val WrapperBasicButtonView.Secondary: WrapperBasicButtonTerminate
                         to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+        }
+        .loadingAlpha(0.0f)
+        .wrap(::WrapperBasicButtonTerminate)
+
+public val WrapperBasicButtonView.Dark: WrapperBasicButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            valueColor(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textDefaultSecondaryHover,
+                ),
+            )
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryHover,
                 ),
             )
         }
@@ -250,6 +306,54 @@ public val WrapperBasicButtonView.Warning: WrapperBasicButtonTerminate
         .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
+public val WrapperBasicButtonView.Accent: WrapperBasicButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
+                ),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            valueColor(
+                PlasmaHomeDsTheme.colors.textOnDarkSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkSecondaryHover,
+                ),
+            )
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
+        }
+        .loadingAlpha(0.0f)
+        .wrap(::WrapperBasicButtonTerminate)
+
 public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
     @Composable
     get() = builder
@@ -344,3 +448,24 @@ public val BasicButton.S: WrapperBasicButtonS
             valueMargin(4.0.dp)
         }
         .wrap(::WrapperBasicButtonS)
+
+public val BasicButton.Xs: WrapperBasicButtonXs
+    @Composable
+    @JvmName("WrapperBasicButtonXs")
+    get() = ButtonStyle.basicButtonBuilder(this)
+        .invariantProps
+        .shape(PlasmaHomeDsTheme.shapes.roundS)
+        .labelStyle(PlasmaHomeDsTheme.typography.bodyXsBold)
+        .valueStyle(PlasmaHomeDsTheme.typography.bodyXsBold)
+        .dimensions {
+            height(32.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
+            minWidth(56.0.dp)
+            iconSize(16.0.dp)
+            spinnerSize(16.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+            iconMargin(4.0.dp)
+            valueMargin(2.0.dp)
+        }
+        .wrap(::WrapperBasicButtonXs)

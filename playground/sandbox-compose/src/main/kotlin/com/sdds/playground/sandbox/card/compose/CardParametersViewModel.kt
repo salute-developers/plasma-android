@@ -23,12 +23,23 @@ internal class CardParametersViewModel(
                 value = orientation,
                 onApply = { updateOrientation(it) },
             ),
+            Property.StringProperty(
+                name = "label",
+                value = label,
+                onApply = { updateLabel(it) },
+            ),
         )
     }
 
-    private fun updateOrientation(orientation: CardOrientation) {
+    private fun updateOrientation(orientation: Orientation) {
         internalUiState.value = internalUiState.value.copy(
             orientation = orientation,
+        )
+    }
+
+    private fun updateLabel(label: String) {
+        internalUiState.value = internalUiState.value.copy(
+            label = label,
         )
     }
 }

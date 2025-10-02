@@ -2,6 +2,7 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Immutable
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.style.Style
@@ -23,6 +24,18 @@ interface CardStyle : Style {
      * @see CornerBasedShape
      */
     val shape: CornerBasedShape
+
+    /**
+     * Ориентация Card
+     * @see CardOrientation
+     */
+    val orientation: CardOrientation
+
+    /**
+     * Стиль текста Label
+     * @see TextStyle
+     */
+    val labelStyle: TextStyle
 
     /**
      * Форма контента Card
@@ -50,6 +63,12 @@ interface CardStyle : Style {
  */
 @Immutable
 interface CardColors {
+
+    /**
+     * Цвет текса в label
+     * @see InteractiveColor
+     */
+    val labelColor: InteractiveColor
 
     /**
      * Цвет фона
@@ -83,4 +102,49 @@ interface CardDimensions {
      * Внутренний отступ снизу
      */
     val paddingBottom: Dp
+
+    /**
+     * Внутренний отступ у контента вначале
+     */
+    val contentPaddingStart: Dp
+
+    /**
+     * Внутренний отступ у контента вконце
+     */
+    val contentPaddingEnd: Dp
+
+    /**
+     * Внутренний отступ у контента сверху
+     */
+    val contentPaddingTop: Dp
+
+    /**
+     * Внутренний отступ у контента снизу
+     */
+    val contentPaddingBottom: Dp
+
+    /**
+     * Минимальная ширина контента
+     */
+    val contentMinWidth: Dp
+
+    /**
+     * Минимальная высота контента
+     */
+    val contentMinHeight: Dp
+
+    /**
+     * Максимальная ширина контента
+     */
+    val contentMaxWidth: Dp
+
+    /**
+     * Максимальная высота контента
+     */
+    val contentMaxHeight: Dp
+
+    /**
+     * Отступ между content и label
+     */
+    val mainAxisGap: Dp
 }

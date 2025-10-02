@@ -38,6 +38,10 @@ internal class CardComposeVariationGenerator(
 ) {
     override val componentStyleName = "CardStyle"
 
+    override fun KtFileBuilder.onAddImports() {
+        addImport("com.sdds.compose.uikit", listOf("CardOrientation"))
+    }
+
     override fun propsToBuilderCalls(
         props: CardProperties,
         ktFileBuilder: KtFileBuilder,
@@ -45,9 +49,21 @@ internal class CardComposeVariationGenerator(
     ): List<String> {
         return listOfNotNull(
             shapeCall(props, variationId),
+            orientationCall(props),
+            labelStyleCall(props),
             colorsCall(props),
             dimensionsCall(props, variationId),
         )
+    }
+
+    private fun orientationCall(props: CardProperties): String? {
+        return props.orientation?.let {
+            val enumValue = when {
+                it.value.equals("vertical", ignoreCase = true) -> "Vertical"
+                else -> "Horizontal"
+            }
+            ".orientation(CardOrientation.$enumValue)"
+        }
     }
 
     private fun shapeCall(props: CardProperties, variationId: String): String? {
@@ -65,12 +81,21 @@ internal class CardComposeVariationGenerator(
         }
     }
 
+    private fun labelStyleCall(props: CardProperties): String? {
+        return props.labelStyle?.let {
+            getTypography("labelStyle", it)
+        }
+    }
+
     private fun colorsCall(props: CardProperties): String? {
         return if (props.hasColors()) {
             buildString {
                 appendLine(".colors {")
                 props.backgroundColor?.let {
                     appendLine(getColor("backgroundColor", it))
+                }
+                props.labelColor?.let {
+                    appendLine(getColor("labelColor", it))
                 }
                 append("}")
             }
@@ -80,9 +105,11 @@ internal class CardComposeVariationGenerator(
     }
 
     private fun CardProperties.hasColors(): Boolean {
-        return backgroundColor != null
+        return backgroundColor != null ||
+            labelColor != null
     }
 
+    @Suppress("CyclomaticComplexMethod")
     private fun dimensionsCall(
         props: CardProperties,
         variationId: String,
@@ -102,6 +129,33 @@ internal class CardComposeVariationGenerator(
                 props.paddingEnd?.let {
                     appendDimension("paddingEnd", it, variationId)
                 }
+                props.contentPaddingTop?.let {
+                    appendDimension("contentPaddingTop", it, variationId)
+                }
+                props.contentPaddingBottom?.let {
+                    appendDimension("contentPaddingBottom", it, variationId)
+                }
+                props.contentPaddingStart?.let {
+                    appendDimension("contentPaddingStart", it, variationId)
+                }
+                props.contentPaddingEnd?.let {
+                    appendDimension("contentPaddingEnd", it, variationId)
+                }
+                props.contentMinWidth?.let {
+                    appendDimension("contentMinWidth", it, variationId)
+                }
+                props.contentMinHeight?.let {
+                    appendDimension("contentMinHeight", it, variationId)
+                }
+                props.contentMaxWidth?.let {
+                    appendDimension("contentMaxWidth", it, variationId)
+                }
+                props.contentMaxHeight?.let {
+                    appendDimension("contentMaxHeight", it, variationId)
+                }
+                props.mainAxisGap?.let {
+                    appendDimension("mainAxisGap", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -113,7 +167,16 @@ internal class CardComposeVariationGenerator(
         return paddingStart != null ||
             paddingEnd != null ||
             paddingTop != null ||
-            paddingBottom != null
+            paddingBottom != null ||
+            contentPaddingStart != null ||
+            contentPaddingEnd != null ||
+            contentPaddingTop != null ||
+            contentPaddingBottom != null ||
+            contentMinWidth != null ||
+            contentMinHeight != null ||
+            contentMaxWidth != null ||
+            contentMaxHeight != null ||
+            mainAxisGap != null
     }
 
     private fun CardProperties.hasShape(): Boolean {
