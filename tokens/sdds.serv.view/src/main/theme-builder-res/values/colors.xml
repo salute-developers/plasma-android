@@ -1316,6 +1316,12 @@
     <color name="serv_dark_outline_default_transparent_secondary">#47FFFFFF</color>
     <!--Третичный прозрачный цвет обводки-->
     <color name="serv_dark_outline_default_transparent_tertiary">#8FFFFFFF</color>
+    <!--dark outline default outlineSolidDefaultHover-->
+    <color name="serv_dark_outline_default_solid_default_hover">#FFC7C7C7</color>
+    <!--dark outline default outlineSolidDefaultActive-->
+    <color name="serv_dark_outline_default_solid_default_active">#FFE0E0E0</color>
+    <!--dark outline default outlineSolidDefault-->
+    <color name="serv_dark_outline_default_solid_default">#FFF9F9F9</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_solid_primary_hover">#FFFFFFFF</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
@@ -1466,6 +1472,12 @@
     <color name="serv_dark_outline_on_dark_solid_secondary">#FF4E4E4E</color>
     <!--Третичный непрозрачный цвет обводки на темном фоне-->
     <color name="serv_dark_outline_on_dark_solid_tertiary">#FF858585</color>
+    <!--dark outline onDark outlineSolidDefault-->
+    <color name="serv_dark_outline_on_dark_solid_default">#FFF9F9F9</color>
+    <!--dark outline onDark outlineSolidDefaultHover-->
+    <color name="serv_dark_outline_on_dark_solid_default_hover">#FFC7C7C7</color>
+    <!--dark outline onDark outlineSolidDefaultActive-->
+    <color name="serv_dark_outline_on_dark_solid_default_active">#FFE0E0E0</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_solid_primary_hover">#FFABABAB</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
@@ -1616,6 +1628,12 @@
     <color name="serv_dark_outline_on_light_transparent_secondary">#47080808</color>
     <!--Третичный прозрачный цвет обводки на светлом фоне-->
     <color name="serv_dark_outline_on_light_transparent_tertiary">#8F080808</color>
+    <!--dark outline onLight outlineSolidDefault-->
+    <color name="serv_dark_outline_on_light_solid_default">#FF080808</color>
+    <!--dark outline onLight outlineSolidDefaultHover-->
+    <color name="serv_dark_outline_on_light_solid_default_hover">#FFFFFFFF</color>
+    <!--dark outline onLight outlineSolidDefaultActive-->
+    <color name="serv_dark_outline_on_light_solid_default_active">#FFC7C7C7</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_primary_hover">#FFABABAB</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
@@ -1766,6 +1784,12 @@
     <color name="serv_dark_outline_inverse_transparent_tertiary">#8F080808</color>
     <!--Инвертированный вторичный непрозрачный цвет обводки-->
     <color name="serv_dark_outline_inverse_solid_secondary">#FFB3B3B3</color>
+    <!--dark outline inverse outlineSolidDefaultHover-->
+    <color name="serv_dark_outline_inverse_solid_default_hover">#FFFFFFFF</color>
+    <!--dark outline inverse outlineSolidDefaultActive-->
+    <color name="serv_dark_outline_inverse_solid_default_active">#FFC7C7C7</color>
+    <!--dark outline inverse outlineSolidDefault-->
+    <color name="serv_dark_outline_inverse_solid_default">#FF080808</color>
     <!--Желтый цвет для данных-->
     <color name="serv_dark_data_default_yellow">#FFF3A912</color>
     <!--Желтый цвет для данных-->
@@ -3152,6 +3176,12 @@
     <color name="serv_light_outline_default_transparent_tertiary">#8F080808</color>
     <!--Вторичный непрозрачный цвет обводки-->
     <color name="serv_light_outline_default_solid_secondary">#FFB3B3B3</color>
+    <!--light outline default outlineSolidDefault-->
+    <color name="serv_light_outline_default_solid_default">#FF080808</color>
+    <!--light outline default outlineSolidDefaultHover-->
+    <color name="serv_light_outline_default_solid_default_hover">#FF595959</color>
+    <!--light outline default outlineSolidDefaultActive-->
+    <color name="serv_light_outline_default_solid_default_active">#FF303030</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
     <color name="serv_light_outline_on_dark_solid_primary_hover">#FF787878</color>
     <!--Основной непрозрачный цвет обводки на темном фоне-->
@@ -3302,6 +3332,12 @@
     <color name="serv_light_outline_on_dark_solid_secondary">#FF4E4E4E</color>
     <!--Третичный непрозрачный цвет обводки на темном фоне-->
     <color name="serv_light_outline_on_dark_solid_tertiary">#FF858585</color>
+    <!--light outline onDark outlineSolidDefault-->
+    <color name="serv_light_outline_on_dark_solid_default">#FFF9F9F9</color>
+    <!--light outline onDark outlineSolidDefaultHover-->
+    <color name="serv_light_outline_on_dark_solid_default_hover">#FFFFFFFF</color>
+    <!--light outline onDark outlineSolidDefaultActive-->
+    <color name="serv_light_outline_on_dark_solid_default_active">#FFC7C7C7</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_light_outline_on_light_solid_primary_hover">#FF000000</color>
     <!--Основной непрозрачный цвет обводки на светлом фоне-->
@@ -3452,6 +3488,12 @@
     <color name="serv_light_outline_on_light_transparent_tertiary">#8F080808</color>
     <!--Вторичный непрозрачный цвет обводки на светлом фоне-->
     <color name="serv_light_outline_on_light_solid_secondary">#FFB3B3B3</color>
+    <!--light outline onLight outlineSolidDefault-->
+    <color name="serv_light_outline_on_light_solid_default">#FF080808</color>
+    <!--light outline onLight outlineSolidDefaultHover-->
+    <color name="serv_light_outline_on_light_solid_default_hover">#FF595959</color>
+    <!--light outline onLight outlineSolidDefaultActive-->
+    <color name="serv_light_outline_on_light_solid_default_active">#FF303030</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
     <color name="serv_light_outline_inverse_solid_primary_hover">#FF787878</color>
     <!--Инвертированный основной непрозрачный цвет обводки-->
@@ -3602,6 +3644,12 @@
     <color name="serv_light_outline_inverse_solid_secondary">#FF4E4E4E</color>
     <!--Инвертированный третичный непрозрачный цвет обводки-->
     <color name="serv_light_outline_inverse_solid_tertiary">#FF858585</color>
+    <!--light outline inverse outlineSolidDefault-->
+    <color name="serv_light_outline_inverse_solid_default">#FFF9F9F9</color>
+    <!--light outline inverse outlineSolidDefaultHover-->
+    <color name="serv_light_outline_inverse_solid_default_hover">#FFFFFFFF</color>
+    <!--light outline inverse outlineSolidDefaultActive-->
+    <color name="serv_light_outline_inverse_solid_default_active">#FFC7C7C7</color>
     <!--Желтый цвет для данных-->
     <color name="serv_light_data_default_yellow">#FFF3A912</color>
     <!--Желтый цвет для данных-->

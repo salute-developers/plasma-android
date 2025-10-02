@@ -44,6 +44,7 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.ToastStyle
 import com.sdds.compose.uikit.TooltipStyle
+import com.sdds.compose.uikit.WheelStyle
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.accordion.AccordionPreview
@@ -106,6 +107,8 @@ import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
 import com.sdds.playground.sandbox.toast.compose.ToastScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
+import com.sdds.playground.sandbox.wheel.compose.WheelPreview
+import com.sdds.playground.sandbox.wheel.compose.WheelScreen
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
 import com.sdds.serv.styles.basicbutton.S
@@ -297,6 +300,11 @@ internal sealed class ComponentScreen(
         { DrawerScreen(it) },
         { style, _ -> DrawerPreview(style as DrawerStyle) },
     )
+
+    object Wheel : ComponentScreen(
+        { WheelScreen(it) },
+        { style, _ -> WheelPreview(style as WheelStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -350,6 +358,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.CODE_INPUT -> ComponentScreen.CodeInput
         CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
         CoreComponent.DRAWER -> ComponentScreen.Drawer
+        CoreComponent.WHEEL -> ComponentScreen.Wheel
         else -> ComponentScreen.Empty
     }
 }

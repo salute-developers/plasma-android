@@ -1834,6 +1834,7 @@
         <item name="sd_textSkeletonStyle">@style/Salute.StylesSalute.Components.TextSkeleton</item>
         <item name="sd_scrollBarStyle">@style/Salute.StylesSalute.Components.ScrollBar.M</item>
         <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.BasicButtonGroup.L.Dense.Default</item>
+        <item name="sd_codeInputStyle">@style/Salute.StylesSalute.Components.CodeInput.S</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -3667,6 +3668,7 @@
         <item name="sd_textSkeletonStyle">@style/Salute.StylesSalute.Components.TextSkeleton</item>
         <item name="sd_scrollBarStyle">@style/Salute.StylesSalute.Components.ScrollBar.M</item>
         <item name="sd_buttonGroupStyle">@style/Salute.StylesSalute.Components.BasicButtonGroup.L.Dense.Default</item>
+        <item name="sd_codeInputStyle">@style/Salute.StylesSalute.Components.CodeInput.S</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.DayNight" parent="Salute.StylesSalute.MaterialComponents.Light"/>
     <style name="Salute.StylesSalute"/>

@@ -660,6 +660,9 @@
     <attr format="reference|color" name="serv_outlineDefaultTransparentSecondary"/>
     <attr format="reference|color" name="serv_outlineDefaultTransparentTertiary"/>
     <attr format="reference|color" name="serv_outlineDefaultSolidSecondary"/>
+    <attr format="reference|color" name="serv_outlineDefaultSolidDefault"/>
+    <attr format="reference|color" name="serv_outlineDefaultSolidDefaultHover"/>
+    <attr format="reference|color" name="serv_outlineDefaultSolidDefaultActive"/>
     <attr format="reference|color" name="serv_outlineOnDarkSolidPrimaryHover"/>
     <attr format="reference|color" name="serv_outlineOnDarkSolidPrimaryActive"/>
     <attr format="reference|color" name="serv_outlineOnDarkSolidSecondaryHover"/>
@@ -735,6 +738,9 @@
     <attr format="reference|color" name="serv_outlineOnDarkTransparentTertiary"/>
     <attr format="reference|color" name="serv_outlineOnDarkSolidSecondary"/>
     <attr format="reference|color" name="serv_outlineOnDarkSolidTertiary"/>
+    <attr format="reference|color" name="serv_outlineOnDarkSolidDefault"/>
+    <attr format="reference|color" name="serv_outlineOnDarkSolidDefaultHover"/>
+    <attr format="reference|color" name="serv_outlineOnDarkSolidDefaultActive"/>
     <attr format="reference|color" name="serv_outlineOnLightSolidPrimaryHover"/>
     <attr format="reference|color" name="serv_outlineOnLightSolidPrimaryActive"/>
     <attr format="reference|color" name="serv_outlineOnLightSolidSecondaryHover"/>
@@ -810,6 +816,9 @@
     <attr format="reference|color" name="serv_outlineOnLightTransparentSecondary"/>
     <attr format="reference|color" name="serv_outlineOnLightTransparentTertiary"/>
     <attr format="reference|color" name="serv_outlineOnLightSolidSecondary"/>
+    <attr format="reference|color" name="serv_outlineOnLightSolidDefault"/>
+    <attr format="reference|color" name="serv_outlineOnLightSolidDefaultHover"/>
+    <attr format="reference|color" name="serv_outlineOnLightSolidDefaultActive"/>
     <attr format="reference|color" name="serv_outlineInverseSolidPrimaryHover"/>
     <attr format="reference|color" name="serv_outlineInverseSolidPrimaryActive"/>
     <attr format="reference|color" name="serv_outlineInverseSolidSecondaryHover"/>
@@ -885,6 +894,9 @@
     <attr format="reference|color" name="serv_outlineInverseTransparentTertiary"/>
     <attr format="reference|color" name="serv_outlineInverseSolidSecondary"/>
     <attr format="reference|color" name="serv_outlineInverseSolidTertiary"/>
+    <attr format="reference|color" name="serv_outlineInverseSolidDefault"/>
+    <attr format="reference|color" name="serv_outlineInverseSolidDefaultHover"/>
+    <attr format="reference|color" name="serv_outlineInverseSolidDefaultActive"/>
     <attr format="reference|color" name="serv_dataDefaultYellow"/>
     <attr format="reference|color" name="serv_dataDefaultYellowHover"/>
     <attr format="reference|color" name="serv_dataDefaultYellowActive"/>

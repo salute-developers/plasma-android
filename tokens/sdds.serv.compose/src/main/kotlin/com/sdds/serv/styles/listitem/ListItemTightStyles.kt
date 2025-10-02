@@ -73,6 +73,12 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             titleColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(),
             )
+            subtitleColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Hovered)
@@ -91,6 +97,8 @@ public val ListItemTight.Xl: WrapperListItemTightXl
         .invariantProps
         .shape(SddsServTheme.shapes.roundL)
         .titleStyle(SddsServTheme.typography.bodyLNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyMNormal)
+        .labelStyle(SddsServTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -109,6 +117,8 @@ public val ListItemTight.L: WrapperListItemTightL
         .invariantProps
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .titleStyle(SddsServTheme.typography.bodyLNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyMNormal)
+        .labelStyle(SddsServTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -127,6 +137,8 @@ public val ListItemTight.M: WrapperListItemTightM
         .invariantProps
         .shape(SddsServTheme.shapes.roundM)
         .titleStyle(SddsServTheme.typography.bodyMNormal)
+        .subtitleStyle(SddsServTheme.typography.bodySNormal)
+        .labelStyle(SddsServTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(8.0.dp)
@@ -145,6 +157,8 @@ public val ListItemTight.S: WrapperListItemTightS
         .invariantProps
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .titleStyle(SddsServTheme.typography.bodySNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
+        .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)
@@ -163,6 +177,8 @@ public val ListItemTight.Xs: WrapperListItemTightXs
         .invariantProps
         .shape(SddsServTheme.shapes.roundS)
         .titleStyle(SddsServTheme.typography.bodyXsNormal)
+        .subtitleStyle(SddsServTheme.typography.bodyXsNormal)
+        .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
         .dimensions {
             contentPaddingEnd(6.0.dp)

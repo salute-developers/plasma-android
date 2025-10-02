@@ -19,6 +19,10 @@ abstract class SwitchTestCases(mode: String) : RoborazziConfig(mode) {
 
     abstract fun testSwitchDisabled()
 
+    abstract fun testSwitchSizeLToggleS()
+
+    abstract fun testSwitchSizeSToggleS()
+
     fun ComponentScope.switchSizeL(style: Int): Switch =
         switch(
             context,
@@ -64,6 +68,18 @@ abstract class SwitchTestCases(mode: String) : RoborazziConfig(mode) {
                 label = "Label",
                 description = "Description",
                 enabled = false,
+            ),
+        )
+
+    fun ComponentScope.switchToggleOff(style: Int): Switch =
+        switch(
+            context,
+            style,
+            SwitchUiState(
+                active = false,
+                label = "Label",
+                description = "Description",
+                enabled = true,
             ),
         )
 }

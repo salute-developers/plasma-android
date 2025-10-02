@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.IconTabItem" parent="Sdds.Components.IconTabItem">
+        <item name="sd_iconTint">@color/serv_icon_tab_item_icon_tint</item>
+        <item name="sd_actionTint">@color/serv_icon_tab_item_action_tint</item>
+        <item name="sd_counterPadding">@dimen/serv_icon_tab_item_counter_padding</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabItem.L">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Negative</item>
+        <item name="sd_action">@drawable/ic_close_24</item>
+        <item name="android:minHeight">@dimen/serv_icon_tab_item_l_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_icon_tab_item_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_icon_tab_item_l_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_icon_tab_item_l_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_icon_tab_item_l_content_end_size</item>
+        <item name="sd_actionPadding">@dimen/serv_icon_tab_item_l_action_padding</item>
+        <item name="sd_counterOffsetX">@dimen/serv_icon_tab_item_l_counter_offset_x</item>
+        <item name="sd_counterOffsetY">@dimen/serv_icon_tab_item_l_counter_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabItemL">
+        <item name="sd_iconTabItemStyle">@style/Serv.Sdds.Components.IconTabItem.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabItem.M">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Negative</item>
+        <item name="sd_action">@drawable/ic_close_24</item>
+        <item name="android:minHeight">@dimen/serv_icon_tab_item_m_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_icon_tab_item_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_icon_tab_item_m_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_icon_tab_item_m_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_icon_tab_item_m_content_end_size</item>
+        <item name="sd_counterPadding">@dimen/serv_icon_tab_item_m_counter_padding</item>
+        <item name="sd_actionPadding">@dimen/serv_icon_tab_item_m_action_padding</item>
+        <item name="sd_counterOffsetX">@dimen/serv_icon_tab_item_m_counter_offset_x</item>
+        <item name="sd_counterOffsetY">@dimen/serv_icon_tab_item_m_counter_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabItemM">
+        <item name="sd_iconTabItemStyle">@style/Serv.Sdds.Components.IconTabItem.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabItem.S">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Negative</item>
+        <item name="sd_action">@drawable/ic_close_24</item>
+        <item name="android:minHeight">@dimen/serv_icon_tab_item_s_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_icon_tab_item_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_icon_tab_item_s_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_icon_tab_item_s_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_icon_tab_item_s_content_end_size</item>
+        <item name="sd_counterPadding">@dimen/serv_icon_tab_item_s_counter_padding</item>
+        <item name="sd_actionPadding">@dimen/serv_icon_tab_item_s_action_padding</item>
+        <item name="sd_counterOffsetX">@dimen/serv_icon_tab_item_s_counter_offset_x</item>
+        <item name="sd_counterOffsetY">@dimen/serv_icon_tab_item_s_counter_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabItemS">
+        <item name="sd_iconTabItemStyle">@style/Serv.Sdds.Components.IconTabItem.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconTabItem.Xs">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Negative</item>
+        <item name="sd_action">@drawable/ic_close_16</item>
+        <item name="android:minHeight">@dimen/serv_icon_tab_item_xs_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_icon_tab_item_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_icon_tab_item_xs_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_icon_tab_item_xs_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_icon_tab_item_xs_content_end_size</item>
+        <item name="sd_counterPadding">@dimen/serv_icon_tab_item_xs_counter_padding</item>
+        <item name="sd_actionPadding">@dimen/serv_icon_tab_item_xs_action_padding</item>
+        <item name="sd_counterOffsetX">@dimen/serv_icon_tab_item_xs_counter_offset_x</item>
+        <item name="sd_counterOffsetY">@dimen/serv_icon_tab_item_xs_counter_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconTabItemXs">
+        <item name="sd_iconTabItemStyle">@style/Serv.Sdds.Components.IconTabItem.Xs</item>
+    </style>
+</resources>

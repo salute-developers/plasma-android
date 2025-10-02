@@ -67,6 +67,14 @@ public value class WrapperIconButtonS(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Обертка для вариации Xs
+ */
+@JvmInline
+public value class WrapperIconButtonXs(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
 public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
     @Composable
     get() = builder
@@ -129,6 +137,37 @@ public val WrapperIconButtonView.Secondary: WrapperIconButtonTerminate
         }
         .wrap(::WrapperIconButtonTerminate)
 
+public val WrapperIconButtonView.Dark: WrapperIconButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperIconButtonTerminate)
+
 public val WrapperIconButtonView.Negative: WrapperIconButtonTerminate
     @Composable
     get() = builder
@@ -186,6 +225,37 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonTerminate
                         to PlasmaHomeDsTheme.colors.surfaceDefaultWarningActive,
                     setOf(InteractiveState.Hovered)
                         to PlasmaHomeDsTheme.colors.surfaceDefaultWarningHover,
+                ),
+            )
+        }
+        .wrap(::WrapperIconButtonTerminate)
+
+public val WrapperIconButtonView.Accent: WrapperIconButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
+                ),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentHover,
                 ),
             )
         }
@@ -276,3 +346,19 @@ public val IconButton.S: WrapperIconButtonS
             spinnerStrokeWidth(2.0.dp)
         }
         .wrap(::WrapperIconButtonS)
+
+public val IconButton.Xs: WrapperIconButtonXs
+    @Composable
+    @JvmName("WrapperIconButtonXs")
+    get() = ButtonStyle.iconButtonBuilder(this)
+        .invariantProps
+        .dimensions {
+            height(32.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
+            minWidth(32.0.dp)
+            iconSize(16.0.dp)
+            spinnerSize(16.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+        }
+        .wrap(::WrapperIconButtonXs)

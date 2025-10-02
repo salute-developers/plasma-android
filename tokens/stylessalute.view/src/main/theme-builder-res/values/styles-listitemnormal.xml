@@ -5,11 +5,15 @@
     <style name="Salute.StylesSalute.Components.ListItemNormal" parent="Sdds.Components.ListItem">
         <item name="sd_background">@color/salute_list_item_normal_bg_color</item>
         <item name="sd_titleColor">?salute_textDefaultPrimary</item>
+        <item name="sd_subtitleColor">?salute_textDefaultSecondary</item>
+        <item name="sd_labelColor">?salute_textDefaultSecondary</item>
         <item name="sd_disclosureColor">?salute_textDefaultSecondary</item>
     </style>
     <style name="Salute.StylesSalute.Components.ListItemNormal.Xl">
         <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
         <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_contentEndPadding">@dimen/salute_list_item_normal_xl_content_end_padding</item>
         <item name="android:paddingStart">@dimen/salute_list_item_normal_xl_padding_start</item>
@@ -25,6 +29,8 @@
         <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/salute_list_item_normal_l_shape_adjustment</item>
         <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_contentEndPadding">@dimen/salute_list_item_normal_l_content_end_padding</item>
         <item name="android:paddingStart">@dimen/salute_list_item_normal_l_padding_start</item>
@@ -39,6 +45,8 @@
     <style name="Salute.StylesSalute.Components.ListItemNormal.M">
         <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
         <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_contentEndPadding">@dimen/salute_list_item_normal_m_content_end_padding</item>
         <item name="android:paddingStart">@dimen/salute_list_item_normal_m_padding_start</item>
@@ -54,6 +62,8 @@
         <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/salute_list_item_normal_s_shape_adjustment</item>
         <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
         <item name="sd_contentEndPadding">@dimen/salute_list_item_normal_s_content_end_padding</item>
         <item name="android:paddingStart">@dimen/salute_list_item_normal_s_padding_start</item>
@@ -68,6 +78,8 @@
     <style name="Salute.StylesSalute.Components.ListItemNormal.Xs">
         <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
         <item name="sd_titleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_subtitleAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
         <item name="sd_contentEndPadding">@dimen/salute_list_item_normal_xs_content_end_padding</item>
         <item name="android:paddingStart">@dimen/salute_list_item_normal_xs_padding_start</item>

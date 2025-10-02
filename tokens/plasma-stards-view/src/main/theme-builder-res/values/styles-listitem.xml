@@ -5,12 +5,16 @@
     <style name="Sdkit.StarDs.Components.ListItem" parent="Sdds.Components.ListItem">
         <item name="sd_background">@color/sdkit_list_item_bg_color</item>
         <item name="sd_titleColor">@color/sdkit_list_item_text_color</item>
+        <item name="sd_subtitleColor">@color/sdkit_list_item_subtitle_color</item>
+        <item name="sd_labelColor">@color/sdkit_list_item_label_color</item>
         <item name="sd_disclosureColor">@color/sdkit_list_item_disclosure_icon_color</item>
     </style>
     <style name="Sdkit.StarDs.Components.ListItem.L">
         <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_list_item_l_shape_adjustment</item>
         <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_contentEndPadding">@dimen/sdkit_list_item_l_content_end_padding</item>
         <item name="android:paddingStart">@dimen/sdkit_list_item_l_padding_start</item>
@@ -26,6 +30,8 @@
         <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_list_item_m_shape_adjustment</item>
         <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMBold</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="sd_contentEndPadding">@dimen/sdkit_list_item_m_content_end_padding</item>
         <item name="android:paddingStart">@dimen/sdkit_list_item_m_padding_start</item>
@@ -40,6 +46,8 @@
     <style name="Sdkit.StarDs.Components.ListItem.S">
         <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
         <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
         <item name="sd_contentEndPadding">@dimen/sdkit_list_item_s_content_end_padding</item>
         <item name="android:paddingStart">@dimen/sdkit_list_item_s_padding_start</item>
@@ -55,6 +63,8 @@
         <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_list_item_xs_shape_adjustment</item>
         <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsBold</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
         <item name="sd_contentEndPadding">@dimen/sdkit_list_item_xs_content_end_padding</item>
         <item name="android:paddingStart">@dimen/sdkit_list_item_xs_padding_start</item>

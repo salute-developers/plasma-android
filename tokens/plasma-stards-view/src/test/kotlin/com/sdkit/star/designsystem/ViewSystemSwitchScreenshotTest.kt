@@ -41,4 +41,12 @@ class ViewSystemSwitchScreenshotTest : SwitchTestCases("+night") {
             switchDisabled(R.style.Sdkit_StarDs_ComponentOverlays_SwitchM)
         }
     }
+
+    override fun testSwitchSizeLToggleS() {
+        TODO("Not yet implemented")
+    }
+
+    override fun testSwitchSizeSToggleS() {
+        TODO("Not yet implemented")
+    }
 }

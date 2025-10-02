@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <attr name="sd_tabsStyle" format="reference" />
+    <attr name="sd_tabItemStyle" format="reference" />
+    <attr name="sd_iconTabItemStyle" format="reference" />
+
+    <item name="sd_nextButtonId" type="id"/>
+    <item name="sd_prevButtonId" type="id"/>
+    <item name="sd_tabDisclosureId" type="id"/>
+
+    <declare-styleable name="Tabs" tools:ignore="ResourceName">
+        <attr name="sd_dividerEnabled" format="boolean"/>
+        <attr name="sd_overflowIconsEnabled" format="boolean"/>
+        <attr name="sd_tabsMinSpacing" format="dimension" />
+        <attr name="sd_tabItemStyleOverlay" format="reference" />
+        <attr name="sd_dropdownMenuStyleOverlay" format="reference" />
+        <attr name="sd_dividerStyleOverlay" />
+
+        <attr name="sd_disclosureColor" />
+        <attr name="sd_disclosureTextAppearance" />
+        <attr name="sd_disclosureText" />
+        <attr name="sd_disclosureIcon" />
+
+        <attr name="sd_overflowNextIcon" format="reference" />
+        <attr name="sd_overflowNextIconColor" format="color|reference" />
+        <attr name="sd_overflowPrevIcon" format="reference" />
+        <attr name="sd_overflowPrevIconColor" format="color|reference" />
+
+        <attr name="sd_tabIndicatorColor" format="color|reference" />
+        <attr name="sd_tabIndicatorEnabled" format="boolean"/>
+        <attr name="sd_tabIndicatorThickness" format="dimension" />
+
+        <attr name="android:orientation" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_shapeAppearanceAdjustment"/>
+        <attr name="sd_strokeWidth"/>
+        <attr name="sd_strokeColor"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="TabItem" tools:ignore="ResourceName">
+        <attr name="backgroundTint"/>
+        <attr name="sd_valueTextColor"/>
+        <attr name="sd_iconTint"/>
+        <attr name="sd_iconSize"/>
+        <attr name="sd_contentStartSize"/>
+        <attr name="sd_contentEndSize"/>
+        <attr name="sd_spinnerTint"/>
+        <attr name="android:checkable"/>
+        <attr name="android:checked"/>
+        <attr name="sd_counterStyle"/>
+        <attr name="sd_counterPadding"/>
+        <attr name="sd_counterText"/>
+        <attr name="sd_counterEnabled"/>
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_shapeAppearanceAdjustment"/>
+        <attr name="sd_valuePadding"/>
+        <attr name="sd_actionEnabled"/>
+        <attr name="sd_actionPadding"/>
+        <attr name="sd_actionSize"/>
+        <attr name="sd_actionTint"/>
+        <attr name="sd_action"/>
+        <attr name="sd_value"/>
+        <attr name="sd_icon"/>
+        <attr name="sd_iconPadding"/>
+        <attr name="sd_spacing"/>
+        <attr name="sd_iconPosition"/>
+    </declare-styleable>
+
+    <declare-styleable name="IconTabItem" tools:ignore="ResourceName">
+        <attr name="sd_counterOffsetX" format="dimension"/>
+        <attr name="sd_counterOffsetY" format="dimension"/>
+    </declare-styleable>
+
+</resources>

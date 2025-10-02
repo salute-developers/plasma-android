@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <dimen name="sdkit_cmp_standard_dp">2dp</dimen>
+    <dimen name="sdkit_cmp_standard_sp">2sp</dimen>
 
     <dimen name="sdkit_cmp_avatar_group_s_item_offset">32dp</dimen> <!-- 16dp -->
     <dimen name="sdkit_cmp_avatar_group_s_item_spacing">4dp</dimen> <!-- 2dp -->

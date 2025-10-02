@@ -168,6 +168,8 @@ open class SegmentItem @JvmOverloads constructor(
         invalidate()
     }
 
+    internal open fun getCounterDrawable(): CounterDrawable? = _counterDrawable
+
     private fun updateCounter(segmentWidth: Int) {
         val counterWidth = getCounterWidth()
         val counterHeight = getCounterHeight()

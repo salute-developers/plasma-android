@@ -287,7 +287,7 @@ open class Segment @JvmOverloads constructor(
                         it.isChecked = false
                         _onCheckedChangeListener?.onCheckedChanged(
                             this@Segment,
-                            button as SegmentItem,
+                            it as SegmentItem,
                             false,
                         )
                     }

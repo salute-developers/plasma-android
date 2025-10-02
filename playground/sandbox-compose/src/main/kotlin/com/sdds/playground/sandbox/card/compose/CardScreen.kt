@@ -1,8 +1,6 @@
 package com.sdds.playground.sandbox.card.compose
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -15,16 +13,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Card
-import com.sdds.compose.uikit.CardContent
-import com.sdds.compose.uikit.CardStyle
+import com.sdds.compose.uikit.CardOrientation
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.fs.FocusSelectorSettings
-import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.icons.R.drawable as Icons
 
 /**
  * Экран с Card
@@ -40,99 +37,36 @@ internal fun CardScreen(
             key = componentKey.toString(),
         ),
         component = { cardUiState, style ->
-            when (cardUiState.orientation) {
-                CardOrientation.VERTICAL -> {
-                    VerticalCard(style)
-                }
-
-                CardOrientation.HORIZONTAL -> {
-                    HorizontalCard(style)
+            Card(
+                style = style,
+                orientation =
+                when (cardUiState.orientation) {
+                    Orientation.VERTICAL -> CardOrientation.Vertical
+                    else -> CardOrientation.Horizontal
+                },
+                label = { Text(cardUiState.label) },
+                extra = {
+                    IconButton(
+                        Icons.ic_plasma_24,
+                        modifier = Modifier.align(Alignment.BottomEnd),
+                    ) { }
+                },
+            ) {
+                Box(
+                    modifier = Modifier
+                        .width(250.dp)
+                        .height(250.dp),
+                ) {
+                    Image(
+                        modifier = Modifier.fillMaxSize(),
+                        contentScale = ContentScale.FillBounds,
+                        painter = painterResource(id = R.drawable.il_avatar_test),
+                        contentDescription = "Android",
+                    )
                 }
             }
         },
     )
-}
-
-@Composable
-private fun VerticalCard(style: CardStyle) {
-    Card(
-        modifier = Modifier
-            .width(100.dp)
-            .height(150.dp),
-        style = style,
-        focusSelectorSettings = LocalFocusSelectorSettings.current,
-    ) {
-        Column {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .weight(1f),
-            ) {
-                Text(
-                    "Card text",
-                    modifier = Modifier
-                        .align(Alignment.Center),
-                )
-            }
-            CardContent(
-                modifier = Modifier
-                    .weight(2f)
-                    .align(Alignment.CenterHorizontally),
-                style = style,
-                focusSelectorSettings = FocusSelectorSettings.None,
-            ) {
-                Image(
-                    contentScale = ContentScale.Crop,
-                    painter = painterResource(id = R.drawable.il_avatar_test),
-                    contentDescription = "Android",
-                )
-                Text(
-                    text = "Content",
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun HorizontalCard(style: CardStyle) {
-    Card(
-        modifier = Modifier
-            .width(200.dp)
-            .height(100.dp),
-        style = style,
-        focusSelectorSettings = LocalFocusSelectorSettings.current,
-    ) {
-        Row {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .weight(1f),
-            ) {
-                Text(
-                    "Card text",
-                    modifier = Modifier
-                        .align(Alignment.Center),
-                )
-            }
-            CardContent(
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .weight(1f),
-                style = style,
-                focusSelectorSettings = FocusSelectorSettings.None,
-            ) {
-                Image(
-                    contentScale = ContentScale.Crop,
-                    painter = painterResource(id = R.drawable.il_avatar_test),
-                    contentDescription = "Android",
-                )
-                Text(
-                    text = "Content",
-                )
-            }
-        }
-    }
 }
 
 @Composable

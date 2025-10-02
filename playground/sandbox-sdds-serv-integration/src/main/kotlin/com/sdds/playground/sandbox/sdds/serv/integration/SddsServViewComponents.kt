@@ -32,6 +32,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServEmbeddedCh
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.circularprogress.SddsServCircularProgressBarVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.codefield.SddsServCodeFieldVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.codeinput.SddsServCodeInputVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.drawer.SddsServDrawerCloseInnerVariationsView
@@ -59,6 +61,9 @@ import com.sdds.playground.sandbox.sdds.serv.integration.segment.SddsServSegment
 import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.spinner.SddsServSpinnerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tabs.SddsServIconTabsVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tabs.SddsServTabsDefaultVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.tabs.SddsServTabsHeaderVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textfield.SddsServTextFieldVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.textskeleton.SddsServTextSkeletonVariationsView
@@ -274,6 +279,18 @@ object SddsServViewComponents : ComponentsProviderView {
                 SddsServSpinnerVariationsView,
             ),
             ViewComponent(
+                ComponentKey("TabsDefault", CoreComponent.TABS),
+                SddsServTabsDefaultVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("TabsHeader", CoreComponent.TABS),
+                SddsServTabsHeaderVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.IconTabs,
+                SddsServIconTabsVariationsView,
+            ),
+            ViewComponent(
                 ComponentKey.TextField,
                 SddsServTextFieldVariationsView,
             ),
@@ -312,6 +329,14 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey("DrawerCloseNone", CoreComponent.DRAWER),
                 SddsServDrawerCloseNoneVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CodeField,
+                SddsServCodeFieldVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CodeInput,
+                SddsServCodeInputVariationsView,
             ),
         ).associateBy { it.key }
 }

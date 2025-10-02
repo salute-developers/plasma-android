@@ -15,19 +15,30 @@ import com.sdds.playground.sandbox.plasma.homeds.integration.badge.icon.PlasmaHo
 import com.sdds.playground.sandbox.plasma.homeds.integration.badge.icon.PlasmaHomeDsIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.button.basic.PlasmaHomeDsBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.button.icon.PlasmaHomeDsIconButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.buttongroup.PlasmaHomeDsBasicButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.buttongroup.PlasmaHomeDsIconButtonGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.card.PlasmaHomeDsCardVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.cell.PlasmaHomeDsCellVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.checkbox.PlasmaHomeDsCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.checkbox.group.PlasmaHomeDsCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.chip.PlasmaHomeDsChipVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.chip.group.PlasmaHomeDsChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.chip.group.PlasmaHomeDsChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.circiularprogress.PlasmaHomeDsCircularProgressBarVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.counter.PlasmaHomeDsCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.divider.PlasmaHomeDsDividerVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.image.PlasmaHomeDsImageVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.indicator.PlasmaHomeDsIndicatorVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.list.PlasmaHomeDsListVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.loader.PlasmaHomeDsLoaderVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.radiobox.PlasmaHomeDsRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.radiobox.group.PlasmaHomeDsRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.spinner.PlasmaHomeDsSpinnerVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.switcher.PlasmaHomeDsSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.homeds.integration.tabbar.PlasmaHomeDsTabBarVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.textfield.PlasmaHomeDsTextFieldVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.tooltip.PlasmaHomeDsTooltipVariationsCompose
+import com.sdds.playground.sandbox.plasma.homeds.integration.wheel.PlasmaHomeDsWheelVariationsCompose
 
 /**
  *
@@ -78,12 +89,28 @@ object PlasmaHomeDsComposeComponents : ComponentsProviderCompose {
                 PlasmaHomeDsIconButtonVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey("BasicButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaHomeDsBasicButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("IconButtonGroup", CoreComponent.BUTTON_GROUP),
+                PlasmaHomeDsIconButtonGroupVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.Divider,
                 PlasmaHomeDsDividerVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.Card,
+                PlasmaHomeDsCardVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.Cell,
                 PlasmaHomeDsCellVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.CircularProgressBar,
+                PlasmaHomeDsCircularProgressBarVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.CheckBox,
@@ -110,8 +137,20 @@ object PlasmaHomeDsComposeComponents : ComponentsProviderCompose {
                 PlasmaHomeDsCounterVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.Image,
+                PlasmaHomeDsImageVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.Indicator,
                 PlasmaHomeDsIndicatorVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.List,
+                PlasmaHomeDsListVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Loader,
+                PlasmaHomeDsLoaderVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.RadioBox,
@@ -122,12 +161,28 @@ object PlasmaHomeDsComposeComponents : ComponentsProviderCompose {
                 PlasmaHomeDsRadioBoxGroupVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.Spinner,
+                PlasmaHomeDsSpinnerVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.Switch,
                 PlasmaHomeDsSwitchVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.TabBar,
                 PlasmaHomeDsTabBarVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.TextField,
+                PlasmaHomeDsTextFieldVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Tooltip,
+                PlasmaHomeDsTooltipVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Wheel,
+                PlasmaHomeDsWheelVariationsCompose,
             ),
         ).associateBy { it.key }
 }

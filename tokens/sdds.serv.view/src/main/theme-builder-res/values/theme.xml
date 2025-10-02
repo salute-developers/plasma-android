@@ -661,6 +661,9 @@
         <item name="serv_outlineDefaultTransparentSecondary">@color/serv_dark_outline_default_transparent_secondary</item>
         <item name="serv_outlineDefaultTransparentTertiary">@color/serv_dark_outline_default_transparent_tertiary</item>
         <item name="serv_outlineDefaultSolidSecondary">@color/serv_dark_outline_default_solid_secondary</item>
+        <item name="serv_outlineDefaultSolidDefault">@color/serv_dark_outline_default_solid_default</item>
+        <item name="serv_outlineDefaultSolidDefaultHover">@color/serv_dark_outline_default_solid_default_hover</item>
+        <item name="serv_outlineDefaultSolidDefaultActive">@color/serv_dark_outline_default_solid_default_active</item>
         <item name="serv_outlineOnDarkSolidPrimaryHover">@color/serv_dark_outline_on_dark_solid_primary_hover</item>
         <item name="serv_outlineOnDarkSolidPrimaryActive">@color/serv_dark_outline_on_dark_solid_primary_active</item>
         <item name="serv_outlineOnDarkSolidSecondaryHover">@color/serv_dark_outline_on_dark_solid_secondary_hover</item>
@@ -736,6 +739,9 @@
         <item name="serv_outlineOnDarkTransparentTertiary">@color/serv_dark_outline_on_dark_transparent_tertiary</item>
         <item name="serv_outlineOnDarkSolidSecondary">@color/serv_dark_outline_on_dark_solid_secondary</item>
         <item name="serv_outlineOnDarkSolidTertiary">@color/serv_dark_outline_on_dark_solid_tertiary</item>
+        <item name="serv_outlineOnDarkSolidDefault">@color/serv_dark_outline_on_dark_solid_default</item>
+        <item name="serv_outlineOnDarkSolidDefaultHover">@color/serv_dark_outline_on_dark_solid_default_hover</item>
+        <item name="serv_outlineOnDarkSolidDefaultActive">@color/serv_dark_outline_on_dark_solid_default_active</item>
         <item name="serv_outlineOnLightSolidPrimaryHover">@color/serv_dark_outline_on_light_solid_primary_hover</item>
         <item name="serv_outlineOnLightSolidPrimaryActive">@color/serv_dark_outline_on_light_solid_primary_active</item>
         <item name="serv_outlineOnLightSolidSecondaryHover">@color/serv_dark_outline_on_light_solid_secondary_hover</item>
@@ -811,6 +817,9 @@
         <item name="serv_outlineOnLightTransparentSecondary">@color/serv_dark_outline_on_light_transparent_secondary</item>
         <item name="serv_outlineOnLightTransparentTertiary">@color/serv_dark_outline_on_light_transparent_tertiary</item>
         <item name="serv_outlineOnLightSolidSecondary">@color/serv_dark_outline_on_light_solid_secondary</item>
+        <item name="serv_outlineOnLightSolidDefault">@color/serv_dark_outline_on_light_solid_default</item>
+        <item name="serv_outlineOnLightSolidDefaultHover">@color/serv_dark_outline_on_light_solid_default_hover</item>
+        <item name="serv_outlineOnLightSolidDefaultActive">@color/serv_dark_outline_on_light_solid_default_active</item>
         <item name="serv_outlineInverseSolidPrimaryHover">@color/serv_dark_outline_inverse_solid_primary_hover</item>
         <item name="serv_outlineInverseSolidPrimaryActive">@color/serv_dark_outline_inverse_solid_primary_active</item>
         <item name="serv_outlineInverseSolidSecondaryHover">@color/serv_dark_outline_inverse_solid_secondary_hover</item>
@@ -886,6 +895,9 @@
         <item name="serv_outlineInverseTransparentTertiary">@color/serv_dark_outline_inverse_transparent_tertiary</item>
         <item name="serv_outlineInverseSolidSecondary">@color/serv_dark_outline_inverse_solid_secondary</item>
         <item name="serv_outlineInverseSolidTertiary">@color/serv_dark_outline_inverse_solid_tertiary</item>
+        <item name="serv_outlineInverseSolidDefault">@color/serv_dark_outline_inverse_solid_default</item>
+        <item name="serv_outlineInverseSolidDefaultHover">@color/serv_dark_outline_inverse_solid_default_hover</item>
+        <item name="serv_outlineInverseSolidDefaultActive">@color/serv_dark_outline_inverse_solid_default_active</item>
         <item name="serv_dataDefaultYellow">@color/serv_dark_data_default_yellow</item>
         <item name="serv_dataDefaultYellowHover">@color/serv_dark_data_default_yellow_hover</item>
         <item name="serv_dataDefaultYellowActive">@color/serv_dark_data_default_yellow_active</item>
@@ -1223,6 +1235,7 @@
         <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
+        <item name="sd_fsShapeAppearance">@style/Serv.Sdds.Shape.Round.M</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
 
@@ -1263,6 +1276,8 @@
         <item name="sd_loaderStyle">@style/Serv.Sdds.Components.Loader</item>
         <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M</item>
         <item name="sd_overlayViewStyle">@style/Serv.Sdds.Components.OverlayView</item>
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M</item>
+        <item name="sd_codeInputStyle">@style/Serv.Sdds.Components.CodeInput.S</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -1923,6 +1938,9 @@
         <item name="serv_outlineDefaultTransparentSecondary">@color/serv_light_outline_default_transparent_secondary</item>
         <item name="serv_outlineDefaultTransparentTertiary">@color/serv_light_outline_default_transparent_tertiary</item>
         <item name="serv_outlineDefaultSolidSecondary">@color/serv_light_outline_default_solid_secondary</item>
+        <item name="serv_outlineDefaultSolidDefault">@color/serv_light_outline_default_solid_default</item>
+        <item name="serv_outlineDefaultSolidDefaultHover">@color/serv_light_outline_default_solid_default_hover</item>
+        <item name="serv_outlineDefaultSolidDefaultActive">@color/serv_light_outline_default_solid_default_active</item>
         <item name="serv_outlineOnDarkSolidPrimaryHover">@color/serv_light_outline_on_dark_solid_primary_hover</item>
         <item name="serv_outlineOnDarkSolidPrimaryActive">@color/serv_light_outline_on_dark_solid_primary_active</item>
         <item name="serv_outlineOnDarkSolidSecondaryHover">@color/serv_light_outline_on_dark_solid_secondary_hover</item>
@@ -1998,6 +2016,9 @@
         <item name="serv_outlineOnDarkTransparentTertiary">@color/serv_light_outline_on_dark_transparent_tertiary</item>
         <item name="serv_outlineOnDarkSolidSecondary">@color/serv_light_outline_on_dark_solid_secondary</item>
         <item name="serv_outlineOnDarkSolidTertiary">@color/serv_light_outline_on_dark_solid_tertiary</item>
+        <item name="serv_outlineOnDarkSolidDefault">@color/serv_light_outline_on_dark_solid_default</item>
+        <item name="serv_outlineOnDarkSolidDefaultHover">@color/serv_light_outline_on_dark_solid_default_hover</item>
+        <item name="serv_outlineOnDarkSolidDefaultActive">@color/serv_light_outline_on_dark_solid_default_active</item>
         <item name="serv_outlineOnLightSolidPrimaryHover">@color/serv_light_outline_on_light_solid_primary_hover</item>
         <item name="serv_outlineOnLightSolidPrimaryActive">@color/serv_light_outline_on_light_solid_primary_active</item>
         <item name="serv_outlineOnLightSolidSecondaryHover">@color/serv_light_outline_on_light_solid_secondary_hover</item>
@@ -2073,6 +2094,9 @@
         <item name="serv_outlineOnLightTransparentSecondary">@color/serv_light_outline_on_light_transparent_secondary</item>
         <item name="serv_outlineOnLightTransparentTertiary">@color/serv_light_outline_on_light_transparent_tertiary</item>
         <item name="serv_outlineOnLightSolidSecondary">@color/serv_light_outline_on_light_solid_secondary</item>
+        <item name="serv_outlineOnLightSolidDefault">@color/serv_light_outline_on_light_solid_default</item>
+        <item name="serv_outlineOnLightSolidDefaultHover">@color/serv_light_outline_on_light_solid_default_hover</item>
+        <item name="serv_outlineOnLightSolidDefaultActive">@color/serv_light_outline_on_light_solid_default_active</item>
         <item name="serv_outlineInverseSolidPrimaryHover">@color/serv_light_outline_inverse_solid_primary_hover</item>
         <item name="serv_outlineInverseSolidPrimaryActive">@color/serv_light_outline_inverse_solid_primary_active</item>
         <item name="serv_outlineInverseSolidSecondaryHover">@color/serv_light_outline_inverse_solid_secondary_hover</item>
@@ -2148,6 +2172,9 @@
         <item name="serv_outlineInverseTransparentTertiary">@color/serv_light_outline_inverse_transparent_tertiary</item>
         <item name="serv_outlineInverseSolidSecondary">@color/serv_light_outline_inverse_solid_secondary</item>
         <item name="serv_outlineInverseSolidTertiary">@color/serv_light_outline_inverse_solid_tertiary</item>
+        <item name="serv_outlineInverseSolidDefault">@color/serv_light_outline_inverse_solid_default</item>
+        <item name="serv_outlineInverseSolidDefaultHover">@color/serv_light_outline_inverse_solid_default_hover</item>
+        <item name="serv_outlineInverseSolidDefaultActive">@color/serv_light_outline_inverse_solid_default_active</item>
         <item name="serv_dataDefaultYellow">@color/serv_light_data_default_yellow</item>
         <item name="serv_dataDefaultYellowHover">@color/serv_light_data_default_yellow_hover</item>
         <item name="serv_dataDefaultYellowActive">@color/serv_light_data_default_yellow_active</item>
@@ -2485,6 +2512,7 @@
         <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
+        <item name="sd_fsShapeAppearance">@style/Serv.Sdds.Shape.Round.M</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
 
@@ -2525,6 +2553,8 @@
         <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.L.Dense.Default</item>
         <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M</item>
         <item name="sd_overlayViewStyle">@style/Serv.Sdds.Components.OverlayView</item>
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M</item>
+        <item name="sd_codeInputStyle">@style/Serv.Sdds.Components.CodeInput.S</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

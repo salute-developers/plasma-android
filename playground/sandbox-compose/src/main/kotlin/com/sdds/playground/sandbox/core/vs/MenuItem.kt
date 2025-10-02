@@ -23,6 +23,8 @@ import com.sdds.playground.sandbox.checkbox.vs.CheckBoxFragment
 import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
 import com.sdds.playground.sandbox.chip.vs.ChipFragment
 import com.sdds.playground.sandbox.chip.vs.group.ChipGroupFragment
+import com.sdds.playground.sandbox.codefield.vs.CodeFieldFragment
+import com.sdds.playground.sandbox.codeinput.vs.CodeInputFragment
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
@@ -52,6 +54,8 @@ import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
+import com.sdds.playground.sandbox.tabs.IconTabsFragment
+import com.sdds.playground.sandbox.tabs.TabsFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
 import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
@@ -80,6 +84,8 @@ import com.sdds.testing.vs.checkbox.checkBoxGroup
 import com.sdds.testing.vs.chip.ChipUiState
 import com.sdds.testing.vs.chip.chip
 import com.sdds.testing.vs.chip.chipGroup
+import com.sdds.testing.vs.codefield.codeField
+import com.sdds.testing.vs.codeinput.codeInput
 import com.sdds.testing.vs.counter.CounterUiState
 import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
@@ -114,6 +120,8 @@ import com.sdds.testing.vs.skeleton.textSkeleton
 import com.sdds.testing.vs.spinner.spinner
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
+import com.sdds.testing.vs.tabs.iconTabs
+import com.sdds.testing.vs.tabs.tabs
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
@@ -336,6 +344,19 @@ internal sealed class ComponentScreen(
     object Drawer : ComponentScreen(
         { item -> fragment<DrawerFragment>(item.route, item.defaultBuilder) },
     )
+    object CodeField : ComponentScreen(
+        { item -> fragment<CodeFieldFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object Tabs : ComponentScreen(
+        { item -> fragment<TabsFragment>(item.route, item.defaultBuilder) },
+    )
+    object IconTabs : ComponentScreen(
+        { item -> fragment<IconTabsFragment>(item.route, item.defaultBuilder) },
+    )
+    object CodeInput : ComponentScreen(
+        { item -> fragment<CodeInputFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -386,7 +407,11 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
+        CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
+        CoreComponent.CODE_INPUT -> ComponentScreen.CodeInput
         CoreComponent.DRAWER -> ComponentScreen.Drawer
+        CoreComponent.TABS -> ComponentScreen.Tabs
+        CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -439,7 +464,11 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.LOADER -> R.id.nav_loader
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
+        CoreComponent.CODE_FIELD -> R.id.nav_code_field
+        CoreComponent.CODE_INPUT -> R.id.nav_code_input
         CoreComponent.DRAWER -> R.id.nav_drawer
+        CoreComponent.TABS -> R.id.nav_tabs
+        CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }
@@ -531,6 +560,8 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.LOADER -> loader(context, style)
         CoreComponent.ACCORDION -> accordion(context, style)
         CoreComponent.DRAWER -> drawer(context, style)
+        CoreComponent.CODE_FIELD -> codeField(context, style)
+        CoreComponent.CODE_INPUT -> codeInput(context, style)
         CoreComponent.BUTTON_GROUP -> {
             if (componentKey.value.contains("Icon")) {
                 buttonGroup(context, style, iconButton = true)
@@ -538,6 +569,8 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 buttonGroup(context, style)
             }
         }
+        CoreComponent.TABS -> tabs(context, style)
+        CoreComponent.ICON_TABS -> iconTabs(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

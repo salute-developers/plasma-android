@@ -819,6 +819,10 @@
     <dimen name="sdkit_cmp_dropdown_menu_width_xs">320.0dp</dimen>
     <dimen name="sdkit_cmp_scroll_bar_width_s">4.0dp</dimen>
     <dimen name="sdkit_cmp_scroll_bar_width_m">8.0dp</dimen>
+    <dimen name="sdkit_cmp_wheel_item_text_after_padding_h1">4.0dp</dimen>
+    <dimen name="sdkit_cmp_wheel_description_padding_h1">16.0dp</dimen>
+    <dimen name="sdkit_cmp_wheel_separator_spacing_h1">80.0dp</dimen>
+    <dimen name="sdkit_cmp_wheel_item_min_spacing_h1">40.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_spacing_xs_wide">16.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_shapeAdjustment_xs_wide_segmented">-4.0dp</dimen>
     <dimen name="sdkit_cmp_basic_button_group_spacing_xs_dense">4.0dp</dimen>
