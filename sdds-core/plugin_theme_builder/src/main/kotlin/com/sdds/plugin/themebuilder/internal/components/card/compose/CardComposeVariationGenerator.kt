@@ -94,6 +94,9 @@ internal class CardComposeVariationGenerator(
                 props.backgroundColor?.let {
                     appendLine(getColor("backgroundColor", it))
                 }
+                props.labelColor?.let {
+                    appendLine(getColor("labelColor", it))
+                }
                 append("}")
             }
         } else {
@@ -102,9 +105,11 @@ internal class CardComposeVariationGenerator(
     }
 
     private fun CardProperties.hasColors(): Boolean {
-        return backgroundColor != null
+        return backgroundColor != null ||
+            labelColor != null
     }
 
+    @Suppress("CyclomaticComplexMethod")
     private fun dimensionsCall(
         props: CardProperties,
         variationId: String,
@@ -142,6 +147,12 @@ internal class CardComposeVariationGenerator(
                 props.contentMinHeight?.let {
                     appendDimension("contentMinHeight", it, variationId)
                 }
+                props.contentMaxWidth?.let {
+                    appendDimension("contentMaxWidth", it, variationId)
+                }
+                props.contentMaxHeight?.let {
+                    appendDimension("contentMaxHeight", it, variationId)
+                }
                 props.mainAxisGap?.let {
                     appendDimension("mainAxisGap", it, variationId)
                 }
@@ -163,6 +174,8 @@ internal class CardComposeVariationGenerator(
             contentPaddingBottom != null ||
             contentMinWidth != null ||
             contentMinHeight != null ||
+            contentMaxWidth != null ||
+            contentMaxHeight != null ||
             mainAxisGap != null
     }
 

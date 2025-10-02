@@ -65,6 +65,12 @@ interface CardStyle : Style {
 interface CardColors {
 
     /**
+     * Цвет текса в label
+     * @see InteractiveColor
+     */
+    val labelColor: InteractiveColor
+
+    /**
      * Цвет фона
      * @see InteractiveColor
      */
@@ -126,6 +132,16 @@ interface CardDimensions {
      * Минимальная высота контента
      */
     val contentMinHeight: Dp
+
+    /**
+     * Максимальная ширина контента
+     */
+    val contentMaxWidth: Dp
+
+    /**
+     * Максимальная высота контента
+     */
+    val contentMaxHeight: Dp
 
     /**
      * Отступ между content и label

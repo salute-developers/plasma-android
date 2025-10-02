@@ -230,6 +230,37 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonTerminate
         }
         .wrap(::WrapperIconButtonTerminate)
 
+public val WrapperIconButtonView.Accent: WrapperIconButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
+                ),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
+        }
+        .wrap(::WrapperIconButtonTerminate)
+
 public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
     @Composable
     get() = builder

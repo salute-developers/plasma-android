@@ -233,7 +233,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .dimensions {
             optionalPadding(4.0.dp)
             helperTextPadding(4.0.dp)
-            chipsPadding(6.0.dp)
         }
         .captionStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .counterStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
@@ -542,7 +541,7 @@ public val WrapperTextFieldL.InnerLabel: WrapperTextFieldLInnerLabel
             labelPadding(2.0.dp)
         }
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .optionalStyle(PlasmaHomeDsTheme.typography.bodyLNormal)
+        .optionalStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(

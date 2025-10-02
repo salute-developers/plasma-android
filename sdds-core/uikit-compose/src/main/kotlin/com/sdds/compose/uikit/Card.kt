@@ -5,6 +5,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
@@ -124,6 +126,7 @@ fun Card(
  * @param enabled флаг доступности карточки
  * @param indication [Indication]
  * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
+ * @param contentFocusSelectorSettings режим отображения фокуса контента [FocusSelectorSettings]
  * @param orientation расположение контента внутри карточки [CardOrientation]
  * @param contentPaddings отступ внутри контента
  * @param extra слот для дополнительного контента (к нему не применяются contentPadding)
@@ -139,10 +142,11 @@ fun Card(
     onClick: () -> Unit = {},
     enabled: Boolean = true,
     indication: Indication? = null,
-    focusSelectorSettings: FocusSelectorSettings,
+    focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
+    contentFocusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.None,
     orientation: CardOrientation = CardOrientation.Vertical,
     contentPaddings: PaddingValues = style.toPaddingValues(),
-    extra: (@Composable () -> Unit)? = null,
+    extra: (@Composable BoxScope.() -> Unit)? = null,
     label: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit),
@@ -167,8 +171,29 @@ fun Card(
             bottom = style.dimensions.paddingBottom,
         )
     when (orientation) {
-        CardOrientation.Vertical -> VerticalCard(cardModifier, style, contentPaddings, content, extra, label)
-        CardOrientation.Horizontal -> HorizontalCard(cardModifier, style, contentPaddings, content, extra, label)
+        CardOrientation.Vertical ->
+            VerticalCard(
+                modifier = cardModifier,
+                style = style,
+                contentPaddings = contentPaddings,
+                contentFocusSelectorSettings = contentFocusSelectorSettings,
+                content = content,
+                extra = extra,
+                label = label,
+                interactionSource = interactionSource,
+            )
+
+        CardOrientation.Horizontal ->
+            HorizontalCard(
+                modifier = cardModifier,
+                style = style,
+                contentPaddings = contentPaddings,
+                contentFocusSelectorSettings = contentFocusSelectorSettings,
+                content = content,
+                extra = extra,
+                label = label,
+                interactionSource = interactionSource,
+            )
     }
 }
 
@@ -222,14 +247,14 @@ fun CardContent(
     val shape = style.contentShape
     Box(
         modifier = Modifier
-            .widthIn(min = style.dimensions.contentMinWidth)
-            .heightIn(min = style.dimensions.contentMinHeight)
+            .widthIn(min = style.dimensions.contentMinWidth, max = style.dimensions.contentMaxWidth)
+            .heightIn(min = style.dimensions.contentMinHeight, max = style.dimensions.contentMaxHeight)
             .focusSelector(
                 focusSelectorSettings,
                 shape = shape,
             ) { isFocused }
-            .clip(shape)
-            .then(modifier),
+            .then(modifier)
+            .clip(shape),
         contentAlignment = Alignment.Center,
     ) {
         content()
@@ -256,10 +281,13 @@ private fun VerticalCard(
     modifier: Modifier,
     style: CardStyle,
     contentPaddings: PaddingValues,
+    contentFocusSelectorSettings: FocusSelectorSettings,
     content: (@Composable () -> Unit),
-    extra: (@Composable () -> Unit)? = null,
+    extra: (@Composable BoxScope.() -> Unit)? = null,
     label: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource,
 ) {
+    val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -267,12 +295,10 @@ private fun VerticalCard(
     ) {
         CompositionLocalProvider(LocalCardStyle provides style) {
             Box {
-                Box(
+                CardContent(
                     modifier = Modifier
-                        .widthIn(min = style.dimensions.contentMinWidth)
-                        .heightIn(min = style.dimensions.contentMinHeight)
                         .padding(contentPaddings),
-                    contentAlignment = Alignment.Center,
+                    focusSelectorSettings = contentFocusSelectorSettings,
                 ) {
                     content()
                 }
@@ -280,12 +306,17 @@ private fun VerticalCard(
                     modifier = Modifier
                         .matchParentSize(),
                 ) {
-                    extra?.invoke()
+                    extra?.invoke(this)
                 }
             }
         }
-        CompositionLocalProvider(LocalTextStyle provides style.labelStyle) {
-            label?.invoke()
+        CompositionLocalProvider(LocalTextStyle provides style.labelStyle.copy(color = labelColor)) {
+            Box(
+                modifier = Modifier
+                    .widthIn(max = style.dimensions.contentMaxWidth),
+            ) {
+                label?.invoke()
+            }
         }
     }
 }
@@ -295,10 +326,13 @@ private fun HorizontalCard(
     modifier: Modifier,
     style: CardStyle,
     contentPaddings: PaddingValues,
+    contentFocusSelectorSettings: FocusSelectorSettings,
     content: (@Composable () -> Unit),
-    extra: (@Composable () -> Unit)? = null,
+    extra: (@Composable BoxScope.() -> Unit)? = null,
     label: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource,
 ) {
+    val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
@@ -306,12 +340,10 @@ private fun HorizontalCard(
     ) {
         CompositionLocalProvider(LocalCardStyle provides style) {
             Box {
-                Box(
+                CardContent(
                     modifier = Modifier
-                        .widthIn(min = style.dimensions.contentMinWidth)
-                        .heightIn(min = style.dimensions.contentMinHeight)
                         .padding(contentPaddings),
-                    contentAlignment = Alignment.Center,
+                    focusSelectorSettings = contentFocusSelectorSettings,
                 ) {
                     content()
                 }
@@ -319,12 +351,19 @@ private fun HorizontalCard(
                     modifier = Modifier
                         .matchParentSize(),
                 ) {
-                    extra?.invoke()
+                    extra?.invoke(this)
                 }
             }
         }
-        CompositionLocalProvider(LocalTextStyle provides style.labelStyle) {
-            label?.invoke()
+        CompositionLocalProvider(
+            LocalTextStyle provides style.labelStyle.copy(color = labelColor),
+        ) {
+            Box(
+                modifier = Modifier
+                    .heightIn(max = style.dimensions.contentMaxHeight),
+            ) {
+                label?.invoke()
+            }
         }
     }
 }

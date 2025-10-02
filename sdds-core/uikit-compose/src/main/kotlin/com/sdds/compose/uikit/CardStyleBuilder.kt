@@ -66,6 +66,17 @@ interface CardStyleBuilder : StyleBuilder<CardStyle> {
 interface CardColorsBuilder {
 
     /**
+     * Устанавливает цвет лэйбла
+     */
+    fun labelColor(labelColor: Color): CardColorsBuilder =
+        labelColor(labelColor.asInteractive())
+
+    /**
+     * Устанавливает цвет лэйбла
+     */
+    fun labelColor(labelColor: InteractiveColor): CardColorsBuilder
+
+    /**
      * Устанавливает цвет [backgroundColor] фона компонента.
      * @see CardColors.backgroundColor
      * @see InteractiveColor
@@ -149,6 +160,16 @@ interface CardDimensionsBuilder {
     fun contentMinHeight(minHeight: Dp): CardDimensionsBuilder
 
     /**
+     * Устанавливает максимальную ширину контента
+     */
+    fun contentMaxWidth(maxWidth: Dp): CardDimensionsBuilder
+
+    /**
+     * Устанавливает максимальную высоту контента
+     */
+    fun contentMaxHeight(maxHeight: Dp): CardDimensionsBuilder
+
+    /**
      * Устанавливает отступ между content и label
      */
     fun mainAxisGap(gap: Dp): CardDimensionsBuilder
@@ -174,6 +195,8 @@ private class DefaultCardDimensions(
     override val paddingBottom: Dp,
     override val contentMinWidth: Dp,
     override val contentMinHeight: Dp,
+    override val contentMaxWidth: Dp,
+    override val contentMaxHeight: Dp,
     override val mainAxisGap: Dp,
     override val contentPaddingStart: Dp,
     override val contentPaddingEnd: Dp,
@@ -192,6 +215,8 @@ private class DefaultCardDimensions(
         private var contentPBottom: Dp? = null
         private var minWidth: Dp? = null
         private var minHeight: Dp? = null
+        private var maxWidth: Dp? = null
+        private var maxHeight: Dp? = null
         private var gap: Dp? = null
 
         override fun paddingStart(pStart: Dp): CardDimensionsBuilder = apply {
@@ -234,6 +259,14 @@ private class DefaultCardDimensions(
             this.minHeight = minHeight
         }
 
+        override fun contentMaxWidth(maxWidth: Dp): CardDimensionsBuilder = apply {
+            this.maxWidth = maxWidth
+        }
+
+        override fun contentMaxHeight(maxHeight: Dp): CardDimensionsBuilder = apply {
+            this.maxHeight = maxHeight
+        }
+
         override fun mainAxisGap(gap: Dp): CardDimensionsBuilder = apply {
             this.gap = gap
         }
@@ -250,6 +283,8 @@ private class DefaultCardDimensions(
                 contentPaddingBottom = contentPBottom ?: 8.dp,
                 contentMinWidth = minWidth ?: 0.dp,
                 contentMinHeight = minHeight ?: 0.dp,
+                contentMaxWidth = maxWidth ?: Dp.Unspecified,
+                contentMaxHeight = maxHeight ?: Dp.Unspecified,
                 mainAxisGap = gap ?: 0.dp,
             )
         }
@@ -259,9 +294,15 @@ private class DefaultCardDimensions(
 @Immutable
 private class DefaultCardColors(
     override val backgroundColor: InteractiveColor,
+    override val labelColor: InteractiveColor,
 ) : CardColors {
     class Builder : CardColorsBuilder {
         private var backgroundColor: InteractiveColor? = null
+        private var labelColor: InteractiveColor? = null
+
+        override fun labelColor(labelColor: InteractiveColor): CardColorsBuilder = apply {
+            this.labelColor = labelColor
+        }
 
         override fun backgroundColor(backgroundColor: InteractiveColor): CardColorsBuilder = apply {
             this.backgroundColor = backgroundColor
@@ -270,6 +311,7 @@ private class DefaultCardColors(
         override fun build(): CardColors {
             return DefaultCardColors(
                 backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
+                labelColor = labelColor ?: Color.Black.asInteractive(),
             )
         }
     }

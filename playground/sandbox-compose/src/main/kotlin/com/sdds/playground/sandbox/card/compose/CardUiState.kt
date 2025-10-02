@@ -8,7 +8,8 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class CardUiState(
     override val variant: String = "",
-    val orientation: CardOrientation = CardOrientation.VERTICAL,
+    val orientation: Orientation = Orientation.VERTICAL,
+    val label: String = "Title",
 
 ) : UiState {
     override fun updateVariant(variant: String): UiState {
@@ -16,7 +17,7 @@ internal data class CardUiState(
     }
 }
 
-internal enum class CardOrientation {
+internal enum class Orientation {
     VERTICAL,
     HORIZONTAL,
 }

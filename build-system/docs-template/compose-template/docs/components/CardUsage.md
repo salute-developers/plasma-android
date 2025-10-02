@@ -52,29 +52,19 @@ Card(
 ```kotlin
 Card(
     style = CardSolid.L.style(),
-    focusSelectorSettings = LocalFocusSelectorSettings.current,
-    orientation = CardOrientation.Vertical,
     label = { Text("Title") },
     extra = {
-        Box(
-            modifier = Modifier.matchParentSize(),
-            contentAlignment = Alignment.BottomEnd,
-        ) {
-            IconButton(Icons.ic_plasma_24) { }
-        }
+        IconButton(
+            Icons.ic_plasma_24,
+            modifier = Modifier.align(Alignment.BottomEnd),
+        ) { }
     },
-) {
-    CardContent(
-        modifier = Modifier,
-        style = style,
-        focusSelectorSettings = FocusSelectorSettings.None,
     ) {
         Image(
             contentScale = ContentScale.Crop,
             painter = painterResource(id = R.drawable.il_avatar_test),
             contentDescription = "Android",
         )
-    }
 }
 ```
 

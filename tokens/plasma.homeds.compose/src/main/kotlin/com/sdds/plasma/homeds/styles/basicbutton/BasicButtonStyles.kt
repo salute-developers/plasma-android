@@ -306,6 +306,54 @@ public val WrapperBasicButtonView.Warning: WrapperBasicButtonTerminate
         .loadingAlpha(0.0f)
         .wrap(::WrapperBasicButtonTerminate)
 
+public val WrapperBasicButtonView.Accent: WrapperBasicButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceOnDarkSolidDefaultHover,
+                ),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            labelColor(
+                PlasmaHomeDsTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkPrimaryHover,
+                ),
+            )
+            valueColor(
+                PlasmaHomeDsTheme.colors.textOnDarkSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textOnDarkSecondaryHover,
+                ),
+            )
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultAccent.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultAccentHover,
+                ),
+            )
+        }
+        .loadingAlpha(0.0f)
+        .wrap(::WrapperBasicButtonTerminate)
+
 public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
     @Composable
     get() = builder
