@@ -2,9 +2,13 @@ package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComposeOrAll
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.components.ComponentInfo
+import com.sdds.plugin.themebuilder.internal.components.ConfigInfo
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
+import com.sdds.plugin.themebuilder.internal.components.VariationsInfoProviderFactory
 import com.sdds.plugin.themebuilder.internal.components.base.Components
 import com.sdds.plugin.themebuilder.internal.components.componentDelegates
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -16,6 +20,8 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.encodeToStream
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.provider.Property
@@ -93,26 +99,82 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     fun generate() {
         val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
-
+        val composeComponents = mutableListOf<ComponentInfo>()
+        val viewComponents = mutableListOf<ComponentInfo>()
         metaInfo.components.forEach { component ->
             try {
                 val configFile = componentsDir
                     .file(component.config)
                     .asFile
                 val componentDelegate = componentDelegates[component.componentName]
-                componentDelegate?.generate(
-                    file = configFile,
-                    deps = deps,
-                    component = component,
-                )
+                if (deps.target.isComposeOrAll) {
+                    val componentInfo = componentDelegate?.generateComposeStyles(
+                        file = configFile,
+                        deps = deps,
+                        component = component,
+                    )
+                    componentInfo?.let(composeComponents::add)
+                }
+
+                if (deps.target.isViewSystemOrAll) {
+                    val componentInfo = componentDelegate?.generateViewSystemStyles(
+                        file = configFile,
+                        deps = deps,
+                        component = component,
+                    )
+                    componentInfo?.let(viewComponents::add)
+                }
             } catch (e: Exception) {
                 logger.error("Style generating failed for component ${component.config}", e)
             }
         }
 
-        if (target.get().isViewSystemOrAll || dimensionsConfig.get().fromResources) {
+        writeComposeOutputInfo(composeComponents, metaInfo.name)
+        writeViewSystemOutputInfo(viewComponents, metaInfo.name)
+
+        if (deps.target.isViewSystemOrAll || dimensionsConfig.get().fromResources) {
             deps.dimensGenerator.generate()
         }
+    }
+
+    @OptIn(ExperimentalSerializationApi::class)
+    private fun writeComposeOutputInfo(components: MutableList<ComponentInfo>, name: String) {
+        if (components.isEmpty()) return
+        val configInfo = ConfigInfo(
+            name = name,
+            components = components,
+        )
+        outputFileForCompose.outputStream().use {
+            Serializer.configInfo.encodeToStream(configInfo, it)
+        }
+    }
+
+    @OptIn(ExperimentalSerializationApi::class)
+    private fun writeViewSystemOutputInfo(components: MutableList<ComponentInfo>, name: String) {
+        if (components.isEmpty()) return
+        val configInfo = ConfigInfo(
+            name = name,
+            components = components,
+        )
+        outputFileForViewSystem.outputStream().use {
+            Serializer.configInfo.encodeToStream(configInfo, it)
+        }
+    }
+
+    private val outputFileForViewSystem: File by unsafeLazy {
+        createJsonFileFor(ThemeBuilderTarget.VIEW_SYSTEM)
+    }
+
+    private val outputFileForCompose: File by unsafeLazy {
+        createJsonFileFor(ThemeBuilderTarget.COMPOSE)
+    }
+
+    private fun createJsonFileFor(target: ThemeBuilderTarget): File {
+        val platformPostfix = target.name.lowercase().replace('_', '-')
+        return projectDir
+            .get()
+            .file("$CONFIG_INFO_FILE_NAME-$platformPostfix.json")
+            .asFile
     }
 
     private val metaInfo: Components by unsafeLazy {
@@ -166,10 +228,12 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
             target = target.get(),
+            variationsInfoProviderFactory = VariationsInfoProviderFactory(),
         )
     }
 
     private companion object {
         const val META_FILE_NAME = "meta.json"
+        const val CONFIG_INFO_FILE_NAME = "config-info"
     }
 }
