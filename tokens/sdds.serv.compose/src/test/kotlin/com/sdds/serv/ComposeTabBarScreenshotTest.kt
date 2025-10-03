@@ -27,6 +27,7 @@ import com.sdds.serv.styles.tabbar.TabBarSolid
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.tabbar.TabBarCounter
 import com.sdds.testing.compose.tabbar.TabBarCounterCountSix
+import com.sdds.testing.compose.tabbar.TabBarCustomWeight
 import com.sdds.testing.compose.tabbar.TabBarExtraNone
 import com.sdds.testing.compose.tabbar.TabBarIndicator
 import com.sdds.testing.vs.SDK_NUMBER
@@ -201,6 +202,13 @@ class ComposeTabBarScreenshotTest(
     fun testTabBarSolidShadowRoundedDefaultExtraNone() {
         composeTestRule.content {
             TabBarExtraNone(style = TabBarSolid.L.Shadow.Rounded.Default.style())
+        }
+    }
+
+    @Test
+    fun testTabBarCustomWeight() {
+        composeTestRule.content {
+            TabBarCustomWeight(style = TabBarIslandSolid.L.Default.style())
         }
     }
 }

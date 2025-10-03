@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Card
 import com.sdds.compose.uikit.CardContent
 import com.sdds.compose.uikit.CardStyle
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
@@ -99,6 +100,57 @@ fun CardHorizontal(style: CardStyle) {
                 focusSelectorSettings = FocusSelectorSettings.None,
             ) {
                 Image(
+                    contentScale = ContentScale.Crop,
+                    painter = painterResource(id = R.drawable.il_avatar_for_test),
+                    contentDescription = "Android",
+                )
+                Text(
+                    text = "Content",
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Card with extra
+ */
+@Composable
+fun CardHorizontalExtra(style: CardStyle) {
+    Card(
+        modifier = Modifier
+            .width(200.dp)
+            .height(100.dp),
+        style = style,
+        extra = {
+            IconButton(
+                com.sdds.icons.R.drawable.ic_plasma_24,
+                modifier = Modifier.align(Alignment.BottomEnd),
+            ) { }
+        },
+        focusSelectorSettings = LocalFocusSelectorSettings.current,
+    ) {
+        Row {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .weight(1f),
+            ) {
+                Text(
+                    "Card text",
+                    modifier = Modifier
+                        .align(Alignment.Center),
+                )
+            }
+            CardContent(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .weight(1f),
+                style = style,
+                focusSelectorSettings = FocusSelectorSettings.None,
+            ) {
+                Image(
+                    modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,
                     painter = painterResource(id = R.drawable.il_avatar_for_test),
                     contentDescription = "Android",
