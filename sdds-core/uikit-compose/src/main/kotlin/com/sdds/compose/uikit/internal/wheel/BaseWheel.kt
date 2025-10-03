@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
@@ -296,6 +297,7 @@ private fun ColumnScope.TopControl(
     val upInteractionSource = remember { MutableInteractionSource() }
     Icon(
         modifier = Modifier
+            .testTag("top_control")
             .align(alignment.getButtonAlignment())
             .clickable(
                 interactionSource = upInteractionSource,
@@ -322,6 +324,7 @@ private fun ColumnScope.BottomControl(
     val downInteractionSource = remember { MutableInteractionSource() }
     Icon(
         modifier = Modifier
+            .testTag("bottom_control")
             .align(alignment.getButtonAlignment())
             .clickable(
                 interactionSource = downInteractionSource,
