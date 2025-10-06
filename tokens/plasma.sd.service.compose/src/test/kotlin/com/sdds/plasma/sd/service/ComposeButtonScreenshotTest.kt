@@ -103,7 +103,7 @@ class ComposeButtonScreenshotTest(
     @Test
     fun testButtonSizeLDefault() {
         composeTestRule.content {
-            ButtonSizeLDefault(style = BasicButton.L.Default.style())
+            ButtonSizeLDefault(style = BasicButton.M.Default.style())
         }
     }
 
