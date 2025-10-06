@@ -39,6 +39,7 @@ jobs:
           module="${{ matrix.module }}"
           module="${module#:}"
           safe_path="${module//:/\/}"
+          safe_path="$(echo "$safe_path" | tr '\\' '/')"
           echo "dir=$safe_path" >> $GITHUB_OUTPUT  
 
       - name: verify screenshots
