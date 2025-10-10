@@ -39,6 +39,7 @@ jobs:
           module="${{ matrix.module }}"
           module="${module#:}"
           safe_path="${module//:/\/}"
+          safe_path="$(echo "$safe_path" | tr '\\' '/')"
           echo "dir=$safe_path" >> $GITHUB_OUTPUT
 
       - name: verify screenshots
@@ -51,19 +52,19 @@ jobs:
         if: always()
         with:
           name: screenshot-diff
-          path: tokens/${{ steps.module_dir.outputs.dir }}/build/outputs/roborazzi
+          path: ${{ steps.module_dir.outputs.dir }}/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshot-diff-reports
-          path: tokens/${{ steps.module_dir.outputs.dir }}/build/reports
+          path: ${{ steps.module_dir.outputs.dir }}/build/reports
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshot-diff-test-results
-          path: tokens/${{ steps.module_dir.outputs.dir }}/build/test-results
+          path: ${{ steps.module_dir.outputs.dir }}/build/test-results
           retention-days: 30
