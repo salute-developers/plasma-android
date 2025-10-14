@@ -23,6 +23,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ChipUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     override val colorVariant: String = "",
     val label: String = "Label",
     val contentLeft: Boolean = true,
@@ -33,8 +34,8 @@ data class ChipUiState(
     val gravityMode: GravityMode = GravityMode.Start,
     val selectionMode: ChipGroup.SelectionMode = ChipGroup.SelectionMode.Single,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 
     override fun updateColorVariant(colorVariant: String): UiState {

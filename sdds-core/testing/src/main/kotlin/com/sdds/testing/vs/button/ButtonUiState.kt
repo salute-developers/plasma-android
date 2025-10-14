@@ -24,6 +24,7 @@ import com.sdds.icons.R.drawable as Icons
 @Parcelize
 data class ButtonUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val icon: ButtonIcon = ButtonIcon.No,
     val buttonLabel: String = "Label",
     val buttonValue: String? = null,
@@ -34,8 +35,8 @@ data class ButtonUiState(
     val orientation: GroupOrientation = GroupOrientation.Horizontal,
     val amount: Int = 3,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return this.copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return this.copy(appearance = appearance, variant = variant)
     }
 }
 

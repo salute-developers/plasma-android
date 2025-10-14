@@ -21,6 +21,7 @@ import com.sdds.testing.vs.popover.PopoverTriggerAlignment
  */
 data class DropdownMenuUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     override val colorVariant: String = "",
     val amount: Int = 3,
     val itemTitle: String = "Title",
@@ -31,8 +32,8 @@ data class DropdownMenuUiState(
     val alignment: PopoverAlignment = PopoverAlignment.CENTER,
     val triggerAlignment: PopoverTriggerAlignment = PopoverTriggerAlignment.CENTER,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 
     override fun updateColorVariant(colorVariant: String): UiState {

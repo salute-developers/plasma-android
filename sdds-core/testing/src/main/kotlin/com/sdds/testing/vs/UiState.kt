@@ -6,14 +6,21 @@ package com.sdds.testing.vs
 interface UiState {
 
     /**
+     * Внешний вид компонента
+     */
+    val appearance: String
+        get() = ""
+
+    /**
      * Вариация компонента
      */
     val variant: String
+        get() = ""
 
     /**
      * Создает копию текущего состояния с новым [variant]
      */
-    fun updateVariant(variant: String): UiState
+    fun updateVariant(appearance: String = this.appearance, variant: String = this.variant): UiState
 
     /**
      * Опциональная цветовая вариация компонента

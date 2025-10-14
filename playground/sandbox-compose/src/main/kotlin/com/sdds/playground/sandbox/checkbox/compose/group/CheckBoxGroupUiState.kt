@@ -12,12 +12,13 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class CheckBoxGroupUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val rootItem: CheckBoxGroupItem? = ROOT_ITEM,
     val items: List<CheckBoxGroupItem> = ITEMS,
     val enabled: Boolean = true,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 
     internal companion object {

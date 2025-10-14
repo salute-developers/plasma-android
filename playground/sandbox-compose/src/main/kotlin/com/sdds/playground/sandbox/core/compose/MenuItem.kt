@@ -165,9 +165,15 @@ internal class MenuItem(
 }
 
 internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
-    return all.map { (key, value) ->
-        MenuItem(value.name, key, key.core.screen())
-    }.sortedBy { it.title }
+    return all.mapNotNull { (key, value) ->
+        val screen = key.core.screen().takeIf { it !is ComponentScreen.Empty } ?: return@mapNotNull null
+        MenuItem(value.name, key, screen)
+    }.sortedWith(
+        compareBy(
+            { it.componentKey.group.ordinal },
+            { it.title },
+        ),
+    )
 }
 
 internal sealed class ComponentScreen(

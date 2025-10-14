@@ -31,7 +31,7 @@ internal class TextAreaFragment : ComponentFragment<TextFieldUiState, TextArea, 
     }
 
     override fun onComponentUpdate(component: TextArea?, state: TextFieldUiState) {
-        component?.applyState(state, componentViewModel.getStyleProvider().colorState(state.colorVariant))
+        component?.applyState(state)
     }
 
     private var shouldDeleteChip: Boolean = false

@@ -34,7 +34,7 @@ internal class PropertiesFragment : Fragment(), PropertiesAdapter.InteractionLis
                 propertiesAdapter.setInteractionListener(this@PropertiesFragment)
                 header.propertyValueReset.setOnClickListener { _componentViewModel.resetToDefault() }
                 header.headerTitle.text = _componentViewModel.componentKey.value
-                header.headerLabel.text = _componentViewModel.componentKey.core.name
+                header.headerLabel.text = _componentViewModel.componentKey.group.displayName
             }
             .also { _binding = it }
             .root

@@ -1,0 +1,18 @@
+package ${{ packageName }}
+
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.core.integration.component.ViewComponent
+
+/**
+ *  Компоненты
+ */
+object ${{ themeName }}ViewComponents : ComponentsProviderView {
+
+    override val all: Map<ComponentKey, ViewComponent<String>> =
+        listOf(
+            ${{ components }}
+        ).associateBy { it.key }
+}

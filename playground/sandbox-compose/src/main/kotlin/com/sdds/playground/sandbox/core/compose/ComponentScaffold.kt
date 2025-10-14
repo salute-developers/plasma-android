@@ -80,7 +80,7 @@ private fun <State : UiState, S : Style> MobileScaffold(
         bottomSheetState = sheetState,
         sheetPeekHeight = 74.dp,
         bottomSheetContent = {
-            AnimatedMenuProperty(title = "${key.core},${key.value}", viewModel = viewModel)
+            AnimatedMenuProperty(title = "${key.group.displayName},${key.value}", viewModel = viewModel)
         },
     ) { sheetHeight ->
         var top by remember { mutableFloatStateOf(0f) }
@@ -107,7 +107,8 @@ private fun <State : UiState, S : Style> MobileScaffold(
                 runCatching {
                     component(
                         uiState,
-                        themeInfo.components.get<String, S>(key).styleProvider.style(uiState.variant),
+                        themeInfo.components.get<String, S>(key)
+                            .styleProviders[uiState.appearance]!!.style(uiState.variant),
                     )
                 }
             }
@@ -132,7 +133,7 @@ private fun <State : UiState, S : Style> TvScaffold(
                 .fillMaxHeight()
                 .width(240.dp),
         ) {
-            AnimatedMenuProperty(title = "${key.core},${key.value}", viewModel = viewModel)
+            AnimatedMenuProperty(title = "${key.group.displayName},${key.value}", viewModel = viewModel)
         }
         val uiState by viewModel.uiState.collectAsState()
         Box(
@@ -144,10 +145,14 @@ private fun <State : UiState, S : Style> TvScaffold(
             val currentTheme by themeManager.currentTheme.collectAsState()
             val themeInfo = composeTheme(currentTheme)
             themeInfo.themeWrapper {
-                component(
-                    uiState,
-                    themeInfo.components.get<String, S>(key).styleProvider.style(uiState.variant),
-                )
+                val styleProvider = themeInfo.components.get<String, S>(key)
+                    .styleProviders[uiState.appearance]
+                if (styleProvider != null) {
+                    component(
+                        uiState,
+                        styleProvider.style(uiState.variant),
+                    )
+                }
             }
         }
     }

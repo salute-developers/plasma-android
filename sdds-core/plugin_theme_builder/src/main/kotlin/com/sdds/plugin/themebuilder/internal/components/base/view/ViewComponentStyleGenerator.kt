@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.base.view
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
+import com.sdds.plugin.themebuilder.internal.components.VariationReference
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
@@ -69,11 +70,30 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val valueStateListGenerators =
         mutableMapOf<String?, MutableMap<Property, ValueStateListGenerator<*, *, *>?>>()
 
-    override fun generate(config: T) {
+    private val variations: MutableMap<String, VariationReference> = mutableMapOf()
+    private val variationOverlays: MutableMap<String, VariationReference> = mutableMapOf()
+
+    override fun generate(config: T): ComponentStyleGenerator.Result {
         onGenerate(xmlResourceBuilder, config)
         colorStateAttributesGenerator.generate()
         xmlResourceBuilder.build(outputResDir.componentStyleXmlFile(styleComponentName))
         valueStateListGenerators.values.flatMap { it.values }.forEach { it?.generate() }
+
+        if (variations.isEmpty()) {
+            variations["default"] = VariationReference(
+                "${xmlResourceBuilder.resPrefix}.$baseStyleName",
+            )
+            variationOverlays["default"] = VariationReference(
+                "${xmlResourceBuilder.resPrefix}.$baseOverlayStyleName",
+            )
+        }
+
+        return ComponentStyleGenerator.Result.Xml(
+            coreName = coreComponentName.capitalized(),
+            styleName = styleComponentName.capitalized(),
+            variations = variations,
+            overlays = variationOverlays,
+        )
     }
 
     abstract fun onGenerate(xmlResourcesBuilder: XmlResourcesDocumentBuilder, config: T)
@@ -110,7 +130,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
             }
         }
         if (withOverlay) {
-            overlayStyle("") {
+            overlayStyle("", rawVariationName = "") {
                 valueAttribute(defStyleAttr, resourceReferenceProvider.style(baseStyleName))
             }
         }
@@ -134,13 +154,16 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         name: String,
         withOverlay: Boolean,
         overlayContent: (Element.() -> Unit)? = null,
+        rawVariationName: String? = null,
         content: Element.() -> Unit,
     ) {
         val styleName = "$baseStyleName.${name.capitalized()}"
         appendStyleWithCompositePrefix(styleName, content = content)
-
+        if (rawVariationName != null) {
+            variations[rawVariationName] = VariationReference("${xmlResourceBuilder.resPrefix}.$styleName")
+        }
         if (withOverlay) {
-            overlayStyle(name) {
+            overlayStyle(name, rawVariationName = rawVariationName) {
                 valueAttribute(defStyleAttr, resourceReferenceProvider.style(styleName))
                 overlayContent?.invoke(this)
             }
@@ -153,9 +176,14 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     protected fun XmlResourcesDocumentBuilder.overlayStyle(
         name: String,
         base: String = baseOverlayStyleName,
+        rawVariationName: String? = null,
         content: Element.() -> Unit,
     ) {
         val normalizedName = name.techToCamelCase()
+        if (rawVariationName != null) {
+            variationOverlays[rawVariationName] =
+                VariationReference("${xmlResourceBuilder.resPrefix}.$base$normalizedName")
+        }
         appendStyleWithCompositePrefix("$base$normalizedName", content = content)
     }
 

@@ -9,10 +9,11 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class CircularProgressUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val progress: Float = 0.5f,
     val trackEnabled: Boolean = true,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

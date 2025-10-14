@@ -21,6 +21,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CodeFieldUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val errorItem: String = "q",
     val codeLength: Int = 6,
     val hidden: Boolean = false,
@@ -30,7 +31,7 @@ data class CodeFieldUiState(
     val charValidateBehavior: CodeField.CharErrorBehavior = CodeField.CharErrorBehavior.Remove,
     val codeValidateBehavior: CodeField.CodeErrorBehavior = CodeField.CodeErrorBehavior.Remove,
 ) : UiState, Parcelable {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

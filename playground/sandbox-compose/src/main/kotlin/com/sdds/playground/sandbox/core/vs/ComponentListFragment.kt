@@ -25,12 +25,18 @@ import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.allViewThemes
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponentGroup
 import com.sdds.playground.sandbox.databinding.FragmentComponentListBinding
+import com.sdds.playground.sandbox.databinding.LayoutComponentGroupBinding
 import com.sdds.playground.sandbox.databinding.LayoutComponentItemBinding
 import com.sdds.playground.sandbox.databinding.LayoutMainHeaderBinding
 import com.sdds.playground.sandbox.viewTheme
 import com.sdds.uikit.NavigationDrawer
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 
 internal class ComponentListFragment : Fragment() {
@@ -62,7 +68,7 @@ internal class ComponentListFragment : Fragment() {
 
         _componentListViewModel.componentItems
             .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
-            .onEach { updateNavigation(it) }
+            .handleComponents()
             .launchIn(lifecycleScope)
     }
 
@@ -99,16 +105,34 @@ internal class ComponentListFragment : Fragment() {
         }
     }
 
-    private fun updateNavigation(menuItems: List<MenuItem>) = _binding?.apply {
-        if (navView != null) {
-            navView.populateMenu(menuItems, navController)
-            navController.addOnDestinationChangedListener { _, destination, _ ->
-                navView.setSelected(
-                    destination.id,
-                )
+    private fun Flow<List<MenuItem>>.handleComponents(): Flow<List<Any>> {
+        return _binding?.run {
+            if (navView != null) {
+                flowOn(Dispatchers.Default).onEach {
+                    navView.populateMenu(it, navController)
+                    navController.addOnDestinationChangedListener { _, destination, _ ->
+                        navView.setSelected(destination.id)
+                    }
+                }
+            } else {
+                map { it.toComponentsList() }
+                    .flowOn(Dispatchers.Default)
+                    .onEach { componentsListAdapter.updateComponents(it) }
             }
-        } else {
-            componentsListAdapter.updateComponents(menuItems)
+        } ?: this
+    }
+
+    private fun List<MenuItem>.toComponentsList(): List<ComponentListItem> {
+        var lastGroup: CoreComponentGroup? = null
+        return mutableListOf<ComponentListItem>().apply {
+            this@toComponentsList.forEach { component ->
+                val group = component.componentKey.group
+                if (lastGroup != group) {
+                    lastGroup = component.componentKey.group
+                    add(ComponentListItem.ComponentMenuGroup(group))
+                }
+                add(ComponentListItem.ComponentMenuItem(component))
+            }
         }
     }
 
@@ -187,8 +211,21 @@ internal class ComponentListFragment : Fragment() {
     }
 }
 
-private class ComponentListAdapter : RecyclerView.Adapter<ComponentListAdapter.ComponentViewHolder>() {
-    private val components = mutableListOf<MenuItem>()
+internal sealed class ComponentListItem {
+
+    abstract val id: Int
+
+    data class ComponentMenuItem(val menuItem: MenuItem) : ComponentListItem() {
+        override val id: Int = menuItem.id
+    }
+
+    data class ComponentMenuGroup(val group: CoreComponentGroup) : ComponentListItem() {
+        override val id: Int = group.hashCode()
+    }
+}
+
+private class ComponentListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val components = mutableListOf<ComponentListItem>()
     private var themedContext: ContextThemeWrapper = ContextThemeWrapper()
     private var interactionListener: InteractionListener? = null
 
@@ -207,7 +244,7 @@ private class ComponentListAdapter : RecyclerView.Adapter<ComponentListAdapter.C
         themedContext = ContextThemeWrapper(context, viewTheme(theme).themeRes)
     }
 
-    fun updateComponents(components: List<MenuItem>) {
+    fun updateComponents(components: List<ComponentListItem>) {
         val diffCallback = ComponentsDiffUtilCallback(this.components, components)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         this.components.clear()
@@ -223,15 +260,27 @@ private class ComponentListAdapter : RecyclerView.Adapter<ComponentListAdapter.C
         this.interactionListener = interactionListener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComponentViewHolder {
-        return ComponentViewHolder(
-            LayoutComponentItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false,
-            ),
-            components[viewType],
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val item = components[viewType]
+        return when (item) {
+            is ComponentListItem.ComponentMenuGroup -> ComponentGroupHolder(
+                LayoutComponentGroupBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false,
+                ),
+                item.group,
+            )
+
+            is ComponentListItem.ComponentMenuItem -> ComponentViewHolder(
+                LayoutComponentItemBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false,
+                ),
+                item.menuItem,
+            )
+        }
     }
 
     override fun getItemCount(): Int = components.size
@@ -240,7 +289,17 @@ private class ComponentListAdapter : RecyclerView.Adapter<ComponentListAdapter.C
 
     override fun getItemViewType(position: Int): Int = position
 
-    override fun onBindViewHolder(holder: ComponentViewHolder, position: Int) = Unit
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) = Unit
+
+    inner class ComponentGroupHolder(
+        itemViewBinding: LayoutComponentGroupBinding,
+        group: CoreComponentGroup,
+    ) : RecyclerView.ViewHolder(itemViewBinding.root) {
+
+        init {
+            itemViewBinding.componentGroup.text = group.displayName
+        }
+    }
 
     inner class ComponentViewHolder(
         itemViewBinding: LayoutComponentItemBinding,
@@ -265,8 +324,8 @@ private class ComponentListAdapter : RecyclerView.Adapter<ComponentListAdapter.C
 }
 
 private class ComponentsDiffUtilCallback(
-    private val old: List<MenuItem>,
-    private val new: List<MenuItem>,
+    private val old: List<ComponentListItem>,
+    private val new: List<ComponentListItem>,
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = old.size
 

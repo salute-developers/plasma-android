@@ -15,6 +15,7 @@ import com.sdds.uikit.overlays.OverlayPosition
  */
 data class NotificationUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val text: String = "Notification Text",
     val position: OverlayPosition = OverlayPosition.BottomEnd,
     val autoDismiss: Boolean = false,
@@ -23,7 +24,7 @@ data class NotificationUiState(
     val hasAnimation: Boolean = true,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

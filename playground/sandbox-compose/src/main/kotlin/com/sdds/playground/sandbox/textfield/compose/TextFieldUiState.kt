@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
 internal data class TextFieldUiState(
     val textFieldValue: TextFieldValue = TextFieldValue("Value"),
     override val variant: String = "",
+    override val appearance: String = "",
     val labelText: String = "Label",
     val optionalText: String = "Optional",
     val placeholderText: String = "Placeholder",
@@ -19,7 +20,7 @@ internal data class TextFieldUiState(
     val suffix: String = "",
     val prefix: String = "",
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

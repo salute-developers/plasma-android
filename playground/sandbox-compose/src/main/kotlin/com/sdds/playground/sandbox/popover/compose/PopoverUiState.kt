@@ -8,6 +8,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class PopoverUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val triggerPlacement: TriggerPlacement = TriggerPlacement.Center,
     val alignment: PopoverAlignment = PopoverAlignment.Start,
     val placement: PopoverPlacement = PopoverPlacement.Top,
@@ -17,8 +18,8 @@ internal data class PopoverUiState(
     val autoHide: Boolean = false,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

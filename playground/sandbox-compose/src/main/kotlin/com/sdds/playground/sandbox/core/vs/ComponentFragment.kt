@@ -47,6 +47,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
     private var verticalScrollView: ScrollView? = null
     private var horizontalScrollView: HorizontalScrollView? = null
     private var currentVariant = ""
+    private var currentAppearance = ""
     protected var componentRef: Component? = null
     private val componentContainer
         get() = _binding?.root?.findViewById<FrameLayout>(R.id.component_container_id)
@@ -61,7 +62,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
     private val contextThemeWrapper: ContextThemeWrapper
         get() {
             val style = runCatching {
-                componentViewModel.getStyleProvider().styleRes(currentVariant)
+                componentViewModel.getStyleProvider(currentAppearance).styleRes(currentVariant)
             }.getOrElse { 0 }
             return ContextThemeWrapper(componentContainer?.context, style)
         }
@@ -160,6 +161,10 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
         componentViewModel.uiState
             .onEach {
                 var dispatchStyleChanged = false
+                if (currentAppearance != it.appearance) {
+                    currentAppearance = it.appearance
+                    dispatchStyleChanged = true
+                }
                 if (currentVariant != it.variant) {
                     currentVariant = it.variant
                     dispatchStyleChanged = true

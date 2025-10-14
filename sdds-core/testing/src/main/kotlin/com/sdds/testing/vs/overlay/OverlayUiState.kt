@@ -8,8 +8,9 @@ import com.sdds.testing.vs.UiState
  */
 data class OverlayUiState(
     override val variant: String = "",
+    override val appearance: String = "",
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

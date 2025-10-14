@@ -57,9 +57,14 @@ internal abstract class ComponentViewModel<State : UiState>(
     override fun updateProperty(name: String, value: Any?) {
         val valueString = value?.toString() ?: return
 
+        if (name == APPEARANCE_PROPERTY_NAME) {
+            internalUiState.value =
+                internalUiState.value.updateVariant(appearance = valueString) as State
+        }
+
         if (name == VARIANT_PROPERTY_NAME) {
             internalUiState.value =
-                internalUiState.value.updateVariant(valueString) as State
+                internalUiState.value.updateVariant(variant = valueString) as State
         }
         if (name == colorVariantPropertyName) {
             internalUiState.value =
@@ -70,12 +75,22 @@ internal abstract class ComponentViewModel<State : UiState>(
     final override val properties: StateFlow<List<Property<*>>>
         get() = internalUiState
             .combine(theme) { state, _ ->
-                variantProperties(state) + state.toProps()
+                appearanceProperties(state) + variantProperties(state) + state.toProps()
             }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
+    private fun appearanceProperties(state: State): List<Property.SingleChoiceProperty> {
+        return listOf(
+            Property.SingleChoiceProperty(
+                APPEARANCE_PROPERTY_NAME,
+                variants = getAppearances().toList(),
+                value = state.appearance,
+            ),
+        )
+    }
+
     private fun variantProperties(state: State): List<Property.SingleChoiceProperty> {
-        val styleProvider = getStyleProvider()
+        val styleProvider = getStyleProvider(state.appearance)
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
             updateUiStateWithDefaultVariant()
@@ -102,29 +117,43 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     @Suppress("UNCHECKED_CAST")
     private fun updateUiStateWithDefaultVariant() {
+        val appearance = getDefaultAppearances()
         val variant = internalUiState.value.variant
         if (variant.isNotEmpty() &&
-            getStyleProvider().variants.contains(variant)
+            getStyleProvider(appearance).variants.contains(variant)
         ) {
             return
         }
         internalUiState.value =
             internalUiState.value.updateVariant(
-                getStyleProvider().defaultVariant,
+                appearance,
+                getStyleProvider(appearance).defaultVariant,
             ) as State
     }
 
     @Suppress("UNCHECKED_CAST")
     private fun updateUiStateWithDefaultColorVariant() {
         if (internalUiState.value.colorVariant.isNotEmpty()) return
+        val appearance = getDefaultAppearances()
         internalUiState.value =
             internalUiState.value.updateColorVariant(
-                getStyleProvider().defaultColorVariant,
+                getStyleProvider(appearance).defaultColorVariant,
             ) as State
     }
 
-    open fun getStyleProvider(): ViewStyleProvider<String> {
-        return viewTheme(theme.value).components.get<String>(componentKey).styleProvider
+    open fun getStyleProvider(appearance: String): ViewStyleProvider<String> {
+        return viewTheme(theme.value).components.get<String>(componentKey).run {
+            styleProviders[appearance] ?: styleProviders.values.first()
+        }
+    }
+
+    open fun getAppearances(): Set<String> {
+        return viewTheme(theme.value).components.get<String>(componentKey).styleProviders.keys
+    }
+
+    open fun getDefaultAppearances(): String {
+        return viewTheme(themeManager.currentTheme.value)
+            .components.get<String>(componentKey).defaultAppearance
     }
 
     abstract fun State.toProps(): List<Property<*>>
@@ -141,6 +170,7 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     private companion object {
         const val VARIANT_PROPERTY_NAME = "variant"
+        const val APPEARANCE_PROPERTY_NAME = "appearance"
         const val COLOR_VARIANT_PROPERTY_NAME = "view"
     }
 }

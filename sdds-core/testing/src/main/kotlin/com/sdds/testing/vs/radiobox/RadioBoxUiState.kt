@@ -15,12 +15,13 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class RadioBoxUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val checked: Boolean = false,
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

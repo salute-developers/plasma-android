@@ -23,6 +23,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class TabsUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val amount: Int = 5,
     val icon: TabItemIcon = TabItemIcon.No,
     val tabItemLabel: String = "Label",
@@ -35,8 +36,8 @@ data class TabsUiState(
     val dividerEnabled: Boolean = true,
     val indicatorEnabled: Boolean = true,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 
