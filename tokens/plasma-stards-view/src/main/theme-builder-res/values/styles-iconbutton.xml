@@ -7,6 +7,7 @@
         <item name="backgroundTint">@color/sdkit_icon_button_bg_color</item>
         <item name="sd_spinnerTint">@color/sdkit_icon_button_spinner_tint</item>
         <item name="sd_iconTint">@color/sdkit_icon_button_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.IconButtonColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconButton.L">
         <item name="android:minHeight">@dimen/sdkit_icon_button_l_min_height</item>
@@ -22,11 +23,35 @@
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonL">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.L</item>
     </style>
+    <style name="Sdkit.StarDs.Components.IconButton.L.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonLDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.L.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonLClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.L.Clear</item>
+    </style>
     <style name="Sdkit.StarDs.Components.IconButton.L.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonLPilled">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.L.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.L.Pilled.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonLPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.L.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.L.Pilled.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonLPilledClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.L.Pilled.Clear</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconButton.M">
         <item name="android:minHeight">@dimen/sdkit_icon_button_m_min_height</item>
@@ -41,11 +66,35 @@
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonM">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M</item>
     </style>
+    <style name="Sdkit.StarDs.Components.IconButton.M.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonMDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.M.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonMClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M.Clear</item>
+    </style>
     <style name="Sdkit.StarDs.Components.IconButton.M.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonMPilled">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.M.Pilled.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonMPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.M.Pilled.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonMPilledClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M.Pilled.Clear</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconButton.S">
         <item name="android:minHeight">@dimen/sdkit_icon_button_s_min_height</item>
@@ -61,11 +110,35 @@
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonS">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.S</item>
     </style>
+    <style name="Sdkit.StarDs.Components.IconButton.S.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonSDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.S.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonSClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.S.Clear</item>
+    </style>
     <style name="Sdkit.StarDs.Components.IconButton.S.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonSPilled">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.S.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.S.Pilled.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonSPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.S.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.S.Pilled.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonSPilledClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.S.Pilled.Clear</item>
     </style>
     <style name="Sdkit.StarDs.Components.IconButton.Xs">
         <item name="android:minHeight">@dimen/sdkit_icon_button_xs_min_height</item>
@@ -80,10 +153,34 @@
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXs">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs</item>
     </style>
+    <style name="Sdkit.StarDs.Components.IconButton.Xs.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXsDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.Xs.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXsClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs.Clear</item>
+    </style>
     <style name="Sdkit.StarDs.Components.IconButton.Xs.Pilled">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXsPilled">
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs.Pilled</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.Xs.Pilled.Default">
+        <item name="sdkit_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXsPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs.Pilled.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.IconButton.Xs.Pilled.Clear">
+        <item name="sdkit_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXsPilledClear">
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.Xs.Pilled.Clear</item>
     </style>
 </resources>

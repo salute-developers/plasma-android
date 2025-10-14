@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdkit.star.designsystem.styles.iconbutton.Clear
+import com.sdkit.star.designsystem.styles.iconbutton.Default
 import com.sdkit.star.designsystem.styles.iconbutton.IconButton
 import com.sdkit.star.designsystem.styles.iconbutton.L
 import com.sdkit.star.designsystem.styles.iconbutton.M
@@ -15,13 +17,21 @@ internal object StarDsIconButtonVariationsCompose : ComposeStyleProvider<String,
 
     override val variations: Map<String, @Composable () -> ButtonStyle> =
         mapOf(
-            "L" to { IconButton.L.style() },
-            "LPilled" to { IconButton.L.Pilled.style() },
-            "M" to { IconButton.M.style() },
-            "MPilled" to { IconButton.M.Pilled.style() },
-            "S" to { IconButton.S.style() },
-            "SPilled" to { IconButton.S.Pilled.style() },
-            "XS" to { IconButton.Xs.style() },
-            "XSPilled" to { IconButton.Xs.Pilled.style() },
+            "L.Default" to { IconButton.L.Default.style() },
+            "L.Clear" to { IconButton.L.Clear.style() },
+            "L.Pilled.Default" to { IconButton.L.Pilled.Default.style() },
+            "L.Pilled.Clear" to { IconButton.L.Pilled.Clear.style() },
+            "M.Default" to { IconButton.M.Default.style() },
+            "M.Clear" to { IconButton.M.Clear.style() },
+            "M.Pilled.Default" to { IconButton.M.Pilled.Default.style() },
+            "M.Pilled.Clear" to { IconButton.M.Pilled.Clear.style() },
+            "S.Default" to { IconButton.S.Default.style() },
+            "S.Clear" to { IconButton.S.Clear.style() },
+            "S.Pilled.Default" to { IconButton.S.Pilled.Default.style() },
+            "S.Pilled.Clear" to { IconButton.S.Pilled.Clear.style() },
+            "Xs.Default" to { IconButton.Xs.Default.style() },
+            "Xs.Clear" to { IconButton.Xs.Clear.style() },
+            "Xs.Pilled.Default" to { IconButton.Xs.Pilled.Default.style() },
+            "Xs.Pilled.Clear" to { IconButton.Xs.Pilled.Clear.style() },
         )
 }

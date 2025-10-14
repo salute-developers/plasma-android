@@ -270,24 +270,36 @@
          "coreName": "BasicButton",
          "styleName": "BasicButton",
          "variations": [
-            "l",
-            "m",
-            "s",
-            "xs"
+            "l.default",
+            "l.clear",
+            "m.default",
+            "m.clear",
+            "s.default",
+            "s.clear",
+            "xs.default",
+            "xs.clear"
          ]
       },
       {
          "coreName": "IconButton",
          "styleName": "IconButton",
          "variations": [
-            "l",
-            "l.pilled",
-            "m",
-            "m.pilled",
-            "s",
-            "s.pilled",
-            "xs",
-            "xs.pilled"
+            "l.default",
+            "l.clear",
+            "l.pilled.default",
+            "l.pilled.clear",
+            "m.default",
+            "m.clear",
+            "m.pilled.default",
+            "m.pilled.clear",
+            "s.default",
+            "s.clear",
+            "s.pilled.default",
+            "s.pilled.clear",
+            "xs.default",
+            "xs.clear",
+            "xs.pilled.default",
+            "xs.pilled.clear"
          ]
       },
       {

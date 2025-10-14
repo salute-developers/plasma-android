@@ -380,7 +380,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     }
 
     private fun getDescriptionPosition(): Int {
-        val centerTop = (_listView.measuredHeight - _listView.itemHeight + entryMinSpacing) / 2
+        val centerTop = (_listView.measuredHeight - _listView.itemHeight) / 2
         return _listView.top + centerTop + _listView.itemHeight - _descriptionView.measuredHeight - entryMinSpacing
     }
 }

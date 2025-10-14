@@ -766,7 +766,7 @@
     <dimen name="sdkit_wheel_h1_text_after_padding">4.0dp</dimen>
     <dimen name="sdkit_wheel_h1_description_padding">16.0dp</dimen>
     <dimen name="sdkit_wheel_h1_separator_spacing">80.0dp</dimen>
-    <dimen name="sdkit_wheel_h1_item_min_spacing">16.0dp</dimen>
+    <dimen name="sdkit_wheel_h1_item_min_spacing">40.0dp</dimen>
     <dimen name="sdkit_basic_button_group_xs_wide_spacing">16.0dp</dimen>
     <dimen name="sdkit_basic_button_group_xs_dense_spacing">4.0dp</dimen>
     <dimen name="sdkit_basic_button_group_xs_no_gap_spacing">0.0dp</dimen>
