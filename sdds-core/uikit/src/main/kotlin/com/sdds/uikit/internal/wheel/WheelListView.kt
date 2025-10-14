@@ -256,13 +256,17 @@ internal class WheelListView(context: Context) : ListView(context) {
         heightSpec: Int = MeasureSpec.UNSPECIFIED,
     ): Int {
         val child = estimateChild ?: return 0
-        if (child.measuredHeight > 0) return child.measuredHeight
+        val spacing = entryMinSpacing
+        if (child.measuredHeight > 0) {
+            return child.measuredHeight + spacing
+        }
         measureChild(child, widthSpec, heightSpec)
-        return child.measuredHeight
+        return child.measuredHeight + spacing
     }
 
     private fun estimateWheelHeight(widthSpec: Int, heightSpec: Int): Int {
-        val itemHeight = estimateChildHeight(widthSpec, heightSpec)
+        val extraSpacing = if (extraItemOffsetEnabled) extraItemOffset * 2 else 0
+        val itemHeight = estimateChildHeight(widthSpec, heightSpec) - extraSpacing
         val centerY = visibleCount * itemHeight / 2
         val maxDist = visibleCount * itemHeight / 2f
         var estimateHeight = 0f
@@ -274,7 +278,7 @@ internal class WheelListView(context: Context) : ListView(context) {
             childrenCenter += itemHeight
             distance = centerY - childrenCenter
         }
-        return estimateHeight.toInt()
+        return estimateHeight.toInt() + extraSpacing
     }
 
     override fun onScrolled(dx: Int, dy: Int) {
