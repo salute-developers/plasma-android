@@ -17,6 +17,13 @@ internal class ResourceReferenceProvider(
     private val capitalizedPrefix by unsafeLazy { resourcePrefix.capitalized() }
     private val camelCaseThemeName = themeName.snakeToCamelCase()
 
+    val themePrefix: String
+        get() = if (camelCaseThemeName.isNotBlank()) {
+            "$capitalizedPrefix.$camelCaseThemeName"
+        } else {
+            capitalizedPrefix
+        }
+
     /**
      * Возвращает ссылку на размер с названием [name].
      * Например, если размер называется text_size, и ресурсам задан префикс "pref",
@@ -49,11 +56,7 @@ internal class ResourceReferenceProvider(
      * то функция вернет ссылку @style/Pref.Typography
      */
     fun style(name: String): String {
-        val prefix = if (camelCaseThemeName.isNotBlank()) {
-            "$capitalizedPrefix.$camelCaseThemeName"
-        } else {
-            capitalizedPrefix
-        }
+        val prefix = themePrefix
         return "@style/${name.withPrefixIfNeed(prefix, ".")}"
     }
 

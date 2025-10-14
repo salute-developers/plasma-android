@@ -13,11 +13,12 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ModalUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val useNativeBlackout: Boolean = false,
     val hasClose: Boolean = false,
 ) : UiState, Parcelable {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

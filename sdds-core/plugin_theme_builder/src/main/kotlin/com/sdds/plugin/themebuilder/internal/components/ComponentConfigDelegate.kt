@@ -28,13 +28,9 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
         deps: StyleGeneratorDependencies,
         component: Component,
     ): ComponentInfo? {
+        if (component.isExcludedForCompose) return null
         val config: C = _config ?: parseConfig(file)
-        generateCompose(config, deps, component)
-        return if (component.isExcludedForCompose) {
-            null
-        } else {
-            getComponentInfo(component, deps, config)
-        }
+        return generateCompose(config, deps, component)
     }
 
     fun generateViewSystemStyles(
@@ -42,37 +38,41 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
         deps: StyleGeneratorDependencies,
         component: Component,
     ): ComponentInfo? {
+        if (component.isExcludedForViewSystem) return null
         val config: C = _config ?: parseConfig(file)
-        generateView(config, deps, component)
-        return if (component.isExcludedForViewSystem) {
-            null
-        } else {
-            getComponentInfo(component, deps, config)
-        }
+        return generateView(config, deps, component)
     }
 
-    private fun generateCompose(config: C, deps: StyleGeneratorDependencies, component: Component) {
-        if (component.isExcludedForCompose) return
-        createComposeGenerator(deps, component)?.generate(config)
+    private fun generateCompose(config: C, deps: StyleGeneratorDependencies, component: Component): ComponentInfo? {
+        val generator = createComposeGenerator(deps, component) ?: return null
+        val result = generator.generate(config)
+        return ComponentInfo(
+            component.componentName,
+            component.componentName.techToCamelCase(),
+            result.styleName,
+            result.variations.map {
+                VariationInfo(
+                    it.key,
+                    composeReference = it.value,
+                )
+            },
+        )
     }
 
-    private fun generateView(config: C, deps: StyleGeneratorDependencies, component: Component) {
-        if (component.isExcludedForViewSystem) return
-        createViewGenerator(deps, component)?.generate(config)
-    }
-
-    private fun getComponentInfo(
-        component: Component,
-        deps: StyleGeneratorDependencies,
-        config: C,
-    ): ComponentInfo {
-        val styleName = component.styleName.techToCamelCase()
-        val coreName = component.componentName.techToCamelCase()
-        val variationsInfo = deps
-            .variationsInfoProviderFactory
-            .create(styleName)
-            .getVariationsInfo(config = config)
-        val componentInfo = ComponentInfo(coreName, styleName, variationsInfo)
-        return componentInfo
+    private fun generateView(config: C, deps: StyleGeneratorDependencies, component: Component): ComponentInfo? {
+        val generator = createViewGenerator(deps, component) ?: return null
+        val result = generator.generate(config) as ComponentStyleGenerator.Result.Xml
+        return ComponentInfo(
+            component.componentName,
+            result.coreName,
+            result.styleName,
+            result.variations.map {
+                VariationInfo(
+                    it.key,
+                    viewReference = it.value,
+                    viewOverlayReference = result.overlays[it.key],
+                )
+            },
+        )
     }
 }

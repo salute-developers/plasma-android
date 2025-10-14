@@ -9,6 +9,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class DrawerUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val alignment: DrawerAlignment = DrawerAlignment.Bottom,
     val closeIconAlignment: CloseIconAlignment = CloseIconAlignment.End,
     val closeIconAbsolute: Boolean = false,
@@ -19,7 +20,7 @@ internal data class DrawerUiState(
     val gesturesEnabled: Boolean = true,
     val moveContentEnabled: Boolean = false,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

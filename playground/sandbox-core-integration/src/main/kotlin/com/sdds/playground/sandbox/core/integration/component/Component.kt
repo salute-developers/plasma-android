@@ -58,14 +58,22 @@ interface ComponentsProviderCompose {
  *
  * @param ViewStyle Тип стиля компонента.
  * @param key Ключ компонента.
- * @param styleProvider Провайдер стиля для компонента.
+ * @param styleProviders Провайдеры стиля для компонента.
  * @param name Имя компонента (по умолчанию совпадает с ключом).
+ * @param defaultAppearance внешний вид по умолчанию.
  */
 open class ViewComponent<ViewStyle : Any>(
     override val key: ComponentKey,
-    val styleProvider: ViewStyleProvider<ViewStyle>,
+    val styleProviders: Map<String, ViewStyleProvider<ViewStyle>>,
     override val name: String = key.value,
-) : Component
+    override val defaultAppearance: String = styleProviders.keys.firstOrNull().orEmpty(),
+) : Component {
+
+    constructor(
+        key: ComponentKey,
+        styleProvider: ViewStyleProvider<ViewStyle>,
+    ) : this(key, mapOf(key.value to styleProvider))
+}
 
 /**
  * Представляет компонент Compose.
@@ -73,14 +81,22 @@ open class ViewComponent<ViewStyle : Any>(
  * @param Key Тип ключа компонента.
  * @param S Тип стиля компонента.
  * @param key Ключ компонента.
- * @param styleProvider Провайдер стиля для компонента.
+ * @param styleProviders Провайдеры стиля для компонента.
  * @param name Имя компонента (по умолчанию совпадает с ключом).
+ * @param defaultAppearance внешний вид по умолчанию.
  */
 open class ComposeComponent<Key : Any, S : Style>(
     override val key: ComponentKey,
-    val styleProvider: ComposeStyleProvider<Key, S>,
+    val styleProviders: Map<String, ComposeStyleProvider<Key, S>>,
     override val name: String = key.value,
-) : Component
+    override val defaultAppearance: String = styleProviders.keys.firstOrNull().orEmpty(),
+) : Component {
+
+    constructor(
+        key: ComponentKey,
+        styleProvider: ComposeStyleProvider<Key, S>,
+    ) : this(key, mapOf(key.value to styleProvider))
+}
 
 /**
  * Базовый интерфейс для всех компонентов.
@@ -95,6 +111,11 @@ interface Component {
      * Название компонента
      */
     val name: String
+
+    /**
+     * Внешний вид по умолчанию
+     */
+    val defaultAppearance: String
 }
 
 /**
@@ -102,6 +123,7 @@ interface Component {
  *
  * @param value Уникальное значение ключа.
  * @param core Базовый тип компонента.
+ * @param group группа, к которой принадлежит компонент
  */
 @Suppress("UnsafeOptInUsageError")
 @Parcelize
@@ -109,6 +131,7 @@ interface Component {
 data class ComponentKey(
     val value: String,
     val core: CoreComponent,
+    val group: CoreComponentGroup = core.group(),
 ) : Parcelable {
 
     /**
@@ -167,19 +190,24 @@ data class ComponentKey(
         val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
         val Spinner = ComponentKey("Spinner", CoreComponent.SPINNER)
         val List = ComponentKey("List", CoreComponent.LIST)
+        val ListItem = ComponentKey("ListItem", CoreComponent.LIST_ITEM)
         val DropdownMenu = ComponentKey("DropdownMenu", CoreComponent.DROPDOWN_MENU)
         val TextSkeleton = ComponentKey("TextSkeleton", CoreComponent.TEXT_SKELETON)
         val Accordion = ComponentKey("Accordion", CoreComponent.ACCORDION)
+        val AccordionItem = ComponentKey("AccordionItem", CoreComponent.ACCORDION_ITEM)
         val Wheel = ComponentKey("Wheel", CoreComponent.WHEEL)
         val ScrollBar = ComponentKey("ScrollBar", CoreComponent.SCROLL_BAR)
         val Image = ComponentKey("Image", CoreComponent.IMAGE)
         val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
+        val TabBarItem = ComponentKey("TabBarItem", CoreComponent.TAB_BAR_ITEM)
         val Loader = ComponentKey("Loader", CoreComponent.LOADER)
         val CodeInput = ComponentKey("CodeInput", CoreComponent.CODE_INPUT)
         val CodeField = ComponentKey("CodeField", CoreComponent.CODE_FIELD)
         val Drawer = ComponentKey("Drawer", CoreComponent.DRAWER)
         val Tabs = ComponentKey("Tabs", CoreComponent.TABS)
+        val TabItem = ComponentKey("TabItem", CoreComponent.TAB_ITEM)
+        val IconTabItem = ComponentKey("IconTabItem", CoreComponent.ICON_TAB_ITEM)
         val IconTabs = ComponentKey("IconTabs", CoreComponent.ICON_TABS)
     }
 }
@@ -244,17 +272,105 @@ enum class CoreComponent {
     RECT_SKELETON,
     SPINNER,
     LIST,
+    LIST_ITEM,
     DROPDOWN_MENU,
     TEXT_SKELETON,
     ACCORDION,
+    ACCORDION_ITEM,
     WHEEL,
     SCROLL_BAR,
     IMAGE,
     TAB_BAR,
+    TAB_BAR_ITEM,
     LOADER,
     CODE_INPUT,
     CODE_FIELD,
     DRAWER,
     TABS,
+    TAB_ITEM,
+    ICON_TAB_ITEM,
     ICON_TABS,
+}
+
+/**
+ * Группа компонентов
+ * @property displayName название группы
+ */
+enum class CoreComponentGroup(val displayName: String) {
+    DATA_DISPLAY("Data Display"),
+    DATA_ENTRY("Data Entry"),
+    NAVIGATION("Navigation"),
+    OVERLAY("Overlay"),
+    LAYOUT("Layout"),
+}
+
+@Suppress("LongMethod")
+private fun CoreComponent.group(): CoreComponentGroup {
+    return when (this) {
+        CoreComponent.ACCORDION,
+        CoreComponent.ACCORDION_ITEM,
+        CoreComponent.AVATAR,
+        CoreComponent.AVATAR_GROUP,
+        CoreComponent.BADGE,
+        CoreComponent.ICON_BADGE,
+        CoreComponent.CARD,
+        CoreComponent.COUNTER,
+        CoreComponent.CELL,
+        CoreComponent.CHIP,
+        CoreComponent.CHIP_GROUP,
+        CoreComponent.DIVIDER,
+        CoreComponent.IMAGE,
+        CoreComponent.INDICATOR,
+        CoreComponent.LIST,
+        CoreComponent.LIST_ITEM,
+        CoreComponent.RECT_SKELETON,
+        CoreComponent.SPINNER,
+        CoreComponent.TEXT_SKELETON,
+        CoreComponent.LOADER,
+        CoreComponent.PROGRESS,
+        CoreComponent.CIRCULAR_PROGRESS,
+        -> CoreComponentGroup.DATA_DISPLAY
+
+        CoreComponent.BASIC_BUTTON,
+        CoreComponent.ICON_BUTTON,
+        CoreComponent.LINK_BUTTON,
+        CoreComponent.BUTTON_GROUP,
+        CoreComponent.CHECKBOX,
+        CoreComponent.CHECKBOX_GROUP,
+        CoreComponent.CODE_INPUT,
+        CoreComponent.CODE_FIELD,
+        CoreComponent.RADIOBOX,
+        CoreComponent.RADIOBOX_GROUP,
+        CoreComponent.TEXT_FIELD,
+        CoreComponent.TEXT_AREA,
+        CoreComponent.SEGMENT,
+        CoreComponent.SEGMENT_ITEM,
+        CoreComponent.SWITCH,
+        CoreComponent.WHEEL,
+        -> CoreComponentGroup.DATA_ENTRY
+
+        CoreComponent.DROPDOWN_MENU,
+        CoreComponent.NAVIGATION_DRAWER,
+        CoreComponent.SCROLL_BAR,
+        CoreComponent.TABS,
+        CoreComponent.TAB_ITEM,
+        CoreComponent.ICON_TAB_ITEM,
+        CoreComponent.ICON_TABS,
+        CoreComponent.TAB_BAR,
+        CoreComponent.TAB_BAR_ITEM,
+        -> CoreComponentGroup.NAVIGATION
+
+        CoreComponent.DRAWER,
+        CoreComponent.BOTTOMSHEET,
+        CoreComponent.NOTIFICATION,
+        CoreComponent.NOTIFICATION_CONTENT,
+        CoreComponent.POPOVER,
+        CoreComponent.MODAL,
+        CoreComponent.TOOLTIP,
+        CoreComponent.TOAST,
+        CoreComponent.OVERLAY,
+        -> CoreComponentGroup.OVERLAY
+
+        CoreComponent.FLOW -> CoreComponentGroup.LAYOUT
+    }
 }

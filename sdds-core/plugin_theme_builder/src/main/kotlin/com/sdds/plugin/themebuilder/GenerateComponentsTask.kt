@@ -8,7 +8,6 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentInfo
 import com.sdds.plugin.themebuilder.internal.components.ConfigInfo
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
-import com.sdds.plugin.themebuilder.internal.components.VariationsInfoProviderFactory
 import com.sdds.plugin.themebuilder.internal.components.base.Components
 import com.sdds.plugin.themebuilder.internal.components.componentDelegates
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -142,6 +141,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         if (components.isEmpty()) return
         val configInfo = ConfigInfo(
             name = name,
+            packageName = packageName.get(),
             components = components,
         )
         outputFileForCompose.outputStream().use {
@@ -154,6 +154,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         if (components.isEmpty()) return
         val configInfo = ConfigInfo(
             name = name,
+            packageName = packageName.get(),
             components = components,
         )
         outputFileForViewSystem.outputStream().use {
@@ -228,7 +229,6 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
             target = target.get(),
-            variationsInfoProviderFactory = VariationsInfoProviderFactory(),
         )
     }
 

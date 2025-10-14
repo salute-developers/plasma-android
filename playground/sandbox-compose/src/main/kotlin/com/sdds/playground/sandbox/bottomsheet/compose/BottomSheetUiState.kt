@@ -8,6 +8,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class BottomSheetUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val header: Boolean = false,
     val footer: Boolean = false,
     val fixedHeader: Boolean = false,
@@ -16,7 +17,7 @@ internal data class BottomSheetUiState(
     val fitContent: Boolean = false,
     val littleContent: Boolean = false,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

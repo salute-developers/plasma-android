@@ -1,0 +1,52 @@
+package com.sdds.playground.sandbox.sdds.serv.integration.view
+
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.serv.R as DsR
+
+internal object SddsServLinkButtonVariationsView : ViewStyleProvider<String>() {
+    override val variations: Map<String, Int> =
+        mapOf(
+            "Xl" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXl,
+            "Xl.Default" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXlDefault,
+            "Xl.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXlSecondary,
+            "Xl.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXlAccent,
+            "Xl.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXlPositive,
+            "Xl.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXlNegative,
+            "Xl.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXlWarning,
+            "L" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonL,
+            "L.Default" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonLDefault,
+            "L.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonLSecondary,
+            "L.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonLAccent,
+            "L.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonLPositive,
+            "L.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonLNegative,
+            "L.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonLWarning,
+            "M" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonM,
+            "M.Default" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonMDefault,
+            "M.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonMSecondary,
+            "M.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonMAccent,
+            "M.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonMPositive,
+            "M.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonMNegative,
+            "M.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonMWarning,
+            "S" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonS,
+            "S.Default" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonSDefault,
+            "S.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonSSecondary,
+            "S.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonSAccent,
+            "S.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonSPositive,
+            "S.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonSNegative,
+            "S.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonSWarning,
+            "Xs" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXs,
+            "Xs.Default" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXsDefault,
+            "Xs.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXsSecondary,
+            "Xs.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXsAccent,
+            "Xs.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXsPositive,
+            "Xs.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXsNegative,
+            "Xs.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXsWarning,
+            "Xxs" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxs,
+            "Xxs.Default" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsDefault,
+            "Xxs.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsSecondary,
+            "Xxs.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsAccent,
+            "Xxs.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsPositive,
+            "Xxs.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsNegative,
+            "Xxs.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsWarning,
+        )
+}

@@ -8,6 +8,7 @@ import com.sdds.playground.sandbox.popover.compose.TriggerPlacement
 
 internal data class TooltipUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val triggerPlacement: TriggerPlacement = TriggerPlacement.Center,
     val alignment: PopoverAlignment = PopoverAlignment.Start,
     val placement: PopoverPlacement = PopoverPlacement.Top,
@@ -19,7 +20,7 @@ internal data class TooltipUiState(
     val hasContentStart: Boolean = true,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

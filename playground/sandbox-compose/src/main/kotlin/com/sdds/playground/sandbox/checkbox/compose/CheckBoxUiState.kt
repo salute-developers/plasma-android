@@ -13,13 +13,14 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class CheckBoxUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val state: ToggleableState = ToggleableState.Indeterminate,
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

@@ -1,8 +1,8 @@
 package com.sdds.playground.sandbox
 
-import com.sdds.playground.sandbox.plasma.stards.integration.StarDsComposeComponents
 import com.sdds.playground.sandbox.plasma.stards.integration.StarDsThemeWrapper
-import com.sdds.playground.sandbox.plasma.stards.integration.StarDsViewComponents
+import com.sdds.playground.sandbox.plasma.stards.integration.compose.PlasmaStardsComposeComponents
+import com.sdds.playground.sandbox.plasma.stards.integration.view.PlasmaStardsViewComponents
 
 internal enum class Theme {
     PlasmaStarDs,
@@ -16,7 +16,7 @@ internal enum class Theme {
 internal val composeThemes: List<ThemeInfoCompose> = listOf(
     ThemeInfoCompose(
         theme = Theme.PlasmaStarDs,
-        components = StarDsComposeComponents,
+        components = PlasmaStardsComposeComponents,
         themeWrapper = { StarDsThemeWrapper(it) },
     ),
 )
@@ -24,7 +24,7 @@ internal val composeThemes: List<ThemeInfoCompose> = listOf(
 internal val viewThemes: List<ThemeInfoView> = listOf(
     ThemeInfoView(
         theme = Theme.PlasmaStarDs,
-        components = StarDsViewComponents,
+        components = PlasmaStardsViewComponents,
         themeRes = com.sdkit.star.designsystem.R.style.Sdkit_AppTheme,
     ),
 )

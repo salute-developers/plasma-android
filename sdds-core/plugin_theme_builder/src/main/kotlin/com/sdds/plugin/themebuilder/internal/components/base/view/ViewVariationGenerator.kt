@@ -110,7 +110,8 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
             }
             rootDocument.variationStyle(
                 variationStyleName,
-                true,
+                rawVariationName = "${variationNode.id}.${colorStateAttr.name}",
+                withOverlay = true,
             ) {
                 if (variationNode.parent != null) {
                     onCreateStyle(
@@ -141,6 +142,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         variations.forEach { variationNode ->
             variationStyle(
                 variationNode.camelCaseName(),
+                rawVariationName = variationNode.id,
                 withOverlay = true,
                 overlayContent = {
                     onCreateOverlayStyle(variationNode.id.techToSnakeCase(), this@createVariations, this, variationNode)

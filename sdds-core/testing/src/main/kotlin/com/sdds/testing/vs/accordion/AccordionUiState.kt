@@ -14,6 +14,7 @@ import com.sdds.testing.vs.UiState
  */
 data class AccordionUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val amount: Int = 3,
     val title: String = "Title",
     val contentText: String = "Content text",
@@ -21,7 +22,7 @@ data class AccordionUiState(
     val hasDivider: Boolean = false,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

@@ -28,6 +28,7 @@ const val AVATAR_REMOTE_URL = "https://cdn.costumewall.com/wp-content/uploads/20
 @Parcelize
 data class AvatarUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val status: Avatar.Status = Avatar.Status.ACTIVE,
     val exampleMode: ExampleMode = ExampleMode.Local,
     val fullName: String? = "Michael Scott",
@@ -39,8 +40,8 @@ data class AvatarUiState(
     val badgeContentEnd: Boolean = false,
     val counterText: String = "1",
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

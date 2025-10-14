@@ -15,6 +15,7 @@ import com.sdds.icons.R.drawable as Icons
  */
 internal data class ButtonUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val icon: ButtonIcon = ButtonIcon.Start,
     val buttonLabel: String = "Label",
     val buttonValue: String? = null,
@@ -22,8 +23,8 @@ internal data class ButtonUiState(
     val enabled: Boolean = true,
     val loading: Boolean = false,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

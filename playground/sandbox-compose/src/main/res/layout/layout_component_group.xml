@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.TextView android:id="@+id/component_group"
+    android:textAppearance="@style/Theme.Sandbox.TextAppearanceBold"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="?android:textColorPrimary"
+    android:gravity="center"
+    android:padding="8dp"
+    tools:text="Component Group"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" />

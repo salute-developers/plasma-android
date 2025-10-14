@@ -1,20 +1,20 @@
 package com.sdds.playground.sandbox
 
-import com.sdds.playground.sandbox.plasma.giga.app.integration.PlasmaGigaAppComposeComponents
 import com.sdds.playground.sandbox.plasma.giga.app.integration.PlasmaGigaAppThemeWrapper
-import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaComposeComponents
+import com.sdds.playground.sandbox.plasma.giga.app.integration.compose.PlasmaGigaAppComposeComponents
 import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaThemeWrapper
-import com.sdds.playground.sandbox.plasma.homeds.integration.PlasmaHomeDsComposeComponents
+import com.sdds.playground.sandbox.plasma.giga.integration.compose.PlasmaGigaComposeComponents
 import com.sdds.playground.sandbox.plasma.homeds.integration.PlasmaHomeDsThemeWrapper
-import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeComponents
+import com.sdds.playground.sandbox.plasma.homeds.integration.compose.PlasmaHomedsComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
-import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewComponents
-import com.sdds.playground.sandbox.sdds.serv.integration.SddsServComposeComponents
+import com.sdds.playground.sandbox.plasma.sd.service.integration.compose.PlasmaB2cComposeComponents
+import com.sdds.playground.sandbox.plasma.sd.service.integration.view.PlasmaB2cViewComponents
 import com.sdds.playground.sandbox.sdds.serv.integration.SddsServThemeWrapper
-import com.sdds.playground.sandbox.sdds.serv.integration.SddsServViewComponents
-import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteComposeComponents
+import com.sdds.playground.sandbox.sdds.serv.integration.compose.SddsServComposeComponents
+import com.sdds.playground.sandbox.sdds.serv.integration.view.SddsServViewComponents
 import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteThemeWrapper
-import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteViewComponents
+import com.sdds.playground.sandbox.stylessalute.integration.compose.StylesSaluteComposeComponents
+import com.sdds.playground.sandbox.stylessalute.integration.view.StylesSaluteViewComponents
 
 internal enum class Theme {
     SddsServ,
@@ -38,7 +38,7 @@ internal val composeThemes: List<ThemeInfoCompose> = listOf(
     ),
     ThemeInfoCompose(
         theme = Theme.PlasmaSdService,
-        components = PlasmaSdServiceComposeComponents,
+        components = PlasmaB2cComposeComponents,
         themeWrapper = { PlasmaSdServiceThemeWrapper(it) },
     ),
     ThemeInfoCompose(
@@ -58,7 +58,7 @@ internal val composeThemes: List<ThemeInfoCompose> = listOf(
     ),
     ThemeInfoCompose(
         theme = Theme.PlasmaHomeDs,
-        components = PlasmaHomeDsComposeComponents,
+        components = PlasmaHomedsComposeComponents,
         themeWrapper = { PlasmaHomeDsThemeWrapper(it) },
     ),
 )
@@ -71,7 +71,7 @@ internal val viewThemes: List<ThemeInfoView> = listOf(
     ),
     ThemeInfoView(
         theme = Theme.PlasmaSdService,
-        components = PlasmaSdServiceViewComponents,
+        components = PlasmaB2cViewComponents,
         themeRes = com.sdds.plasma.sd.service.R.style.Plasma_SdService_MaterialComponents_DayNight,
     ),
     ThemeInfoView(

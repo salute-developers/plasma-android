@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
+import com.sdds.plugin.themebuilder.internal.components.VariationReference
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -96,6 +97,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     protected open val componentStyleName: String = "${camelComponentName}Style"
+
+    private val variations: MutableMap<String, VariationReference> = mutableMapOf()
+    private val viewVariations: MutableMap<String, VariationReference> = mutableMapOf()
 
     protected open fun getVariationName(variationId: String?): String = variationId?.toCamelCase().orEmpty()
 
@@ -266,7 +270,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }.orEmpty()
     }
 
-    override fun generate(config: Config<PO>) {
+    override fun generate(config: Config<PO>): ComponentStyleGenerator.Result {
         with(ktFileBuilder) {
             addCommonImports()
             addRootObject()
@@ -278,6 +282,32 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 viewExtensionReceiverName = baseWrapperInterfaceName,
             )
             build(outputLocation)
+        }
+        return ComponentStyleGenerator.Result.Compose(
+            styleName = camelComponentName,
+            variations = getVariationsDict(),
+        )
+    }
+
+    @Suppress("NestedBlockDepth")
+    private fun getVariationsDict() = mutableMapOf<String, VariationReference>().apply {
+        if (variations.isEmpty()) {
+            if (viewVariations.isEmpty()) {
+                put("default", VariationReference("$camelComponentName.Default"))
+            } else {
+                viewVariations.forEach { view ->
+                    put(view.key, VariationReference("$camelComponentName.${view.value.value}"))
+                }
+            }
+            return@apply
+        }
+        variations.forEach { entry ->
+            viewVariations.forEach { view ->
+                put("${entry.key}.${view.key}", VariationReference("${entry.value.value}.${view.value.value}"))
+            }
+            if (viewVariations.isEmpty()) {
+                put(entry.key, entry.value)
+            }
         }
     }
 
@@ -440,6 +470,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 wrapperSuffix = "${camelComponentName}Terminate",
                 description = "Терминальная обертка",
             )
+            viewVariations[viewEntry.key] = VariationReference(extensionName)
             appendRootVal(
                 name = extensionName,
                 typeName = outType,
@@ -473,12 +504,15 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
     }
 
+    @Suppress("LongMethod")
     private fun KtFileBuilder.addVariationExtension(
         variationNode: VariationNode<PO>,
         wrapperSuperTypeName: String,
         builderCalls: List<String>,
     ) {
         val parentName = getVariationName(variationNode.parent?.id)
+        val parentPath = variationNode.parent?.id?.split(".")
+            ?.joinToString(".") { it.toCamelCase() }
         val variationName = getVariationName(variationNode.name)
         val isParentRoot = parentName == camelComponentName
 
@@ -499,6 +533,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 builderCalls.forEach { appendLine(it) }
                 appendLine(".wrap(::${outType.simpleName})")
             }
+            variations[variationNode.id] = VariationReference("$camelComponentName.$variationName")
         } else {
             builderRef = "builder"
             receiverType =
@@ -515,6 +550,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 appendLine("return $builderRef")
                 builderCalls.forEach { appendLine(it) }
                 appendLine(".wrap(::${outType.simpleName})")
+            }
+            if (parentPath != null) {
+                variations[variationNode.id] = VariationReference("$camelComponentName.$parentPath.$variationName")
             }
         }
 

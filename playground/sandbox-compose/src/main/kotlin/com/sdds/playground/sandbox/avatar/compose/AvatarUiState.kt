@@ -22,6 +22,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class AvatarUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val status: AvatarStatus = AvatarStatus.Active,
     val exampleMode: ExampleMode = ExampleMode.Local,
     val placeholder: AvatarPlaceholder? = AvatarPlaceholder.Name("Michael Scott"),
@@ -33,8 +34,8 @@ internal data class AvatarUiState(
     val badgeContentEnd: Boolean = false,
     val counterText: String = "1",
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

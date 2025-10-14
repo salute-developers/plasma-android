@@ -1,0 +1,17 @@
+package ${{ packageName }}
+
+import com.sdds.compose.uikit.style.Style
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
+import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
+
+/**
+ *  Компоненты
+ */
+object ${{ themeName }}ComposeComponents : ComponentsProviderCompose {
+
+    override val all: Map<ComponentKey, ComposeComponent<String, out Style>> =
+        listOf(
+            ${{ components }}
+        ).associateBy { it.key }
+}

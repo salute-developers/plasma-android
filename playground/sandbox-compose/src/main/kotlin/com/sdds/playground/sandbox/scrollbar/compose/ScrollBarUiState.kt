@@ -7,13 +7,14 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class ScrollBarUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val lazy: Boolean = true,
     val itemCount: Int = 30,
     val hoverExpand: Boolean = true,
     val hasTrack: Boolean = true,
     val alwaysShowScrollbar: Boolean = true,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

@@ -42,6 +42,7 @@ koilVersion-compose = "2.2.0"
 sdds-uikit = "0.28.0"
 sdds-uikit-compose = "0.30.0"
 sdds-icons = "0.15.0"
+sdds-theme-builder = "0.26.0"
 
 plugin-androidCacheFix = "3.0.1"
 plugin-gradleNexusPublish = "1.3.0"
@@ -131,7 +132,7 @@ jgp = { id = "java-gradle-plugin" }
 android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-androidCacheFix" }
 gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
-themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
+themebuilder = { id = "io.github.salute-developers.theme-builder-plugin", version.ref="sdds-theme-builder" }
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref="plugin-binary-compatibility-validator" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "test-roborazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "plugin-dokka"}

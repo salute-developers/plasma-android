@@ -17,13 +17,14 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class FlowUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val arrangement: FlowArrangement = FlowArrangement.START,
     val alignment: FlowAlignment = FlowAlignment.START,
     val orientation: FlowOrientation = FlowOrientation.HORIZONTAL,
     val itemsPerLine: Int = 2,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

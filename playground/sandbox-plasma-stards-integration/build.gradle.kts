@@ -2,6 +2,8 @@
 plugins {
     id("convention.android-lib")
     id("convention.compose")
+    id("convention.integration-compose")
+    id("convention.integration-view")
 }
 
 android {

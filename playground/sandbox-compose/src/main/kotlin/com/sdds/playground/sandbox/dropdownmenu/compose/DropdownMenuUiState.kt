@@ -8,6 +8,7 @@ import com.sdds.playground.sandbox.popover.compose.TriggerPlacement
 
 internal data class DropdownMenuUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val amount: Int = 3,
     val itemTitle: String = "Item Title",
     val hasDisclosure: Boolean = true,
@@ -18,7 +19,7 @@ internal data class DropdownMenuUiState(
     val triggerPlacement: TriggerPlacement = TriggerPlacement.Center,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
