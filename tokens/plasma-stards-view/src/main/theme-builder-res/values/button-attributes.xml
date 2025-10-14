@@ -2,12 +2,12 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <declare-styleable name="SdkitIconButtonColorState">
-        <attr format="boolean" name="sdkit_iconbutton_state_default"/>
-        <attr format="boolean" name="sdkit_iconbutton_state_clear"/>
+    <declare-styleable name="SdkitButtonColorState">
+        <attr format="boolean" name="sdkit_button_state_default"/>
+        <attr format="boolean" name="sdkit_button_state_clear"/>
     </declare-styleable>
-    <declare-styleable name="IconButton" tools:ignore="ResourceName">
-        <attr format="enum" name="sdkit_iconbuttonColors">
+    <declare-styleable name="Button" tools:ignore="ResourceName">
+        <attr format="enum" name="sdkit_buttonColors">
             <enum name="state_default" value="0"/>
             <enum name="state_clear" value="1"/>
         </attr>

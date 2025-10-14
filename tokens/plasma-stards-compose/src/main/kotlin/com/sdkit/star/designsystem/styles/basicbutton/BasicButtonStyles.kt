@@ -29,12 +29,28 @@ import kotlin.jvm.JvmName
 public interface WrapperBasicButton : BuilderWrapper<ButtonStyle, BasicButtonStyleBuilder>
 
 /**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperBasicButtonView : WrapperBasicButton
+
+/**
+ * Терминальная обертка
+ */
+@JvmInline
+public value class WrapperBasicButtonTerminate(
+    public override val builder: BasicButtonStyleBuilder,
+) : WrapperBasicButton
+
+/**
  * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperBasicButtonL(
     public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
+) : WrapperBasicButtonView
 
 /**
  * Обертка для вариации M
@@ -42,7 +58,7 @@ public value class WrapperBasicButtonL(
 @JvmInline
 public value class WrapperBasicButtonM(
     public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
+) : WrapperBasicButtonView
 
 /**
  * Обертка для вариации S
@@ -50,7 +66,7 @@ public value class WrapperBasicButtonM(
 @JvmInline
 public value class WrapperBasicButtonS(
     public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
+) : WrapperBasicButtonView
 
 /**
  * Обертка для вариации Xs
@@ -58,7 +74,41 @@ public value class WrapperBasicButtonS(
 @JvmInline
 public value class WrapperBasicButtonXs(
     public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
+) : WrapperBasicButtonView
+
+public val WrapperBasicButtonView.Default: WrapperBasicButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperBasicButtonTerminate)
+
+public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperBasicButtonTerminate)
 
 private val BasicButtonStyleBuilder.invariantProps: BasicButtonStyleBuilder
     @Composable

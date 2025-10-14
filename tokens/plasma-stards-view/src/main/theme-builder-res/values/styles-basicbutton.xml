@@ -9,6 +9,7 @@
         <item name="sd_valueTextColor">@color/sdkit_basic_button_value_color</item>
         <item name="sd_spinnerTint">@color/sdkit_basic_button_spinner_tint</item>
         <item name="sd_iconTint">@color/sdkit_basic_button_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.ButtonColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.BasicButton.L">
         <item name="android:minHeight">@dimen/sdkit_basic_button_l_min_height</item>
@@ -27,6 +28,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonL">
         <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.L</item>
     </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.L.Default">
+        <item name="sdkit_buttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonLDefault">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.L.Clear">
+        <item name="sdkit_buttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonLClear">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.L.Clear</item>
+    </style>
     <style name="Sdkit.StarDs.Components.BasicButton.M">
         <item name="android:minHeight">@dimen/sdkit_basic_button_m_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_basic_button_m_min_width</item>
@@ -42,6 +55,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonM">
         <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.M.Default">
+        <item name="sdkit_buttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonMDefault">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.M.Clear">
+        <item name="sdkit_buttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonMClear">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M.Clear</item>
     </style>
     <style name="Sdkit.StarDs.Components.BasicButton.S">
         <item name="android:minHeight">@dimen/sdkit_basic_button_s_min_height</item>
@@ -60,6 +85,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonS">
         <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.S</item>
     </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.S.Default">
+        <item name="sdkit_buttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonSDefault">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.S.Clear">
+        <item name="sdkit_buttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonSClear">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.S.Clear</item>
+    </style>
     <style name="Sdkit.StarDs.Components.BasicButton.Xs">
         <item name="android:minHeight">@dimen/sdkit_basic_button_xs_min_height</item>
         <item name="android:minWidth">@dimen/sdkit_basic_button_xs_min_width</item>
@@ -75,5 +112,17 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonXs">
         <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.Xs.Default">
+        <item name="sdkit_buttonColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonXsDefault">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.Xs.Clear">
+        <item name="sdkit_buttonColors">state_clear</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonXsClear">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.Xs.Clear</item>
     </style>
 </resources>

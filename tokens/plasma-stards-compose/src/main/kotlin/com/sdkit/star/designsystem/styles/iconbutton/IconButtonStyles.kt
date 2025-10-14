@@ -30,12 +30,28 @@ import kotlin.jvm.JvmName
 public interface WrapperIconButton : BuilderWrapper<ButtonStyle, IconButtonStyleBuilder>
 
 /**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperIconButtonView : WrapperIconButton
+
+/**
+ * Терминальная обертка
+ */
+@JvmInline
+public value class WrapperIconButtonTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
+
+/**
  * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperIconButtonL(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации LPilled
@@ -43,7 +59,7 @@ public value class WrapperIconButtonL(
 @JvmInline
 public value class WrapperIconButtonLPilled(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации M
@@ -51,7 +67,7 @@ public value class WrapperIconButtonLPilled(
 @JvmInline
 public value class WrapperIconButtonM(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации MPilled
@@ -59,7 +75,7 @@ public value class WrapperIconButtonM(
 @JvmInline
 public value class WrapperIconButtonMPilled(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации S
@@ -67,7 +83,7 @@ public value class WrapperIconButtonMPilled(
 @JvmInline
 public value class WrapperIconButtonS(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации SPilled
@@ -75,7 +91,7 @@ public value class WrapperIconButtonS(
 @JvmInline
 public value class WrapperIconButtonSPilled(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации Xs
@@ -83,7 +99,7 @@ public value class WrapperIconButtonSPilled(
 @JvmInline
 public value class WrapperIconButtonXs(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
 
 /**
  * Обертка для вариации XsPilled
@@ -91,7 +107,41 @@ public value class WrapperIconButtonXs(
 @JvmInline
 public value class WrapperIconButtonXsPilled(
     public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
+) : WrapperIconButtonView
+
+public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperIconButtonTerminate)
+
+public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                    setOf(InteractiveState.Pressed)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StarDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperIconButtonTerminate)
 
 private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
     @Composable

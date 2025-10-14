@@ -6,13 +6,21 @@ import com.sdds.playground.sandbox.plasma.stards.integration.s
 internal object StarDsIconButtonVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
-            "L" to s.Sdkit_StarDs_ComponentOverlays_IconButtonL,
-            "LPilled" to s.Sdkit_StarDs_ComponentOverlays_IconButtonLPilled,
-            "M" to s.Sdkit_StarDs_ComponentOverlays_IconButtonM,
-            "MPilled" to s.Sdkit_StarDs_ComponentOverlays_IconButtonMPilled,
-            "S" to s.Sdkit_StarDs_ComponentOverlays_IconButtonS,
-            "SPilled" to s.Sdkit_StarDs_ComponentOverlays_IconButtonSPilled,
-            "Xs" to s.Sdkit_StarDs_ComponentOverlays_IconButtonXs,
-            "XsPilled" to s.Sdkit_StarDs_ComponentOverlays_IconButtonXsPilled,
+            "L.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonLDefault,
+            "L.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonLClear,
+            "L.Pilled.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonLPilledDefault,
+            "L.Pilled.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonLPilledClear,
+            "M.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonMDefault,
+            "M.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonMClear,
+            "M.Pilled.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonMPilledDefault,
+            "M.Pilled.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonMPilledClear,
+            "S.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonSDefault,
+            "S.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonSClear,
+            "S.Pilled.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonSPilledDefault,
+            "S.Pilled.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonSPilledClear,
+            "Xs.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonXsDefault,
+            "Xs.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonXsClear,
+            "Xs.Pilled.Default" to s.Sdkit_StarDs_ComponentOverlays_IconButtonXsPilledDefault,
+            "Xs.Pilled.Clear" to s.Sdkit_StarDs_ComponentOverlays_IconButtonXsPilledClear,
         )
 }
