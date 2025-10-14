@@ -42,6 +42,11 @@ jobs:
           safe_path="$(echo "$safe_path" | tr '\\' '/')"
           echo "dir=$safe_path" >> $GITHUB_OUTPUT  
 
+          safe_name="${module//:/-}"
+          safe_name="${safe_name//\//-}"
+          safe_name="${safe_name//\\/-}"
+          echo "name=$safe_name" >> $GITHUB_OUTPUT
+
       - name: verify screenshots
         id: verify-test
         run: |
@@ -51,20 +56,23 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: screenshot-diff-compose
+          name: screenshot-diff-${{ steps.module_dir.outputs.name }}
+          if-no-files-found: ignore
           path: ${{ steps.module_dir.outputs.dir }}/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: screenshot-diff-reports-compose
+          name: screenshot-diff-reports-${{ steps.module_dir.outputs.name }}
+          if-no-files-found: ignore
           path: ${{ steps.module_dir.outputs.dir }}/build/reports
           retention-days: 30
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: screenshot-diff-test-results-compose
+          name: screenshot-diff-test-results-${{ steps.module_dir.outputs.name }}
+          if-no-files-found: ignore
           path: ${{ steps.module_dir.outputs.dir }}/build/test-results
           retention-days: 30
