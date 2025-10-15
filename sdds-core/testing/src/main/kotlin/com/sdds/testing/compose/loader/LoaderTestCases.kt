@@ -17,3 +17,16 @@ fun LoaderForSandbox(style: LoaderStyle) {
         loaderType = LoaderType.Spinner,
     )
 }
+
+/**
+ * PLASMA-T2213
+ */
+@Composable
+fun LoaderProgress(style: LoaderStyle) {
+    Loader(
+        style = style,
+        progress = 0.5f,
+        trackEnabled = true,
+        loaderType = LoaderType.Progress,
+    )
+}

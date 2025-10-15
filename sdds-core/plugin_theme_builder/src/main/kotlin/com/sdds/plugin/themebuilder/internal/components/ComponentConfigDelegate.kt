@@ -1,11 +1,15 @@
 package com.sdds.plugin.themebuilder.internal.components
 
-import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.base.Component
+import com.sdds.plugin.themebuilder.internal.components.base.Config
+import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import java.io.File
 import java.io.Serializable
 
-internal abstract class ComponentConfigDelegate<C : ComponentConfig> : Serializable {
+internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> : Serializable {
+
+    private var _config: C? = null
 
     protected abstract fun parseConfig(file: File): C
 
@@ -19,19 +23,31 @@ internal abstract class ComponentConfigDelegate<C : ComponentConfig> : Serializa
         component: Component,
     ): ComponentStyleGenerator<C>?
 
-    fun generate(
+    fun generateComposeStyles(
         file: File,
         deps: StyleGeneratorDependencies,
         component: Component,
-    ) {
-        val config: C = parseConfig(file)
-        when (deps.target) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> generateView(config, deps, component)
-            ThemeBuilderTarget.COMPOSE -> generateCompose(config, deps, component)
-            ThemeBuilderTarget.ALL -> {
-                generateView(config, deps, component)
-                generateCompose(config, deps, component)
-            }
+    ): ComponentInfo? {
+        val config: C = _config ?: parseConfig(file)
+        generateCompose(config, deps, component)
+        return if (component.isExcludedForCompose) {
+            null
+        } else {
+            getComponentInfo(component, deps, config)
+        }
+    }
+
+    fun generateViewSystemStyles(
+        file: File,
+        deps: StyleGeneratorDependencies,
+        component: Component,
+    ): ComponentInfo? {
+        val config: C = _config ?: parseConfig(file)
+        generateView(config, deps, component)
+        return if (component.isExcludedForViewSystem) {
+            null
+        } else {
+            getComponentInfo(component, deps, config)
         }
     }
 
@@ -43,5 +59,20 @@ internal abstract class ComponentConfigDelegate<C : ComponentConfig> : Serializa
     private fun generateView(config: C, deps: StyleGeneratorDependencies, component: Component) {
         if (component.isExcludedForViewSystem) return
         createViewGenerator(deps, component)?.generate(config)
+    }
+
+    private fun getComponentInfo(
+        component: Component,
+        deps: StyleGeneratorDependencies,
+        config: C,
+    ): ComponentInfo {
+        val styleName = component.styleName.techToCamelCase()
+        val coreName = component.componentName.techToCamelCase()
+        val variationsInfo = deps
+            .variationsInfoProviderFactory
+            .create(styleName)
+            .getVariationsInfo(config = config)
+        val componentInfo = ComponentInfo(coreName, styleName, variationsInfo)
+        return componentInfo
     }
 }

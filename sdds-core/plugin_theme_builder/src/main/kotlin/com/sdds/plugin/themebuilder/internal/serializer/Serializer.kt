@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.token.SpacingToken
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.Unknown
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
@@ -61,5 +62,14 @@ object Serializer {
                 subclass(Gradient::class)
             }
         }
+    }
+
+    /**
+     * Экземпляр сериализации json файла с информацией о компонентах и их вариациях из конфигов
+     */
+    @OptIn(ExperimentalSerializationApi::class)
+    val configInfo: Json = Json {
+        prettyPrint = true
+        prettyPrintIndent = "   "
     }
 }

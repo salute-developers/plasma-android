@@ -490,7 +490,7 @@ open class Wheel @JvmOverloads constructor(
         if (separatorType == SEPARATOR_TYPE_DOTS && childCount > 0) {
             val anyWheelItem = getChildAt(0) as WheelItemView
             configureDotDividers {
-                it.translationY = (it.measuredHeight - anyWheelItem.itemHeight + entryMinSpacing) / 2f
+                it.translationY = (it.measuredHeight - anyWheelItem.itemHeight) / 2f + entryMinSpacing
             }
         }
     }
