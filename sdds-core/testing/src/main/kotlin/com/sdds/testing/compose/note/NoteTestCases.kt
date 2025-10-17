@@ -1,7 +1,10 @@
 package com.sdds.testing.compose.note
 
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.Note
@@ -45,6 +48,7 @@ fun NoteCompactTitleTextHasAction(style: NoteCompactStyle) {
 @Composable
 fun NoteCompactHasCloseTitleText(style: NoteCompactStyle) {
     NoteCompact(
+        modifier = Modifier.size(200.dp, 100.dp),
         style = style,
         title = "Title",
         text = "Text",
