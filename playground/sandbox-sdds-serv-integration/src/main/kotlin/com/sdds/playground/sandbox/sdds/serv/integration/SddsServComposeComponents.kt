@@ -49,6 +49,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListNormal
 import com.sdds.playground.sandbox.sdds.serv.integration.list.SddsServListTightVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.loader.SddsServLoaderVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.modal.SddsServModalVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.note.SddsServNoteCompactVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.note.SddsServNoteVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationCompactVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notification.SddsServNotificationLooseVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.notificationcontent.SddsServNotificationContentVariationsCompose
@@ -378,6 +380,14 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.CodeField,
                 SddsServCodeFieldVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Note,
+                SddsServNoteVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.NoteCompact,
+                SddsServNoteCompactVariationsCompose,
             ),
         ).associateBy { it.key }
 }

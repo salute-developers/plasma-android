@@ -276,6 +276,37 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonTerminate
         }
         .wrap(::WrapperLinkButtonTerminate)
 
+public val WrapperLinkButtonView.Info: WrapperLinkButtonTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                SddsServTheme.colors.textDefaultInfo.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to SddsServTheme.colors.textDefaultInfoActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultInfoHover,
+                ),
+            )
+            iconColor(
+                SddsServTheme.colors.textDefaultInfo.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to SddsServTheme.colors.textDefaultInfoActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultInfoHover,
+                ),
+            )
+            labelColor(
+                SddsServTheme.colors.textDefaultInfo.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to SddsServTheme.colors.textDefaultInfoActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultInfoHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonTerminate)
+
 private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
     @Composable
     get() = this

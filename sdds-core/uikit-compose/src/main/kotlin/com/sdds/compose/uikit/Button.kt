@@ -78,6 +78,50 @@ fun IconButton(
 }
 
 /**
+ * Кнопка с текстом и иконкой с прозрачным фоном.
+ * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
+ * На время анимации загрузки контент будет скрыт или станет полупрозрачным
+ * в зависимости от стиля.
+ *
+ * @param modifier модификатор
+ * @param label текст кнопки
+ * @param style стиль кнопки
+ * @param icons иконки
+ * @param enabled флаг доступности кнопки
+ * @param loading флаг загрузки
+ * @param indication [Indication] кнопки
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClick обработчик нажатий
+ * @param onClickLabel надпись для Accessibility
+ */
+@Composable
+fun LinkButton(
+    modifier: Modifier = Modifier,
+    label: String,
+    style: ButtonStyle = LocalLinkButtonStyle.current,
+    icons: ButtonIcons? = null,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    indication: Indication? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
+    onClickLabel: String? = null,
+) {
+    Button(
+        label = label,
+        onClick = onClick,
+        modifier = modifier,
+        style = style,
+        icons = icons,
+        enabled = enabled,
+        loading = loading,
+        indication = indication,
+        interactionSource = interactionSource,
+        onClickLabel = onClickLabel,
+    )
+}
+
+/**
  * Кнопка с иконкой.
  * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
@@ -301,7 +345,7 @@ enum class ButtonSpacing {
 
 /**
  * Иконки кнопки
- * @property startRes иконка, которая будет добавлена в yfxfkt
+ * @property startRes иконка, которая будет добавлена в начале
  * @property endRes иконка, которая будет добавлена в конце
  * @property startContentDescription описание иконки в начале
  * @property endContentDescription описание иконки в конце
