@@ -40,6 +40,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXs">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs</item>
     </style>
+    <style name="Sdkit.StarDs.Components.TextField.Xs.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.Xs.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs.Error</item>
+    </style>
     <style name="Sdkit.StarDs.Components.TextField.Xs.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
         <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_xs_outer_label_box_padding_top</item>
@@ -50,6 +62,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabel">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.Xs.OuterLabel.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs.OuterLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.Xs.OuterLabel.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs.OuterLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextField.S">
         <item name="sd_requirementMode">optional</item>
@@ -72,6 +96,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldS">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S</item>
     </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.Error</item>
+    </style>
     <style name="Sdkit.StarDs.Components.TextField.S.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
         <item name="sd_labelPadding">@dimen/sdkit_text_field_s_outer_label_label_padding</item>
@@ -80,6 +116,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabel">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.OuterLabel.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.OuterLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.OuterLabel.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.OuterLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextField.S.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -91,6 +139,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabel">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.InnerLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.InnerLabel.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.InnerLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.InnerLabel.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.InnerLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextField.M">
         <item name="sd_requirementMode">optional</item>
@@ -112,6 +172,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldM">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M</item>
     </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.Error</item>
+    </style>
     <style name="Sdkit.StarDs.Components.TextField.M.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
         <item name="sd_labelPadding">@dimen/sdkit_text_field_m_outer_label_label_padding</item>
@@ -120,6 +192,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabel">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.OuterLabel.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.OuterLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.OuterLabel.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.OuterLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextField.M.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -131,5 +215,17 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabel">
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.InnerLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.InnerLabel.Default">
+        <item name="sdkit_textfieldColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.InnerLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.InnerLabel.Error">
+        <item name="sdkit_textfieldColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.InnerLabel.Error</item>
     </style>
 </resources>

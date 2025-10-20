@@ -5966,9 +5966,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsDefault"
+            },
+            {
+               "name": "xs.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsSuccess"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsWarning"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsError"
+            },
+            {
                "name": "xs.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStart"
+            },
+            {
+               "name": "xs.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartDefault"
+            },
+            {
+               "name": "xs.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartSuccess"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartWarning"
+            },
+            {
+               "name": "xs.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartError"
             },
             {
                "name": "xs.required-end",
@@ -5976,9 +6016,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEnd"
             },
             {
+               "name": "xs.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndDefault"
+            },
+            {
+               "name": "xs.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndSuccess"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndWarning"
+            },
+            {
+               "name": "xs.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelSuccess"
+            },
+            {
+               "name": "xs.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelWarning"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelError"
             },
             {
                "name": "xs.outer-label.required-start",
@@ -5986,9 +6066,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStart"
             },
             {
+               "name": "xs.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xs.outer-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xs.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xs.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartError"
+            },
+            {
                "name": "xs.outer-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEnd"
+            },
+            {
+               "name": "xs.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xs.outer-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xs.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xs.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndError"
             },
             {
                "name": "s",
@@ -5996,9 +6116,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSDefault"
+            },
+            {
+               "name": "s.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSSuccess"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSWarning"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSError"
+            },
+            {
                "name": "s.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.S.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredStart"
+            },
+            {
+               "name": "s.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartDefault"
+            },
+            {
+               "name": "s.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartSuccess"
+            },
+            {
+               "name": "s.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartWarning"
+            },
+            {
+               "name": "s.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartError"
             },
             {
                "name": "s.required-end",
@@ -6006,9 +6166,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredEnd"
             },
             {
+               "name": "s.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndDefault"
+            },
+            {
+               "name": "s.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndSuccess"
+            },
+            {
+               "name": "s.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndWarning"
+            },
+            {
+               "name": "s.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelSuccess"
+            },
+            {
+               "name": "s.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelWarning"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelError"
             },
             {
                "name": "s.outer-label.required-start",
@@ -6016,9 +6216,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStart"
             },
             {
+               "name": "s.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.outer-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "s.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartError"
+            },
+            {
                "name": "s.outer-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEnd"
+            },
+            {
+               "name": "s.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.outer-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "s.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndError"
             },
             {
                "name": "s.inner-label",
@@ -6026,9 +6266,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelSuccess"
+            },
+            {
+               "name": "s.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelWarning"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelError"
+            },
+            {
                "name": "s.inner-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStart"
+            },
+            {
+               "name": "s.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.inner-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "s.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartError"
             },
             {
                "name": "s.inner-label.required-end",
@@ -6036,9 +6316,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEnd"
             },
             {
+               "name": "s.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.inner-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "s.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndError"
+            },
+            {
                "name": "m",
                "viewReference": "Plasma.SdService.Components.TextField.M",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMDefault"
+            },
+            {
+               "name": "m.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMSuccess"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMWarning"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMError"
             },
             {
                "name": "m.required-start",
@@ -6046,9 +6366,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredStart"
             },
             {
+               "name": "m.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartDefault"
+            },
+            {
+               "name": "m.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartSuccess"
+            },
+            {
+               "name": "m.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartWarning"
+            },
+            {
+               "name": "m.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartError"
+            },
+            {
                "name": "m.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.M.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredEnd"
+            },
+            {
+               "name": "m.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndDefault"
+            },
+            {
+               "name": "m.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndSuccess"
+            },
+            {
+               "name": "m.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndWarning"
+            },
+            {
+               "name": "m.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndError"
             },
             {
                "name": "m.outer-label",
@@ -6056,9 +6416,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelSuccess"
+            },
+            {
+               "name": "m.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelWarning"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelError"
+            },
+            {
                "name": "m.outer-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStart"
+            },
+            {
+               "name": "m.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.outer-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "m.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartError"
             },
             {
                "name": "m.outer-label.required-end",
@@ -6066,9 +6466,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEnd"
             },
             {
+               "name": "m.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.outer-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "m.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelSuccess"
+            },
+            {
+               "name": "m.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelWarning"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelError"
             },
             {
                "name": "m.inner-label.required-start",
@@ -6076,9 +6516,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStart"
             },
             {
+               "name": "m.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.inner-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "m.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartError"
+            },
+            {
                "name": "m.inner-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEnd"
+            },
+            {
+               "name": "m.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.inner-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "m.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndError"
             },
             {
                "name": "l",
@@ -6086,9 +6566,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldL"
             },
             {
+               "name": "l.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLDefault"
+            },
+            {
+               "name": "l.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLSuccess"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLWarning"
+            },
+            {
+               "name": "l.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLError"
+            },
+            {
                "name": "l.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.L.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredStart"
+            },
+            {
+               "name": "l.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartDefault"
+            },
+            {
+               "name": "l.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartSuccess"
+            },
+            {
+               "name": "l.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartWarning"
+            },
+            {
+               "name": "l.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartError"
             },
             {
                "name": "l.required-end",
@@ -6096,9 +6616,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredEnd"
             },
             {
+               "name": "l.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndDefault"
+            },
+            {
+               "name": "l.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndSuccess"
+            },
+            {
+               "name": "l.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndWarning"
+            },
+            {
+               "name": "l.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndError"
+            },
+            {
                "name": "l.outer-label",
                "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabel"
+            },
+            {
+               "name": "l.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelDefault"
+            },
+            {
+               "name": "l.outer-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelSuccess"
+            },
+            {
+               "name": "l.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelWarning"
+            },
+            {
+               "name": "l.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelError"
             },
             {
                "name": "l.outer-label.required-start",
@@ -6106,9 +6666,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStart"
             },
             {
+               "name": "l.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.outer-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "l.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartError"
+            },
+            {
                "name": "l.outer-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEnd"
+            },
+            {
+               "name": "l.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.outer-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "l.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndError"
             },
             {
                "name": "l.inner-label",
@@ -6116,9 +6716,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabel"
             },
             {
+               "name": "l.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelDefault"
+            },
+            {
+               "name": "l.inner-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelSuccess"
+            },
+            {
+               "name": "l.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelWarning"
+            },
+            {
+               "name": "l.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelError"
+            },
+            {
                "name": "l.inner-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStart"
+            },
+            {
+               "name": "l.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.inner-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "l.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartError"
             },
             {
                "name": "l.inner-label.required-end",
@@ -6126,9 +6766,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEnd"
             },
             {
+               "name": "l.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.inner-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "l.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndError"
+            },
+            {
                "name": "xl",
                "viewReference": "Plasma.SdService.Components.TextField.Xl",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlDefault"
+            },
+            {
+               "name": "xl.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlSuccess"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlWarning"
+            },
+            {
+               "name": "xl.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlError"
             },
             {
                "name": "xl.required-start",
@@ -6136,9 +6816,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStart"
             },
             {
+               "name": "xl.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartDefault"
+            },
+            {
+               "name": "xl.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartSuccess"
+            },
+            {
+               "name": "xl.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartWarning"
+            },
+            {
+               "name": "xl.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartError"
+            },
+            {
                "name": "xl.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEnd"
+            },
+            {
+               "name": "xl.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndDefault"
+            },
+            {
+               "name": "xl.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndSuccess"
+            },
+            {
+               "name": "xl.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndWarning"
+            },
+            {
+               "name": "xl.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndError"
             },
             {
                "name": "xl.outer-label",
@@ -6146,9 +6866,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabel"
             },
             {
+               "name": "xl.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelDefault"
+            },
+            {
+               "name": "xl.outer-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelSuccess"
+            },
+            {
+               "name": "xl.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelWarning"
+            },
+            {
+               "name": "xl.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelError"
+            },
+            {
                "name": "xl.outer-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStart"
+            },
+            {
+               "name": "xl.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.outer-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xl.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartError"
             },
             {
                "name": "xl.outer-label.required-end",
@@ -6156,9 +6916,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEnd"
             },
             {
+               "name": "xl.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.outer-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xl.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndError"
+            },
+            {
                "name": "xl.inner-label",
                "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabel"
+            },
+            {
+               "name": "xl.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelDefault"
+            },
+            {
+               "name": "xl.inner-label.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelSuccess"
+            },
+            {
+               "name": "xl.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelWarning"
+            },
+            {
+               "name": "xl.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelError"
             },
             {
                "name": "xl.inner-label.required-start",
@@ -6166,9 +6966,49 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStart"
             },
             {
+               "name": "xl.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.inner-label.required-start.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xl.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartError"
+            },
+            {
                "name": "xl.inner-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEnd"
+            },
+            {
+               "name": "xl.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.inner-label.required-end.success",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xl.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndError"
             }
          ]
       },
@@ -6183,9 +7023,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsDefault"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsWarning"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsError"
+            },
+            {
                "name": "xs.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredStart"
+            },
+            {
+               "name": "xs.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredStartDefault"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredStartWarning"
+            },
+            {
+               "name": "xs.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredStartError"
             },
             {
                "name": "xs.required-end",
@@ -6193,9 +7063,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredEnd"
             },
             {
+               "name": "xs.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredEndDefault"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredEndWarning"
+            },
+            {
+               "name": "xs.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsRequiredEndError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelWarning"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelError"
             },
             {
                "name": "xs.outer-label.required-start",
@@ -6203,9 +7103,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredStart"
             },
             {
+               "name": "xs.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xs.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xs.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredStartError"
+            },
+            {
                "name": "xs.outer-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredEnd"
+            },
+            {
+               "name": "xs.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xs.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xs.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xs.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXsOuterLabelRequiredEndError"
             },
             {
                "name": "s",
@@ -6213,9 +7143,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSDefault"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSWarning"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSError"
+            },
+            {
                "name": "s.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredStart"
+            },
+            {
+               "name": "s.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredStartDefault"
+            },
+            {
+               "name": "s.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredStartWarning"
+            },
+            {
+               "name": "s.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredStartError"
             },
             {
                "name": "s.required-end",
@@ -6223,9 +7183,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredEnd"
             },
             {
+               "name": "s.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredEndDefault"
+            },
+            {
+               "name": "s.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredEndWarning"
+            },
+            {
+               "name": "s.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSRequiredEndError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelWarning"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelError"
             },
             {
                "name": "s.outer-label.required-start",
@@ -6233,9 +7223,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredStart"
             },
             {
+               "name": "s.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredStartError"
+            },
+            {
                "name": "s.outer-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredEnd"
+            },
+            {
+               "name": "s.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSOuterLabelRequiredEndError"
             },
             {
                "name": "s.inner-label",
@@ -6243,9 +7263,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelWarning"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelError"
+            },
+            {
                "name": "s.inner-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredStart"
+            },
+            {
+               "name": "s.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredStartError"
             },
             {
                "name": "s.inner-label.required-end",
@@ -6253,9 +7303,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredEnd"
             },
             {
+               "name": "s.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.S.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaSInnerLabelRequiredEndError"
+            },
+            {
                "name": "m",
                "viewReference": "Plasma.SdService.Components.TextArea.M",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMDefault"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMWarning"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMError"
             },
             {
                "name": "m.required-start",
@@ -6263,9 +7343,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredStart"
             },
             {
+               "name": "m.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredStartDefault"
+            },
+            {
+               "name": "m.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredStartWarning"
+            },
+            {
+               "name": "m.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredStartError"
+            },
+            {
                "name": "m.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredEnd"
+            },
+            {
+               "name": "m.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredEndDefault"
+            },
+            {
+               "name": "m.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredEndWarning"
+            },
+            {
+               "name": "m.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMRequiredEndError"
             },
             {
                "name": "m.outer-label",
@@ -6273,9 +7383,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelWarning"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelError"
+            },
+            {
                "name": "m.outer-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredStart"
+            },
+            {
+               "name": "m.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredStartError"
             },
             {
                "name": "m.outer-label.required-end",
@@ -6283,9 +7423,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredEnd"
             },
             {
+               "name": "m.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMOuterLabelRequiredEndError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelWarning"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelError"
             },
             {
                "name": "m.inner-label.required-start",
@@ -6293,9 +7463,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredStart"
             },
             {
+               "name": "m.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredStartError"
+            },
+            {
                "name": "m.inner-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredEnd"
+            },
+            {
+               "name": "m.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaMInnerLabelRequiredEndError"
             },
             {
                "name": "l",
@@ -6303,9 +7503,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaL"
             },
             {
+               "name": "l.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLDefault"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLWarning"
+            },
+            {
+               "name": "l.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLError"
+            },
+            {
                "name": "l.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredStart"
+            },
+            {
+               "name": "l.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredStartDefault"
+            },
+            {
+               "name": "l.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredStartWarning"
+            },
+            {
+               "name": "l.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredStartError"
             },
             {
                "name": "l.required-end",
@@ -6313,9 +7543,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredEnd"
             },
             {
+               "name": "l.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredEndDefault"
+            },
+            {
+               "name": "l.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredEndWarning"
+            },
+            {
+               "name": "l.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLRequiredEndError"
+            },
+            {
                "name": "l.outer-label",
                "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabel"
+            },
+            {
+               "name": "l.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelDefault"
+            },
+            {
+               "name": "l.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelWarning"
+            },
+            {
+               "name": "l.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelError"
             },
             {
                "name": "l.outer-label.required-start",
@@ -6323,9 +7583,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredStart"
             },
             {
+               "name": "l.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredStartError"
+            },
+            {
                "name": "l.outer-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredEnd"
+            },
+            {
+               "name": "l.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLOuterLabelRequiredEndError"
             },
             {
                "name": "l.inner-label",
@@ -6333,9 +7623,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabel"
             },
             {
+               "name": "l.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelDefault"
+            },
+            {
+               "name": "l.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelWarning"
+            },
+            {
+               "name": "l.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelError"
+            },
+            {
                "name": "l.inner-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredStart"
+            },
+            {
+               "name": "l.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredStartError"
             },
             {
                "name": "l.inner-label.required-end",
@@ -6343,9 +7663,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredEnd"
             },
             {
+               "name": "l.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.L.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaLInnerLabelRequiredEndError"
+            },
+            {
                "name": "xl",
                "viewReference": "Plasma.SdService.Components.TextArea.Xl",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlDefault"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlWarning"
+            },
+            {
+               "name": "xl.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlError"
             },
             {
                "name": "xl.required-start",
@@ -6353,9 +7703,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredStart"
             },
             {
+               "name": "xl.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredStartDefault"
+            },
+            {
+               "name": "xl.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredStartWarning"
+            },
+            {
+               "name": "xl.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredStartError"
+            },
+            {
                "name": "xl.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredEnd"
+            },
+            {
+               "name": "xl.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredEndDefault"
+            },
+            {
+               "name": "xl.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredEndWarning"
+            },
+            {
+               "name": "xl.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlRequiredEndError"
             },
             {
                "name": "xl.outer-label",
@@ -6363,9 +7743,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabel"
             },
             {
+               "name": "xl.outer-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelDefault"
+            },
+            {
+               "name": "xl.outer-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelWarning"
+            },
+            {
+               "name": "xl.outer-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelError"
+            },
+            {
                "name": "xl.outer-label.required-start",
                "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredStart",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredStart"
+            },
+            {
+               "name": "xl.outer-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.outer-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.outer-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredStartError"
             },
             {
                "name": "xl.outer-label.required-end",
@@ -6373,9 +7783,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredEnd"
             },
             {
+               "name": "xl.outer-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.outer-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.outer-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlOuterLabelRequiredEndError"
+            },
+            {
                "name": "xl.inner-label",
                "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabel"
+            },
+            {
+               "name": "xl.inner-label.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelDefault"
+            },
+            {
+               "name": "xl.inner-label.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelWarning"
+            },
+            {
+               "name": "xl.inner-label.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelError"
             },
             {
                "name": "xl.inner-label.required-start",
@@ -6383,9 +7823,39 @@
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredStart"
             },
             {
+               "name": "xl.inner-label.required-start.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.inner-label.required-start.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.inner-label.required-start.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredStartError"
+            },
+            {
                "name": "xl.inner-label.required-end",
                "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredEnd"
+            },
+            {
+               "name": "xl.inner-label.required-end.default",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.inner-label.required-end.warning",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.inner-label.required-end.error",
+               "viewReference": "Plasma.SdService.Components.TextArea.Xl.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.TextAreaXlInnerLabelRequiredEndError"
             }
          ]
       },

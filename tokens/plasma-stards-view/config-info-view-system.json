@@ -3715,9 +3715,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.Xs.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldXsDefault"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.Xs.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldXsError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Sdkit.StarDs.Components.TextField.Xs.OuterLabel",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabelError"
             },
             {
                "name": "s",
@@ -3725,9 +3745,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.S.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSDefault"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.S.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Sdkit.StarDs.Components.TextField.S.OuterLabel",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.S.OuterLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.S.OuterLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabelError"
             },
             {
                "name": "s.inner-label",
@@ -3735,9 +3775,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.S.InnerLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.S.InnerLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabelError"
+            },
+            {
                "name": "m",
                "viewReference": "Sdkit.StarDs.Components.TextField.M",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.M.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMDefault"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.M.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMError"
             },
             {
                "name": "m.outer-label",
@@ -3745,9 +3805,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.M.OuterLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.M.OuterLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabelError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Sdkit.StarDs.Components.TextField.M.InnerLabel",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextField.M.InnerLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextField.M.InnerLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabelError"
             }
          ]
       },
@@ -3762,9 +3842,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.Xs.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaXsDefault"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.Xs.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaXsError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Sdkit.StarDs.Components.TextArea.Xs.OuterLabel",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabelError"
             },
             {
                "name": "s",
@@ -3772,9 +3872,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.S.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSDefault"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.S.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Sdkit.StarDs.Components.TextArea.S.OuterLabel",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.S.OuterLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.S.OuterLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSOuterLabelError"
             },
             {
                "name": "s.inner-label",
@@ -3782,9 +3902,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.S.InnerLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.S.InnerLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabelError"
+            },
+            {
                "name": "m",
                "viewReference": "Sdkit.StarDs.Components.TextArea.M",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.M.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMDefault"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.M.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMError"
             },
             {
                "name": "m.outer-label",
@@ -3792,9 +3932,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.M.OuterLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.M.OuterLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMOuterLabelError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Sdkit.StarDs.Components.TextArea.M.InnerLabel",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.M.InnerLabel.Default",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Sdkit.StarDs.Components.TextArea.M.InnerLabel.Error",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextAreaMInnerLabelError"
             }
          ]
       },

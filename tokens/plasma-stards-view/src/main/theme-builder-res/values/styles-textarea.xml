@@ -46,6 +46,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXs">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs</item>
     </style>
+    <style name="Sdkit.StarDs.Components.TextArea.Xs.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.Xs.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs.Error</item>
+    </style>
     <style name="Sdkit.StarDs.Components.TextArea.Xs.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
         <item name="sd_boxPaddingTop">@dimen/sdkit_text_area_xs_outer_label_box_padding_top</item>
@@ -56,6 +68,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.Xs.OuterLabel.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs.OuterLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.Xs.OuterLabel.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs.OuterLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextArea.S">
         <item name="sd_requirementMode">optional</item>
@@ -79,6 +103,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaS">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S</item>
     </style>
+    <style name="Sdkit.StarDs.Components.TextArea.S.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.S.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.Error</item>
+    </style>
     <style name="Sdkit.StarDs.Components.TextArea.S.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
         <item name="sd_labelPadding">@dimen/sdkit_text_area_s_outer_label_label_padding</item>
@@ -87,6 +123,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSOuterLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.S.OuterLabel.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.OuterLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.S.OuterLabel.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.OuterLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextArea.S.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -98,6 +146,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.InnerLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.S.InnerLabel.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabelDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.InnerLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.S.InnerLabel.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabelError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.InnerLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextArea.M">
         <item name="sd_requirementMode">optional</item>
@@ -120,6 +180,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaM">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M</item>
     </style>
+    <style name="Sdkit.StarDs.Components.TextArea.M.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.M.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.Error</item>
+    </style>
     <style name="Sdkit.StarDs.Components.TextArea.M.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
         <item name="sd_labelPadding">@dimen/sdkit_text_area_m_outer_label_label_padding</item>
@@ -128,6 +200,18 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMOuterLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.M.OuterLabel.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.OuterLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.M.OuterLabel.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.OuterLabel.Error</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextArea.M.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -139,5 +223,17 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMInnerLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.InnerLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.M.InnerLabel.Default">
+        <item name="sdkit_textareaColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMInnerLabelDefault">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.InnerLabel.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextArea.M.InnerLabel.Error">
+        <item name="sdkit_textareaColors">state_error</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMInnerLabelError">
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.InnerLabel.Error</item>
     </style>
 </resources>

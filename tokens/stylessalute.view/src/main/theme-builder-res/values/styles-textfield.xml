@@ -45,6 +45,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXs">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_xs_required_start_indicator_size</item>
@@ -52,12 +76,60 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_xs_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -70,6 +142,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_xs_outer_label_required_start_indicator_size</item>
@@ -79,6 +175,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_xs_outer_label_required_end_indicator_size</item>
@@ -87,6 +207,30 @@
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSChips">
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.S.Secondary</item>
@@ -113,6 +257,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldS">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.S.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_s_required_start_indicator_size</item>
@@ -120,12 +288,60 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.S.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_s_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -136,6 +352,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_s_outer_label_required_start_indicator_size</item>
@@ -145,6 +385,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_s_outer_label_required_end_indicator_size</item>
@@ -153,6 +417,30 @@
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -165,6 +453,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_s_inner_label_required_start_indicator_size</item>
@@ -172,12 +484,60 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_s_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMChips">
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.M.Secondary</item>
@@ -203,6 +563,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldM">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.M.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_m_required_start_indicator_size</item>
@@ -210,12 +594,60 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.M.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_m_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -226,6 +658,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_m_outer_label_required_start_indicator_size</item>
@@ -235,6 +691,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_m_outer_label_required_end_indicator_size</item>
@@ -243,6 +723,30 @@
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -255,6 +759,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_m_inner_label_required_start_indicator_size</item>
@@ -262,12 +790,60 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_m_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLChips">
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -294,6 +870,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldL">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.L.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_l_required_start_indicator_size</item>
@@ -301,12 +901,60 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.L.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_l_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -317,6 +965,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_l_outer_label_required_start_indicator_size</item>
@@ -326,6 +998,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_l_outer_label_required_end_indicator_size</item>
@@ -334,6 +1030,30 @@
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -346,6 +1066,30 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabel">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_l_inner_label_required_start_indicator_size</item>
@@ -353,11 +1097,59 @@
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/salute_text_field_l_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Default">
+        <item name="salute_textfieldColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Success">
+        <item name="salute_textfieldColors">state_success</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Warning">
+        <item name="salute_textfieldColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Error">
+        <item name="salute_textfieldColors">state_error</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Error</item>
     </style>
 </resources>
