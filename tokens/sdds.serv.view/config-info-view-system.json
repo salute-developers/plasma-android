@@ -5978,9 +5978,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsDefault"
+            },
+            {
+               "name": "xs.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsSuccess"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsWarning"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsError"
+            },
+            {
                "name": "xs.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStart"
+            },
+            {
+               "name": "xs.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartDefault"
+            },
+            {
+               "name": "xs.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartSuccess"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartWarning"
+            },
+            {
+               "name": "xs.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartError"
             },
             {
                "name": "xs.required-end",
@@ -5988,9 +6028,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEnd"
             },
             {
+               "name": "xs.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndDefault"
+            },
+            {
+               "name": "xs.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndSuccess"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndWarning"
+            },
+            {
+               "name": "xs.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelSuccess"
+            },
+            {
+               "name": "xs.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelWarning"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelError"
             },
             {
                "name": "xs.outer-label.required-start",
@@ -5998,9 +6078,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStart"
             },
             {
+               "name": "xs.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xs.outer-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xs.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xs.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartError"
+            },
+            {
                "name": "xs.outer-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEnd"
+            },
+            {
+               "name": "xs.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xs.outer-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xs.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xs.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndError"
             },
             {
                "name": "s",
@@ -6008,9 +6128,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSDefault"
+            },
+            {
+               "name": "s.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSSuccess"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSWarning"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSError"
+            },
+            {
                "name": "s.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.S.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredStart"
+            },
+            {
+               "name": "s.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartDefault"
+            },
+            {
+               "name": "s.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartSuccess"
+            },
+            {
+               "name": "s.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartWarning"
+            },
+            {
+               "name": "s.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartError"
             },
             {
                "name": "s.required-end",
@@ -6018,9 +6178,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredEnd"
             },
             {
+               "name": "s.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndDefault"
+            },
+            {
+               "name": "s.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndSuccess"
+            },
+            {
+               "name": "s.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndWarning"
+            },
+            {
+               "name": "s.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelSuccess"
+            },
+            {
+               "name": "s.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelWarning"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelError"
             },
             {
                "name": "s.outer-label.required-start",
@@ -6028,9 +6228,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStart"
             },
             {
+               "name": "s.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.outer-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "s.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartError"
+            },
+            {
                "name": "s.outer-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEnd"
+            },
+            {
+               "name": "s.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.outer-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "s.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndError"
             },
             {
                "name": "s.inner-label",
@@ -6038,9 +6278,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelSuccess"
+            },
+            {
+               "name": "s.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelWarning"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelError"
+            },
+            {
                "name": "s.inner-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStart"
+            },
+            {
+               "name": "s.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.inner-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "s.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartError"
             },
             {
                "name": "s.inner-label.required-end",
@@ -6048,9 +6328,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEnd"
             },
             {
+               "name": "s.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.inner-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "s.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndError"
+            },
+            {
                "name": "m",
                "viewReference": "Serv.Sdds.Components.TextField.M",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMDefault"
+            },
+            {
+               "name": "m.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMSuccess"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMWarning"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMError"
             },
             {
                "name": "m.required-start",
@@ -6058,9 +6378,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredStart"
             },
             {
+               "name": "m.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartDefault"
+            },
+            {
+               "name": "m.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartSuccess"
+            },
+            {
+               "name": "m.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartWarning"
+            },
+            {
+               "name": "m.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartError"
+            },
+            {
                "name": "m.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.M.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredEnd"
+            },
+            {
+               "name": "m.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndDefault"
+            },
+            {
+               "name": "m.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndSuccess"
+            },
+            {
+               "name": "m.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndWarning"
+            },
+            {
+               "name": "m.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndError"
             },
             {
                "name": "m.outer-label",
@@ -6068,9 +6428,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelSuccess"
+            },
+            {
+               "name": "m.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelWarning"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelError"
+            },
+            {
                "name": "m.outer-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStart"
+            },
+            {
+               "name": "m.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.outer-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "m.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartError"
             },
             {
                "name": "m.outer-label.required-end",
@@ -6078,9 +6478,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEnd"
             },
             {
+               "name": "m.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.outer-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "m.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelSuccess"
+            },
+            {
+               "name": "m.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelWarning"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelError"
             },
             {
                "name": "m.inner-label.required-start",
@@ -6088,9 +6528,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStart"
             },
             {
+               "name": "m.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.inner-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "m.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartError"
+            },
+            {
                "name": "m.inner-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEnd"
+            },
+            {
+               "name": "m.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.inner-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "m.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndError"
             },
             {
                "name": "l",
@@ -6098,9 +6578,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldL"
             },
             {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLDefault"
+            },
+            {
+               "name": "l.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLSuccess"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLWarning"
+            },
+            {
+               "name": "l.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLError"
+            },
+            {
                "name": "l.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.L.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredStart"
+            },
+            {
+               "name": "l.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartDefault"
+            },
+            {
+               "name": "l.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartSuccess"
+            },
+            {
+               "name": "l.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartWarning"
+            },
+            {
+               "name": "l.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartError"
             },
             {
                "name": "l.required-end",
@@ -6108,9 +6628,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredEnd"
             },
             {
+               "name": "l.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndDefault"
+            },
+            {
+               "name": "l.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndSuccess"
+            },
+            {
+               "name": "l.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndWarning"
+            },
+            {
+               "name": "l.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndError"
+            },
+            {
                "name": "l.outer-label",
                "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabel"
+            },
+            {
+               "name": "l.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelDefault"
+            },
+            {
+               "name": "l.outer-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelSuccess"
+            },
+            {
+               "name": "l.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelWarning"
+            },
+            {
+               "name": "l.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelError"
             },
             {
                "name": "l.outer-label.required-start",
@@ -6118,9 +6678,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStart"
             },
             {
+               "name": "l.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.outer-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "l.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartError"
+            },
+            {
                "name": "l.outer-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEnd"
+            },
+            {
+               "name": "l.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.outer-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "l.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndError"
             },
             {
                "name": "l.inner-label",
@@ -6128,9 +6728,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabel"
             },
             {
+               "name": "l.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelDefault"
+            },
+            {
+               "name": "l.inner-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelSuccess"
+            },
+            {
+               "name": "l.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelWarning"
+            },
+            {
+               "name": "l.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelError"
+            },
+            {
                "name": "l.inner-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStart"
+            },
+            {
+               "name": "l.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.inner-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "l.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartError"
             },
             {
                "name": "l.inner-label.required-end",
@@ -6138,9 +6778,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEnd"
             },
             {
+               "name": "l.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.inner-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "l.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndError"
+            },
+            {
                "name": "xl",
                "viewReference": "Serv.Sdds.Components.TextField.Xl",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlDefault"
+            },
+            {
+               "name": "xl.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlSuccess"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlWarning"
+            },
+            {
+               "name": "xl.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlError"
             },
             {
                "name": "xl.required-start",
@@ -6148,9 +6828,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStart"
             },
             {
+               "name": "xl.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartDefault"
+            },
+            {
+               "name": "xl.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartSuccess"
+            },
+            {
+               "name": "xl.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartWarning"
+            },
+            {
+               "name": "xl.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartError"
+            },
+            {
                "name": "xl.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEnd"
+            },
+            {
+               "name": "xl.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndDefault"
+            },
+            {
+               "name": "xl.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndSuccess"
+            },
+            {
+               "name": "xl.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndWarning"
+            },
+            {
+               "name": "xl.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndError"
             },
             {
                "name": "xl.outer-label",
@@ -6158,9 +6878,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabel"
             },
             {
+               "name": "xl.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelDefault"
+            },
+            {
+               "name": "xl.outer-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelSuccess"
+            },
+            {
+               "name": "xl.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelWarning"
+            },
+            {
+               "name": "xl.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelError"
+            },
+            {
                "name": "xl.outer-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStart"
+            },
+            {
+               "name": "xl.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.outer-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xl.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartError"
             },
             {
                "name": "xl.outer-label.required-end",
@@ -6168,9 +6928,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEnd"
             },
             {
+               "name": "xl.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.outer-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xl.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndError"
+            },
+            {
                "name": "xl.inner-label",
                "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabel"
+            },
+            {
+               "name": "xl.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelDefault"
+            },
+            {
+               "name": "xl.inner-label.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelSuccess"
+            },
+            {
+               "name": "xl.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelWarning"
+            },
+            {
+               "name": "xl.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelError"
             },
             {
                "name": "xl.inner-label.required-start",
@@ -6178,9 +6978,49 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStart"
             },
             {
+               "name": "xl.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.inner-label.required-start.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xl.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartError"
+            },
+            {
                "name": "xl.inner-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEnd"
+            },
+            {
+               "name": "xl.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.inner-label.required-end.success",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xl.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndError"
             }
          ]
       },
@@ -6195,9 +7035,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsDefault"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsWarning"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsError"
+            },
+            {
                "name": "xs.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStart"
+            },
+            {
+               "name": "xs.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStartDefault"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStartWarning"
+            },
+            {
+               "name": "xs.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStartError"
             },
             {
                "name": "xs.required-end",
@@ -6205,9 +7075,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEnd"
             },
             {
+               "name": "xs.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEndDefault"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEndWarning"
+            },
+            {
+               "name": "xs.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEndError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelWarning"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelError"
             },
             {
                "name": "xs.outer-label.required-start",
@@ -6215,9 +7115,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStart"
             },
             {
+               "name": "xs.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xs.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xs.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStartError"
+            },
+            {
                "name": "xs.outer-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEnd"
+            },
+            {
+               "name": "xs.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xs.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xs.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEndError"
             },
             {
                "name": "s",
@@ -6225,9 +7155,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSDefault"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSWarning"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSError"
+            },
+            {
                "name": "s.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredStart"
+            },
+            {
+               "name": "s.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredStartDefault"
+            },
+            {
+               "name": "s.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredStartWarning"
+            },
+            {
+               "name": "s.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredStartError"
             },
             {
                "name": "s.required-end",
@@ -6235,9 +7195,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredEnd"
             },
             {
+               "name": "s.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredEndDefault"
+            },
+            {
+               "name": "s.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredEndWarning"
+            },
+            {
+               "name": "s.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSRequiredEndError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelWarning"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelError"
             },
             {
                "name": "s.outer-label.required-start",
@@ -6245,9 +7235,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStart"
             },
             {
+               "name": "s.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStartError"
+            },
+            {
                "name": "s.outer-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEnd"
+            },
+            {
+               "name": "s.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEndError"
             },
             {
                "name": "s.inner-label",
@@ -6255,9 +7275,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelWarning"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelError"
+            },
+            {
                "name": "s.inner-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStart"
+            },
+            {
+               "name": "s.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStartError"
             },
             {
                "name": "s.inner-label.required-end",
@@ -6265,9 +7315,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEnd"
             },
             {
+               "name": "s.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEndError"
+            },
+            {
                "name": "m",
                "viewReference": "Serv.Sdds.Components.TextArea.M",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMDefault"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMWarning"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMError"
             },
             {
                "name": "m.required-start",
@@ -6275,9 +7355,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredStart"
             },
             {
+               "name": "m.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredStartDefault"
+            },
+            {
+               "name": "m.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredStartWarning"
+            },
+            {
+               "name": "m.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredStartError"
+            },
+            {
                "name": "m.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredEnd"
+            },
+            {
+               "name": "m.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredEndDefault"
+            },
+            {
+               "name": "m.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredEndWarning"
+            },
+            {
+               "name": "m.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMRequiredEndError"
             },
             {
                "name": "m.outer-label",
@@ -6285,9 +7395,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelWarning"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelError"
+            },
+            {
                "name": "m.outer-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStart"
+            },
+            {
+               "name": "m.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStartError"
             },
             {
                "name": "m.outer-label.required-end",
@@ -6295,9 +7435,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEnd"
             },
             {
+               "name": "m.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEndError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelWarning"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelError"
             },
             {
                "name": "m.inner-label.required-start",
@@ -6305,9 +7475,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStart"
             },
             {
+               "name": "m.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStartError"
+            },
+            {
                "name": "m.inner-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEnd"
+            },
+            {
+               "name": "m.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEndError"
             },
             {
                "name": "l",
@@ -6315,9 +7515,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaL"
             },
             {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLDefault"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLWarning"
+            },
+            {
+               "name": "l.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLError"
+            },
+            {
                "name": "l.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredStart"
+            },
+            {
+               "name": "l.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredStartDefault"
+            },
+            {
+               "name": "l.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredStartWarning"
+            },
+            {
+               "name": "l.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredStartError"
             },
             {
                "name": "l.required-end",
@@ -6325,9 +7555,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredEnd"
             },
             {
+               "name": "l.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredEndDefault"
+            },
+            {
+               "name": "l.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredEndWarning"
+            },
+            {
+               "name": "l.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLRequiredEndError"
+            },
+            {
                "name": "l.outer-label",
                "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabel"
+            },
+            {
+               "name": "l.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelDefault"
+            },
+            {
+               "name": "l.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelWarning"
+            },
+            {
+               "name": "l.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelError"
             },
             {
                "name": "l.outer-label.required-start",
@@ -6335,9 +7595,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStart"
             },
             {
+               "name": "l.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStartError"
+            },
+            {
                "name": "l.outer-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEnd"
+            },
+            {
+               "name": "l.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEndError"
             },
             {
                "name": "l.inner-label",
@@ -6345,9 +7635,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabel"
             },
             {
+               "name": "l.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelDefault"
+            },
+            {
+               "name": "l.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelWarning"
+            },
+            {
+               "name": "l.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelError"
+            },
+            {
                "name": "l.inner-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStart"
+            },
+            {
+               "name": "l.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStartError"
             },
             {
                "name": "l.inner-label.required-end",
@@ -6355,9 +7675,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEnd"
             },
             {
+               "name": "l.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEndError"
+            },
+            {
                "name": "xl",
                "viewReference": "Serv.Sdds.Components.TextArea.Xl",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlDefault"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlWarning"
+            },
+            {
+               "name": "xl.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlError"
             },
             {
                "name": "xl.required-start",
@@ -6365,9 +7715,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStart"
             },
             {
+               "name": "xl.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStartDefault"
+            },
+            {
+               "name": "xl.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStartWarning"
+            },
+            {
+               "name": "xl.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStartError"
+            },
+            {
                "name": "xl.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEnd"
+            },
+            {
+               "name": "xl.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEndDefault"
+            },
+            {
+               "name": "xl.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEndWarning"
+            },
+            {
+               "name": "xl.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEndError"
             },
             {
                "name": "xl.outer-label",
@@ -6375,9 +7755,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabel"
             },
             {
+               "name": "xl.outer-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelDefault"
+            },
+            {
+               "name": "xl.outer-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelWarning"
+            },
+            {
+               "name": "xl.outer-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelError"
+            },
+            {
                "name": "xl.outer-label.required-start",
                "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStart"
+            },
+            {
+               "name": "xl.outer-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.outer-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.outer-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStartError"
             },
             {
                "name": "xl.outer-label.required-end",
@@ -6385,9 +7795,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEnd"
             },
             {
+               "name": "xl.outer-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.outer-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.outer-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEndError"
+            },
+            {
                "name": "xl.inner-label",
                "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabel"
+            },
+            {
+               "name": "xl.inner-label.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelDefault"
+            },
+            {
+               "name": "xl.inner-label.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelWarning"
+            },
+            {
+               "name": "xl.inner-label.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelError"
             },
             {
                "name": "xl.inner-label.required-start",
@@ -6395,9 +7835,39 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStart"
             },
             {
+               "name": "xl.inner-label.required-start.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "xl.inner-label.required-start.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "xl.inner-label.required-start.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStartError"
+            },
+            {
                "name": "xl.inner-label.required-end",
                "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEnd"
+            },
+            {
+               "name": "xl.inner-label.required-end.default",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "xl.inner-label.required-end.warning",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "xl.inner-label.required-end.error",
+               "viewReference": "Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEndError"
             }
          ]
       },

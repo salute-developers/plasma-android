@@ -45,6 +45,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXs">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xs.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xs_required_start_indicator_size</item>
@@ -52,12 +76,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xs.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xs_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -70,6 +142,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xs_outer_label_required_start_indicator_size</item>
@@ -79,6 +175,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xs_outer_label_required_end_indicator_size</item>
@@ -87,6 +207,30 @@
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXsOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xs.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSChips">
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.S.Secondary</item>
@@ -113,6 +257,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldS">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.S.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.S.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_s_required_start_indicator_size</item>
@@ -120,12 +288,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.S.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_s_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.S.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -136,6 +352,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_s_outer_label_required_start_indicator_size</item>
@@ -145,6 +385,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_s_outer_label_required_end_indicator_size</item>
@@ -153,6 +417,30 @@
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.S.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -165,6 +453,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_s_inner_label_required_start_indicator_size</item>
@@ -172,12 +484,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_s_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldSInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.S.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMChips">
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.M.Secondary</item>
@@ -203,6 +563,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldM">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.M.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.M.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_m_required_start_indicator_size</item>
@@ -210,12 +594,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.M.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_m_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.M.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -226,6 +658,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_m_outer_label_required_start_indicator_size</item>
@@ -235,6 +691,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_m_outer_label_required_end_indicator_size</item>
@@ -243,6 +723,30 @@
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.M.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -255,6 +759,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_m_inner_label_required_start_indicator_size</item>
@@ -262,12 +790,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_m_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldMInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLChips">
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -294,6 +870,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldL">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.L.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.L.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_l_required_start_indicator_size</item>
@@ -301,12 +901,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.L.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_l_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.L.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -317,6 +965,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_l_outer_label_required_start_indicator_size</item>
@@ -326,6 +998,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_l_outer_label_required_end_indicator_size</item>
@@ -334,6 +1030,30 @@
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.L.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -346,6 +1066,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_l_inner_label_required_start_indicator_size</item>
@@ -353,12 +1097,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_l_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlChips">
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -384,6 +1176,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXl">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xl.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_required_start_indicator_size</item>
@@ -391,12 +1207,60 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xl.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -407,6 +1271,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_outer_label_required_start_indicator_size</item>
@@ -416,6 +1304,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_outer_label_required_end_indicator_size</item>
@@ -424,6 +1336,30 @@
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -436,6 +1372,30 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabel">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_inner_label_required_start_indicator_size</item>
@@ -443,11 +1403,59 @@
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Default">
+        <item name="plasma_textfieldColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Success">
+        <item name="plasma_textfieldColors">state_success</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Warning">
+        <item name="plasma_textfieldColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Error">
+        <item name="plasma_textfieldColors">state_error</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd.Error</item>
     </style>
 </resources>

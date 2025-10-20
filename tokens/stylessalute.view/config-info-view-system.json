@@ -4448,9 +4448,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsDefault"
+            },
+            {
+               "name": "xs.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsSuccess"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsWarning"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsError"
+            },
+            {
                "name": "xs.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStart"
+            },
+            {
+               "name": "xs.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartDefault"
+            },
+            {
+               "name": "xs.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartSuccess"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartWarning"
+            },
+            {
+               "name": "xs.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredStartError"
             },
             {
                "name": "xs.required-end",
@@ -4458,9 +4498,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEnd"
             },
             {
+               "name": "xs.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndDefault"
+            },
+            {
+               "name": "xs.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndSuccess"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndWarning"
+            },
+            {
+               "name": "xs.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsRequiredEndError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelSuccess"
+            },
+            {
+               "name": "xs.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelWarning"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelError"
             },
             {
                "name": "xs.outer-label.required-start",
@@ -4468,9 +4548,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStart"
             },
             {
+               "name": "xs.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xs.outer-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "xs.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xs.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredStartError"
+            },
+            {
                "name": "xs.outer-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEnd"
+            },
+            {
+               "name": "xs.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xs.outer-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "xs.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xs.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.Xs.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldXsOuterLabelRequiredEndError"
             },
             {
                "name": "s",
@@ -4478,9 +4598,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSDefault"
+            },
+            {
+               "name": "s.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSSuccess"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSWarning"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSError"
+            },
+            {
                "name": "s.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStart"
+            },
+            {
+               "name": "s.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartDefault"
+            },
+            {
+               "name": "s.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartSuccess"
+            },
+            {
+               "name": "s.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartWarning"
+            },
+            {
+               "name": "s.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredStartError"
             },
             {
                "name": "s.required-end",
@@ -4488,9 +4648,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEnd"
             },
             {
+               "name": "s.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndDefault"
+            },
+            {
+               "name": "s.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndSuccess"
+            },
+            {
+               "name": "s.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndWarning"
+            },
+            {
+               "name": "s.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSRequiredEndError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelSuccess"
+            },
+            {
+               "name": "s.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelWarning"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelError"
             },
             {
                "name": "s.outer-label.required-start",
@@ -4498,9 +4698,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStart"
             },
             {
+               "name": "s.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.outer-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "s.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredStartError"
+            },
+            {
                "name": "s.outer-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEnd"
+            },
+            {
+               "name": "s.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.outer-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "s.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSOuterLabelRequiredEndError"
             },
             {
                "name": "s.inner-label",
@@ -4508,9 +4748,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelSuccess"
+            },
+            {
+               "name": "s.inner-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelWarning"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelError"
+            },
+            {
                "name": "s.inner-label.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStart"
+            },
+            {
+               "name": "s.inner-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.inner-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "s.inner-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.inner-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredStartError"
             },
             {
                "name": "s.inner-label.required-end",
@@ -4518,9 +4798,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEnd"
             },
             {
+               "name": "s.inner-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.inner-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "s.inner-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.inner-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.S.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldSInnerLabelRequiredEndError"
+            },
+            {
                "name": "m",
                "viewReference": "Salute.StylesSalute.Components.TextField.M",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMDefault"
+            },
+            {
+               "name": "m.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMSuccess"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMWarning"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMError"
             },
             {
                "name": "m.required-start",
@@ -4528,9 +4848,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStart"
             },
             {
+               "name": "m.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartDefault"
+            },
+            {
+               "name": "m.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartSuccess"
+            },
+            {
+               "name": "m.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartWarning"
+            },
+            {
+               "name": "m.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredStartError"
+            },
+            {
                "name": "m.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEnd"
+            },
+            {
+               "name": "m.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndDefault"
+            },
+            {
+               "name": "m.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndSuccess"
+            },
+            {
+               "name": "m.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndWarning"
+            },
+            {
+               "name": "m.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMRequiredEndError"
             },
             {
                "name": "m.outer-label",
@@ -4538,9 +4898,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelSuccess"
+            },
+            {
+               "name": "m.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelWarning"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelError"
+            },
+            {
                "name": "m.outer-label.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStart"
+            },
+            {
+               "name": "m.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.outer-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "m.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredStartError"
             },
             {
                "name": "m.outer-label.required-end",
@@ -4548,9 +4948,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEnd"
             },
             {
+               "name": "m.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.outer-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "m.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMOuterLabelRequiredEndError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelSuccess"
+            },
+            {
+               "name": "m.inner-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelWarning"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelError"
             },
             {
                "name": "m.inner-label.required-start",
@@ -4558,9 +4998,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStart"
             },
             {
+               "name": "m.inner-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.inner-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "m.inner-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.inner-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredStartError"
+            },
+            {
                "name": "m.inner-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEnd"
+            },
+            {
+               "name": "m.inner-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.inner-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "m.inner-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.inner-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.M.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldMInnerLabelRequiredEndError"
             },
             {
                "name": "l",
@@ -4568,9 +5048,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldL"
             },
             {
+               "name": "l.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLDefault"
+            },
+            {
+               "name": "l.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLSuccess"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLWarning"
+            },
+            {
+               "name": "l.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLError"
+            },
+            {
                "name": "l.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStart"
+            },
+            {
+               "name": "l.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartDefault"
+            },
+            {
+               "name": "l.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartSuccess"
+            },
+            {
+               "name": "l.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartWarning"
+            },
+            {
+               "name": "l.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredStartError"
             },
             {
                "name": "l.required-end",
@@ -4578,9 +5098,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEnd"
             },
             {
+               "name": "l.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndDefault"
+            },
+            {
+               "name": "l.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndSuccess"
+            },
+            {
+               "name": "l.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndWarning"
+            },
+            {
+               "name": "l.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLRequiredEndError"
+            },
+            {
                "name": "l.outer-label",
                "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabel"
+            },
+            {
+               "name": "l.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelDefault"
+            },
+            {
+               "name": "l.outer-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelSuccess"
+            },
+            {
+               "name": "l.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelWarning"
+            },
+            {
+               "name": "l.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelError"
             },
             {
                "name": "l.outer-label.required-start",
@@ -4588,9 +5148,49 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStart"
             },
             {
+               "name": "l.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.outer-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartSuccess"
+            },
+            {
+               "name": "l.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredStartError"
+            },
+            {
                "name": "l.outer-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEnd"
+            },
+            {
+               "name": "l.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.outer-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndSuccess"
+            },
+            {
+               "name": "l.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLOuterLabelRequiredEndError"
             },
             {
                "name": "l.inner-label",
@@ -4598,14 +5198,74 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabel"
             },
             {
+               "name": "l.inner-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelDefault"
+            },
+            {
+               "name": "l.inner-label.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelSuccess"
+            },
+            {
+               "name": "l.inner-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelWarning"
+            },
+            {
+               "name": "l.inner-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelError"
+            },
+            {
                "name": "l.inner-label.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStart"
             },
             {
+               "name": "l.inner-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.inner-label.required-start.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartSuccess"
+            },
+            {
+               "name": "l.inner-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.inner-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredStartError"
+            },
+            {
                "name": "l.inner-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEnd"
+            },
+            {
+               "name": "l.inner-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.inner-label.required-end.success",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Success",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndSuccess"
+            },
+            {
+               "name": "l.inner-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.inner-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextField.L.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextFieldLInnerLabelRequiredEndError"
             }
          ]
       },
@@ -4620,9 +5280,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXs"
             },
             {
+               "name": "xs.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsDefault"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsWarning"
+            },
+            {
+               "name": "xs.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsError"
+            },
+            {
                "name": "xs.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredStart"
+            },
+            {
+               "name": "xs.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredStartDefault"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredStartWarning"
+            },
+            {
+               "name": "xs.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredStartError"
             },
             {
                "name": "xs.required-end",
@@ -4630,9 +5320,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredEnd"
             },
             {
+               "name": "xs.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredEndDefault"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredEndWarning"
+            },
+            {
+               "name": "xs.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredEndError"
+            },
+            {
                "name": "xs.outer-label",
                "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabel"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelDefault"
+            },
+            {
+               "name": "xs.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelWarning"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelError"
             },
             {
                "name": "xs.outer-label.required-start",
@@ -4640,9 +5360,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredStart"
             },
             {
+               "name": "xs.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "xs.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "xs.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredStartError"
+            },
+            {
                "name": "xs.outer-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredEnd"
+            },
+            {
+               "name": "xs.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "xs.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "xs.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredEndError"
             },
             {
                "name": "s",
@@ -4650,9 +5400,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaS"
             },
             {
+               "name": "s.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSDefault"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSWarning"
+            },
+            {
+               "name": "s.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSError"
+            },
+            {
                "name": "s.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredStart"
+            },
+            {
+               "name": "s.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredStartDefault"
+            },
+            {
+               "name": "s.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredStartWarning"
+            },
+            {
+               "name": "s.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredStartError"
             },
             {
                "name": "s.required-end",
@@ -4660,9 +5440,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredEnd"
             },
             {
+               "name": "s.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredEndDefault"
+            },
+            {
+               "name": "s.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredEndWarning"
+            },
+            {
+               "name": "s.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredEndError"
+            },
+            {
                "name": "s.outer-label",
                "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabel"
+            },
+            {
+               "name": "s.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelDefault"
+            },
+            {
+               "name": "s.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelWarning"
+            },
+            {
+               "name": "s.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelError"
             },
             {
                "name": "s.outer-label.required-start",
@@ -4670,9 +5480,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredStart"
             },
             {
+               "name": "s.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredStartError"
+            },
+            {
                "name": "s.outer-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredEnd"
+            },
+            {
+               "name": "s.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredEndError"
             },
             {
                "name": "s.inner-label",
@@ -4680,9 +5520,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabel"
             },
             {
+               "name": "s.inner-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelDefault"
+            },
+            {
+               "name": "s.inner-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelWarning"
+            },
+            {
+               "name": "s.inner-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelError"
+            },
+            {
                "name": "s.inner-label.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredStart"
+            },
+            {
+               "name": "s.inner-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "s.inner-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "s.inner-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredStartError"
             },
             {
                "name": "s.inner-label.required-end",
@@ -4690,9 +5560,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredEnd"
             },
             {
+               "name": "s.inner-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "s.inner-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "s.inner-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredEndError"
+            },
+            {
                "name": "m",
                "viewReference": "Salute.StylesSalute.Components.TextArea.M",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMDefault"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMWarning"
+            },
+            {
+               "name": "m.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMError"
             },
             {
                "name": "m.required-start",
@@ -4700,9 +5600,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredStart"
             },
             {
+               "name": "m.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredStartDefault"
+            },
+            {
+               "name": "m.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredStartWarning"
+            },
+            {
+               "name": "m.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredStartError"
+            },
+            {
                "name": "m.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredEnd"
+            },
+            {
+               "name": "m.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredEndDefault"
+            },
+            {
+               "name": "m.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredEndWarning"
+            },
+            {
+               "name": "m.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredEndError"
             },
             {
                "name": "m.outer-label",
@@ -4710,9 +5640,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabel"
             },
             {
+               "name": "m.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelDefault"
+            },
+            {
+               "name": "m.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelWarning"
+            },
+            {
+               "name": "m.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelError"
+            },
+            {
                "name": "m.outer-label.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredStart"
+            },
+            {
+               "name": "m.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredStartError"
             },
             {
                "name": "m.outer-label.required-end",
@@ -4720,9 +5680,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredEnd"
             },
             {
+               "name": "m.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredEndError"
+            },
+            {
                "name": "m.inner-label",
                "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabel"
+            },
+            {
+               "name": "m.inner-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelDefault"
+            },
+            {
+               "name": "m.inner-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelWarning"
+            },
+            {
+               "name": "m.inner-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelError"
             },
             {
                "name": "m.inner-label.required-start",
@@ -4730,9 +5720,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredStart"
             },
             {
+               "name": "m.inner-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "m.inner-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "m.inner-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredStartError"
+            },
+            {
                "name": "m.inner-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredEnd"
+            },
+            {
+               "name": "m.inner-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "m.inner-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "m.inner-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredEndError"
             },
             {
                "name": "l",
@@ -4740,9 +5760,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaL"
             },
             {
+               "name": "l.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLDefault"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLWarning"
+            },
+            {
+               "name": "l.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLError"
+            },
+            {
                "name": "l.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredStart"
+            },
+            {
+               "name": "l.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredStartDefault"
+            },
+            {
+               "name": "l.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredStartWarning"
+            },
+            {
+               "name": "l.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredStartError"
             },
             {
                "name": "l.required-end",
@@ -4750,9 +5800,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredEnd"
             },
             {
+               "name": "l.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredEndDefault"
+            },
+            {
+               "name": "l.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredEndWarning"
+            },
+            {
+               "name": "l.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredEndError"
+            },
+            {
                "name": "l.outer-label",
                "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabel"
+            },
+            {
+               "name": "l.outer-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelDefault"
+            },
+            {
+               "name": "l.outer-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelWarning"
+            },
+            {
+               "name": "l.outer-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelError"
             },
             {
                "name": "l.outer-label.required-start",
@@ -4760,9 +5840,39 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredStart"
             },
             {
+               "name": "l.outer-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.outer-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.outer-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredStartError"
+            },
+            {
                "name": "l.outer-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredEnd"
+            },
+            {
+               "name": "l.outer-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.outer-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.outer-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredEndError"
             },
             {
                "name": "l.inner-label",
@@ -4770,14 +5880,59 @@
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabel"
             },
             {
+               "name": "l.inner-label.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelDefault"
+            },
+            {
+               "name": "l.inner-label.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelWarning"
+            },
+            {
+               "name": "l.inner-label.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelError"
+            },
+            {
                "name": "l.inner-label.required-start",
                "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredStart",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredStart"
             },
             {
+               "name": "l.inner-label.required-start.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredStart.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredStartDefault"
+            },
+            {
+               "name": "l.inner-label.required-start.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredStart.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredStartWarning"
+            },
+            {
+               "name": "l.inner-label.required-start.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredStart.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredStartError"
+            },
+            {
                "name": "l.inner-label.required-end",
                "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredEnd",
                "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredEnd"
+            },
+            {
+               "name": "l.inner-label.required-end.default",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredEnd.Default",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredEndDefault"
+            },
+            {
+               "name": "l.inner-label.required-end.warning",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredEnd.Warning",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredEndWarning"
+            },
+            {
+               "name": "l.inner-label.required-end.error",
+               "viewReference": "Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredEnd.Error",
+               "viewOverlayReference": "Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredEndError"
             }
          ]
       },

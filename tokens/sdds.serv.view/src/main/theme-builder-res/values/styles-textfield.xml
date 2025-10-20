@@ -45,6 +45,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXs">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xs.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xs_required_start_indicator_size</item>
@@ -52,12 +76,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xs.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xs_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -70,6 +142,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xs_outer_label_required_start_indicator_size</item>
@@ -79,6 +175,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xs_outer_label_required_end_indicator_size</item>
@@ -87,6 +207,30 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXsOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xs.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.S.Secondary</item>
@@ -113,6 +257,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldS">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.S.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.S.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_s_required_start_indicator_size</item>
@@ -120,12 +288,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.S.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_s_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.S.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -136,6 +352,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_s_outer_label_required_start_indicator_size</item>
@@ -145,6 +385,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_s_outer_label_required_end_indicator_size</item>
@@ -153,6 +417,30 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.S.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -165,6 +453,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_s_inner_label_required_start_indicator_size</item>
@@ -172,12 +484,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_s_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.M.Secondary</item>
@@ -203,6 +563,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldM">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.M.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.M.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_m_required_start_indicator_size</item>
@@ -210,12 +594,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.M.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_m_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.M.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -226,6 +658,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_m_outer_label_required_start_indicator_size</item>
@@ -235,6 +691,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_m_outer_label_required_end_indicator_size</item>
@@ -243,6 +723,30 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.M.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -255,6 +759,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_m_inner_label_required_start_indicator_size</item>
@@ -262,12 +790,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_m_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -294,6 +870,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldL">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.L.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.L.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_l_required_start_indicator_size</item>
@@ -301,12 +901,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.L.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_l_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.L.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -317,6 +965,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_l_outer_label_required_start_indicator_size</item>
@@ -326,6 +998,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_l_outer_label_required_end_indicator_size</item>
@@ -334,6 +1030,30 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.L.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -346,6 +1066,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_l_inner_label_required_start_indicator_size</item>
@@ -353,12 +1097,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_l_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -384,6 +1176,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXl">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xl.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xl_required_start_indicator_size</item>
@@ -391,12 +1207,60 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xl.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xl_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -407,6 +1271,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xl_outer_label_required_start_indicator_size</item>
@@ -416,6 +1304,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xl_outer_label_required_end_indicator_size</item>
@@ -424,6 +1336,30 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -436,6 +1372,30 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabel">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xl_inner_label_required_start_indicator_size</item>
@@ -443,11 +1403,59 @@
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStart">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStartError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_field_xl_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textfieldColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndDefault">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Success">
+        <item name="serv_textfieldColors">state_success</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndSuccess">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Success</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textfieldColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndWarning">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textfieldColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEndError">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd.Error</item>
     </style>
 </resources>
