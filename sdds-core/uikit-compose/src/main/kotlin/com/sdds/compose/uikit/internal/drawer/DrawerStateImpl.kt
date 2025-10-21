@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.internal.drawer
 
 import androidx.compose.animation.core.SpringSpec
+import androidx.compose.animation.splineBasedDecay
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.Orientation
@@ -35,7 +36,8 @@ internal class DrawerStateImpl(
 
     override val anchoredDraggableState = AnchoredDraggableState(
         initialValue = initialValue,
-        animationSpec = DefaultAnimationSpec,
+        snapAnimationSpec = DefaultAnimationSpec,
+        decayAnimationSpec = splineBasedDecay(density),
         confirmValueChange = confirmStateChange,
         positionalThreshold = { with(density) { DrawerPositionalThreshold.toPx() } },
         velocityThreshold = { with(density) { DrawerVelocityThreshold.toPx() } },

@@ -3,6 +3,7 @@ package com.sdds.compose.uikit
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
@@ -25,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
  * @param horizontalAlignment выравнивание элементов по горизонтали
  * @param flingBehavior [FlingBehavior]
  * @param userScrollEnabled включен ли скролл
+ * @param contentPadding отступы вокруг контента
  * @param content контент из [ListItem] либо произвольных элементов
  */
 @Composable
@@ -38,6 +40,7 @@ fun List(
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     userScrollEnabled: Boolean = true,
+    contentPadding: PaddingValues = PaddingValues(),
     content: LazyListScope.() -> Unit,
 ) {
     CompositionLocalProvider(
@@ -47,6 +50,7 @@ fun List(
         LazyColumn(
             modifier = modifier,
             state = state,
+            contentPadding = contentPadding,
             reverseLayout = reverseLayout,
             verticalArrangement = verticalArrangement,
             horizontalAlignment = horizontalAlignment,
