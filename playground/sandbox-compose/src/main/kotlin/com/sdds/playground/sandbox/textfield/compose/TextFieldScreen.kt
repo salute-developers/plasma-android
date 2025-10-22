@@ -5,7 +5,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -158,7 +157,7 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
             Icon(
                 modifier = Modifier.clickable(
                     role = Role.Button,
-                    indication = ripple(false),
+                    indication = null,
                     interactionSource = remember { MutableInteractionSource() },
                 ) { },
                 painter = painterResource(id = icon.res),
