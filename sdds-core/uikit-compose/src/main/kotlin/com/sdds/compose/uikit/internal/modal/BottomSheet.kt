@@ -3,12 +3,13 @@ package com.sdds.compose.uikit.internal.modal
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.SpringSpec
+import androidx.compose.animation.splineBasedDecay
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.DraggableAnchors
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.anchoredDraggable
-import androidx.compose.foundation.gestures.animateTo
+import androidx.compose.foundation.gestures.animateToWithDecay
 import androidx.compose.foundation.gestures.snapTo
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -41,6 +42,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.internal.modal.BottomSheetState.Companion.saver
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Expanded
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.HalfExpanded
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
@@ -192,7 +194,8 @@ class BottomSheetState(
 
     internal val anchoredDraggableState = AnchoredDraggableState(
         initialValue = initialValue,
-        animationSpec = animationSpec,
+        snapAnimationSpec = animationSpec,
+        decayAnimationSpec = splineBasedDecay(density),
         confirmValueChange = confirmValueChange,
         positionalThreshold = {
             with(density) {
@@ -320,7 +323,7 @@ class BottomSheetState(
     internal suspend fun animateTo(
         target: BottomSheetValue,
         velocity: Float = anchoredDraggableState.lastVelocity,
-    ) = anchoredDraggableState.animateTo(target, velocity)
+    ) = anchoredDraggableState.animateToWithDecay(target, velocity)
 
     internal suspend fun snapTo(target: BottomSheetValue) =
         anchoredDraggableState.snapTo(target)

@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.textfield.compose
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
@@ -154,7 +155,11 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
     return if (this) {
         {
             Icon(
-                modifier = Modifier.clickable(role = Role.Button) { },
+                modifier = Modifier.clickable(
+                    role = Role.Button,
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ) { },
                 painter = painterResource(id = icon.res),
                 contentDescription = "",
             )

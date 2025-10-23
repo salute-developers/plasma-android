@@ -4,10 +4,11 @@ import android.content.res.Resources
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.SpringSpec
+import androidx.compose.animation.splineBasedDecay
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.DraggableAnchors
-import androidx.compose.foundation.gestures.animateTo
+import androidx.compose.foundation.gestures.animateToWithDecay
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
@@ -16,8 +17,11 @@ import androidx.compose.runtime.key
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.playground.sandbox.core.compose.bottomsheet.BottomSheetState.Companion.saver
 import kotlin.math.abs
 
 @Composable
@@ -28,6 +32,7 @@ internal fun rememberBottomSheetState(
     onDismiss: () -> Unit = {},
 ): BottomSheetState {
     return key(initialValue) {
+        val density = LocalDensity.current
         rememberSaveable(
             initialValue,
             animationSpec,
@@ -36,10 +41,12 @@ internal fun rememberBottomSheetState(
                 animationSpec = animationSpec,
                 confirmValueChange = confirmValueChange,
                 onDismiss = onDismiss,
+                density = density,
             ),
         ) {
             BottomSheetState(
                 initialValue = initialValue,
+                density = density,
                 animationSpec = animationSpec,
                 confirmValueChange = confirmValueChange,
                 onDismiss = onDismiss,
@@ -52,6 +59,7 @@ internal fun rememberBottomSheetState(
 @Stable
 internal class BottomSheetState(
     initialValue: BottomSheetValue,
+    density: Density,
     val onDismiss: () -> Unit = {},
     private val animationSpec: AnimationSpec<Float> = BottomSheetDefaults.AnimationSpec,
     private val confirmValueChange: (BottomSheetValue) -> Boolean = { true },
@@ -59,7 +67,8 @@ internal class BottomSheetState(
 
     val draggableState = AnchoredDraggableState(
         initialValue = initialValue,
-        animationSpec = animationSpec,
+        snapAnimationSpec = animationSpec,
+        decayAnimationSpec = splineBasedDecay(density),
         positionalThreshold = BottomSheetDefaults.PositionalThreshold,
         velocityThreshold = BottomSheetDefaults.VelocityThreshold,
         confirmValueChange = confirmValueChange,
@@ -203,7 +212,7 @@ internal class BottomSheetState(
     private suspend fun animateTo(
         targetValue: BottomSheetValue,
         velocity: Float = draggableState.lastVelocity,
-    ) = draggableState.animateTo(targetValue, velocity)
+    ) = draggableState.animateToWithDecay(targetValue, velocity)
 
     companion object {
         /**
@@ -213,12 +222,14 @@ internal class BottomSheetState(
             animationSpec: AnimationSpec<Float> = BottomSheetDefaults.AnimationSpec,
             confirmValueChange: (BottomSheetValue) -> Boolean = { true },
             onDismiss: () -> Unit = {},
+            density: Density,
         ): Saver<BottomSheetState, BottomSheetValue> =
             Saver(
                 save = { it.currentValue },
                 restore = {
                     BottomSheetState(
                         initialValue = it,
+                        density = density,
                         animationSpec = animationSpec,
                         confirmValueChange = confirmValueChange,
                         onDismiss = onDismiss,

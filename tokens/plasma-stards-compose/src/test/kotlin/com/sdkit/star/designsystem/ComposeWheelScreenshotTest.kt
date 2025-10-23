@@ -37,8 +37,8 @@ class ComposeWheelScreenshotTest : RoborazziConfigCompose("+night") {
         }
         composeTestRule.waitForIdle()
         composeTestRule.onAllNodesWithTag("wheel", useUnmergedTree = true)
-        composeTestRule.onAllNodesWithTag("bottom_control")[0].performClick()
-        composeTestRule.onAllNodesWithTag("bottom_control")[0].assertHasClickAction()
+        composeTestRule.onAllNodesWithTag("top_control")[0].performClick()
+        composeTestRule.onAllNodesWithTag("top_control")[0].assertHasClickAction()
     }
 
     @Test

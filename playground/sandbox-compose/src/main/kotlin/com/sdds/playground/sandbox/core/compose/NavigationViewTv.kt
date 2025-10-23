@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
@@ -190,7 +190,7 @@ private fun NavigationItemTv(
                 enabled = true,
                 interactionSource = interactionSource,
                 role = Role.Button,
-                indication = rememberRipple(),
+                indication = ripple(),
                 onClick = onClick,
             )
             .padding(horizontal = style.itemPadding),

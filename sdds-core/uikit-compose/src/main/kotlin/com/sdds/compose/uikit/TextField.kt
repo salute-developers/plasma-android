@@ -54,6 +54,7 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  */
 @Suppress("LongParameterList")
 @Composable
+@Deprecated("Use TextField with focusSelectorSettings parameter")
 @NonRestartableComposable
 fun TextField(
     value: TextFieldValue,
@@ -217,6 +218,7 @@ fun TextField(
  */
 @Suppress("LongParameterList")
 @Composable
+@Deprecated("Use TextField with focusSelectorSettings parameter")
 @NonRestartableComposable
 fun TextField(
     value: String,
