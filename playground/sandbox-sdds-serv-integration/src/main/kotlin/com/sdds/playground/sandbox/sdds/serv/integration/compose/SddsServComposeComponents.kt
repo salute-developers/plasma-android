@@ -222,6 +222,18 @@ object SddsServComposeComponents : ComponentsProviderCompose {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.Note,
+                mapOf(
+                    "Note" to SddsServNoteVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.NoteCompact,
+                mapOf(
+                    "NoteCompact" to SddsServNoteCompactVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Notification,
                 mapOf(
                     "NotificationCompact" to SddsServNotificationCompactVariationsCompose,

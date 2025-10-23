@@ -185,6 +185,8 @@ data class ComponentKey(
         val Overlay = ComponentKey("Overlay", CoreComponent.OVERLAY)
         val Toast = ComponentKey("Toast", CoreComponent.TOAST)
         val Modal = ComponentKey("Modal", CoreComponent.MODAL)
+        val Note = ComponentKey("Note", CoreComponent.NOTE)
+        val NoteCompact = ComponentKey("NoteCompact", CoreComponent.NOTE_COMPACT)
         val Notification = ComponentKey("Notification", CoreComponent.NOTIFICATION)
         val NotificationContent = ComponentKey("NotificationContent", CoreComponent.NOTIFICATION_CONTENT)
         val RectSkeleton = ComponentKey("RectSkeleton", CoreComponent.RECT_SKELETON)
@@ -267,6 +269,8 @@ enum class CoreComponent {
     OVERLAY,
     TOAST,
     MODAL,
+    NOTE,
+    NOTE_COMPACT,
     NOTIFICATION,
     NOTIFICATION_CONTENT,
     RECT_SKELETON,
@@ -329,6 +333,8 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.LOADER,
         CoreComponent.PROGRESS,
         CoreComponent.CIRCULAR_PROGRESS,
+        CoreComponent.NOTE,
+        CoreComponent.NOTE_COMPACT,
         -> CoreComponentGroup.DATA_DISPLAY
 
         CoreComponent.BASIC_BUTTON,

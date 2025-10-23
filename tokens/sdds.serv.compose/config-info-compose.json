@@ -2186,6 +2186,10 @@
                "composeReference": "LinkButton.Xl.Warning"
             },
             {
+               "name": "xl.info",
+               "composeReference": "LinkButton.Xl.Info"
+            },
+            {
                "name": "l.default",
                "composeReference": "LinkButton.L.Default"
             },
@@ -2208,6 +2212,10 @@
             {
                "name": "l.warning",
                "composeReference": "LinkButton.L.Warning"
+            },
+            {
+               "name": "l.info",
+               "composeReference": "LinkButton.L.Info"
             },
             {
                "name": "m.default",
@@ -2234,6 +2242,10 @@
                "composeReference": "LinkButton.M.Warning"
             },
             {
+               "name": "m.info",
+               "composeReference": "LinkButton.M.Info"
+            },
+            {
                "name": "s.default",
                "composeReference": "LinkButton.S.Default"
             },
@@ -2256,6 +2268,10 @@
             {
                "name": "s.warning",
                "composeReference": "LinkButton.S.Warning"
+            },
+            {
+               "name": "s.info",
+               "composeReference": "LinkButton.S.Info"
             },
             {
                "name": "xs.default",
@@ -2282,6 +2298,10 @@
                "composeReference": "LinkButton.Xs.Warning"
             },
             {
+               "name": "xs.info",
+               "composeReference": "LinkButton.Xs.Info"
+            },
+            {
                "name": "xxs.default",
                "composeReference": "LinkButton.Xxs.Default"
             },
@@ -2304,6 +2324,10 @@
             {
                "name": "xxs.warning",
                "composeReference": "LinkButton.Xxs.Warning"
+            },
+            {
+               "name": "xxs.info",
+               "composeReference": "LinkButton.Xxs.Info"
             }
          ]
       },
@@ -6691,6 +6715,660 @@
             {
                "name": "lighter",
                "composeReference": "RectSkeleton.Lighter"
+            }
+         ]
+      },
+      {
+         "key": "note",
+         "coreName": "Note",
+         "styleName": "Note",
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "Note.L.Default"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Note.L.Positive"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Note.L.Negative"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Note.L.Warning"
+            },
+            {
+               "name": "l.info",
+               "composeReference": "Note.L.Info"
+            },
+            {
+               "name": "l.has-close.default",
+               "composeReference": "Note.L.HasClose.Default"
+            },
+            {
+               "name": "l.has-close.positive",
+               "composeReference": "Note.L.HasClose.Positive"
+            },
+            {
+               "name": "l.has-close.negative",
+               "composeReference": "Note.L.HasClose.Negative"
+            },
+            {
+               "name": "l.has-close.warning",
+               "composeReference": "Note.L.HasClose.Warning"
+            },
+            {
+               "name": "l.has-close.info",
+               "composeReference": "Note.L.HasClose.Info"
+            },
+            {
+               "name": "l.content-scalable.default",
+               "composeReference": "Note.L.ContentScalable.Default"
+            },
+            {
+               "name": "l.content-scalable.positive",
+               "composeReference": "Note.L.ContentScalable.Positive"
+            },
+            {
+               "name": "l.content-scalable.negative",
+               "composeReference": "Note.L.ContentScalable.Negative"
+            },
+            {
+               "name": "l.content-scalable.warning",
+               "composeReference": "Note.L.ContentScalable.Warning"
+            },
+            {
+               "name": "l.content-scalable.info",
+               "composeReference": "Note.L.ContentScalable.Info"
+            },
+            {
+               "name": "l.has-close-content-scalable.default",
+               "composeReference": "Note.L.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "l.has-close-content-scalable.positive",
+               "composeReference": "Note.L.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "l.has-close-content-scalable.negative",
+               "composeReference": "Note.L.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "l.has-close-content-scalable.warning",
+               "composeReference": "Note.L.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "l.has-close-content-scalable.info",
+               "composeReference": "Note.L.HasCloseContentScalable.Info"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Note.M.Default"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Note.M.Positive"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Note.M.Negative"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Note.M.Warning"
+            },
+            {
+               "name": "m.info",
+               "composeReference": "Note.M.Info"
+            },
+            {
+               "name": "m.has-close.default",
+               "composeReference": "Note.M.HasClose.Default"
+            },
+            {
+               "name": "m.has-close.positive",
+               "composeReference": "Note.M.HasClose.Positive"
+            },
+            {
+               "name": "m.has-close.negative",
+               "composeReference": "Note.M.HasClose.Negative"
+            },
+            {
+               "name": "m.has-close.warning",
+               "composeReference": "Note.M.HasClose.Warning"
+            },
+            {
+               "name": "m.has-close.info",
+               "composeReference": "Note.M.HasClose.Info"
+            },
+            {
+               "name": "m.content-scalable.default",
+               "composeReference": "Note.M.ContentScalable.Default"
+            },
+            {
+               "name": "m.content-scalable.positive",
+               "composeReference": "Note.M.ContentScalable.Positive"
+            },
+            {
+               "name": "m.content-scalable.negative",
+               "composeReference": "Note.M.ContentScalable.Negative"
+            },
+            {
+               "name": "m.content-scalable.warning",
+               "composeReference": "Note.M.ContentScalable.Warning"
+            },
+            {
+               "name": "m.content-scalable.info",
+               "composeReference": "Note.M.ContentScalable.Info"
+            },
+            {
+               "name": "m.has-close-content-scalable.default",
+               "composeReference": "Note.M.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "m.has-close-content-scalable.positive",
+               "composeReference": "Note.M.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "m.has-close-content-scalable.negative",
+               "composeReference": "Note.M.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "m.has-close-content-scalable.warning",
+               "composeReference": "Note.M.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "m.has-close-content-scalable.info",
+               "composeReference": "Note.M.HasCloseContentScalable.Info"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Note.S.Default"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Note.S.Positive"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Note.S.Negative"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Note.S.Warning"
+            },
+            {
+               "name": "s.info",
+               "composeReference": "Note.S.Info"
+            },
+            {
+               "name": "s.has-close.default",
+               "composeReference": "Note.S.HasClose.Default"
+            },
+            {
+               "name": "s.has-close.positive",
+               "composeReference": "Note.S.HasClose.Positive"
+            },
+            {
+               "name": "s.has-close.negative",
+               "composeReference": "Note.S.HasClose.Negative"
+            },
+            {
+               "name": "s.has-close.warning",
+               "composeReference": "Note.S.HasClose.Warning"
+            },
+            {
+               "name": "s.has-close.info",
+               "composeReference": "Note.S.HasClose.Info"
+            },
+            {
+               "name": "s.content-scalable.default",
+               "composeReference": "Note.S.ContentScalable.Default"
+            },
+            {
+               "name": "s.content-scalable.positive",
+               "composeReference": "Note.S.ContentScalable.Positive"
+            },
+            {
+               "name": "s.content-scalable.negative",
+               "composeReference": "Note.S.ContentScalable.Negative"
+            },
+            {
+               "name": "s.content-scalable.warning",
+               "composeReference": "Note.S.ContentScalable.Warning"
+            },
+            {
+               "name": "s.content-scalable.info",
+               "composeReference": "Note.S.ContentScalable.Info"
+            },
+            {
+               "name": "s.has-close-content-scalable.default",
+               "composeReference": "Note.S.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "s.has-close-content-scalable.positive",
+               "composeReference": "Note.S.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "s.has-close-content-scalable.negative",
+               "composeReference": "Note.S.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "s.has-close-content-scalable.warning",
+               "composeReference": "Note.S.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "s.has-close-content-scalable.info",
+               "composeReference": "Note.S.HasCloseContentScalable.Info"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "Note.Xs.Default"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "Note.Xs.Positive"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "Note.Xs.Negative"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "Note.Xs.Warning"
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "Note.Xs.Info"
+            },
+            {
+               "name": "xs.has-close.default",
+               "composeReference": "Note.Xs.HasClose.Default"
+            },
+            {
+               "name": "xs.has-close.positive",
+               "composeReference": "Note.Xs.HasClose.Positive"
+            },
+            {
+               "name": "xs.has-close.negative",
+               "composeReference": "Note.Xs.HasClose.Negative"
+            },
+            {
+               "name": "xs.has-close.warning",
+               "composeReference": "Note.Xs.HasClose.Warning"
+            },
+            {
+               "name": "xs.has-close.info",
+               "composeReference": "Note.Xs.HasClose.Info"
+            },
+            {
+               "name": "xs.content-scalable.default",
+               "composeReference": "Note.Xs.ContentScalable.Default"
+            },
+            {
+               "name": "xs.content-scalable.positive",
+               "composeReference": "Note.Xs.ContentScalable.Positive"
+            },
+            {
+               "name": "xs.content-scalable.negative",
+               "composeReference": "Note.Xs.ContentScalable.Negative"
+            },
+            {
+               "name": "xs.content-scalable.warning",
+               "composeReference": "Note.Xs.ContentScalable.Warning"
+            },
+            {
+               "name": "xs.content-scalable.info",
+               "composeReference": "Note.Xs.ContentScalable.Info"
+            },
+            {
+               "name": "xs.has-close-content-scalable.default",
+               "composeReference": "Note.Xs.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "xs.has-close-content-scalable.positive",
+               "composeReference": "Note.Xs.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "xs.has-close-content-scalable.negative",
+               "composeReference": "Note.Xs.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "xs.has-close-content-scalable.warning",
+               "composeReference": "Note.Xs.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "xs.has-close-content-scalable.info",
+               "composeReference": "Note.Xs.HasCloseContentScalable.Info"
+            }
+         ]
+      },
+      {
+         "key": "note-compact",
+         "coreName": "NoteCompact",
+         "styleName": "NoteCompact",
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "NoteCompact.L.Default"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "NoteCompact.L.Positive"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "NoteCompact.L.Negative"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "NoteCompact.L.Warning"
+            },
+            {
+               "name": "l.info",
+               "composeReference": "NoteCompact.L.Info"
+            },
+            {
+               "name": "l.has-close.default",
+               "composeReference": "NoteCompact.L.HasClose.Default"
+            },
+            {
+               "name": "l.has-close.positive",
+               "composeReference": "NoteCompact.L.HasClose.Positive"
+            },
+            {
+               "name": "l.has-close.negative",
+               "composeReference": "NoteCompact.L.HasClose.Negative"
+            },
+            {
+               "name": "l.has-close.warning",
+               "composeReference": "NoteCompact.L.HasClose.Warning"
+            },
+            {
+               "name": "l.has-close.info",
+               "composeReference": "NoteCompact.L.HasClose.Info"
+            },
+            {
+               "name": "l.content-scalable.default",
+               "composeReference": "NoteCompact.L.ContentScalable.Default"
+            },
+            {
+               "name": "l.content-scalable.positive",
+               "composeReference": "NoteCompact.L.ContentScalable.Positive"
+            },
+            {
+               "name": "l.content-scalable.negative",
+               "composeReference": "NoteCompact.L.ContentScalable.Negative"
+            },
+            {
+               "name": "l.content-scalable.warning",
+               "composeReference": "NoteCompact.L.ContentScalable.Warning"
+            },
+            {
+               "name": "l.content-scalable.info",
+               "composeReference": "NoteCompact.L.ContentScalable.Info"
+            },
+            {
+               "name": "l.has-close-content-scalable.default",
+               "composeReference": "NoteCompact.L.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "l.has-close-content-scalable.positive",
+               "composeReference": "NoteCompact.L.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "l.has-close-content-scalable.negative",
+               "composeReference": "NoteCompact.L.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "l.has-close-content-scalable.warning",
+               "composeReference": "NoteCompact.L.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "l.has-close-content-scalable.info",
+               "composeReference": "NoteCompact.L.HasCloseContentScalable.Info"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "NoteCompact.M.Default"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "NoteCompact.M.Positive"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "NoteCompact.M.Negative"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "NoteCompact.M.Warning"
+            },
+            {
+               "name": "m.info",
+               "composeReference": "NoteCompact.M.Info"
+            },
+            {
+               "name": "m.has-close.default",
+               "composeReference": "NoteCompact.M.HasClose.Default"
+            },
+            {
+               "name": "m.has-close.positive",
+               "composeReference": "NoteCompact.M.HasClose.Positive"
+            },
+            {
+               "name": "m.has-close.negative",
+               "composeReference": "NoteCompact.M.HasClose.Negative"
+            },
+            {
+               "name": "m.has-close.warning",
+               "composeReference": "NoteCompact.M.HasClose.Warning"
+            },
+            {
+               "name": "m.has-close.info",
+               "composeReference": "NoteCompact.M.HasClose.Info"
+            },
+            {
+               "name": "m.content-scalable.default",
+               "composeReference": "NoteCompact.M.ContentScalable.Default"
+            },
+            {
+               "name": "m.content-scalable.positive",
+               "composeReference": "NoteCompact.M.ContentScalable.Positive"
+            },
+            {
+               "name": "m.content-scalable.negative",
+               "composeReference": "NoteCompact.M.ContentScalable.Negative"
+            },
+            {
+               "name": "m.content-scalable.warning",
+               "composeReference": "NoteCompact.M.ContentScalable.Warning"
+            },
+            {
+               "name": "m.content-scalable.info",
+               "composeReference": "NoteCompact.M.ContentScalable.Info"
+            },
+            {
+               "name": "m.has-close-content-scalable.default",
+               "composeReference": "NoteCompact.M.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "m.has-close-content-scalable.positive",
+               "composeReference": "NoteCompact.M.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "m.has-close-content-scalable.negative",
+               "composeReference": "NoteCompact.M.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "m.has-close-content-scalable.warning",
+               "composeReference": "NoteCompact.M.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "m.has-close-content-scalable.info",
+               "composeReference": "NoteCompact.M.HasCloseContentScalable.Info"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "NoteCompact.S.Default"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "NoteCompact.S.Positive"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "NoteCompact.S.Negative"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "NoteCompact.S.Warning"
+            },
+            {
+               "name": "s.info",
+               "composeReference": "NoteCompact.S.Info"
+            },
+            {
+               "name": "s.has-close.default",
+               "composeReference": "NoteCompact.S.HasClose.Default"
+            },
+            {
+               "name": "s.has-close.positive",
+               "composeReference": "NoteCompact.S.HasClose.Positive"
+            },
+            {
+               "name": "s.has-close.negative",
+               "composeReference": "NoteCompact.S.HasClose.Negative"
+            },
+            {
+               "name": "s.has-close.warning",
+               "composeReference": "NoteCompact.S.HasClose.Warning"
+            },
+            {
+               "name": "s.has-close.info",
+               "composeReference": "NoteCompact.S.HasClose.Info"
+            },
+            {
+               "name": "s.content-scalable.default",
+               "composeReference": "NoteCompact.S.ContentScalable.Default"
+            },
+            {
+               "name": "s.content-scalable.positive",
+               "composeReference": "NoteCompact.S.ContentScalable.Positive"
+            },
+            {
+               "name": "s.content-scalable.negative",
+               "composeReference": "NoteCompact.S.ContentScalable.Negative"
+            },
+            {
+               "name": "s.content-scalable.warning",
+               "composeReference": "NoteCompact.S.ContentScalable.Warning"
+            },
+            {
+               "name": "s.content-scalable.info",
+               "composeReference": "NoteCompact.S.ContentScalable.Info"
+            },
+            {
+               "name": "s.has-close-content-scalable.default",
+               "composeReference": "NoteCompact.S.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "s.has-close-content-scalable.positive",
+               "composeReference": "NoteCompact.S.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "s.has-close-content-scalable.negative",
+               "composeReference": "NoteCompact.S.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "s.has-close-content-scalable.warning",
+               "composeReference": "NoteCompact.S.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "s.has-close-content-scalable.info",
+               "composeReference": "NoteCompact.S.HasCloseContentScalable.Info"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "NoteCompact.Xs.Default"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "NoteCompact.Xs.Positive"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "NoteCompact.Xs.Negative"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "NoteCompact.Xs.Warning"
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "NoteCompact.Xs.Info"
+            },
+            {
+               "name": "xs.has-close.default",
+               "composeReference": "NoteCompact.Xs.HasClose.Default"
+            },
+            {
+               "name": "xs.has-close.positive",
+               "composeReference": "NoteCompact.Xs.HasClose.Positive"
+            },
+            {
+               "name": "xs.has-close.negative",
+               "composeReference": "NoteCompact.Xs.HasClose.Negative"
+            },
+            {
+               "name": "xs.has-close.warning",
+               "composeReference": "NoteCompact.Xs.HasClose.Warning"
+            },
+            {
+               "name": "xs.has-close.info",
+               "composeReference": "NoteCompact.Xs.HasClose.Info"
+            },
+            {
+               "name": "xs.content-scalable.default",
+               "composeReference": "NoteCompact.Xs.ContentScalable.Default"
+            },
+            {
+               "name": "xs.content-scalable.positive",
+               "composeReference": "NoteCompact.Xs.ContentScalable.Positive"
+            },
+            {
+               "name": "xs.content-scalable.negative",
+               "composeReference": "NoteCompact.Xs.ContentScalable.Negative"
+            },
+            {
+               "name": "xs.content-scalable.warning",
+               "composeReference": "NoteCompact.Xs.ContentScalable.Warning"
+            },
+            {
+               "name": "xs.content-scalable.info",
+               "composeReference": "NoteCompact.Xs.ContentScalable.Info"
+            },
+            {
+               "name": "xs.has-close-content-scalable.default",
+               "composeReference": "NoteCompact.Xs.HasCloseContentScalable.Default"
+            },
+            {
+               "name": "xs.has-close-content-scalable.positive",
+               "composeReference": "NoteCompact.Xs.HasCloseContentScalable.Positive"
+            },
+            {
+               "name": "xs.has-close-content-scalable.negative",
+               "composeReference": "NoteCompact.Xs.HasCloseContentScalable.Negative"
+            },
+            {
+               "name": "xs.has-close-content-scalable.warning",
+               "composeReference": "NoteCompact.Xs.HasCloseContentScalable.Warning"
+            },
+            {
+               "name": "xs.has-close-content-scalable.info",
+               "composeReference": "NoteCompact.Xs.HasCloseContentScalable.Info"
             }
          ]
       },
