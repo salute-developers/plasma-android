@@ -29,7 +29,11 @@ themeBuilder {
         url(themeUrl)
         name(themeAlias)
     }
-    componentSource(name = componentsName, componentsVersion, themeAlias)
+//    componentSource(name = componentsName, componentsVersion, themeAlias)
+    componentSource {
+        url("file:///Users/alex/Projects/theme-converter/components/plasma_stards/0.11.0.zip")
+        name(themeAlias)
+    }
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")

@@ -5,5 +5,7 @@
         <item name="sd_buttonTrackColor">@color/sd_color_switch_track</item>
         <item name="sd_buttonThumbColor">#fff</item>
         <item name="android:drawablePadding">12dp</item>
+        <item name="background">@null</item>
+        <item name="android:background">@null</item>
     </style>
 </resources>

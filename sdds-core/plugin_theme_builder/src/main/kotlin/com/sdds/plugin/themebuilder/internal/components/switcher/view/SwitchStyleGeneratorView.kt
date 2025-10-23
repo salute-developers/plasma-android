@@ -52,13 +52,15 @@ internal open class SwitchStyleGeneratorView(
         }
     }
 
+    @Suppress("CyclomaticComplexMethod")
     private fun Element.addProps(
         variation: String,
         variationNode: VariationNode<SwitchProperties>,
     ) {
         val props = variationNode.value.props
-        props.toggleTrackShape?.let { shapeAttribute(variation, it.value) }
-        props.toggleThumbShape?.let { shapeAttribute(variation, it.value, attrName = "thumb") }
+        props.toggleTrackShape?.let { shapeAttribute(variation, it.value, it.adjustment, attrName = "track") }
+        props.toggleThumbShape?.let { shapeAttribute(variation, it.value, it.adjustment, attrName = "thumb") }
+        props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.labelStyle?.let { typographyAttribute("android:textAppearance", it.value) }
         props.descriptionStyle?.let {
             typographyAttribute(
@@ -89,6 +91,18 @@ internal open class SwitchStyleGeneratorView(
         props.toggleThumbHeight?.let {
             dimenAttribute(variation, "sd_thumbHeight", "thumb_height", it.value)
         }
+        props.paddingStart?.let {
+            dimenAttribute(variation, "android:paddingStart", "padding_start", it.value)
+        }
+        props.paddingTop?.let {
+            dimenAttribute(variation, "android:paddingTop", "padding_top", it.value)
+        }
+        props.paddingEnd?.let {
+            dimenAttribute(variation, "android:paddingEnd", "padding_end", it.value)
+        }
+        props.paddingBottom?.let {
+            dimenAttribute(variation, "android:paddingBottom", "padding_bottom", it.value)
+        }
     }
 
     internal enum class SwitchColorProperty(
@@ -100,6 +114,7 @@ internal open class SwitchStyleGeneratorView(
         TOGGLE_TRACK_COLOR("sd_buttonTrackColor", "button_track_color"),
         TOGGLE_TRACK_BORDER_COLOR("sd_buttonTrackBorderColor", "button_track_border_color"),
         TOGGLE_THUMB_COLOR("sd_buttonThumbColor", "button_thumb_color"),
+        BACKGROUND_COLOR("sd_background", "background_color"),
         ;
 
         override fun provide(owner: SwitchProperties): Color? {
@@ -109,6 +124,7 @@ internal open class SwitchStyleGeneratorView(
                 TOGGLE_TRACK_COLOR -> owner.toggleTrackColor
                 TOGGLE_TRACK_BORDER_COLOR -> owner.toggleTrackBorderColor
                 TOGGLE_THUMB_COLOR -> owner.toggleThumbColor
+                BACKGROUND_COLOR -> owner.backgroundColor
             }
         }
     }
