@@ -360,5 +360,12 @@ object SddsServComposeComponents : ComponentsProviderCompose {
                     "DrawerCloseOuter" to SddsServDrawerCloseOuterVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to SddsServNavigationBarMainPageVariationsCompose,
+                    "NavigationBarInternalPage" to SddsServNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

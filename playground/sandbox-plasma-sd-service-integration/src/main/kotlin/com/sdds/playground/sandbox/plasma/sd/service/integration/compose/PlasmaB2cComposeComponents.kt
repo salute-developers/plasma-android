@@ -348,5 +348,12 @@ object PlasmaB2cComposeComponents : ComponentsProviderCompose {
                     "DrawerCloseOuter" to PlasmaB2cDrawerCloseOuterVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to PlasmaB2cNavigationBarMainPageVariationsCompose,
+                    "NavigationBarInternalPage" to PlasmaB2cNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

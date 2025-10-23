@@ -348,5 +348,12 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
                     "DrawerCloseOuter" to PlasmaGigaAppDrawerCloseOuterVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to PlasmaGigaAppNavigationBarMainPageVariationsCompose,
+                    "NavigationBarInternalPage" to PlasmaGigaAppNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

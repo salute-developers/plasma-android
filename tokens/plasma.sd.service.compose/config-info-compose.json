@@ -9259,6 +9259,68 @@
                "composeReference": "DrawerCloseOuter.M.HasShadow"
             }
          ]
+      },
+      {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarMainPage",
+         "variations": [
+            {
+               "name": "no-background",
+               "composeReference": "NavigationBarMainPage.NoBackground"
+            },
+            {
+               "name": "no-background.rounded",
+               "composeReference": "NavigationBarMainPage.NoBackground.Rounded"
+            },
+            {
+               "name": "has-background",
+               "composeReference": "NavigationBarMainPage.HasBackground"
+            },
+            {
+               "name": "has-background.rounded",
+               "composeReference": "NavigationBarMainPage.HasBackground.Rounded"
+            },
+            {
+               "name": "has-background.shadow",
+               "composeReference": "NavigationBarMainPage.HasBackground.Shadow"
+            },
+            {
+               "name": "has-background.shadow.rounded",
+               "composeReference": "NavigationBarMainPage.HasBackground.Shadow.Rounded"
+            }
+         ]
+      },
+      {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarInternalPage",
+         "variations": [
+            {
+               "name": "no-background",
+               "composeReference": "NavigationBarInternalPage.NoBackground"
+            },
+            {
+               "name": "no-background.rounded",
+               "composeReference": "NavigationBarInternalPage.NoBackground.Rounded"
+            },
+            {
+               "name": "has-background",
+               "composeReference": "NavigationBarInternalPage.HasBackground"
+            },
+            {
+               "name": "has-background.rounded",
+               "composeReference": "NavigationBarInternalPage.HasBackground.Rounded"
+            },
+            {
+               "name": "has-background.shadow",
+               "composeReference": "NavigationBarInternalPage.HasBackground.Shadow"
+            },
+            {
+               "name": "has-background.shadow.rounded",
+               "composeReference": "NavigationBarInternalPage.HasBackground.Shadow.Rounded"
+            }
+         ]
       }
    ]
 }
