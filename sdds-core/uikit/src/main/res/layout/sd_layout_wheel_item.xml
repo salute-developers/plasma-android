@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clipChildren="false"
-    android:clipToPadding="false"
+<com.sdds.uikit.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sd_wheel_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:duplicateParentState="true"
+    android:focusable="false"
+    app:sd_fsEnabled="false">
 
-    <com.sdds.uikit.LinearLayout
-        android:id="@+id/sd_wheel_item"
+    <com.sdds.uikit.TextView
+        android:id="@+id/sd_wheel_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:duplicateParentState="true"
+        android:ellipsize="end"
         android:focusable="false"
-        app:sd_fsEnabled="false">
+        android:maxLines="1"
+        app:layout_cellContent="center"
+        tools:text="dadfsdfsdfsdfsdfsdf" />
 
-        <com.sdds.uikit.TextView
-            android:id="@+id/sd_wheel_item_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:focusable="false"
-            app:layout_cellContent="center"
-            tools:text="dadfsdfsdfsdfsdfsdf" />
+    <com.sdds.uikit.TextView
+        android:id="@+id/sd_wheel_item_text_after"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:ellipsize="end"
+        android:focusable="false"
+        android:maxLines="1"
+        app:layout_cellContent="end"
+        tools:text="dfasfsdfsdfsdffsdfsdfsdfsdfsdfsdfsdfsdfsffffff" />
 
-        <com.sdds.uikit.TextView
-            android:id="@+id/sd_wheel_item_text_after"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:ellipsize="end"
-            app:layout_cellContent="end"
-            android:focusable="false"
-            tools:text="dfasfsdfsdfsdffsdfsdfsdfsdfsdfsdfsdfsdfsffffff" />
-
-    </com.sdds.uikit.LinearLayout>
-</FrameLayout>
+</com.sdds.uikit.LinearLayout>
 

@@ -39,5 +39,9 @@
             <enum name="dots" value="2" />
         </attr>
         <attr name="sd_separatorColor" format="reference|color"/>
+
+        <attr name="sd_itemSelectorEnabled"/>
+        <attr name="sd_itemSelectorTint"/>
+        <attr name="sd_itemSelectorShapeAppearance" format="reference" />
     </declare-styleable>
 </resources>
