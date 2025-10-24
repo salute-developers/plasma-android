@@ -286,6 +286,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return ComponentStyleGenerator.Result.Compose(
             styleName = camelComponentName,
             variations = getVariationsDict(),
+            componentPackage = componentPackage,
+            styleClassName = styleType,
+            styleBuilderClassName = styleBuilderType,
         )
     }
 
