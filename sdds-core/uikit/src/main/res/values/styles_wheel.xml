@@ -3,6 +3,7 @@
 
     <style name="Sdds.Components.Wheel">
         <item name="android:focusable">false</item>
+        <item name="sd_controlsDisplayMode">always</item>
     </style>
 
     <style name="Sdds.Components.WheelItem" parent="Sdds.Components.ListItem">

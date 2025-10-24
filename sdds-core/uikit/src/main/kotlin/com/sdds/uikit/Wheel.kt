@@ -58,6 +58,7 @@ open class Wheel @JvmOverloads constructor(
 
     private var _visibleItemsCount: Int = MIN_VISIBLE_ITEMS_COUNT
     private var _controlsEnabled: Boolean = false
+    private var _controlsDisplayMode: Int = CONTROLS_DISPLAY_MODE_ALWAYS
     private var _controlIconUp: Drawable? = null
     private var _controlIconUpTintList: ColorStateList? = null
     private var _controlIconDown: Drawable? = null
@@ -249,6 +250,7 @@ open class Wheel @JvmOverloads constructor(
     init {
         context.withStyledAttributes(attrs, R.styleable.Wheel, defStyleAttr, defStyleRes) {
             controlsEnabled = getBoolean(R.styleable.Wheel_sd_controlsEnabled, false)
+            _controlsDisplayMode = getInt(R.styleable.Wheel_sd_controlsDisplayMode, CONTROLS_DISPLAY_MODE_ALWAYS)
             setItemTextAppearance(getResourceId(R.styleable.Wheel_sd_itemTextAppearance, 0))
             setItemTextColor(getColorValueStateList(context, R.styleable.Wheel_sd_itemTextColor))
             setItemTextAfterAppearance(getResourceId(R.styleable.Wheel_sd_itemTextAfterAppearance, 0))
@@ -600,6 +602,7 @@ open class Wheel @JvmOverloads constructor(
             setItemSelectorShapeAppearance(_itemSelectorShapeAppearanceRes)
             itemSelectorEnabled = this@Wheel._itemSelectorEnabled
             setFocusSelectorSettings(focusSelectorSettings)
+            controlsDisplayMode = _controlsDisplayMode
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
             isFocusable = false
         }
