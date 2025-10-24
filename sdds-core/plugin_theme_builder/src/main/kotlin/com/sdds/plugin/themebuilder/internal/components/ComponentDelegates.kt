@@ -28,6 +28,7 @@ import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.loader.LoaderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.note.NoteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
@@ -90,6 +91,8 @@ internal val componentDelegates by unsafeLazy {
         "overlay" to OverlayConfigDelegate(),
         "toast" to ToastConfigDelegate(),
         "modal" to ModalConfigDelegate(),
+        "note" to NoteConfigDelegate(),
+        "note-compact" to NoteConfigDelegate(),
         "notification" to NotificationConfigDelegate(),
         "notification-content" to NotificationContentConfigDelegate(),
         "rect-skeleton" to RectSkeletonConfigDelegate(),
