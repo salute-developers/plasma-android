@@ -1,7 +1,7 @@
 ---
 title: NavigationBar
 ---
-Компонент для навигации по приложению.
+Верхняя панель интерфейса, служащая для навигации и отображения ключевых действий.
 
 В качестве текста, контента и экшенов может принимать произвольный контент.
 
@@ -13,14 +13,18 @@ NavigationBar(
     textAlign = NavigationBarTextAlign.Start,
     textContent = { Text("Text") },
     content = { Text("Content") },
-    actionStart = Icon(
-        painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
-        contentDescription = "",
-    ),
-    actionEnd = Icon(
-        painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
-        contentDescription = "",
-    ),
+    actionStart = {
+        Icon(
+            painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+            contentDescription = "",
+        )
+    },
+    actionEnd = {
+        Icon(
+            painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+            contentDescription = "",
+        )
+    },
 )
 ```
 

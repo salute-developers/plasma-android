@@ -27,7 +27,7 @@ import com.sdds.compose.uikit.internal.cell.BaseCell
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
- * Панель навигации по экранам.
+ * Верхняя панель интерфейса, служащая для навигации и отображения ключевых действий.
  *
  * @param modifier модификатор
  * @param style стиль компонента [NavigationBarStyle]
