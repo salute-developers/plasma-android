@@ -93,7 +93,7 @@ internal class ComposeMetaClassGenerator(
                 }
                 .associate { it },
 
-            )
+        )
     }
 
     @Suppress("SpreadOperator")
