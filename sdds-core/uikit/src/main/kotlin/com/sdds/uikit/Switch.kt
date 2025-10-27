@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.CompoundButton
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -151,16 +150,12 @@ open class Switch @JvmOverloads constructor(
 
     override fun getCompoundPaddingRight(): Int {
         val buttonWidth = compoundDrawables.getOrNull(DRAWABLE_RIGHT)?.bounds?.width() ?: 0
-        return (buttonWidth + compoundDrawablePadding + paddingRight)
-            .also { Log.e("Switch", "getCompoundPaddingRight: $it, buttonWidth = $buttonWidth") }
+        return buttonWidth + compoundDrawablePadding + paddingRight
     }
 
     override fun getCompoundDrawablePadding(): Int {
-        return (
-            super.getCompoundDrawablePadding()
-                .takeIf { !(text.isNullOrBlank() && description.isNullOrBlank()) } ?: 0
-            )
-            .also { Log.e("Switch", "getCompoundDrawablePadding: $it") }
+        return super.getCompoundDrawablePadding()
+            .takeIf { !(text.isNullOrBlank() && description.isNullOrBlank()) } ?: 0
     }
 
     @Suppress("UNNECESSARY_SAFE_CALL")
