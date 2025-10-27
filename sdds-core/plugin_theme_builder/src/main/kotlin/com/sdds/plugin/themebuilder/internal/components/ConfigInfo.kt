@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components
 
+import com.squareup.kotlinpoet.ClassName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 /**
  * Класс содержит данные о вариациях всех компонентов в пределах одного конфига
@@ -25,6 +27,10 @@ internal data class ConfigInfo(
 @Serializable
 internal data class ComponentInfo(
     val key: String,
+    @Transient val appearance: String = "",
+    @Transient val styleClassName: ClassName = ClassName("", ""),
+    @Transient val styleBuilderClassName: ClassName = ClassName("", ""),
+    @Transient val componentPackage: String = "",
     val coreName: String,
     val styleName: String,
     val variations: List<VariationInfo>,

@@ -45,14 +45,18 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
 
     private fun generateCompose(config: C, deps: StyleGeneratorDependencies, component: Component): ComponentInfo? {
         val generator = createComposeGenerator(deps, component) ?: return null
-        val result = generator.generate(config)
+        val result = generator.generate(config) as ComponentStyleGenerator.Result.Compose
         return ComponentInfo(
-            component.componentName,
-            component.componentName.techToCamelCase(),
-            result.styleName,
-            result.variations.map {
+            key = component.componentName,
+            appearance = component.styleName,
+            coreName = component.componentName.techToCamelCase(),
+            styleName = result.styleName,
+            styleClassName = result.styleClassName,
+            styleBuilderClassName = result.styleBuilderClassName,
+            componentPackage = result.componentPackage,
+            variations = result.variations.map {
                 VariationInfo(
-                    it.key,
+                    name = it.key,
                     composeReference = it.value,
                 )
             },
@@ -63,12 +67,13 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
         val generator = createViewGenerator(deps, component) ?: return null
         val result = generator.generate(config) as ComponentStyleGenerator.Result.Xml
         return ComponentInfo(
-            component.componentName,
-            result.coreName,
-            result.styleName,
-            result.variations.map {
+            key = component.componentName,
+            appearance = component.styleName,
+            coreName = result.coreName,
+            styleName = result.styleName,
+            variations = result.variations.map {
                 VariationInfo(
-                    it.key,
+                    name = it.key,
                     viewReference = it.value,
                     viewOverlayReference = result.overlays[it.key],
                 )

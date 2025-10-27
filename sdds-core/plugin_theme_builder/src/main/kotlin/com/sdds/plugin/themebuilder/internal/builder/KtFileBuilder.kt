@@ -101,6 +101,38 @@ internal class KtFileBuilder(
         .also(rootTypeBuilders::add)
 
     /**
+     * Создает kotlin enum в корне файла.
+     *
+     * @param enumConstants карта из имени константы в список аргументов конструктора.
+     * Каждый аргумент должен быть валидным код-выражением (используется плейсхолдер %L),
+     * например: "42", "\"text\"", "someVar", "SomeType(value)", "Color(0xFF0000)" и т.д.
+     * Аргументы передаются в том же порядке, что и параметры `primaryConstructor`.
+     */
+    fun rootEnum(
+        name: String,
+        description: String? = null,
+        modifiers: List<Modifier>? = null,
+        primaryConstructor: Constructor.Primary? = null,
+        enumConstants: Map<String, List<String>> = emptyMap(),
+    ) = TypeSpec.enumBuilder(name)
+        .apply {
+            modifiers?.let { addModifiers(it.toKModifiers()) }
+            description?.let(::addKdoc)
+            primaryConstructor?.let { addPrimaryConstructor(it) }
+            enumConstants.forEach { (name, params) ->
+                addEnumConstant(
+                    name,
+                    TypeSpec.anonymousClassBuilder()
+                        .apply {
+                            params.forEach { arg -> addSuperclassConstructorParameter("%L", arg) }
+                        }
+                        .build(),
+                )
+            }
+        }
+        .also(rootTypeBuilders::add)
+
+    /**
      * Создает val свойство в корне файла.
      *
      * @param name имя свойства
