@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.internal.cell.BaseCell
 import com.sdds.compose.uikit.shadow.shadow
@@ -219,8 +220,13 @@ private fun startContent(
             style.backIcon?.let {
                 val backIconColor =
                     style.colors.backIconColor.colorForInteraction(interactionSource)
+                val padding = if (textAlign == NavigationBarTextAlign.Start) {
+                    0.dp
+                } else {
+                    style.dimensions.backIconMargin
+                }
                 Icon(
-                    modifier = Modifier.padding(end = style.dimensions.backIconMargin),
+                    modifier = Modifier.padding(end = padding),
                     painter = painterResource(it),
                     contentDescription = "",
                     tint = backIconColor,

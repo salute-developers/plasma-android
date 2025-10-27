@@ -465,9 +465,9 @@ private class DefaultNavigationBarDimensions(
                 paddingEnd = paddingEnd ?: 16.dp,
                 paddingTop = paddingTop ?: 16.dp,
                 paddingBottom = paddingBottom ?: 16.dp,
-                backIconMargin = paddingBottom ?: 4.dp,
-                horizontalSpacing = paddingBottom ?: 16.dp,
-                textBlockTopMargin = paddingBottom ?: 16.dp,
+                backIconMargin = backIconMargin ?: 4.dp,
+                horizontalSpacing = horizontalSpacing ?: 16.dp,
+                textBlockTopMargin = textBlockTopMargin ?: 16.dp,
             )
         }
     }
