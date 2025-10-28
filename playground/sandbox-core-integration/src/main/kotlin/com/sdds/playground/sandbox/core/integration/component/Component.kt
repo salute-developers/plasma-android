@@ -211,6 +211,7 @@ data class ComponentKey(
         val TabItem = ComponentKey("TabItem", CoreComponent.TAB_ITEM)
         val IconTabItem = ComponentKey("IconTabItem", CoreComponent.ICON_TAB_ITEM)
         val IconTabs = ComponentKey("IconTabs", CoreComponent.ICON_TABS)
+        val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
     }
 }
 
@@ -294,6 +295,7 @@ enum class CoreComponent {
     TAB_ITEM,
     ICON_TAB_ITEM,
     ICON_TABS,
+    NAVIGATION_BAR,
 }
 
 /**
@@ -376,6 +378,8 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.TOAST,
         CoreComponent.OVERLAY,
         -> CoreComponentGroup.OVERLAY
+
+        CoreComponent.NAVIGATION_BAR -> CoreComponentGroup.NAVIGATION
 
         CoreComponent.FLOW -> CoreComponentGroup.LAYOUT
     }

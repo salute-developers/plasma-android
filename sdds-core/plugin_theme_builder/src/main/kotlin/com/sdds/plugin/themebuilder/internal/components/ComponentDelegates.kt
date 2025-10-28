@@ -28,6 +28,7 @@ import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.loader.LoaderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.modal.ModalConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.navigationbar.NavigationBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.note.NoteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentConfigDelegate
@@ -117,5 +118,6 @@ internal val componentDelegates by unsafeLazy {
         "tabs" to TabsConfigDelegate(),
         "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
+        "navigation-bar" to NavigationBarConfigDelegate(),
     )
 }

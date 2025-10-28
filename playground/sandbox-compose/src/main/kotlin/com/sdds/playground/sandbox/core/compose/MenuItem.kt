@@ -26,6 +26,7 @@ import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.LoaderStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.ModalStyle
+import com.sdds.compose.uikit.NavigationBarStyle
 import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.NotificationContentStyle
@@ -86,6 +87,8 @@ import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
+import com.sdds.playground.sandbox.navigationbar.NavigationBarPreview
+import com.sdds.playground.sandbox.navigationbar.NavigationBarScreen
 import com.sdds.playground.sandbox.note.compose.NoteCompactPreview
 import com.sdds.playground.sandbox.note.compose.NoteCompactScreen
 import com.sdds.playground.sandbox.note.compose.NotePreview
@@ -317,6 +320,7 @@ internal sealed class ComponentScreen(
         { WheelScreen(it) },
         { style, _ -> WheelPreview(style as WheelStyle) },
     )
+
     object Note : ComponentScreen(
         { NoteScreen(it) },
         { style, _ -> NotePreview(style as NoteStyle) },
@@ -324,6 +328,11 @@ internal sealed class ComponentScreen(
     object NoteCompact : ComponentScreen(
         { NoteCompactScreen(it) },
         { style, _ -> NoteCompactPreview(style as NoteCompactStyle) },
+    )
+
+    object NavigationBar : ComponentScreen(
+        { NavigationBarScreen(it) },
+        { style, _ -> NavigationBarPreview(style as NavigationBarStyle) },
     )
     object Empty : ComponentScreen({})
 }
@@ -379,6 +388,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.WHEEL -> ComponentScreen.Wheel
+        CoreComponent.NAVIGATION_BAR -> ComponentScreen.NavigationBar
         CoreComponent.NOTE -> ComponentScreen.Note
         CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         else -> ComponentScreen.Empty
