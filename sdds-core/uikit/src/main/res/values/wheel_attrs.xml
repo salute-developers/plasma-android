@@ -20,6 +20,10 @@
         <attr name="sd_visibleItemsCount" format="integer" />
 
         <attr name="sd_controlsEnabled" format="boolean"/>
+        <attr name="sd_controlsDisplayMode" format="enum">
+            <enum name="always" value="0"/>
+            <enum name="if_active" value="1"/>
+        </attr>
 
         <attr name="sd_controlIconUp" format="reference" />
         <attr name="sd_controlIconUpTint" format="reference|color" />
@@ -39,5 +43,9 @@
             <enum name="dots" value="2" />
         </attr>
         <attr name="sd_separatorColor" format="reference|color"/>
+
+        <attr name="sd_itemSelectorEnabled"/>
+        <attr name="sd_itemSelectorTint"/>
+        <attr name="sd_itemSelectorShapeAppearance" format="reference" />
     </declare-styleable>
 </resources>

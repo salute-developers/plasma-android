@@ -3693,14 +3693,29 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SwitchL"
             },
             {
+               "name": "l.has-background",
+               "viewReference": "Sdkit.StarDs.Components.Switch.L.HasBackground",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SwitchLHasBackground"
+            },
+            {
                "name": "m",
                "viewReference": "Sdkit.StarDs.Components.Switch.M",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SwitchM"
             },
             {
+               "name": "m.has-background",
+               "viewReference": "Sdkit.StarDs.Components.Switch.M.HasBackground",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SwitchMHasBackground"
+            },
+            {
                "name": "s",
                "viewReference": "Sdkit.StarDs.Components.Switch.S",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SwitchS"
+            },
+            {
+               "name": "s.has-background",
+               "viewReference": "Sdkit.StarDs.Components.Switch.S.HasBackground",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SwitchSHasBackground"
             }
          ]
       },

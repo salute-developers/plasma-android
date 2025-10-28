@@ -93,6 +93,8 @@
         <!-- Цвет подвижной части переключателя -->
         <attr name="sd_buttonThumbColor" format="reference|color" />
         <attr name="sd_buttonThumbColorMode"/>
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_background"/>
     </declare-styleable>
 
     <declare-styleable name="SdCheckBoxDrawable">
@@ -132,7 +134,10 @@
         <attr name="sd_thumbWidth" format="dimension|float" />
         <attr name="sd_thumbHeight" format="dimension|float" />
         <attr name="sd_thumbPadding" format="dimension|float" />
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_background"/>
         <attr name="sd_thumbShapeAppearance" format="reference" />
+        <attr name="sd_trackShapeAppearance" format="reference" />
         <attr name="sd_buttonThumbColorMode" format="enum">
             <enum name="add" value="0"/>
             <enum name="src_over" value="1"/>

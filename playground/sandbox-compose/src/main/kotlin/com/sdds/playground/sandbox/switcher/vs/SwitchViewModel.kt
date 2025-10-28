@@ -21,6 +21,7 @@ internal class SwitchViewModel(
         val pName = SwitchPropertyName.values().find { it.value == name }
         when (pName) {
             SwitchPropertyName.Active -> updateActive(value as Boolean)
+            SwitchPropertyName.Focusable -> updateFocusable(value as Boolean)
             SwitchPropertyName.Label -> updateLabel(value?.toString())
             SwitchPropertyName.Description -> updateDescription(value?.toString())
             SwitchPropertyName.Enabled -> updateEnabledState(value as Boolean)
@@ -33,6 +34,10 @@ internal class SwitchViewModel(
      */
     fun updateActive(active: Boolean) {
         internalUiState.value = internalUiState.value.copy(active = active)
+    }
+
+    private fun updateFocusable(focusable: Boolean) {
+        internalUiState.value = internalUiState.value.copy(focusable = focusable)
     }
 
     private fun updateLabel(text: String?) {
@@ -54,6 +59,11 @@ internal class SwitchViewModel(
                 value = active,
             ),
 
+            Property.BooleanProperty(
+                name = SwitchPropertyName.Focusable.value,
+                value = focusable,
+            ),
+
             Property.StringProperty(
                 name = SwitchPropertyName.Label.value,
                 value = label.orEmpty(),
@@ -73,6 +83,7 @@ internal class SwitchViewModel(
 
     private enum class SwitchPropertyName(val value: String) {
         Active("active"),
+        Focusable("focusable"),
         Label("label"),
         Description("description"),
         Enabled("enabled"),

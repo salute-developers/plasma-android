@@ -13,6 +13,7 @@ import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
 import androidx.core.view.updateLayoutParams
+import com.sdds.uikit.fs.FocusSelectorSettings
 import com.sdds.uikit.internal.wheel.WheelItemView
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
@@ -48,8 +49,16 @@ open class Wheel @JvmOverloads constructor(
     private val _entrySelectedListener = EntrySelectedListener { wheelId, entry ->
         _entrySelectedListeners.forEach { it.onEntrySelected(wheelId, entry) }
     }
+    private val focusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.fromAttrs(
+        context,
+        attrs,
+        defStyleAttr,
+        defStyleRes,
+    )
+
     private var _visibleItemsCount: Int = MIN_VISIBLE_ITEMS_COUNT
     private var _controlsEnabled: Boolean = false
+    private var _controlsDisplayMode: Int = CONTROLS_DISPLAY_MODE_ALWAYS
     private var _controlIconUp: Drawable? = null
     private var _controlIconUpTintList: ColorStateList? = null
     private var _controlIconDown: Drawable? = null
@@ -74,6 +83,10 @@ open class Wheel @JvmOverloads constructor(
     private var _separatorSpacing: Int = 0
 
     private var _infiniteScrollEnabled: Boolean = false
+
+    private var _itemSelectorEnabled: Boolean = false
+    private var _itemSelectorTint: ColorValueStateList? = null
+    private var _itemSelectorShapeAppearanceRes: Int = 0
 
     /**
      * Количество видимых элементов в каждом колесе.
@@ -110,11 +123,9 @@ open class Wheel @JvmOverloads constructor(
     open var controlsEnabled: Boolean
         get() = _controlsEnabled
         set(value) {
-            if (_controlsEnabled != value) {
-                _controlsEnabled = value
-                configureWheelItems {
-                    it.controlsEnabled = value
-                }
+            _controlsEnabled = value
+            configureWheelItems {
+                it.controlsEnabled = value
             }
         }
 
@@ -239,6 +250,7 @@ open class Wheel @JvmOverloads constructor(
     init {
         context.withStyledAttributes(attrs, R.styleable.Wheel, defStyleAttr, defStyleRes) {
             controlsEnabled = getBoolean(R.styleable.Wheel_sd_controlsEnabled, false)
+            _controlsDisplayMode = getInt(R.styleable.Wheel_sd_controlsDisplayMode, CONTROLS_DISPLAY_MODE_ALWAYS)
             setItemTextAppearance(getResourceId(R.styleable.Wheel_sd_itemTextAppearance, 0))
             setItemTextColor(getColorValueStateList(context, R.styleable.Wheel_sd_itemTextColor))
             setItemTextAfterAppearance(getResourceId(R.styleable.Wheel_sd_itemTextAfterAppearance, 0))
@@ -258,6 +270,9 @@ open class Wheel @JvmOverloads constructor(
             separatorSpacing = getDimensionPixelSize(R.styleable.Wheel_sd_separatorSpacing, 0)
             descriptionPadding = getDimensionPixelSize(R.styleable.Wheel_sd_descriptionPadding, 0)
             visibleItemsCount = getInt(R.styleable.Wheel_sd_visibleItemsCount, 0)
+            _itemSelectorTint = getColorValueStateList(context, R.styleable.Wheel_sd_itemSelectorTint)
+            _itemSelectorEnabled = getBoolean(R.styleable.Wheel_sd_itemSelectorEnabled, false)
+            _itemSelectorShapeAppearanceRes = getResourceId(R.styleable.Wheel_sd_itemSelectorShapeAppearance, 0)
         }
         orientation = HORIZONTAL
         gravity = Gravity.CENTER
@@ -303,6 +318,35 @@ open class Wheel @JvmOverloads constructor(
     open fun setDescription(wheelId: Int, description: CharSequence?) {
         val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
         wheelItem.description = description
+    }
+
+    /**
+     * Контроллирует доступность кнопок управления колесом с идентификатором [wheelId]
+     */
+    open fun setControlsEnabled(wheelId: Int, enabled: Boolean) {
+        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
+        wheelItem.controlsEnabled = enabled
+    }
+
+    /**
+     * Изменяет режим отображения кнопок управления колесом с идентификатором [wheelId]
+     * @see Wheel.CONTROLS_DISPLAY_MODE_ALWAYS
+     * @see Wheel.CONTROLS_DISPLAY_MODE_IF_ACTIVE
+     */
+    open fun setControlsDisplayMode(wheelId: Int, mode: Int) {
+        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
+        wheelItem.controlsDisplayMode = mode
+    }
+
+    /**
+     * Изменяет режим отображения кнопок управления колесом
+     * @see Wheel.CONTROLS_DISPLAY_MODE_ALWAYS
+     * @see Wheel.CONTROLS_DISPLAY_MODE_IF_ACTIVE
+     */
+    open fun setControlsDisplayMode(mode: Int) {
+        configureWheelItems {
+            it.controlsDisplayMode = mode
+        }
     }
 
     /**
@@ -554,6 +598,11 @@ open class Wheel @JvmOverloads constructor(
             setControlIconUpColor(_controlIconUpTintList)
             setControlIconDownColor(_controlIconDownTintList)
             setEntrySelectedListener(_entrySelectedListener)
+            setItemSelectorTint(_itemSelectorTint)
+            setItemSelectorShapeAppearance(_itemSelectorShapeAppearanceRes)
+            itemSelectorEnabled = this@Wheel._itemSelectorEnabled
+            setFocusSelectorSettings(focusSelectorSettings)
+            controlsDisplayMode = _controlsDisplayMode
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
             isFocusable = false
         }
@@ -675,6 +724,16 @@ open class Wheel @JvmOverloads constructor(
 
         /** Текстовый разделитель с точками между колесами. */
         const val SEPARATOR_TYPE_DOTS = 2
+
+        /**
+         * Кнопки управления колесом всегда видны
+         */
+        const val CONTROLS_DISPLAY_MODE_ALWAYS = 0
+
+        /**
+         * Кнопки управления колесом видны только у колеса в фокусе
+         */
+        const val CONTROLS_DISPLAY_MODE_IF_ACTIVE = 1
 
         /** Значение минимального отступа по умолчанию между элементами. */
         private val DEFAULT_MIN_SPACING = 8.dp

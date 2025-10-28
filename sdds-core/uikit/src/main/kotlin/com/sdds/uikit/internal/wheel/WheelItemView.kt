@@ -2,12 +2,16 @@ package com.sdds.uikit.internal.wheel
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Canvas
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import androidx.annotation.StyleRes
+import androidx.core.graphics.withScale
 import androidx.core.view.doOnPreDraw
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -15,19 +19,28 @@ import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import com.sdds.uikit.ImageView
-import com.sdds.uikit.R
 import com.sdds.uikit.TextView
 import com.sdds.uikit.Wheel
 import com.sdds.uikit.Wheel.Companion.ITEM_ALIGNMENT_END
 import com.sdds.uikit.Wheel.Companion.ITEM_ALIGNMENT_START
+import com.sdds.uikit.dp
+import com.sdds.uikit.fs.FocusSelectorSettings
 import com.sdds.uikit.internal.base.fullHeight
 import com.sdds.uikit.internal.base.fullWidth
+import com.sdds.uikit.internal.base.isParentOf
+import com.sdds.uikit.shape.ShapeDrawable
+import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.statelist.ColorValueStateList
 
 internal class WheelItemView(context: Context) : ViewGroup(context) {
 
+    private val _upButtonId = generateViewId()
+    private val _downButtonId = generateViewId()
     private val _listView = WheelListView(context).apply {
+        id = generateViewId()
         isFocusable = false
+        nextFocusUpId = _upButtonId
+        nextFocusDownId = _downButtonId
         addOnScrollListener(
             object : OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -45,14 +58,12 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     }
 
     private val _upButton: ImageView = ImageView(context).apply {
-        id = R.id.sd_upButtonId
+        id = _upButtonId
         isFocusable = true
-        nextFocusDownId = R.id.sd_downButtonId
         setOnClickListener { previous() }
     }
     private val _downButton: ImageView = ImageView(context).apply {
-        id = R.id.sd_downButtonId
-        nextFocusUpId = R.id.sd_upButtonId
+        id = _downButtonId
         isFocusable = true
         setOnClickListener { next() }
     }
@@ -62,24 +73,48 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         _downButton.tag = id
     }
 
-    private val _descriptionView: TextView = TextView(context).apply {
+    private val _descriptionView: TextView = DescriptionView(context).apply {
         maxLines = 1
         isFocusable = false
         ellipsize = TextUtils.TruncateAt.END
     }
 
+    private var focusSelectorSettings: FocusSelectorSettings? = null
     private var _descriptionTextAppearance: Int = 0
     private var _descriptionPadding: Int = 0
     private var _descriptionTextColor: ColorValueStateList? = null
     private var _description: CharSequence? = null
 
     private var _controlsEnabled: Boolean = false
+    private var _controlsDisplayMode: Int = Wheel.CONTROLS_DISPLAY_MODE_ALWAYS
     private var _controlIconUp: Drawable? = null
     private var _controlIconUpTintList: ColorStateList? = null
     private var _controlIconDown: Drawable? = null
     private var _controlIconDownTintList: ColorStateList? = null
     private var _entrySelectedListener: Wheel.EntrySelectedListener? = null
     private var _currentSelectedEntry: Wheel.WheelItemEntry? = null
+    private var _hasFocus: Boolean = false
+    private var _listViewHasFocus: Boolean = false
+    private var _itemSelectorEnabled: Boolean = false
+    private val selectorBounds: Rect = Rect()
+
+    private val _globalFocusListener = ViewTreeObserver.OnGlobalFocusChangeListener { oldFocus, newFocus ->
+        val isFocusOnItem = oldFocus === this || newFocus === this
+        if (isFocusOnItem || isParentOf(oldFocus) || isParentOf(newFocus)) {
+            val hasFocus = hasFocus()
+            val listViewHasFocus = _listView.hasFocus()
+            if (_hasFocus != hasFocus) {
+                _hasFocus = hasFocus
+                updateControlsVisibility()
+            }
+            if (_listViewHasFocus != listViewHasFocus) {
+                _listViewHasFocus = listViewHasFocus
+                _descriptionView.isActivated = listViewHasFocus
+                invalidate()
+            }
+        }
+    }
+    private val _selectorDrawable: ShapeDrawable = ShapeDrawable()
 
     val extraItemOffset: Int
         get() = _listView.extraItemOffset
@@ -104,7 +139,16 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         set(value) {
             if (_controlsEnabled != value) {
                 _controlsEnabled = value
-                updateControls()
+                updateControlsVisibility()
+            }
+        }
+
+    var controlsDisplayMode: Int
+        get() = _controlsDisplayMode
+        set(value) {
+            if (_controlsDisplayMode != value) {
+                _controlsDisplayMode = value
+                updateControlsVisibility()
             }
         }
 
@@ -180,14 +224,39 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             _listView.infiniteScrollEnabled = value
         }
 
+    var itemSelectorEnabled: Boolean
+        get() = _itemSelectorEnabled
+        set(value) {
+            if (_itemSelectorEnabled != value) {
+                _itemSelectorEnabled = value
+                invalidate()
+            }
+        }
+
     init {
         populate()
         updateControls()
         updateDescription()
+        setWillNotDraw(false)
     }
 
     fun setData(items: List<Wheel.WheelItemEntry>) {
         _listView.setData(items)
+    }
+
+    fun setItemSelectorShapeAppearance(@StyleRes appearanceId: Int) {
+        _selectorDrawable.setShapeModel(ShapeModel.create(context, appearanceId))
+    }
+
+    fun setItemSelectorTint(tint: ColorValueStateList?) {
+        _selectorDrawable.setTintValue(tint)
+    }
+
+    fun setFocusSelectorSettings(settings: FocusSelectorSettings) {
+        if (focusSelectorSettings != settings) {
+            focusSelectorSettings = settings
+            requestLayout()
+        }
     }
 
     fun setEntrySelectedListener(entrySelectedListener: Wheel.EntrySelectedListener?) {
@@ -257,6 +326,33 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         return _listView.getSelectedEntry()
     }
 
+    override fun onRequestFocusInDescendants(direction: Int, previouslyFocusedRect: Rect?): Boolean {
+        val target = _listView.findCenterChild()
+            ?: return super.onRequestFocusInDescendants(direction, previouslyFocusedRect)
+        return target.requestFocus()
+    }
+
+    override fun focusSearch(focused: View, direction: Int): View? {
+        val fromDownButton = focused.id == _downButtonId && direction == View.FOCUS_UP
+        val fromUpButton = focused.id == _upButtonId && direction == View.FOCUS_DOWN
+        val fromListView = focused.id == _listView.id
+        if (fromDownButton || fromUpButton || fromListView) {
+            val centerChild = _listView.findCenterChild()
+            centerChild?.let { return it }
+        }
+        return super.focusSearch(focused, direction)
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        viewTreeObserver.addOnGlobalFocusChangeListener(_globalFocusListener)
+    }
+
+    override fun onDetachedFromWindow() {
+        viewTreeObserver.removeOnGlobalFocusChangeListener(_globalFocusListener)
+        super.onDetachedFromWindow()
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
@@ -304,12 +400,44 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         )
     }
 
+    override fun onDraw(c: Canvas) {
+        super.onDraw(c)
+        if (itemSelectorEnabled && _listViewHasFocus) {
+            if (focusSelectorSettings?.scaleEnabled == true) {
+                val scale = focusSelectorSettings?.scaleFactor?.let { it + 1f } ?: 1f
+                c.withScale(scale, scale, selectorBounds.exactCenterX(), selectorBounds.exactCenterY()) {
+                    _selectorDrawable.draw(this)
+                }
+            } else {
+                _selectorDrawable.draw(c)
+            }
+        }
+    }
+
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         var top = paddingTop
         top = layoutChild(_upButton, top)
         top = layoutChild(_listView, top)
         layoutChild(_downButton, top)
         layoutChild(_descriptionView, 0)
+
+        val estimateChild = _listView.estimateChild
+        if (estimateChild != null) {
+            val spacing = entryMinSpacing / 2
+            selectorBounds.set(
+                estimateChild.left,
+                estimateChild.top + spacing,
+                estimateChild.right,
+                estimateChild.bottom - spacing,
+            )
+        }
+        if (_descriptionView.isVisible) {
+            selectorBounds.left = minOf(selectorBounds.left, _descriptionView.left) - SELECTOR_SAFE_PADDING
+            selectorBounds.right = maxOf(selectorBounds.right, _descriptionView.right) + SELECTOR_SAFE_PADDING
+            selectorBounds.bottom += SELECTOR_SAFE_PADDING
+        }
+        selectorBounds.offsetTo(selectorBounds.left, (measuredHeight - selectorBounds.height()) / 2)
+        _selectorDrawable.bounds = selectorBounds
     }
 
     private fun layoutChild(child: View, top: Int): Int {
@@ -351,10 +479,30 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         _downButton.setImageDrawable(controlIconDown)
         _upButton.imageTintList = _controlIconUpTintList
         _downButton.imageTintList = _controlIconDownTintList
-        _upButton.isVisible = controlsEnabled
-        _downButton.isVisible = controlsEnabled
-        _listView.itemsFocusable = !controlsEnabled
+        updateControlsVisibility()
+        _listView.itemsFocusable = true
         resetPositions(true)
+    }
+
+    private fun updateControlsVisibility() {
+        if (!controlsEnabled) {
+            _upButton.isGone = true
+            _downButton.isGone = true
+            return
+        }
+
+        when (controlsDisplayMode) {
+            Wheel.CONTROLS_DISPLAY_MODE_IF_ACTIVE -> {
+                val visibility = if (_hasFocus) VISIBLE else INVISIBLE
+                _upButton.visibility = visibility
+                _downButton.visibility = visibility
+            }
+
+            else -> {
+                _upButton.isVisible = true
+                _downButton.isVisible = true
+            }
+        }
     }
 
     private fun updateDescription() {
@@ -382,5 +530,21 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     private fun getDescriptionPosition(): Int {
         val centerTop = (_listView.measuredHeight - _listView.itemHeight) / 2
         return _listView.top + centerTop + _listView.itemHeight - _descriptionView.measuredHeight - entryMinSpacing
+    }
+
+    private class DescriptionView(context: Context) : TextView(context) {
+
+        override fun onCreateDrawableState(extraSpace: Int): IntArray {
+            val state = super.onCreateDrawableState(if (isActivated) extraSpace + 1 else extraSpace)
+
+            if (isActivated) {
+                mergeDrawableStates(state, intArrayOf(android.R.attr.state_focused))
+            }
+            return state
+        }
+    }
+
+    private companion object {
+        val SELECTOR_SAFE_PADDING = 2.dp
     }
 }

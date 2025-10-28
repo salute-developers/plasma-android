@@ -16,6 +16,7 @@ import kotlinx.serialization.Serializable
 internal data class SwitchProperties(
     val toggleTrackShape: Shape? = null,
     val toggleThumbShape: Shape? = null,
+    val shape: Shape? = null,
 
     val labelStyle: Typography? = null,
     val descriptionStyle: Typography? = null,
@@ -27,12 +28,17 @@ internal data class SwitchProperties(
     val togglePadding: Dimension? = null,
     val textPadding: Dimension? = null,
     val descriptionPadding: Dimension? = null,
+    val paddingStart: Dimension? = null,
+    val paddingTop: Dimension? = null,
+    val paddingEnd: Dimension? = null,
+    val paddingBottom: Dimension? = null,
 
     val labelColor: Color? = null,
     val descriptionColor: Color? = null,
     val toggleTrackColor: Color? = null,
     val toggleTrackBorderColor: Color? = null,
     val toggleThumbColor: Color? = null,
+    val backgroundColor: Color? = null,
 
     val disableAlpha: FloatValue? = null,
 ) : PropertyOwner {
@@ -58,6 +64,12 @@ internal data class SwitchProperties(
             toggleTrackBorderColor = toggleTrackBorderColor ?: otherProps.toggleTrackBorderColor,
             toggleThumbColor = toggleThumbColor ?: otherProps.toggleThumbColor,
             disableAlpha = disableAlpha ?: otherProps.disableAlpha,
+            shape = shape ?: otherProps.shape,
+            paddingStart = paddingStart ?: otherProps.paddingStart,
+            paddingTop = paddingTop ?: otherProps.paddingTop,
+            paddingEnd = paddingEnd ?: otherProps.paddingEnd,
+            paddingBottom = paddingBottom ?: otherProps.paddingBottom,
+            backgroundColor = backgroundColor ?: otherProps.backgroundColor,
         )
     }
 }

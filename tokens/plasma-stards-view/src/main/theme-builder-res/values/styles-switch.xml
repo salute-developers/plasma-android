@@ -3,11 +3,11 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Sdkit.StarDs.Components.Switch" parent="Sdds.Components.Switch">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_trackShapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="sd_thumbShapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="android:textColor">?sdkit_textDefaultPrimary</item>
-        <item name="sd_descriptionTextColor">?sdkit_textDefaultSecondary</item>
+        <item name="android:textColor">@color/sdkit_switch_text_color</item>
+        <item name="sd_descriptionTextColor">@color/sdkit_switch_description_text_color</item>
         <item name="sd_buttonTrackColor">@color/sdkit_switch_button_track_color</item>
         <item name="sd_buttonTrackBorderColor">?sdkit_surfaceDefaultClear</item>
         <item name="sd_buttonThumbColor">?sdkit_surfaceOnDarkSolidDefault</item>
@@ -25,6 +25,17 @@
     <style name="Sdkit.StarDs.ComponentOverlays.SwitchL">
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.L</item>
     </style>
+    <style name="Sdkit.StarDs.Components.Switch.L.HasBackground">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="android:paddingStart">@dimen/sdkit_switch_l_has_background_padding_start</item>
+        <item name="android:paddingTop">@dimen/sdkit_switch_l_has_background_padding_top</item>
+        <item name="android:paddingEnd">@dimen/sdkit_switch_l_has_background_padding_end</item>
+        <item name="android:paddingBottom">@dimen/sdkit_switch_l_has_background_padding_bottom</item>
+        <item name="sd_background">@color/sdkit_switch_l_has_background_background_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SwitchLHasBackground">
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.L.HasBackground</item>
+    </style>
     <style name="Sdkit.StarDs.Components.Switch.M">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
@@ -38,6 +49,18 @@
     <style name="Sdkit.StarDs.ComponentOverlays.SwitchM">
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
     </style>
+    <style name="Sdkit.StarDs.Components.Switch.M.HasBackground">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_switch_m_has_background_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/sdkit_switch_m_has_background_padding_start</item>
+        <item name="android:paddingTop">@dimen/sdkit_switch_m_has_background_padding_top</item>
+        <item name="android:paddingEnd">@dimen/sdkit_switch_m_has_background_padding_end</item>
+        <item name="android:paddingBottom">@dimen/sdkit_switch_m_has_background_padding_bottom</item>
+        <item name="sd_background">@color/sdkit_switch_m_has_background_background_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SwitchMHasBackground">
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.M.HasBackground</item>
+    </style>
     <style name="Sdkit.StarDs.Components.Switch.S">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
@@ -50,5 +73,16 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SwitchS">
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Switch.S.HasBackground">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/sdkit_switch_s_has_background_padding_start</item>
+        <item name="android:paddingTop">@dimen/sdkit_switch_s_has_background_padding_top</item>
+        <item name="android:paddingEnd">@dimen/sdkit_switch_s_has_background_padding_end</item>
+        <item name="android:paddingBottom">@dimen/sdkit_switch_s_has_background_padding_bottom</item>
+        <item name="sd_background">@color/sdkit_switch_s_has_background_background_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SwitchSHasBackground">
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.S.HasBackground</item>
     </style>
 </resources>

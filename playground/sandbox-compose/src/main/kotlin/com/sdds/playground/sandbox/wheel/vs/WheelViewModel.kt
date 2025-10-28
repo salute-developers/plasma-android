@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.wheel.WheelControlsDisplayMode
 import com.sdds.testing.vs.wheel.WheelSeparatorType
 import com.sdds.testing.vs.wheel.WheelUiState
 
@@ -24,6 +25,10 @@ internal class WheelViewModel(
             PropertyName.Description -> currentState.copy(description = valueString)
             PropertyName.ItemTextAfter -> currentState.copy(itemTextAfter = valueString)
             PropertyName.HasControls -> currentState.copy(hasControls = valueString.toBoolean())
+            PropertyName.ControlsDisplayMode -> currentState.copy(
+                controlsDisplayMode = WheelControlsDisplayMode.valueOf(valueString),
+            )
+
             PropertyName.WheelCount -> currentState.copy(wheelCount = valueString.toIntOrNull() ?: 0)
             PropertyName.VisibleItemsCount -> currentState.copy(visibleItemsCount = valueString.toIntOrNull() ?: 0)
             PropertyName.SeparatorType -> currentState.copy(separatorType = WheelSeparatorType.valueOf(valueString))
@@ -33,7 +38,7 @@ internal class WheelViewModel(
     }
 
     override fun WheelUiState.toProps(): List<Property<*>> {
-        return listOf(
+        return listOfNotNull(
             Property.StringProperty(
                 name = PropertyName.ItemLabel.value,
                 value = itemLabel,
@@ -50,6 +55,10 @@ internal class WheelViewModel(
                 name = PropertyName.HasControls.value,
                 value = hasControls,
             ),
+            enumProperty(
+                name = PropertyName.ControlsDisplayMode.value,
+                value = controlsDisplayMode,
+            ).takeIf { hasControls },
             Property.BooleanProperty(
                 name = PropertyName.HasInfiniteScroll.value,
                 value = hasInfiniteScroll,
@@ -76,6 +85,7 @@ internal class WheelViewModel(
         ItemTextAfter("itemTextAfter"),
         ItemAlignment("itemAlignment"),
         HasControls("hasControls"),
+        ControlsDisplayMode("controlsDisplayMode"),
         WheelCount("wheelCount"),
         VisibleItemsCount("visibleItemsCount"),
         SeparatorType("separatorType"),

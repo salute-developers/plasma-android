@@ -54,7 +54,8 @@ fun Wheel.applyState(state: WheelUiState): Wheel = apply {
             },
         )
     }
-    setDescription(state.description)
     controlsEnabled = state.hasControls
+    setControlsDisplayMode(state.controlsDisplayMode.toDisplayMode())
+    setDescription(state.description)
     infiniteScrollEnabled = state.hasInfiniteScroll
 }

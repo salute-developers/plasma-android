@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -31,6 +30,7 @@ import com.sdds.uikit.Wheel.Companion.ITEM_ALIGNMENT_START
 import com.sdds.uikit.Wheel.WheelItemEntry
 import com.sdds.uikit.dp
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.isParentOf
 import com.sdds.uikit.statelist.ColorValueStateList
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -60,6 +60,9 @@ internal class WheelListView(context: Context) : ListView(context) {
     private var _itemsFocusable = false
     private var _infiniteScrollEnabled = false
     private var _wasFling = false
+    private var _initialPositionSet: Boolean = false
+    private var _savedDescendantFocusability: Int = descendantFocusability
+    private var _reindexingFocusGuard: Boolean = false
 
     var itemsFocusable: Boolean
         get() = _itemsFocusable
@@ -136,6 +139,9 @@ internal class WheelListView(context: Context) : ListView(context) {
     val itemHeight: Int
         get() = estimateChildHeight()
 
+    val estimateChild: View?
+        get() = getChildAt(0) ?: adapter?.onCreateViewHolder(this, 0)?.itemView
+
     init {
         adapter = _wheelItemAdapter
         layoutManager = _layoutManager
@@ -144,6 +150,7 @@ internal class WheelListView(context: Context) : ListView(context) {
         clipChildren = false
         addItemDecoration(_spaceBetweenDecoration)
         itemAnimator = null
+        preserveFocusAfterLayout = true
         onFlingListener = object : OnFlingListener() {
             override fun onFling(velocityX: Int, velocityY: Int): Boolean {
                 _wasFling = true
@@ -157,7 +164,8 @@ internal class WheelListView(context: Context) : ListView(context) {
             post { refresh() }
         }
         doOnLayout {
-            val edgeOffset = it.measuredHeight / 2
+            val itemHeight = estimateChildHeight() - entryMinSpacing
+            val edgeOffset = (it.measuredHeight - itemHeight) / 2
             it.updatePadding(top = edgeOffset, bottom = edgeOffset)
         }
     }
@@ -212,12 +220,12 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     fun getSelectedPosition(): Int {
-        val centerView = _wheelSnapHelper.findSnapView(_layoutManager) ?: return -1
+        val centerView = findCenterChild() ?: return -1
         return _layoutManager.getPosition(centerView)
     }
 
     fun snap(smooth: Boolean = true, positionProvider: (Int) -> Int): Boolean {
-        val centerView = _wheelSnapHelper.findSnapView(_layoutManager) ?: return false
+        val centerView = findCenterChild() ?: return false
         val currentPosition = getSelectedPosition()
         val nextPosition = positionProvider(currentPosition)
             .takeIf { it in 0 until _wheelItemAdapter.itemCount }
@@ -237,19 +245,48 @@ internal class WheelListView(context: Context) : ListView(context) {
         return true
     }
 
+    fun findCenterChild(): View? {
+        return _wheelSnapHelper.findSnapView(_layoutManager)
+    }
+
+    override fun addFocusables(views: ArrayList<View>, direction: Int, mode: Int) {
+        val current = rootView?.findFocus()
+        val enteringFromOutside = current != null && !isParentOf(current)
+
+        if (enteringFromOutside && itemsFocusable) {
+            val center = findCenterChild()
+            if (center != null && center.isFocusable) {
+                // Отдаём кандидатом только центр и выходим — FocusFinder не увидит остальных
+                center.addFocusables(views, direction, mode)
+                return
+            }
+        }
+        super.addFocusables(views, direction, mode)
+    }
+
+    override fun onRequestFocusInDescendants(direction: Int, previouslyFocusedRect: Rect?): Boolean {
+        val target = findCenterChild() ?: return super.onRequestFocusInDescendants(direction, previouslyFocusedRect)
+        return target.requestFocus()
+    }
+
+    override fun onDetachedFromWindow() {
+        _reindexingFocusGuard = false
+        descendantFocusability = _savedDescendantFocusability
+        super.onDetachedFromWindow()
+    }
+
     private fun refresh() {
         doOnPreDraw {
             if (infiniteScrollEnabled) {
-                applyInfiniteScroll()
+                applyInfiniteScroll(false)
             } else {
-                setSelectedPosition(getSelectedPosition(), false)
+                val position = if (_initialPositionSet) getSelectedPosition() else 0
+                setSelectedPosition(position, false)
+                _initialPositionSet = true
             }
         }
         _wheelItemAdapter.forceRefreshHolders()
     }
-
-    private val estimateChild: View?
-        get() = getChildAt(0) ?: adapter?.onCreateViewHolder(this, 0)?.itemView
 
     private fun estimateChildHeight(
         widthSpec: Int = MeasureSpec.UNSPECIFIED,
@@ -283,56 +320,44 @@ internal class WheelListView(context: Context) : ListView(context) {
 
     override fun onScrolled(dx: Int, dy: Int) {
         super.onScrolled(dx, dy)
-        if (infiniteScrollEnabled) {
-            applyInfiniteScroll()
-        }
         updateChildTransforms()
     }
 
+    override fun clearFocus() {
+        if (_reindexingFocusGuard) return
+        super.clearFocus()
+    }
+
     override fun focusSearch(focused: View, direction: Int): View? {
-        val nextFocus = super.focusSearch(focused, direction) ?: return null
-        val itemCount = _wheelItemAdapter.realItemCount
-        val skipFocusSearch = !infiniteScrollEnabled ||
-            !itemsFocusable ||
-            itemCount == 0 ||
-            indexOfChild(focused) == -1
-
-        if (skipFocusSearch) return nextFocus
-        val currentPosition = _layoutManager.getPosition(focused)
-
-        val centerCycleStart = itemCount
-        val centerCycleEnd = centerCycleStart + itemCount - 1
-
-        return when {
-            currentPosition <= centerCycleStart && direction == View.FOCUS_UP -> {
-                _layoutManager.scrollToPosition(centerCycleEnd)
-                post {
-                    _layoutManager.findViewByPosition(centerCycleEnd)?.requestFocus()
-                }
-                null
-            }
-            currentPosition >= centerCycleEnd && direction == View.FOCUS_DOWN -> {
-                _layoutManager.scrollToPosition(centerCycleStart)
-                post {
-                    _layoutManager.findViewByPosition(centerCycleStart)?.requestFocus()
-                }
-                null
-            }
-            else -> nextFocus
+        if (_reindexingFocusGuard) {
+            return this
         }
+        val isChild = indexOfChild(focused) != -1
+        var target: View? = null
+        if (isChild && itemsFocusable && !infiniteScrollEnabled) {
+            val currentPosition = _layoutManager.getPosition(focused)
+            val lastIndex = _wheelItemAdapter.itemCount - 1
+
+            target = if (direction == View.FOCUS_DOWN && currentPosition == lastIndex) {
+                rootView.findViewById<View>(nextFocusDownId)
+                    ?: (parent as? ViewGroup)?.findViewById(nextFocusDownId)
+            } else if (direction == View.FOCUS_UP && currentPosition == 0) {
+                rootView.findViewById<View>(nextFocusUpId)
+                    ?: (parent as? ViewGroup)?.findViewById(nextFocusUpId)
+            } else {
+                null
+            }
+        }
+
+        return target ?: super.focusSearch(focused, direction)
     }
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
         val specHeight = MeasureSpec.getSize(heightSpec)
-        val heightMode = MeasureSpec.getMode(heightSpec)
         val newHeightSpec = if (estimateChild != null) {
             val estimatedMaxHeight = estimateWheelHeight(widthSpec, heightSpec)
-            val maxHeight = when (heightMode) {
-                MeasureSpec.UNSPECIFIED -> estimatedMaxHeight
-                MeasureSpec.AT_MOST -> minOf(estimatedMaxHeight, specHeight)
-                else -> specHeight
-            }
-            MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.AT_MOST)
+            val maxHeight = minOf(estimatedMaxHeight, specHeight)
+            MeasureSpec.makeMeasureSpec(maxHeight, MeasureSpec.EXACTLY)
         } else {
             heightSpec
         }
@@ -376,20 +401,50 @@ internal class WheelListView(context: Context) : ListView(context) {
         return direction * translateYGeneral
     }
 
-    private fun applyInfiniteScroll() {
-        val firstItemVisible = _layoutManager.findFirstVisibleItemPosition()
-        val itemCount = _wheelItemAdapter.realItemCount
-        if (itemCount == 0 || firstItemVisible == NO_POSITION) return
-        val shouldStopScroll = _wasFling && scrollState == SCROLL_STATE_SETTLING
+    override fun onScrollStateChanged(state: Int) {
+        super.onScrollStateChanged(state)
+        if (state == SCROLL_STATE_IDLE && infiniteScrollEnabled) applyInfiniteScroll()
+    }
 
-        if (firstItemVisible < itemCount) {
-            if (shouldStopScroll) stopScroll()
-            val targetPosition = firstItemVisible + itemCount
+    private fun getInfinityTargetPosition(position: Int): Int {
+        val realItemCount = _wheelItemAdapter.realItemCount
+        val allItemCount = _wheelItemAdapter.itemCount
+        val infKoef = INFINITY_MULTIPLIER / 3
+        if (realItemCount == 0 || position == NO_POSITION) return -1
+        return when {
+            position < realItemCount * infKoef -> position + realItemCount * infKoef
+            position > allItemCount - (realItemCount * infKoef) -> (position % realItemCount) + realItemCount * infKoef
+            else -> -1
+        }
+    }
+
+    private fun applyInfiniteScroll(requestFocus: Boolean = hasFocus()) {
+        val firstItemVisible = findCenterChild()?.let { _layoutManager.getPosition(it) }
+            ?: _layoutManager.findFirstVisibleItemPosition()
+        val isIdle = scrollState == SCROLL_STATE_IDLE
+        val targetPosition = getInfinityTargetPosition(firstItemVisible).takeIf { it != -1 }
+
+        if (targetPosition != null && isIdle) {
+            if (requestFocus) {
+                _reindexingFocusGuard = true
+                _savedDescendantFocusability = descendantFocusability
+                descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+                isFocusable = true
+                requestFocus()
+                _wheelItemAdapter.setFocusLock(targetPosition)
+            }
+
             snap(false) { targetPosition }
-        } else if (firstItemVisible > itemCount * 2) {
-            if (shouldStopScroll) stopScroll()
-            val targetPosition = firstItemVisible - itemCount
-            snap(false) { targetPosition }
+
+            if (requestFocus) {
+                post {
+                    descendantFocusability = _savedDescendantFocusability
+                    _reindexingFocusGuard = false
+                    isFocusable = false
+                    _wheelItemAdapter.clearFocusLock()
+                    _layoutManager.findViewByPosition(targetPosition)?.requestFocus()
+                }
+            }
         }
     }
 
@@ -484,6 +539,7 @@ internal class WheelListView(context: Context) : ListView(context) {
 
         private var freshViewType: Int = Int.MIN_VALUE
         private val _items: MutableList<WheelItemEntry> = mutableListOf()
+        private var _focusLockPosition = NO_POSITION
 
         val currentList: List<WheelItemEntry>
             get() = _items
@@ -502,7 +558,7 @@ internal class WheelListView(context: Context) : ListView(context) {
         }
 
         override fun getItemCount(): Int {
-            return if (infiniteScrollEnabled) realItemCount * 3 else realItemCount
+            return if (infiniteScrollEnabled) realItemCount * INFINITY_MULTIPLIER else realItemCount
         }
 
         fun getItemPosition(entryId: Long): Int {
@@ -523,16 +579,39 @@ internal class WheelListView(context: Context) : ListView(context) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WheelItemEntryHolder {
             return WheelItemEntryHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.sd_layout_wheel_item, parent, false),
+                WheelListItemView(parent.context).apply {
+                    layoutParams = ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,
+                    )
+                },
             )
         }
 
         override fun onBindViewHolder(holder: WheelItemEntryHolder, position: Int) {
+            holder.setFocusLock(position == _focusLockPosition)
             holder.bind(getItem(position))
         }
 
-        internal inner class WheelItemEntryHolder(itemView: View) : ListViewHolder(itemView) {
+        fun setFocusLock(targetPosition: Int) {
+            val oldLock = _focusLockPosition
+            if (oldLock != NO_POSITION) {
+                notifyItemChanged(oldLock)
+            }
+            _focusLockPosition = targetPosition
+            if (_focusLockPosition != NO_POSITION) {
+                notifyItemChanged(_focusLockPosition)
+            }
+        }
+
+        fun clearFocusLock() {
+            val oldLock = _focusLockPosition
+            if (oldLock != NO_POSITION) {
+                notifyItemChanged(oldLock)
+            }
+            _focusLockPosition = NO_POSITION
+        }
+
+        internal inner class WheelItemEntryHolder(itemView: WheelListItemView) : ListViewHolder(itemView) {
             private val itemTitleView = itemView.findViewById<TextView>(R.id.sd_wheel_item_title)
             private val itemTextAfterView = itemView.findViewById<TextView>(R.id.sd_wheel_item_text_after)
 
@@ -572,6 +651,10 @@ internal class WheelListView(context: Context) : ListView(context) {
                 itemView.scaleY = scale
                 itemView.alpha = alpha
                 wheelItem.translationY = descriptionCompensation
+            }
+
+            fun setFocusLock(lock: Boolean) {
+                (itemView as WheelListItemView).setFocusLock(lock)
             }
 
             private fun updateStyle() {
@@ -654,7 +737,32 @@ internal class WheelListView(context: Context) : ListView(context) {
         }
     }
 
+    internal class WheelListItemView(context: Context) : FrameLayout(context) {
+
+        private var _focusLocked: Boolean = false
+
+        init {
+            inflate(context, R.layout.sd_layout_wheel_item, this)
+            clipToPadding = false
+            clipChildren = false
+        }
+
+        fun setFocusLock(lock: Boolean) {
+            _focusLocked = lock
+        }
+
+        override fun onCreateDrawableState(extraSpace: Int): IntArray {
+            val state = super.onCreateDrawableState(if (_focusLocked) extraSpace + 1 else extraSpace)
+
+            if (_focusLocked && !isFocused) {
+                mergeDrawableStates(state, intArrayOf(android.R.attr.state_focused))
+            }
+            return state
+        }
+    }
+
     private companion object {
         const val DRAW_DEBUG = false
+        const val INFINITY_MULTIPLIER: Int = 40
     }
 }

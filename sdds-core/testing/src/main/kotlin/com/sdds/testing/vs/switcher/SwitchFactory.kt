@@ -37,4 +37,5 @@ fun Switch.applyState(state: SwitchUiState?): Switch = apply {
     description = state.description
     isEnabled = state.enabled
     isChecked = state.active
+    isFocusable = state.focusable
 }
