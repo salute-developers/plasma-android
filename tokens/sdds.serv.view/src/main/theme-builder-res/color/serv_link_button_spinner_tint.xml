@@ -20,4 +20,7 @@
     <item android:color="?serv_textDefaultWarningActive" android:state_pressed="true" app:serv_linkbutton_state_warning="true"/>
     <item android:color="?serv_textDefaultWarningHover" android:state_hovered="true" app:serv_linkbutton_state_warning="true"/>
     <item android:color="?serv_textDefaultWarning" app:serv_linkbutton_state_warning="true"/>
+    <item android:color="?serv_textDefaultInfoActive" android:state_pressed="true" app:serv_linkbutton_state_info="true"/>
+    <item android:color="?serv_textDefaultInfoHover" android:state_hovered="true" app:serv_linkbutton_state_info="true"/>
+    <item android:color="?serv_textDefaultInfo" app:serv_linkbutton_state_info="true"/>
 </selector>
