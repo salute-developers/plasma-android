@@ -374,6 +374,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             "https://github.com/salute-developers/theme-converter/raw/main/themes/"
 
         const val BASE_COMPONENT_CONFIG_URL =
-            "https://github.com/salute-developers/theme-converter/raw/main/components/"
+            "file://localhost/Users/22584197/Work/theme-converter/components/"
+//            "https://github.com/salute-developers/theme-converter/raw/main/components/"
     }
 }

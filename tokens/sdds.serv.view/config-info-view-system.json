@@ -7919,6 +7919,53 @@
          ]
       },
       {
+         "key": "toolbar",
+         "coreName": "ToolBar",
+         "styleName": "Toolbar",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.Toolbar.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarL"
+            },
+            {
+               "name": "l.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.L.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarLVertical"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.Toolbar.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarM"
+            },
+            {
+               "name": "m.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.M.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarMVertical"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.Toolbar.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarS"
+            },
+            {
+               "name": "s.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.S.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarSVertical"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.Toolbar.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarXs"
+            },
+            {
+               "name": "xs.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.Xs.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarXsVertical"
+            }
+         ]
+      },
+      {
          "key": "toast",
          "coreName": "Toast",
          "styleName": "Toast",
