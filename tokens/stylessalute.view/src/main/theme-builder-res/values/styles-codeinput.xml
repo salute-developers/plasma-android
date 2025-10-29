@@ -11,7 +11,7 @@
     <style name="Salute.StylesSalute.Components.CodeInput.S">
         <item name="sd_itemHeight">@dimen/salute_code_input_s_item_height</item>
         <item name="sd_itemWidth">@dimen/salute_code_input_s_item_width</item>
-        <item name="sd_dotSize">@dimen/salute_code_input_s_dot_size</item>
+        <item name="sd_dotSize">@xml/salute_code_input_s_dot_size</item>
         <item name="sd_itemSpacing">@dimen/salute_code_input_s_item_spacing</item>
         <item name="sd_groupSpacing">@dimen/salute_code_input_s_group_spacing</item>
         <item name="sd_captionPadding">@dimen/salute_code_input_s_caption_padding</item>
@@ -25,7 +25,7 @@
     <style name="Salute.StylesSalute.Components.CodeInput.M">
         <item name="sd_itemHeight">@dimen/salute_code_input_m_item_height</item>
         <item name="sd_itemWidth">@dimen/salute_code_input_m_item_width</item>
-        <item name="sd_dotSize">@dimen/salute_code_input_m_dot_size</item>
+        <item name="sd_dotSize">@xml/salute_code_input_m_dot_size</item>
         <item name="sd_itemSpacing">@dimen/salute_code_input_m_item_spacing</item>
         <item name="sd_groupSpacing">@dimen/salute_code_input_m_group_spacing</item>
         <item name="sd_captionPadding">@dimen/salute_code_input_m_caption_padding</item>
@@ -39,7 +39,7 @@
     <style name="Salute.StylesSalute.Components.CodeInput.L">
         <item name="sd_itemHeight">@dimen/salute_code_input_l_item_height</item>
         <item name="sd_itemWidth">@dimen/salute_code_input_l_item_width</item>
-        <item name="sd_dotSize">@dimen/salute_code_input_l_dot_size</item>
+        <item name="sd_dotSize">@xml/salute_code_input_l_dot_size</item>
         <item name="sd_itemSpacing">@dimen/salute_code_input_l_item_spacing</item>
         <item name="sd_groupSpacing">@dimen/salute_code_input_l_group_spacing</item>
         <item name="sd_captionPadding">@dimen/salute_code_input_l_caption_padding</item>

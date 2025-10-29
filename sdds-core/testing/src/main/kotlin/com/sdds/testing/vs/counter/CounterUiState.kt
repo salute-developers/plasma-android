@@ -13,10 +13,11 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CounterUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val count: String = "1",
     val enabled: Boolean = true,
 ) : UiState, Parcelable {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

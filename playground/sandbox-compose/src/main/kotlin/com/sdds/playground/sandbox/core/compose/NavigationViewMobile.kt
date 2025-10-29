@@ -87,6 +87,7 @@ internal fun NavigationViewMobile(
     onSelect: (MenuItem) -> Unit,
 ) {
     var currentIndex by remember { mutableIntStateOf(0) }
+    val style = LocalNavigationViewStyle.current
     LazyColumn(
         Modifier
             .fillMaxWidth()
@@ -94,6 +95,15 @@ internal fun NavigationViewMobile(
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         itemsIndexed(items) { index, menuItem ->
+            val isFirstOfGroup = index == 0 || items[index - 1].componentKey.group != menuItem.componentKey.group
+            if (isFirstOfGroup) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = menuItem.componentKey.group.displayName,
+                    style = style.headerTextStyle.copy(color = style.headerTextColor),
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+            }
             NavigationItemMobile(
                 title = menuItem.title,
                 icon = painterResource(id = R.drawable.ic_romb_outline_16),
@@ -121,7 +131,7 @@ internal fun ComponentPreview(
     component: @Composable (Style, ComponentKey) -> Unit,
 ) {
     themeInfo.themeWrapper {
-        val styleProvider = themeInfo.components.get<String, Style>(key).styleProvider
+        val styleProvider = themeInfo.components.get<String, Style>(key).styleProviders.values.first()
         val style = styleProvider.style("")
         component(style, key)
     }

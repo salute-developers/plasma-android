@@ -22,6 +22,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class DrawerUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val alignment: DrawerLayout.DrawerPlacement = DrawerLayout.DrawerPlacement.TOP,
     val closeIconAlignment: CloseAlignment = CloseAlignment.Right,
     val header: Boolean = true,
@@ -33,8 +34,8 @@ data class DrawerUiState(
     val absoluteClosePlacement: Boolean = false,
 ) : UiState, Parcelable {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

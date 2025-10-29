@@ -18,6 +18,7 @@ import com.sdds.uikit.Wheel
  */
 data class WheelUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val itemLabel: String = "Label",
     val itemTextAfter: String = "",
     val description: String = "",
@@ -27,7 +28,7 @@ data class WheelUiState(
     val separatorType: WheelSeparator = WheelSeparator.Dots,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

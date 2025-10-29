@@ -8,8 +8,11 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentInfo
 import com.sdds.plugin.themebuilder.internal.components.ConfigInfo
 import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependencies
-import com.sdds.plugin.themebuilder.internal.components.VariationsInfoProviderFactory
+import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.base.Components
+import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeMetaClassGenerator
+import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeMetaClassInfo
+import com.sdds.plugin.themebuilder.internal.components.base.compose.MetaClassAppearance
 import com.sdds.plugin.themebuilder.internal.components.componentDelegates
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -94,6 +97,12 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     @get:Input
     abstract val target: Property<ThemeBuilderTarget>
 
+    /**
+     * Нужно ли генерировать мета класс со всеми стилями компонентов
+     */
+    @get:Input
+    abstract val componentsMetaStyleClass: Property<Boolean>
+
     @TaskAction
     @Suppress("TooGenericExceptionCaught")
     fun generate() {
@@ -132,6 +141,10 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         writeComposeOutputInfo(composeComponents, metaInfo.name)
         writeViewSystemOutputInfo(viewComponents, metaInfo.name)
 
+        if (componentsMetaStyleClass.get()) {
+            generateComposeMetaClass(deps, metaInfo.components, composeComponents)
+        }
+
         if (deps.target.isViewSystemOrAll || dimensionsConfig.get().fromResources) {
             deps.dimensGenerator.generate()
         }
@@ -142,6 +155,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         if (components.isEmpty()) return
         val configInfo = ConfigInfo(
             name = name,
+            packageName = packageName.get(),
             components = components,
         )
         outputFileForCompose.outputStream().use {
@@ -149,11 +163,48 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         }
     }
 
+    private fun generateComposeMetaClass(
+        deps: StyleGeneratorDependencies,
+        components: List<Component>,
+        info: List<ComponentInfo>,
+    ) {
+        if (components.isEmpty()) return
+        val combined = components.associateWith { component ->
+            info.filter { it.key == component.componentName }
+        }
+
+        combined.forEach { (component, componentInfos) ->
+            if (componentInfos.isEmpty()) return@forEach
+            val commonInfo = componentInfos.first()
+            val generator = createComposeMetaClassGenerator(deps, commonInfo.componentPackage)
+            generator.generate(
+                ComposeMetaClassInfo(
+                    coreComponentName = component.componentName,
+                    styleClassName = commonInfo.styleClassName,
+                    styleBuilderClassName = commonInfo.styleBuilderClassName,
+                    appearances = componentInfos.associate { MetaClassAppearance(it.appearance) to it.variations },
+                ),
+            )
+        }
+    }
+
+    private fun createComposeMetaClassGenerator(
+        deps: StyleGeneratorDependencies,
+        componentPackage: String,
+    ): ComposeMetaClassGenerator {
+        return ComposeMetaClassGenerator(
+            ktFileBuilderFactory = deps.ktFileBuilderFactory,
+            componentPackage = componentPackage,
+            outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+        )
+    }
+
     @OptIn(ExperimentalSerializationApi::class)
     private fun writeViewSystemOutputInfo(components: MutableList<ComponentInfo>, name: String) {
         if (components.isEmpty()) return
         val configInfo = ConfigInfo(
             name = name,
+            packageName = packageName.get(),
             components = components,
         )
         outputFileForViewSystem.outputStream().use {
@@ -228,7 +279,6 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
             target = target.get(),
-            variationsInfoProviderFactory = VariationsInfoProviderFactory(),
         )
     }
 

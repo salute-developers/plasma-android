@@ -15,9 +15,11 @@ import com.sdds.uikit.Wheel
  * @property visibleItemsCount Количество видимых элементов.
  * @property separatorType Тип разделителя между элементами.
  * @property hasInfiniteScroll Флаг бесконечной прокрутки.
+ * @property controlsDisplayMode Режим отображения кнопок управления
  */
 data class WheelUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val itemLabel: String = "Label",
     val itemTextAfter: String = "",
     val description: String = "",
@@ -26,9 +28,10 @@ data class WheelUiState(
     val visibleItemsCount: Int = 5,
     val separatorType: WheelSeparatorType = WheelSeparatorType.DOTS,
     val hasInfiniteScroll: Boolean = false,
+    val controlsDisplayMode: WheelControlsDisplayMode = WheelControlsDisplayMode.ALWAYS,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 
@@ -51,5 +54,23 @@ fun WheelSeparatorType.toSeparatorType(): Int {
         WheelSeparatorType.NONE -> Wheel.SEPARATOR_TYPE_NONE
         WheelSeparatorType.DIVIDER -> Wheel.SEPARATOR_TYPE_DIVIDER
         WheelSeparatorType.DOTS -> Wheel.SEPARATOR_TYPE_DOTS
+    }
+}
+
+/**
+ * Режим отображения кнопок управления колесом
+ */
+enum class WheelControlsDisplayMode {
+    ALWAYS,
+    IF_ACTIVE,
+}
+
+/**
+ * Преобразует [WheelControlsDisplayMode] в значения, которые поддерживает [Wheel]
+ */
+fun WheelControlsDisplayMode.toDisplayMode(): Int {
+    return when (this) {
+        WheelControlsDisplayMode.ALWAYS -> Wheel.CONTROLS_DISPLAY_MODE_ALWAYS
+        WheelControlsDisplayMode.IF_ACTIVE -> Wheel.CONTROLS_DISPLAY_MODE_IF_ACTIVE
     }
 }

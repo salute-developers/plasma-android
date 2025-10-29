@@ -51,6 +51,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXs">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xs.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xs_required_start_indicator_size</item>
@@ -58,12 +76,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xs.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xs_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -76,6 +130,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xs_outer_label_required_start_indicator_size</item>
@@ -85,6 +157,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xs_outer_label_required_end_indicator_size</item>
@@ -93,6 +183,24 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXsOuterLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xs.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.S.Secondary</item>
@@ -120,6 +228,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaS">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.S.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.S.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_s_required_start_indicator_size</item>
@@ -127,12 +253,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.S.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.S.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_s_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.S.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -143,6 +305,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_s_outer_label_required_start_indicator_size</item>
@@ -152,6 +332,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_s_outer_label_required_end_indicator_size</item>
@@ -160,6 +358,24 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSOuterLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.S.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -172,6 +388,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_s_inner_label_required_start_indicator_size</item>
@@ -179,12 +413,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_s_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaSInnerLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.S.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.M.Secondary</item>
@@ -211,6 +481,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaM">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.M.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.M.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_m_required_start_indicator_size</item>
@@ -218,12 +506,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.M.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.M.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_m_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.M.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -234,6 +558,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_m_outer_label_required_start_indicator_size</item>
@@ -243,6 +585,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_m_outer_label_required_end_indicator_size</item>
@@ -251,6 +611,24 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMOuterLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.M.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -263,6 +641,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_m_inner_label_required_start_indicator_size</item>
@@ -270,12 +666,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_m_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaMInnerLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -303,6 +735,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaL">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.L.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.L.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_l_required_start_indicator_size</item>
@@ -310,12 +760,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.L.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.L.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_l_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.L.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -326,6 +812,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_l_outer_label_required_start_indicator_size</item>
@@ -335,6 +839,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_l_outer_label_required_end_indicator_size</item>
@@ -343,6 +865,24 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLOuterLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.L.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -355,6 +895,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_l_inner_label_required_start_indicator_size</item>
@@ -362,12 +920,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_l_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaLInnerLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
@@ -394,6 +988,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXl">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xl_required_start_indicator_size</item>
@@ -401,12 +1013,48 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xl_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel">
         <item name="sd_labelPlacement">outer</item>
@@ -417,6 +1065,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xl_outer_label_required_start_indicator_size</item>
@@ -426,6 +1092,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xl_outer_label_required_end_indicator_size</item>
@@ -434,6 +1118,24 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlOuterLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.OuterLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel">
         <item name="sd_labelPlacement">inner</item>
@@ -446,6 +1148,24 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabel">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart">
         <item name="sd_requirementMode">start</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xl_inner_label_required_start_indicator_size</item>
@@ -453,11 +1173,47 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStart">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart</item>
     </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStartDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStartWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredStartError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredStart.Error</item>
+    </style>
     <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">@dimen/serv_text_area_xl_inner_label_required_end_indicator_size</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEnd">
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Default">
+        <item name="serv_textareaColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEndDefault">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Warning">
+        <item name="serv_textareaColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEndWarning">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Error">
+        <item name="serv_textareaColors">state_error</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextAreaXlInnerLabelRequiredEndError">
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.Xl.InnerLabel.RequiredEnd.Error</item>
     </style>
 </resources>

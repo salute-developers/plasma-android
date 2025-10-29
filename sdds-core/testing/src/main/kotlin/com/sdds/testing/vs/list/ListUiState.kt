@@ -11,11 +11,12 @@ import com.sdds.testing.vs.UiState
  */
 data class ListUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val amount: Int = 3,
     val itemTitle: String = "Title",
     val hasDisclosure: Boolean = true,
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

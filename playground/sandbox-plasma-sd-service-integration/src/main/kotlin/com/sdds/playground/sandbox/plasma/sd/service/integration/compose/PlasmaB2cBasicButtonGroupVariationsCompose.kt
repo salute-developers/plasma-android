@@ -1,0 +1,73 @@
+package com.sdds.playground.sandbox.plasma.sd.service.integration.compose
+
+import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.ButtonGroupStyle
+import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.buttongroup.BasicButtonGroup
+import com.sdds.plasma.sd.service.styles.buttongroup.Default
+import com.sdds.plasma.sd.service.styles.buttongroup.Dense
+import com.sdds.plasma.sd.service.styles.buttongroup.L
+import com.sdds.plasma.sd.service.styles.buttongroup.M
+import com.sdds.plasma.sd.service.styles.buttongroup.NoGap
+import com.sdds.plasma.sd.service.styles.buttongroup.S
+import com.sdds.plasma.sd.service.styles.buttongroup.Segmented
+import com.sdds.plasma.sd.service.styles.buttongroup.Wide
+import com.sdds.plasma.sd.service.styles.buttongroup.Xs
+import com.sdds.plasma.sd.service.styles.buttongroup.Xxs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+
+internal object PlasmaB2cBasicButtonGroupVariationsCompose : ComposeStyleProvider<String, ButtonGroupStyle>() {
+    override val variations: Map<String, @Composable () -> ButtonGroupStyle> =
+        mapOf(
+            "Xxs" to { BasicButtonGroup.Xxs.style() },
+            "Xxs.Wide" to { BasicButtonGroup.Xxs.Wide.style() },
+            "Xxs.Wide.Default" to { BasicButtonGroup.Xxs.Wide.Default.style() },
+            "Xxs.Wide.Segmented" to { BasicButtonGroup.Xxs.Wide.Segmented.style() },
+            "Xxs.Dense" to { BasicButtonGroup.Xxs.Dense.style() },
+            "Xxs.Dense.Default" to { BasicButtonGroup.Xxs.Dense.Default.style() },
+            "Xxs.Dense.Segmented" to { BasicButtonGroup.Xxs.Dense.Segmented.style() },
+            "Xxs.NoGap" to { BasicButtonGroup.Xxs.NoGap.style() },
+            "Xxs.NoGap.Default" to { BasicButtonGroup.Xxs.NoGap.Default.style() },
+            "Xxs.NoGap.Segmented" to { BasicButtonGroup.Xxs.NoGap.Segmented.style() },
+            "Xs" to { BasicButtonGroup.Xs.style() },
+            "Xs.Wide" to { BasicButtonGroup.Xs.Wide.style() },
+            "Xs.Wide.Default" to { BasicButtonGroup.Xs.Wide.Default.style() },
+            "Xs.Wide.Segmented" to { BasicButtonGroup.Xs.Wide.Segmented.style() },
+            "Xs.Dense" to { BasicButtonGroup.Xs.Dense.style() },
+            "Xs.Dense.Default" to { BasicButtonGroup.Xs.Dense.Default.style() },
+            "Xs.Dense.Segmented" to { BasicButtonGroup.Xs.Dense.Segmented.style() },
+            "Xs.NoGap" to { BasicButtonGroup.Xs.NoGap.style() },
+            "Xs.NoGap.Default" to { BasicButtonGroup.Xs.NoGap.Default.style() },
+            "Xs.NoGap.Segmented" to { BasicButtonGroup.Xs.NoGap.Segmented.style() },
+            "S" to { BasicButtonGroup.S.style() },
+            "S.Wide" to { BasicButtonGroup.S.Wide.style() },
+            "S.Wide.Default" to { BasicButtonGroup.S.Wide.Default.style() },
+            "S.Wide.Segmented" to { BasicButtonGroup.S.Wide.Segmented.style() },
+            "S.Dense" to { BasicButtonGroup.S.Dense.style() },
+            "S.Dense.Default" to { BasicButtonGroup.S.Dense.Default.style() },
+            "S.Dense.Segmented" to { BasicButtonGroup.S.Dense.Segmented.style() },
+            "S.NoGap" to { BasicButtonGroup.S.NoGap.style() },
+            "S.NoGap.Default" to { BasicButtonGroup.S.NoGap.Default.style() },
+            "S.NoGap.Segmented" to { BasicButtonGroup.S.NoGap.Segmented.style() },
+            "M" to { BasicButtonGroup.M.style() },
+            "M.Wide" to { BasicButtonGroup.M.Wide.style() },
+            "M.Wide.Default" to { BasicButtonGroup.M.Wide.Default.style() },
+            "M.Wide.Segmented" to { BasicButtonGroup.M.Wide.Segmented.style() },
+            "M.Dense" to { BasicButtonGroup.M.Dense.style() },
+            "M.Dense.Default" to { BasicButtonGroup.M.Dense.Default.style() },
+            "M.Dense.Segmented" to { BasicButtonGroup.M.Dense.Segmented.style() },
+            "M.NoGap" to { BasicButtonGroup.M.NoGap.style() },
+            "M.NoGap.Default" to { BasicButtonGroup.M.NoGap.Default.style() },
+            "M.NoGap.Segmented" to { BasicButtonGroup.M.NoGap.Segmented.style() },
+            "L" to { BasicButtonGroup.L.style() },
+            "L.Wide" to { BasicButtonGroup.L.Wide.style() },
+            "L.Wide.Default" to { BasicButtonGroup.L.Wide.Default.style() },
+            "L.Wide.Segmented" to { BasicButtonGroup.L.Wide.Segmented.style() },
+            "L.Dense" to { BasicButtonGroup.L.Dense.style() },
+            "L.Dense.Default" to { BasicButtonGroup.L.Dense.Default.style() },
+            "L.Dense.Segmented" to { BasicButtonGroup.L.Dense.Segmented.style() },
+            "L.NoGap" to { BasicButtonGroup.L.NoGap.style() },
+            "L.NoGap.Default" to { BasicButtonGroup.L.NoGap.Default.style() },
+            "L.NoGap.Segmented" to { BasicButtonGroup.L.NoGap.Segmented.style() },
+        )
+}

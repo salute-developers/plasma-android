@@ -15,6 +15,7 @@ import com.sdds.uikit.overlays.OverlayPosition
  */
 data class ToastUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val text: String = "Toast Text",
     val hasContentStart: Boolean = true,
     val hasContentEnd: Boolean = true,
@@ -23,7 +24,7 @@ data class ToastUiState(
     val hasAnimation: Boolean = true,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

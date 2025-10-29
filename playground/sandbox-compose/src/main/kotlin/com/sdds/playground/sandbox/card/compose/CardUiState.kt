@@ -8,12 +8,13 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class CardUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val orientation: Orientation = Orientation.VERTICAL,
     val label: String = "Title",
 
 ) : UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

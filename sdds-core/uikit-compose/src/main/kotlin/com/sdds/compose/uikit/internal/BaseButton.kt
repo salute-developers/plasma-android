@@ -90,7 +90,7 @@ internal fun BaseButton(
             content = content,
         )
 
-        if (loading && enabled) {
+        if (loading) {
             BaseSpinner(
                 tint = spinnerColor,
                 modifier = Modifier.size(dimensions.spinnerSize),

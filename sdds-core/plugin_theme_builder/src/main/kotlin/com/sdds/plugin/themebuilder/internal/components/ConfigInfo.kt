@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components
 
+import com.squareup.kotlinpoet.ClassName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 
 /**
  * Класс содержит данные о вариациях всех компонентов в пределах одного конфига
@@ -11,6 +13,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class ConfigInfo(
     val name: String,
+    val packageName: String,
     val components: List<ComponentInfo>,
 )
 
@@ -23,7 +26,24 @@ internal data class ConfigInfo(
  */
 @Serializable
 internal data class ComponentInfo(
+    val key: String,
+    @Transient val appearance: String = "",
+    @Transient val styleClassName: ClassName = ClassName("", ""),
+    @Transient val styleBuilderClassName: ClassName = ClassName("", ""),
+    @Transient val componentPackage: String = "",
     val coreName: String,
     val styleName: String,
-    val variations: List<String>,
+    val variations: List<VariationInfo>,
 )
+
+@Serializable
+internal data class VariationInfo(
+    val name: String,
+    val composeReference: VariationReference? = null,
+    val viewReference: VariationReference? = null,
+    val viewOverlayReference: VariationReference? = null,
+)
+
+@Serializable
+@JvmInline
+internal value class VariationReference(val value: String)

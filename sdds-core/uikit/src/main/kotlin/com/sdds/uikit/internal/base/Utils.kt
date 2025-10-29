@@ -204,3 +204,12 @@ internal fun getXfermode(mode: Int): PorterDuff.Mode {
         else -> PorterDuff.Mode.ADD
     }
 }
+
+internal fun ViewGroup.isParentOf(v: View?): Boolean {
+    var cur: View? = v
+    while (cur != null) {
+        if (cur === this) return true
+        cur = (cur.parent as? View)
+    }
+    return false
+}

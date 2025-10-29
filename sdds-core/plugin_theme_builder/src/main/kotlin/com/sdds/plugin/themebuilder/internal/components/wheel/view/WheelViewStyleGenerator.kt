@@ -72,6 +72,9 @@ internal open class WheelViewStyleGenerator(
 
         props.controlIconUp?.let { iconAttribute("sd_controlIconUp", it.value) }
         props.controlIconDown?.let { iconAttribute("sd_controlIconDown", it.value) }
+
+        props.itemSelectorEnabled?.let { booleanAttribute("sd_itemSelectorEnabled", it.value) }
+        props.itemSelectorShape?.let { shapeAttribute(variation, it.value, it.adjustment, "itemSelector") }
     }
 
     internal enum class WheelDimensionsProperty(
@@ -104,6 +107,7 @@ internal open class WheelViewStyleGenerator(
         CONTROL_UP_COLOR("sd_controlIconUpTint", "control_up_color"),
         CONTROL_DOWN_COLOR("sd_controlIconDownTint", "control_down_color"),
         SEPARATOR_COLOR("sd_separatorColor", "separator_color"),
+        ITEM_SELECTOR_COLOR("sd_itemSelectorTint", "item_selector_color"),
         ;
 
         override fun provide(owner: WheelProperties): Color? {
@@ -114,6 +118,7 @@ internal open class WheelViewStyleGenerator(
                 CONTROL_UP_COLOR -> owner.controlIconUpColor
                 CONTROL_DOWN_COLOR -> owner.controlIconDownColor
                 SEPARATOR_COLOR -> owner.separatorColor
+                ITEM_SELECTOR_COLOR -> owner.itemSelectorColor
             }
         }
     }

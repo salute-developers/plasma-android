@@ -14,11 +14,12 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CircularProgressUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val progress: Float = 0.5f,
     val animateProgress: Boolean = true,
     val trackEnabled: Boolean = true,
 ) : UiState, Parcelable {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

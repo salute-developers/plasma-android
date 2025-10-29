@@ -63,12 +63,11 @@ internal class SwitchDrawable(
     private var _strokeWidth: Float = 0f
     private var _thumbPadding: Float = 0f
 
+    internal val trackShape: ShapeModel?
+        get() = _trackDrawable?.shape
+
     init {
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        _trackDrawable = ShapeDrawable(context, attrs, defStyleAttr).apply {
-            callback = this@SwitchDrawable.callback
-            setStrokeWidth(_strokeWidth)
-        }
     }
 
     /**
@@ -204,10 +203,18 @@ internal class SwitchDrawable(
             context,
             typedArray.getResourceId(R.styleable.SdSwitchDrawable_sd_thumbShapeAppearance, 0),
         )
+        val trackShape = ShapeModel.create(
+            context,
+            typedArray.getResourceId(R.styleable.SdSwitchDrawable_sd_trackShapeAppearance, 0),
+        )
         val xfermode = typedArray.getInt(R.styleable.SdSwitchDrawable_sd_buttonThumbColorMode, 0)
         _thumbDrawable = ShapeDrawable(thumbShape).apply {
             callback = this@SwitchDrawable.callback
             setXfermode(getXfermode(xfermode).toXfermode())
+        }
+        _trackDrawable = ShapeDrawable(trackShape).apply {
+            callback = this@SwitchDrawable.callback
+            setStrokeWidth(_strokeWidth)
         }
         typedArray.recycle()
     }

@@ -2,9 +2,11 @@ package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -13,7 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.getValue
@@ -43,6 +45,7 @@ internal interface NavigationViewStyle {
     val itemBackground: InteractiveColor
     val menuBackground: Color
     val itemPadding: Dp
+    val groupPadding: Dp
     val itemHeight: Dp
     val menuShape: Shape
     val selectedShape: Shape
@@ -60,6 +63,7 @@ internal interface NavigationViewStyle {
             itemBackground: InteractiveColor = Color.Black.asInteractive(),
             menuBackground: Color = Color.Black,
             itemPaddings: Dp = 6.dp,
+            groupPadding: Dp = 6.dp,
             menuShape: Shape = RoundedCornerShape(10.dp),
             selectedShape: Shape = RoundedCornerShape(10.dp),
             menuWidth: Dp = 200.dp,
@@ -74,6 +78,7 @@ internal interface NavigationViewStyle {
                 itemTextColor = itemTextColor,
                 itemBackground = itemBackground,
                 itemPadding = itemPaddings,
+                groupPadding = groupPadding,
                 menuBackground = menuBackground,
                 menuShape = menuShape,
                 selectedShape = selectedShape,
@@ -128,6 +133,18 @@ internal fun NavigationViewTv(
                 .verticalScroll(rememberScrollState()),
         ) {
             items.forEachIndexed { index, menuItem ->
+                val isFirstOfGroup = index == 0 || items[index - 1].componentKey.group != menuItem.componentKey.group
+                if (isFirstOfGroup) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        modifier = Modifier
+                            .padding(start = style.groupPadding)
+                            .focusable(index == 0),
+                        text = menuItem.componentKey.group.displayName,
+                        style = style.headerTextStyle.copy(color = style.headerTextColor),
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
                 NavigationItemTv(
                     title = menuItem.title,
                     style = style,
@@ -173,7 +190,7 @@ private fun NavigationItemTv(
                 enabled = true,
                 interactionSource = interactionSource,
                 role = Role.Button,
-                indication = rememberRipple(),
+                indication = ripple(),
                 onClick = onClick,
             )
             .padding(horizontal = style.itemPadding),
@@ -200,4 +217,5 @@ private data class NavigationViewStyleImpl(
     override val headerTextColor: Color,
     override val itemHeight: Dp,
     override val itemCard: CardStyle,
+    override val groupPadding: Dp,
 ) : NavigationViewStyle

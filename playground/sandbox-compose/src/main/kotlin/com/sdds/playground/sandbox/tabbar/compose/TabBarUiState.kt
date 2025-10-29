@@ -4,6 +4,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class TabBarUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val label: String = "Label",
     val items: List<Int> = listOf(1, 2, 3),
     val customWeight: Boolean = false,
@@ -11,8 +12,8 @@ internal data class TabBarUiState(
     val extraType: TabBarExtraType = TabBarExtraType.Counter,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

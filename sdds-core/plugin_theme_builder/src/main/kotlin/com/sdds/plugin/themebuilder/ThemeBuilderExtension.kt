@@ -25,6 +25,7 @@ open class ThemeBuilderExtension {
     internal var dimensionsConfig = DimensionsConfig()
     internal var autoGenerate: Boolean = true
     internal var defaultThemeTypography = DefaultThemeTypography.DYNAMIC
+    internal var componentsMetaStyleClass: Boolean = false
 
     /**
      * Временный способ установки любого url для конфигов компонентов
@@ -120,7 +121,9 @@ open class ThemeBuilderExtension {
     /**
      * Устанавливает compose фреймворк для генерации темы и токенов
      */
-    fun compose() {
+    fun compose(configBuilder: ComposeConfigBuilder.() -> Unit = {}) {
+        val builder = ComposeConfigBuilder().apply(configBuilder)
+        componentsMetaStyleClass = builder.componentsMetaStyleClass
         updateTarget(ThemeBuilderTarget.COMPOSE)
     }
 
@@ -249,6 +252,21 @@ class ThemeSourceBuilder {
          * Самая поздняя версия
          */
         const val VERSION_LATEST = "latest"
+    }
+}
+
+/**
+ * Билдер конфига для compose
+ */
+class ComposeConfigBuilder {
+    internal var componentsMetaStyleClass: Boolean = false
+        private set
+
+    /**
+     * Включает/выключает генерацию мета классов - агрегаторов стилей компонентов
+     */
+    fun componentsMetaStyleClass(enabled: Boolean) {
+        componentsMetaStyleClass = enabled
     }
 }
 

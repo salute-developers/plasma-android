@@ -11,14 +11,11 @@ import com.sdds.testing.vs.dropdownmenu.DropdownMenuUiState
 import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
 import com.sdds.testing.vs.dropdownmenu.showWithState
 import com.sdds.testing.vs.popover.toGravity
-import com.sdds.uikit.colorstate.ColorState
 
 internal class DropdownMenuFragment : ComponentFragment<DropdownMenuUiState, View, DropdownMenuViewModel>() {
 
     private var dropdownMenuState: DropdownMenuUiState = DropdownMenuUiState()
     private var currentTriggerGravity: Int = Gravity.CENTER
-    private val dropdownMenuItemColorState: ColorState
-        get() = componentViewModel.getStyleProvider().colorState(dropdownMenuState.colorVariant)
 
     override val viewModelFactory: ViewModelProvider.Factory by lazy {
         DropdownMenuViewModelFactory(
@@ -52,7 +49,7 @@ internal class DropdownMenuFragment : ComponentFragment<DropdownMenuUiState, Vie
         return dropdownMenuTrigger(contextWrapper, state = dropdownMenuState)
             .also { popoverTrigger ->
                 popoverTrigger.trigger.setOnClickListener {
-                    popoverTrigger.popover.showWithState(it, dropdownMenuState, dropdownMenuItemColorState)
+                    popoverTrigger.popover.showWithState(it, dropdownMenuState)
                 }
             }.trigger
     }

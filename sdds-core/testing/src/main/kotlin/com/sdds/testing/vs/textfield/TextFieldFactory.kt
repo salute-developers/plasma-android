@@ -53,13 +53,13 @@ fun textArea(
 /**
  * Применяет [TextFieldUiState] и [ColorState] к [TextField]
  */
-fun TextField.applyState(state: TextFieldUiState?, colorState: ColorState?): TextField =
+fun TextField.applyState(state: TextFieldUiState?, colorState: ColorState? = null): TextField =
     applyCommonState(state, colorState)
 
 /**
  * Применяет [TextFieldUiState] и [ColorState] к [TextArea]
  */
-fun TextArea.applyState(state: TextFieldUiState?, colorState: ColorState?): TextArea =
+fun TextArea.applyState(state: TextFieldUiState?, colorState: ColorState? = null): TextArea =
     applyCommonState(state, colorState)
         .apply {
             state ?: return@apply

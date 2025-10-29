@@ -16,14 +16,15 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ScrollBarUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val orientation: ScrollOrientation = ScrollOrientation.HORIZONTAL,
     val itemsAmount: Int = 30,
     val hasTrack: Boolean = true,
     val hoverExpand: Boolean = true,
     val autoHideScrollBar: Boolean = true,
 ) : UiState, Parcelable {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

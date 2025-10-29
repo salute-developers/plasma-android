@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components.wheel
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -8,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
@@ -35,6 +37,9 @@ internal data class WheelProperties(
     val controlIconUp: Icon? = null,
     val controlIconDown: Icon? = null,
     val dividerStyle: ComponentStyle<DividerProperties>? = null,
+    val itemSelectorEnabled: BooleanValue? = null,
+    val itemSelectorShape: Shape? = null,
+    val itemSelectorColor: Color? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -59,6 +64,9 @@ internal data class WheelProperties(
             separatorColor = separatorColor ?: otherProps.separatorColor,
             controlIconUp = controlIconUp ?: otherProps.controlIconUp,
             controlIconDown = controlIconDown ?: otherProps.controlIconDown,
+            itemSelectorEnabled = itemSelectorEnabled ?: otherProps.itemSelectorEnabled,
+            itemSelectorColor = itemSelectorColor ?: otherProps.itemSelectorColor,
+            itemSelectorShape = itemSelectorShape ?: otherProps.itemSelectorShape,
         )
     }
 }

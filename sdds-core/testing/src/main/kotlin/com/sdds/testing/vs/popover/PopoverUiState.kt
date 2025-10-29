@@ -21,6 +21,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class PopoverUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val placement: PopoverPlacement = PopoverPlacement.START,
     val placementMode: PopoverPlacementMode = PopoverPlacementMode.LOOSE,
     val alignment: PopoverAlignment = PopoverAlignment.START,
@@ -29,8 +30,8 @@ data class PopoverUiState(
     val tailEnabled: Boolean = true,
     val autoDismiss: Boolean = false,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

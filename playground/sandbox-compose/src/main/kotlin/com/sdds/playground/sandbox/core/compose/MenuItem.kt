@@ -26,6 +26,9 @@ import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.LoaderStyle
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.ModalStyle
+import com.sdds.compose.uikit.NavigationBarStyle
+import com.sdds.compose.uikit.NoteCompactStyle
+import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.OverlayStyle
@@ -84,6 +87,12 @@ import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
+import com.sdds.playground.sandbox.navigationbar.NavigationBarPreview
+import com.sdds.playground.sandbox.navigationbar.NavigationBarScreen
+import com.sdds.playground.sandbox.note.compose.NoteCompactPreview
+import com.sdds.playground.sandbox.note.compose.NoteCompactScreen
+import com.sdds.playground.sandbox.note.compose.NotePreview
+import com.sdds.playground.sandbox.note.compose.NoteScreen
 import com.sdds.playground.sandbox.notification.compose.NotificationScreen
 import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentPreview
 import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentScreen
@@ -165,9 +174,15 @@ internal class MenuItem(
 }
 
 internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
-    return all.map { (key, value) ->
-        MenuItem(value.name, key, key.core.screen())
-    }.sortedBy { it.title }
+    return all.mapNotNull { (key, value) ->
+        val screen = key.core.screen().takeIf { it !is ComponentScreen.Empty } ?: return@mapNotNull null
+        MenuItem(value.name, key, screen)
+    }.sortedWith(
+        compareBy(
+            { it.componentKey.group.ordinal },
+            { it.title },
+        ),
+    )
 }
 
 internal sealed class ComponentScreen(
@@ -305,6 +320,20 @@ internal sealed class ComponentScreen(
         { WheelScreen(it) },
         { style, _ -> WheelPreview(style as WheelStyle) },
     )
+
+    object Note : ComponentScreen(
+        { NoteScreen(it) },
+        { style, _ -> NotePreview(style as NoteStyle) },
+    )
+    object NoteCompact : ComponentScreen(
+        { NoteCompactScreen(it) },
+        { style, _ -> NoteCompactPreview(style as NoteCompactStyle) },
+    )
+
+    object NavigationBar : ComponentScreen(
+        { NavigationBarScreen(it) },
+        { style, _ -> NavigationBarPreview(style as NavigationBarStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -359,6 +388,9 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.CODE_FIELD -> ComponentScreen.CodeField
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.WHEEL -> ComponentScreen.Wheel
+        CoreComponent.NAVIGATION_BAR -> ComponentScreen.NavigationBar
+        CoreComponent.NOTE -> ComponentScreen.Note
+        CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         else -> ComponentScreen.Empty
     }
 }

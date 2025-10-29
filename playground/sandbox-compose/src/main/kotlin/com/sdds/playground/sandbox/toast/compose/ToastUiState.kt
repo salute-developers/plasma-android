@@ -5,13 +5,14 @@ import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class ToastUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val text: String = "Toast Text",
     val hasContentStart: Boolean = true,
     val hasContentEnd: Boolean = true,
     val position: OverlayPosition = OverlayPosition.BottomCenter,
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

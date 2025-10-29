@@ -2,9 +2,7 @@ package com.sdds.playground.sandbox.switcher.vs
 
 import android.view.ContextThemeWrapper
 import android.view.ViewGroup.LayoutParams
-import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.applyState
@@ -24,21 +22,26 @@ internal class SwitchFragment : ComponentFragment<SwitchUiState, Switch, SwitchV
         )
     }
 
-    override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {
-        FrameLayout.LayoutParams(
-            resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_90x),
-            LayoutParams.WRAP_CONTENT,
-        )
-    }
-
     override fun getComponent(contextWrapper: ContextThemeWrapper): Switch {
         return switch(contextWrapper)
             .apply {
+                layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+                resetMinimumWidth(true)
                 setOnClickListener { componentViewModel.updateActive(isChecked) }
             }
     }
 
     override fun onComponentUpdate(component: Switch?, state: SwitchUiState) {
+        val isTextEmpty = state.label.isNullOrBlank() && state.description.isNullOrBlank()
+        component?.resetMinimumWidth(!isTextEmpty)
         component?.applyState(state)
+    }
+
+    private fun Switch.resetMinimumWidth(enabled: Boolean) {
+        minimumWidth = if (enabled) {
+            resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_90x)
+        } else {
+            0
+        }
     }
 }

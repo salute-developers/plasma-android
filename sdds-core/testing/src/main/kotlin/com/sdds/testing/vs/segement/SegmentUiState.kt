@@ -22,6 +22,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class SegmentUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val amount: Int = 2,
     val icon: SegmentItemIcon = SegmentItemIcon.No,
     val segmentItemLabel: String = "Label",
@@ -33,8 +34,8 @@ data class SegmentUiState(
     val counter: Boolean = false,
     val count: String = "1",
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

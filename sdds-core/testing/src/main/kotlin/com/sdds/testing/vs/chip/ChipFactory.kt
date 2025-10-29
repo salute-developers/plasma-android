@@ -59,7 +59,7 @@ fun Chip.applyState(state: ChipUiState?): Chip = apply {
 /**
  * Применяет [ChipUiState] к [ChipGroup]
  */
-fun ChipGroup.applyState(state: ChipUiState?, colorState: ColorState?): ChipGroup = apply {
+fun ChipGroup.applyState(state: ChipUiState?, colorState: ColorState? = null): ChipGroup = apply {
     state ?: return@apply
     if (colorState != null) {
         this.colorState = colorState

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<number-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_focused="true" app:sd_number="@dimen/salute_code_input_s_dot_size_value_0"/>
+    <item app:sd_number="@dimen/salute_code_input_s_dot_size_value_1"/>
+</number-selector>

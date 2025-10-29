@@ -22,7 +22,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.DpSize
 
 /**
  * Иконка. Рисует предоставленный [painter]
@@ -51,7 +51,7 @@ fun Icon(
     Box(
         modifier
             .toolingGraphicsLayer()
-            .defaultSizeFor(painter)
+            .defaultSizeFor(painter, LocalIconDefaultSize.current)
             .paint(
                 painter = painter,
                 colorFilter = colorFilter,
@@ -116,12 +116,25 @@ fun Icon(
  */
 val LocalTint = compositionLocalOf { Color.Gray }
 
-private fun Modifier.defaultSizeFor(painter: Painter) =
+/**
+ * CompositionLocal, содержащий предпочтительный размер [DpSize],
+ * который будет использоваться компонентами [Icon] по умолчанию.
+ */
+val LocalIconDefaultSize = compositionLocalOf { DpSize.Unspecified }
+
+private fun Modifier.defaultSizeFor(
+    painter: Painter,
+    defaultSize: DpSize,
+) =
     this.then(
         if (painter.intrinsicSize == Size.Unspecified || painter.intrinsicSize.isInfinite()) {
-            Modifier.size(24.dp)
+            Modifier.size(defaultSize)
         } else {
-            Modifier
+            if (defaultSize == DpSize.Unspecified) {
+                Modifier
+            } else {
+                Modifier.size(defaultSize)
+            }
         },
     )
 

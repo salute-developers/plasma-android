@@ -1,1130 +1,3727 @@
 {
    "name": "plasma_stards",
+   "packageName": "com.sdkit.star.designsystem",
    "components": [
       {
+         "key": "avatar",
          "coreName": "Avatar",
          "styleName": "Avatar",
          "variations": [
-            "xxl",
-            "l",
-            "m",
-            "s"
+            {
+               "name": "xxl",
+               "composeReference": "Avatar.Xxl"
+            },
+            {
+               "name": "l",
+               "composeReference": "Avatar.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "Avatar.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "Avatar.S"
+            }
          ]
       },
       {
+         "key": "avatar-group",
          "coreName": "AvatarGroup",
          "styleName": "AvatarGroup",
          "variations": [
-            "s"
+            {
+               "name": "s",
+               "composeReference": "AvatarGroup.S"
+            }
          ]
       },
       {
+         "key": "badge",
          "coreName": "Badge",
          "styleName": "BadgeSolid",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.warning",
-            "l.dark",
-            "l.light",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.warning",
-            "l.pilled.dark",
-            "l.pilled.light",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.warning",
-            "m.dark",
-            "m.light",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.warning",
-            "m.pilled.dark",
-            "m.pilled.light",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.warning",
-            "s.dark",
-            "s.light",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.warning",
-            "s.pilled.dark",
-            "s.pilled.light",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.warning",
-            "xs.dark",
-            "xs.light",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.warning",
-            "xs.pilled.dark",
-            "xs.pilled.light"
+            {
+               "name": "l.default",
+               "composeReference": "BadgeSolid.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "BadgeSolid.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "BadgeSolid.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "BadgeSolid.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "BadgeSolid.L.Warning"
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "BadgeSolid.L.Dark"
+            },
+            {
+               "name": "l.light",
+               "composeReference": "BadgeSolid.L.Light"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "BadgeSolid.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "BadgeSolid.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "BadgeSolid.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "BadgeSolid.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "BadgeSolid.L.Pilled.Warning"
+            },
+            {
+               "name": "l.pilled.dark",
+               "composeReference": "BadgeSolid.L.Pilled.Dark"
+            },
+            {
+               "name": "l.pilled.light",
+               "composeReference": "BadgeSolid.L.Pilled.Light"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "BadgeSolid.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "BadgeSolid.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "BadgeSolid.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "BadgeSolid.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "BadgeSolid.M.Warning"
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "BadgeSolid.M.Dark"
+            },
+            {
+               "name": "m.light",
+               "composeReference": "BadgeSolid.M.Light"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "BadgeSolid.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "BadgeSolid.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "BadgeSolid.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "BadgeSolid.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "BadgeSolid.M.Pilled.Warning"
+            },
+            {
+               "name": "m.pilled.dark",
+               "composeReference": "BadgeSolid.M.Pilled.Dark"
+            },
+            {
+               "name": "m.pilled.light",
+               "composeReference": "BadgeSolid.M.Pilled.Light"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "BadgeSolid.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "BadgeSolid.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "BadgeSolid.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "BadgeSolid.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "BadgeSolid.S.Warning"
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "BadgeSolid.S.Dark"
+            },
+            {
+               "name": "s.light",
+               "composeReference": "BadgeSolid.S.Light"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "BadgeSolid.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "BadgeSolid.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "BadgeSolid.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "BadgeSolid.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "BadgeSolid.S.Pilled.Warning"
+            },
+            {
+               "name": "s.pilled.dark",
+               "composeReference": "BadgeSolid.S.Pilled.Dark"
+            },
+            {
+               "name": "s.pilled.light",
+               "composeReference": "BadgeSolid.S.Pilled.Light"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "BadgeSolid.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "BadgeSolid.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "BadgeSolid.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "BadgeSolid.Xs.Positive"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "BadgeSolid.Xs.Warning"
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "BadgeSolid.Xs.Dark"
+            },
+            {
+               "name": "xs.light",
+               "composeReference": "BadgeSolid.Xs.Light"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "BadgeSolid.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "BadgeSolid.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "BadgeSolid.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "BadgeSolid.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "BadgeSolid.Xs.Pilled.Warning"
+            },
+            {
+               "name": "xs.pilled.dark",
+               "composeReference": "BadgeSolid.Xs.Pilled.Dark"
+            },
+            {
+               "name": "xs.pilled.light",
+               "composeReference": "BadgeSolid.Xs.Pilled.Light"
+            }
          ]
       },
       {
+         "key": "badge",
          "coreName": "Badge",
          "styleName": "BadgeTransparent",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.warning",
-            "l.dark",
-            "l.light",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.warning",
-            "l.pilled.dark",
-            "l.pilled.light",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.warning",
-            "m.dark",
-            "m.light",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.warning",
-            "m.pilled.dark",
-            "m.pilled.light",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.warning",
-            "s.dark",
-            "s.light",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.warning",
-            "s.pilled.dark",
-            "s.pilled.light",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.warning",
-            "xs.dark",
-            "xs.light",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.warning",
-            "xs.pilled.dark",
-            "xs.pilled.light"
+            {
+               "name": "l.default",
+               "composeReference": "BadgeTransparent.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "BadgeTransparent.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "BadgeTransparent.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "BadgeTransparent.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "BadgeTransparent.L.Warning"
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "BadgeTransparent.L.Dark"
+            },
+            {
+               "name": "l.light",
+               "composeReference": "BadgeTransparent.L.Light"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "BadgeTransparent.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "BadgeTransparent.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "BadgeTransparent.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "BadgeTransparent.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "BadgeTransparent.L.Pilled.Warning"
+            },
+            {
+               "name": "l.pilled.dark",
+               "composeReference": "BadgeTransparent.L.Pilled.Dark"
+            },
+            {
+               "name": "l.pilled.light",
+               "composeReference": "BadgeTransparent.L.Pilled.Light"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "BadgeTransparent.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "BadgeTransparent.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "BadgeTransparent.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "BadgeTransparent.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "BadgeTransparent.M.Warning"
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "BadgeTransparent.M.Dark"
+            },
+            {
+               "name": "m.light",
+               "composeReference": "BadgeTransparent.M.Light"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "BadgeTransparent.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "BadgeTransparent.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "BadgeTransparent.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "BadgeTransparent.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "BadgeTransparent.M.Pilled.Warning"
+            },
+            {
+               "name": "m.pilled.dark",
+               "composeReference": "BadgeTransparent.M.Pilled.Dark"
+            },
+            {
+               "name": "m.pilled.light",
+               "composeReference": "BadgeTransparent.M.Pilled.Light"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "BadgeTransparent.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "BadgeTransparent.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "BadgeTransparent.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "BadgeTransparent.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "BadgeTransparent.S.Warning"
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "BadgeTransparent.S.Dark"
+            },
+            {
+               "name": "s.light",
+               "composeReference": "BadgeTransparent.S.Light"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "BadgeTransparent.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "BadgeTransparent.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "BadgeTransparent.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "BadgeTransparent.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "BadgeTransparent.S.Pilled.Warning"
+            },
+            {
+               "name": "s.pilled.dark",
+               "composeReference": "BadgeTransparent.S.Pilled.Dark"
+            },
+            {
+               "name": "s.pilled.light",
+               "composeReference": "BadgeTransparent.S.Pilled.Light"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "BadgeTransparent.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "BadgeTransparent.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "BadgeTransparent.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "BadgeTransparent.Xs.Positive"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "BadgeTransparent.Xs.Warning"
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "BadgeTransparent.Xs.Dark"
+            },
+            {
+               "name": "xs.light",
+               "composeReference": "BadgeTransparent.Xs.Light"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Warning"
+            },
+            {
+               "name": "xs.pilled.dark",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Dark"
+            },
+            {
+               "name": "xs.pilled.light",
+               "composeReference": "BadgeTransparent.Xs.Pilled.Light"
+            }
          ]
       },
       {
+         "key": "icon-badge",
          "coreName": "IconBadge",
          "styleName": "IconBadgeSolid",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.warning",
-            "l.dark",
-            "l.light",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.warning",
-            "l.pilled.dark",
-            "l.pilled.light",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.warning",
-            "m.dark",
-            "m.light",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.warning",
-            "m.pilled.dark",
-            "m.pilled.light",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.warning",
-            "s.dark",
-            "s.light",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.warning",
-            "s.pilled.dark",
-            "s.pilled.light",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.warning",
-            "xs.dark",
-            "xs.light",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.warning",
-            "xs.pilled.dark",
-            "xs.pilled.light"
+            {
+               "name": "l.default",
+               "composeReference": "IconBadgeSolid.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "IconBadgeSolid.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "IconBadgeSolid.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "IconBadgeSolid.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "IconBadgeSolid.L.Warning"
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "IconBadgeSolid.L.Dark"
+            },
+            {
+               "name": "l.light",
+               "composeReference": "IconBadgeSolid.L.Light"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "IconBadgeSolid.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "IconBadgeSolid.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "IconBadgeSolid.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "IconBadgeSolid.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "IconBadgeSolid.L.Pilled.Warning"
+            },
+            {
+               "name": "l.pilled.dark",
+               "composeReference": "IconBadgeSolid.L.Pilled.Dark"
+            },
+            {
+               "name": "l.pilled.light",
+               "composeReference": "IconBadgeSolid.L.Pilled.Light"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "IconBadgeSolid.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "IconBadgeSolid.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "IconBadgeSolid.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "IconBadgeSolid.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "IconBadgeSolid.M.Warning"
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "IconBadgeSolid.M.Dark"
+            },
+            {
+               "name": "m.light",
+               "composeReference": "IconBadgeSolid.M.Light"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "IconBadgeSolid.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "IconBadgeSolid.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "IconBadgeSolid.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "IconBadgeSolid.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "IconBadgeSolid.M.Pilled.Warning"
+            },
+            {
+               "name": "m.pilled.dark",
+               "composeReference": "IconBadgeSolid.M.Pilled.Dark"
+            },
+            {
+               "name": "m.pilled.light",
+               "composeReference": "IconBadgeSolid.M.Pilled.Light"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "IconBadgeSolid.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "IconBadgeSolid.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "IconBadgeSolid.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "IconBadgeSolid.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "IconBadgeSolid.S.Warning"
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "IconBadgeSolid.S.Dark"
+            },
+            {
+               "name": "s.light",
+               "composeReference": "IconBadgeSolid.S.Light"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "IconBadgeSolid.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "IconBadgeSolid.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "IconBadgeSolid.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "IconBadgeSolid.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "IconBadgeSolid.S.Pilled.Warning"
+            },
+            {
+               "name": "s.pilled.dark",
+               "composeReference": "IconBadgeSolid.S.Pilled.Dark"
+            },
+            {
+               "name": "s.pilled.light",
+               "composeReference": "IconBadgeSolid.S.Pilled.Light"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "IconBadgeSolid.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "IconBadgeSolid.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "IconBadgeSolid.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "IconBadgeSolid.Xs.Positive"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "IconBadgeSolid.Xs.Warning"
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "IconBadgeSolid.Xs.Dark"
+            },
+            {
+               "name": "xs.light",
+               "composeReference": "IconBadgeSolid.Xs.Light"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Warning"
+            },
+            {
+               "name": "xs.pilled.dark",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Dark"
+            },
+            {
+               "name": "xs.pilled.light",
+               "composeReference": "IconBadgeSolid.Xs.Pilled.Light"
+            }
          ]
       },
       {
+         "key": "icon-badge",
          "coreName": "IconBadge",
          "styleName": "IconBadgeTransparent",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.warning",
-            "l.dark",
-            "l.light",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.warning",
-            "l.pilled.dark",
-            "l.pilled.light",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.warning",
-            "m.dark",
-            "m.light",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.warning",
-            "m.pilled.dark",
-            "m.pilled.light",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.warning",
-            "s.dark",
-            "s.light",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.warning",
-            "s.pilled.dark",
-            "s.pilled.light",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.warning",
-            "xs.dark",
-            "xs.light",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.warning",
-            "xs.pilled.dark",
-            "xs.pilled.light"
+            {
+               "name": "l.default",
+               "composeReference": "IconBadgeTransparent.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "IconBadgeTransparent.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "IconBadgeTransparent.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "IconBadgeTransparent.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "IconBadgeTransparent.L.Warning"
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "IconBadgeTransparent.L.Dark"
+            },
+            {
+               "name": "l.light",
+               "composeReference": "IconBadgeTransparent.L.Light"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Warning"
+            },
+            {
+               "name": "l.pilled.dark",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Dark"
+            },
+            {
+               "name": "l.pilled.light",
+               "composeReference": "IconBadgeTransparent.L.Pilled.Light"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "IconBadgeTransparent.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "IconBadgeTransparent.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "IconBadgeTransparent.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "IconBadgeTransparent.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "IconBadgeTransparent.M.Warning"
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "IconBadgeTransparent.M.Dark"
+            },
+            {
+               "name": "m.light",
+               "composeReference": "IconBadgeTransparent.M.Light"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Warning"
+            },
+            {
+               "name": "m.pilled.dark",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Dark"
+            },
+            {
+               "name": "m.pilled.light",
+               "composeReference": "IconBadgeTransparent.M.Pilled.Light"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "IconBadgeTransparent.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "IconBadgeTransparent.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "IconBadgeTransparent.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "IconBadgeTransparent.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "IconBadgeTransparent.S.Warning"
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "IconBadgeTransparent.S.Dark"
+            },
+            {
+               "name": "s.light",
+               "composeReference": "IconBadgeTransparent.S.Light"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Warning"
+            },
+            {
+               "name": "s.pilled.dark",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Dark"
+            },
+            {
+               "name": "s.pilled.light",
+               "composeReference": "IconBadgeTransparent.S.Pilled.Light"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "IconBadgeTransparent.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "IconBadgeTransparent.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "IconBadgeTransparent.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "IconBadgeTransparent.Xs.Positive"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "IconBadgeTransparent.Xs.Warning"
+            },
+            {
+               "name": "xs.dark",
+               "composeReference": "IconBadgeTransparent.Xs.Dark"
+            },
+            {
+               "name": "xs.light",
+               "composeReference": "IconBadgeTransparent.Xs.Light"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Warning"
+            },
+            {
+               "name": "xs.pilled.dark",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Dark"
+            },
+            {
+               "name": "xs.pilled.light",
+               "composeReference": "IconBadgeTransparent.Xs.Pilled.Light"
+            }
          ]
       },
       {
+         "key": "basic-button",
          "coreName": "BasicButton",
          "styleName": "BasicButton",
          "variations": [
-            "l.default",
-            "l.clear",
-            "m.default",
-            "m.clear",
-            "s.default",
-            "s.clear",
-            "xs.default",
-            "xs.clear"
+            {
+               "name": "l.default",
+               "composeReference": "BasicButton.L.Default"
+            },
+            {
+               "name": "l.clear",
+               "composeReference": "BasicButton.L.Clear"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "BasicButton.M.Default"
+            },
+            {
+               "name": "m.clear",
+               "composeReference": "BasicButton.M.Clear"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "BasicButton.S.Default"
+            },
+            {
+               "name": "s.clear",
+               "composeReference": "BasicButton.S.Clear"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "BasicButton.Xs.Default"
+            },
+            {
+               "name": "xs.clear",
+               "composeReference": "BasicButton.Xs.Clear"
+            }
          ]
       },
       {
+         "key": "icon-button",
          "coreName": "IconButton",
          "styleName": "IconButton",
          "variations": [
-            "l.default",
-            "l.clear",
-            "l.pilled.default",
-            "l.pilled.clear",
-            "m.default",
-            "m.clear",
-            "m.pilled.default",
-            "m.pilled.clear",
-            "s.default",
-            "s.clear",
-            "s.pilled.default",
-            "s.pilled.clear",
-            "xs.default",
-            "xs.clear",
-            "xs.pilled.default",
-            "xs.pilled.clear"
+            {
+               "name": "l.default",
+               "composeReference": "IconButton.L.Default"
+            },
+            {
+               "name": "l.clear",
+               "composeReference": "IconButton.L.Clear"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "IconButton.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.clear",
+               "composeReference": "IconButton.L.Pilled.Clear"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "IconButton.M.Default"
+            },
+            {
+               "name": "m.clear",
+               "composeReference": "IconButton.M.Clear"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "IconButton.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.clear",
+               "composeReference": "IconButton.M.Pilled.Clear"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "IconButton.S.Default"
+            },
+            {
+               "name": "s.clear",
+               "composeReference": "IconButton.S.Clear"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "IconButton.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.clear",
+               "composeReference": "IconButton.S.Pilled.Clear"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "IconButton.Xs.Default"
+            },
+            {
+               "name": "xs.clear",
+               "composeReference": "IconButton.Xs.Clear"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "IconButton.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.clear",
+               "composeReference": "IconButton.Xs.Pilled.Clear"
+            }
          ]
       },
       {
+         "key": "cell",
          "coreName": "Cell",
          "styleName": "Cell",
          "variations": [
-            "l",
-            "m",
-            "s",
-            "xs"
+            {
+               "name": "l",
+               "composeReference": "Cell.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "Cell.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "Cell.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "Cell.Xs"
+            }
          ]
       },
       {
+         "key": "check-box",
          "coreName": "CheckBox",
          "styleName": "CheckBox",
          "variations": [
-            "l.default",
-            "l.negative",
-            "m.default",
-            "m.negative",
-            "s.default",
-            "s.negative"
+            {
+               "name": "l.default",
+               "composeReference": "CheckBox.L.Default"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "CheckBox.L.Negative"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "CheckBox.M.Default"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "CheckBox.M.Negative"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "CheckBox.S.Default"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "CheckBox.S.Negative"
+            }
          ]
       },
       {
+         "key": "chip",
          "coreName": "Chip",
          "styleName": "Chip",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.secondary",
-            "l.warning",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.secondary",
-            "l.pilled.warning",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.secondary",
-            "m.warning",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.secondary",
-            "m.pilled.warning",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.secondary",
-            "s.warning",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.secondary",
-            "s.pilled.warning",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.secondary",
-            "xs.warning",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.secondary",
-            "xs.pilled.warning"
+            {
+               "name": "l.default",
+               "composeReference": "Chip.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Chip.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Chip.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Chip.L.Positive"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "Chip.L.Secondary"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Chip.L.Warning"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "Chip.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "Chip.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "Chip.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "Chip.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.secondary",
+               "composeReference": "Chip.L.Pilled.Secondary"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "Chip.L.Pilled.Warning"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Chip.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Chip.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Chip.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Chip.M.Positive"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "Chip.M.Secondary"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Chip.M.Warning"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "Chip.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "Chip.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "Chip.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "Chip.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.secondary",
+               "composeReference": "Chip.M.Pilled.Secondary"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "Chip.M.Pilled.Warning"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Chip.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Chip.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Chip.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Chip.S.Positive"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "Chip.S.Secondary"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Chip.S.Warning"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "Chip.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "Chip.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "Chip.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "Chip.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.secondary",
+               "composeReference": "Chip.S.Pilled.Secondary"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "Chip.S.Pilled.Warning"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "Chip.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "Chip.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "Chip.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "Chip.Xs.Positive"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "Chip.Xs.Secondary"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "Chip.Xs.Warning"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "Chip.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "Chip.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "Chip.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "Chip.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.secondary",
+               "composeReference": "Chip.Xs.Pilled.Secondary"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "Chip.Xs.Pilled.Warning"
+            }
          ]
       },
       {
+         "key": "chip-group",
          "coreName": "ChipGroup",
          "styleName": "ChipGroupDense",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.secondary",
-            "l.warning",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.secondary",
-            "l.pilled.warning",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.secondary",
-            "m.warning",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.secondary",
-            "m.pilled.warning",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.secondary",
-            "s.warning",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.secondary",
-            "s.pilled.warning",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.secondary",
-            "xs.warning",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.secondary",
-            "xs.pilled.warning"
+            {
+               "name": "l.default",
+               "composeReference": "ChipGroupDense.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "ChipGroupDense.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "ChipGroupDense.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "ChipGroupDense.L.Positive"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "ChipGroupDense.L.Secondary"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "ChipGroupDense.L.Warning"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "ChipGroupDense.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "ChipGroupDense.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "ChipGroupDense.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "ChipGroupDense.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.secondary",
+               "composeReference": "ChipGroupDense.L.Pilled.Secondary"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "ChipGroupDense.L.Pilled.Warning"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "ChipGroupDense.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "ChipGroupDense.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "ChipGroupDense.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "ChipGroupDense.M.Positive"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "ChipGroupDense.M.Secondary"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "ChipGroupDense.M.Warning"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "ChipGroupDense.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "ChipGroupDense.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "ChipGroupDense.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "ChipGroupDense.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.secondary",
+               "composeReference": "ChipGroupDense.M.Pilled.Secondary"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "ChipGroupDense.M.Pilled.Warning"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "ChipGroupDense.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "ChipGroupDense.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "ChipGroupDense.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "ChipGroupDense.S.Positive"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "ChipGroupDense.S.Secondary"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "ChipGroupDense.S.Warning"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "ChipGroupDense.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "ChipGroupDense.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "ChipGroupDense.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "ChipGroupDense.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.secondary",
+               "composeReference": "ChipGroupDense.S.Pilled.Secondary"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "ChipGroupDense.S.Pilled.Warning"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "ChipGroupDense.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "ChipGroupDense.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "ChipGroupDense.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "ChipGroupDense.Xs.Positive"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "ChipGroupDense.Xs.Secondary"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "ChipGroupDense.Xs.Warning"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "ChipGroupDense.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "ChipGroupDense.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "ChipGroupDense.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "ChipGroupDense.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.secondary",
+               "composeReference": "ChipGroupDense.Xs.Pilled.Secondary"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "ChipGroupDense.Xs.Pilled.Warning"
+            }
          ]
       },
       {
+         "key": "chip-group",
          "coreName": "ChipGroup",
          "styleName": "ChipGroupWide",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.negative",
-            "l.positive",
-            "l.secondary",
-            "l.warning",
-            "l.pilled.default",
-            "l.pilled.accent",
-            "l.pilled.negative",
-            "l.pilled.positive",
-            "l.pilled.secondary",
-            "l.pilled.warning",
-            "m.default",
-            "m.accent",
-            "m.negative",
-            "m.positive",
-            "m.secondary",
-            "m.warning",
-            "m.pilled.default",
-            "m.pilled.accent",
-            "m.pilled.negative",
-            "m.pilled.positive",
-            "m.pilled.secondary",
-            "m.pilled.warning",
-            "s.default",
-            "s.accent",
-            "s.negative",
-            "s.positive",
-            "s.secondary",
-            "s.warning",
-            "s.pilled.default",
-            "s.pilled.accent",
-            "s.pilled.negative",
-            "s.pilled.positive",
-            "s.pilled.secondary",
-            "s.pilled.warning",
-            "xs.default",
-            "xs.accent",
-            "xs.negative",
-            "xs.positive",
-            "xs.secondary",
-            "xs.warning",
-            "xs.pilled.default",
-            "xs.pilled.accent",
-            "xs.pilled.negative",
-            "xs.pilled.positive",
-            "xs.pilled.secondary",
-            "xs.pilled.warning"
+            {
+               "name": "l.default",
+               "composeReference": "ChipGroupWide.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "ChipGroupWide.L.Accent"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "ChipGroupWide.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "ChipGroupWide.L.Positive"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "ChipGroupWide.L.Secondary"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "ChipGroupWide.L.Warning"
+            },
+            {
+               "name": "l.pilled.default",
+               "composeReference": "ChipGroupWide.L.Pilled.Default"
+            },
+            {
+               "name": "l.pilled.accent",
+               "composeReference": "ChipGroupWide.L.Pilled.Accent"
+            },
+            {
+               "name": "l.pilled.negative",
+               "composeReference": "ChipGroupWide.L.Pilled.Negative"
+            },
+            {
+               "name": "l.pilled.positive",
+               "composeReference": "ChipGroupWide.L.Pilled.Positive"
+            },
+            {
+               "name": "l.pilled.secondary",
+               "composeReference": "ChipGroupWide.L.Pilled.Secondary"
+            },
+            {
+               "name": "l.pilled.warning",
+               "composeReference": "ChipGroupWide.L.Pilled.Warning"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "ChipGroupWide.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "ChipGroupWide.M.Accent"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "ChipGroupWide.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "ChipGroupWide.M.Positive"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "ChipGroupWide.M.Secondary"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "ChipGroupWide.M.Warning"
+            },
+            {
+               "name": "m.pilled.default",
+               "composeReference": "ChipGroupWide.M.Pilled.Default"
+            },
+            {
+               "name": "m.pilled.accent",
+               "composeReference": "ChipGroupWide.M.Pilled.Accent"
+            },
+            {
+               "name": "m.pilled.negative",
+               "composeReference": "ChipGroupWide.M.Pilled.Negative"
+            },
+            {
+               "name": "m.pilled.positive",
+               "composeReference": "ChipGroupWide.M.Pilled.Positive"
+            },
+            {
+               "name": "m.pilled.secondary",
+               "composeReference": "ChipGroupWide.M.Pilled.Secondary"
+            },
+            {
+               "name": "m.pilled.warning",
+               "composeReference": "ChipGroupWide.M.Pilled.Warning"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "ChipGroupWide.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "ChipGroupWide.S.Accent"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "ChipGroupWide.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "ChipGroupWide.S.Positive"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "ChipGroupWide.S.Secondary"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "ChipGroupWide.S.Warning"
+            },
+            {
+               "name": "s.pilled.default",
+               "composeReference": "ChipGroupWide.S.Pilled.Default"
+            },
+            {
+               "name": "s.pilled.accent",
+               "composeReference": "ChipGroupWide.S.Pilled.Accent"
+            },
+            {
+               "name": "s.pilled.negative",
+               "composeReference": "ChipGroupWide.S.Pilled.Negative"
+            },
+            {
+               "name": "s.pilled.positive",
+               "composeReference": "ChipGroupWide.S.Pilled.Positive"
+            },
+            {
+               "name": "s.pilled.secondary",
+               "composeReference": "ChipGroupWide.S.Pilled.Secondary"
+            },
+            {
+               "name": "s.pilled.warning",
+               "composeReference": "ChipGroupWide.S.Pilled.Warning"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "ChipGroupWide.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "ChipGroupWide.Xs.Accent"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "ChipGroupWide.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "ChipGroupWide.Xs.Positive"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "ChipGroupWide.Xs.Secondary"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "ChipGroupWide.Xs.Warning"
+            },
+            {
+               "name": "xs.pilled.default",
+               "composeReference": "ChipGroupWide.Xs.Pilled.Default"
+            },
+            {
+               "name": "xs.pilled.accent",
+               "composeReference": "ChipGroupWide.Xs.Pilled.Accent"
+            },
+            {
+               "name": "xs.pilled.negative",
+               "composeReference": "ChipGroupWide.Xs.Pilled.Negative"
+            },
+            {
+               "name": "xs.pilled.positive",
+               "composeReference": "ChipGroupWide.Xs.Pilled.Positive"
+            },
+            {
+               "name": "xs.pilled.secondary",
+               "composeReference": "ChipGroupWide.Xs.Pilled.Secondary"
+            },
+            {
+               "name": "xs.pilled.warning",
+               "composeReference": "ChipGroupWide.Xs.Pilled.Warning"
+            }
          ]
       },
       {
+         "key": "counter",
          "coreName": "Counter",
          "styleName": "Counter",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.positive",
-            "l.warning",
-            "l.negative",
-            "l.black",
-            "l.white",
-            "m.default",
-            "m.accent",
-            "m.positive",
-            "m.warning",
-            "m.negative",
-            "m.black",
-            "m.white",
-            "s.default",
-            "s.accent",
-            "s.positive",
-            "s.warning",
-            "s.negative",
-            "s.black",
-            "s.white",
-            "xs.default",
-            "xs.accent",
-            "xs.positive",
-            "xs.warning",
-            "xs.negative",
-            "xs.black",
-            "xs.white",
-            "xxs.default",
-            "xxs.accent",
-            "xxs.positive",
-            "xxs.warning",
-            "xxs.negative",
-            "xxs.black",
-            "xxs.white"
+            {
+               "name": "l.default",
+               "composeReference": "Counter.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Counter.L.Accent"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Counter.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Counter.L.Warning"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Counter.L.Negative"
+            },
+            {
+               "name": "l.black",
+               "composeReference": "Counter.L.Black"
+            },
+            {
+               "name": "l.white",
+               "composeReference": "Counter.L.White"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Counter.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Counter.M.Accent"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Counter.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Counter.M.Warning"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Counter.M.Negative"
+            },
+            {
+               "name": "m.black",
+               "composeReference": "Counter.M.Black"
+            },
+            {
+               "name": "m.white",
+               "composeReference": "Counter.M.White"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Counter.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Counter.S.Accent"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Counter.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Counter.S.Warning"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Counter.S.Negative"
+            },
+            {
+               "name": "s.black",
+               "composeReference": "Counter.S.Black"
+            },
+            {
+               "name": "s.white",
+               "composeReference": "Counter.S.White"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "Counter.Xs.Default"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "Counter.Xs.Accent"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "Counter.Xs.Positive"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "Counter.Xs.Warning"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "Counter.Xs.Negative"
+            },
+            {
+               "name": "xs.black",
+               "composeReference": "Counter.Xs.Black"
+            },
+            {
+               "name": "xs.white",
+               "composeReference": "Counter.Xs.White"
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "Counter.Xxs.Default"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "Counter.Xxs.Accent"
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "Counter.Xxs.Positive"
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "Counter.Xxs.Warning"
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "Counter.Xxs.Negative"
+            },
+            {
+               "name": "xxs.black",
+               "composeReference": "Counter.Xxs.Black"
+            },
+            {
+               "name": "xxs.white",
+               "composeReference": "Counter.Xxs.White"
+            }
          ]
       },
       {
+         "key": "divider",
          "coreName": "Divider",
          "styleName": "Divider",
          "variations": [
-            "Default"
+            {
+               "name": "Default",
+               "composeReference": "Divider.Default"
+            }
          ]
       },
       {
+         "key": "indicator",
          "coreName": "Indicator",
          "styleName": "Indicator",
          "variations": [
-            "l.default",
-            "l.accent",
-            "l.inactive",
-            "l.positive",
-            "l.warning",
-            "l.negative",
-            "l.dark",
-            "l.black",
-            "l.white",
-            "m.default",
-            "m.accent",
-            "m.inactive",
-            "m.positive",
-            "m.warning",
-            "m.negative",
-            "m.dark",
-            "m.black",
-            "m.white",
-            "s.default",
-            "s.accent",
-            "s.inactive",
-            "s.positive",
-            "s.warning",
-            "s.negative",
-            "s.dark",
-            "s.black",
-            "s.white"
+            {
+               "name": "l.default",
+               "composeReference": "Indicator.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Indicator.L.Accent"
+            },
+            {
+               "name": "l.inactive",
+               "composeReference": "Indicator.L.Inactive"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Indicator.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Indicator.L.Warning"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Indicator.L.Negative"
+            },
+            {
+               "name": "l.dark",
+               "composeReference": "Indicator.L.Dark"
+            },
+            {
+               "name": "l.black",
+               "composeReference": "Indicator.L.Black"
+            },
+            {
+               "name": "l.white",
+               "composeReference": "Indicator.L.White"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Indicator.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Indicator.M.Accent"
+            },
+            {
+               "name": "m.inactive",
+               "composeReference": "Indicator.M.Inactive"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Indicator.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Indicator.M.Warning"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Indicator.M.Negative"
+            },
+            {
+               "name": "m.dark",
+               "composeReference": "Indicator.M.Dark"
+            },
+            {
+               "name": "m.black",
+               "composeReference": "Indicator.M.Black"
+            },
+            {
+               "name": "m.white",
+               "composeReference": "Indicator.M.White"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Indicator.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Indicator.S.Accent"
+            },
+            {
+               "name": "s.inactive",
+               "composeReference": "Indicator.S.Inactive"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Indicator.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Indicator.S.Warning"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Indicator.S.Negative"
+            },
+            {
+               "name": "s.dark",
+               "composeReference": "Indicator.S.Dark"
+            },
+            {
+               "name": "s.black",
+               "composeReference": "Indicator.S.Black"
+            },
+            {
+               "name": "s.white",
+               "composeReference": "Indicator.S.White"
+            }
          ]
       },
       {
+         "key": "overlay",
          "coreName": "Overlay",
          "styleName": "Overlay",
          "variations": [
-            "Default"
+            {
+               "name": "Default",
+               "composeReference": "Overlay.Default"
+            }
          ]
       },
       {
+         "key": "progress-bar",
          "coreName": "ProgressBar",
          "styleName": "ProgressBar",
          "variations": [
-            "ProgressBar.default",
-            "ProgressBar.secondary",
-            "ProgressBar.accent",
-            "ProgressBar.gradient",
-            "ProgressBar.info",
-            "ProgressBar.negative",
-            "ProgressBar.positive",
-            "ProgressBar.warning"
+            {
+               "name": "default",
+               "composeReference": "ProgressBar.Default"
+            },
+            {
+               "name": "secondary",
+               "composeReference": "ProgressBar.Secondary"
+            },
+            {
+               "name": "accent",
+               "composeReference": "ProgressBar.Accent"
+            },
+            {
+               "name": "gradient",
+               "composeReference": "ProgressBar.Gradient"
+            },
+            {
+               "name": "info",
+               "composeReference": "ProgressBar.Info"
+            },
+            {
+               "name": "negative",
+               "composeReference": "ProgressBar.Negative"
+            },
+            {
+               "name": "positive",
+               "composeReference": "ProgressBar.Positive"
+            },
+            {
+               "name": "warning",
+               "composeReference": "ProgressBar.Warning"
+            }
          ]
       },
       {
+         "key": "circular-progress-bar",
          "coreName": "CircularProgressBar",
          "styleName": "CircularProgressBar",
          "variations": [
-            "xxl.default",
-            "xxl.secondary",
-            "xxl.accent",
-            "xxl.gradient",
-            "xxl.info",
-            "xxl.negative",
-            "xxl.positive",
-            "xxl.warning",
-            "xl.default",
-            "xl.secondary",
-            "xl.accent",
-            "xl.gradient",
-            "xl.info",
-            "xl.negative",
-            "xl.positive",
-            "xl.warning",
-            "l.default",
-            "l.secondary",
-            "l.accent",
-            "l.gradient",
-            "l.info",
-            "l.negative",
-            "l.positive",
-            "l.warning",
-            "m.default",
-            "m.secondary",
-            "m.accent",
-            "m.gradient",
-            "m.info",
-            "m.negative",
-            "m.positive",
-            "m.warning",
-            "s.default",
-            "s.secondary",
-            "s.accent",
-            "s.gradient",
-            "s.info",
-            "s.negative",
-            "s.positive",
-            "s.warning",
-            "xs.default",
-            "xs.secondary",
-            "xs.accent",
-            "xs.gradient",
-            "xs.info",
-            "xs.negative",
-            "xs.positive",
-            "xs.warning",
-            "xxs.default",
-            "xxs.secondary",
-            "xxs.accent",
-            "xxs.gradient",
-            "xxs.info",
-            "xxs.negative",
-            "xxs.positive",
-            "xxs.warning"
+            {
+               "name": "xxl.default",
+               "composeReference": "CircularProgressBar.Xxl.Default"
+            },
+            {
+               "name": "xxl.secondary",
+               "composeReference": "CircularProgressBar.Xxl.Secondary"
+            },
+            {
+               "name": "xxl.accent",
+               "composeReference": "CircularProgressBar.Xxl.Accent"
+            },
+            {
+               "name": "xxl.gradient",
+               "composeReference": "CircularProgressBar.Xxl.Gradient"
+            },
+            {
+               "name": "xxl.info",
+               "composeReference": "CircularProgressBar.Xxl.Info"
+            },
+            {
+               "name": "xxl.negative",
+               "composeReference": "CircularProgressBar.Xxl.Negative"
+            },
+            {
+               "name": "xxl.positive",
+               "composeReference": "CircularProgressBar.Xxl.Positive"
+            },
+            {
+               "name": "xxl.warning",
+               "composeReference": "CircularProgressBar.Xxl.Warning"
+            },
+            {
+               "name": "xl.default",
+               "composeReference": "CircularProgressBar.Xl.Default"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "CircularProgressBar.Xl.Secondary"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "CircularProgressBar.Xl.Accent"
+            },
+            {
+               "name": "xl.gradient",
+               "composeReference": "CircularProgressBar.Xl.Gradient"
+            },
+            {
+               "name": "xl.info",
+               "composeReference": "CircularProgressBar.Xl.Info"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "CircularProgressBar.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "CircularProgressBar.Xl.Positive"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "CircularProgressBar.Xl.Warning"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "CircularProgressBar.L.Default"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "CircularProgressBar.L.Secondary"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "CircularProgressBar.L.Accent"
+            },
+            {
+               "name": "l.gradient",
+               "composeReference": "CircularProgressBar.L.Gradient"
+            },
+            {
+               "name": "l.info",
+               "composeReference": "CircularProgressBar.L.Info"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "CircularProgressBar.L.Negative"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "CircularProgressBar.L.Positive"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "CircularProgressBar.L.Warning"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "CircularProgressBar.M.Default"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "CircularProgressBar.M.Secondary"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "CircularProgressBar.M.Accent"
+            },
+            {
+               "name": "m.gradient",
+               "composeReference": "CircularProgressBar.M.Gradient"
+            },
+            {
+               "name": "m.info",
+               "composeReference": "CircularProgressBar.M.Info"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "CircularProgressBar.M.Negative"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "CircularProgressBar.M.Positive"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "CircularProgressBar.M.Warning"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "CircularProgressBar.S.Default"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "CircularProgressBar.S.Secondary"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "CircularProgressBar.S.Accent"
+            },
+            {
+               "name": "s.gradient",
+               "composeReference": "CircularProgressBar.S.Gradient"
+            },
+            {
+               "name": "s.info",
+               "composeReference": "CircularProgressBar.S.Info"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "CircularProgressBar.S.Negative"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "CircularProgressBar.S.Positive"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "CircularProgressBar.S.Warning"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "CircularProgressBar.Xs.Default"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "CircularProgressBar.Xs.Secondary"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "CircularProgressBar.Xs.Accent"
+            },
+            {
+               "name": "xs.gradient",
+               "composeReference": "CircularProgressBar.Xs.Gradient"
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "CircularProgressBar.Xs.Info"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "CircularProgressBar.Xs.Negative"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "CircularProgressBar.Xs.Positive"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "CircularProgressBar.Xs.Warning"
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "CircularProgressBar.Xxs.Default"
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "CircularProgressBar.Xxs.Secondary"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "CircularProgressBar.Xxs.Accent"
+            },
+            {
+               "name": "xxs.gradient",
+               "composeReference": "CircularProgressBar.Xxs.Gradient"
+            },
+            {
+               "name": "xxs.info",
+               "composeReference": "CircularProgressBar.Xxs.Info"
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "CircularProgressBar.Xxs.Negative"
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "CircularProgressBar.Xxs.Positive"
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "CircularProgressBar.Xxs.Warning"
+            }
          ]
       },
       {
+         "key": "popover",
          "coreName": "Popover",
          "styleName": "Popover",
          "variations": [
-            "m.default",
-            "m.accent",
-            "s.default",
-            "s.accent"
+            {
+               "name": "m.default",
+               "composeReference": "Popover.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Popover.M.Accent"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Popover.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Popover.S.Accent"
+            }
          ]
       },
       {
+         "key": "radio-box",
          "coreName": "RadioBox",
          "styleName": "RadioBox",
          "variations": [
-            "l",
-            "m",
-            "s"
+            {
+               "name": "l",
+               "composeReference": "RadioBox.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "RadioBox.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "RadioBox.S"
+            }
          ]
       },
       {
+         "key": "radio-box-group",
          "coreName": "RadioBoxGroup",
          "styleName": "RadioBoxGroup",
          "variations": [
-            "m",
-            "s"
+            {
+               "name": "m",
+               "composeReference": "RadioBoxGroup.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "RadioBoxGroup.S"
+            }
          ]
       },
       {
+         "key": "segment",
          "coreName": "Segment",
          "styleName": "Segment",
          "variations": [
-            "xl.primary",
-            "xl.secondary",
-            "xl.pilled.primary",
-            "xl.pilled.secondary",
-            "l.primary",
-            "l.secondary",
-            "l.pilled.primary",
-            "l.pilled.secondary",
-            "m.primary",
-            "m.secondary",
-            "m.pilled.primary",
-            "m.pilled.secondary",
-            "s.primary",
-            "s.secondary",
-            "s.pilled.primary",
-            "s.pilled.secondary",
-            "xs.primary",
-            "xs.secondary",
-            "xs.pilled.primary",
-            "xs.pilled.secondary"
+            {
+               "name": "xl.primary",
+               "composeReference": "Segment.Xl.Primary"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "Segment.Xl.Secondary"
+            },
+            {
+               "name": "xl.pilled.primary",
+               "composeReference": "Segment.Xl.Pilled.Primary"
+            },
+            {
+               "name": "xl.pilled.secondary",
+               "composeReference": "Segment.Xl.Pilled.Secondary"
+            },
+            {
+               "name": "l.primary",
+               "composeReference": "Segment.L.Primary"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "Segment.L.Secondary"
+            },
+            {
+               "name": "l.pilled.primary",
+               "composeReference": "Segment.L.Pilled.Primary"
+            },
+            {
+               "name": "l.pilled.secondary",
+               "composeReference": "Segment.L.Pilled.Secondary"
+            },
+            {
+               "name": "m.primary",
+               "composeReference": "Segment.M.Primary"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "Segment.M.Secondary"
+            },
+            {
+               "name": "m.pilled.primary",
+               "composeReference": "Segment.M.Pilled.Primary"
+            },
+            {
+               "name": "m.pilled.secondary",
+               "composeReference": "Segment.M.Pilled.Secondary"
+            },
+            {
+               "name": "s.primary",
+               "composeReference": "Segment.S.Primary"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "Segment.S.Secondary"
+            },
+            {
+               "name": "s.pilled.primary",
+               "composeReference": "Segment.S.Pilled.Primary"
+            },
+            {
+               "name": "s.pilled.secondary",
+               "composeReference": "Segment.S.Pilled.Secondary"
+            },
+            {
+               "name": "xs.primary",
+               "composeReference": "Segment.Xs.Primary"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "Segment.Xs.Secondary"
+            },
+            {
+               "name": "xs.pilled.primary",
+               "composeReference": "Segment.Xs.Pilled.Primary"
+            },
+            {
+               "name": "xs.pilled.secondary",
+               "composeReference": "Segment.Xs.Pilled.Secondary"
+            }
          ]
       },
       {
+         "key": "segment-item",
          "coreName": "SegmentItem",
          "styleName": "SegmentItem",
          "variations": [
-            "xl.primary",
-            "xl.secondary",
-            "xl.pilled.primary",
-            "xl.pilled.secondary",
-            "l.primary",
-            "l.secondary",
-            "l.pilled.primary",
-            "l.pilled.secondary",
-            "m.primary",
-            "m.secondary",
-            "m.pilled.primary",
-            "m.pilled.secondary",
-            "s.primary",
-            "s.secondary",
-            "s.pilled.primary",
-            "s.pilled.secondary",
-            "xs.primary",
-            "xs.secondary",
-            "xs.pilled.primary",
-            "xs.pilled.secondary"
+            {
+               "name": "xl.primary",
+               "composeReference": "SegmentItem.Xl.Primary"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "SegmentItem.Xl.Secondary"
+            },
+            {
+               "name": "xl.pilled.primary",
+               "composeReference": "SegmentItem.Xl.Pilled.Primary"
+            },
+            {
+               "name": "xl.pilled.secondary",
+               "composeReference": "SegmentItem.Xl.Pilled.Secondary"
+            },
+            {
+               "name": "l.primary",
+               "composeReference": "SegmentItem.L.Primary"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "SegmentItem.L.Secondary"
+            },
+            {
+               "name": "l.pilled.primary",
+               "composeReference": "SegmentItem.L.Pilled.Primary"
+            },
+            {
+               "name": "l.pilled.secondary",
+               "composeReference": "SegmentItem.L.Pilled.Secondary"
+            },
+            {
+               "name": "m.primary",
+               "composeReference": "SegmentItem.M.Primary"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "SegmentItem.M.Secondary"
+            },
+            {
+               "name": "m.pilled.primary",
+               "composeReference": "SegmentItem.M.Pilled.Primary"
+            },
+            {
+               "name": "m.pilled.secondary",
+               "composeReference": "SegmentItem.M.Pilled.Secondary"
+            },
+            {
+               "name": "s.primary",
+               "composeReference": "SegmentItem.S.Primary"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "SegmentItem.S.Secondary"
+            },
+            {
+               "name": "s.pilled.primary",
+               "composeReference": "SegmentItem.S.Pilled.Primary"
+            },
+            {
+               "name": "s.pilled.secondary",
+               "composeReference": "SegmentItem.S.Pilled.Secondary"
+            },
+            {
+               "name": "xs.primary",
+               "composeReference": "SegmentItem.Xs.Primary"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "SegmentItem.Xs.Secondary"
+            },
+            {
+               "name": "xs.pilled.primary",
+               "composeReference": "SegmentItem.Xs.Pilled.Primary"
+            },
+            {
+               "name": "xs.pilled.secondary",
+               "composeReference": "SegmentItem.Xs.Pilled.Secondary"
+            }
          ]
       },
       {
+         "key": "switch",
          "coreName": "Switch",
          "styleName": "Switch",
          "variations": [
-            "l",
-            "m",
-            "s"
+            {
+               "name": "l",
+               "composeReference": "Switch.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "Switch.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "Switch.S"
+            }
          ]
       },
       {
+         "key": "text-field",
          "coreName": "TextField",
          "styleName": "TextField",
          "variations": [
-            "xs.default",
-            "xs.error",
-            "xs.outer-label.default",
-            "xs.outer-label.error",
-            "s.default",
-            "s.error",
-            "s.outer-label.default",
-            "s.outer-label.error",
-            "s.inner-label.default",
-            "s.inner-label.error",
-            "m.default",
-            "m.error",
-            "m.outer-label.default",
-            "m.outer-label.error",
-            "m.inner-label.default",
-            "m.inner-label.error"
+            {
+               "name": "xs.default",
+               "composeReference": "TextField.Xs.Default"
+            },
+            {
+               "name": "xs.error",
+               "composeReference": "TextField.Xs.Error"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "composeReference": "TextField.Xs.OuterLabel.Default"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "composeReference": "TextField.Xs.OuterLabel.Error"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "TextField.S.Default"
+            },
+            {
+               "name": "s.error",
+               "composeReference": "TextField.S.Error"
+            },
+            {
+               "name": "s.outer-label.default",
+               "composeReference": "TextField.S.OuterLabel.Default"
+            },
+            {
+               "name": "s.outer-label.error",
+               "composeReference": "TextField.S.OuterLabel.Error"
+            },
+            {
+               "name": "s.inner-label.default",
+               "composeReference": "TextField.S.InnerLabel.Default"
+            },
+            {
+               "name": "s.inner-label.error",
+               "composeReference": "TextField.S.InnerLabel.Error"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "TextField.M.Default"
+            },
+            {
+               "name": "m.error",
+               "composeReference": "TextField.M.Error"
+            },
+            {
+               "name": "m.outer-label.default",
+               "composeReference": "TextField.M.OuterLabel.Default"
+            },
+            {
+               "name": "m.outer-label.error",
+               "composeReference": "TextField.M.OuterLabel.Error"
+            },
+            {
+               "name": "m.inner-label.default",
+               "composeReference": "TextField.M.InnerLabel.Default"
+            },
+            {
+               "name": "m.inner-label.error",
+               "composeReference": "TextField.M.InnerLabel.Error"
+            }
          ]
       },
       {
+         "key": "text-field",
          "coreName": "TextField",
          "styleName": "TextFieldClear",
          "variations": [
-            "xs.default",
-            "xs.error",
-            "xs.outer-label.default",
-            "xs.outer-label.error",
-            "s.default",
-            "s.error",
-            "s.outer-label.default",
-            "s.outer-label.error",
-            "s.inner-label.default",
-            "s.inner-label.error",
-            "m.default",
-            "m.error",
-            "m.outer-label.default",
-            "m.outer-label.error",
-            "m.inner-label.default",
-            "m.inner-label.error",
-            "l.default",
-            "l.error",
-            "l.outer-label.default",
-            "l.outer-label.error",
-            "l.inner-label.default",
-            "l.inner-label.error"
+            {
+               "name": "xs.default",
+               "composeReference": "TextFieldClear.Xs.Default"
+            },
+            {
+               "name": "xs.error",
+               "composeReference": "TextFieldClear.Xs.Error"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "composeReference": "TextFieldClear.Xs.OuterLabel.Default"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "composeReference": "TextFieldClear.Xs.OuterLabel.Error"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "TextFieldClear.S.Default"
+            },
+            {
+               "name": "s.error",
+               "composeReference": "TextFieldClear.S.Error"
+            },
+            {
+               "name": "s.outer-label.default",
+               "composeReference": "TextFieldClear.S.OuterLabel.Default"
+            },
+            {
+               "name": "s.outer-label.error",
+               "composeReference": "TextFieldClear.S.OuterLabel.Error"
+            },
+            {
+               "name": "s.inner-label.default",
+               "composeReference": "TextFieldClear.S.InnerLabel.Default"
+            },
+            {
+               "name": "s.inner-label.error",
+               "composeReference": "TextFieldClear.S.InnerLabel.Error"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "TextFieldClear.M.Default"
+            },
+            {
+               "name": "m.error",
+               "composeReference": "TextFieldClear.M.Error"
+            },
+            {
+               "name": "m.outer-label.default",
+               "composeReference": "TextFieldClear.M.OuterLabel.Default"
+            },
+            {
+               "name": "m.outer-label.error",
+               "composeReference": "TextFieldClear.M.OuterLabel.Error"
+            },
+            {
+               "name": "m.inner-label.default",
+               "composeReference": "TextFieldClear.M.InnerLabel.Default"
+            },
+            {
+               "name": "m.inner-label.error",
+               "composeReference": "TextFieldClear.M.InnerLabel.Error"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "TextFieldClear.L.Default"
+            },
+            {
+               "name": "l.error",
+               "composeReference": "TextFieldClear.L.Error"
+            },
+            {
+               "name": "l.outer-label.default",
+               "composeReference": "TextFieldClear.L.OuterLabel.Default"
+            },
+            {
+               "name": "l.outer-label.error",
+               "composeReference": "TextFieldClear.L.OuterLabel.Error"
+            },
+            {
+               "name": "l.inner-label.default",
+               "composeReference": "TextFieldClear.L.InnerLabel.Default"
+            },
+            {
+               "name": "l.inner-label.error",
+               "composeReference": "TextFieldClear.L.InnerLabel.Error"
+            }
          ]
       },
       {
+         "key": "text-area",
          "coreName": "TextArea",
          "styleName": "TextArea",
          "variations": [
-            "xs.default",
-            "xs.error",
-            "xs.outer-label.default",
-            "xs.outer-label.error",
-            "s.default",
-            "s.error",
-            "s.outer-label.default",
-            "s.outer-label.error",
-            "s.inner-label.default",
-            "s.inner-label.error",
-            "m.default",
-            "m.error",
-            "m.outer-label.default",
-            "m.outer-label.error",
-            "m.inner-label.default",
-            "m.inner-label.error"
+            {
+               "name": "xs.default",
+               "composeReference": "TextArea.Xs.Default"
+            },
+            {
+               "name": "xs.error",
+               "composeReference": "TextArea.Xs.Error"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "composeReference": "TextArea.Xs.OuterLabel.Default"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "composeReference": "TextArea.Xs.OuterLabel.Error"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "TextArea.S.Default"
+            },
+            {
+               "name": "s.error",
+               "composeReference": "TextArea.S.Error"
+            },
+            {
+               "name": "s.outer-label.default",
+               "composeReference": "TextArea.S.OuterLabel.Default"
+            },
+            {
+               "name": "s.outer-label.error",
+               "composeReference": "TextArea.S.OuterLabel.Error"
+            },
+            {
+               "name": "s.inner-label.default",
+               "composeReference": "TextArea.S.InnerLabel.Default"
+            },
+            {
+               "name": "s.inner-label.error",
+               "composeReference": "TextArea.S.InnerLabel.Error"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "TextArea.M.Default"
+            },
+            {
+               "name": "m.error",
+               "composeReference": "TextArea.M.Error"
+            },
+            {
+               "name": "m.outer-label.default",
+               "composeReference": "TextArea.M.OuterLabel.Default"
+            },
+            {
+               "name": "m.outer-label.error",
+               "composeReference": "TextArea.M.OuterLabel.Error"
+            },
+            {
+               "name": "m.inner-label.default",
+               "composeReference": "TextArea.M.InnerLabel.Default"
+            },
+            {
+               "name": "m.inner-label.error",
+               "composeReference": "TextArea.M.InnerLabel.Error"
+            }
          ]
       },
       {
+         "key": "text-area",
          "coreName": "TextArea",
          "styleName": "TextAreaClear",
          "variations": [
-            "xs.default",
-            "xs.error",
-            "xs.outer-label.default",
-            "xs.outer-label.error",
-            "s.default",
-            "s.error",
-            "s.outer-label.default",
-            "s.outer-label.error",
-            "s.inner-label.default",
-            "s.inner-label.error",
-            "m.default",
-            "m.error",
-            "m.outer-label.default",
-            "m.outer-label.error",
-            "m.inner-label.default",
-            "m.inner-label.error",
-            "l.default",
-            "l.error",
-            "l.outer-label.default",
-            "l.outer-label.error",
-            "l.inner-label.default",
-            "l.inner-label.error"
+            {
+               "name": "xs.default",
+               "composeReference": "TextAreaClear.Xs.Default"
+            },
+            {
+               "name": "xs.error",
+               "composeReference": "TextAreaClear.Xs.Error"
+            },
+            {
+               "name": "xs.outer-label.default",
+               "composeReference": "TextAreaClear.Xs.OuterLabel.Default"
+            },
+            {
+               "name": "xs.outer-label.error",
+               "composeReference": "TextAreaClear.Xs.OuterLabel.Error"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "TextAreaClear.S.Default"
+            },
+            {
+               "name": "s.error",
+               "composeReference": "TextAreaClear.S.Error"
+            },
+            {
+               "name": "s.outer-label.default",
+               "composeReference": "TextAreaClear.S.OuterLabel.Default"
+            },
+            {
+               "name": "s.outer-label.error",
+               "composeReference": "TextAreaClear.S.OuterLabel.Error"
+            },
+            {
+               "name": "s.inner-label.default",
+               "composeReference": "TextAreaClear.S.InnerLabel.Default"
+            },
+            {
+               "name": "s.inner-label.error",
+               "composeReference": "TextAreaClear.S.InnerLabel.Error"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "TextAreaClear.M.Default"
+            },
+            {
+               "name": "m.error",
+               "composeReference": "TextAreaClear.M.Error"
+            },
+            {
+               "name": "m.outer-label.default",
+               "composeReference": "TextAreaClear.M.OuterLabel.Default"
+            },
+            {
+               "name": "m.outer-label.error",
+               "composeReference": "TextAreaClear.M.OuterLabel.Error"
+            },
+            {
+               "name": "m.inner-label.default",
+               "composeReference": "TextAreaClear.M.InnerLabel.Default"
+            },
+            {
+               "name": "m.inner-label.error",
+               "composeReference": "TextAreaClear.M.InnerLabel.Error"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "TextAreaClear.L.Default"
+            },
+            {
+               "name": "l.error",
+               "composeReference": "TextAreaClear.L.Error"
+            },
+            {
+               "name": "l.outer-label.default",
+               "composeReference": "TextAreaClear.L.OuterLabel.Default"
+            },
+            {
+               "name": "l.outer-label.error",
+               "composeReference": "TextAreaClear.L.OuterLabel.Error"
+            },
+            {
+               "name": "l.inner-label.default",
+               "composeReference": "TextAreaClear.L.InnerLabel.Default"
+            },
+            {
+               "name": "l.inner-label.error",
+               "composeReference": "TextAreaClear.L.InnerLabel.Error"
+            }
          ]
       },
       {
+         "key": "tooltip",
          "coreName": "Tooltip",
          "styleName": "Tooltip",
          "variations": [
-            "m",
-            "s"
+            {
+               "name": "m",
+               "composeReference": "Tooltip.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "Tooltip.S"
+            }
          ]
       },
       {
+         "key": "notification",
          "coreName": "Notification",
          "styleName": "NotificationCompact",
          "variations": [
-            "l",
-            "m",
-            "s"
+            {
+               "name": "l",
+               "composeReference": "NotificationCompact.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "NotificationCompact.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "NotificationCompact.S"
+            }
          ]
       },
       {
+         "key": "notification",
          "coreName": "Notification",
          "styleName": "NotificationLoose",
          "variations": [
-            "l",
-            "m",
-            "s"
+            {
+               "name": "l",
+               "composeReference": "NotificationLoose.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "NotificationLoose.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "NotificationLoose.S"
+            }
          ]
       },
       {
+         "key": "notification-content",
          "coreName": "NotificationContent",
          "styleName": "NotificationContent",
          "variations": [
-            "button-stretch.default",
-            "button-stretch.positive",
-            "button-stretch.negative",
-            "button-stretch.warning",
-            "button-stretch.info",
-            "button-stretch.icon-top.default",
-            "button-stretch.icon-top.positive",
-            "button-stretch.icon-top.negative",
-            "button-stretch.icon-top.warning",
-            "button-stretch.icon-top.info",
-            "button-stretch.icon-start.default",
-            "button-stretch.icon-start.positive",
-            "button-stretch.icon-start.negative",
-            "button-stretch.icon-start.warning",
-            "button-stretch.icon-start.info",
-            "no-button-stretch.default",
-            "no-button-stretch.positive",
-            "no-button-stretch.negative",
-            "no-button-stretch.warning",
-            "no-button-stretch.info",
-            "no-button-stretch.icon-top.default",
-            "no-button-stretch.icon-top.positive",
-            "no-button-stretch.icon-top.negative",
-            "no-button-stretch.icon-top.warning",
-            "no-button-stretch.icon-top.info",
-            "no-button-stretch.icon-start.default",
-            "no-button-stretch.icon-start.positive",
-            "no-button-stretch.icon-start.negative",
-            "no-button-stretch.icon-start.warning",
-            "no-button-stretch.icon-start.info"
+            {
+               "name": "button-stretch.default",
+               "composeReference": "NotificationContent.ButtonStretch.Default"
+            },
+            {
+               "name": "button-stretch.positive",
+               "composeReference": "NotificationContent.ButtonStretch.Positive"
+            },
+            {
+               "name": "button-stretch.negative",
+               "composeReference": "NotificationContent.ButtonStretch.Negative"
+            },
+            {
+               "name": "button-stretch.warning",
+               "composeReference": "NotificationContent.ButtonStretch.Warning"
+            },
+            {
+               "name": "button-stretch.info",
+               "composeReference": "NotificationContent.ButtonStretch.Info"
+            },
+            {
+               "name": "button-stretch.icon-top.default",
+               "composeReference": "NotificationContent.ButtonStretch.IconTop.Default"
+            },
+            {
+               "name": "button-stretch.icon-top.positive",
+               "composeReference": "NotificationContent.ButtonStretch.IconTop.Positive"
+            },
+            {
+               "name": "button-stretch.icon-top.negative",
+               "composeReference": "NotificationContent.ButtonStretch.IconTop.Negative"
+            },
+            {
+               "name": "button-stretch.icon-top.warning",
+               "composeReference": "NotificationContent.ButtonStretch.IconTop.Warning"
+            },
+            {
+               "name": "button-stretch.icon-top.info",
+               "composeReference": "NotificationContent.ButtonStretch.IconTop.Info"
+            },
+            {
+               "name": "button-stretch.icon-start.default",
+               "composeReference": "NotificationContent.ButtonStretch.IconStart.Default"
+            },
+            {
+               "name": "button-stretch.icon-start.positive",
+               "composeReference": "NotificationContent.ButtonStretch.IconStart.Positive"
+            },
+            {
+               "name": "button-stretch.icon-start.negative",
+               "composeReference": "NotificationContent.ButtonStretch.IconStart.Negative"
+            },
+            {
+               "name": "button-stretch.icon-start.warning",
+               "composeReference": "NotificationContent.ButtonStretch.IconStart.Warning"
+            },
+            {
+               "name": "button-stretch.icon-start.info",
+               "composeReference": "NotificationContent.ButtonStretch.IconStart.Info"
+            },
+            {
+               "name": "no-button-stretch.default",
+               "composeReference": "NotificationContent.NoButtonStretch.Default"
+            },
+            {
+               "name": "no-button-stretch.positive",
+               "composeReference": "NotificationContent.NoButtonStretch.Positive"
+            },
+            {
+               "name": "no-button-stretch.negative",
+               "composeReference": "NotificationContent.NoButtonStretch.Negative"
+            },
+            {
+               "name": "no-button-stretch.warning",
+               "composeReference": "NotificationContent.NoButtonStretch.Warning"
+            },
+            {
+               "name": "no-button-stretch.info",
+               "composeReference": "NotificationContent.NoButtonStretch.Info"
+            },
+            {
+               "name": "no-button-stretch.icon-top.default",
+               "composeReference": "NotificationContent.NoButtonStretch.IconTop.Default"
+            },
+            {
+               "name": "no-button-stretch.icon-top.positive",
+               "composeReference": "NotificationContent.NoButtonStretch.IconTop.Positive"
+            },
+            {
+               "name": "no-button-stretch.icon-top.negative",
+               "composeReference": "NotificationContent.NoButtonStretch.IconTop.Negative"
+            },
+            {
+               "name": "no-button-stretch.icon-top.warning",
+               "composeReference": "NotificationContent.NoButtonStretch.IconTop.Warning"
+            },
+            {
+               "name": "no-button-stretch.icon-top.info",
+               "composeReference": "NotificationContent.NoButtonStretch.IconTop.Info"
+            },
+            {
+               "name": "no-button-stretch.icon-start.default",
+               "composeReference": "NotificationContent.NoButtonStretch.IconStart.Default"
+            },
+            {
+               "name": "no-button-stretch.icon-start.positive",
+               "composeReference": "NotificationContent.NoButtonStretch.IconStart.Positive"
+            },
+            {
+               "name": "no-button-stretch.icon-start.negative",
+               "composeReference": "NotificationContent.NoButtonStretch.IconStart.Negative"
+            },
+            {
+               "name": "no-button-stretch.icon-start.warning",
+               "composeReference": "NotificationContent.NoButtonStretch.IconStart.Warning"
+            },
+            {
+               "name": "no-button-stretch.icon-start.info",
+               "composeReference": "NotificationContent.NoButtonStretch.IconStart.Info"
+            }
          ]
       },
       {
+         "key": "list",
          "coreName": "List",
          "styleName": "List",
          "variations": [
-            "l",
-            "m",
-            "s",
-            "xs"
+            {
+               "name": "l",
+               "composeReference": "List.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "List.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "List.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "List.Xs"
+            }
          ]
       },
       {
+         "key": "list-item",
          "coreName": "ListItem",
          "styleName": "ListItem",
          "variations": [
-            "l",
-            "m",
-            "s",
-            "xs"
+            {
+               "name": "l",
+               "composeReference": "ListItem.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "ListItem.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "ListItem.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "ListItem.Xs"
+            }
          ]
       },
       {
+         "key": "spinner",
          "coreName": "Spinner",
          "styleName": "Spinner",
          "variations": [
-            "xxl.default",
-            "xxl.secondary",
-            "xxl.accent",
-            "xxl.positive",
-            "xxl.negative",
-            "xxl.warning",
-            "xxl.info",
-            "xl.default",
-            "xl.secondary",
-            "xl.accent",
-            "xl.positive",
-            "xl.negative",
-            "xl.warning",
-            "xl.info",
-            "l.default",
-            "l.secondary",
-            "l.accent",
-            "l.positive",
-            "l.negative",
-            "l.warning",
-            "l.info",
-            "m.default",
-            "m.secondary",
-            "m.accent",
-            "m.positive",
-            "m.negative",
-            "m.warning",
-            "m.info",
-            "s.default",
-            "s.secondary",
-            "s.accent",
-            "s.positive",
-            "s.negative",
-            "s.warning",
-            "s.info",
-            "xs.default",
-            "xs.secondary",
-            "xs.accent",
-            "xs.positive",
-            "xs.negative",
-            "xs.warning",
-            "xs.info",
-            "xxs.default",
-            "xxs.secondary",
-            "xxs.accent",
-            "xxs.positive",
-            "xxs.negative",
-            "xxs.warning",
-            "xxs.info",
-            "scalable.default",
-            "scalable.secondary",
-            "scalable.accent",
-            "scalable.positive",
-            "scalable.negative",
-            "scalable.warning",
-            "scalable.info"
+            {
+               "name": "xxl.default",
+               "composeReference": "Spinner.Xxl.Default"
+            },
+            {
+               "name": "xxl.secondary",
+               "composeReference": "Spinner.Xxl.Secondary"
+            },
+            {
+               "name": "xxl.accent",
+               "composeReference": "Spinner.Xxl.Accent"
+            },
+            {
+               "name": "xxl.positive",
+               "composeReference": "Spinner.Xxl.Positive"
+            },
+            {
+               "name": "xxl.negative",
+               "composeReference": "Spinner.Xxl.Negative"
+            },
+            {
+               "name": "xxl.warning",
+               "composeReference": "Spinner.Xxl.Warning"
+            },
+            {
+               "name": "xxl.info",
+               "composeReference": "Spinner.Xxl.Info"
+            },
+            {
+               "name": "xl.default",
+               "composeReference": "Spinner.Xl.Default"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "Spinner.Xl.Secondary"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "Spinner.Xl.Accent"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "Spinner.Xl.Positive"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "Spinner.Xl.Negative"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "Spinner.Xl.Warning"
+            },
+            {
+               "name": "xl.info",
+               "composeReference": "Spinner.Xl.Info"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "Spinner.L.Default"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "Spinner.L.Secondary"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "Spinner.L.Accent"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "Spinner.L.Positive"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "Spinner.L.Negative"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "Spinner.L.Warning"
+            },
+            {
+               "name": "l.info",
+               "composeReference": "Spinner.L.Info"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "Spinner.M.Default"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "Spinner.M.Secondary"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Spinner.M.Accent"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "Spinner.M.Positive"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "Spinner.M.Negative"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "Spinner.M.Warning"
+            },
+            {
+               "name": "m.info",
+               "composeReference": "Spinner.M.Info"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Spinner.S.Default"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "Spinner.S.Secondary"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Spinner.S.Accent"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "Spinner.S.Positive"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "Spinner.S.Negative"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "Spinner.S.Warning"
+            },
+            {
+               "name": "s.info",
+               "composeReference": "Spinner.S.Info"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "Spinner.Xs.Default"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "Spinner.Xs.Secondary"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "Spinner.Xs.Accent"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "Spinner.Xs.Positive"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "Spinner.Xs.Negative"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "Spinner.Xs.Warning"
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "Spinner.Xs.Info"
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "Spinner.Xxs.Default"
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "Spinner.Xxs.Secondary"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "Spinner.Xxs.Accent"
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "Spinner.Xxs.Positive"
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "Spinner.Xxs.Negative"
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "Spinner.Xxs.Warning"
+            },
+            {
+               "name": "xxs.info",
+               "composeReference": "Spinner.Xxs.Info"
+            },
+            {
+               "name": "scalable.default",
+               "composeReference": "Spinner.Scalable.Default"
+            },
+            {
+               "name": "scalable.secondary",
+               "composeReference": "Spinner.Scalable.Secondary"
+            },
+            {
+               "name": "scalable.accent",
+               "composeReference": "Spinner.Scalable.Accent"
+            },
+            {
+               "name": "scalable.positive",
+               "composeReference": "Spinner.Scalable.Positive"
+            },
+            {
+               "name": "scalable.negative",
+               "composeReference": "Spinner.Scalable.Negative"
+            },
+            {
+               "name": "scalable.warning",
+               "composeReference": "Spinner.Scalable.Warning"
+            },
+            {
+               "name": "scalable.info",
+               "composeReference": "Spinner.Scalable.Info"
+            }
          ]
       },
       {
+         "key": "list",
          "coreName": "List",
          "styleName": "DropdownMenuList",
          "variations": [
-            "xl",
-            "l",
-            "m",
-            "s",
-            "xs"
+            {
+               "name": "xl",
+               "composeReference": "DropdownMenuList.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "DropdownMenuList.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "DropdownMenuList.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "DropdownMenuList.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "DropdownMenuList.Xs"
+            }
          ]
       },
       {
+         "key": "list-item",
          "coreName": "ListItem",
          "styleName": "DropdownMenuItem",
          "variations": [
-            "xl.default",
-            "xl.positive",
-            "xl.negative",
-            "l.default",
-            "l.positive",
-            "l.negative",
-            "m.default",
-            "m.positive",
-            "m.negative",
-            "s.default",
-            "s.positive",
-            "s.negative",
-            "xs.default",
-            "xs.positive",
-            "xs.negative"
+            {
+               "name": "xl.default",
+               "composeReference": "DropdownMenuItem.Xl.Default"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "DropdownMenuItem.Xl.Positive"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "DropdownMenuItem.Xl.Negative"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "DropdownMenuItem.L.Default"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "DropdownMenuItem.L.Positive"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "DropdownMenuItem.L.Negative"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "DropdownMenuItem.M.Default"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "DropdownMenuItem.M.Positive"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "DropdownMenuItem.M.Negative"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "DropdownMenuItem.S.Default"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "DropdownMenuItem.S.Positive"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "DropdownMenuItem.S.Negative"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "DropdownMenuItem.Xs.Default"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "DropdownMenuItem.Xs.Positive"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "DropdownMenuItem.Xs.Negative"
+            }
          ]
       },
       {
+         "key": "loader",
          "coreName": "Loader",
          "styleName": "Loader",
          "variations": [
-            "Default"
+            {
+               "name": "Default",
+               "composeReference": "Loader.Default"
+            }
          ]
       },
       {
+         "key": "dropdown-menu",
          "coreName": "DropdownMenu",
          "styleName": "DropdownMenu",
          "variations": [
-            "xl",
-            "l",
-            "m",
-            "s",
-            "xs"
+            {
+               "name": "xl",
+               "composeReference": "DropdownMenu.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "DropdownMenu.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "DropdownMenu.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "DropdownMenu.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "DropdownMenu.Xs"
+            }
          ]
       },
       {
+         "key": "scroll-bar",
          "coreName": "ScrollBar",
          "styleName": "ScrollBar",
          "variations": [
-            "s",
-            "m"
+            {
+               "name": "s",
+               "composeReference": "ScrollBar.S"
+            },
+            {
+               "name": "m",
+               "composeReference": "ScrollBar.M"
+            }
          ]
       },
       {
+         "key": "wheel",
          "coreName": "Wheel",
          "styleName": "Wheel",
          "variations": [
-            "h1",
-            "h1.right-align",
-            "h1.center-align",
-            "h1.left-align",
-            "h1.mixed-align"
+            {
+               "name": "h1",
+               "composeReference": "Wheel.H1"
+            },
+            {
+               "name": "h1.right-align",
+               "composeReference": "Wheel.H1.RightAlign"
+            },
+            {
+               "name": "h1.center-align",
+               "composeReference": "Wheel.H1.CenterAlign"
+            },
+            {
+               "name": "h1.left-align",
+               "composeReference": "Wheel.H1.LeftAlign"
+            },
+            {
+               "name": "h1.mixed-align",
+               "composeReference": "Wheel.H1.MixedAlign"
+            }
          ]
       },
       {
+         "key": "image",
          "coreName": "Image",
          "styleName": "Image",
          "variations": [
-            "ratio_1_2",
-            "ratio_9_16",
-            "ratio_3_4",
-            "ratio_2_1",
-            "ratio_16_9",
-            "ratio_4_3",
-            "ratio_1_1"
+            {
+               "name": "ratio_1_2",
+               "composeReference": "Image.Ratio1x2"
+            },
+            {
+               "name": "ratio_9_16",
+               "composeReference": "Image.Ratio9x16"
+            },
+            {
+               "name": "ratio_3_4",
+               "composeReference": "Image.Ratio3x4"
+            },
+            {
+               "name": "ratio_2_1",
+               "composeReference": "Image.Ratio2x1"
+            },
+            {
+               "name": "ratio_16_9",
+               "composeReference": "Image.Ratio16x9"
+            },
+            {
+               "name": "ratio_4_3",
+               "composeReference": "Image.Ratio4x3"
+            },
+            {
+               "name": "ratio_1_1",
+               "composeReference": "Image.Ratio1x1"
+            }
          ]
       },
       {
+         "key": "button-group",
          "coreName": "ButtonGroup",
          "styleName": "BasicButtonGroup",
          "variations": [
-            "xs",
-            "xs.wide",
-            "xs.wide.default",
-            "xs.wide.segmented",
-            "xs.dense",
-            "xs.dense.default",
-            "xs.dense.segmented",
-            "xs.no-gap",
-            "xs.no-gap.default",
-            "xs.no-gap.segmented",
-            "s",
-            "s.wide",
-            "s.wide.default",
-            "s.wide.segmented",
-            "s.dense",
-            "s.dense.default",
-            "s.dense.segmented",
-            "s.no-gap",
-            "s.no-gap.default",
-            "s.no-gap.segmented",
-            "m",
-            "m.wide",
-            "m.wide.default",
-            "m.wide.segmented",
-            "m.dense",
-            "m.dense.default",
-            "m.dense.segmented",
-            "m.no-gap",
-            "m.no-gap.default",
-            "m.no-gap.segmented",
-            "l",
-            "l.wide",
-            "l.wide.default",
-            "l.wide.segmented",
-            "l.dense",
-            "l.dense.default",
-            "l.dense.segmented",
-            "l.no-gap",
-            "l.no-gap.default",
-            "l.no-gap.segmented"
+            {
+               "name": "xs",
+               "composeReference": "BasicButtonGroup.Xs"
+            },
+            {
+               "name": "xs.wide",
+               "composeReference": "BasicButtonGroup.Xs.Wide"
+            },
+            {
+               "name": "xs.wide.default",
+               "composeReference": "BasicButtonGroup.Xs.Wide.Default"
+            },
+            {
+               "name": "xs.wide.segmented",
+               "composeReference": "BasicButtonGroup.Xs.Wide.Segmented"
+            },
+            {
+               "name": "xs.dense",
+               "composeReference": "BasicButtonGroup.Xs.Dense"
+            },
+            {
+               "name": "xs.dense.default",
+               "composeReference": "BasicButtonGroup.Xs.Dense.Default"
+            },
+            {
+               "name": "xs.dense.segmented",
+               "composeReference": "BasicButtonGroup.Xs.Dense.Segmented"
+            },
+            {
+               "name": "xs.no-gap",
+               "composeReference": "BasicButtonGroup.Xs.NoGap"
+            },
+            {
+               "name": "xs.no-gap.default",
+               "composeReference": "BasicButtonGroup.Xs.NoGap.Default"
+            },
+            {
+               "name": "xs.no-gap.segmented",
+               "composeReference": "BasicButtonGroup.Xs.NoGap.Segmented"
+            },
+            {
+               "name": "s",
+               "composeReference": "BasicButtonGroup.S"
+            },
+            {
+               "name": "s.wide",
+               "composeReference": "BasicButtonGroup.S.Wide"
+            },
+            {
+               "name": "s.wide.default",
+               "composeReference": "BasicButtonGroup.S.Wide.Default"
+            },
+            {
+               "name": "s.wide.segmented",
+               "composeReference": "BasicButtonGroup.S.Wide.Segmented"
+            },
+            {
+               "name": "s.dense",
+               "composeReference": "BasicButtonGroup.S.Dense"
+            },
+            {
+               "name": "s.dense.default",
+               "composeReference": "BasicButtonGroup.S.Dense.Default"
+            },
+            {
+               "name": "s.dense.segmented",
+               "composeReference": "BasicButtonGroup.S.Dense.Segmented"
+            },
+            {
+               "name": "s.no-gap",
+               "composeReference": "BasicButtonGroup.S.NoGap"
+            },
+            {
+               "name": "s.no-gap.default",
+               "composeReference": "BasicButtonGroup.S.NoGap.Default"
+            },
+            {
+               "name": "s.no-gap.segmented",
+               "composeReference": "BasicButtonGroup.S.NoGap.Segmented"
+            },
+            {
+               "name": "m",
+               "composeReference": "BasicButtonGroup.M"
+            },
+            {
+               "name": "m.wide",
+               "composeReference": "BasicButtonGroup.M.Wide"
+            },
+            {
+               "name": "m.wide.default",
+               "composeReference": "BasicButtonGroup.M.Wide.Default"
+            },
+            {
+               "name": "m.wide.segmented",
+               "composeReference": "BasicButtonGroup.M.Wide.Segmented"
+            },
+            {
+               "name": "m.dense",
+               "composeReference": "BasicButtonGroup.M.Dense"
+            },
+            {
+               "name": "m.dense.default",
+               "composeReference": "BasicButtonGroup.M.Dense.Default"
+            },
+            {
+               "name": "m.dense.segmented",
+               "composeReference": "BasicButtonGroup.M.Dense.Segmented"
+            },
+            {
+               "name": "m.no-gap",
+               "composeReference": "BasicButtonGroup.M.NoGap"
+            },
+            {
+               "name": "m.no-gap.default",
+               "composeReference": "BasicButtonGroup.M.NoGap.Default"
+            },
+            {
+               "name": "m.no-gap.segmented",
+               "composeReference": "BasicButtonGroup.M.NoGap.Segmented"
+            },
+            {
+               "name": "l",
+               "composeReference": "BasicButtonGroup.L"
+            },
+            {
+               "name": "l.wide",
+               "composeReference": "BasicButtonGroup.L.Wide"
+            },
+            {
+               "name": "l.wide.default",
+               "composeReference": "BasicButtonGroup.L.Wide.Default"
+            },
+            {
+               "name": "l.wide.segmented",
+               "composeReference": "BasicButtonGroup.L.Wide.Segmented"
+            },
+            {
+               "name": "l.dense",
+               "composeReference": "BasicButtonGroup.L.Dense"
+            },
+            {
+               "name": "l.dense.default",
+               "composeReference": "BasicButtonGroup.L.Dense.Default"
+            },
+            {
+               "name": "l.dense.segmented",
+               "composeReference": "BasicButtonGroup.L.Dense.Segmented"
+            },
+            {
+               "name": "l.no-gap",
+               "composeReference": "BasicButtonGroup.L.NoGap"
+            },
+            {
+               "name": "l.no-gap.default",
+               "composeReference": "BasicButtonGroup.L.NoGap.Default"
+            },
+            {
+               "name": "l.no-gap.segmented",
+               "composeReference": "BasicButtonGroup.L.NoGap.Segmented"
+            }
          ]
       },
       {
+         "key": "code-input",
          "coreName": "CodeInput",
          "styleName": "CodeInput",
          "variations": [
-            "s",
-            "m",
-            "l"
+            {
+               "name": "s",
+               "composeReference": "CodeInput.S"
+            },
+            {
+               "name": "m",
+               "composeReference": "CodeInput.M"
+            },
+            {
+               "name": "l",
+               "composeReference": "CodeInput.L"
+            }
          ]
       },
       {
+         "key": "drawer",
          "coreName": "Drawer",
          "styleName": "Drawer",
          "variations": [
-            "has-background",
-            "no-background"
+            {
+               "name": "has-background",
+               "composeReference": "Drawer.HasBackground"
+            },
+            {
+               "name": "no-background",
+               "composeReference": "Drawer.NoBackground"
+            }
          ]
       }
    ]

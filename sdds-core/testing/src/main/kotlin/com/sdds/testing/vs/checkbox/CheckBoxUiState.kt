@@ -16,12 +16,13 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CheckBoxUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val state: CheckBox.ToggleableState = CheckBox.ToggleableState.INDETERMINATE,
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
 ) : UiState, Parcelable {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }

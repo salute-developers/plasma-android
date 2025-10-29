@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.focusTarget
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -38,7 +39,6 @@ import com.sdds.serv.styles.basicbutton.Xs
 @Composable
 internal fun CodeInputScreen(componentKey: ComponentKey = ComponentKey.CodeInput) {
     val focusRequester = remember { FocusRequester() }
-    LaunchedEffect(Unit) { focusRequester.requestFocus() }
     ComponentScaffold(
         key = componentKey,
         viewModel = viewModel<CodeInputViewModel>(
@@ -54,7 +54,8 @@ internal fun CodeInputScreen(componentKey: ComponentKey = ComponentKey.CodeInput
                 CodeInput(
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
-                        .focusRequester(focusRequester),
+                        .focusRequester(focusRequester)
+                        .focusTarget(),
                     style = style,
                     codeLength = codeInputUiState.codeLength,
                     hidden = codeInputUiState.hidden,
@@ -81,6 +82,9 @@ internal fun CodeInputScreen(componentKey: ComponentKey = ComponentKey.CodeInput
                         label = stringResource(R.string.sandbox_clear_focus),
                         onClick = { focusManager.clearFocus(true) },
                     )
+                }
+                LaunchedEffect(Unit) {
+                    focusRequester.requestFocus()
                 }
             }
         },

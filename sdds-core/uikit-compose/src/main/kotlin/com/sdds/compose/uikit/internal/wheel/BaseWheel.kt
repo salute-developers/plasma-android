@@ -304,7 +304,9 @@ private fun ColumnScope.TopControl(
                 indication = null,
             ) {
                 coroutineScope.launch {
-                    state.animateScrollToItem((state.firstVisibleItemIndex + 1))
+                    state.animateScrollToItem(
+                        (state.firstVisibleItemIndex - 1).coerceAtLeast(0),
+                    )
                 }
             },
         contentDescription = null,
@@ -331,9 +333,7 @@ private fun ColumnScope.BottomControl(
                 indication = null,
             ) {
                 coroutineScope.launch {
-                    state.animateScrollToItem(
-                        (state.firstVisibleItemIndex - 1).coerceAtLeast(0),
-                    )
+                    state.animateScrollToItem((state.firstVisibleItemIndex + 1))
                 }
             },
         contentDescription = null,

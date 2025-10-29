@@ -33,15 +33,19 @@ import com.sdds.compose.uikit.internal.wheel.WheelItemAlignment
  *
  * @param modifier модификатор
  * @param style стиль компонента
- * @param hasControls наличие контролов
+ * @param wheelCount количество колёс
+ * @param hasControls наличие кнопок перемотки
  * @param visibleItemsCount количество видимых элементов в колесе
- * @param wheelSeparator тип разделителя [WheelSeparator]
- * @param alignment выравнивание [WheelAlignment]
- * @param dataEdgePlacement способ размещения данных в начале и в конце
+ * @param wheelSeparator тип разделителя между колёсами [WheelSeparator]
+ * @param alignment выравнивание контента в колёсах [WheelAlignment]
+ * @param dataEdgePlacement способ размещения данных в колесе [DataEdgePlacement]
  * @param wheelConstraints способ ограничения колёс по ширине [WheelConstraints]
- * @param interactionSource источник взаимодействий
- * @param onItemSelected колбэк сигнализирубщий о выбранном элементе
- * @param onSetData колбэк установки набора данных
+ * @param interactionSource источник взаимодействий [InteractionSource]
+ * @param onItemSelected колбэк сигнализирубщий о выбранном элементе.
+ * Первый параметр лямбды - индекс колеса, второй - индекс элемента в колесе.
+ * @param onSetData колбэк установки набора данных. Вызывается [wheelCount] раз.
+ * В параметре лямбды доступен индекс колеса, начиная с 0.
+ * Лямбда должна вернуть набор данных [WheelDataSet], необходимый для конфигурации каждого колеса.
  */
 @Suppress("UnusedBoxWithConstraintsScope")
 @Composable

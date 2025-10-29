@@ -1,7 +1,12 @@
+import tasks.integration.ComponentsTarget
+import tasks.integration.GenerateComponentsDictionary
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
     id("convention.compose")
+    id("convention.integration-compose")
+    id("convention.integration-view")
 }
 
 android {

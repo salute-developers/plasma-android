@@ -121,7 +121,7 @@ internal class CheckableDelegate(
     fun measureWidth(widthMeasureSpec: Int): Int {
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         var width = compoundButton.measuredWidth
-        if (_description == null) {
+        if (_description.isNullOrBlank()) {
             descriptionLayout = null
             return compoundButton.measuredWidth
         }
@@ -130,8 +130,8 @@ internal class CheckableDelegate(
 
         if (widthMode != MeasureSpec.EXACTLY) {
             val layoutWidth = (descriptionLayout?.width ?: 0)
-            val compoundPaddingEnd = when (descriptionLayoutMode) {
-                DescriptionLayoutMode.FullWidth -> 0
+            val compoundPaddingEnd = when (getSafeDescriptionLayoutMode()) {
+                DescriptionLayoutMode.FullWidth -> compoundButton.paddingEnd
                 DescriptionLayoutMode.DrawableConstrained -> compoundButton.compoundPaddingEnd
             }
             val newWidth = descriptionOffsetX.toInt() + layoutWidth + compoundPaddingEnd
@@ -147,7 +147,7 @@ internal class CheckableDelegate(
     fun measureHeight(heightMeasureSpec: Int): Int {
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         var height = compoundButton.measuredHeight
-        if (description == null) {
+        if (description.isNullOrBlank()) {
             descriptionLayout = null
             return height
         }
@@ -155,7 +155,7 @@ internal class CheckableDelegate(
         if (heightMode != MeasureSpec.EXACTLY) {
             val layoutHeight = (descriptionLayout?.height ?: 0)
             val paddingBottom = compoundButton.compoundPaddingBottom
-            val newHeight = descriptionOffsetY.toInt() + layoutHeight + _descriptionPadding + paddingBottom
+            val newHeight = descriptionOffsetY.toInt() + layoutHeight + paddingBottom
             height = max(height, newHeight)
         }
         return height
@@ -165,6 +165,14 @@ internal class CheckableDelegate(
         val color = _descriptionTextColor.colorForState(compoundButton.drawableState)
         if (_descriptionPaint.color != color) {
             _descriptionPaint.color = color
+        }
+    }
+
+    private fun getSafeDescriptionLayoutMode(): DescriptionLayoutMode {
+        return if (compoundButton.text.isNullOrBlank()) {
+            DescriptionLayoutMode.DrawableConstrained
+        } else {
+            descriptionLayoutMode
         }
     }
 
@@ -194,8 +202,10 @@ internal class CheckableDelegate(
             ?: 0
         val widthMode = MeasureSpec.getMode(widthSpec)
         val specWidth = MeasureSpec.getSize(widthSpec)
-        val compoundPadding = when (descriptionLayoutMode) {
-            DescriptionLayoutMode.FullWidth -> 0
+        val compoundPadding = when (getSafeDescriptionLayoutMode()) {
+            DescriptionLayoutMode.FullWidth -> {
+                compoundButton.paddingStart + compoundButton.paddingEnd
+            }
             DescriptionLayoutMode.DrawableConstrained -> {
                 compoundButton.compoundPaddingStart + compoundButton.compoundPaddingEnd
             }
@@ -241,7 +251,7 @@ internal class CheckableDelegate(
             val descriptionFirstLineHeight = descriptionLayout?.getLineBottom(0) ?: 0
             _lastLineBounds.top.toFloat() + (_lastLineBounds.height().toFloat() - descriptionFirstLineHeight) / 2f
         } else {
-            _lastLineBounds.bottom.toFloat()
+            _lastLineBounds.bottom.toFloat() + descriptionPadding
         }
     }
 }

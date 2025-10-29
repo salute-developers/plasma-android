@@ -19,6 +19,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CellUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val label: String = "Label",
     val title: String = "Title",
     val subtitle: String = "Subtitle",
@@ -27,8 +28,8 @@ data class CellUiState(
     val startContent: CellContent = CellContent.AVATAR,
     val endContent: CellContent = CellContent.NONE,
 ) : Parcelable, UiState {
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

@@ -9,9 +9,16 @@ interface UiState {
      * Вариация компонента
      */
     val variant: String
+        get() = ""
+
+    /**
+     * Внешний вид компонента
+     */
+    val appearance: String
+        get() = ""
 
     /**
      * Создает копию состояния с новым [variant]
      */
-    fun updateVariant(variant: String): UiState
+    fun updateVariant(appearance: String, variant: String): UiState
 }

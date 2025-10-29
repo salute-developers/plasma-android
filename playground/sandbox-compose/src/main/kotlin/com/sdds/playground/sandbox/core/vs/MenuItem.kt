@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.core.vs
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
@@ -148,21 +149,27 @@ internal class MenuItem(
 
 @Suppress("UNCHECKED_CAST")
 internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
-    return all.toList().mapIndexed { index, (item, value) ->
-        val styleProvider = value.styleProvider as ViewStyleProvider<String>
+    return all.toList().mapIndexedNotNull { index, (item, value) ->
+        Log.e("MenuItem", "getMenuItems: getStyleProvider for ${value.name}, count = ${value.styleProviders.size}")
+        val styleProvider = value.styleProviders.values.first() as ViewStyleProvider<String>
         MenuItem(
-            id = item.routeId(),
+            id = item.routeId() ?: return@mapIndexedNotNull null,
             title = value.name,
             componentKey = item,
             destination = item.core.screen(),
-            previewStyle = styleProvider.styleRes(key = value.styleProvider.defaultVariant as String),
-            previewColorState = if (value.styleProvider.hasColorVariations) {
-                styleProvider.colorState(key = value.styleProvider.defaultColorVariant as String)
+            previewStyle = styleProvider.styleRes(key = styleProvider.defaultVariant),
+            previewColorState = if (styleProvider.hasColorVariations) {
+                styleProvider.colorState(key = styleProvider.defaultColorVariant)
             } else {
                 null
             },
         )
-    }.sortedBy { it.title }
+    }.sortedWith(
+        compareBy(
+            { it.componentKey.group.ordinal },
+            { it.title },
+        ),
+    )
 }
 
 private val MenuItem.defaultBuilder: FragmentNavigatorDestinationBuilder.() -> Unit
@@ -296,6 +303,7 @@ internal sealed class ComponentScreen(
     object Toast : ComponentScreen(
         { item -> fragment<ToastFragment>(item.route, item.defaultBuilder) },
     )
+
     object Modal : ComponentScreen(
         { item -> fragment<ModalFragment>(item.route, item.defaultBuilder) },
     )
@@ -311,39 +319,51 @@ internal sealed class ComponentScreen(
     object RectSkeleton : ComponentScreen(
         { item -> fragment<RectSkeletonFragment>(item.route, item.defaultBuilder) },
     )
+
     object TextSkeleton : ComponentScreen(
         { item -> fragment<TextSkeletonFragment>(item.route, item.defaultBuilder) },
     )
+
     object List : ComponentScreen(
         { item -> fragment<ListFragment>(item.route, item.defaultBuilder) },
     )
+
     object DropdownMenu : ComponentScreen(
         { item -> fragment<DropdownMenuFragment>(item.route, item.defaultBuilder) },
     )
+
     object Wheel : ComponentScreen(
         { item -> fragment<WheelFragment>(item.route, item.defaultBuilder) },
     )
+
     object Spinner : ComponentScreen(
         { item -> fragment<SpinnerFragment>(item.route, item.defaultBuilder) },
     )
+
     object Image : ComponentScreen(
         { item -> fragment<ImageFragment>(item.route, item.defaultBuilder) },
     )
+
     object ScrollBar : ComponentScreen(
         { item -> fragment<ScrollBarFragment>(item.route, item.defaultBuilder) },
     )
+
     object Accordion : ComponentScreen(
         { item -> fragment<AccordionFragment>(item.route, item.defaultBuilder) },
     )
+
     object Loader : ComponentScreen(
         { item -> fragment<LoaderFragment>(item.route, item.defaultBuilder) },
     )
+
     object ButtonGroup : ComponentScreen(
         { item -> fragment<ButtonGroupFragment>(item.route, item.defaultBuilder) },
     )
+
     object Drawer : ComponentScreen(
         { item -> fragment<DrawerFragment>(item.route, item.defaultBuilder) },
     )
+
     object CodeField : ComponentScreen(
         { item -> fragment<CodeFieldFragment>(item.route, item.defaultBuilder) },
     )
@@ -351,9 +371,11 @@ internal sealed class ComponentScreen(
     object Tabs : ComponentScreen(
         { item -> fragment<TabsFragment>(item.route, item.defaultBuilder) },
     )
+
     object IconTabs : ComponentScreen(
         { item -> fragment<IconTabsFragment>(item.route, item.defaultBuilder) },
     )
+
     object CodeInput : ComponentScreen(
         { item -> fragment<CodeInputFragment>(item.route, item.defaultBuilder) },
     )
@@ -417,7 +439,7 @@ private fun CoreComponent.screen(): ComponentScreen {
 }
 
 @Suppress("CyclomaticComplexMethod")
-private fun ComponentKey.routeId(): Int {
+private fun ComponentKey.routeId(): Int? {
     return when (this.core) {
         CoreComponent.AVATAR -> R.id.nav_avatar
         CoreComponent.AVATAR_GROUP -> R.id.nav_avatargroup
@@ -469,8 +491,8 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.DRAWER -> R.id.nav_drawer
         CoreComponent.TABS -> R.id.nav_tabs
         CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
-        else -> throw NoSuchElementException("Component not implemented")
-    } + hashCode()
+        else -> null
+    }?.let { it + hashCode() }
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -569,6 +591,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
                 buttonGroup(context, style)
             }
         }
+
         CoreComponent.TABS -> tabs(context, style)
         CoreComponent.ICON_TABS -> iconTabs(context, style)
         else -> throw NoSuchElementException("Component not implemented")

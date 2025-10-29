@@ -4,6 +4,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class SegmentUiState(
     override val variant: String = "",
+    override val appearance: String = "",
     val enabled: Boolean = true,
     val amount: Int = 2,
     val stretch: Boolean = false,
@@ -17,8 +18,8 @@ internal data class SegmentUiState(
     val count: String = "1",
 ) : UiState {
 
-    override fun updateVariant(variant: String): UiState {
-        return copy(variant = variant)
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
     }
 }
 

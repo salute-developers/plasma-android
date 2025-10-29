@@ -122,6 +122,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             themeName.set(extension.componentSource?.themeName)
             namespace.set(getProjectNameSpace())
             target.set(extension.target)
+            componentsMetaStyleClass.set(extension.componentsMetaStyleClass)
         }
         task.dependsOn(fetchComponentsTask)
     }
