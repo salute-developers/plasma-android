@@ -3048,6 +3048,11 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXlWarning"
             },
             {
+               "name": "xl.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.Xl.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXlInfo"
+            },
+            {
                "name": "l",
                "viewReference": "Serv.Sdds.Components.LinkButton.L",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonL"
@@ -3081,6 +3086,11 @@
                "name": "l.warning",
                "viewReference": "Serv.Sdds.Components.LinkButton.L.Warning",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonLWarning"
+            },
+            {
+               "name": "l.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.L.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonLInfo"
             },
             {
                "name": "m",
@@ -3118,6 +3128,11 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonMWarning"
             },
             {
+               "name": "m.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.M.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonMInfo"
+            },
+            {
                "name": "s",
                "viewReference": "Serv.Sdds.Components.LinkButton.S",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonS"
@@ -3151,6 +3166,11 @@
                "name": "s.warning",
                "viewReference": "Serv.Sdds.Components.LinkButton.S.Warning",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonSWarning"
+            },
+            {
+               "name": "s.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.S.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonSInfo"
             },
             {
                "name": "xs",
@@ -3188,6 +3208,11 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXsWarning"
             },
             {
+               "name": "xs.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.Xs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXsInfo"
+            },
+            {
                "name": "xxs",
                "viewReference": "Serv.Sdds.Components.LinkButton.Xxs",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXxs"
@@ -3221,6 +3246,11 @@
                "name": "xxs.warning",
                "viewReference": "Serv.Sdds.Components.LinkButton.Xxs.Warning",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXxsWarning"
+            },
+            {
+               "name": "xxs.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.Xxs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXxsInfo"
             }
          ]
       },
@@ -7961,6 +7991,980 @@
                "name": ".lighter",
                "viewReference": "Serv.Sdds.Components.RectSkeleton.Lighter",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.RectSkeletonLighter"
+            }
+         ]
+      },
+      {
+         "key": "note",
+         "coreName": "Note",
+         "styleName": "Note",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.Note.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.Note.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLDefault"
+            },
+            {
+               "name": "l.positive",
+               "viewReference": "Serv.Sdds.Components.Note.L.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLPositive"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Serv.Sdds.Components.Note.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLNegative"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Serv.Sdds.Components.Note.L.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLWarning"
+            },
+            {
+               "name": "l.info",
+               "viewReference": "Serv.Sdds.Components.Note.L.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLInfo"
+            },
+            {
+               "name": "l.has-close",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasClose"
+            },
+            {
+               "name": "l.has-close.default",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseDefault"
+            },
+            {
+               "name": "l.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasClosePositive"
+            },
+            {
+               "name": "l.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseNegative"
+            },
+            {
+               "name": "l.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseWarning"
+            },
+            {
+               "name": "l.has-close.info",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseInfo"
+            },
+            {
+               "name": "l.content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.L.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLContentScalable"
+            },
+            {
+               "name": "l.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.L.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLContentScalableDefault"
+            },
+            {
+               "name": "l.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.L.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLContentScalablePositive"
+            },
+            {
+               "name": "l.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.L.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLContentScalableNegative"
+            },
+            {
+               "name": "l.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.L.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLContentScalableWarning"
+            },
+            {
+               "name": "l.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.L.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLContentScalableInfo"
+            },
+            {
+               "name": "l.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalable"
+            },
+            {
+               "name": "l.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableDefault"
+            },
+            {
+               "name": "l.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalablePositive"
+            },
+            {
+               "name": "l.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableNegative"
+            },
+            {
+               "name": "l.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableWarning"
+            },
+            {
+               "name": "l.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.L.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableInfo"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.Note.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.Note.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMDefault"
+            },
+            {
+               "name": "m.positive",
+               "viewReference": "Serv.Sdds.Components.Note.M.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMPositive"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Serv.Sdds.Components.Note.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMNegative"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Serv.Sdds.Components.Note.M.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMWarning"
+            },
+            {
+               "name": "m.info",
+               "viewReference": "Serv.Sdds.Components.Note.M.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMInfo"
+            },
+            {
+               "name": "m.has-close",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasClose"
+            },
+            {
+               "name": "m.has-close.default",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseDefault"
+            },
+            {
+               "name": "m.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasClosePositive"
+            },
+            {
+               "name": "m.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseNegative"
+            },
+            {
+               "name": "m.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseWarning"
+            },
+            {
+               "name": "m.has-close.info",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseInfo"
+            },
+            {
+               "name": "m.content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.M.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMContentScalable"
+            },
+            {
+               "name": "m.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.M.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMContentScalableDefault"
+            },
+            {
+               "name": "m.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.M.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMContentScalablePositive"
+            },
+            {
+               "name": "m.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.M.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMContentScalableNegative"
+            },
+            {
+               "name": "m.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.M.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMContentScalableWarning"
+            },
+            {
+               "name": "m.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.M.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMContentScalableInfo"
+            },
+            {
+               "name": "m.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalable"
+            },
+            {
+               "name": "m.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableDefault"
+            },
+            {
+               "name": "m.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalablePositive"
+            },
+            {
+               "name": "m.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableNegative"
+            },
+            {
+               "name": "m.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableWarning"
+            },
+            {
+               "name": "m.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.M.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableInfo"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.Note.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.Note.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSDefault"
+            },
+            {
+               "name": "s.positive",
+               "viewReference": "Serv.Sdds.Components.Note.S.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSPositive"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Serv.Sdds.Components.Note.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSNegative"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Serv.Sdds.Components.Note.S.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSWarning"
+            },
+            {
+               "name": "s.info",
+               "viewReference": "Serv.Sdds.Components.Note.S.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSInfo"
+            },
+            {
+               "name": "s.has-close",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasClose"
+            },
+            {
+               "name": "s.has-close.default",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseDefault"
+            },
+            {
+               "name": "s.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasClosePositive"
+            },
+            {
+               "name": "s.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseNegative"
+            },
+            {
+               "name": "s.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseWarning"
+            },
+            {
+               "name": "s.has-close.info",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseInfo"
+            },
+            {
+               "name": "s.content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.S.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSContentScalable"
+            },
+            {
+               "name": "s.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.S.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSContentScalableDefault"
+            },
+            {
+               "name": "s.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.S.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSContentScalablePositive"
+            },
+            {
+               "name": "s.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.S.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSContentScalableNegative"
+            },
+            {
+               "name": "s.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.S.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSContentScalableWarning"
+            },
+            {
+               "name": "s.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.S.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSContentScalableInfo"
+            },
+            {
+               "name": "s.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalable"
+            },
+            {
+               "name": "s.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableDefault"
+            },
+            {
+               "name": "s.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalablePositive"
+            },
+            {
+               "name": "s.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableNegative"
+            },
+            {
+               "name": "s.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableWarning"
+            },
+            {
+               "name": "s.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.S.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableInfo"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.Note.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsDefault"
+            },
+            {
+               "name": "xs.positive",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsPositive"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsNegative"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsWarning"
+            },
+            {
+               "name": "xs.info",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsInfo"
+            },
+            {
+               "name": "xs.has-close",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasClose"
+            },
+            {
+               "name": "xs.has-close.default",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseDefault"
+            },
+            {
+               "name": "xs.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasClosePositive"
+            },
+            {
+               "name": "xs.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseNegative"
+            },
+            {
+               "name": "xs.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseWarning"
+            },
+            {
+               "name": "xs.has-close.info",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseInfo"
+            },
+            {
+               "name": "xs.content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsContentScalable"
+            },
+            {
+               "name": "xs.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsContentScalableDefault"
+            },
+            {
+               "name": "xs.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsContentScalablePositive"
+            },
+            {
+               "name": "xs.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsContentScalableNegative"
+            },
+            {
+               "name": "xs.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsContentScalableWarning"
+            },
+            {
+               "name": "xs.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsContentScalableInfo"
+            },
+            {
+               "name": "xs.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalable"
+            },
+            {
+               "name": "xs.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableDefault"
+            },
+            {
+               "name": "xs.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalablePositive"
+            },
+            {
+               "name": "xs.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableNegative"
+            },
+            {
+               "name": "xs.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableWarning"
+            },
+            {
+               "name": "xs.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableInfo"
+            }
+         ]
+      },
+      {
+         "key": "note-compact",
+         "coreName": "NoteCompact",
+         "styleName": "NoteCompact",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLDefault"
+            },
+            {
+               "name": "l.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLPositive"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLNegative"
+            },
+            {
+               "name": "l.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLWarning"
+            },
+            {
+               "name": "l.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLInfo"
+            },
+            {
+               "name": "l.has-close",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasClose"
+            },
+            {
+               "name": "l.has-close.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseDefault"
+            },
+            {
+               "name": "l.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasClosePositive"
+            },
+            {
+               "name": "l.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseNegative"
+            },
+            {
+               "name": "l.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseWarning"
+            },
+            {
+               "name": "l.has-close.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseInfo"
+            },
+            {
+               "name": "l.content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLContentScalable"
+            },
+            {
+               "name": "l.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLContentScalableDefault"
+            },
+            {
+               "name": "l.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLContentScalablePositive"
+            },
+            {
+               "name": "l.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLContentScalableNegative"
+            },
+            {
+               "name": "l.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLContentScalableWarning"
+            },
+            {
+               "name": "l.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLContentScalableInfo"
+            },
+            {
+               "name": "l.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseContentScalable"
+            },
+            {
+               "name": "l.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseContentScalableDefault"
+            },
+            {
+               "name": "l.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseContentScalablePositive"
+            },
+            {
+               "name": "l.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseContentScalableNegative"
+            },
+            {
+               "name": "l.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseContentScalableWarning"
+            },
+            {
+               "name": "l.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.L.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactLHasCloseContentScalableInfo"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMDefault"
+            },
+            {
+               "name": "m.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMPositive"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMNegative"
+            },
+            {
+               "name": "m.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMWarning"
+            },
+            {
+               "name": "m.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMInfo"
+            },
+            {
+               "name": "m.has-close",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasClose"
+            },
+            {
+               "name": "m.has-close.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseDefault"
+            },
+            {
+               "name": "m.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasClosePositive"
+            },
+            {
+               "name": "m.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseNegative"
+            },
+            {
+               "name": "m.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseWarning"
+            },
+            {
+               "name": "m.has-close.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseInfo"
+            },
+            {
+               "name": "m.content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMContentScalable"
+            },
+            {
+               "name": "m.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMContentScalableDefault"
+            },
+            {
+               "name": "m.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMContentScalablePositive"
+            },
+            {
+               "name": "m.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMContentScalableNegative"
+            },
+            {
+               "name": "m.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMContentScalableWarning"
+            },
+            {
+               "name": "m.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMContentScalableInfo"
+            },
+            {
+               "name": "m.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseContentScalable"
+            },
+            {
+               "name": "m.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseContentScalableDefault"
+            },
+            {
+               "name": "m.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseContentScalablePositive"
+            },
+            {
+               "name": "m.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseContentScalableNegative"
+            },
+            {
+               "name": "m.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseContentScalableWarning"
+            },
+            {
+               "name": "m.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.M.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactMHasCloseContentScalableInfo"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSDefault"
+            },
+            {
+               "name": "s.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSPositive"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSNegative"
+            },
+            {
+               "name": "s.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSWarning"
+            },
+            {
+               "name": "s.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSInfo"
+            },
+            {
+               "name": "s.has-close",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasClose"
+            },
+            {
+               "name": "s.has-close.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseDefault"
+            },
+            {
+               "name": "s.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasClosePositive"
+            },
+            {
+               "name": "s.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseNegative"
+            },
+            {
+               "name": "s.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseWarning"
+            },
+            {
+               "name": "s.has-close.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseInfo"
+            },
+            {
+               "name": "s.content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSContentScalable"
+            },
+            {
+               "name": "s.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSContentScalableDefault"
+            },
+            {
+               "name": "s.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSContentScalablePositive"
+            },
+            {
+               "name": "s.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSContentScalableNegative"
+            },
+            {
+               "name": "s.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSContentScalableWarning"
+            },
+            {
+               "name": "s.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSContentScalableInfo"
+            },
+            {
+               "name": "s.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseContentScalable"
+            },
+            {
+               "name": "s.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseContentScalableDefault"
+            },
+            {
+               "name": "s.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseContentScalablePositive"
+            },
+            {
+               "name": "s.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseContentScalableNegative"
+            },
+            {
+               "name": "s.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseContentScalableWarning"
+            },
+            {
+               "name": "s.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.S.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactSHasCloseContentScalableInfo"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsDefault"
+            },
+            {
+               "name": "xs.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsPositive"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsNegative"
+            },
+            {
+               "name": "xs.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsWarning"
+            },
+            {
+               "name": "xs.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsInfo"
+            },
+            {
+               "name": "xs.has-close",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasClose",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasClose"
+            },
+            {
+               "name": "xs.has-close.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasClose.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseDefault"
+            },
+            {
+               "name": "xs.has-close.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasClose.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasClosePositive"
+            },
+            {
+               "name": "xs.has-close.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasClose.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseNegative"
+            },
+            {
+               "name": "xs.has-close.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasClose.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseWarning"
+            },
+            {
+               "name": "xs.has-close.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasClose.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseInfo"
+            },
+            {
+               "name": "xs.content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.ContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsContentScalable"
+            },
+            {
+               "name": "xs.content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.ContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsContentScalableDefault"
+            },
+            {
+               "name": "xs.content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.ContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsContentScalablePositive"
+            },
+            {
+               "name": "xs.content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.ContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsContentScalableNegative"
+            },
+            {
+               "name": "xs.content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.ContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsContentScalableWarning"
+            },
+            {
+               "name": "xs.content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.ContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsContentScalableInfo"
+            },
+            {
+               "name": "xs.has-close-content-scalable",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasCloseContentScalable",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseContentScalable"
+            },
+            {
+               "name": "xs.has-close-content-scalable.default",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasCloseContentScalable.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseContentScalableDefault"
+            },
+            {
+               "name": "xs.has-close-content-scalable.positive",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasCloseContentScalable.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseContentScalablePositive"
+            },
+            {
+               "name": "xs.has-close-content-scalable.negative",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasCloseContentScalable.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseContentScalableNegative"
+            },
+            {
+               "name": "xs.has-close-content-scalable.warning",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasCloseContentScalable.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseContentScalableWarning"
+            },
+            {
+               "name": "xs.has-close-content-scalable.info",
+               "viewReference": "Serv.Sdds.Components.NoteCompact.Xs.HasCloseContentScalable.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NoteCompactXsHasCloseContentScalableInfo"
             }
          ]
       },

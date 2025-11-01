@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.Note">
+        <item name="sd_titleAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_titleColor">#000</item>
+        <item name="sd_textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_textColor">#F5171717</item>
+        <item name="sd_textPadding">4dp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="Sdds.Components.NoteCompact">
+        <item name="sd_titleAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_titleColor">#000</item>
+        <item name="sd_textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_textColor">#F5171717</item>
+        <item name="sd_textPadding">4dp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+</resources>

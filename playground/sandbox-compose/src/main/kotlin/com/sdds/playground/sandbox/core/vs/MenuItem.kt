@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.core.vs
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
@@ -41,6 +40,8 @@ import com.sdds.playground.sandbox.list.vs.ListFragment
 import com.sdds.playground.sandbox.loader.vs.LoaderFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.note.vs.NoteCompactFragment
+import com.sdds.playground.sandbox.note.vs.NoteFragment
 import com.sdds.playground.sandbox.notification.vs.NotificationFragment
 import com.sdds.playground.sandbox.notificationcontent.vs.NotificationContentFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
@@ -101,6 +102,8 @@ import com.sdds.testing.vs.loader.loader
 import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.note.note
+import com.sdds.testing.vs.note.noteCompact
 import com.sdds.testing.vs.notification.notificationTrigger
 import com.sdds.testing.vs.notificationcontent.notificationContent
 import com.sdds.testing.vs.overlay.overlayWithTrigger
@@ -150,7 +153,6 @@ internal class MenuItem(
 @Suppress("UNCHECKED_CAST")
 internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
     return all.toList().mapIndexedNotNull { index, (item, value) ->
-        Log.e("MenuItem", "getMenuItems: getStyleProvider for ${value.name}, count = ${value.styleProviders.size}")
         val styleProvider = value.styleProviders.values.first() as ViewStyleProvider<String>
         MenuItem(
             id = item.routeId() ?: return@mapIndexedNotNull null,
@@ -379,6 +381,12 @@ internal sealed class ComponentScreen(
     object CodeInput : ComponentScreen(
         { item -> fragment<CodeInputFragment>(item.route, item.defaultBuilder) },
     )
+    object Note : ComponentScreen(
+        { item -> fragment<NoteFragment>(item.route, item.defaultBuilder) },
+    )
+    object NoteCompact : ComponentScreen(
+        { item -> fragment<NoteCompactFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -434,6 +442,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
+        CoreComponent.NOTE -> ComponentScreen.Note
+        CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -491,6 +501,8 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.DRAWER -> R.id.nav_drawer
         CoreComponent.TABS -> R.id.nav_tabs
         CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
+        CoreComponent.NOTE -> R.id.nav_note
+        CoreComponent.NOTE_COMPACT -> R.id.nav_note_compact
         else -> null
     }?.let { it + hashCode() }
 }
@@ -594,6 +606,8 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
 
         CoreComponent.TABS -> tabs(context, style)
         CoreComponent.ICON_TABS -> iconTabs(context, style)
+        CoreComponent.NOTE -> note(context, style)
+        CoreComponent.NOTE_COMPACT -> noteCompact(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
