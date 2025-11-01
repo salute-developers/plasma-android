@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_surfaceDefaultTransparentSecondary" app:serv_notecompact_state_default="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentPositive" app:serv_notecompact_state_positive="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentNegative" app:serv_notecompact_state_negative="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentWarning" app:serv_notecompact_state_warning="true"/>
+    <item android:color="?serv_surfaceDefaultTransparentInfo" app:serv_notecompact_state_info="true"/>
+</selector>

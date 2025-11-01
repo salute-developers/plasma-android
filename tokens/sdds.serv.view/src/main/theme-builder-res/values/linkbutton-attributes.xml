@@ -9,6 +9,7 @@
         <attr format="boolean" name="serv_linkbutton_state_positive"/>
         <attr format="boolean" name="serv_linkbutton_state_negative"/>
         <attr format="boolean" name="serv_linkbutton_state_warning"/>
+        <attr format="boolean" name="serv_linkbutton_state_info"/>
     </declare-styleable>
     <declare-styleable name="LinkButton" tools:ignore="ResourceName">
         <attr format="enum" name="serv_linkbuttonColors">
@@ -18,6 +19,7 @@
             <enum name="state_positive" value="3"/>
             <enum name="state_negative" value="4"/>
             <enum name="state_warning" value="5"/>
+            <enum name="state_info" value="6"/>
         </attr>
     </declare-styleable>
 </resources>

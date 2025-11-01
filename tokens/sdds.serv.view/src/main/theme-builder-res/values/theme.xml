@@ -1278,6 +1278,8 @@
         <item name="sd_overlayViewStyle">@style/Serv.Sdds.Components.OverlayView</item>
         <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M</item>
         <item name="sd_codeInputStyle">@style/Serv.Sdds.Components.CodeInput.S</item>
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Default</item>
+        <item name="sd_noteCompactStyle">@style/Serv.Sdds.Components.NoteCompact.L.Default</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2555,6 +2557,8 @@
         <item name="sd_overlayViewStyle">@style/Serv.Sdds.Components.OverlayView</item>
         <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M</item>
         <item name="sd_codeInputStyle">@style/Serv.Sdds.Components.CodeInput.S</item>
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Default</item>
+        <item name="sd_noteCompactStyle">@style/Serv.Sdds.Components.NoteCompact.L.Default</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

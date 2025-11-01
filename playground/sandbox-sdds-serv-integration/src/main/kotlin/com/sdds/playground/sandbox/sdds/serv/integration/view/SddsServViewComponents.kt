@@ -213,6 +213,18 @@ object SddsServViewComponents : ComponentsProviderView {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Note,
+                mapOf(
+                    "Note" to SddsServNoteVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.NoteCompact,
+                mapOf(
+                    "NoteCompact" to SddsServNoteCompactVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Notification,
                 mapOf(
                     "NotificationCompact" to SddsServNotificationCompactVariationsView,

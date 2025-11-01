@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Note" parent="Sdds.Components.Note">
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_textColor">?serv_textDefaultPrimary</item>
+        <item name="sd_background">@color/serv_note_bg_color</item>
+        <item name="sd_closeIconTint">?serv_textDefaultSecondary</item>
+        <item name="sd_iconTint">@color/serv_note_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.NoteColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_note_l_shape_adjustment</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.TextLNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.TextLBold</item>
+        <item name="sd_contentBeforeArrangement">top</item>
+        <item name="android:paddingStart">@dimen/serv_note_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_l_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_l_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_l_action_top_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteL">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_l_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_l_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_l_action_top_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_l_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_l_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_l_action_top_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLPositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLNegative</item>
+        <item name="android:paddingStart">@dimen/serv_note_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_l_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_l_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_l_action_top_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLWarning</item>
+        <item name="android:paddingStart">@dimen/serv_note_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_l_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_l_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_l_action_top_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLInfo</item>
+        <item name="android:paddingStart">@dimen/serv_note_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_l_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_l_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_l_action_top_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasClose">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasClose">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasClose</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasClose.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasClose.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasClose.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasClosePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasClose.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasClose.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasClose.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasClose.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasClose.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasClose.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasClose.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.ContentScalable">
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_scalable_content_before_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.ContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.ContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.ContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.ContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.ContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.ContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLNegative</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.ContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.ContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLWarning</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.ContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.ContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLInfo</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.ContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasCloseContentScalable">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_content_scalable_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasCloseContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasCloseContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasCloseContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasCloseContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasCloseContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasCloseContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasCloseContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasCloseContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasCloseContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.L.HasCloseContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonLInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_l_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_l_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_l_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_l_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_l_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_l_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteLHasCloseContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.L.HasCloseContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.TextMNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.TextMBold</item>
+        <item name="sd_contentBeforeArrangement">top</item>
+        <item name="android:paddingStart">@dimen/serv_note_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_m_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_m_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_m_action_top_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteM">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_m_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_m_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_m_action_top_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_m_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_m_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_m_action_top_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMPositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMNegative</item>
+        <item name="android:paddingStart">@dimen/serv_note_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_m_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_m_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_m_action_top_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMWarning</item>
+        <item name="android:paddingStart">@dimen/serv_note_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_m_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_m_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_m_action_top_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMInfo</item>
+        <item name="android:paddingStart">@dimen/serv_note_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_m_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_m_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_m_action_top_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasClose">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasClose">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasClose</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasClose.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasClose.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasClose.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasClosePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasClose.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasClose.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasClose.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasClose.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasClose.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasClose.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasClose.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.ContentScalable">
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_scalable_content_before_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.ContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.ContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.ContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.ContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.ContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.ContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMNegative</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.ContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.ContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMWarning</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.ContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.ContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMInfo</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.ContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasCloseContentScalable">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_content_scalable_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasCloseContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasCloseContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasCloseContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasCloseContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasCloseContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasCloseContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasCloseContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasCloseContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasCloseContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.M.HasCloseContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonMInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_m_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_m_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_m_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_m_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_m_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_m_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteMHasCloseContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.M.HasCloseContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_note_s_shape_adjustment</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.TextMNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.TextMBold</item>
+        <item name="sd_contentBeforeArrangement">top</item>
+        <item name="android:paddingStart">@dimen/serv_note_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_s_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_s_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_s_action_top_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteS">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_s_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_s_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_s_action_top_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_s_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_s_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_s_action_top_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSPositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSNegative</item>
+        <item name="android:paddingStart">@dimen/serv_note_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_s_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_s_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_s_action_top_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSWarning</item>
+        <item name="android:paddingStart">@dimen/serv_note_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_s_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_s_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_s_action_top_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSInfo</item>
+        <item name="android:paddingStart">@dimen/serv_note_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_s_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_s_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_s_action_top_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasClose">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasClose">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasClose</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasClose.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasClose.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasClose.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasClosePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasClose.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasClose.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasClose.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasClose.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasClose.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasClose.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasClose.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.ContentScalable">
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_scalable_content_before_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.ContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.ContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.ContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.ContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.ContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.ContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSNegative</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.ContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.ContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSWarning</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.ContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.ContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSInfo</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.ContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasCloseContentScalable">
+        <item name="sd_closeIcon">@drawable/ic_close_24</item>
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_content_scalable_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasCloseContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasCloseContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasCloseContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasCloseContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasCloseContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasCloseContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasCloseContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasCloseContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasCloseContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.S.HasCloseContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonSInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_s_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_s_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_s_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_s_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_s_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_s_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteSHasCloseContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.S.HasCloseContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs">
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.TextMNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.TextMBold</item>
+        <item name="sd_contentBeforeArrangement">top</item>
+        <item name="android:paddingStart">@dimen/serv_note_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_xs_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_xs_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_xs_action_top_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXs">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_xs_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_xs_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_xs_action_top_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="android:paddingStart">@dimen/serv_note_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_xs_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_xs_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_xs_action_top_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsPositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsNegative</item>
+        <item name="android:paddingStart">@dimen/serv_note_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_xs_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_xs_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_xs_action_top_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsWarning</item>
+        <item name="android:paddingStart">@dimen/serv_note_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_xs_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_xs_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_xs_action_top_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsInfo</item>
+        <item name="android:paddingStart">@dimen/serv_note_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_note_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_note_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_note_xs_padding_bottom</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_icon_size</item>
+        <item name="sd_textTopMargin">@dimen/serv_note_xs_text_top_margin</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_close_end_margin</item>
+        <item name="sd_actionTopMargin">@dimen/serv_note_xs_action_top_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasClose">
+        <item name="sd_closeIcon">@drawable/ic_close_16</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasClose">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasClose</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasClose.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasClose.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasClose.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasClosePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasClose.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasClose.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasClose.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasClose.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasClose.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasClose.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_close_icon_size</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasClose.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.ContentScalable">
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_scalable_content_before_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.ContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.ContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.ContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.ContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.ContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.ContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsNegative</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.ContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.ContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsWarning</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.ContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.ContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsInfo</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_content_scalable_content_before_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.ContentScalable.Info</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasCloseContentScalable">
+        <item name="sd_closeIcon">@drawable/ic_close_16</item>
+        <item name="sd_contentBeforeArrangement">center</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_close_end_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalable">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasCloseContentScalable</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Default">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableDefault">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Positive">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsPositive</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalablePositive">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Negative">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsNegative</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableNegative">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Warning">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsWarning</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableWarning">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Info">
+        <item name="sd_linkButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.LinkButtonXsInfo</item>
+        <item name="sd_closeIconSize">@dimen/serv_note_xs_has_close_content_scalable_close_icon_size</item>
+        <item name="sd_iconSize">@dimen/serv_note_xs_has_close_content_scalable_icon_size</item>
+        <item name="sd_contentBeforeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_content_before_end_margin</item>
+        <item name="sd_titlePaddingEnd">@dimen/serv_note_xs_has_close_content_scalable_title_padding_end</item>
+        <item name="sd_closeTopMargin">@dimen/serv_note_xs_has_close_content_scalable_close_top_margin</item>
+        <item name="sd_closeEndMargin">@dimen/serv_note_xs_has_close_content_scalable_close_end_margin</item>
+        <item name="serv_noteColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NoteXsHasCloseContentScalableInfo">
+        <item name="sd_noteStyle">@style/Serv.Sdds.Components.Note.Xs.HasCloseContentScalable.Info</item>
+    </style>
+</resources>

@@ -52,4 +52,6 @@
     <item type="id" name="nav_drawer"/>
     <item type="id" name="nav_tabs"/>
     <item type="id" name="nav_icon_tabs"/>
+    <item type="id" name="nav_note"/>
+    <item type="id" name="nav_note_compact"/>
 </resources>

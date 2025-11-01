@@ -22,6 +22,7 @@ public enum class LinkButtonColorState(
     POSITIVE(intArrayOf(R.attr.serv_linkbutton_state_positive)),
     NEGATIVE(intArrayOf(R.attr.serv_linkbutton_state_negative)),
     WARNING(intArrayOf(R.attr.serv_linkbutton_state_warning)),
+    INFO(intArrayOf(R.attr.serv_linkbutton_state_info)),
 }
 
 /**
