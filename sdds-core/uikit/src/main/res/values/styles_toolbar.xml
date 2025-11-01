@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.ToolBar">
+        <item name="sd_clipToOutline">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:clipChildren">false</item>
+    </style>
+</resources>

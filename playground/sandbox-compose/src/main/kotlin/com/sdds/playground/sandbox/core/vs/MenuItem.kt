@@ -61,6 +61,7 @@ import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
 import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
 import com.sdds.playground.sandbox.toast.vs.ToastFragment
+import com.sdds.playground.sandbox.toolbar.vs.ToolBarFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
 import com.sdds.testing.vs.accordion.accordion
@@ -127,6 +128,7 @@ import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
 import com.sdds.testing.vs.toast.toastTrigger
+import com.sdds.testing.vs.toolbar.toolBar
 import com.sdds.testing.vs.tooltip.tooltipWithTrigger
 import com.sdds.testing.vs.wheel.wheel
 import com.sdds.uikit.colorstate.ColorState
@@ -379,6 +381,10 @@ internal sealed class ComponentScreen(
     object CodeInput : ComponentScreen(
         { item -> fragment<CodeInputFragment>(item.route, item.defaultBuilder) },
     )
+
+    object ToolBar : ComponentScreen(
+        { item -> fragment<ToolBarFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -434,6 +440,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
+        CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -491,6 +498,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.DRAWER -> R.id.nav_drawer
         CoreComponent.TABS -> R.id.nav_tabs
         CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
+        CoreComponent.TOOL_BAR -> R.id.nav_toolbar
         else -> null
     }?.let { it + hashCode() }
 }
@@ -594,6 +602,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
 
         CoreComponent.TABS -> tabs(context, style)
         CoreComponent.ICON_TABS -> iconTabs(context, style)
+        CoreComponent.TOOL_BAR -> toolBar(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

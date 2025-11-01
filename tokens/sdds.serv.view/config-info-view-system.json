@@ -3048,6 +3048,11 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXlWarning"
             },
             {
+               "name": "xl.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.Xl.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXlInfo"
+            },
+            {
                "name": "l",
                "viewReference": "Serv.Sdds.Components.LinkButton.L",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonL"
@@ -3081,6 +3086,11 @@
                "name": "l.warning",
                "viewReference": "Serv.Sdds.Components.LinkButton.L.Warning",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonLWarning"
+            },
+            {
+               "name": "l.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.L.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonLInfo"
             },
             {
                "name": "m",
@@ -3118,6 +3128,11 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonMWarning"
             },
             {
+               "name": "m.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.M.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonMInfo"
+            },
+            {
                "name": "s",
                "viewReference": "Serv.Sdds.Components.LinkButton.S",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonS"
@@ -3151,6 +3166,11 @@
                "name": "s.warning",
                "viewReference": "Serv.Sdds.Components.LinkButton.S.Warning",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonSWarning"
+            },
+            {
+               "name": "s.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.S.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonSInfo"
             },
             {
                "name": "xs",
@@ -3188,6 +3208,11 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXsWarning"
             },
             {
+               "name": "xs.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.Xs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXsInfo"
+            },
+            {
                "name": "xxs",
                "viewReference": "Serv.Sdds.Components.LinkButton.Xxs",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXxs"
@@ -3221,6 +3246,11 @@
                "name": "xxs.warning",
                "viewReference": "Serv.Sdds.Components.LinkButton.Xxs.Warning",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXxsWarning"
+            },
+            {
+               "name": "xxs.info",
+               "viewReference": "Serv.Sdds.Components.LinkButton.Xxs.Info",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.LinkButtonXxsInfo"
             }
          ]
       },
@@ -7885,6 +7915,53 @@
                "name": "s",
                "viewReference": "Serv.Sdds.Components.Tooltip.S",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TooltipS"
+            }
+         ]
+      },
+      {
+         "key": "toolbar",
+         "coreName": "ToolBar",
+         "styleName": "Toolbar",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.Toolbar.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarL"
+            },
+            {
+               "name": "l.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.L.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarLVertical"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.Toolbar.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarM"
+            },
+            {
+               "name": "m.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.M.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarMVertical"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.Toolbar.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarS"
+            },
+            {
+               "name": "s.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.S.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarSVertical"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.Toolbar.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarXs"
+            },
+            {
+               "name": "xs.vertical",
+               "viewReference": "Serv.Sdds.Components.Toolbar.Xs.Vertical",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarXsVertical"
             }
          ]
       },
