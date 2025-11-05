@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
@@ -17,6 +18,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class TabItemProperties(
     val shape: Shape? = null,
+    val disableAlpha: FloatValue? = null,
 
     val labelStyle: Typography? = null,
     val valueStyle: Typography? = null,
@@ -51,6 +53,7 @@ internal data class TabItemProperties(
         val otherProps = parent as? TabItemProperties ?: return this
         return copy(
             shape = shape ?: otherProps.shape,
+            disableAlpha = disableAlpha ?: otherProps.disableAlpha,
             labelStyle = labelStyle ?: otherProps.labelStyle,
             valueStyle = valueStyle ?: otherProps.valueStyle,
             minHeight = minHeight ?: otherProps.minHeight,
