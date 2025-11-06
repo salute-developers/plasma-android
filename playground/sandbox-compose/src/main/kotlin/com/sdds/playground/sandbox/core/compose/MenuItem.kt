@@ -112,6 +112,8 @@ import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.tabbar.compose.TabBarPreview
 import com.sdds.playground.sandbox.tabbar.compose.TabBarScreen
+import com.sdds.playground.sandbox.tabs.compose.IconTabsPreview
+import com.sdds.playground.sandbox.tabs.compose.IconTabsScreen
 import com.sdds.playground.sandbox.tabs.compose.TabsPreview
 import com.sdds.playground.sandbox.tabs.compose.TabsScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
@@ -342,6 +344,10 @@ internal sealed class ComponentScreen(
         { TabsScreen(it) },
         { style, _ -> TabsPreview(style as TabsStyle) },
     )
+    object IconTabs : ComponentScreen(
+        { IconTabsScreen(it) },
+        { style, _ -> IconTabsPreview(style as TabsStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -400,6 +406,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.NOTE -> ComponentScreen.Note
         CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         CoreComponent.TABS -> ComponentScreen.Tabs
+        CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         else -> ComponentScreen.Empty
     }
 }

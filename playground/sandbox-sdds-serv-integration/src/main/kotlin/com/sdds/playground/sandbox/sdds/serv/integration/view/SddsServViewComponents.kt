@@ -342,8 +342,13 @@ object SddsServViewComponents : ComponentsProviderView {
                 ComponentKey.Tabs,
                 mapOf(
                     "TabsDefault" to SddsServTabsDefaultVariationsView,
-                    "IconTabs" to SddsServIconTabsVariationsView,
                     "TabsHeader" to SddsServTabsHeaderVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.IconTabs,
+                mapOf(
+                    "IconTabs" to SddsServIconTabsVariationsView,
                 ),
             ),
             ViewComponent(

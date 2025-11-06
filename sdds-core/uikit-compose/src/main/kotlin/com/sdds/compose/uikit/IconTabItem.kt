@@ -74,7 +74,6 @@ fun IconTabItem(
         Row(
             modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(style.dimensions.valuePadding),
         ) {
             icon?.let {
                 Box {
@@ -103,9 +102,9 @@ private fun ActionContent(
     actionIcon ?: return
     Icon(
         modifier = Modifier
+            .padding(start = style.dimensions.actionPadding)
             .size(style.dimensions.actionSize)
-            .clickable(indication = null, interactionSource = null, onClick = onActionClicked)
-            .padding(start = style.dimensions.actionPadding),
+            .clickable(indication = null, interactionSource = null, onClick = onActionClicked),
         painter = painterResource(actionIcon),
         contentDescription = "",
         tint = style.colors.actionColor.getValue(interactionSource, stateSet),

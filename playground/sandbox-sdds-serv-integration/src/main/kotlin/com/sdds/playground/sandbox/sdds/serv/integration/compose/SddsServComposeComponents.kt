@@ -364,8 +364,13 @@ object SddsServComposeComponents : ComponentsProviderCompose {
                 ComponentKey.Tabs,
                 mapOf(
                     "TabsDefault" to SddsServTabsDefaultVariationsCompose,
-                    "IconTabs" to SddsServIconTabsVariationsCompose,
                     "TabsHeader" to SddsServTabsHeaderVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.IconTabs,
+                mapOf(
+                    "IconTabs" to SddsServIconTabsVariationsCompose,
                 ),
             ),
             ComposeComponent(
