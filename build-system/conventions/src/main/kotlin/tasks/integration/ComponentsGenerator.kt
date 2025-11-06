@@ -137,6 +137,8 @@ internal class ComposeComponentsGenerator(
             "TextArea" -> "TextFieldStyle"
             "IconBadge" -> "BadgeStyle"
             "BottomSheet" -> "ModalBottomSheetStyle"
+            "TabItem",
+            "IconTabItem" -> "TabItemStyle"
             else -> "${component.coreName}Style"
         }
     }
