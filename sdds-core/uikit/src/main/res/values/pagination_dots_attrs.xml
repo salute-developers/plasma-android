@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_paginationDotsStyle" format="reference" />
+
+    <declare-styleable name="PaginationDots" tools:ignore="ResourceName">
+        <attr name="sd_gap" />
+
+        <attr name="sd_itemCount" format="integer" />
+        <attr name="sd_visibleItemCount" format="integer" />
+        <attr name="sd_currentItem" format="integer" />
+
+        <attr name="sd_dotWidth" format="dimension" />
+        <attr name="sd_dotHeight" format="dimension" />
+
+        <attr name="sd_edgeIndicatorCount" format="integer" />
+        <attr name="sd_edgeIndicatorShrinkFactor" format="float" />
+
+        <attr name="sd_dotBackground" format="color|reference" />
+        <attr name="android:orientation" />
+
+    </declare-styleable>
+</resources>

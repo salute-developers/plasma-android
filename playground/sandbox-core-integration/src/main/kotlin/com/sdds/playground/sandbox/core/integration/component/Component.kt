@@ -212,6 +212,7 @@ data class ComponentKey(
         val IconTabItem = ComponentKey("IconTabItem", CoreComponent.ICON_TAB_ITEM)
         val IconTabs = ComponentKey("IconTabs", CoreComponent.ICON_TABS)
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
+        val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
     }
 }
 
@@ -296,6 +297,7 @@ enum class CoreComponent {
     ICON_TAB_ITEM,
     ICON_TABS,
     NAVIGATION_BAR,
+    PAGINATION_DOTS,
 }
 
 /**
@@ -337,6 +339,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.CIRCULAR_PROGRESS,
         CoreComponent.NOTE,
         CoreComponent.NOTE_COMPACT,
+        CoreComponent.PAGINATION_DOTS,
         -> CoreComponentGroup.DATA_DISPLAY
 
         CoreComponent.BASIC_BUTTON,

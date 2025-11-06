@@ -1,5 +1,6 @@
 package com.sdds.uikit.shape
 
+import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
@@ -33,6 +34,7 @@ import com.sdds.uikit.shader.GradientShader
 import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.colorForState
 import com.sdds.uikit.statelist.setColorValue
 import org.xmlpull.v1.XmlPullParser
 import kotlin.math.roundToInt
@@ -233,6 +235,20 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     /**
+     * Добавляет слушатель анимации изменения цвета
+     */
+    open fun addColorAnimationListener(listener: Animator.AnimatorListener) {
+        animator.addListener(listener)
+    }
+
+    /**
+     * Удаляет слушатель анимации изменения цвета
+     */
+    open fun removeColorAnimationListener(listener: Animator.AnimatorListener) {
+        animator.removeListener(listener)
+    }
+
+    /**
      * Устанавливает [Xfermode] для объекта [Paint], который рисует форму и бордер
      */
     open fun setXfermode(mode: Xfermode) {
@@ -300,7 +316,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _shapePaint.shader =
                 _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
             reapplyAlpha()
-        } else if (_shapeTintValue != null) {
+        } else if (_shapeTintValue != null && !animator.isRunning) {
             _shapePaint.setColorValue(_shapeTintValue, state, _shaderFactoryDelegate, _drawingBounds)
         }
     }
@@ -365,7 +381,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         }
         var fillColor: Int? = null
         if (_shaderFactory == null) {
-            if (_shapeTintValue == null) {
+            if (_shapeTintValue?.isSimple() == true) {
+                fillColor = _shapeTintValue?.colorForState(state)
+                if (fillColor != _shapePaint.color) {
+                    stateChanged = true
+                }
+            } else if (_shapeTintValue == null) {
                 fillColor = _shapeTint.colorForState(state)
                 if (fillColor != _shapePaint.color) {
                     stateChanged = true
