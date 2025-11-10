@@ -1,10 +1,9 @@
 package com.sdds.playground.sandbox.textfield.compose
 
-import androidx.compose.ui.text.input.TextFieldValue
 import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class TextFieldUiState(
-    val textFieldValue: TextFieldValue = TextFieldValue("Value"),
+    val textFieldValue: String = "Value",
     override val variant: String = "",
     override val appearance: String = "",
     val labelText: String = "Label",

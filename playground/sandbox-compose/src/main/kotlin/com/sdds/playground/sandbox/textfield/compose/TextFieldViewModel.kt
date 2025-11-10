@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.textfield.compose
 
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.TextFieldStyle
@@ -13,7 +12,7 @@ internal open class TextFieldViewModel(
     componentKey: ComponentKey,
 ) : ComponentViewModel<TextFieldUiState, TextFieldStyle>(defaultState, componentKey) {
 
-    fun onValueChange(textFieldValue: TextFieldValue) {
+    fun onValueChange(textFieldValue: String) {
         internalUiState.value = internalUiState.value.copy(
             textFieldValue = textFieldValue,
         )
