@@ -10,8 +10,7 @@ import com.sdds.testing.vs.toolbar.toolBar
 import com.sdds.uikit.ToolBar
 
 /**
- * Фрагмент с компонентом Modal
- * @author Малышев Александр on 29.05.2025
+ * Фрагмент с компонентом ToolBar
  */
 internal class ToolBarFragment : ComponentFragment<ToolBarUiState, ToolBar, ToolBarViewModel>() {
 

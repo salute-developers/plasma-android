@@ -7921,47 +7921,94 @@
       {
          "key": "toolbar",
          "coreName": "ToolBar",
-         "styleName": "Toolbar",
+         "styleName": "ToolbarHorizontal",
          "variations": [
             {
                "name": "l",
-               "viewReference": "Serv.Sdds.Components.Toolbar.L",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarL"
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalL"
             },
             {
-               "name": "l.vertical",
-               "viewReference": "Serv.Sdds.Components.Toolbar.L.Vertical",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarLVertical"
+               "name": "l.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.L.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalLHasShadow"
             },
             {
                "name": "m",
-               "viewReference": "Serv.Sdds.Components.Toolbar.M",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarM"
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalM"
             },
             {
-               "name": "m.vertical",
-               "viewReference": "Serv.Sdds.Components.Toolbar.M.Vertical",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarMVertical"
+               "name": "m.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.M.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalMHasShadow"
             },
             {
                "name": "s",
-               "viewReference": "Serv.Sdds.Components.Toolbar.S",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarS"
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalS"
             },
             {
-               "name": "s.vertical",
-               "viewReference": "Serv.Sdds.Components.Toolbar.S.Vertical",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarSVertical"
+               "name": "s.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.S.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalSHasShadow"
             },
             {
                "name": "xs",
-               "viewReference": "Serv.Sdds.Components.Toolbar.Xs",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarXs"
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalXs"
             },
             {
-               "name": "xs.vertical",
-               "viewReference": "Serv.Sdds.Components.Toolbar.Xs.Vertical",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarXsVertical"
+               "name": "xs.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.Xs.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalXsHasShadow"
+            }
+         ]
+      },
+      {
+         "key": "toolbar",
+         "coreName": "ToolBar",
+         "styleName": "ToolbarVertical",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalL"
+            },
+            {
+               "name": "l.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.L.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalLHasShadow"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalM"
+            },
+            {
+               "name": "m.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.M.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalMHasShadow"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalS"
+            },
+            {
+               "name": "s.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.S.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalSHasShadow"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalXs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.Xs.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalXsHasShadow"
             }
          ]
       },

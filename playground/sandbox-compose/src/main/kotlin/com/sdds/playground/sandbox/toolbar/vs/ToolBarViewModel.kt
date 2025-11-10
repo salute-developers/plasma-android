@@ -8,7 +8,7 @@ import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.toolbar.ToolBarUiState
 
 /**
- * ViewModel компонента Modal
+ * ViewModel компонента ToolBar
  */
 internal class ToolBarViewModel(
     defaultState: ToolBarUiState,

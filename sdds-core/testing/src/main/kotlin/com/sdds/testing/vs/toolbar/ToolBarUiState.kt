@@ -14,7 +14,7 @@ import kotlinx.parcelize.Parcelize
 data class ToolBarUiState(
     override val variant: String = "",
     override val appearance: String = "",
-    val hasDivider: Boolean = false,
+    val hasDivider: Boolean = true,
     val slotsAmount: Int = 3,
 ) : UiState, Parcelable {
 
