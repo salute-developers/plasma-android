@@ -43,6 +43,7 @@ import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
+import com.sdds.uikit.TextField
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
@@ -55,6 +56,7 @@ import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.internal.textfield.mask.MaskedEditText
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
@@ -124,7 +126,7 @@ internal class DecoratedFieldBox(
             isClickable = false
         }
     }
-    private val _field = StatefulEditText(context).apply {
+    private val _field = MaskedEditText(context).apply {
         id = R.id.sd_textFieldEditText
         hint = null
         background = null
@@ -193,7 +195,7 @@ internal class DecoratedFieldBox(
             return _scrollBarEnabled && _editableContainer.measuredHeight < chipsContentHeight
         }
 
-    val editText: StatefulEditText
+    val editText: MaskedEditText
         get() = _field
 
     val iconView: ImageView
@@ -677,6 +679,12 @@ internal class DecoratedFieldBox(
 
         editText.apply {
             inputType = typedArray.getInt(R.styleable.SdDecoratedFieldBox_android_inputType, InputType.TYPE_CLASS_TEXT)
+            val maskPattern = typedArray.getString(R.styleable.SdDecoratedFieldBox_sd_inputMask)
+            if (maskPattern != null) mask = TextField.Mask.Custom(maskPattern)
+            maskDisplayMode = typedArray.getInt(
+                R.styleable.SdDecoratedFieldBox_sd_inputMaskDisplayMode,
+                MaskedEditText.MASK_DISPLAY_MODE_ALWAYS,
+            )
             setImeActionLabel(
                 typedArray.getString(R.styleable.SdDecoratedFieldBox_android_imeActionLabel),
                 typedArray.getInt(R.styleable.SdDecoratedFieldBox_android_imeActionId, 0),

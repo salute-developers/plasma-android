@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sd_mask_notation_date_day">Д</string>
+    <string name="sd_mask_notation_date_month">М</string>
+    <string name="sd_mask_notation_date_year">Г</string>
+    <string name="sd_mask_notation_date_short">[ДД].[ММ].[ГГ]</string>
+</resources>

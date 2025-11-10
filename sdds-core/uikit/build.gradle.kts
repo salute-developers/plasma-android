@@ -19,5 +19,9 @@ dependencies {
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.core)
     implementation(libs.base.android.material)
+    implementation(libs.uikit.input.masks) {
+        val androidX = libs.base.androidX.core.get()
+        exclude(androidX.group, androidX.module.name)
+    }
     androidTestImplementation(libs.base.test.ui.espresso.core)
 }

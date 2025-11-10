@@ -9,9 +9,9 @@ import com.sdds.playground.sandbox.core.integration.component.ViewComponent
 /**
  *  Компоненты
  */
-object ${{ themeName }}ViewComponents : ComponentsProviderView {
+object ${{ themeName }}ViewComponents : ComponentsProviderView() {
 
-    override val all: Map<ComponentKey, ViewComponent<String>> =
+    override val generated: Map<ComponentKey, ViewComponent<String>> =
         listOf(
             ${{ components }}
         ).associateBy { it.key }

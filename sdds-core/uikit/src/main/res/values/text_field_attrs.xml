@@ -60,6 +60,9 @@
         <attr name="android:imeActionLabel" />
         <attr name="android:imeOptions" />
         <attr name="android:minWidth" />
+
+        <attr name="sd_inputMask" />
+        <attr name="sd_inputMaskDisplayMode" />
     </declare-styleable>
 
     <declare-styleable name="TextField" tools:ignore="ResourceName">
@@ -159,5 +162,11 @@
         <attr name="android:imeActionLabel" />
         <attr name="android:imeOptions" />
         <attr name="android:maxHeight"/>
+
+        <attr name="sd_inputMask" format="string" />
+        <attr name="sd_inputMaskDisplayMode" format="enum">
+            <enum name="always" value="0" />
+            <enum name="on_input" value="1" />
+        </attr>
     </declare-styleable>
 </resources>

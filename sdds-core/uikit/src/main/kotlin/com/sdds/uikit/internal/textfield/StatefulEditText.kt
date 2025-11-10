@@ -26,7 +26,7 @@ import com.sdds.uikit.viewstate.ViewState
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @author Малышев Александр on 21.06.2024
  */
-internal class StatefulEditText @JvmOverloads constructor(
+internal open class StatefulEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.editTextStyle,
@@ -43,6 +43,7 @@ internal class StatefulEditText @JvmOverloads constructor(
     private var _valueTextAppearance: Int = 0
     private var _prefixPadding: Int = 0
     private var _suffixPadding: Int = 0
+    private var _pendingEditorListener: OnEditorActionListener? = null
 
     private val readOnlyFilter = InputFilter { source, _, _, dest, dstart, dend ->
         dest.subSequence(dstart, dend)
@@ -82,7 +83,7 @@ internal class StatefulEditText @JvmOverloads constructor(
             }
         }
 
-    var placeholder: CharSequence? = null
+    open var placeholder: CharSequence? = null
         set(value) {
             if (field != value) {
                 field = value
@@ -155,6 +156,7 @@ internal class StatefulEditText @JvmOverloads constructor(
 
     init {
         super.setOnKeyListener(keyListener)
+        editorListener.userListener = _pendingEditorListener
         super.setOnEditorActionListener(editorListener)
         updatePrefixSuffixDrawable()
     }
@@ -208,8 +210,8 @@ internal class StatefulEditText @JvmOverloads constructor(
         updateSuffixPrefixPosition()
     }
 
-    override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {
-        super.onTextChanged(text, start, lengthBefore, lengthAfter)
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        super.onTextChanged(s, start, before, count)
         updateSuffixPrefixPosition()
     }
 
@@ -229,7 +231,12 @@ internal class StatefulEditText @JvmOverloads constructor(
     }
 
     override fun setOnEditorActionListener(l: OnEditorActionListener?) {
-        editorListener.userListener = l
+        // Может быть не инициализирован при вызове setOnEditorActionListener из супер класса,
+        if (editorListener == null) {
+            _pendingEditorListener = l
+        } else {
+            editorListener.userListener = l
+        }
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo?): InputConnection? {
@@ -284,7 +291,7 @@ internal class StatefulEditText @JvmOverloads constructor(
         refreshDrawableState()
     }
 
-    private fun updateSuffixPrefixPosition() {
+    protected fun updateSuffixPrefixPosition() {
         _prefixDrawable?.apply {
             val top = ((intrinsicHeight - measuredHeight) / 2)
             setBounds(
@@ -298,7 +305,7 @@ internal class StatefulEditText @JvmOverloads constructor(
         _suffixDrawable?.apply {
             val suffixLeft = when {
                 text.isNullOrBlank() && placeholderEnabled && !placeholder.isNullOrEmpty() -> 0
-                layout != null -> layout.getLineWidth(lineCount - 1).toInt() - getAvailableLayoutWidth()
+                layout != null -> getLastLineWidth().toInt() - getAvailableLayoutWidth()
                 else -> 0
             }
             val top = ((measuredHeight - intrinsicHeight) / 2)
@@ -309,6 +316,12 @@ internal class StatefulEditText @JvmOverloads constructor(
                 top + intrinsicHeight,
             )
         }
+    }
+
+    protected open fun getLastLineWidth(): Float {
+        val l = layout ?: return 0f
+        val end = text?.length ?: 0
+        return l.getPrimaryHorizontal(end)
     }
 
     private fun getAvailableLayoutWidth() = measuredWidth - compoundPaddingStart - compoundPaddingEnd
