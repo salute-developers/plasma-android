@@ -33,6 +33,7 @@ import com.sdds.plugin.themebuilder.internal.components.note.NoteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.paginationdots.PaginationDotsConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
@@ -119,5 +120,6 @@ internal val componentDelegates by unsafeLazy {
         "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
         "navigation-bar" to NavigationBarConfigDelegate(),
+        "pagination-dots" to PaginationDotsConfigDelegate(),
     )
 }

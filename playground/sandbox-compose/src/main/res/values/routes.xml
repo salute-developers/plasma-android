@@ -54,4 +54,5 @@
     <item type="id" name="nav_icon_tabs"/>
     <item type="id" name="nav_note"/>
     <item type="id" name="nav_note_compact"/>
+    <item type="id" name="nav_pagination_dots"/>
 </resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.PaginationDotsVertical" parent="Sdds.Components.PaginationDots">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_edgeIndicatorShrinkFactor">0.3</item>
+        <item name="sd_gap">@dimen/serv_pagination_dots_vertical_gap</item>
+        <item name="sd_dotBackground">@color/serv_pagination_dots_vertical_dot_bg_color</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsVertical.M">
+        <item name="sd_edgeIndicatorCount">2</item>
+        <item name="sd_dotWidth">@dimen/serv_pagination_dots_vertical_m_dot_width</item>
+        <item name="sd_dotHeight">@dimen/serv_pagination_dots_vertical_m_dot_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsVerticalM">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsVertical.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsVertical.M.ActiveTypeLine">
+        <item name="sd_dotHeight">@xml/serv_pagination_dots_vertical_m_active_type_line_dot_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsVerticalMActiveTypeLine">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsVertical.M.ActiveTypeLine</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsVertical.S">
+        <item name="sd_edgeIndicatorCount">1</item>
+        <item name="sd_dotWidth">@dimen/serv_pagination_dots_vertical_s_dot_width</item>
+        <item name="sd_dotHeight">@dimen/serv_pagination_dots_vertical_s_dot_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsVerticalS">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsVertical.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsVertical.S.ActiveTypeLine">
+        <item name="sd_dotHeight">@xml/serv_pagination_dots_vertical_s_active_type_line_dot_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsVertical.S.ActiveTypeLine</item>
+    </style>
+</resources>

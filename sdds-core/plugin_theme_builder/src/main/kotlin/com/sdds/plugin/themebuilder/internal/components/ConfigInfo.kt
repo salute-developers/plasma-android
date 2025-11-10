@@ -28,8 +28,8 @@ internal data class ConfigInfo(
 internal data class ComponentInfo(
     val key: String,
     @Transient val appearance: String = "",
-    @Transient val styleClassName: ClassName = ClassName("", ""),
-    @Transient val styleBuilderClassName: ClassName = ClassName("", ""),
+    @Transient val styleClassName: ClassName? = null,
+    @Transient val styleBuilderClassName: ClassName? = null,
     @Transient val componentPackage: String = "",
     val coreName: String,
     val styleName: String,

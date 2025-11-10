@@ -352,5 +352,12 @@ object SddsServViewComponents : ComponentsProviderView {
                     "IconTabItem" to SddsServIconTabItemVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to SddsServPaginationDotsHorizontalVariationsView,
+                    "PaginationDotsVertical" to SddsServPaginationDotsVerticalVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

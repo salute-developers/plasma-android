@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.PaginationDots">
+        <item name="sd_visibleItemsCount">9</item>
+        <item name="sd_edgeIndicatorShrinkFactor">0.3</item>
+        <item name="sd_edgeIndicatorCount">1</item>
+    </style>
+</resources>

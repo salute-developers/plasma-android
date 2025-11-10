@@ -45,6 +45,7 @@ import com.sdds.playground.sandbox.note.vs.NoteFragment
 import com.sdds.playground.sandbox.notification.vs.NotificationFragment
 import com.sdds.playground.sandbox.notificationcontent.vs.NotificationContentFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
+import com.sdds.playground.sandbox.paginationdots.vs.PaginationDotsFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
@@ -107,6 +108,7 @@ import com.sdds.testing.vs.note.noteCompact
 import com.sdds.testing.vs.notification.notificationTrigger
 import com.sdds.testing.vs.notificationcontent.notificationContent
 import com.sdds.testing.vs.overlay.overlayWithTrigger
+import com.sdds.testing.vs.paginationdots.paginationDots
 import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
 import com.sdds.testing.vs.progress.ProgressUiState
@@ -387,6 +389,10 @@ internal sealed class ComponentScreen(
     object NoteCompact : ComponentScreen(
         { item -> fragment<NoteCompactFragment>(item.route, item.defaultBuilder) },
     )
+
+    object PaginationDots : ComponentScreen(
+        { item -> fragment<PaginationDotsFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -444,6 +450,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         CoreComponent.NOTE -> ComponentScreen.Note
         CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
+        CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -503,6 +510,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
         CoreComponent.NOTE -> R.id.nav_note
         CoreComponent.NOTE_COMPACT -> R.id.nav_note_compact
+        CoreComponent.PAGINATION_DOTS -> R.id.nav_pagination_dots
         else -> null
     }?.let { it + hashCode() }
 }
@@ -608,6 +616,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.ICON_TABS -> iconTabs(context, style)
         CoreComponent.NOTE -> note(context, style)
         CoreComponent.NOTE_COMPACT -> noteCompact(context, style)
+        CoreComponent.PAGINATION_DOTS -> paginationDots(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

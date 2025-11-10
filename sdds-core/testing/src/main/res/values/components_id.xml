@@ -54,4 +54,5 @@
     <item type="id" name="code_input"/>
     <item type="id" name="code_field"/>
     <item type="id" name="note"/>
+    <item type="id" name="pagination_dots"/>
 </resources>

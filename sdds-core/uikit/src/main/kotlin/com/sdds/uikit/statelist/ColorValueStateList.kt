@@ -43,6 +43,13 @@ class ColorValueStateList(
         return super.isStateful() || values.any { it.isStateful() }
     }
 
+    /**
+     * Возвращает true, если в списке значений используются только цвет и/или селекторы цвета.
+     */
+    fun isSimple(): Boolean {
+        return values.all { it is ColorValueHolder.ColorValue || it is ColorValueHolder.ColorListValue }
+    }
+
     companion object {
 
         private const val MAX_ALPHA_INT = 255
@@ -309,6 +316,14 @@ fun TextView.setTextColorValue(
             paint.color = -1
             paint.shader = cachedShaderFactory.getShader(textColorValue.value, textBounds)
         }
+    }
+}
+
+internal fun ColorValueStateList.colorForState(state: IntArray, defaultValue: Int? = null): Int? {
+    return when (val holder = getValueForState(state)) {
+        is ColorValueHolder.ColorListValue -> holder.value.colorForState(state, defaultValue ?: 0)
+        is ColorValueHolder.ColorValue -> holder.value
+        else -> defaultValue
     }
 }
 
