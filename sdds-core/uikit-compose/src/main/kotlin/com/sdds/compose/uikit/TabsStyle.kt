@@ -430,7 +430,7 @@ private class DefaultTabsColors(
 
         override fun build(): TabsColors {
             return DefaultTabsColors(
-                backgroundColor = backgroundColor ?: Color.White.asInteractive(),
+                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
                 indicatorColor = indicatorColor ?: Color.Black.asInteractive(),
                 overflowNextIconColor = overflowNextIconColor ?: Color.Black.asInteractive(),
                 overflowPrevIconColor = overflowPrevIconColor ?: Color.Black.asInteractive(),
