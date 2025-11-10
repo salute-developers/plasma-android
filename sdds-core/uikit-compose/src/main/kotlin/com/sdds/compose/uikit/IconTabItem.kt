@@ -17,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.IntOffset
 import com.sdds.compose.uikit.interactions.InteractiveState
@@ -31,7 +30,6 @@ import com.sdds.compose.uikit.interactions.getValue
  * @param modifier модификатор
  * @param style стиль компонента [TabItem]
  * @param isSelected выбран ли таб
- * @param enabled включен ли таб
  * @param icon ресурс иконки
  * @param actionIcon ресурс иконки действия
  * @param onActionClicked обработчик нажатия на иконку действия
@@ -43,7 +41,6 @@ fun IconTabItem(
     modifier: Modifier = Modifier,
     style: TabItemStyle = LocalTabItemStyle.current,
     isSelected: Boolean = false,
-    enabled: Boolean = true,
     @DrawableRes icon: Int? = null,
     @DrawableRes actionIcon: Int? = null,
     onActionClicked: () -> Unit = {},
@@ -66,8 +63,7 @@ fun IconTabItem(
             .background(
                 color = style.colors.backgroundColor.getValue(interactionSource, stateSet),
                 shape = style.shape,
-            )
-            .graphicsLayer { this.alpha = if (enabled) 1f else style.disableAlpha },
+            ),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -102,9 +98,8 @@ private fun ActionContent(
     actionIcon ?: return
     Icon(
         modifier = Modifier
-            .padding(start = style.dimensions.actionPadding)
-            .size(style.dimensions.actionSize)
-            .clickable(indication = null, interactionSource = null, onClick = onActionClicked),
+            .clickable(indication = null, interactionSource = null, onClick = onActionClicked)
+            .padding(start = style.dimensions.actionPadding),
         painter = painterResource(actionIcon),
         contentDescription = "",
         tint = style.colors.actionColor.getValue(interactionSource, stateSet),

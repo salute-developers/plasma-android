@@ -50,10 +50,9 @@ internal fun IconTabsScreen(componentKey: ComponentKey = ComponentKey.IconTabs) 
                     tab(dropdownAlias = label) { selected ->
                         IconTabItem(
                             isSelected = selected,
-                            enabled = tabsUiState.enabled,
                             count = if (tabsUiState.counter) tabsUiState.count else null,
                             icon = R.drawable.ic_plasma_24,
-                            actionIcon = actionIcon(tabsUiState),
+                            actionIcon = actionIcon(tabsUiState, style),
                             onActionClicked = {},
                         )
                     }
@@ -64,9 +63,9 @@ internal fun IconTabsScreen(componentKey: ComponentKey = ComponentKey.IconTabs) 
 }
 
 @DrawableRes
-private fun actionIcon(tabsUiState: TabsUiState): Int? {
+private fun actionIcon(tabsUiState: TabsUiState, style: TabsStyle): Int? {
     return if (tabsUiState.actionEnabled) {
-        R.drawable.ic_close_24
+        style.tabItemStyle.actionIcon
     } else {
         null
     }

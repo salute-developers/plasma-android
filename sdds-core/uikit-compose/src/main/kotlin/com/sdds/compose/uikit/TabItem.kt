@@ -17,7 +17,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,7 +31,6 @@ import com.sdds.compose.uikit.interactions.getValue
  * @param modifier модификатор
  * @param style стиль компонента [TabItem]
  * @param isSelected выбран ли таб
- * @param enabled включен ли таб
  * @param label основной текст
  * @param helpText дополнительный текст
  * @param count текст счетчика [Counter]
@@ -47,7 +45,6 @@ fun TabItem(
     modifier: Modifier = Modifier,
     style: TabItemStyle = LocalTabItemStyle.current,
     isSelected: Boolean = false,
-    enabled: Boolean = true,
     label: String? = null,
     helpText: String? = null,
     count: String? = null,
@@ -73,8 +70,7 @@ fun TabItem(
             .background(
                 color = style.colors.backgroundColor.getValue(interactionSource, stateSet),
                 shape = style.shape,
-            )
-            .graphicsLayer { this.alpha = if (enabled) 1f else style.disableAlpha },
+            ),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -206,6 +202,5 @@ private fun TabItemPreview() {
         },
         count = "2",
         isSelected = true,
-        enabled = true,
     )
 }

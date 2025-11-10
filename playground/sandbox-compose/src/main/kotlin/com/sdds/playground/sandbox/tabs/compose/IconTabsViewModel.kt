@@ -53,6 +53,11 @@ internal class IconTabsViewModel(
                 onApply = { internalUiState.value = internalUiState.value.copy(counter = it) },
             ),
             Property.BooleanProperty(
+                name = "stretch",
+                value = stretch,
+                onApply = { internalUiState.value = internalUiState.value.copy(stretch = it) },
+            ),
+            Property.BooleanProperty(
                 name = "actionEnabled",
                 value = actionEnabled,
                 onApply = { internalUiState.value = internalUiState.value.copy(actionEnabled = it) },

@@ -51,13 +51,12 @@ internal fun TabsScreen(componentKey: ComponentKey = ComponentKey.Tabs) {
                     tab(dropdownAlias = label) { selected ->
                         TabItem(
                             isSelected = selected,
-                            enabled = tabsUiState.enabled,
                             label = label,
                             helpText = tabsUiState.tabItemValue,
                             count = if (tabsUiState.counter) tabsUiState.count else null,
                             startContent = startIcon(tabsUiState),
                             endContent = endIcon(tabsUiState),
-                            actionIcon = actionIcon(tabsUiState),
+                            actionIcon = actionIcon(tabsUiState, style),
                             onActionClicked = {},
                         )
                     }
@@ -68,9 +67,9 @@ internal fun TabsScreen(componentKey: ComponentKey = ComponentKey.Tabs) {
 }
 
 @DrawableRes
-private fun actionIcon(tabsUiState: TabsUiState): Int? {
+private fun actionIcon(tabsUiState: TabsUiState, style: TabsStyle): Int? {
     return if (tabsUiState.actionEnabled) {
-        com.sdds.icons.R.drawable.ic_close_24
+        style.tabItemStyle.actionIcon
     } else {
         null
     }
