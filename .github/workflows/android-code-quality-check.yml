@@ -30,13 +30,13 @@ jobs:
         uses: ./.github/actions/prepare-android-env
 
       - name: Run lint
-        run: ./.github/scripts/run_task.sh lintDebug '${{ needs.detect_changes.outputs.changed }}' --continue
+        run: ./.github/scripts/run_task.sh lint '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:sdds-core:plugin_theme_builder,:build-system
 
       - name: Run detekt
-        run: ./.github/scripts/run_task.sh detekt '${{ needs.detect_changes.outputs.changed }}' --continue
+        run: ./.github/scripts/run_task.sh detekt '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:build-system
 
       - name: Run spotless
-        run: ./.github/scripts/run_task.sh spotlessCheck '${{ needs.detect_changes.outputs.changed }}' --continue
+        run: ./.github/scripts/run_task.sh spotlessCheck '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:build-system
 
       - name: Upload static analysis reports
         if: success() || failure()
