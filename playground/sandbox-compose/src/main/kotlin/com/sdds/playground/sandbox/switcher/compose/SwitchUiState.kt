@@ -9,6 +9,7 @@ import com.sdds.playground.sandbox.core.compose.UiState
  * @property label текст лэйбла
  * @property description текст описания
  * @property enabled включен ли switch
+ * @property toggleable может ли switch переключаться по нажатию
  */
 internal data class SwitchUiState(
     override val variant: String = "",
@@ -17,6 +18,7 @@ internal data class SwitchUiState(
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
+    val toggleable: Boolean = false,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

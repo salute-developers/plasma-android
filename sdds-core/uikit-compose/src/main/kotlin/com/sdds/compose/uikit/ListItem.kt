@@ -115,9 +115,9 @@ fun ListItem(
 @Composable
 private fun ListItemStyle.toCellStyle(): CellStyle {
     return CellStyle.builder().apply {
-        titleStyle(titleStyle)
-        subtitleStyle(subtitleStyle)
-        labelStyle(labelStyle)
+        titleStyle(titleStyles)
+        subtitleStyle(subtitleStyles)
+        labelStyle(labelStyles)
         disclosureIconRes?.let { disclosureIcon(it) }
         colors {
             titleColor(colors.titleColor)

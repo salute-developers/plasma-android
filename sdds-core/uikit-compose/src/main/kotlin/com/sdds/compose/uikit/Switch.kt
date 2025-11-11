@@ -1,9 +1,13 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -64,11 +68,16 @@ fun Switch(
         }
     val labelColor =
         style.colorValues.labelColor.colorForInteractionAsState(interactionSource, stateSet)
+    val backgroundColor by
+        style.colorValues.backgroundColor.colorForInteractionAsState(interactionSource, stateSet)
     val descriptionColor =
         style.colorValues.descriptionColor.colorForInteractionAsState(interactionSource, stateSet)
+    val paddings = style.dimensionValues.getPaddings()
     BaseSwitchLayout(
         modifier = modifier
             .then(toggleableModifier)
+            .background(backgroundColor, style.shape)
+            .padding(paddings)
             .graphicsLayer { alpha = if (enabled) 1f else style.disableAlpha },
         switch = {
             SwitchToggle(
@@ -187,6 +196,15 @@ fun Switch(
     )
 }
 
+private fun SwitchDimensionValues.getPaddings(): PaddingValues {
+    return PaddingValues(
+        start = paddingStart,
+        top = paddingTop,
+        end = paddingEnd,
+        bottom = paddingBottom,
+    )
+}
+
 private fun SwitchDimensions.toDimensionValues(): SwitchDimensionValues {
     return object : SwitchDimensionValues {
         override val toggleTrackWidth: Dp = this@toDimensionValues.toggleWidth
@@ -196,6 +214,10 @@ private fun SwitchDimensions.toDimensionValues(): SwitchDimensionValues {
         override val toggleThumbPadding: Dp = 2.dp
         override val textPadding: Dp = this@toDimensionValues.horizontalSpacing
         override val descriptionPadding: Dp = this@toDimensionValues.verticalSpacing
+        override val paddingTop: Dp = 0.dp
+        override val paddingStart: Dp = 0.dp
+        override val paddingEnd: Dp = 0.dp
+        override val paddingBottom: Dp = 0.dp
     }
 }
 
@@ -213,6 +235,7 @@ private fun SwitchColors.toColorValues(): SwitchColorValues {
             )
         override val toggleTrackBorderColor: InteractiveColor =
             Color.Transparent.asInteractive()
+        override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
     }
 }
 

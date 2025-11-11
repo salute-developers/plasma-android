@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.cell.view
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
@@ -51,6 +52,9 @@ internal class CellStyleGeneratorView(
         CellDimensionsProperty.values().forEach {
             addDimensionProperty(it, variation, variationNode)
         }
+        CellTypographyProperties.values().forEach {
+            addTypographyProperty(it, variation, variationNode)
+        }
         addProps(variationNode)
         CellColorProperty.values().forEach {
             addColorProperty(it, variation, variationNode)
@@ -82,10 +86,6 @@ internal class CellStyleGeneratorView(
         val props = variationNode.value.props
 
         val overlayStyleName = variationNode.camelCaseName("")
-        props.labelStyle?.let { typographyAttribute("sd_labelAppearance", it.value) }
-        props.titleStyle?.let { typographyAttribute("sd_titleAppearance", it.value) }
-        props.subtitleStyle?.let { typographyAttribute("sd_subtitleAppearance", it.value) }
-        props.disclosureTextStyle?.let { typographyAttribute("sd_disclosureTextAppearance", it.value) }
         props.disclosureIcon?.let { iconAttribute("sd_disclosureIcon", it.value) }
 
         if (props.cellContentStyleNotEmpty()) {
@@ -127,6 +127,26 @@ internal class CellStyleGeneratorView(
                 SUBTITLE_COLOR -> owner.subtitleColor
                 DISCLOSURE_TEXT_COLOR -> owner.disclosureTextColor
                 DISCLOSURE_ICON_COLOR -> owner.disclosureIconColor
+            }
+        }
+    }
+
+    internal enum class CellTypographyProperties(
+        override val attribute: String,
+        override val fileSuffix: String,
+    ) : ProvidableProperty<CellProperties, String, Typography> {
+        TITLE_APPEARANCE("sd_titleAppearance", "title_appearance"),
+        LABEL_APPEARANCE("sd_labelAppearance", "label_appearance"),
+        SUBTITLE_APPEARANCE("sd_subtitleAppearance", "subtitle_appearance"),
+        DISCLOSURE_APPEARANCE("sd_disclosureTextAppearance", "disclosure_appearance"),
+        ;
+
+        override fun provide(owner: CellProperties): Typography? {
+            return when (this) {
+                TITLE_APPEARANCE -> owner.titleStyle
+                LABEL_APPEARANCE -> owner.labelStyle
+                SUBTITLE_APPEARANCE -> owner.subtitleStyle
+                DISCLOSURE_APPEARANCE -> owner.disclosureTextStyle
             }
         }
     }

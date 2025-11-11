@@ -22,6 +22,7 @@ fun listView(
     return ListView(context.styleWrapper(style))
         .apply {
             adapter = SimpleListViewAdapter()
+            itemAnimator = null
         }
         .applyState(state)
         .apply { id = R.id.list_view }

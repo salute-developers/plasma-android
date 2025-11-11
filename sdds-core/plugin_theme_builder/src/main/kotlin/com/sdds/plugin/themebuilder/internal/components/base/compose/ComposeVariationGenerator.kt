@@ -183,8 +183,23 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return ".$shadowName($themeClassName.shadows.${shadow.value.toKtAttrName()})"
     }
 
+    private fun getTypographyReference(tokenValue: String): String {
+        return "$themeClassName.typography.${tokenValue.toKtAttrName()}"
+    }
+
     protected fun getTypography(styleName: String, typography: Typography): String {
-        return ".$styleName($themeClassName.typography.${typography.value.toKtAttrName()})"
+        val camelCaseName = styleName.toCamelCase().decapitalized()
+        val defaultValue = getTypographyReference(typography.value)
+        if (typography.states.isNullOrEmpty()) {
+            return ".$camelCaseName($defaultValue)"
+        }
+
+        return buildString {
+            val stateSuffix = typography.asStatefulFragment()
+            appendLine(
+                ".$camelCaseName(${defaultValue}$stateSuffix)",
+            )
+        }
     }
 
     protected fun getIconAsDrawableRes(iconName: String, icon: Icon): String {
@@ -652,6 +667,16 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
+    private fun Typography.asStatefulFragment(): String =
+        if (states.isNullOrEmpty()) {
+            ""
+        } else {
+            """.asStatefulValue·(
+                ${getAsInteractiveParameters()}
+            )
+            """.trimIndent()
+        }
+
     private fun Color?.getAsInteractiveParameters(wrapColor: Boolean = false): String {
         return this?.states?.joinToString {
             it.getStateParameter(isGradient = this is Gradient, wrapColor = wrapColor)
@@ -664,6 +689,18 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         this.states?.forEachIndexed { index, floatState ->
             interactiveParametersList.add(
                 floatState.getDpStateParameter(dimensionName, "$dimensionSuffixOrEmpty$index"),
+            )
+        }
+        return interactiveParametersList.joinToString()
+    }
+
+    private fun Typography.getAsInteractiveParameters(): String {
+        val interactiveParametersList = mutableListOf<String>()
+        this.states?.forEach { stringState ->
+            interactiveParametersList.add(
+                """
+                setOf(${stringState.state.toStateEnums()}) to ${getTypographyReference(stringState.value)}
+                """.trimIndent(),
             )
         }
         return interactiveParametersList.joinToString()
