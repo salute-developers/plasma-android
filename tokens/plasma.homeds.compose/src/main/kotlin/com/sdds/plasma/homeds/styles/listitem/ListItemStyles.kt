@@ -70,10 +70,10 @@ public val ListItem.S: WrapperListItemS
         .dimensions {
             contentPaddingEnd(12.0.dp)
             height(48.0.dp)
-            paddingStart(16.0.dp)
-            paddingEnd(14.0.dp)
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            paddingTop(10.0.dp)
+            paddingBottom(10.0.dp)
         }
         .wrap(::WrapperListItemS)
 
