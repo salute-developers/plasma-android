@@ -40,13 +40,17 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
     private fun updateUiStateWithDefaultVariant() {
         val state = internalUiState.value
         val defaultAppearance = getDefaultAppearances()
-        val styleProvider = getStyleProvider(defaultAppearance) ?: return
+        val appearance = state.appearance.ifEmpty { defaultAppearance }
+        val styleProvider = getStyleProvider(appearance) ?: return
         if (state.variant.isNotEmpty() &&
             styleProvider.variants.contains(state.variant)
         ) {
             return
         }
-        internalUiState.value = state.updateVariant(defaultAppearance, styleProvider.defaultVariant) as State
+        internalUiState.value = state.updateVariant(
+            appearance = appearance,
+            variant = styleProvider.defaultVariant,
+        ) as State
     }
 
     private fun appearanceProperties(state: State): List<Property.SingleChoiceProperty> {

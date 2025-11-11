@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.ValueState
@@ -168,14 +169,21 @@ private fun ActionContent(
     onActionClicked: () -> Unit,
 ) {
     actionIcon ?: return
-    Icon(
-        modifier = Modifier
-            .clickable(indication = null, interactionSource = null, onClick = onActionClicked)
-            .padding(start = style.dimensions.actionPadding),
-        painter = painterResource(actionIcon),
-        contentDescription = "",
-        tint = style.colors.actionColor.getValue(interactionSource, stateSet),
-    )
+    CompositionLocalProvider(
+        LocalIconDefaultSize provides DpSize(
+            width = style.dimensions.actionSize,
+            height = style.dimensions.actionSize,
+        ),
+    ) {
+        Icon(
+            modifier = Modifier
+                .padding(start = style.dimensions.actionPadding)
+                .clickable(indication = null, interactionSource = null, onClick = onActionClicked),
+            painter = painterResource(actionIcon),
+            contentDescription = "",
+            tint = style.colors.actionColor.getValue(interactionSource, stateSet),
+        )
+    }
 }
 
 @Composable

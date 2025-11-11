@@ -635,7 +635,7 @@ private class DefaultTabItemDimensions(
                 counterPadding = counterPadding ?: 8.dp,
                 valuePadding = valuePadding ?: 4.dp,
                 actionPadding = actionPadding ?: 4.dp,
-                actionSize = actionSize ?: 24.dp,
+                actionSize = actionSize ?: Dp.Unspecified,
                 counterOffsetX = counterOffsetX ?: 0.dp,
                 counterOffsetY = counterOffsetY ?: 0.dp,
             )

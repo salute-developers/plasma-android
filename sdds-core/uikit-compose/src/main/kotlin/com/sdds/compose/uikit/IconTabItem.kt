@@ -14,10 +14,12 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntOffset
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.ValueState
@@ -96,14 +98,21 @@ private fun ActionContent(
     onActionClicked: () -> Unit,
 ) {
     actionIcon ?: return
-    Icon(
-        modifier = Modifier
-            .clickable(indication = null, interactionSource = null, onClick = onActionClicked)
-            .padding(start = style.dimensions.actionPadding),
-        painter = painterResource(actionIcon),
-        contentDescription = "",
-        tint = style.colors.actionColor.getValue(interactionSource, stateSet),
-    )
+    CompositionLocalProvider(
+        LocalIconDefaultSize provides DpSize(
+            width = style.dimensions.actionSize,
+            height = style.dimensions.actionSize,
+        ),
+    ) {
+        Icon(
+            modifier = Modifier
+                .padding(start = style.dimensions.actionPadding)
+                .clickable(indication = null, interactionSource = null, onClick = onActionClicked),
+            painter = painterResource(actionIcon),
+            contentDescription = "",
+            tint = style.colors.actionColor.getValue(interactionSource, stateSet),
+        )
+    }
 }
 
 @Composable
