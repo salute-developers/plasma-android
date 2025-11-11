@@ -47,6 +47,7 @@ fun paginationDotsWithControls(
         updatePadding(top = spacing)
         addView(
             iconButton(context).apply {
+                contentDescription = "Previous"
                 setIconResource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
                 setOnClickListener {
                     dots.currentIndex -= 1
@@ -58,6 +59,7 @@ fun paginationDotsWithControls(
         )
         addView(
             iconButton(context).apply {
+                contentDescription = "Next"
                 setIconResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
                 setOnClickListener {
                     dots.currentIndex += 1
