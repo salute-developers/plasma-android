@@ -24,8 +24,8 @@ internal class TabsViewModel(
         return listOf(
             Property.IntProperty(
                 name = "amount",
-                value = amount.coerceIn(1, 10),
-                onApply = { internalUiState.value = internalUiState.value.copy(amount = it) },
+                value = amount,
+                onApply = { internalUiState.value = internalUiState.value.copy(amount = it.coerceIn(1, 50)) },
             ),
             enumProperty(
                 name = "clip",

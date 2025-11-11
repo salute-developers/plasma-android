@@ -124,6 +124,7 @@ private fun RegularRow(
                 selectedTabIndex = selectedTabIndex,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Horizontal,
+                clip = clip,
             )
             .clipModifier(clip, scrollState, enabled, canStretch),
     ) {
@@ -201,6 +202,7 @@ private fun ShowMoreRow(
                 selectedTabIndex = selectedTabIndex,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Horizontal,
+                clip = TabsClip.ShowMore,
             ),
         spacing = spacingDp,
         onOverflowIndex = { onOverflowTab?.invoke(it) },

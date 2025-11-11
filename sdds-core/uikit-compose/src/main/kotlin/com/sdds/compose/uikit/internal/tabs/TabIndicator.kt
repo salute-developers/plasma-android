@@ -8,6 +8,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsOrientation
 
 @Composable
@@ -20,6 +21,7 @@ internal fun Modifier.tabIndicator(
     selectedTabIndex: Int,
     scrollState: ScrollState,
     orientation: TabsOrientation,
+    clip: TabsClip,
 ): Modifier {
     return if (indicatorEnabled) {
         this.drawBehind {
@@ -27,7 +29,10 @@ internal fun Modifier.tabIndicator(
                 val spacing = spacingDp.toPx()
                 val totalSizeBeforeSelected =
                     tabSizes.take(selectedTabIndex).sum() + selectedTabIndex * spacing
-                val scrollOffset = scrollState.value
+                val scrollOffset = when (clip) {
+                    TabsClip.Scroll -> scrollState.value
+                    else -> 0
+                }
                 val indicatorMainAxisOffset = totalSizeBeforeSelected - scrollOffset
                 val indicatorMainAxisSize = tabSizes[selectedTabIndex]
                 val indicatorThickness = indicatorThickness

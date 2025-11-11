@@ -123,6 +123,7 @@ private fun RegularColumn(
                 selectedTabIndex = selectedTabIndex,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Vertical,
+                clip = clip,
             )
             .clipModifier(clip, scrollState, enabled, canStretch),
     ) {
@@ -198,6 +199,7 @@ private fun ShowMoreColumn(
                 selectedTabIndex = selectedTabIndex,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Vertical,
+                clip = TabsClip.ShowMore,
             ),
         spacing = spacingDp,
         onOverflowIndex = { onOverflowTab?.invoke(it) },
