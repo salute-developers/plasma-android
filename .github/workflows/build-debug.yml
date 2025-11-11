@@ -27,8 +27,8 @@ jobs:
         shell: bash
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
 
-      - name: Run assembleDebugAll
-        run: ./gradlew assembleDebugAll --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
+      - name: Run sandbox-compose assembleDebug
+        run: ./gradlew :playground:sandbox-compose:assembleDebug -PbranchName=${{ steps.extract_branch.outputs.branch }}
 
       - name: Upload APK
         id: upload_apk

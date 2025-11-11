@@ -15,8 +15,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  detect_changes:
+    name: Detect changes
+    uses: ./.github/workflows/detect-changes.yml
   lint:
     name: Perform static analysis
+    needs: detect_changes
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -26,17 +30,13 @@ jobs:
         uses: ./.github/actions/prepare-android-env
 
       - name: Run lint
-        run: ./gradlew lintDebugAll
+        run: ./.github/scripts/run_task.sh lintDebug '${{ needs.detect_changes.outputs.changed }}' --continue
 
       - name: Run detekt
-        run: ./gradlew detektAll
+        run: ./.github/scripts/run_task.sh detekt '${{ needs.detect_changes.outputs.changed }}' --continue
 
       - name: Run spotless
-        run: ./gradlew spotlessCheckAll
-
-# Отключаем до первого релиза
-#      - name: Run apiCheck
-#        run: ./gradlew apiCheckAll
+        run: ./.github/scripts/run_task.sh spotlessCheck '${{ needs.detect_changes.outputs.changed }}' --continue
 
       - name: Upload static analysis reports
         if: success() || failure()
@@ -50,6 +50,7 @@ jobs:
   unit-test:
     name: Perform Unit Testing
     runs-on: ubuntu-latest
+    needs: detect_changes
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -58,7 +59,7 @@ jobs:
         uses: ./.github/actions/prepare-android-env
 
       - name: Run tests
-        run: ./gradlew testAll
+        run: ./.github/scripts/run_task.sh test '${{ needs.detect_changes.outputs.changed }}' --ignore-modules=:tokens --continue
 
       - name: Upload test reports
         if: success() || failure()
