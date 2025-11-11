@@ -45,9 +45,11 @@ open class Wheel @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val _wheelPool = mutableMapOf<Int, WheelItemView>()
+    private val _wheelIds = mutableMapOf<Int, Int>()
     private val _entrySelectedListeners = mutableSetOf<EntrySelectedListener>()
     private val _entrySelectedListener = EntrySelectedListener { wheelId, entry ->
-        _entrySelectedListeners.forEach { it.onEntrySelected(wheelId, entry) }
+        val poolId = _wheelIds[wheelId] ?: return@EntrySelectedListener
+        _entrySelectedListeners.forEach { it.onEntrySelected(poolId, entry) }
     }
     private val focusSelectorSettings: FocusSelectorSettings = FocusSelectorSettings.fromAttrs(
         context,
@@ -111,6 +113,7 @@ open class Wheel @JvmOverloads constructor(
             if (_wheelItemCount != value) {
                 _wheelItemCount = value
                 _wheelPool.clear()
+                _wheelIds.clear()
                 populate()
                 requestLayout()
                 invalidate()
@@ -166,7 +169,8 @@ open class Wheel @JvmOverloads constructor(
             if (_itemAlignment != value) {
                 _itemAlignment = value
                 configureWheelItems {
-                    it.itemAlignment = value.ensureCorrectItemAlignment(it.id)
+                    val id = _wheelIds[it.id] ?: return@configureWheelItems
+                    it.itemAlignment = value.ensureCorrectItemAlignment(id)
                 }
             }
         }
@@ -305,7 +309,7 @@ open class Wheel @JvmOverloads constructor(
      * @param entries Список элементов.
      */
     open fun setData(wheelId: Int, entries: List<WheelItemEntry>) {
-        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
+        val wheelItem = getWheelItem(wheelId) ?: return
         wheelItem.setData(entries)
     }
 
@@ -316,7 +320,7 @@ open class Wheel @JvmOverloads constructor(
      * @param description Описание.
      */
     open fun setDescription(wheelId: Int, description: CharSequence?) {
-        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
+        val wheelItem = getWheelItem(wheelId) ?: return
         wheelItem.description = description
     }
 
@@ -324,7 +328,7 @@ open class Wheel @JvmOverloads constructor(
      * Контроллирует доступность кнопок управления колесом с идентификатором [wheelId]
      */
     open fun setControlsEnabled(wheelId: Int, enabled: Boolean) {
-        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
+        val wheelItem = getWheelItem(wheelId) ?: return
         wheelItem.controlsEnabled = enabled
     }
 
@@ -334,7 +338,7 @@ open class Wheel @JvmOverloads constructor(
      * @see Wheel.CONTROLS_DISPLAY_MODE_IF_ACTIVE
      */
     open fun setControlsDisplayMode(wheelId: Int, mode: Int) {
-        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return
+        val wheelItem = getWheelItem(wheelId) ?: return
         wheelItem.controlsDisplayMode = mode
     }
 
@@ -379,7 +383,7 @@ open class Wheel @JvmOverloads constructor(
      * @return true, если элемент найден и выбран.
      */
     open fun setSelectedEntry(wheelId: Int, entryId: Long, animate: Boolean = true): Boolean {
-        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return false
+        val wheelItem = getWheelItem(wheelId) ?: return false
         return wheelItem.setSelectedEntry(entryId, animate)
     }
 
@@ -390,7 +394,7 @@ open class Wheel @JvmOverloads constructor(
      * @return Выбранный элемент или null.
      */
     open fun getSelectedEntry(wheelId: Int): WheelItemEntry? {
-        val wheelItem = findViewById<WheelItemView>(wheelId) ?: return null
+        val wheelItem = getWheelItem(wheelId) ?: return null
         return wheelItem.getSelectedEntry()
     }
 
@@ -549,6 +553,10 @@ open class Wheel @JvmOverloads constructor(
         }
     }
 
+    private fun getWheelItem(id: Int): WheelItemView? {
+        return _wheelPool[id]
+    }
+
     private fun Int.ensureCorrectItemAlignment(wheelId: Int): Int {
         return when {
             this == ITEM_ALIGNMENT_MIXED && wheelId == 0 -> ITEM_ALIGNMENT_END
@@ -579,7 +587,9 @@ open class Wheel @JvmOverloads constructor(
     private fun getOrCreateWheelItem(id: Int, alignment: Int = _itemAlignment): WheelItemView {
         val wheelItem = _wheelPool[id] ?: WheelItemView(context).also { _wheelPool[id] = it }
         return wheelItem.apply {
-            this.id = id
+            this.id = generateViewId().also {
+                _wheelIds[it] = id
+            }
             visibleItemsCount = this@Wheel.visibleItemsCount
             infiniteScrollEnabled = this@Wheel.infiniteScrollEnabled
             setItemTextAppearance(_itemTextAppearance)
