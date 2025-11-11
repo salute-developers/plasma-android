@@ -50,6 +50,7 @@ jobs:
   unit-test:
     name: Perform Unit Testing
     runs-on: ubuntu-latest
+    needs: detect_changes
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -58,7 +59,7 @@ jobs:
         uses: ./.github/actions/prepare-android-env
 
       - name: Run tests
-        run: ./gradlew testAll
+        run: ./.github/scripts/run_task.sh test '${{ needs.detect_changes.outputs.changed }}' --ignore-modules=:tokens --continue
 
       - name: Upload test reports
         if: success() || failure()
