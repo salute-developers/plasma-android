@@ -13,6 +13,8 @@ import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -36,10 +38,26 @@ public value class WrapperSwitchL(
 ) : WrapperSwitch
 
 /**
+ * Обертка для вариации LHasBackground
+ */
+@JvmInline
+public value class WrapperSwitchLHasBackground(
+    public override val builder: SwitchStyleBuilder,
+) : WrapperSwitch
+
+/**
  * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperSwitchM(
+    public override val builder: SwitchStyleBuilder,
+) : WrapperSwitch
+
+/**
+ * Обертка для вариации MHasBackground
+ */
+@JvmInline
+public value class WrapperSwitchMHasBackground(
     public override val builder: SwitchStyleBuilder,
 ) : WrapperSwitch
 
@@ -51,6 +69,14 @@ public value class WrapperSwitchS(
     public override val builder: SwitchStyleBuilder,
 ) : WrapperSwitch
 
+/**
+ * Обертка для вариации SHasBackground
+ */
+@JvmInline
+public value class WrapperSwitchSHasBackground(
+    public override val builder: SwitchStyleBuilder,
+) : WrapperSwitch
+
 private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
     @Composable
     get() = this
@@ -58,15 +84,23 @@ private val SwitchStyleBuilder.invariantProps: SwitchStyleBuilder
         .toggleThumbShape(CircleShape)
         .colorValues {
             labelColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInversePrimary,
+                ),
             )
             descriptionColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
             )
             toggleTrackColor(
                 StarDsTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
                     setOf(SwitchStates.Checked)
                         to StarDsTheme.colors.surfaceDefaultAccent,
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceInverseTransparentTertiary,
                 ),
             )
             toggleTrackBorderColor(
@@ -95,6 +129,27 @@ public val Switch.L: WrapperSwitchL
         }
         .wrap(::WrapperSwitchL)
 
+public val WrapperSwitchL.HasBackground: WrapperSwitchLHasBackground
+    @Composable
+    @JvmName("WrapperSwitchLHasBackground")
+    get() = builder
+        .shape(StarDsTheme.shapes.roundL)
+        .colorValues {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                ),
+            )
+        }
+        .dimensionValues {
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_switch_padding_start_l_has_background))
+            paddingTop(dimensionResource(R.dimen.sdkit_cmp_switch_padding_top_l_has_background))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_switch_padding_end_l_has_background))
+            paddingBottom(dimensionResource(R.dimen.sdkit_cmp_switch_padding_bottom_l_has_background))
+        }
+        .wrap(::WrapperSwitchLHasBackground)
+
 public val Switch.M: WrapperSwitchM
     @Composable
     @JvmName("WrapperSwitchM")
@@ -112,6 +167,32 @@ public val Switch.M: WrapperSwitchM
         }
         .wrap(::WrapperSwitchM)
 
+public val WrapperSwitchM.HasBackground: WrapperSwitchMHasBackground
+    @Composable
+    @JvmName("WrapperSwitchMHasBackground")
+    get() = builder
+        .shape(
+            StarDsTheme.shapes.roundL.adjustBy(
+                all =
+                dimensionResource(R.dimen.sdkit_cmp_switch_shapeAdjustment_m_has_background),
+            ),
+        )
+        .colorValues {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                ),
+            )
+        }
+        .dimensionValues {
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_switch_padding_start_m_has_background))
+            paddingTop(dimensionResource(R.dimen.sdkit_cmp_switch_padding_top_m_has_background))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_switch_padding_end_m_has_background))
+            paddingBottom(dimensionResource(R.dimen.sdkit_cmp_switch_padding_bottom_m_has_background))
+        }
+        .wrap(::WrapperSwitchMHasBackground)
+
 public val Switch.S: WrapperSwitchS
     @Composable
     @JvmName("WrapperSwitchS")
@@ -128,3 +209,24 @@ public val Switch.S: WrapperSwitchS
             descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_switch_description_padding_s))
         }
         .wrap(::WrapperSwitchS)
+
+public val WrapperSwitchS.HasBackground: WrapperSwitchSHasBackground
+    @Composable
+    @JvmName("WrapperSwitchSHasBackground")
+    get() = builder
+        .shape(StarDsTheme.shapes.roundM)
+        .colorValues {
+            backgroundColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.surfaceDefaultSolidDefault,
+                ),
+            )
+        }
+        .dimensionValues {
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_switch_padding_start_s_has_background))
+            paddingTop(dimensionResource(R.dimen.sdkit_cmp_switch_padding_top_s_has_background))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_switch_padding_end_s_has_background))
+            paddingBottom(dimensionResource(R.dimen.sdkit_cmp_switch_padding_bottom_s_has_background))
+        }
+        .wrap(::WrapperSwitchSHasBackground)

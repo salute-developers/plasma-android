@@ -30,7 +30,9 @@ import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.StyleStateList
 import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.getStyleStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
 import com.sdds.uikit.viewstate.ViewState
 
@@ -64,11 +66,11 @@ open class CellLayout @JvmOverloads constructor(
     private var _gravity: Int
     private var _contentStartPadding: Int = 0
     private var _contentEndPadding: Int = 0
-    private var _labelAppearance: Int = 0
+    private var _labelAppearance: StyleStateList? = null
     private var _labelColor: ColorStateList? = null
-    private var _titleAppearance: Int = 0
+    private var _titleAppearance: StyleStateList? = null
     private var _titleColor: ColorStateList? = null
-    private var _subtitleAppearance: Int = 0
+    private var _subtitleAppearance: StyleStateList? = null
     private var _subtitleColor: ColorStateList? = null
 
     private var _disclosureText: CharSequence? = null
@@ -175,12 +177,12 @@ open class CellLayout @JvmOverloads constructor(
             typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_contentStartPadding, 0)
         _contentEndPadding =
             typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_contentEndPadding, 0)
-        _labelAppearance = typedArray.getResourceId(R.styleable.CellLayout_sd_labelAppearance, 0)
+        _labelAppearance = typedArray.getStyleStateList(context, R.styleable.CellLayout_sd_labelAppearance)
         _labelColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_labelColor)
-        _titleAppearance = typedArray.getResourceId(R.styleable.CellLayout_sd_titleAppearance, 0)
+        _titleAppearance = typedArray.getStyleStateList(context, R.styleable.CellLayout_sd_titleAppearance)
         _titleColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_titleColor)
         _subtitleAppearance =
-            typedArray.getResourceId(R.styleable.CellLayout_sd_subtitleAppearance, 0)
+            typedArray.getStyleStateList(context, R.styleable.CellLayout_sd_subtitleAppearance)
         _subtitleColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_subtitleColor)
         _disclosureTextAppearance =
             typedArray.getResourceId(R.styleable.CellLayout_sd_disclosureTextAppearance, 0)
@@ -532,21 +534,21 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     private fun TextView.applyLabelRole() {
-        setTextAppearance(_labelAppearance)
+        setTextAppearancesList(_labelAppearance)
         _labelColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _labelColor)
         state = ViewState.SECONDARY
     }
 
     private fun TextView.applyTitleRole() {
-        setTextAppearance(_titleAppearance)
+        setTextAppearancesList(_titleAppearance)
         _titleColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _titleColor)
         state = ViewState.PRIMARY
     }
 
     private fun TextView.applySubtitleRole() {
-        setTextAppearance(_subtitleAppearance)
+        setTextAppearancesList(_subtitleAppearance)
         _subtitleColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _subtitleColor)
         state = ViewState.SECONDARY

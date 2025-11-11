@@ -12,10 +12,13 @@ import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.State
 import com.sdds.plugin.themebuilder.internal.components.base.Stateful
+import com.sdds.plugin.themebuilder.internal.components.base.StringState
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.NumberStateListGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.StyleStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
@@ -64,6 +67,14 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
             resourcePrefix,
             outputResDir,
             dimensAggregator,
+            resourceReferenceProvider,
+        )
+    }
+    private val stylesStateListGeneratorFactory: StyleStateListGeneratorFactory by unsafeLazy {
+        StyleStateListGeneratorFactory(
+            xmlBuilderFactory,
+            resourcePrefix,
+            outputResDir,
             resourceReferenceProvider,
         )
     }
@@ -491,6 +502,23 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         val stateAttrs = extraAttrs.withColorStateAttrs(colorStateName)
         val generator = getValueStateList(variation, property) {
             numberStateListGeneratorFactory.create<Float, FloatState, FloatValue>(
+                property.fileName(variation?.techToSnakeCase()),
+            )
+        }
+        generator.addValue(value, stateAttrs, extraStateAttrsBuilder)
+    }
+
+    protected open fun addTypographyToStateList(
+        property: Property,
+        value: Typography,
+        variation: String? = null,
+        colorStateName: String? = null,
+        extraAttrs: Set<StateListAttribute> = emptySet(),
+        extraStateAttrsBuilder: ((StringState) -> Set<StateListAttribute>)? = null,
+    ) {
+        val stateAttrs = extraAttrs.withColorStateAttrs(colorStateName)
+        val generator = getValueStateList(variation, property) {
+            stylesStateListGeneratorFactory.create<StringState, Typography>(
                 property.fileName(variation?.techToSnakeCase()),
             )
         }

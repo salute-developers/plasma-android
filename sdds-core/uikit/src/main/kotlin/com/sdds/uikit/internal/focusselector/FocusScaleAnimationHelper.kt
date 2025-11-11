@@ -3,6 +3,9 @@ package com.sdds.uikit.internal.focusselector
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.view.View
+import com.sdds.uikit.internal.base.AnimationUtils
+import com.sdds.uikit.internal.base.AnimationUtils.lerp
+import com.sdds.uikit.shape.ShapeDrawable
 
 /**
  * Делегат для отрисовки фокусного состояния компонентов
@@ -10,7 +13,7 @@ import android.view.View
  */
 internal class FocusScaleAnimationHelper(
     private val factor: Float = DEFAULT_FACTOR,
-    private val duration: Long = DEFAULT_DURATION,
+    private val duration: Long = AnimationUtils.DEFAULT_DURATION,
 ) : Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
 
     private var _initialsScaleX: Float = 1f
@@ -21,6 +24,10 @@ internal class FocusScaleAnimationHelper(
     private var _startScaleY: Float = 0f
     private var _endScaleY: Float = 0f
     private val _scaleAnimationListeners: MutableSet<ScaleAnimationListener> = mutableSetOf()
+    private val _bgAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
+        duration = this@FocusScaleAnimationHelper.duration
+        interpolator = AnimationUtils.LINEAR_INTERPOLATOR
+    }
 
     /**
      * Анимирует [view] при изменении [pressed]
@@ -38,13 +45,7 @@ internal class FocusScaleAnimationHelper(
             _endScaleX = _initialsScaleX + factor
             _endScaleY = _initialsScaleY + factor
         }
-        view.animate()
-            .setDuration(duration)
-            .scaleX(_endScaleX)
-            .scaleY(_endScaleY)
-            .setListener(this)
-            .setUpdateListener(this)
-            .start()
+        animateScale(view)
     }
 
     /**
@@ -69,13 +70,7 @@ internal class FocusScaleAnimationHelper(
             _endScaleX = _initialsScaleX
             _endScaleY = _initialsScaleY
         }
-        view.animate()
-            .setDuration(duration)
-            .scaleX(_endScaleX)
-            .scaleY(_endScaleY)
-            .setListener(this)
-            .setUpdateListener(this)
-            .start()
+        animateScale(view)
     }
 
     fun addScaleAnimationListener(listener: ScaleAnimationListener) {
@@ -120,8 +115,39 @@ internal class FocusScaleAnimationHelper(
         }
     }
 
+    private fun animateScale(view: View) {
+        val bg = view.background as? ShapeDrawable
+        if (bg != null) {
+            animateBackgroundScale(bg)
+        } else {
+            animateViewScale(view)
+        }
+    }
+
+    private fun animateViewScale(view: View) {
+        view.animate()
+            .setDuration(duration)
+            .scaleX(_endScaleX)
+            .scaleY(_endScaleY)
+            .setListener(this)
+            .setUpdateListener(this)
+            .start()
+    }
+
+    private fun animateBackgroundScale(background: ShapeDrawable) {
+        _bgAnimator.cancel()
+        _bgAnimator.removeAllUpdateListeners()
+        _bgAnimator.addUpdateListener {
+            val progress = it.animatedFraction
+            background.setScale(
+                lerp(_startScaleX, _endScaleX, progress),
+                lerp(_startScaleY, _endScaleY, progress),
+            )
+        }
+        _bgAnimator.start()
+    }
+
     companion object {
         const val DEFAULT_FACTOR = 0.05f
-        const val DEFAULT_DURATION = 200L
     }
 }

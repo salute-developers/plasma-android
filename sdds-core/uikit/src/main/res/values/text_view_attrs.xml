@@ -19,5 +19,6 @@
         <attr name="sd_fsShapeAppearance" />
         <attr name="sd_fsShapeAdjustment" />
         <attr name="sd_textColor"/>
+        <attr name="sd_textAppearance" />
     </declare-styleable>
 </resources>

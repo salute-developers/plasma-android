@@ -12,6 +12,8 @@ import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.State
 import com.sdds.plugin.themebuilder.internal.components.base.Stateful
+import com.sdds.plugin.themebuilder.internal.components.base.StringState
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.asVariationTree
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -300,6 +302,50 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
             }
             is ColorStateValue<Dimension> -> propertyValue.values.forEach { (colorStateName, value) ->
                 addDimensionToStateList(
+                    property,
+                    value,
+                    variation,
+                    colorStateName,
+                    extraStateAttrsBuilder = stateAttrsBuilder,
+                )
+            }
+
+            else -> {}
+        }
+        valueListAttribute(property, variation)
+    }
+
+    /**
+     * Добавляет [ProvidableProperty] типа [Typography].
+     * Поддерживает состояния.
+     */
+    protected fun Element.addTypographyProperty(
+        property: ProvidableProperty<PO, String, Typography>,
+        variation: String,
+        variationNode: VariationNode<PO>,
+        stateAttrsBuilder: ((StringState) -> Set<StateListAttribute>)? = null,
+    ) {
+        val propertyValue = getProperty(property, variationNode)
+        if (propertyValue.isNullOrInherited) {
+            return
+        }
+
+        when (propertyValue) {
+            is SingleValue<Typography> -> {
+                if (propertyValue.isStateful) {
+                    addTypographyToStateList(
+                        property,
+                        propertyValue.value,
+                        variation,
+                        extraStateAttrsBuilder = stateAttrsBuilder,
+                    )
+                } else {
+                    typographyAttribute(property.attribute, propertyValue.value.value)
+                    return
+                }
+            }
+            is ColorStateValue<Typography> -> propertyValue.values.forEach { (colorStateName, value) ->
+                addTypographyToStateList(
                     property,
                     value,
                     variation,

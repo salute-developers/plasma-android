@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.list.item.view
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
@@ -52,6 +53,9 @@ internal class ListItemStyleGeneratorView(
         ListItemDimensionProperties.values().forEach {
             addDimensionProperty(it, variation, variationNode)
         }
+        ListItemTypographyProperties.values().forEach {
+            addTypographyProperty(it, variation, variationNode)
+        }
         ListItemColorProperty.values().forEach {
             addColorProperty(it, variation, variationNode)
         }
@@ -61,9 +65,6 @@ internal class ListItemStyleGeneratorView(
         val props = variationNode.value.props
 
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
-        props.titleStyle?.let { typographyAttribute("sd_titleAppearance", it.value) }
-        props.subtitleStyle?.let { typographyAttribute("sd_subtitleAppearance", it.value) }
-        props.labelStyle?.let { typographyAttribute("sd_labelAppearance", it.value) }
         props.disclosureIcon?.let { iconAttribute("sd_disclosureIcon", it.value) }
     }
 
@@ -110,6 +111,24 @@ internal class ListItemStyleGeneratorView(
                 PADDING_BOTTOM -> owner.paddingBottom
                 HEIGHT -> owner.height
             }?.copy(states = emptyList())
+        }
+    }
+
+    internal enum class ListItemTypographyProperties(
+        override val attribute: String,
+        override val fileSuffix: String,
+    ) : ProvidableProperty<ListItemProperties, String, Typography> {
+        TITLE_APPEARANCE("sd_titleAppearance", "title_appearance"),
+        LABEL_APPEARANCE("sd_labelAppearance", "label_appearance"),
+        SUBTITLE_APPEARANCE("sd_subtitleAppearance", "subtitle_appearance"),
+        ;
+
+        override fun provide(owner: ListItemProperties): Typography? {
+            return when (this) {
+                TITLE_APPEARANCE -> owner.titleStyle
+                LABEL_APPEARANCE -> owner.labelStyle
+                SUBTITLE_APPEARANCE -> owner.subtitleStyle
+            }
         }
     }
 

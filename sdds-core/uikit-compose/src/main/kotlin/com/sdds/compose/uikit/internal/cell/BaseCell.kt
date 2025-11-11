@@ -31,6 +31,7 @@ import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
@@ -204,17 +205,17 @@ internal fun ColumnScope.CellCenterContent(
     val colors = style.colors
     StyledText(
         text = label,
-        textStyle = style.labelStyle,
+        textStyle = style.labelStyles.getValue(interactionSource),
         textColor = colors.labelColor.colorForInteraction(interactionSource),
     )
     StyledText(
         text = title,
-        textStyle = style.titleStyle,
+        textStyle = style.titleStyles.getValue(interactionSource),
         textColor = colors.titleColor.colorForInteraction(interactionSource),
     )
     StyledText(
         text = subtitle,
-        textStyle = style.subtitleStyle,
+        textStyle = style.subtitleStyles.getValue(interactionSource),
         textColor = colors.subtitleColor.colorForInteraction(interactionSource),
     )
 }

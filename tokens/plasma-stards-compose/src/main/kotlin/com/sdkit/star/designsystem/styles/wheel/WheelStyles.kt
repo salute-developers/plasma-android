@@ -80,13 +80,22 @@ private val WheelStyleBuilder.invariantProps: WheelStyleBuilder
         .dividerStyle(Divider.Default.style())
         .colors {
             itemTextColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInversePrimary,
+                ),
             )
             itemTextAfterColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInverseSecondary,
+                ),
             )
             descriptionColor(
-                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textInversePrimary,
+                ),
             )
             controlIconUpColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(

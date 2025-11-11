@@ -2516,12 +2516,24 @@
                "composeReference": "Switch.L"
             },
             {
+               "name": "l.has-background",
+               "composeReference": "Switch.L.HasBackground"
+            },
+            {
                "name": "m",
                "composeReference": "Switch.M"
             },
             {
+               "name": "m.has-background",
+               "composeReference": "Switch.M.HasBackground"
+            },
+            {
                "name": "s",
                "composeReference": "Switch.S"
+            },
+            {
+               "name": "s.has-background",
+               "composeReference": "Switch.S.HasBackground"
             }
          ]
       },

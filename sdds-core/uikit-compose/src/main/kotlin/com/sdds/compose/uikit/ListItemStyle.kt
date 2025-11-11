@@ -14,7 +14,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -41,14 +43,29 @@ interface ListItemStyle : Style {
     val titleStyle: TextStyle
 
     /**
+     * Стиль тайтла
+     */
+    val titleStyles: StatefulValue<TextStyle>
+
+    /**
      * Стиль сабтайтла
      */
     val subtitleStyle: TextStyle
 
     /**
+     * Стили сабтайтла
+     */
+    val subtitleStyles: StatefulValue<TextStyle>
+
+    /**
      * Стиль лэйбла
      */
     val labelStyle: TextStyle
+
+    /**
+     * Стиль лэйбла
+     */
+    val labelStyles: StatefulValue<TextStyle>
 
     /**
      * Иконка disclosure
@@ -83,20 +100,25 @@ interface ListItemStyle : Style {
 @Immutable
 private data class DefaultListItemStyle(
     override val shape: Shape,
-    override val titleStyle: TextStyle,
-    override val subtitleStyle: TextStyle,
-    override val labelStyle: TextStyle,
     @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
     override val disclosureIconRes: Int?,
     override val colors: ListItemColors,
     override val dimensions: ListItemDimensions,
+    override val titleStyles: StatefulValue<TextStyle>,
+    override val subtitleStyles: StatefulValue<TextStyle>,
+    override val labelStyles: StatefulValue<TextStyle>,
 ) : ListItemStyle {
+
+    override val titleStyle: TextStyle get() = titleStyles.getDefaultValue()
+    override val subtitleStyle: TextStyle get() = subtitleStyles.getDefaultValue()
+    override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
+
     class Builder : ListItemStyleBuilder {
         private var shape: Shape? = null
-        private var titleStyle: TextStyle? = null
-        private var subtitleStyle: TextStyle? = null
-        private var labelStyle: TextStyle? = null
+        private var titleStyle: StatefulValue<TextStyle>? = null
+        private var subtitleStyle: StatefulValue<TextStyle>? = null
+        private var labelStyle: StatefulValue<TextStyle>? = null
         private var disclosureIcon: Painter? = null
         private var disclosureIconRes: Int? = null
         private var colorsBuilder: ListItemColorsBuilder = ListItemColors.builder()
@@ -106,15 +128,24 @@ private data class DefaultListItemStyle(
             this.shape = shape
         }
 
-        override fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder = apply {
+        override fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder =
+            titleStyle(titleStyle.asStatefulValue())
+
+        override fun titleStyle(titleStyle: StatefulValue<TextStyle>): ListItemStyleBuilder = apply {
             this.titleStyle = titleStyle
         }
 
-        override fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder = apply {
+        override fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder =
+            subtitleStyle(subtitleStyle.asStatefulValue())
+
+        override fun subtitleStyle(subtitleStyle: StatefulValue<TextStyle>): ListItemStyleBuilder = apply {
             this.subtitleStyle = subtitleStyle
         }
 
-        override fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder = apply {
+        override fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder =
+            labelStyle(labelStyle.asStatefulValue())
+
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>): ListItemStyleBuilder = apply {
             this.labelStyle = labelStyle
         }
 
@@ -141,9 +172,9 @@ private data class DefaultListItemStyle(
         override fun style(): ListItemStyle {
             return DefaultListItemStyle(
                 shape = shape ?: RectangleShape,
-                titleStyle = titleStyle ?: TextStyle.Default,
-                subtitleStyle = subtitleStyle ?: TextStyle.Default,
-                labelStyle = labelStyle ?: TextStyle.Default,
+                titleStyles = titleStyle ?: TextStyle.Default.asStatefulValue(),
+                subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
+                labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
                 disclosureIcon = disclosureIcon,
                 disclosureIconRes = disclosureIconRes,
                 colors = colorsBuilder.build(),
@@ -164,19 +195,34 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
     fun shape(shape: Shape): ListItemStyleBuilder
 
     /**
-     * Устанавливает стиль тайтла
+     * Устанавливает стиль заголовка
      */
     fun titleStyle(titleStyle: TextStyle): ListItemStyleBuilder
 
     /**
-     * Устанавливает стиль тайтла
+     * Устанавливает стили заголовка
+     */
+    fun titleStyle(titleStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль подзаголовка
      */
     fun subtitleStyle(subtitleStyle: TextStyle): ListItemStyleBuilder
 
     /**
-     * Устанавливает стиль тайтла
+     * Устанавливает стили подзаголовка
+     */
+    fun subtitleStyle(subtitleStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль лейбла
      */
     fun labelStyle(labelStyle: TextStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стили лейбла
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
 
     /**
      * Устанавливает иконку disclosure

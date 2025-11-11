@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.ListItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -108,7 +109,11 @@ public val ListItem.L: WrapperListItemL
                 dimensionResource(R.dimen.sdkit_cmp_list_item_shapeAdjustment_l),
             ),
         )
-        .titleStyle(StarDsTheme.typography.bodyLBold)
+        .titleStyle(
+            StarDsTheme.typography.bodyLNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyLBold,
+            ),
+        )
         .subtitleStyle(StarDsTheme.typography.bodyMNormal)
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
@@ -133,7 +138,11 @@ public val ListItem.M: WrapperListItemM
                 dimensionResource(R.dimen.sdkit_cmp_list_item_shapeAdjustment_m),
             ),
         )
-        .titleStyle(StarDsTheme.typography.bodyMBold)
+        .titleStyle(
+            StarDsTheme.typography.bodyMNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyMBold,
+            ),
+        )
         .subtitleStyle(StarDsTheme.typography.bodySNormal)
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
@@ -153,7 +162,11 @@ public val ListItem.S: WrapperListItemS
     get() = ListItemStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
-        .titleStyle(StarDsTheme.typography.bodySBold)
+        .titleStyle(
+            StarDsTheme.typography.bodySNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodySBold,
+            ),
+        )
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
@@ -178,7 +191,11 @@ public val ListItem.Xs: WrapperListItemXs
                 dimensionResource(R.dimen.sdkit_cmp_list_item_shapeAdjustment_xs),
             ),
         )
-        .titleStyle(StarDsTheme.typography.bodyXsBold)
+        .titleStyle(
+            StarDsTheme.typography.bodyXsNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyXsBold,
+            ),
+        )
         .subtitleStyle(StarDsTheme.typography.bodyXsNormal)
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)

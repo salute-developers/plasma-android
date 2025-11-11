@@ -82,6 +82,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         }
     }
     private var _tailEnabled: Boolean = false
+    private var _scaleX: Float = IDENTITY_SCALE
+    private var _scaleY: Float = IDENTITY_SCALE
 
     init {
         initPaint()
@@ -267,6 +269,27 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         }
     }
 
+    /**
+     * Применяет масштабирование к [ShapeDrawable]
+     */
+    fun setScale(scaleX: Float = IDENTITY_SCALE, scaleY: Float = IDENTITY_SCALE) {
+        var changed = false
+
+        if (_scaleX != scaleX) {
+            _scaleX = scaleX
+            changed = true
+        }
+
+        if (_scaleY != scaleY) {
+            _scaleY = scaleY
+            changed = true
+        }
+
+        if (changed) {
+            invalidateSelf()
+        }
+    }
+
     internal fun resizeShape(width: Float, height: Float) {
         _shape?.resize(width, height)
         invalidateSelf()
@@ -274,7 +297,11 @@ open class ShapeDrawable() : Drawable(), Shapeable {
 
     override fun draw(canvas: Canvas) {
         val shape = _shape ?: return
+        val needScale = _scaleX != IDENTITY_SCALE && _scaleY != IDENTITY_SCALE
         canvas.withTranslation(_drawingBounds.left, _drawingBounds.top) {
+            if (needScale) {
+                canvas.scale(_scaleX, _scaleY, _drawingBounds.width() / 2, _drawingBounds.height() / 2)
+            }
             _shadowRenderer.render(canvas, shape)
             shape.draw(canvas, _shapePaint)
             if (drawStroke) {
@@ -493,5 +520,9 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         RADIAL,
         SWEEP,
         SOLID,
+    }
+
+    private companion object {
+        const val IDENTITY_SCALE = 1f
     }
 }

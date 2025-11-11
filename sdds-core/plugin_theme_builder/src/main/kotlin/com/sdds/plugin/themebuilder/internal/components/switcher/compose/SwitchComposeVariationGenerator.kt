@@ -48,6 +48,7 @@ internal class SwitchComposeVariationGenerator(
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ) = listOfNotNull(
+        shapeCall(props, variationId),
         toggleTrackShapeCall(props, variationId),
         toggleThumbShapeCall(props, variationId),
         labelStyleCall(props),
@@ -66,6 +67,12 @@ internal class SwitchComposeVariationGenerator(
     private fun descriptionStyleCall(props: SwitchProperties): String? {
         return props.descriptionStyle?.let {
             getTypography("descriptionStyle", it)
+        }
+    }
+
+    private fun shapeCall(props: SwitchProperties, variationId: String): String? {
+        return props.shape?.let {
+            getShape(it, variationId, "shape")
         }
     }
 
@@ -106,6 +113,9 @@ internal class SwitchComposeVariationGenerator(
                 props.toggleThumbColor?.let {
                     appendLine(getColor("toggleThumbColor", it))
                 }
+                props.backgroundColor?.let {
+                    appendLine(getColor("backgroundColor", it))
+                }
                 append("}")
             }
         } else {
@@ -141,6 +151,18 @@ internal class SwitchComposeVariationGenerator(
                 props.descriptionPadding?.let {
                     appendDimension("description_padding", it, variationId)
                 }
+                props.paddingStart?.let {
+                    appendDimension("padding_start", it, variationId)
+                }
+                props.paddingTop?.let {
+                    appendDimension("padding_top", it, variationId)
+                }
+                props.paddingEnd?.let {
+                    appendDimension("padding_end", it, variationId)
+                }
+                props.paddingBottom?.let {
+                    appendDimension("padding_bottom", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -155,7 +177,11 @@ internal class SwitchComposeVariationGenerator(
             toggleThumbHeight != null ||
             togglePadding != null ||
             textPadding != null ||
-            descriptionPadding != null
+            descriptionPadding != null ||
+            paddingStart != null ||
+            paddingTop != null ||
+            paddingEnd != null ||
+            paddingBottom != null
     }
 
     private fun SwitchProperties.hasColors(): Boolean {
@@ -163,6 +189,7 @@ internal class SwitchComposeVariationGenerator(
             descriptionColor != null ||
             toggleTrackColor != null ||
             toggleTrackBorderColor != null ||
-            toggleThumbColor != null
+            toggleThumbColor != null ||
+            backgroundColor != null
     }
 }

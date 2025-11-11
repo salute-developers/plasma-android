@@ -31,6 +31,10 @@ internal class SwitchViewModel(
         internalUiState.value = internalUiState.value.copy(enabled = enabled)
     }
 
+    private fun updateToggleableState(toggleable: Boolean) {
+        internalUiState.value = internalUiState.value.copy(toggleable = toggleable)
+    }
+
     override fun SwitchUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
             Property.BooleanProperty(
@@ -55,6 +59,11 @@ internal class SwitchViewModel(
                 name = "enabled",
                 value = enabled,
                 onApply = { updateEnabledState(it) },
+            ),
+            Property.BooleanProperty(
+                name = "toggleable",
+                value = toggleable,
+                onApply = { updateToggleableState(it) },
             ),
         )
     }
