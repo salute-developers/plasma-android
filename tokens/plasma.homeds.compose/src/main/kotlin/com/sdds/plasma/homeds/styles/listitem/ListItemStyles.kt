@@ -32,6 +32,14 @@ public value class WrapperListItemS(
     public override val builder: ListItemStyleBuilder,
 ) : WrapperListItem
 
+/**
+ * Обертка для вариации SHasBackground
+ */
+@JvmInline
+public value class WrapperListItemSHasBackground(
+    public override val builder: ListItemStyleBuilder,
+) : WrapperListItem
+
 private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
     @Composable
     get() = this
@@ -45,9 +53,6 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
             labelColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
-            backgroundColor(
-                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-            )
             disclosureIconColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
@@ -58,7 +63,6 @@ public val ListItem.S: WrapperListItemS
     @JvmName("WrapperListItemS")
     get() = ListItemStyle.builder(this)
         .invariantProps
-        .shape(PlasmaHomeDsTheme.shapes.roundXl)
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
@@ -68,7 +72,25 @@ public val ListItem.S: WrapperListItemS
             height(48.0.dp)
             paddingStart(16.0.dp)
             paddingEnd(14.0.dp)
+            paddingTop(0.0.dp)
+            paddingBottom(0.0.dp)
+        }
+        .wrap(::WrapperListItemS)
+
+public val WrapperListItemS.HasBackground: WrapperListItemSHasBackground
+    @Composable
+    @JvmName("WrapperListItemSHasBackground")
+    get() = builder
+        .shape(PlasmaHomeDsTheme.shapes.roundXl)
+        .colors {
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+        }
+        .dimensions {
+            paddingStart(16.0.dp)
+            paddingEnd(14.0.dp)
             paddingTop(10.0.dp)
             paddingBottom(10.0.dp)
         }
-        .wrap(::WrapperListItemS)
+        .wrap(::WrapperListItemSHasBackground)

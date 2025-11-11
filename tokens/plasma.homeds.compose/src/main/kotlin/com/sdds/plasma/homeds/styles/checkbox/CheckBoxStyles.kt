@@ -234,7 +234,7 @@ public val CheckBox.M: WrapperCheckBoxM
                 ),
             )
             togglePadding(2.0.dp)
-            textPadding(12.0.dp)
+            textPadding(8.0.dp)
             descriptionPadding(2.0.dp)
         }
         .wrap(::WrapperCheckBoxM)
