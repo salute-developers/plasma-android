@@ -7919,6 +7919,100 @@
          ]
       },
       {
+         "key": "toolbar",
+         "coreName": "ToolBar",
+         "styleName": "ToolbarHorizontal",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalL"
+            },
+            {
+               "name": "l.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.L.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalLHasShadow"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalM"
+            },
+            {
+               "name": "m.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.M.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalMHasShadow"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalS"
+            },
+            {
+               "name": "s.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.S.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalSHasShadow"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalXs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarHorizontal.Xs.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarHorizontalXsHasShadow"
+            }
+         ]
+      },
+      {
+         "key": "toolbar",
+         "coreName": "ToolBar",
+         "styleName": "ToolbarVertical",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalL"
+            },
+            {
+               "name": "l.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.L.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalLHasShadow"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalM"
+            },
+            {
+               "name": "m.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.M.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalMHasShadow"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalS"
+            },
+            {
+               "name": "s.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.S.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalSHasShadow"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalXs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "viewReference": "Serv.Sdds.Components.ToolbarVertical.Xs.HasShadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolbarVerticalXsHasShadow"
+            }
+         ]
+      },
+      {
          "key": "toast",
          "coreName": "Toast",
          "styleName": "Toast",

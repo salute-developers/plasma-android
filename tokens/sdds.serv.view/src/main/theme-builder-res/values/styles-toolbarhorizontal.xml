@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal" parent="Sdds.Components.ToolBar">
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.L">
+        <item name="sd_shapeAppearance">?serv_shapeRoundXl</item>
+        <item name="android:paddingStart">@dimen/serv_toolbar_horizontal_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_toolbar_horizontal_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_toolbar_horizontal_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_toolbar_horizontal_l_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_toolbar_horizontal_l_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_toolbar_horizontal_l_divider_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalL">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.L.HasShadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalLHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.L.HasShadow</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.M">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="android:paddingStart">@dimen/serv_toolbar_horizontal_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_toolbar_horizontal_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_toolbar_horizontal_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_toolbar_horizontal_m_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_toolbar_horizontal_m_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_toolbar_horizontal_m_divider_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalM">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.M.HasShadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalMHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.M.HasShadow</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.S">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_toolbar_horizontal_s_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/serv_toolbar_horizontal_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_toolbar_horizontal_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_toolbar_horizontal_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_toolbar_horizontal_s_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_toolbar_horizontal_s_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_toolbar_horizontal_s_divider_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalS">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.S.HasShadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalSHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.S.HasShadow</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.Xs">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/serv_toolbar_horizontal_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_toolbar_horizontal_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_toolbar_horizontal_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_toolbar_horizontal_xs_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_toolbar_horizontal_xs_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_toolbar_horizontal_xs_divider_margin</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalXs">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.Xs.HasShadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalXsHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.Xs.HasShadow</item>
+    </style>
+</resources>

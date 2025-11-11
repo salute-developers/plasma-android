@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_toolBarStyle" format="reference" />
+
+    <declare-styleable name="ToolBar" tools:ignore="ResourceName">
+        <!-- Цвет фона компонента -->
+        <attr name="sd_background" />
+        <!-- Форма скруглений углов -->
+        <attr name="sd_shapeAppearance" />
+        <!-- Поправочное значение формы скруглений углов -->
+        <attr name="sd_shapeAppearanceAdjustment" />
+        <!-- Ссылка на ресурс тени -->
+        <attr name="sd_shadowAppearance" />
+        <!-- Включение отображения разделителя -->
+        <attr name="sd_hasDivider" format="boolean" />
+        <!-- Оверлэй стиль разделителя Divider -->
+        <attr name="sd_dividerStyleOverlay" />
+        <!-- Количество слотов для контента -->
+        <attr name="sd_slotsAmount" format="integer" />
+        <!-- Ориентация компонента -->
+        <attr name="android:orientation" />
+        <!-- Отступ от краев Divider в горизонтальной ориентации marginTop и marginBottom
+             в вертикальной - marginStart и marginEnd -->
+        <attr name="sd_dividerMargin" format="dimension" />
+        <!-- Падинг между слотами (устанавливается в конце текущего слота
+             и в начале следующего -->
+        <attr name="sd_slotPadding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ToolBar_Layout" tools:ignore="ResourceName">
+        <!-- Индекс слота для добавления контента-->
+        <attr name="sd_slotIndex" format="integer" />
+    </declare-styleable>
+</resources>
