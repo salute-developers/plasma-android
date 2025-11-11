@@ -129,7 +129,7 @@ for mod in "${CLEANED_MODULES[@]}"; do
 done
 
 # Forward any extra args to Gradle (after stripping our custom flags)
-if (( ${#FORWARDED_ARGS[@]:-0} > 0 )); then
+if (( ${#FORWARDED_ARGS[@]} > 0 )); then
   EXTRA_ARGS=("${FORWARDED_ARGS[@]}")
 else
   EXTRA_ARGS=()
@@ -141,12 +141,12 @@ if (( ${#IGNORE_PATTERNS[@]} > 0 )); then
   echo "Ignored patterns: ${IGNORE_PATTERNS[*]}"
 fi
 echo "Task: $TASK"
-if (( ${#EXTRA_ARGS[@]:-0} > 0 )); then
+if (( ${#EXTRA_ARGS[@]} > 0 )); then
   echo "Extra Gradle args: ${EXTRA_ARGS[*]}"
 fi
 
 # Run all module-scoped tasks in a single Gradle invocation for speed
-if (( ${#EXTRA_ARGS[@]:-0} > 0 )); then
+if (( ${#EXTRA_ARGS[@]} > 0 )); then
   echo "Executing: ./gradlew ${GRADLE_TASKS[*]} ${EXTRA_ARGS[*]:-}"
   ./gradlew "${GRADLE_TASKS[@]}" ${EXTRA_ARGS[@]:+"${EXTRA_ARGS[@]}"}
 else
