@@ -144,7 +144,7 @@ data class ComponentKey(
         val AvatarGroup = ComponentKey("AvatarGroup", CoreComponent.AVATAR_GROUP)
 
         val Badge = ComponentKey("Badge", CoreComponent.BADGE)
-        val IconBadge = ComponentKey("IconBadge", CoreComponent.BADGE)
+        val IconBadge = ComponentKey("IconBadge", CoreComponent.ICON_BADGE)
 
         val BottomSheet = ComponentKey("BottomSheet", CoreComponent.BOTTOMSHEET)
 

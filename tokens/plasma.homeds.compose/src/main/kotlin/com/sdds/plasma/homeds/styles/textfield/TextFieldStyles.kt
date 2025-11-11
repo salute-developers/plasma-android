@@ -293,7 +293,7 @@ public val TextField.S: WrapperTextFieldS
     @JvmName("WrapperTextFieldS")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .shape(PlasmaHomeDsTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .shape(PlasmaHomeDsTheme.shapes.roundM)
         .dimensions {
             boxPaddingStart(12.0.dp)
             boxPaddingEnd(12.0.dp)
@@ -389,7 +389,7 @@ public val TextField.M: WrapperTextFieldM
     @JvmName("WrapperTextFieldM")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .shape(PlasmaHomeDsTheme.shapes.roundM)
+        .shape(PlasmaHomeDsTheme.shapes.roundL)
         .dimensions {
             boxPaddingStart(14.0.dp)
             boxPaddingEnd(14.0.dp)
@@ -485,7 +485,7 @@ public val TextField.L: WrapperTextFieldL
     @JvmName("WrapperTextFieldL")
     get() = TextFieldStyle.builder(this)
         .invariantProps
-        .shape(PlasmaHomeDsTheme.shapes.roundM.adjustBy(all = 2.0.dp))
+        .shape(PlasmaHomeDsTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
         .dimensions {
             boxPaddingStart(16.0.dp)
             boxPaddingEnd(16.0.dp)

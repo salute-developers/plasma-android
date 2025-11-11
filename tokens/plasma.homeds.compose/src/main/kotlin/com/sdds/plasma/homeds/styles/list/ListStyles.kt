@@ -8,11 +8,13 @@
 package com.sdds.plasma.homeds.styles.list
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ListStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.homeds.styles.listitem.HasBackground
 import com.sdds.plasma.homeds.styles.listitem.ListItem
 import com.sdds.plasma.homeds.styles.listitem.S
 import kotlin.Suppress
@@ -32,6 +34,22 @@ public value class WrapperListS(
     public override val builder: ListStyleBuilder,
 ) : WrapperList
 
+/**
+ * Обертка для вариации SNoBackground
+ */
+@JvmInline
+public value class WrapperListSNoBackground(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
+/**
+ * Обертка для вариации SNoBackgroundHasItemBackground
+ */
+@JvmInline
+public value class WrapperListSNoBackgroundHasItemBackground(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
@@ -42,4 +60,20 @@ public val List.S: WrapperListS
     get() = ListStyle.builder(this)
         .invariantProps
         .listItemStyle(ListItem.S.style())
+        .dimensions {
+            gap(8.0.dp)
+        }
         .wrap(::WrapperListS)
+
+public val WrapperListS.NoBackground: WrapperListSNoBackground
+    @Composable
+    @JvmName("WrapperListSNoBackground")
+    get() = builder
+        .wrap(::WrapperListSNoBackground)
+
+public val WrapperListSNoBackground.HasItemBackground: WrapperListSNoBackgroundHasItemBackground
+    @Composable
+    @JvmName("WrapperListSNoBackgroundHasItemBackground")
+    get() = builder
+        .listItemStyle(ListItem.S.HasBackground.style())
+        .wrap(::WrapperListSNoBackgroundHasItemBackground)

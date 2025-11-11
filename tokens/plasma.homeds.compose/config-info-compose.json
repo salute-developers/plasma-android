@@ -2949,6 +2949,14 @@
             {
                "name": "s",
                "composeReference": "List.S"
+            },
+            {
+               "name": "s.no-background",
+               "composeReference": "List.S.NoBackground"
+            },
+            {
+               "name": "s.no-background.has-item-background",
+               "composeReference": "List.S.NoBackground.HasItemBackground"
             }
          ]
       },
@@ -2960,6 +2968,10 @@
             {
                "name": "s",
                "composeReference": "ListItem.S"
+            },
+            {
+               "name": "s.has-background",
+               "composeReference": "ListItem.S.HasBackground"
             }
          ]
       },
