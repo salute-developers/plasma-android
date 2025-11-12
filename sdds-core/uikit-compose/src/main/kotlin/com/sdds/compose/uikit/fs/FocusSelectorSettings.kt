@@ -73,6 +73,21 @@ interface FocusSelectorBorder {
     val strokeInsets: Dp
 
     /**
+     * Возвращает копию [FocusSelectorBorder]
+     *
+     * @param shape Форма бордера
+     * @param shapeAdjustment Корректирующее значение формы
+     * @param strokeWidth Толщина бордера
+     * @param strokeInsets Отступ бордера
+     */
+    fun copy(
+        shape: Shape = this.shape,
+        shapeAdjustment: Dp = this.shapeAdjustment,
+        strokeWidth: Dp = this.strokeWidth,
+        strokeInsets: Dp = this.strokeInsets,
+    ): FocusSelectorBorder
+
+    /**
      * Функция-расширение к Modifier, позволяющая
      * применять настройки бордера в классе, реализующем
      * FocusSelectorBorder

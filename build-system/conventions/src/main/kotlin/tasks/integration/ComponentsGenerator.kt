@@ -22,7 +22,7 @@ internal data class VariationInfo(
     val viewOverlayReference: String = "",
 )
 
-abstract class ComponentGenerator {
+internal abstract class ComponentGenerator {
 
     abstract fun generate()
 
@@ -32,6 +32,97 @@ abstract class ComponentGenerator {
             result = result.replace("\${{ $k }}", v)
         }
         return result
+    }
+
+    protected fun getComponentProviderEntry(
+        key: String,
+        comps: List<Component>,
+        themeName: String,
+        componentTemplate: String,
+        appearanceTemplate: String,
+    ): List<String> {
+        return when (key) {
+            "tabs" -> getTabsComponentProviderEntry(
+                comps = comps,
+                componentTemplate = componentTemplate,
+                appearanceTemplate = appearanceTemplate,
+                themeName = themeName,
+            )
+            else -> getDefaultComponentProviderEntry(
+                key = key,
+                comps = comps,
+                componentTemplate = componentTemplate,
+                appearanceTemplate = appearanceTemplate,
+                themeName = themeName,
+            )
+        }
+    }
+
+    private fun getDefaultComponentProviderEntry(
+        key: String,
+        comps: List<Component>,
+        themeName: String,
+        componentTemplate: String,
+        appearanceTemplate: String,
+    ): List<String> {
+        val appearancesBlock = comps.toAppearancesBlock(appearanceTemplate, themeName)
+
+        val result = expand(
+            componentTemplate,
+            mapOf(
+                "key" to key.techToCamelCase(),
+                "appearances" to appearancesBlock
+            )
+        )
+
+        return listOf(result)
+    }
+
+    private fun List<Component>.toAppearancesBlock(appearanceTemplate: String, themeName: String): String {
+        return joinToString(
+            separator = ",\n            "
+        ) { comp ->
+            expand(
+                appearanceTemplate,
+                mapOf(
+                    "styleName" to comp.styleName,
+                    "themeName" to themeName
+                )
+            )
+        }
+    }
+
+    private fun getTabsComponentProviderEntry(
+        comps: List<Component>,
+        themeName: String,
+        componentTemplate: String,
+        appearanceTemplate: String,
+    ): List<String> {
+        val tabsAppearancesBlock = comps
+            .filter { !it.styleName.contains("Icon", ignoreCase = true) }
+            .toAppearancesBlock(appearanceTemplate, themeName)
+
+        val iconTabsAppearancesBlock = comps
+            .filter { it.styleName.contains("Icon", ignoreCase = true) }
+            .toAppearancesBlock(appearanceTemplate, themeName)
+
+        val tabs = expand(
+            componentTemplate,
+            mapOf(
+                "key" to "Tabs",
+                "appearances" to tabsAppearancesBlock
+            )
+        )
+
+        val iconTabs = expand(
+            componentTemplate,
+            mapOf(
+                "key" to "IconTabs",
+                "appearances" to iconTabsAppearancesBlock
+            )
+        )
+
+        return listOf(tabs, iconTabs)
     }
 
     protected fun Any.loadTemplate(path: String): String {
@@ -137,6 +228,8 @@ internal class ComposeComponentsGenerator(
             "TextArea" -> "TextFieldStyle"
             "IconBadge" -> "BadgeStyle"
             "BottomSheet" -> "ModalBottomSheetStyle"
+            "TabItem",
+            "IconTabItem" -> "TabItemStyle"
             else -> "${component.coreName}Style"
         }
     }
@@ -150,25 +243,13 @@ internal class ComposeComponentsGenerator(
         val grouped: Map<String, List<Component>> = config.components.groupBy { it.key }
 
         // Build appearances per group and a ViewComponent per coreName (unique key)
-        val componentEntries = grouped.map { (key, comps) ->
-            val appearancesBlock = comps.joinToString(
-                separator = ",\n            "
-            ) { comp ->
-                expand(
-                    appearanceTemplate,
-                    mapOf(
-                        "styleName" to comp.styleName,
-                        "themeName" to themeName
-                    )
-                )
-            }
-
-            expand(
-                componentTemplate,
-                mapOf(
-                    "key" to key.techToCamelCase(),
-                    "appearances" to appearancesBlock
-                )
+        val componentEntries = grouped.flatMap { (key, comps) ->
+            getComponentProviderEntry(
+                key = key,
+                comps = comps,
+                componentTemplate = componentTemplate,
+                appearanceTemplate = appearanceTemplate,
+                themeName = themeName,
             )
         }.joinToString(separator = ",\n            ")
 
@@ -257,27 +338,13 @@ internal class XmlComponentsGenerator(
         val grouped: Map<String, List<Component>> = components.groupBy { it.key }
 
         // Build appearances per group and a ViewComponent per coreName (unique key)
-        val componentEntries = grouped.map { (key, comps) ->
-            val appearancesJoined = comps.joinToString(
-                separator = ",\n            "
-            ) { comp ->
-                expand(
-                    appearanceTemplate,
-                    mapOf(
-                        "styleName" to comp.styleName,
-                        "themeName" to themeName
-                    )
-                )
-            }
-
-            val appearancesBlock = appearancesJoined
-
-            expand(
-                componentTemplate,
-                mapOf(
-                    "key" to key.techToCamelCase(),
-                    "appearances" to appearancesBlock
-                )
+        val componentEntries = grouped.flatMap { (key, comps) ->
+            getComponentProviderEntry(
+                key = key,
+                comps = comps,
+                componentTemplate = componentTemplate,
+                appearanceTemplate = appearanceTemplate,
+                themeName = themeName,
             )
         }.joinToString(separator = ",\n            ")
 
@@ -309,4 +376,8 @@ private fun String.toPascalCase(joinSeparator: String = ""): String =
 internal fun String.techToCamelCase(): String {
     val segments = split(".", "-")
     return segments.joinToString("") { it.capitalized() }
+}
+
+private object ComponentGeneratorUtils {
+
 }

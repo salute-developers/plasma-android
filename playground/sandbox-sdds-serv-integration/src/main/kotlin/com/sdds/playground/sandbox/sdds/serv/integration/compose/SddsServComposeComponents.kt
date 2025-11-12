@@ -361,6 +361,32 @@ object SddsServComposeComponents : ComponentsProviderCompose {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.Tabs,
+                mapOf(
+                    "TabsDefault" to SddsServTabsDefaultVariationsCompose,
+                    "TabsHeader" to SddsServTabsHeaderVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.IconTabs,
+                mapOf(
+                    "IconTabs" to SddsServIconTabsVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.TabItem,
+                mapOf(
+                    "TabItemDefault" to SddsServTabItemDefaultVariationsCompose,
+                    "TabItemHeader" to SddsServTabItemHeaderVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.IconTabItem,
+                mapOf(
+                    "IconTabItem" to SddsServIconTabItemVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.NavigationBar,
                 mapOf(
                     "NavigationBarMainPage" to SddsServNavigationBarMainPageVariationsCompose,

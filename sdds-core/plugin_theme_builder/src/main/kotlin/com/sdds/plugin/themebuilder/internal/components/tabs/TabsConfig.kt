@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
+import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuProperties
 import com.sdds.plugin.themebuilder.internal.components.tabbar.item.TabBarItemProperties
 import kotlinx.serialization.Serializable
 
@@ -41,6 +42,7 @@ internal data class TabsProperties(
     val indicatorEnabled: BooleanValue? = null,
     val tabItemStyle: ComponentStyle<TabBarItemProperties>? = null,
     val dividerStyle: ComponentStyle<DividerProperties>? = null,
+    val dropdownMenuStyle: ComponentStyle<DropdownMenuProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -69,6 +71,7 @@ internal data class TabsProperties(
             dividerStyle = dividerStyle ?: otherProps.dividerStyle,
             indicatorEnabled = indicatorEnabled ?: otherProps.indicatorEnabled,
             dividerEnabled = dividerEnabled ?: otherProps.dividerEnabled,
+            dropdownMenuStyle = dropdownMenuStyle ?: otherProps.dropdownMenuStyle,
         )
     }
 }

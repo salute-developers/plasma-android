@@ -117,8 +117,9 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     @Suppress("UNCHECKED_CAST")
     private fun updateUiStateWithDefaultVariant() {
-        val appearance = getDefaultAppearances()
         val variant = internalUiState.value.variant
+        val defaultAppearance = getDefaultAppearances()
+        val appearance = internalUiState.value.appearance.ifEmpty { defaultAppearance }
         if (variant.isNotEmpty() &&
             getStyleProvider(appearance).variants.contains(variant)
         ) {
