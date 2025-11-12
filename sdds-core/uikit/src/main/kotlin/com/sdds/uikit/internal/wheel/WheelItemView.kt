@@ -131,6 +131,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             _descriptionView.apply {
                 isGone = description.isNullOrBlank() || value == 0
                 _listView.extraItemOffsetEnabled = isVisible
+                resetPositions()
             }
         }
 
