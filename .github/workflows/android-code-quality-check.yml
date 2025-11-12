@@ -19,7 +19,7 @@ jobs:
     name: Detect changes
     uses: ./.github/workflows/detect-changes.yml
   lint:
-    name: Perform static analysis
+    name: Perform lint analysis
     needs: detect_changes
     runs-on: ubuntu-latest
     steps:
@@ -32,17 +32,56 @@ jobs:
       - name: Run lint
         run: ./.github/scripts/run_task.sh lint '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:sdds-core:plugin_theme_builder,:build-system
 
+      - name: Upload static analysis reports
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint_analysis.zip
+          path: |
+            **/build/reports/**
+            !**/build/reports/tests/**
+  detekt:
+    name: Perform detekt analysis
+    needs: detect_changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
       - name: Run detekt
         run: ./.github/scripts/run_task.sh detekt '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:build-system
 
-      - name: Run spotless
+      - name: Upload static analysis reports
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: detekt_analysis.zip
+          path: |
+            **/build/reports/**
+            !**/build/reports/tests/**
+
+  spotless:
+    name: Perform spotless analysis
+    needs: detect_changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Run spotlessCheck
         run: ./.github/scripts/run_task.sh spotlessCheck '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:build-system
 
       - name: Upload static analysis reports
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
-          name: static_analysis.zip
+          name: spotless_analysis.zip
           path: |
             **/build/reports/**
             !**/build/reports/tests/**
