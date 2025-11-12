@@ -43,6 +43,14 @@ internal object FocusSelectorBorderNone : FocusSelectorBorder {
     override val shapeAdjustment: Dp = 0.dp
     override val strokeWidth: Dp = 0.dp
     override val strokeInsets: Dp = 0.dp
+
+    override fun copy(
+        shape: Shape,
+        shapeAdjustment: Dp,
+        strokeWidth: Dp,
+        strokeInsets: Dp,
+    ) = this
+
     override fun Modifier.applyBorderToModifier(
         scale: Float,
         componentShape: Shape?,
@@ -60,6 +68,22 @@ internal data class FocusSelectorSolidBorder(
     override val strokeInsets: Dp,
     val color: Color,
 ) : FocusSelectorBorder {
+
+    override fun copy(
+        shape: Shape,
+        shapeAdjustment: Dp,
+        strokeWidth: Dp,
+        strokeInsets: Dp,
+    ): FocusSelectorBorder {
+        return FocusSelectorSolidBorder(
+            shape = shape,
+            shapeAdjustment = shapeAdjustment,
+            strokeWidth = strokeWidth,
+            strokeInsets = strokeInsets,
+            color = color,
+        )
+    }
+
     override fun Modifier.applyBorderToModifier(
         scale: Float,
         componentShape: Shape?,
@@ -86,6 +110,22 @@ internal data class FocusSelectorGradientBorder(
     override val strokeInsets: Dp,
     val brush: Brush,
 ) : FocusSelectorBorder {
+
+    override fun copy(
+        shape: Shape,
+        shapeAdjustment: Dp,
+        strokeWidth: Dp,
+        strokeInsets: Dp,
+    ): FocusSelectorBorder {
+        return FocusSelectorGradientBorder(
+            shape = shape,
+            shapeAdjustment = shapeAdjustment,
+            strokeWidth = strokeWidth,
+            strokeInsets = strokeInsets,
+            brush = brush,
+        )
+    }
+
     override fun Modifier.applyBorderToModifier(
         scale: Float,
         componentShape: Shape?,
@@ -113,6 +153,23 @@ internal data class FocusSelectorGradientAnimatedBorder(
     val mainColor: Color,
     val additionalColor: Color,
 ) : FocusSelectorBorder {
+
+    override fun copy(
+        shape: Shape,
+        shapeAdjustment: Dp,
+        strokeWidth: Dp,
+        strokeInsets: Dp,
+    ): FocusSelectorBorder {
+        return FocusSelectorGradientAnimatedBorder(
+            shape = shape,
+            shapeAdjustment = shapeAdjustment,
+            strokeWidth = strokeWidth,
+            strokeInsets = strokeInsets,
+            mainColor = mainColor,
+            additionalColor = additionalColor,
+        )
+    }
+
     override fun Modifier.applyBorderToModifier(
         scale: Float,
         componentShape: Shape?,

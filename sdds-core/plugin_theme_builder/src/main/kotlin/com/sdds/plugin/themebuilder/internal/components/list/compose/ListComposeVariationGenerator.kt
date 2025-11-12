@@ -45,6 +45,7 @@ internal class ListComposeVariationGenerator(
         return listOfNotNull(
             listItemStyleCall(props, ktFileBuilder),
             dividerStyleCall(props, ktFileBuilder),
+            dimensionsCall(props, variationId),
         )
     }
 
@@ -68,5 +69,42 @@ internal class ListComposeVariationGenerator(
                 )
             }.style())"
         }
+    }
+
+    private fun dimensionsCall(
+        props: ListProperties,
+        variationId: String,
+    ): String? {
+        return if (props.hasDimensions()) {
+            buildString {
+                appendLine(".dimensions {")
+                props.paddingStart?.let {
+                    appendDimension("padding_start", it, variationId)
+                }
+                props.paddingEnd?.let {
+                    appendDimension("padding_end", it, variationId)
+                }
+                props.paddingTop?.let {
+                    appendDimension("padding_top", it, variationId)
+                }
+                props.paddingBottom?.let {
+                    appendDimension("padding_bottom", it, variationId)
+                }
+                props.gap?.let {
+                    appendDimension("gap", it, variationId)
+                }
+                append("}")
+            }
+        } else {
+            null
+        }
+    }
+
+    private fun ListProperties.hasDimensions(): Boolean {
+        return paddingStart != null ||
+            paddingEnd != null ||
+            paddingTop != null ||
+            paddingBottom != null ||
+            gap != null
     }
 }

@@ -33,6 +33,7 @@ import com.sdds.plugin.themebuilder.internal.components.note.NoteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notification.NotificationConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.notificationcontent.NotificationContentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.paginationdots.PaginationDotsConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.popover.PopoverConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.progress.ProgressBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
@@ -52,6 +53,7 @@ import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfig
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.TextSkeletonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.toast.ToastConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.toolbar.ToolBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tooltip.TooltipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.wheel.WheelConfigDelegate
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -118,6 +120,8 @@ internal val componentDelegates by unsafeLazy {
         "tabs" to TabsConfigDelegate(),
         "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
+        "toolbar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
+        "pagination-dots" to PaginationDotsConfigDelegate(),
     )
 }

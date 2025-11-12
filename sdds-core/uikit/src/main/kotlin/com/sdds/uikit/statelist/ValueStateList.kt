@@ -81,7 +81,9 @@ open class ValueStateList<T> internal constructor(
 
             for (i in 0 until attrs.attributeCount) {
                 val attrRes = attrs.getAttributeNameResource(i)
-                if (attrRes == android.R.attr.value || attrRes == android.R.attr.id) continue
+                val isAndroidRes = attrRes == android.R.attr.value || attrRes == android.R.attr.id
+                val raw = attrs.getAttributeValue(i)
+                if (isAndroidRes || raw != "true" && raw != "false") continue
 
                 val value = attrs.getAttributeBooleanValue(i, false)
                 val state = if (value) attrRes else -attrRes

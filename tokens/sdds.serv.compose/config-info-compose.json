@@ -9939,6 +9939,248 @@
          ]
       },
       {
+         "key": "tabs",
+         "coreName": "Tabs",
+         "styleName": "TabsDefault",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "TabsDefault.L"
+            },
+            {
+               "name": "l.vertical",
+               "composeReference": "TabsDefault.L.Vertical"
+            },
+            {
+               "name": "l.horizontal",
+               "composeReference": "TabsDefault.L.Horizontal"
+            },
+            {
+               "name": "m",
+               "composeReference": "TabsDefault.M"
+            },
+            {
+               "name": "m.vertical",
+               "composeReference": "TabsDefault.M.Vertical"
+            },
+            {
+               "name": "m.horizontal",
+               "composeReference": "TabsDefault.M.Horizontal"
+            },
+            {
+               "name": "s",
+               "composeReference": "TabsDefault.S"
+            },
+            {
+               "name": "s.vertical",
+               "composeReference": "TabsDefault.S.Vertical"
+            },
+            {
+               "name": "s.horizontal",
+               "composeReference": "TabsDefault.S.Horizontal"
+            },
+            {
+               "name": "xs",
+               "composeReference": "TabsDefault.Xs"
+            },
+            {
+               "name": "xs.vertical",
+               "composeReference": "TabsDefault.Xs.Vertical"
+            },
+            {
+               "name": "xs.horizontal",
+               "composeReference": "TabsDefault.Xs.Horizontal"
+            }
+         ]
+      },
+      {
+         "key": "tabs",
+         "coreName": "Tabs",
+         "styleName": "IconTabs",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "IconTabs.L"
+            },
+            {
+               "name": "l.vertical",
+               "composeReference": "IconTabs.L.Vertical"
+            },
+            {
+               "name": "l.horizontal",
+               "composeReference": "IconTabs.L.Horizontal"
+            },
+            {
+               "name": "m",
+               "composeReference": "IconTabs.M"
+            },
+            {
+               "name": "m.vertical",
+               "composeReference": "IconTabs.M.Vertical"
+            },
+            {
+               "name": "m.horizontal",
+               "composeReference": "IconTabs.M.Horizontal"
+            },
+            {
+               "name": "s",
+               "composeReference": "IconTabs.S"
+            },
+            {
+               "name": "s.vertical",
+               "composeReference": "IconTabs.S.Vertical"
+            },
+            {
+               "name": "s.horizontal",
+               "composeReference": "IconTabs.S.Horizontal"
+            },
+            {
+               "name": "xs",
+               "composeReference": "IconTabs.Xs"
+            },
+            {
+               "name": "xs.vertical",
+               "composeReference": "IconTabs.Xs.Vertical"
+            },
+            {
+               "name": "xs.horizontal",
+               "composeReference": "IconTabs.Xs.Horizontal"
+            }
+         ]
+      },
+      {
+         "key": "tabs",
+         "coreName": "Tabs",
+         "styleName": "TabsHeader",
+         "variations": [
+            {
+               "name": "h1",
+               "composeReference": "TabsHeader.H1"
+            },
+            {
+               "name": "h2",
+               "composeReference": "TabsHeader.H2"
+            },
+            {
+               "name": "h3",
+               "composeReference": "TabsHeader.H3"
+            },
+            {
+               "name": "h4",
+               "composeReference": "TabsHeader.H4"
+            },
+            {
+               "name": "h5",
+               "composeReference": "TabsHeader.H5"
+            }
+         ]
+      },
+      {
+         "key": "tab-item",
+         "coreName": "TabItem",
+         "styleName": "TabItemDefault",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "TabItemDefault.L"
+            },
+            {
+               "name": "l.horizontal",
+               "composeReference": "TabItemDefault.L.Horizontal"
+            },
+            {
+               "name": "l.vertical",
+               "composeReference": "TabItemDefault.L.Vertical"
+            },
+            {
+               "name": "m",
+               "composeReference": "TabItemDefault.M"
+            },
+            {
+               "name": "m.horizontal",
+               "composeReference": "TabItemDefault.M.Horizontal"
+            },
+            {
+               "name": "m.vertical",
+               "composeReference": "TabItemDefault.M.Vertical"
+            },
+            {
+               "name": "s",
+               "composeReference": "TabItemDefault.S"
+            },
+            {
+               "name": "s.horizontal",
+               "composeReference": "TabItemDefault.S.Horizontal"
+            },
+            {
+               "name": "s.vertical",
+               "composeReference": "TabItemDefault.S.Vertical"
+            },
+            {
+               "name": "xs",
+               "composeReference": "TabItemDefault.Xs"
+            },
+            {
+               "name": "xs.horizontal",
+               "composeReference": "TabItemDefault.Xs.Horizontal"
+            },
+            {
+               "name": "xs.vertical",
+               "composeReference": "TabItemDefault.Xs.Vertical"
+            }
+         ]
+      },
+      {
+         "key": "icon-tab-item",
+         "coreName": "IconTabItem",
+         "styleName": "IconTabItem",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "IconTabItem.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "IconTabItem.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "IconTabItem.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "IconTabItem.Xs"
+            }
+         ]
+      },
+      {
+         "key": "tab-item",
+         "coreName": "TabItem",
+         "styleName": "TabItemHeader",
+         "variations": [
+            {
+               "name": "h1",
+               "composeReference": "TabItemHeader.H1"
+            },
+            {
+               "name": "h2",
+               "composeReference": "TabItemHeader.H2"
+            },
+            {
+               "name": "h3",
+               "composeReference": "TabItemHeader.H3"
+            },
+            {
+               "name": "h4",
+               "composeReference": "TabItemHeader.H4"
+            },
+            {
+               "name": "h5",
+               "composeReference": "TabItemHeader.H5"
+            }
+         ]
+      },
+      {
          "key": "navigation-bar",
          "coreName": "NavigationBar",
          "styleName": "NavigationBarMainPage",

@@ -9,4 +9,8 @@
     <declare-styleable name="NumberStateListItem" tools:ignore="ResourceName">
         <attr name="sd_number" format="integer|float|dimension|reference"/>
     </declare-styleable>
+
+    <declare-styleable name="StyleStateListItem" tools:ignore="ResourceName">
+        <attr name="sd_style" format="reference"/>
+    </declare-styleable>
 </resources>

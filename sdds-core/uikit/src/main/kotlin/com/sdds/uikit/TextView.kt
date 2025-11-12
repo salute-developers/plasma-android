@@ -19,7 +19,10 @@ import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.StyleStateList
 import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.getStyleForState
+import com.sdds.uikit.statelist.getStyleStateList
 import com.sdds.uikit.statelist.setTextColorValue
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
@@ -50,6 +53,8 @@ open class TextView @JvmOverloads constructor(
     private var _textShaderFactory: CachedShaderFactory = CachedShaderFactory.create()
     private var _respectLineHeightEnabled: Boolean = false
     private var _calculatedLineHeight: Float = 0f
+    private var _textAppearances: StyleStateList? = null
+    private var _currentTextAppearance: Int = 0
 
     /**
      * Флаг включает режим установки высоты [TextView] по lineHeight.
@@ -93,6 +98,7 @@ open class TextView @JvmOverloads constructor(
     init {
         context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0).use {
             setTextColor(it.getColorValueStateList(context, R.styleable.TextView_sd_textColor))
+            setTextAppearancesList(it.getStyleStateList(context, R.styleable.TextView_sd_textAppearance))
         }
         @Suppress("LeakingThis")
         applySelector(this)
@@ -107,7 +113,18 @@ open class TextView @JvmOverloads constructor(
 
     override fun setTextAppearance(resId: Int) {
         super.setTextAppearance(resId)
+        _currentTextAppearance = resId
         _calculatedLineHeight = TextAppearance(context, resId).lineHeight
+    }
+
+    /**
+     * Устанавливает список [StyleStateList] с соответствиями стилей текста с drawableState
+     */
+    fun setTextAppearancesList(textAppearances: StyleStateList?) {
+        if (_textAppearances != textAppearances) {
+            _textAppearances = textAppearances
+            refreshDrawableState()
+        }
     }
 
     /**
@@ -189,11 +206,22 @@ open class TextView @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
+        refreshTextAppearanceIfNeed()
         setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF())
     }
 
     private fun updateBounds() {
         paint.getTextBounds(text.toString(), 0, text.length, _textBounds)
         setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF())
+    }
+
+    private fun refreshTextAppearanceIfNeed() {
+        val stateList = _textAppearances ?: return
+
+        val old = _currentTextAppearance
+        _currentTextAppearance = stateList.getStyleForState(drawableState)
+        if (old != _currentTextAppearance) {
+            setTextAppearance(_currentTextAppearance)
+        }
     }
 }

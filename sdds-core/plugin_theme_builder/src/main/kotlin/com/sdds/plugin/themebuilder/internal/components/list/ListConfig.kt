@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
+import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
@@ -14,6 +15,11 @@ import kotlinx.serialization.Serializable
 internal data class ListProperties(
     val listItemStyle: ComponentStyle<ListItemProperties>? = null,
     val dividerStyle: ComponentStyle<DividerProperties>? = null,
+    val gap: Dimension? = null,
+    val paddingStart: Dimension? = null,
+    val paddingTop: Dimension? = null,
+    val paddingEnd: Dimension? = null,
+    val paddingBottom: Dimension? = null,
 ) : PropertyOwner {
 
     override fun merge(parent: PropertyOwner): PropertyOwner {
@@ -21,6 +27,11 @@ internal data class ListProperties(
         return copy(
             listItemStyle = listItemStyle ?: otherProps.listItemStyle,
             dividerStyle = dividerStyle ?: otherProps.dividerStyle,
+            gap = gap ?: otherProps.gap,
+            paddingStart = paddingStart ?: otherProps.paddingStart,
+            paddingTop = paddingTop ?: otherProps.paddingTop,
+            paddingEnd = paddingEnd ?: otherProps.paddingEnd,
+            paddingBottom = paddingBottom ?: otherProps.paddingBottom,
         )
     }
 }

@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.view.View
@@ -1180,7 +1179,6 @@ open class Tabs @JvmOverloads constructor(
                 .toList()
 
             tabs.forEach { tab ->
-                Log.e("Tabs", "measureHorizontal: counter = ${(tab as TabItem).counterText}")
                 measureTabWithMargins(
                     tab,
                     widthMeasureSpec,

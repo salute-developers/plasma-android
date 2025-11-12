@@ -32,8 +32,10 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
             echo "Using modules and tag from repository_dispatch event"
-            echo "modules=${{ github.event.client_payload.modules }}" >> $GITHUB_OUTPUT
+            # Ensure modules is a JSON string for downstream fromJson()
+            echo "modules=${{ toJson(github.event.client_payload.modules) }}" >> $GITHUB_OUTPUT
             echo "ref=${{ github.event.client_payload.tag }}" >> $GITHUB_OUTPUT
+            echo "Debug: modules (json) -> ${{ toJson(github.event.client_payload.modules) }}"
           else
             echo "Using modules and tag from workflow_dispatch input"
             echo "Input modules ${{ github.event.inputs.modules }}"

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.PaginationDotsHorizontal" parent="Sdds.Components.PaginationDots">
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_edgeIndicatorShrinkFactor">0.3</item>
+        <item name="sd_gap">@dimen/serv_pagination_dots_horizontal_gap</item>
+        <item name="sd_dotBackground">@color/serv_pagination_dots_horizontal_dot_bg_color</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsHorizontal.M">
+        <item name="sd_edgeIndicatorCount">2</item>
+        <item name="sd_dotWidth">@dimen/serv_pagination_dots_horizontal_m_dot_width</item>
+        <item name="sd_dotHeight">@dimen/serv_pagination_dots_horizontal_m_dot_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsHorizontalM">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsHorizontal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsHorizontal.M.ActiveTypeLine">
+        <item name="sd_dotWidth">@xml/serv_pagination_dots_horizontal_m_active_type_line_dot_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsHorizontalMActiveTypeLine">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsHorizontal.M.ActiveTypeLine</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsHorizontal.S">
+        <item name="sd_edgeIndicatorCount">1</item>
+        <item name="sd_dotWidth">@dimen/serv_pagination_dots_horizontal_s_dot_width</item>
+        <item name="sd_dotHeight">@dimen/serv_pagination_dots_horizontal_s_dot_height</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsHorizontalS">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsHorizontal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.PaginationDotsHorizontal.S.ActiveTypeLine">
+        <item name="sd_dotWidth">@xml/serv_pagination_dots_horizontal_s_active_type_line_dot_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.PaginationDotsHorizontalSActiveTypeLine">
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsHorizontal.S.ActiveTypeLine</item>
+    </style>
+</resources>

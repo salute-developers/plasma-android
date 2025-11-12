@@ -13,6 +13,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.isSpecified
 
 /**
  * Компонент List
@@ -35,8 +36,7 @@ fun List(
     style: ListStyle = LocalListStyle.current,
     state: LazyListState = rememberLazyListState(),
     reverseLayout: Boolean = false,
-    verticalArrangement: Arrangement.Vertical =
-        if (!reverseLayout) Arrangement.Top else Arrangement.Bottom,
+    verticalArrangement: Arrangement.Vertical = getVerticalArrangement(style.dimensions, reverseLayout),
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     userScrollEnabled: Boolean = true,
@@ -58,6 +58,19 @@ fun List(
             userScrollEnabled = userScrollEnabled,
             content = content,
         )
+    }
+}
+
+private fun getVerticalArrangement(
+    dimensions: ListDimensions,
+    reverseLayout: Boolean,
+): Arrangement.Vertical {
+    return if (dimensions.gap.isSpecified) {
+        Arrangement.spacedBy(dimensions.gap)
+    } else if (reverseLayout) {
+        Arrangement.Bottom
+    } else {
+        Arrangement.Top
     }
 }
 

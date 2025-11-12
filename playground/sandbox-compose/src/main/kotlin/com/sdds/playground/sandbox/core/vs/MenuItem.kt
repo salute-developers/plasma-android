@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.core.vs
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
@@ -41,9 +40,12 @@ import com.sdds.playground.sandbox.list.vs.ListFragment
 import com.sdds.playground.sandbox.loader.vs.LoaderFragment
 import com.sdds.playground.sandbox.modal.vs.ModalFragment
 import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
+import com.sdds.playground.sandbox.note.vs.NoteCompactFragment
+import com.sdds.playground.sandbox.note.vs.NoteFragment
 import com.sdds.playground.sandbox.notification.vs.NotificationFragment
 import com.sdds.playground.sandbox.notificationcontent.vs.NotificationContentFragment
 import com.sdds.playground.sandbox.overlay.vs.OverlayFragment
+import com.sdds.playground.sandbox.paginationdots.vs.PaginationDotsFragment
 import com.sdds.playground.sandbox.popover.vs.PopoverFragment
 import com.sdds.playground.sandbox.progress.vs.CircularProgressBarFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
@@ -61,6 +63,7 @@ import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
 import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
 import com.sdds.playground.sandbox.toast.vs.ToastFragment
+import com.sdds.playground.sandbox.toolbar.vs.ToolBarFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
 import com.sdds.testing.vs.accordion.accordion
@@ -101,9 +104,12 @@ import com.sdds.testing.vs.loader.loader
 import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
+import com.sdds.testing.vs.note.note
+import com.sdds.testing.vs.note.noteCompact
 import com.sdds.testing.vs.notification.notificationTrigger
 import com.sdds.testing.vs.notificationcontent.notificationContent
 import com.sdds.testing.vs.overlay.overlayWithTrigger
+import com.sdds.testing.vs.paginationdots.paginationDots
 import com.sdds.testing.vs.popover.popoverWithTrigger
 import com.sdds.testing.vs.progress.CircularProgressUiState
 import com.sdds.testing.vs.progress.ProgressUiState
@@ -127,6 +133,7 @@ import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.textArea
 import com.sdds.testing.vs.textfield.textField
 import com.sdds.testing.vs.toast.toastTrigger
+import com.sdds.testing.vs.toolbar.toolBar
 import com.sdds.testing.vs.tooltip.tooltipWithTrigger
 import com.sdds.testing.vs.wheel.wheel
 import com.sdds.uikit.colorstate.ColorState
@@ -150,7 +157,6 @@ internal class MenuItem(
 @Suppress("UNCHECKED_CAST")
 internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
     return all.toList().mapIndexedNotNull { index, (item, value) ->
-        Log.e("MenuItem", "getMenuItems: getStyleProvider for ${value.name}, count = ${value.styleProviders.size}")
         val styleProvider = value.styleProviders.values.first() as ViewStyleProvider<String>
         MenuItem(
             id = item.routeId() ?: return@mapIndexedNotNull null,
@@ -379,6 +385,20 @@ internal sealed class ComponentScreen(
     object CodeInput : ComponentScreen(
         { item -> fragment<CodeInputFragment>(item.route, item.defaultBuilder) },
     )
+    object Note : ComponentScreen(
+        { item -> fragment<NoteFragment>(item.route, item.defaultBuilder) },
+    )
+    object NoteCompact : ComponentScreen(
+        { item -> fragment<NoteCompactFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object PaginationDots : ComponentScreen(
+        { item -> fragment<PaginationDotsFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object ToolBar : ComponentScreen(
+        { item -> fragment<ToolBarFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -434,6 +454,10 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
+        CoreComponent.NOTE -> ComponentScreen.Note
+        CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
+        CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
+        CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -491,6 +515,10 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.DRAWER -> R.id.nav_drawer
         CoreComponent.TABS -> R.id.nav_tabs
         CoreComponent.ICON_TABS -> R.id.nav_icon_tabs
+        CoreComponent.NOTE -> R.id.nav_note
+        CoreComponent.NOTE_COMPACT -> R.id.nav_note_compact
+        CoreComponent.PAGINATION_DOTS -> R.id.nav_pagination_dots
+        CoreComponent.TOOL_BAR -> R.id.nav_toolbar
         else -> null
     }?.let { it + hashCode() }
 }
@@ -594,6 +622,10 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
 
         CoreComponent.TABS -> tabs(context, style)
         CoreComponent.ICON_TABS -> iconTabs(context, style)
+        CoreComponent.NOTE -> note(context, style)
+        CoreComponent.NOTE_COMPACT -> noteCompact(context, style)
+        CoreComponent.PAGINATION_DOTS -> paginationDots(context, style)
+        CoreComponent.TOOL_BAR -> toolBar(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

@@ -144,7 +144,7 @@ data class ComponentKey(
         val AvatarGroup = ComponentKey("AvatarGroup", CoreComponent.AVATAR_GROUP)
 
         val Badge = ComponentKey("Badge", CoreComponent.BADGE)
-        val IconBadge = ComponentKey("IconBadge", CoreComponent.BADGE)
+        val IconBadge = ComponentKey("IconBadge", CoreComponent.ICON_BADGE)
 
         val BottomSheet = ComponentKey("BottomSheet", CoreComponent.BOTTOMSHEET)
 
@@ -211,7 +211,9 @@ data class ComponentKey(
         val TabItem = ComponentKey("TabItem", CoreComponent.TAB_ITEM)
         val IconTabItem = ComponentKey("IconTabItem", CoreComponent.ICON_TAB_ITEM)
         val IconTabs = ComponentKey("IconTabs", CoreComponent.ICON_TABS)
+        val Toolbar = ComponentKey("Toolbar", CoreComponent.TOOL_BAR)
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
+        val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
     }
 }
 
@@ -296,6 +298,8 @@ enum class CoreComponent {
     ICON_TAB_ITEM,
     ICON_TABS,
     NAVIGATION_BAR,
+    PAGINATION_DOTS,
+    TOOL_BAR,
 }
 
 /**
@@ -337,6 +341,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.CIRCULAR_PROGRESS,
         CoreComponent.NOTE,
         CoreComponent.NOTE_COMPACT,
+        CoreComponent.PAGINATION_DOTS,
         -> CoreComponentGroup.DATA_DISPLAY
 
         CoreComponent.BASIC_BUTTON,
@@ -377,6 +382,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.TOOLTIP,
         CoreComponent.TOAST,
         CoreComponent.OVERLAY,
+        CoreComponent.TOOL_BAR,
         -> CoreComponentGroup.OVERLAY
 
         CoreComponent.NAVIGATION_BAR -> CoreComponentGroup.NAVIGATION

@@ -28,7 +28,8 @@ internal fun SwitchScreen(componentKey: ComponentKey = ComponentKey.Switch) {
                 style = style,
                 description = switchState.description,
                 enabled = switchState.enabled,
-                onActiveChanged = { switchViewModel.updateActive(it) },
+                onActiveChanged = ({ active: Boolean -> switchViewModel.updateActive(active) })
+                    .takeIf { switchState.toggleable },
             )
         },
     )

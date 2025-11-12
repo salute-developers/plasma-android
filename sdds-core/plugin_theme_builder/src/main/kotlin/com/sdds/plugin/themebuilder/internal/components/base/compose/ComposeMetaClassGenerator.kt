@@ -11,8 +11,8 @@ internal value class MetaClassAppearance(val name: String)
 
 internal data class ComposeMetaClassInfo(
     val coreComponentName: String,
-    val styleClassName: ClassName,
-    val styleBuilderClassName: ClassName,
+    val styleClassName: ClassName?,
+    val styleBuilderClassName: ClassName?,
     val appearances: Map<MetaClassAppearance, List<VariationInfo>>,
 )
 
@@ -65,8 +65,8 @@ internal class ComposeMetaClassGenerator(
         val styleTypeName = info.styleClassName
         val styleBuilderTypeName = info.styleBuilderClassName
 
-        addImport(styleTypeName)
-        addImport(styleBuilderTypeName)
+        styleTypeName?.let { addImport(it) }
+        styleBuilderTypeName?.let { addImport(styleBuilderTypeName) }
         addImport(
             packageName = "com.sdds.compose.uikit.style",
             names = listOf("style", "modify"),
@@ -124,7 +124,7 @@ internal class ComposeMetaClassGenerator(
             ),
             annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
             returnType = info.styleClassName,
-            description = "Возвращает [${info.styleClassName.simpleName}] для [$enumClassName]",
+            description = "Возвращает [${info.styleClassName?.simpleName}] для [$enumClassName]",
             body = listOf(
                 "val builder =  when (this) {\n",
                 *styleWhenBody,

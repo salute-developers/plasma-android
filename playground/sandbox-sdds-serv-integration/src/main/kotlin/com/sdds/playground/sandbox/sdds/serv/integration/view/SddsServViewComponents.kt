@@ -195,6 +195,13 @@ object SddsServViewComponents : ComponentsProviderView {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Toolbar,
+                mapOf(
+                    "ToolbarHorizontal" to SddsServToolbarHorizontalVariationsView,
+                    "ToolbarVertical" to SddsServToolbarVerticalVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to SddsServToastVariationsView,
@@ -210,6 +217,18 @@ object SddsServViewComponents : ComponentsProviderView {
                 ComponentKey.RectSkeleton,
                 mapOf(
                     "RectSkeleton" to SddsServRectSkeletonVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Note,
+                mapOf(
+                    "Note" to SddsServNoteVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.NoteCompact,
+                mapOf(
+                    "NoteCompact" to SddsServNoteCompactVariationsView,
                 ),
             ),
             ViewComponent(
@@ -323,8 +342,13 @@ object SddsServViewComponents : ComponentsProviderView {
                 ComponentKey.Tabs,
                 mapOf(
                     "TabsDefault" to SddsServTabsDefaultVariationsView,
-                    "IconTabs" to SddsServIconTabsVariationsView,
                     "TabsHeader" to SddsServTabsHeaderVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.IconTabs,
+                mapOf(
+                    "IconTabs" to SddsServIconTabsVariationsView,
                 ),
             ),
             ViewComponent(
@@ -338,6 +362,13 @@ object SddsServViewComponents : ComponentsProviderView {
                 ComponentKey.IconTabItem,
                 mapOf(
                     "IconTabItem" to SddsServIconTabItemVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to SddsServPaginationDotsHorizontalVariationsView,
+                    "PaginationDotsVertical" to SddsServPaginationDotsVerticalVariationsView,
                 ),
             ),
         ).associateBy { it.key }

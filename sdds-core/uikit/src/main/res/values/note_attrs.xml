@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_noteStyle" format="reference"/>
+    <attr name="sd_noteStyleOverlay" format="reference"/>
+    <attr name="sd_noteCompactStyle" format="reference"/>
+    <attr name="sd_noteCompactStyleOverlay" format="reference"/>
+
+    <declare-styleable name="Note" tools:ignore="ResourceName">
+        <!-- Стиль компонента LinkButton -->
+        <attr name="sd_linkButtonStyleOverlay" format="reference"/>
+        <attr name="sd_background" />
+        <attr name="sd_shapeAppearance" />
+        <!-- Заголовок -->
+        <attr name="sd_title" />
+        <!-- Текст -->
+        <attr name="sd_text" />
+        <!-- Стиль текста в заголовке -->
+        <attr name="sd_titleAppearance" />
+        <!-- Стиль текста -->
+        <attr name="sd_textAppearance" />
+        <!-- Цвет текста в заголовке -->
+        <attr name="sd_titleColor" />
+        <!-- Цвет текста -->
+        <attr name="sd_textColor" />
+
+        <!-- Расположение contentBefore -->
+        <attr name="sd_contentBeforeArrangement" format="enum">
+            <!-- Расположение сверху, центрирован относительно title -->
+            <enum name="top" value="0" />
+            <!-- Расположение по центру, центрирован относительно блока title + text -->
+            <enum name="center" value="1" />
+            <!-- Расположение по нижней границе text -->
+            <enum name="bottom" value="2" />
+        </attr>
+
+        <!-- Отступ текста от заголовка -->
+        <attr name="sd_textTopMargin" format="dimension" />
+        <!-- Отступ contentBefore от текстового блока -->
+        <attr name="sd_contentBeforeEndMargin" format="dimension" />
+        <!-- Ссылка на ресурс иконки в contentBefore -->
+        <attr name="sd_icon" />
+        <!-- Размер иконки в contentBefore -->
+        <attr name="sd_iconSize" />
+        <!-- Окрас иконки в contentBefore -->
+        <attr name="sd_iconTint" />
+        <!-- Ссылка на ресурс иконки close -->
+        <attr name="sd_closeIcon" />
+        <!-- Окрас иконки close -->
+        <attr name="sd_closeIconTint" />
+        <!-- Размер иконки close -->
+        <attr name="sd_closeIconSize"/>
+
+        <!-- Отступ заголовка от иконки close -->
+        <attr name="sd_titlePaddingEnd" format="dimension" />
+        <!-- Верхний отступ иконки close -->
+        <attr name="sd_closeTopMargin" format="dimension" />
+        <!-- Отступ в конце иконки close -->
+        <attr name="sd_closeEndMargin" format="dimension" />
+        <!-- Верхний отступ action (отступ от text) -->
+        <attr name="sd_actionTopMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="NoteCompact" tools:ignore="ResourceName">
+        <!-- Отступ в начале иконки close -->
+        <attr name="sd_closeStartMargin" format="dimension" />
+        <!-- Отступ в начале action (отступ от text) -->
+        <attr name="sd_actionStartMargin" format="dimension" />
+        <!-- Отступ в конце action (отступ от close) -->
+        <attr name="sd_actionEndMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="Note_Layout" tools:ignore="ResourceName">
+        <!-- Расположение дочерних view в Note и NoteCompact -->
+        <attr name="layout_noteContent" format="enum">
+            <enum name="contentBefore" value="0" />
+            <enum name="action" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

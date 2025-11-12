@@ -60,6 +60,12 @@
     <style name="Serv.Sdds.ComponentOverlays.LinkButtonXlWarning">
         <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xl.Warning</item>
     </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xl.Info">
+        <item name="serv_linkbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXlInfo">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xl.Info</item>
+    </style>
     <style name="Serv.Sdds.Components.LinkButton.L">
         <item name="android:minHeight">@dimen/serv_link_button_l_min_height</item>
         <item name="android:minWidth">@dimen/serv_link_button_l_min_width</item>
@@ -109,6 +115,12 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.LinkButtonLWarning">
         <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Info">
+        <item name="serv_linkbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLInfo">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Info</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.M">
         <item name="android:minHeight">@dimen/serv_link_button_m_min_height</item>
@@ -160,6 +172,12 @@
     <style name="Serv.Sdds.ComponentOverlays.LinkButtonMWarning">
         <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Warning</item>
     </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Info">
+        <item name="serv_linkbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMInfo">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Info</item>
+    </style>
     <style name="Serv.Sdds.Components.LinkButton.S">
         <item name="android:minHeight">@dimen/serv_link_button_s_min_height</item>
         <item name="android:minWidth">@dimen/serv_link_button_s_min_width</item>
@@ -209,6 +227,12 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.LinkButtonSWarning">
         <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Info">
+        <item name="serv_linkbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSInfo">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Info</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.Xs">
         <item name="android:minHeight">@dimen/serv_link_button_xs_min_height</item>
@@ -260,6 +284,12 @@
     <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsWarning">
         <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Warning</item>
     </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Info">
+        <item name="serv_linkbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsInfo">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Info</item>
+    </style>
     <style name="Serv.Sdds.Components.LinkButton.Xxs">
         <item name="android:minHeight">@dimen/serv_link_button_xxs_min_height</item>
         <item name="android:minWidth">@dimen/serv_link_button_xxs_min_width</item>
@@ -309,5 +339,11 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.LinkButtonXxsWarning">
         <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xxs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xxs.Info">
+        <item name="serv_linkbuttonColors">state_info</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXxsInfo">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xxs.Info</item>
     </style>
 </resources>

@@ -10,6 +10,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -28,6 +30,11 @@ val LocalSwitchStyle = compositionLocalOf { SwitchStyle.builder().style() }
  */
 @Stable
 interface SwitchStyle : Style {
+
+    /**
+     * Форма компонента
+     */
+    val shape: Shape
 
     /**
      * Форма неподвижной части компонента
@@ -160,6 +167,11 @@ interface SwitchStyleBuilder : StyleBuilder<SwitchStyle> {
      * Устанавливает альфу [disableAlpha] в состоянии disabled
      */
     fun disableAlpha(disableAlpha: Float): SwitchStyleBuilder
+
+    /**
+     * Устанавливает форму [shape] компонента
+     */
+    fun shape(shape: CornerBasedShape): SwitchStyleBuilder
 }
 
 /**
@@ -247,6 +259,11 @@ interface SwitchColorValues {
      */
     val toggleTrackBorderColor: InteractiveColor
 
+    /**
+     * Цвет фона
+     */
+    val backgroundColor: InteractiveColor
+
     companion object {
 
         /**
@@ -316,6 +333,17 @@ interface SwitchColorValuesBuilder {
         toggleTrackBorderColor(toggleTrackBorderColor.asInteractive())
 
     /**
+     * Устанавливает цвет фона [backgroundColor]
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): SwitchColorValuesBuilder
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     */
+    fun backgroundColor(backgroundColor: Color): SwitchColorValuesBuilder =
+        backgroundColor(backgroundColor.asInteractive())
+
+    /**
      * Возвращает экземпляр [SwitchColorValues]
      */
     fun build(): SwitchColorValues
@@ -328,6 +356,7 @@ private class DefaultSwitchColorValues(
     override val toggleThumbColor: InteractiveColor,
     override val toggleTrackColor: InteractiveColor,
     override val toggleTrackBorderColor: InteractiveColor,
+    override val backgroundColor: InteractiveColor,
 ) : SwitchColorValues {
 
     class Builder : SwitchColorValuesBuilder {
@@ -336,6 +365,7 @@ private class DefaultSwitchColorValues(
         private var toggleThumbColor: InteractiveColor? = null
         private var toggleTrackColor: InteractiveColor? = null
         private var toggleTrackBorderColor: InteractiveColor? = null
+        private var backgroundColor: InteractiveColor? = null
 
         override fun labelColor(labelColor: InteractiveColor) = apply {
             this.labelColor = labelColor
@@ -357,6 +387,10 @@ private class DefaultSwitchColorValues(
             this.toggleTrackBorderColor = toggleTrackBorderColor
         }
 
+        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
+            this.backgroundColor = backgroundColor
+        }
+
         override fun build(): SwitchColorValues {
             return DefaultSwitchColorValues(
                 labelColor = labelColor ?: Color.Black.asInteractive(),
@@ -366,6 +400,7 @@ private class DefaultSwitchColorValues(
                     setOf(SwitchStates.Checked) to Color.Green,
                 ),
                 toggleTrackBorderColor = toggleTrackBorderColor ?: Color.Transparent.asInteractive(),
+                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
             )
         }
     }
@@ -475,6 +510,26 @@ interface SwitchDimensionValues {
      */
     val descriptionPadding: Dp
 
+    /**
+     * Отступ сверху
+     */
+    val paddingTop: Dp
+
+    /**
+     * Отступ вначале
+     */
+    val paddingStart: Dp
+
+    /**
+     * Отступ вконце
+     */
+    val paddingEnd: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottom: Dp
+
     companion object {
 
         /**
@@ -525,6 +580,26 @@ interface SwitchDimensionValuesBuilder {
     fun descriptionPadding(descriptionPadding: Dp): SwitchDimensionValuesBuilder
 
     /**
+     * Устанавливает отступ вначале
+     */
+    fun paddingStart(paddingStart: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает отступ сверху
+     */
+    fun paddingTop(paddingTop: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает отступ вконце
+     */
+    fun paddingEnd(paddingEnd: Dp): SwitchDimensionValuesBuilder
+
+    /**
+     * Устанавливает отступ снизу
+     */
+    fun paddingBottom(paddingBottom: Dp): SwitchDimensionValuesBuilder
+
+    /**
      * Возвращает экземпляр [SwitchDimensionValues]
      */
     fun build(): SwitchDimensionValues
@@ -539,6 +614,10 @@ private class DefaultSwitchDimensionValues(
     override val toggleThumbHeight: Dp,
     override val textPadding: Dp,
     override val descriptionPadding: Dp,
+    override val paddingTop: Dp,
+    override val paddingStart: Dp,
+    override val paddingEnd: Dp,
+    override val paddingBottom: Dp,
 ) : SwitchDimensionValues {
 
     class Builder : SwitchDimensionValuesBuilder {
@@ -549,6 +628,10 @@ private class DefaultSwitchDimensionValues(
         private var toggleThumbPadding: Dp? = null
         private var textPadding: Dp? = null
         private var descriptionPadding: Dp? = null
+        private var paddingTop: Dp? = null
+        private var paddingStart: Dp? = null
+        private var paddingEnd: Dp? = null
+        private var paddingBottom: Dp? = null
 
         override fun toggleTrackWidth(toggleTrackWidth: Dp) = apply {
             this.toggleTrackWidth = toggleTrackWidth
@@ -578,6 +661,22 @@ private class DefaultSwitchDimensionValues(
             this.descriptionPadding = descriptionPadding
         }
 
+        override fun paddingStart(paddingStart: Dp) = apply {
+            this.paddingStart = paddingStart
+        }
+
+        override fun paddingTop(paddingTop: Dp) = apply {
+            this.paddingTop = paddingTop
+        }
+
+        override fun paddingEnd(paddingEnd: Dp) = apply {
+            this.paddingEnd = paddingEnd
+        }
+
+        override fun paddingBottom(paddingBottom: Dp) = apply {
+            this.paddingBottom = paddingBottom
+        }
+
         override fun build(): SwitchDimensionValues {
             return DefaultSwitchDimensionValues(
                 toggleTrackWidth = toggleTrackWidth ?: 44.dp,
@@ -587,6 +686,10 @@ private class DefaultSwitchDimensionValues(
                 toggleThumbPadding = toggleThumbPadding ?: 2.dp,
                 textPadding = textPadding ?: 12.dp,
                 descriptionPadding = descriptionPadding ?: 2.dp,
+                paddingStart = this.paddingStart ?: 0.dp,
+                paddingTop = this.paddingTop ?: 0.dp,
+                paddingEnd = this.paddingEnd ?: 0.dp,
+                paddingBottom = this.paddingBottom ?: 0.dp,
             )
         }
     }
@@ -607,6 +710,7 @@ private class DefaultSwitchStyle(
     override val dimensionValues: SwitchDimensionValues,
     override val colorValues: SwitchColorValues,
     override val disableAlpha: Float,
+    override val shape: Shape,
 ) : SwitchStyle {
 
     class Builder : SwitchStyleBuilder {
@@ -620,6 +724,7 @@ private class DefaultSwitchStyle(
         private var animationDurationMillis: Int? = null
         private var toggleTrackShape: CornerBasedShape? = null
         private var toggleThumbShape: CornerBasedShape? = null
+        private var shape: Shape? = null
         private var disableAlpha: Float? = null
 
         @Deprecated("Use dimensionValues instead")
@@ -670,6 +775,10 @@ private class DefaultSwitchStyle(
             this.disableAlpha = disableAlpha
         }
 
+        override fun shape(shape: CornerBasedShape) = apply {
+            this.shape = shape
+        }
+
         override fun style(): SwitchStyle {
             return DefaultSwitchStyle(
                 colors = colorsBuilder.build(),
@@ -682,6 +791,7 @@ private class DefaultSwitchStyle(
                 colorValues = colorValuesBuilder.build(),
                 dimensionValues = dimensionsBuilder.build(),
                 disableAlpha = disableAlpha ?: 0.4f,
+                shape = shape ?: RectangleShape,
             )
         }
     }

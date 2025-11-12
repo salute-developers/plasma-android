@@ -9,6 +9,9 @@ echo "🔍 Detecting changed modules since $FROM_TAG"
 UIKIT_COMPOSE_CHANGED=false
 UIKIT_CHANGED=false
 TESTING_CHANGED=false
+TESTING_CHANGED_TARGET=""
+TESTING_SEEN_VS=false
+TESTING_SEEN_COMPOSE=false
 
 declare -a MODULES_SET=()
 CHANGED_TOKENS=false
@@ -30,6 +33,13 @@ while IFS= read -r FILE; do
       UIKIT_CHANGED=true
     elif [[ "$FIRST" == "testing" ]]; then
       TESTING_CHANGED=true
+      # Track which testing flavors changed
+      if [[ "$FILE" == */vs/* ]]; then
+        TESTING_SEEN_VS=true
+      fi
+      if [[ "$FILE" == */compose/* ]]; then
+        TESTING_SEEN_COMPOSE=true
+      fi
     fi
     if [[ "$FIRST" != "icons" && "$FIRST" != "testing" ]]; then
       MODULE=":sdds-core:$FIRST"
@@ -52,6 +62,24 @@ while IFS= read -r FILE; do
   fi
 done < <(git diff --name-only "$FROM_TAG" HEAD)
 
+# Resolve testing target based on observed paths
+if [[ "$TESTING_CHANGED" == true ]]; then
+  if [[ "$TESTING_SEEN_VS" == true && "$TESTING_SEEN_COMPOSE" == true ]]; then
+    TESTING_CHANGED_TARGET="all"
+  elif [[ "$TESTING_SEEN_VS" == true ]]; then
+    TESTING_CHANGED_TARGET="view"
+  elif [[ "$TESTING_SEEN_COMPOSE" == true ]]; then
+    TESTING_CHANGED_TARGET="compose"
+  else
+    # Default when testing changed but neither subfolder matched explicitly
+    TESTING_CHANGED_TARGET="none"
+  fi
+else
+  TESTING_CHANGED_TARGET="none"
+fi
+
+echo "🧪 Testing target resolved: $TESTING_CHANGED_TARGET"
+
 if [[ "$UIKIT_COMPOSE_CHANGED" == true || "$UIKIT_CHANGED" == true || "$TESTING_CHANGED" == true ]]; then
   echo "🔁 Resolving token modules due to changes in uikit or testing"
 
@@ -65,10 +93,18 @@ if [[ "$UIKIT_COMPOSE_CHANGED" == true || "$UIKIT_CHANGED" == true || "$TESTING_
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
       echo "🔗 Added view token module due to uikit change: $MODULE"
-    elif [[ "$TESTING_CHANGED" == true && ( "$NAME" == *view* || "$NAME" == *compose* ) ]]; then
+    elif [[ "$TESTING_CHANGED_TARGET" == "view" && "$NAME" == *view* ]]; then
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
-      echo "🔗 Added token module due to testing change: $MODULE"
+      echo "🔗 Added view token module due to testing change: $MODULE"
+    elif [[ "$TESTING_CHANGED_TARGET" == "compose" && "$NAME" == *compose* ]]; then
+      MODULE=":tokens:$NAME"
+      MODULES_SET+=("$MODULE")
+      echo "🔗 Added compose token module due to testing change: $MODULE"
+    elif [[ "$TESTING_CHANGED_TARGET" == "all" && ( "$NAME" == *view* || "$NAME" == *compose* ) ]]; then
+      MODULE=":tokens:$NAME"
+      MODULES_SET+=("$MODULE")
+      echo "🔗 Added token module for all testing targets: $MODULE"
     fi
   done
 fi
@@ -98,6 +134,9 @@ fi
 
 UNIQUE_MODULES=$(printf "%s\n" "${MODULES_SET[@]:-}" | sort -u | xargs)
 echo "✅ Final module list: $UNIQUE_MODULES"
+
+# Output testing target for GitHub Actions
+echo "testing_changed_target=$TESTING_CHANGED_TARGET" >> "$GITHUB_OUTPUT"
 
 # Output for GitHub Actions
 echo "modules=$UNIQUE_MODULES" >> "$GITHUB_OUTPUT"

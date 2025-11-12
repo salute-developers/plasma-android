@@ -12,7 +12,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -33,9 +35,19 @@ interface CellStyle : Style {
     val labelStyle: TextStyle
 
     /**
+     * Стили лэйбла
+     */
+    val labelStyles: StatefulValue<TextStyle>
+
+    /**
      * Стиль тайтла
      */
     val titleStyle: TextStyle
+
+    /**
+     * Стили тайтла
+     */
+    val titleStyles: StatefulValue<TextStyle>
 
     /**
      * Стиль сабйтайтла
@@ -43,9 +55,19 @@ interface CellStyle : Style {
     val subtitleStyle: TextStyle
 
     /**
+     * Стили сабйтайтла
+     */
+    val subtitleStyles: StatefulValue<TextStyle>
+
+    /**
      * Cтиль текста disclosure
      */
     val disclosureTextStyle: TextStyle
+
+    /**
+     * Стили disclosure
+     */
+    val disclosureTextStyles: StatefulValue<TextStyle>
 
     /**
      * Иконка disclosure
@@ -104,10 +126,6 @@ interface CellStyle : Style {
 
 @Immutable
 private data class DefaultCellStyle(
-    override val labelStyle: TextStyle,
-    override val titleStyle: TextStyle,
-    override val subtitleStyle: TextStyle,
-    override val disclosureTextStyle: TextStyle,
     @Deprecated("Use disclosureIconRes instead")
     override val disclosureIcon: Painter?,
     override val disclosureIconRes: Int?,
@@ -118,12 +136,22 @@ private data class DefaultCellStyle(
     override val checkBoxStyle: CheckBoxStyle,
     override val radioBoxStyle: RadioBoxStyle,
     override val switchStyle: SwitchStyle,
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val titleStyles: StatefulValue<TextStyle>,
+    override val subtitleStyles: StatefulValue<TextStyle>,
+    override val disclosureTextStyles: StatefulValue<TextStyle>,
 ) : CellStyle {
+
+    override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
+    override val titleStyle: TextStyle get() = titleStyles.getDefaultValue()
+    override val subtitleStyle: TextStyle get() = subtitleStyles.getDefaultValue()
+    override val disclosureTextStyle: TextStyle get() = disclosureTextStyles.getDefaultValue()
+
     class Builder : CellStyleBuilder {
-        private var labelStyle: TextStyle? = null
-        private var titleStyle: TextStyle? = null
-        private var subtitleStyle: TextStyle? = null
-        private var disclosureStyle: TextStyle? = null
+        private var labelStyle: StatefulValue<TextStyle>? = null
+        private var titleStyle: StatefulValue<TextStyle>? = null
+        private var subtitleStyle: StatefulValue<TextStyle>? = null
+        private var disclosureStyle: StatefulValue<TextStyle>? = null
         private var disclosureIcon: Painter? = null
         private var disclosureIconRes: Int? = null
         private var colorsBuilder: CellColorsBuilder = CellColors.builder()
@@ -134,19 +162,31 @@ private data class DefaultCellStyle(
         private var radioBoxStyle: RadioBoxStyle? = null
         private var switchStyle: SwitchStyle? = null
 
-        override fun labelStyle(labelStyle: TextStyle) = apply {
+        override fun labelStyle(labelStyle: TextStyle) =
+            labelStyle(labelStyle.asStatefulValue())
+
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
             this.labelStyle = labelStyle
         }
 
-        override fun titleStyle(titleStyle: TextStyle): CellStyleBuilder = apply {
+        override fun titleStyle(titleStyle: TextStyle): CellStyleBuilder =
+            titleStyle(titleStyle.asStatefulValue())
+
+        override fun titleStyle(titleStyle: StatefulValue<TextStyle>) = apply {
             this.titleStyle = titleStyle
         }
 
-        override fun subtitleStyle(subtitleStyle: TextStyle) = apply {
+        override fun subtitleStyle(subtitleStyle: TextStyle) =
+            subtitleStyle(subtitleStyle.asStatefulValue())
+
+        override fun subtitleStyle(subtitleStyle: StatefulValue<TextStyle>) = apply {
             this.subtitleStyle = subtitleStyle
         }
 
-        override fun disclosureTextStyle(disclosureStyle: TextStyle) = apply {
+        override fun disclosureTextStyle(disclosureStyle: TextStyle) =
+            disclosureTextStyle(disclosureStyle.asStatefulValue())
+
+        override fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>) = apply {
             this.disclosureStyle = disclosureStyle
         }
 
@@ -191,10 +231,10 @@ private data class DefaultCellStyle(
 
         override fun style(): CellStyle {
             return DefaultCellStyle(
-                labelStyle = labelStyle ?: TextStyle.Default,
-                titleStyle = titleStyle ?: TextStyle.Default,
-                subtitleStyle = subtitleStyle ?: TextStyle.Default,
-                disclosureTextStyle = disclosureStyle ?: TextStyle.Default,
+                labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
+                titleStyles = titleStyle ?: TextStyle.Default.asStatefulValue(),
+                subtitleStyles = subtitleStyle ?: TextStyle.Default.asStatefulValue(),
+                disclosureTextStyles = disclosureStyle ?: TextStyle.Default.asStatefulValue(),
                 disclosureIcon = disclosureIcon,
                 disclosureIconRes = disclosureIconRes,
                 colors = colorsBuilder.build(),
@@ -220,9 +260,19 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     fun labelStyle(labelStyle: TextStyle): CellStyleBuilder
 
     /**
+     * Устанавливает стили лэйбла
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): CellStyleBuilder
+
+    /**
      * Устанавливает стиль тайтла
      */
     fun titleStyle(titleStyle: TextStyle): CellStyleBuilder
+
+    /**
+     * Устанавливает стили тайтла
+     */
+    fun titleStyle(titleStyle: StatefulValue<TextStyle>): CellStyleBuilder
 
     /**
      * Устанавливает стиль сабтайтла
@@ -230,9 +280,19 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     fun subtitleStyle(subtitleStyle: TextStyle): CellStyleBuilder
 
     /**
+     * Устанавливает стили сабтайтла
+     */
+    fun subtitleStyle(subtitleStyle: StatefulValue<TextStyle>): CellStyleBuilder
+
+    /**
      * Устанавливает стиль текста disclosure
      */
     fun disclosureTextStyle(disclosureStyle: TextStyle): CellStyleBuilder
+
+    /**
+     * Устанавливает стили текста disclosure
+     */
+    fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>): CellStyleBuilder
 
     /**
      * Устанавливает иконку disclosure
