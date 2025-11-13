@@ -96,7 +96,7 @@ class ViewSystemTabsScreenshotTest(
     override fun testTabsH2AmountTwoValueNoIconLabelStretch() {
         themedComponent(
             action = {
-                onView(withText("Label 0")).perform(click())
+                onView(withText("Label 1")).perform(click())
             },
         ) {
             tabsAmountTwoValueNoIconLabelStretch(R.style.Serv_Sdds_ComponentOverlays_TabsHeaderH2)
@@ -127,6 +127,7 @@ class ViewSystemTabsScreenshotTest(
         themedComponent(
             skipDefaultCaptureRoboImage = true,
             action = {
+                onView(withText("Label 0")).perform(click())
                 onView(withText("Show All")).perform(click())
             },
         ) {
