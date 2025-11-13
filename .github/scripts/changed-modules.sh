@@ -113,7 +113,7 @@ if [[ "$CHANGED_TOKENS" == true ]]; then
   echo "📦 Detected changes in tokens/, enumerating submodules from git diff..."
 
   TOKEN_MODULES=$(git diff --name-only "$FROM_TAG" HEAD | \
-    grep '^tokens/.*/' | cut -d '/' -f2 | sort -u)
+    grep '^tokens/.*/' | cut -d '/' -f2 | sort -u) || true
 
   for NAME in $TOKEN_MODULES; do
     if [[ -d "tokens/$NAME" ]]; then
