@@ -2,6 +2,23 @@ package utils
 
 import org.commonmark.node.*
 import org.commonmark.parser.Parser
+import java.text.SimpleDateFormat
+import java.util.Date
+
+/**
+ * Тип секции файла changelog
+ */
+enum class ChangelogSectionType {
+    /**
+     * Функциональные изменения
+     */
+    CORE,
+
+    /**
+     * Изменения в стилях и токенах
+     */
+    LIB,
+}
 
 /**
  * Элемент изменений в changelog.
@@ -27,6 +44,7 @@ data class ChangelogComponent(val component: String, val children: MutableList<C
  * @property components Список компонентов в разделе.
  */
 data class ChangelogSection(
+    val type: ChangelogSectionType,
     val title: String,
     val components: List<ChangelogComponent>,
 )
@@ -36,11 +54,32 @@ data class ChangelogSection(
  *
  * @property version Версия библиотеки или приложения.
  * @property sections Список разделов с изменениями.
+ * @property date дата релиза
  */
 data class Changelog(
     val version: String,
     val sections: List<ChangelogSection>,
+    val date: String = getReleaseDate(),
 )
+
+/**
+ * Данные Changelog для загрузки на S3
+ */
+data class ChangelogDto(
+    val date: String,
+    val core: List<ChangelogComponent>?,
+    val lib: List<ChangelogComponent>?,
+)
+
+/**
+ * Преобразует [Changelog] в [ChangelogDto]
+ */
+fun Changelog.toDto(): ChangelogDto =
+    ChangelogDto(
+        date = date,
+        core = sections.find { it.type == ChangelogSectionType.CORE }?.components,
+        lib = sections.find { it.type == ChangelogSectionType.LIB }?.components,
+    )
 
 /**
  * Преобразует changelog в формат Markdown.
@@ -177,7 +216,10 @@ fun parseTokenLibChangelog(markdown: String, version: String, tokenLibName: Stri
     }
     return Changelog(
         version,
-        listOf(ChangelogSection(coreLibName, coreChangelog), ChangelogSection(tokenLibName, libChangelog))
+        listOf(
+            ChangelogSection(ChangelogSectionType.CORE, coreLibName, coreChangelog),
+            ChangelogSection(ChangelogSectionType.LIB, tokenLibName, libChangelog)
+        )
     )
 }
 
@@ -233,4 +275,11 @@ private fun extractLink(paragraph: Paragraph): Pair<String, Int>? {
         child = child.next
     }
     return null
+}
+
+@Suppress("SimpleDateFormat")
+private val DateFormat = SimpleDateFormat("yyyy-MM-dd")
+
+private fun getReleaseDate(): String {
+    return DateFormat.format(Date())
 }

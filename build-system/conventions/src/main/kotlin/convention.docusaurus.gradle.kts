@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonObject
 import tasks.BuildTokenChangelogTask
+import tasks.s3.S3DownloadTask
 import tasks.s3.S3UploadTask
 import tasks.s3.getS3AccessKeyId
 import tasks.s3.getS3Bucket
@@ -8,7 +9,7 @@ import tasks.s3.getS3Endpoint
 import tasks.s3.getS3Region
 import tasks.s3.getS3SecretAccessKey
 import utils.AutoBumpTask
-import utils.docsArtifactId
+import utils.changelogUrl
 import utils.docsBaseProdUrl
 import utils.docsBaseUrl
 import utils.docsDeployUrl
@@ -23,6 +24,8 @@ val versionInfo = versionInfo()
 val overrideDocsDir = File("${project.projectDir}/override-docs")
 val docusaurusDestinationDir = getDocsDestinationDir()
 val docusaurusBuildDir = docusaurusDestinationDir.resolve("build")
+val changelogJsonDir = buildDir
+val changelogJsonPath = changelogJsonDir.resolve("changelog.json")
 
 val generateInstanceTask by tasks.register("docusaurusGenerate") {
     group = "documentation"
@@ -60,13 +63,25 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
     }
 }
 
+val changelogSync = tasks.register<S3DownloadTask>("changelogSync") {
+    group = "documentation"
+    description = "Загружает changelog в локальную директорию"
+
+    accessKeyId.set(getS3AccessKeyId())
+    secretAccessKey.set(getS3SecretAccessKey())
+    endpoint.set(getS3Endpoint())
+    region.set(getS3Region())
+    bucket.set(getS3Bucket())
+    remoteFilePath.set(changelogUrl())
+    localDir.set(changelogJsonDir.absolutePath)
+}
+
 val generateChangelog by tasks.register<BuildTokenChangelogTask>("generateChangelog") {
     group = "documentation"
     description = "Добавляет changelog в документацию"
-    mustRunAfter(generateInstanceTask)
+    mustRunAfter(generateInstanceTask, changelogSync)
     releaseChangelogPath.set(rootProject.projectDir.resolve("release-changelog.md").absolutePath)
-    val overrideDocs = overrideDocsDir.also { it.mkdirs() }
-    libraryChangelogJsonPath.set(overrideDocs.resolve("changelog.json").absolutePath)
+    libraryChangelogJsonPath.set(changelogJsonPath.absolutePath)
     outputChangelogMdFile.set(
         docusaurusDestinationDir
             .resolve("docs")
@@ -136,6 +151,20 @@ tasks.withType<AutoBumpTask> {
     dependsOn(updateArchivedVersions)
 }
 
+tasks.register<S3UploadTask>("changelogDeploy") {
+    group = "documentation"
+    description = "Загружает changelog на удаленном сервере"
+    dependsOn(generateChangelog, changelogSync)
+
+    accessKeyId.set(getS3AccessKeyId())
+    secretAccessKey.set(getS3SecretAccessKey())
+    endpoint.set(getS3Endpoint())
+    region.set(getS3Region())
+    bucket.set(getS3Bucket())
+    sourceFile.set(changelogJsonPath)
+    destinationPath.set(changelogUrl())
+}
+
 tasks.register<S3UploadTask>("docusaurusDeploy") {
     group = "documentation"
     description = "Разворачивает документацию Docusaurus на удаленном сервере"
@@ -146,7 +175,7 @@ tasks.register<S3UploadTask>("docusaurusDeploy") {
     endpoint.set(getS3Endpoint())
     region.set(getS3Region())
     bucket.set(getS3Bucket())
-    sourceFiles.set(docusaurusBuildDir)
+    sourceDir.set(docusaurusBuildDir)
     destinationPath.set(docsDeployUrl)
 
     doLast {
