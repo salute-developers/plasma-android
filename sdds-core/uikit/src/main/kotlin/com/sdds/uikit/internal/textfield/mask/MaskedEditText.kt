@@ -2,6 +2,7 @@ package com.sdds.uikit.internal.textfield.mask
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.text.TextPaint
 import android.util.AttributeSet
 import com.redmadrobot.inputmask.MaskedTextChangedListener
@@ -10,7 +11,6 @@ import com.sdds.uikit.R
 import com.sdds.uikit.TextField
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.textfield.StatefulEditText
-import kotlin.math.roundToInt
 
 internal open class MaskedEditText @JvmOverloads constructor(
     context: Context,
@@ -20,6 +20,8 @@ internal open class MaskedEditText @JvmOverloads constructor(
     private var _listener: MaskedTextChangedListener? = null
 
     private var tail: CharSequence? = null
+    private var oldMinWidth: Int = 0
+    private var canSaveOldMinWidth: Boolean = true
     private var _currentMask: TextField.Mask? = null
 
     private val tailPaint = TextPaint().apply {
@@ -37,6 +39,18 @@ internal open class MaskedEditText @JvmOverloads constructor(
             if (field != value) {
                 field = value
                 invalidate()
+            }
+        }
+
+    val isMaskVisible: Boolean
+        get() {
+            val textIsEmpty = text.isNullOrEmpty()
+            val placeholderIsEmpty = placeholder.isNullOrEmpty()
+            val canDisplayMask = mask != null && (!textIsEmpty || placeholderIsEmpty)
+            return when (maskDisplayMode) {
+                MASK_DISPLAY_MODE_ALWAYS -> canDisplayMask
+                MASK_DISPLAY_MODE_ON_INPUT -> isFocused && canDisplayMask
+                else -> false
             }
         }
 
@@ -59,16 +73,29 @@ internal open class MaskedEditText @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        if (tail != null) {
-            val tailWidth = getTailWidth().roundToInt()
-            val width = if (hint.isNullOrEmpty()) {
-                measuredWidth + tailWidth
-            } else {
-                maxOf(measuredWidth, tailWidth)
+        val maskListener = _listener
+        if (mask != null && maskListener != null && isMaskVisible) {
+            if (canSaveOldMinWidth) {
+                oldMinWidth = minWidth
+                canSaveOldMinWidth = false
             }
-            setMeasuredDimension(width, measuredHeight)
-            updateSuffixPrefixPosition()
+            minWidth = maxOf(
+                oldMinWidth,
+                compoundPaddingStart + compoundPaddingEnd + paint.measureText(maskListener.placeholder()).toInt(),
+            )
+        } else {
+            minWidth = oldMinWidth
+            canSaveOldMinWidth = true
+        }
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+    }
+
+    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect)
+        _listener?.onFocusChange(this, focused)
+        if (!focused && !isMaskVisible) {
+            minWidth = oldMinWidth
+            requestLayout()
         }
     }
 
@@ -78,12 +105,7 @@ internal open class MaskedEditText @JvmOverloads constructor(
         val t = tail ?: return
         val l = layout ?: return
         val end = text?.length ?: 0
-        if (
-            (maskDisplayMode == MASK_DISPLAY_MODE_ON_INPUT || !hint.isNullOrEmpty()) &&
-            end == 0
-        ) {
-            return
-        }
+        if (!isMaskVisible) return
 
         val line = l.getLineForOffset(end)
 
@@ -96,6 +118,7 @@ internal open class MaskedEditText @JvmOverloads constructor(
     }
 
     private fun getTailWidth(): Float {
+        if (!isMaskVisible) return 0f
         val t = tail ?: return 0f
         return tailPaint.measureText(t, 0, t.length)
     }
@@ -105,10 +128,10 @@ internal open class MaskedEditText @JvmOverloads constructor(
             _currentMask = mask
             _listener?.let { listener ->
                 removeTextChangedListener(listener)
-                onFocusChangeListener = null
             }
             val listener = mask?.install().also { _listener = it }
             tail = listener?.placeholder()
+
             invalidate()
         }
     }
@@ -123,12 +146,14 @@ internal open class MaskedEditText @JvmOverloads constructor(
                 decimalSeparator = decimalSeparator,
                 decimalCount = decimalMinCount..decimalMaxCount,
             )
-            TextField.Mask.Date -> MaskedTextChangedListener.installOn(
+
+            is TextField.Mask.Date -> MaskedTextChangedListener.installOn(
                 editText = this@MaskedEditText,
-                primaryFormat = getDatePattern(),
+                primaryFormat = getDatePattern(this.format),
                 valueListener = this@MaskedEditText,
                 customNotations = createCustomDateNotations(),
             )
+
             else -> {
                 MaskedTextChangedListener.installOn(
                     editText = this@MaskedEditText,
@@ -136,11 +161,18 @@ internal open class MaskedEditText @JvmOverloads constructor(
                     valueListener = this@MaskedEditText,
                 )
             }
+        }.also {
+            // MaskedTextChangedListener.installOn устанавливает обработчик фокуса, нам это не нужно,
+            // мы обрабатываем сами
+            onFocusChangeListener = null
         }
     }
 
-    private fun getDatePattern(): String {
-        return context.getString(R.string.sd_mask_notation_date_short)
+    private fun getDatePattern(format: Int): String {
+        return when (format) {
+            TextField.Mask.Date.MEDIUM -> context.getString(R.string.sd_mask_notation_date_medium)
+            else -> context.getString(R.string.sd_mask_notation_date_short)
+        }
     }
 
     private fun createCustomDateNotations(): List<Notation> {

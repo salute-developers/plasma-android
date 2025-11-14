@@ -19,13 +19,11 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
 import androidx.annotation.StyleRes
-import androidx.core.content.getSystemService
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.children
 import androidx.core.view.isGone
@@ -44,6 +42,8 @@ import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
 import com.sdds.uikit.TextField
+import com.sdds.uikit.TextField.Companion.MASK_DISPLAY_MODE_ALWAYS
+import com.sdds.uikit.TextField.Mask
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
@@ -377,6 +377,14 @@ internal class DecoratedFieldBox(
 
     fun setCounterColor(colors: ColorStateList?) {
         _counterView.setTextColor(colors)
+    }
+
+    fun setMask(mask: Mask?, displayMode: Int = MASK_DISPLAY_MODE_ALWAYS) {
+        _field.apply {
+            this.mask = mask
+            maskDisplayMode = displayMode
+            updateTextState(true)
+        }
     }
 
     fun getCompoundPaddingStart(): Int =
@@ -812,7 +820,7 @@ internal class DecoratedFieldBox(
 
     @Suppress("CyclomaticComplexMethod")
     private fun updateTextState(animate: Boolean, force: Boolean = false) {
-        val hasText = !editText.text.isNullOrEmpty()
+        val hasText = !editText.text.isNullOrEmpty() || editText.isMaskVisible
         val isEnabledWithFocus = isEnabled && editText.hasFocus()
         editText.placeholderEnabled = !hasText && if (hasChips()) !isEnabledWithFocus else true
         var needInvalidate = true
@@ -912,10 +920,7 @@ internal class DecoratedFieldBox(
     }
 
     private fun focusEditText() {
-        if (editText.requestFocus() && !editText.isReadOnly) {
-            showImeImplicit()
-        }
-        editText.setSelection(editText.text?.length ?: 0)
+        editText.forceFocus()
         _editableContainer.removeCallbacks(_smoothScrollRunnable)
         if (!isSingleLine()) {
             _smoothScrollRunnable = _editableContainer.postDelayed(100) {
@@ -953,11 +958,6 @@ internal class DecoratedFieldBox(
         canvas.translate(0f, thumbOffset)
         _scrollBarThumbDrawable.draw(canvas)
         canvas.restore()
-    }
-
-    private fun showImeImplicit() {
-        context.getSystemService<InputMethodManager>()
-            ?.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
     }
 
     private inner class ChipGroupWithEditText(context: Context) : ChipGroup(context) {

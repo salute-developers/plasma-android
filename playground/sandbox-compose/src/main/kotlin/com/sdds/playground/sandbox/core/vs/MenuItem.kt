@@ -407,7 +407,7 @@ internal sealed class ComponentScreen(
     )
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun CoreComponent.screen(): ComponentScreen {
     return when (this) {
         CoreComponent.AVATAR -> ComponentScreen.Avatar
@@ -469,7 +469,7 @@ private fun CoreComponent.screen(): ComponentScreen {
     }
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun ComponentKey.routeId(): Int? {
     return when (this.core) {
         CoreComponent.AVATAR -> R.id.nav_avatar

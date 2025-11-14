@@ -120,8 +120,23 @@ open class TextField @JvmOverloads constructor(
 
         /**
          * Маска даты. Конкретный шаблон предоставляется [MaskedEditText].
+         * @property format - формат даты, см. [Date.MEDIUM], [Date.SHORT]
          */
-        object Date : Mask()
+        data class Date(val format: Int = SHORT) : Mask() {
+
+            companion object {
+
+                /**
+                 * Средний формат даты (dd.mm.yyyy)
+                 */
+                const val MEDIUM = 1
+
+                /**
+                 * Короткий формат даты (dd.mm.yy)
+                 */
+                const val SHORT = 0
+            }
+        }
 
         /**
          * Маска времени (часы:минуты). Конкретный шаблон предоставляется [MaskedEditText].
@@ -645,10 +660,7 @@ open class TextField @JvmOverloads constructor(
      * @param [displayMode] режим отображения маски. См. [MASK_DISPLAY_MODE_ALWAYS] и [MASK_DISPLAY_MODE_ON_INPUT]
      */
     open fun setMask(mask: Mask?, displayMode: Int = MASK_DISPLAY_MODE_ALWAYS) {
-        (editText as? MaskedEditText)?.apply {
-            this.mask = mask
-            maskDisplayMode = displayMode
-        }
+        _decorationBox.setMask(mask, displayMode)
     }
 
     @Suppress("UNNECESSARY_SAFE_CALL")

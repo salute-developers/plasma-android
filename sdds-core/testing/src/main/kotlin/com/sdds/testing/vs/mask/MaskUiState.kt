@@ -29,7 +29,7 @@ data class MaskUiState(
     override val appearance: String = "",
     override val colorVariant: String = "",
     val labelText: String = "Label",
-    val placeholderText: String = "",
+    val placeholderText: String = "Placeholder",
     val valueText: String? = null,
     val icon: Boolean = true,
     val action: Boolean = true,
@@ -62,9 +62,14 @@ enum class TextFieldMask(val raw: TextField.Mask) {
     PHONE(TextField.Mask.Phone()),
 
     /**
-     * Маска для ввода даты.
+     * Маска для ввода даты в коротком формате.
      */
-    DATE(TextField.Mask.Date),
+    SHORT_DATE(TextField.Mask.Date(TextField.Mask.Date.SHORT)),
+
+    /**
+     * Маска для ввода даты в среднем формате.
+     */
+    MEDIUM_DATE(TextField.Mask.Date(TextField.Mask.Date.MEDIUM)),
 
     /**
      * Маска для ввода времени.
