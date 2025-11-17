@@ -1,6 +1,8 @@
 package com.sdds.testing.vs.wheel
 
 import android.content.Context
+import android.util.Log
+import androidx.core.view.doOnPreDraw
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Wheel
 
@@ -20,10 +22,15 @@ fun wheel(
     return Wheel(context.styleWrapper(style))
         .applyState(state)
         .apply {
-            post {
+            addEntrySelectionListener { wheel, entry ->
+                Log.e("Wheel", "wheel: selected $wheel: ${entry.title}")
+            }
+            doOnPreDraw {
+//            postDelayed({
                 repeat(state.wheelCount) {
-                    setSelectedEntry(it, 0)
+                    setSelectedEntry(it, 1, false)
                 }
+//            }, 500)
             }
         }
 }
@@ -42,7 +49,7 @@ fun Wheel.applyState(state: WheelUiState): Wheel = apply {
         setData(
             it,
             mutableListOf<Wheel.WheelItemEntry>().apply {
-                repeat(10) { index ->
+                repeat(60) { index ->
                     add(
                         Wheel.WheelItemEntry(
                             id = index.toLong(),

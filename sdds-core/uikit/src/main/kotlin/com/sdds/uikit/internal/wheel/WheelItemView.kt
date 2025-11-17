@@ -18,6 +18,7 @@ import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
+import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.TextView
 import com.sdds.uikit.Wheel
@@ -45,9 +46,10 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             object : OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     super.onScrollStateChanged(recyclerView, newState)
-                    if (newState == RecyclerView.SCROLL_STATE_IDLE && !recyclerView.isPressed) {
+                    if (newState == SCROLL_STATE_IDLE && !recyclerView.isPressed) {
                         val entry = getSelectedEntry() ?: return
                         if (entry != _currentSelectedEntry) {
+                            updateSelectorBounds()
                             _currentSelectedEntry = entry
                             _entrySelectedListener?.onEntrySelected(this@WheelItemView.id, entry)
                         }
@@ -110,6 +112,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             if (_listViewHasFocus != listViewHasFocus) {
                 _listViewHasFocus = listViewHasFocus
                 _descriptionView.isActivated = listViewHasFocus
+                updateSelectorBounds()
                 invalidate()
             }
         }
@@ -422,7 +425,12 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         layoutChild(_downButton, top)
         layoutChild(_descriptionView, 0)
 
-        val estimateChild = _listView.estimateChild
+        updateSelectorBounds()
+    }
+
+    private fun updateSelectorBounds() {
+        if (_listView.scrollState != SCROLL_STATE_IDLE) return
+        val estimateChild = _listView.findCenterChild()
         if (estimateChild != null) {
             val spacing = entryMinSpacing / 2
             selectorBounds.set(
@@ -438,7 +446,10 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             selectorBounds.bottom += SELECTOR_SAFE_PADDING
         }
         selectorBounds.offsetTo(selectorBounds.left, (measuredHeight - selectorBounds.height()) / 2)
-        _selectorDrawable.bounds = selectorBounds
+        if (_selectorDrawable.bounds != selectorBounds) {
+            _selectorDrawable.bounds = selectorBounds
+            invalidate()
+        }
     }
 
     private fun layoutChild(child: View, top: Int): Int {
