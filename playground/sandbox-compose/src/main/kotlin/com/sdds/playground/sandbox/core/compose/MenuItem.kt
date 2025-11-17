@@ -116,6 +116,8 @@ import com.sdds.playground.sandbox.tabs.compose.IconTabsPreview
 import com.sdds.playground.sandbox.tabs.compose.IconTabsScreen
 import com.sdds.playground.sandbox.tabs.compose.TabsPreview
 import com.sdds.playground.sandbox.tabs.compose.TabsScreen
+import com.sdds.playground.sandbox.textfield.compose.MaskedTextFieldPreview
+import com.sdds.playground.sandbox.textfield.compose.MaskedTextFieldScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
@@ -179,7 +181,7 @@ internal class MenuItem(
 }
 
 internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
-    return all.mapNotNull { (key, value) ->
+    return components.mapNotNull { (key, value) ->
         val screen = key.core.screen().takeIf { it !is ComponentScreen.Empty } ?: return@mapNotNull null
         MenuItem(value.name, key, screen)
     }.sortedWith(
@@ -234,6 +236,10 @@ internal sealed class ComponentScreen(
     object TextArea : ComponentScreen(
         { TextFieldScreen(it) },
         { it, _ -> TextAreaLDefaultTBTA(it as TextFieldStyle) },
+    )
+    object TextFieldMasks : ComponentScreen(
+        { MaskedTextFieldScreen(it) },
+        { it, _ -> MaskedTextFieldPreview(it as TextFieldStyle) },
     )
 
     object Chip : ComponentScreen({ ChipScreen(it) }, { it, _ -> ChipSizeLDefault(it as ChipStyle) })
@@ -407,6 +413,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
+        CoreComponent.MASK -> ComponentScreen.TextFieldMasks
         else -> ComponentScreen.Empty
     }
 }

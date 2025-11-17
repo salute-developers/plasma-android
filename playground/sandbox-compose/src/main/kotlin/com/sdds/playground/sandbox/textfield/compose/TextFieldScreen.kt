@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -64,6 +65,7 @@ internal fun TextFieldScreen(componentKey: ComponentKey = ComponentKey.TextField
                         textFieldViewModel.onValueChange(it)
                     },
                     modifier = Modifier
+                        .padding(start = 20.dp)
                         .onKeyEvent {
                             if (it.key == Key.Backspace) {
                                 textFieldViewModel.onBackspacePressed()
@@ -80,8 +82,8 @@ internal fun TextFieldScreen(componentKey: ComponentKey = ComponentKey.TextField
                     optionalText = textFieldUiState.optionalText,
                     captionText = textFieldUiState.captionText,
                     counterText = textFieldUiState.counterText,
-                    startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
-                    endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
+                    startContent = textFieldUiState.hasStartIcon.getTextFieldExampleIcon(TextFieldIcon.Start),
+                    endContent = textFieldUiState.hasEndIcon.getTextFieldExampleIcon(TextFieldIcon.End),
                     chipsContent = textFieldUiState.chips.toChipContent(
                         onChipClosePressed = {
                             textFieldViewModel.onChipClosePressed(it)
@@ -146,12 +148,12 @@ private fun ChipsContent(
     }
 }
 
-private enum class Icon(val res: Int) {
+internal enum class TextFieldIcon(val res: Int) {
     Start(com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
     End(com.sdds.icons.R.drawable.ic_shazam_24),
 }
 
-private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
+internal fun Boolean.getTextFieldExampleIcon(icon: TextFieldIcon): (@Composable () -> Unit)? {
     return if (this) {
         {
             Icon(
