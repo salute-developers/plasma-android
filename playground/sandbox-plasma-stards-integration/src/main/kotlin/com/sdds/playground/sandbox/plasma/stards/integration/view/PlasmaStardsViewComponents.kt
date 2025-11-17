@@ -7,9 +7,9 @@ import com.sdds.playground.sandbox.core.integration.component.ViewComponent
 /**
  *  Компоненты
  */
-object PlasmaStardsViewComponents : ComponentsProviderView {
+object PlasmaStardsViewComponents : ComponentsProviderView() {
 
-    override val all: Map<ComponentKey, ViewComponent<String>> =
+    override val generated: Map<ComponentKey, ViewComponent<String>> =
         listOf(
             ViewComponent(
                 ComponentKey.Avatar,

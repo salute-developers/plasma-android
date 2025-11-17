@@ -56,4 +56,5 @@
     <item type="id" name="nav_note_compact"/>
     <item type="id" name="nav_pagination_dots"/>
     <item type="id" name="nav_toolbar"/>
+    <item type="id" name="nav_mask"/>
 </resources>

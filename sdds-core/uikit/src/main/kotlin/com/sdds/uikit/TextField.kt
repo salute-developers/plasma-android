@@ -29,6 +29,7 @@ import com.sdds.uikit.internal.textfield.DecoratedFieldBox
 import com.sdds.uikit.internal.textfield.IndicatorTextFieldDrawable
 import com.sdds.uikit.internal.textfield.StatefulEditText
 import com.sdds.uikit.internal.textfield.TextFieldTextView
+import com.sdds.uikit.internal.textfield.mask.MaskedEditText
 
 /**
  * Компонент TextField - однострочное текстовое поле
@@ -82,6 +83,96 @@ open class TextField @JvmOverloads constructor(
          * Поле обязательно. Индикатор рисуется вконце поля
          */
         End,
+    }
+
+    /**
+     * Маска ввода для [TextField].
+     *
+     * Служит абстракцией над шаблонами форматирования текста. Конкретные реализации
+     * задают правила, по которым символы отображаются и вводятся пользователем.
+     * Значение [pattern] — строковое представление маски, которое интерпретируется
+     * [MaskedEditText].
+     *
+     * Предустановленные варианты:
+     * - [Phone] — маска телефонного номера.
+     * - [Date] — маска даты.
+     * - [Time] — маска времени.
+     * - [Number] — маска числового ввода с группировкой и десятичной частью.
+     * - [Custom] — произвольный пользовательский шаблон.
+     *
+     * @property pattern строковый шаблон маски, используемый [MaskedEditText]
+     */
+    sealed class Mask(val pattern: String = "") {
+
+        /**
+         * Маска телефонного номера.
+         *
+         * Собирается из [prefix] и [suffix]. Значения по умолчанию соответствуют
+         * предустановкам в [MaskedEditText] для RU-формата номера.
+         *
+         * @param prefix префикс номера (например, код страны)
+         * @param suffix шаблон основной части номера
+         */
+        data class Phone(
+            val prefix: String = MaskedEditText.MASK_RU_PHONE_NUMBER_PREFIX,
+            val suffix: String = MaskedEditText.MASK_PHONE_NUMBER,
+        ) : Mask("$prefix $suffix")
+
+        /**
+         * Маска даты. Конкретный шаблон предоставляется [MaskedEditText].
+         * @property format - формат даты, см. [Date.MEDIUM], [Date.SHORT]
+         */
+        data class Date(val format: Int = SHORT) : Mask() {
+
+            companion object {
+
+                /**
+                 * Средний формат даты (dd.mm.yyyy)
+                 */
+                const val MEDIUM = 1
+
+                /**
+                 * Короткий формат даты (dd.mm.yy)
+                 */
+                const val SHORT = 0
+            }
+        }
+
+        /**
+         * Маска времени (часы:минуты). Конкретный шаблон предоставляется [MaskedEditText].
+         */
+        object Time : Mask(MaskedEditText.MASK_TIME)
+
+        /**
+         * Маска числового ввода с поддержкой группировки разрядов и десятичной части.
+         *
+         * @param decimalMinCount минимальное количество знаков после десятичного разделителя
+         * @param decimalMaxCount максимальное количество знаков после десятичного разделителя
+         * @param groupSeparator символ-разделитель групп разрядов
+         * @param decimalSeparator символ десятичного разделителя
+         */
+        data class Number(
+            val decimalMinCount: Int = MIN_DECIMAL_COUNT,
+            val decimalMaxCount: Int = MAX_DECIMAL_COUNT,
+            val groupSeparator: Char = MaskedEditText.MASK_NUMBER_GROUP_SEPARATOR,
+            val decimalSeparator: Char = MaskedEditText.MASK_NUMBER_DECIMAL_SEPARATOR,
+        ) : Mask(MaskedEditText.MASK_NUMBER) {
+
+            private companion object {
+                const val MAX_DECIMAL_COUNT = 5
+                const val MIN_DECIMAL_COUNT = 2
+            }
+        }
+
+        /**
+         * Пользовательская маска.
+         *
+         * Позволяет задать произвольный [pattern], совместимый с правилами
+         * форматирования [MaskedEditText].
+         *
+         * @param pattern строковый шаблон маски
+         */
+        class Custom(pattern: String) : Mask(pattern)
     }
 
     private val _outerLabelView: TextFieldTextView by unsafeLazy {
@@ -563,6 +654,15 @@ open class TextField @JvmOverloads constructor(
         setActionTint(ColorStateList.valueOf(tint))
     }
 
+    /**
+     * Устанавливает маску [mask] на текстовое поле для ввода.
+     * @param mask маска
+     * @param [displayMode] режим отображения маски. См. [MASK_DISPLAY_MODE_ALWAYS] и [MASK_DISPLAY_MODE_ON_INPUT]
+     */
+    open fun setMask(mask: Mask?, displayMode: Int = MASK_DISPLAY_MODE_ALWAYS) {
+        _decorationBox.setMask(mask, displayMode)
+    }
+
     @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         children.forEach {
@@ -880,15 +980,25 @@ open class TextField @JvmOverloads constructor(
         updateCaption()
     }
 
-    private companion object {
+    companion object {
 
-        fun TypedArray.getTextPlacement(index: Int): HelperTextPlacement {
+        /**
+         * Маска всегда видна пользователю, если на задан [placeholder].
+         */
+        const val MASK_DISPLAY_MODE_ALWAYS = MaskedEditText.MASK_DISPLAY_MODE_ALWAYS
+
+        /**
+         * Маска видна пользователю только при вводе текста.
+         */
+        const val MASK_DISPLAY_MODE_ON_INPUT = MaskedEditText.MASK_DISPLAY_MODE_ON_INPUT
+
+        private fun TypedArray.getTextPlacement(index: Int): HelperTextPlacement {
             return HelperTextPlacement.values()
                 .getOrNull(getInt(index, 0))
                 ?: HelperTextPlacement.None
         }
 
-        fun TypedArray.getRequirementMode(index: Int): RequirementMode {
+        private fun TypedArray.getRequirementMode(index: Int): RequirementMode {
             return RequirementMode.values()
                 .getOrNull(getInt(index, 0))
                 ?: RequirementMode.Optional

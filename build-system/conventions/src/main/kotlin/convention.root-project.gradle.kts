@@ -1,3 +1,4 @@
+import java.net.URI
 
 plugins {
     id("base")
@@ -8,6 +9,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {  url = URI.create("https://jitpack.io") }
     }
 }
 
