@@ -27,7 +27,7 @@ data class WheelUiState(
     val wheelCount: Int = 2,
     val visibleItemsCount: Int = 5,
     val separatorType: WheelSeparatorType = WheelSeparatorType.DOTS,
-    val hasInfiniteScroll: Boolean = false,
+    val hasInfiniteScroll: Boolean = true,
     val controlsDisplayMode: WheelControlsDisplayMode = WheelControlsDisplayMode.ALWAYS,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {

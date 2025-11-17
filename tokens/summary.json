@@ -2,13 +2,13 @@
   "plasmaStarDS": {
     "viewSystem": {
       "title": "XML",
-      "version": "2.20.0",
+      "version": "2.20.1",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.20.0/"
+          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.20.1/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.20.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.20.1/CHANGELOG/"
         }
       }
     },

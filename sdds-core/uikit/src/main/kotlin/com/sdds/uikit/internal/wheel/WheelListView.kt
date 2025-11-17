@@ -5,10 +5,12 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
+import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import androidx.annotation.StyleRes
 import androidx.core.view.children
 import androidx.core.view.doOnLayout
@@ -63,6 +65,8 @@ internal class WheelListView(context: Context) : ListView(context) {
     private var _initialPositionSet: Boolean = false
     private var _savedDescendantFocusability: Int = descendantFocusability
     private var _reindexingFocusGuard: Boolean = false
+    private var pendingRefresh: Boolean = false
+    private var estimatedMaxWidth = -1
 
     var itemsFocusable: Boolean
         get() = _itemsFocusable
@@ -139,8 +143,9 @@ internal class WheelListView(context: Context) : ListView(context) {
     val itemHeight: Int
         get() = estimateChildHeight()
 
-    val estimateChild: View?
-        get() = getChildAt(0) ?: adapter?.onCreateViewHolder(this, 0)?.itemView
+    private val estimateChild: View? by lazy {
+        getChildAt(0) ?: adapter?.onCreateViewHolder(this, 0)?.itemView
+    }
 
     init {
         adapter = _wheelItemAdapter
@@ -160,12 +165,13 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     fun setData(items: List<WheelItemEntry>) {
+        estimatedMaxWidth = -1
         _wheelItemAdapter.submitList(items) {
             post { refresh() }
         }
         doOnLayout {
-            val itemHeight = estimateChildHeight() - entryMinSpacing
-            val edgeOffset = (it.measuredHeight - itemHeight) / 2
+            val itemHeight = estimateChildHeight()
+            val edgeOffset = (it.measuredHeight - itemHeight) / 2 + entryMinSpacing
             it.updatePadding(top = edgeOffset, bottom = edgeOffset)
         }
     }
@@ -199,7 +205,8 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     fun setSelectedEntry(entryId: Long, animate: Boolean): Boolean {
-        val position = _wheelItemAdapter.getItemPosition(entryId)
+        val currentPosition = getSelectedPosition().takeIf { it != NO_POSITION } ?: 0
+        val position = _wheelItemAdapter.getItemPosition(entryId, currentPosition)
         if (position == NO_POSITION) return false
         return setSelectedPosition(position, animate)
     }
@@ -225,17 +232,38 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     fun snap(smooth: Boolean = true, positionProvider: (Int) -> Int): Boolean {
-        val centerView = findCenterChild() ?: return false
+        val centerView = findCenterChild()
         val currentPosition = getSelectedPosition()
         val nextPosition = positionProvider(currentPosition)
             .takeIf { it in 0 until _wheelItemAdapter.itemCount }
-            ?: return false
+
+        if (centerView == null || nextPosition == null) return false
+
         val nextView = _layoutManager.findViewByPosition(nextPosition)
+
+        if (!smooth && nextView == null) {
+            _layoutManager.scrollToPositionWithOffset(nextPosition, 0)
+            doOnPreDraw {
+                val snapView = findCenterChild()
+                if (snapView != null) {
+                    val snapDistance =
+                        _wheelSnapHelper.calculateDistanceToFinalSnap(_layoutManager, snapView)
+                            ?: intArrayOf(0, 0)
+                    if (snapDistance[1] != 0) {
+                        scrollBy(0, snapDistance[1])
+                    }
+                }
+                updateChildTransforms()
+            }
+            return true
+        }
+
         val snapDistance = if (nextView == null) {
             intArrayOf(0, (nextPosition - currentPosition) * centerView.measuredHeight)
         } else {
             _wheelSnapHelper.calculateDistanceToFinalSnap(_layoutManager, nextView) ?: intArrayOf(0, 0)
         }
+
         if (smooth) {
             smoothScrollBy(0, snapDistance[1])
         } else {
@@ -276,6 +304,8 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     private fun refresh() {
+        if (pendingRefresh) return
+        pendingRefresh = true
         doOnPreDraw {
             if (infiniteScrollEnabled) {
                 applyInfiniteScroll(false)
@@ -284,8 +314,24 @@ internal class WheelListView(context: Context) : ListView(context) {
                 setSelectedPosition(position, false)
                 _initialPositionSet = true
             }
+            pendingRefresh = false
         }
         _wheelItemAdapter.forceRefreshHolders()
+    }
+
+    private fun estimateMaxChildWidth(): Int {
+        if (estimatedMaxWidth != -1) return estimatedMaxWidth
+        val child = estimateChild as? WheelListItemView ?: return 0
+        val maxTextLength = _wheelItemAdapter.currentList.maxOf { getItemTextLength(it) }
+
+        return _wheelItemAdapter.currentList
+            .filter { getItemTextLength(it) == maxTextLength }
+            .maxOf { child.estimateWidth(it) }
+            .also { estimatedMaxWidth = it }
+    }
+
+    private fun getItemTextLength(item: WheelItemEntry): Int {
+        return item.title.length + (item.textAfter?.length ?: 0)
     }
 
     private fun estimateChildHeight(
@@ -361,7 +407,21 @@ internal class WheelListView(context: Context) : ListView(context) {
         } else {
             heightSpec
         }
-        super.onMeasure(widthSpec, newHeightSpec)
+
+        val specWidth = MeasureSpec.getSize(widthSpec)
+        val newWidthSpec = if (estimateChild != null) {
+            val estimatedMaxWidth = estimateMaxChildWidth()
+            val maxWidth = when (MeasureSpec.getMode(widthSpec)) {
+                MeasureSpec.EXACTLY -> specWidth
+                MeasureSpec.AT_MOST -> estimatedMaxWidth
+                else -> minOf(estimatedMaxWidth, specWidth)
+            }
+            MeasureSpec.makeMeasureSpec(maxWidth, MeasureSpec.EXACTLY)
+        } else {
+            widthSpec
+        }
+
+        super.onMeasure(newWidthSpec, newHeightSpec)
     }
 
     private fun getMaxDistance(): Float {
@@ -561,8 +621,19 @@ internal class WheelListView(context: Context) : ListView(context) {
             return if (infiniteScrollEnabled) realItemCount * INFINITY_MULTIPLIER else realItemCount
         }
 
-        fun getItemPosition(entryId: Long): Int {
-            return _items.indexOfFirst { it.id == entryId }
+        fun getItemPosition(entryId: Long, currentAdapterPosition: Int): Int {
+            val baseIndex = _items.indexOfFirst { it.id == entryId }
+            val realCount = realItemCount
+            if (baseIndex == NO_POSITION || realCount == 0) return NO_POSITION
+
+            if (!infiniteScrollEnabled) return baseIndex
+
+            val safeCurrent = currentAdapterPosition.coerceAtLeast(0)
+            val currentBand = safeCurrent / realCount
+
+            val candidate = currentBand * realCount + baseIndex
+            val maxIndex = itemCount - 1
+            return candidate.coerceIn(0, maxIndex)
         }
 
         fun submitList(list: List<WheelItemEntry>, commitCallback: Runnable?) {
@@ -740,15 +811,49 @@ internal class WheelListView(context: Context) : ListView(context) {
     internal class WheelListItemView(context: Context) : FrameLayout(context) {
 
         private var _focusLocked: Boolean = false
+        private val _itemTitleView = TextView(context)
+            .apply {
+                id = R.id.sd_wheel_item_title
+                isDuplicateParentStateEnabled = true
+                isFocusable = false
+                maxLines = 1
+                ellipsize = TextUtils.TruncateAt.END
+            }
+        private val _itemTextAfterView = TextView(context)
+            .apply {
+                id = R.id.sd_wheel_item_text_after
+                isDuplicateParentStateEnabled = true
+                isFocusable = false
+                maxLines = 1
+                ellipsize = TextUtils.TruncateAt.END
+            }
+
+        private val _container: LinearLayout = LinearLayout(context)
+            .apply {
+                id = R.id.sd_wheel_item
+                isDuplicateParentStateEnabled = true
+                isFocusable = false
+                gravity = Gravity.CENTER
+            }
 
         init {
-            inflate(context, R.layout.sd_layout_wheel_item, this)
+            _container.addView(_itemTitleView)
+            _container.addView(_itemTextAfterView)
+            addView(_container)
             clipToPadding = false
             clipChildren = false
         }
 
         fun setFocusLock(lock: Boolean) {
             _focusLocked = lock
+        }
+
+        fun estimateWidth(entry: WheelItemEntry): Int {
+            val titleWidth = _itemTitleView.paint.measureText(entry.title, 0, entry.title.length)
+            val textAfterWidth = entry.textAfter?.let {
+                _itemTextAfterView.paint.measureText(it, 0, it.length)
+            } ?: 0f
+            return (titleWidth + textAfterWidth).roundToInt()
         }
 
         override fun onCreateDrawableState(extraSpace: Int): IntArray {
@@ -763,6 +868,6 @@ internal class WheelListView(context: Context) : ListView(context) {
 
     private companion object {
         const val DRAW_DEBUG = false
-        const val INFINITY_MULTIPLIER: Int = 40
+        const val INFINITY_MULTIPLIER: Int = 20
     }
 }
