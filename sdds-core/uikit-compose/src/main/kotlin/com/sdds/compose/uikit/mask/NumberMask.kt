@@ -12,7 +12,7 @@ import androidx.compose.ui.text.input.VisualTransformation
  *
  * @property decimalScale количество знаков после запятой
  * @property decimalSeparator разделитель дробной части
- * @property decimalSeparatorAliases список допустимых разделителей.
+ * @property decimalSeparatorAliases множество допустимых разделителей.
  * При вводе разделителя из этого списка, он будет заменен на [decimalSeparator]
  * @property thousandGroupSeparator разделитель разрядов
  * @property digitsPerGroup количество цифр в группе разрядов
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 data class NumberMask(
     val decimalScale: Int = 2,
     val decimalSeparator: String = ",",
-    val decimalSeparatorAliases: List<String> = listOf(".", ",", "б", "ю", "/"),
+    val decimalSeparatorAliases: Set<String> = setOf(".", ",", "б", "ю", "/"),
     val thousandGroupSeparator: String = " ",
     val digitsPerGroup: Int = 3,
 ) : TextFieldMask {
@@ -45,6 +45,7 @@ data class NumberMask(
             .removeSpaces()
             .removeDuplicateSign('-')
             .keepSingleSeparator(decimalSeparatorAliases)
+            .keepOnlyValidChars(decimalSeparatorAliases)
             .take(maxInputLength(text))
     }
 
@@ -62,7 +63,7 @@ private class NumberMaskTransformation(
     private val digitsPerGroup: Int,
     private val decimalSeparator: String,
     private val decimalScale: Int,
-    private val decimalSeparatorKeys: List<String>,
+    private val decimalSeparatorKeys: Set<String>,
 ) : VisualTransformation {
 
     private val mainSpanStyle = SpanStyle(color = mainColor)
@@ -110,7 +111,7 @@ private class NumberOffsetMapping(
     private val text: AnnotatedString,
     private val formattedText: AnnotatedString,
     private val digitsPerGroup: Int,
-    private val decimalSeparatorKeys: List<String>,
+    private val decimalSeparatorKeys: Set<String>,
     private val decimalSeparator: String,
 ) : OffsetMapping {
     val originalIntegerPart = text.getIntegerPart(decimalSeparatorKeys)
@@ -186,13 +187,13 @@ private fun String.addMinusIfNegative(isNegative: Boolean): String {
 }
 
 @Suppress("SpreadOperator")
-private fun AnnotatedString.getIntegerPart(delimiters: List<String>): String {
+private fun AnnotatedString.getIntegerPart(delimiters: Set<String>): String {
     val tokens = split(*delimiters.toTypedArray(), limit = 2)
     return tokens[0]
 }
 
 @Suppress("SpreadOperator")
-private fun AnnotatedString.getFractionalPart(delimiters: List<String>): String {
+private fun AnnotatedString.getFractionalPart(delimiters: Set<String>): String {
     val tokens = split(*delimiters.toTypedArray(), limit = 2)
     return if (tokens.size == 2) tokens[1] else ""
 }
@@ -213,7 +214,7 @@ private fun String.removeDuplicateSign(charToRemove: Char): String {
     }
 }
 
-private fun String.keepSingleSeparator(separators: List<String>): String {
+private fun String.keepSingleSeparator(separators: Set<String>): String {
     if (this.isEmpty() || separators.isEmpty()) return this
     val escapedSeparators = separators.map { Regex.escape(it) }
     val pattern = escapedSeparators.joinToString("|")
@@ -229,4 +230,11 @@ private fun String.keepSingleSeparator(separators: List<String>): String {
 
 private fun String.removeSpaces(): String {
     return this.filter { it != ' ' }
+}
+
+private fun String.keepOnlyValidChars(decimalSeparatorAliases: Set<String>): String {
+    return this.filter {
+        val strChar = it.toString()
+        it.isDigit() || it == '-' || decimalSeparatorAliases.contains(strChar)
+    }
 }

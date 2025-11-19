@@ -42,7 +42,7 @@ internal fun PrefixSuffixWrapper(
             Box(
                 modifier = Modifier
                     .widthIn(20.dp)
-                    .width(IntrinsicSize.Min)
+                    .then(if (textLayoutResult != null) Modifier.width(IntrinsicSize.Min) else Modifier)
                     .layoutId(MAIN_CONTENT_ID),
             ) {
                 mainContent.invoke()
