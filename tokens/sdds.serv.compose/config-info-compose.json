@@ -10241,6 +10241,52 @@
                "composeReference": "NavigationBarInternalPage.HasBackground.Shadow.Rounded"
             }
          ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsHorizontal",
+         "variations": [
+            {
+               "name": "m",
+               "composeReference": "PaginationDotsHorizontal.M"
+            },
+            {
+               "name": "m.active-type-line",
+               "composeReference": "PaginationDotsHorizontal.M.ActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "composeReference": "PaginationDotsHorizontal.S"
+            },
+            {
+               "name": "s.active-type-line",
+               "composeReference": "PaginationDotsHorizontal.S.ActiveTypeLine"
+            }
+         ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsVertical",
+         "variations": [
+            {
+               "name": "m",
+               "composeReference": "PaginationDotsVertical.M"
+            },
+            {
+               "name": "m.active-type-line",
+               "composeReference": "PaginationDotsVertical.M.ActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "composeReference": "PaginationDotsVertical.S"
+            },
+            {
+               "name": "s.active-type-line",
+               "composeReference": "PaginationDotsVertical.S.ActiveTypeLine"
+            }
+         ]
       }
    ]
 }

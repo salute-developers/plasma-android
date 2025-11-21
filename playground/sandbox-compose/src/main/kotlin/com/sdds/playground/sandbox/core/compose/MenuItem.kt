@@ -32,6 +32,7 @@ import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.OverlayStyle
+import com.sdds.compose.uikit.PaginationDotsStyle
 import com.sdds.compose.uikit.PopoverStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -98,6 +99,8 @@ import com.sdds.playground.sandbox.notification.compose.NotificationScreen
 import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentPreview
 import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentScreen
 import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
+import com.sdds.playground.sandbox.paginationdots.compose.PaginationDotsPreview
+import com.sdds.playground.sandbox.paginationdots.compose.PaginationDotsScreen
 import com.sdds.playground.sandbox.popover.compose.PopoverScreen
 import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
@@ -354,6 +357,10 @@ internal sealed class ComponentScreen(
         { IconTabsScreen(it) },
         { style, _ -> IconTabsPreview(style as TabsStyle) },
     )
+    object PaginationDots : ComponentScreen(
+        { PaginationDotsScreen(it) },
+        { style, _ -> PaginationDotsPreview(style as PaginationDotsStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -414,6 +421,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         CoreComponent.MASK -> ComponentScreen.TextFieldMasks
+        CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         else -> ComponentScreen.Empty
     }
 }
