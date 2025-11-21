@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.core.vs
 
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -35,6 +36,7 @@ import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.FrameLayout
+import com.sdds.uikit.colorFromAttr
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -190,14 +192,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
             componentContainer?.removeAllViews()
             componentCanvas.removeAllViews()
             val themeInfo = viewTheme(theme)
-            componentCanvas.setBackgroundColor(
-                when (subtheme) {
-                    SubTheme.ON_DARK -> Color.BLACK
-                    SubTheme.ON_LIGHT -> Color.WHITE
-                    SubTheme.INVERSE -> Color.WHITE
-                    else -> Color.TRANSPARENT
-                },
-            )
+            componentCanvas.backgroundTintList = subtheme.getBackgroundColor()
             componentCanvas.addView(
                 createComponentContainer(
                     themeInfo.themeRes,
@@ -207,6 +202,16 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
             )
             _propsBottomSheetDelegate?.run { offsetComponentLayout(currentOffset) }
         }
+    }
+
+    private fun SubTheme?.getBackgroundColor(): ColorStateList {
+        val color = when (this) {
+            SubTheme.ON_DARK -> Color.BLACK
+            SubTheme.ON_LIGHT -> Color.WHITE
+            SubTheme.INVERSE -> requireContext().colorFromAttr(R.attr.sandbox_colorInverseBackground)
+            else -> Color.TRANSPARENT
+        }
+        return ColorStateList.valueOf(color)
     }
 
     private fun dispatchComponentStyleChanged(layoutParams: LayoutParams = defaultLayoutParams) {

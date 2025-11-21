@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.OnLight" parent="Sdkit.StarDs.DarkOnLight"/>
+    <style name="Sdkit.StarDs.OnDark" parent="Sdkit.StarDs.DarkOnDark"/>
+    <style name="Sdkit.StarDs.Inverse" parent="Sdkit.StarDs.DarkInverse"/>
+    <style name="Sdkit.StarDs.Default" parent="Sdkit.StarDs.DarkDefault"/>
+</resources>

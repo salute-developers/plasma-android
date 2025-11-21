@@ -273,11 +273,7 @@
     <!--Инвертированный основной цвет текста-->
     <color name="plasma_dark_text_inverse_primary_hover">#93080808</color>
     <!--Инвертированный основной цвет текста-->
-    <color name="plasma_dark_text_inverse_primary_hover_brightness">#FF4E4E4E</color>
-    <!--Инвертированный основной цвет текста-->
     <color name="plasma_dark_text_inverse_primary_active">#C4080808</color>
-    <!--Инвертированный основной цвет текста-->
-    <color name="plasma_dark_text_inverse_primary_active_brightness">#FF343434</color>
     <!--Инвертированный вторичный цвет текста-->
     <color name="plasma_dark_text_inverse_secondary_hover">#FF080808</color>
     <!--Инвертированный вторичный цвет текста-->
@@ -453,15 +449,9 @@
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="plasma_dark_surface_default_solid_default">#FFF9F9F9</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="plasma_dark_surface_default_solid_default_brightness">#FFF9F9F9</color>
-    <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="plasma_dark_surface_default_solid_default_hover">#FFFFFFFF</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="plasma_dark_surface_default_solid_default_hover_brightness">#FFFFFFFF</color>
-    <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="plasma_dark_surface_default_solid_default_active">#FFF5F5F5</color>
-    <!--Непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="plasma_dark_surface_default_solid_default_active_brightness">#FFF6F6F6</color>
     <!--dark surface default surfaceInfo-->
     <color name="plasma_dark_surface_default_info">#FF3F81FD</color>
     <!--dark surface default surfaceInfoMinor-->
@@ -2037,11 +2027,7 @@
     <!--Инвертированный основной цвет текста-->
     <color name="plasma_light_text_inverse_primary_hover">#93FFFFFF</color>
     <!--Инвертированный основной цвет текста-->
-    <color name="plasma_light_text_inverse_primary_hover_brightness">#FFFFFFFF</color>
-    <!--Инвертированный основной цвет текста-->
     <color name="plasma_light_text_inverse_primary_active">#C4FFFFFF</color>
-    <!--Инвертированный основной цвет текста-->
-    <color name="plasma_light_text_inverse_primary_active_brightness">#FFFFFFFF</color>
     <!--Инвертированный вторичный цвет текста-->
     <color name="plasma_light_text_inverse_secondary_hover">#FFFFFFFF</color>
     <!--Инвертированный вторичный цвет текста-->
@@ -2110,8 +2096,6 @@
     <color name="plasma_light_text_inverse_info_minor">#FF1549AB</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="plasma_light_surface_default_solid_default">#FF080808</color>
-    <!--Непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="plasma_light_surface_default_solid_default_brightness">#FF171717</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
     <color name="plasma_light_surface_default_solid_primary">#FFF5F5F5</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
@@ -2217,11 +2201,7 @@
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="plasma_light_surface_default_solid_default_hover">#FF262626</color>
     <!--Непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="plasma_light_surface_default_solid_default_hover_brightness">#FF333333</color>
-    <!--Непрозрачный фон поверхности/контрола по умолчанию-->
     <color name="plasma_light_surface_default_solid_default_active">#FF030303</color>
-    <!--Непрозрачный фон поверхности/контрола по умолчанию-->
-    <color name="plasma_light_surface_default_solid_default_active_brightness">#FF121212</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
     <color name="plasma_light_surface_default_solid_primary_hover">#FFFAFAFA</color>
     <!--Основной непрозрачный фон поверхности/контрола-->
