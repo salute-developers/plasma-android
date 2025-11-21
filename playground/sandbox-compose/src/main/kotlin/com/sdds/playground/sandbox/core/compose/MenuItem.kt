@@ -364,7 +364,7 @@ internal sealed class ComponentScreen(
     object Empty : ComponentScreen({})
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun CoreComponent.screen(): ComponentScreen {
     return when (this) {
         CoreComponent.AVATAR -> ComponentScreen.Avatar
