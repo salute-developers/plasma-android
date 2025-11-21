@@ -37,7 +37,8 @@ abstract class ProjectSummaryTask : DefaultTask() {
                     version = it.versionInfo().name,
                     links = ProjectLinks(
                         documentation = ProjectLink(docsUrl),
-                        changelog = ProjectLink(changelogUrl),
+                        changelog = ProjectLink("${docsUrl}CHANGELOG/"),
+                        changelogData = ProjectLink(changelogUrl)
                     )
                 )
             }
@@ -74,6 +75,7 @@ internal data class ProjectSummaryItem(
 internal data class ProjectLinks(
     val documentation: ProjectLink,
     val changelog: ProjectLink,
+    val changelogData: ProjectLink,
 )
 
 internal data class ProjectLink(
