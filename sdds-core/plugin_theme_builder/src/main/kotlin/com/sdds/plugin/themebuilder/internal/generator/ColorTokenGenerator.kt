@@ -57,6 +57,7 @@ internal class ColorTokenGenerator(
     private val viewDarkTokenDataCollector = mutableMapOf<String, ColorTokenResult.TokenData.ColorInfo>()
 
     override fun collectResult() = ColorTokenResult(
+        tokens = tokens,
         composeTokens = ColorTokenResult.TokenData(
             light = composeLightTokenDataCollector,
             dark = composeDarkTokenDataCollector,

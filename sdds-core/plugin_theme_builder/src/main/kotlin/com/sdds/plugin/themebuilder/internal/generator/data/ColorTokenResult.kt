@@ -1,12 +1,16 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.token.ColorToken
+
 /**
  * Данные о токенах цвета.
  *
+ * @property tokens исходные данные о токенах цвета
  * @property composeTokens данные о токенах для Compose
  * @property viewTokens данные о токенах для View
  */
 internal data class ColorTokenResult(
+    val tokens: List<ColorToken>,
     val composeTokens: TokenData,
     val viewTokens: TokenData,
 ) {

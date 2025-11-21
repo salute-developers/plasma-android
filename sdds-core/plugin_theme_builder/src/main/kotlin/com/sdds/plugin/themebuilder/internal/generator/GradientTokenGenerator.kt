@@ -75,6 +75,7 @@ internal class GradientTokenGenerator(
         mutableMapOf<String, ViewTokenData.Gradient>()
 
     override fun collectResult() = GradientTokenResult(
+        tokens = tokens,
         composeTokens = ComposeTokenData(
             light = composeKtLightTokenDataCollector,
             dark = composeKtDarkTokenDataCollector,

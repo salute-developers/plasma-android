@@ -161,6 +161,12 @@ object FileProvider {
         File("${valuesDir(qualifier).path}/theme.xml")
 
     /**
+     * XML файл подтемы
+     */
+    fun File.subThemeXmlFile(qualifier: String = ""): File =
+        File("${valuesDir(qualifier).path}/subtheme.xml")
+
+    /**
      * Возвращает экземпляр [FileWriter] для текущего файла
      */
     fun File.fileWriter(): Writer = FileWriter(this)

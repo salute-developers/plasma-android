@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox
 import android.util.Log
 import androidx.annotation.StyleRes
 import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 
@@ -10,13 +11,22 @@ internal class ThemeInfoCompose(
     val theme: Theme,
     val components: ComponentsProviderCompose,
     val themeWrapper: @Composable (@Composable () -> Unit) -> Unit,
+    val subthemes: Map<SubTheme, @Composable (@Composable () -> Unit) -> Unit> = emptyMap(),
 )
 
 internal class ThemeInfoView(
     val theme: Theme,
     val components: ComponentsProviderView,
     @StyleRes val themeRes: Int,
+    val subthemes: Map<SubTheme, Int> = emptyMap(),
 )
+
+internal enum class SubTheme(val key: String) : ValueState {
+    DEFAULT("Default"),
+    ON_DARK("OnDark"),
+    ON_LIGHT("OnLight"),
+    INVERSE("Inverse"),
+}
 
 internal fun composeTheme(theme: Theme): ThemeInfoCompose =
     composeThemes.firstOrNull { it.theme == theme }

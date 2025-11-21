@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.core.vs
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.ContextThemeWrapper
@@ -26,12 +27,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.SubTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
 import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
+import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.FrameLayout
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -118,8 +122,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
         return _binding?.root
     }
 
-    private fun createComponentContainer(@StyleRes themeRes: Int): FrameLayout =
-        FrameLayout(ContextThemeWrapper(requireContext(), themeRes))
+    private fun createComponentContainer(@StyleRes themeRes: Int, @StyleRes subtheme: Int?): FrameLayout =
+        FrameLayout(requireContext().styleWrapper(themeRes).styleWrapper(subtheme))
             .apply {
                 id = R.id.component_container_id
                 isFocusable = false
@@ -152,8 +156,9 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
         super.onViewCreated(view, savedInstanceState)
         createProperties()
         componentViewModel.theme
+            .combine(componentViewModel.subtheme) { theme, subtheme -> theme to subtheme }
             .onEach {
-                dispatchThemeChanged(it)
+                dispatchThemeChanged(it.first, it.second)
                 dispatchComponentStyleChanged()
                 onComponentUpdate(componentRef, componentViewModel.uiState.value)
             }
@@ -180,12 +185,24 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    private fun dispatchThemeChanged(theme: Theme) {
+    private fun dispatchThemeChanged(theme: Theme, subtheme: SubTheme?) {
         _binding?.apply {
             componentContainer?.removeAllViews()
             componentCanvas.removeAllViews()
+            val themeInfo = viewTheme(theme)
+            componentCanvas.setBackgroundColor(
+                when (subtheme) {
+                    SubTheme.ON_DARK -> Color.BLACK
+                    SubTheme.ON_LIGHT -> Color.WHITE
+                    SubTheme.INVERSE -> Color.WHITE
+                    else -> Color.TRANSPARENT
+                },
+            )
             componentCanvas.addView(
-                createComponentContainer(viewTheme(theme).themeRes),
+                createComponentContainer(
+                    themeInfo.themeRes,
+                    subtheme?.let { themeInfo.subthemes[it] },
+                ),
                 LayoutParams(MATCH_PARENT, MATCH_PARENT),
             )
             _propsBottomSheetDelegate?.run { offsetComponentLayout(currentOffset) }

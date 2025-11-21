@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.style
@@ -93,7 +94,7 @@ import com.sdds.serv.theme.darkSddsServColors
 import com.sdds.serv.theme.darkSddsServGradients
 import com.sdds.serv.theme.lightSddsServColors
 import com.sdds.serv.theme.lightSddsServGradients
-import androidx.compose.ui.graphics.Color.Companion as ComposeUiGraphicsColor
+import androidx.compose.ui.graphics.Color.Companion as ComposeColor
 
 private val DarkColors = darkSddsServColors()
 private val LightColors = lightSddsServColors()
@@ -160,6 +161,11 @@ fun SandboxTheme(
                         CornerSize(0.dp),
                         CornerSize(0.dp),
                     ),
+                    componentBackgroundColor = ComposeColor.Transparent.asStatefulValue(
+                        setOf(SubTheme.INVERSE) to colorScheme.backgroundInversePrimary,
+                        setOf(SubTheme.ON_DARK) to ComposeColor.Black,
+                        setOf(SubTheme.ON_LIGHT) to ComposeColor.White,
+                    ),
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
                     itemTextStyle = SddsServTheme.typography.bodyMBold,
@@ -170,7 +176,7 @@ fun SandboxTheme(
                             colorScheme.textDefaultPrimary
                         },
                     ),
-                    itemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                    itemBackground = ComposeColor.Transparent.asInteractive(
                         focused = if (darkTheme) {
                             colorScheme.surfaceDefaultSolidDefault
                         } else {
@@ -196,7 +202,7 @@ fun SandboxTheme(
                     navigationButtonStyle = IconButton.M.Pilled.Clear.style(),
                     actionButtonStyle = IconButton.M.Pilled.Clear.style(),
                     shapeDropDown = SddsServTheme.shapes.roundXxs,
-                    dropItemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                    dropItemBackground = ComposeColor.Transparent.asInteractive(
                         focused = colorScheme.surfaceDefaultSolidDefault,
                         selected = colorScheme.surfaceDefaultSolidSecondary,
                     ),
@@ -207,7 +213,7 @@ fun SandboxTheme(
                     shape = SddsServTheme.shapes.roundM,
                     labelTextStyle = SddsServTheme.typography.bodyMBold,
                     labelTextColor = colorScheme.textDefaultPrimary,
-                    editorItemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                    editorItemBackground = ComposeColor.Transparent.asInteractive(
                         focused = colorScheme.surfaceDefaultSolidDefault,
                         selected = colorScheme.surfaceDefaultSolidSecondary,
                     ),
@@ -223,8 +229,8 @@ fun SandboxTheme(
                         .colors {
                             labelColor(colorScheme.textDefaultSecondary)
                             valueColor(colorScheme.textDefaultPrimary)
-                            backgroundColor(androidx.compose.ui.graphics.Color.Transparent)
-                            dividerColor(androidx.compose.ui.graphics.Color.Transparent)
+                            backgroundColor(ComposeColor.Transparent)
+                            dividerColor(ComposeColor.Transparent)
                         }.style(),
                     backgroundColor = colorScheme.surfaceDefaultSolidCard,
                     editorItemTextStyle = SddsServTheme.typography.bodyMNormal,
@@ -271,7 +277,7 @@ private fun defaultPropertiesListStyle(
                 SddsServTheme.colors.textDefaultSecondary
             },
         ),
-        propertyBackgroundColor = ComposeUiGraphicsColor.Transparent.asInteractive(
+        propertyBackgroundColor = ComposeColor.Transparent.asInteractive(
             focused = if (darkTheme) {
                 SddsServTheme.colors.surfaceDefaultSolidDefault
             } else {

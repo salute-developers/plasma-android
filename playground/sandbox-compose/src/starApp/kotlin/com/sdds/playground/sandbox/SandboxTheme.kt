@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.compose.LocalNavigationViewStyle
 import com.sdds.playground.sandbox.core.compose.LocalPropertiesListStyle
@@ -37,7 +38,7 @@ import com.sdkit.star.designsystem.theme.darkStarDsColors
 import com.sdkit.star.designsystem.theme.darkStarDsGradients
 import com.sdkit.star.designsystem.theme.lightStarDsColors
 import com.sdkit.star.designsystem.theme.lightStarDsGradients
-import androidx.compose.ui.graphics.Color.Companion as ComposeUiGraphicsColor
+import androidx.compose.ui.graphics.Color.Companion as ComposeColor
 
 private val DarkColors = darkStarDsColors()
 private val LightColor = lightStarDsColors()
@@ -79,13 +80,18 @@ fun SandboxTheme(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
                     sheetShape = StarDsTheme.shapes.roundS.copy(CornerSize(0.dp), CornerSize(0.dp)),
+                    componentBackgroundColor = ComposeColor.Transparent.asStatefulValue(
+                        setOf(SubTheme.INVERSE) to colorScheme.backgroundInversePrimary,
+                        setOf(SubTheme.ON_DARK) to ComposeColor.Black,
+                        setOf(SubTheme.ON_LIGHT) to ComposeColor.White,
+                    ),
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
                     itemTextStyle = StarDsTheme.typography.bodyXsNormal,
                     itemTextColor = colorScheme.textDefaultPrimary.asInteractive(
                         focused = colorScheme.textInversePrimary,
                     ),
-                    itemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                    itemBackground = ComposeColor.Transparent.asInteractive(
                         focused = colorScheme.surfaceDefaultSolidDefault,
                         selected = colorScheme.surfaceDefaultSolidSecondary,
                     ),
@@ -116,7 +122,7 @@ fun SandboxTheme(
                     shape = StarDsTheme.shapes.roundM,
                     labelTextStyle = StarDsTheme.typography.bodyXsNormal,
                     labelTextColor = colorScheme.textDefaultPrimary,
-                    editorItemBackground = ComposeUiGraphicsColor.Transparent.asInteractive(
+                    editorItemBackground = ComposeColor.Transparent.asInteractive(
                         focused = colorScheme.surfaceDefaultSolidDefault,
                         selected = colorScheme.surfaceDefaultSolidSecondary,
                     ),
@@ -132,8 +138,8 @@ fun SandboxTheme(
                         .colors {
                             labelColor(colorScheme.textDefaultSecondary)
                             valueColor(colorScheme.textDefaultPrimary)
-                            backgroundColor(androidx.compose.ui.graphics.Color.Transparent)
-                            dividerColor(androidx.compose.ui.graphics.Color.Transparent)
+                            backgroundColor(ComposeColor.Transparent)
+                            dividerColor(ComposeColor.Transparent)
                         }.style(),
                     backgroundColor = colorScheme.surfaceDefaultSolidCard,
                     editorItemTextStyle = StarDsTheme.typography.bodyXsNormal,
@@ -170,7 +176,7 @@ private fun defaultPropertiesListStyle(): PropertiesListStyle =
         propertyValueTextColor = StarDsTheme.colors.textDefaultPrimary.asInteractive(
             focused = StarDsTheme.colors.textInversePrimary,
         ),
-        propertyBackgroundColor = ComposeUiGraphicsColor.Transparent.asInteractive(
+        propertyBackgroundColor = ComposeColor.Transparent.asInteractive(
             focused = StarDsTheme.colors.surfaceDefaultSolidDefault,
         ),
         propertyPaddings = 6.dp,
