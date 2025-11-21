@@ -27,7 +27,6 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
 
 /**
  * Поле ввода текста.
- * Поддержка префикса/суффикса с помощью [prefixSuffixTransformation].
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -48,7 +47,6 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
- * Используется, только если отсутствуют [prefix] и [suffix].
  * @param focusSelectorMode режим отображения фокуса компонента [FocusSelectorMode]
  * когда [focusSelectorMode] != [FocusSelectorMode.None]
  * @param interactionSource источник взаимодействия с полем
@@ -110,7 +108,6 @@ fun TextField(
 
 /**
  * Поле ввода текста.
- * Поддержка префикса/суффикса с помощью [prefixSuffixTransformation].
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -131,7 +128,6 @@ fun TextField(
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
- * Используется, только если отсутствуют [prefix] и [suffix].
  * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
  * когда [FocusSelectorSettings] != None
  * @param interactionSource источник взаимодействия с полем
@@ -191,7 +187,6 @@ fun TextField(
 
 /**
  * Поле ввода текста.
- * Поддержка префикса/суффикса с помощью [prefixSuffixTransformation].
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -212,7 +207,6 @@ fun TextField(
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
- * Используется, только если отсутствуют [prefix] и [suffix].
  * @param focusSelectorMode режим отображения фокуса компонента [FocusSelectorMode]
  * когда [focusSelectorMode] != [FocusSelectorMode.None]
  * @param interactionSource источник взаимодействия с полем
@@ -274,7 +268,6 @@ fun TextField(
 
 /**
  * Поле ввода текста.
- * Поддержка префикса/суффикса с помощью [prefixSuffixTransformation].
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -295,7 +288,6 @@ fun TextField(
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
- * Используется, только если отсутствуют [prefix] и [suffix].
  * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
  * когда [FocusSelectorSettings] != None
  * @param interactionSource источник взаимодействия с полем

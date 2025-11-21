@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.core.integration.component
 
 import android.os.Parcelable
+import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
@@ -53,12 +54,32 @@ abstract class ComponentsProviderView {
 /**
  * Провайдер компонентов для Compose.
  */
-interface ComponentsProviderCompose {
+abstract class ComponentsProviderCompose {
 
     /**
-     * Все компоненты
+     * Все cutythbhjdfyyst компоненты
      */
-    val all: Map<ComponentKey, ComposeComponent<*, *>>
+    abstract val generated: Map<ComponentKey, ComposeComponent<*, *>>
+
+    /**
+     * Все компоненты, включая общие и сгенерированные.
+     */
+    @Suppress("UNCHECKED_CAST")
+    val components: Map<ComponentKey, ComposeComponent<*, *>> by lazy {
+        mutableMapOf<ComponentKey, ComposeComponent<*, *>>().apply {
+            putAll(generated)
+
+            val textFieldStyles = (
+                generated[ComponentKey.TextField]
+                    ?.styleProviders as? Map<String, ComposeStyleProvider<String, TextFieldStyle>>
+                )
+                ?: emptyMap()
+            if (textFieldStyles.isNotEmpty()) {
+                val maskKey = ComponentKey.Mask
+                put(maskKey, ComposeComponent(maskKey, textFieldStyles))
+            }
+        }
+    }
 
     /**
      * Получает Compose-компонент по ключу.
@@ -69,7 +90,7 @@ interface ComponentsProviderCompose {
      */
     @Suppress("UNCHECKED_CAST")
     operator fun <K : Any, S : Style> get(key: ComponentKey): ComposeComponent<K, S> {
-        return all[key] as? ComposeComponent<K, S> ?: throw IllegalArgumentException("No $key exists")
+        return components[key] as? ComposeComponent<K, S> ?: throw IllegalArgumentException("No $key exists")
     }
 }
 

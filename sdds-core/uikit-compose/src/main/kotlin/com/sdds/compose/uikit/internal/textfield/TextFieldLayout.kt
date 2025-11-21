@@ -77,10 +77,14 @@ internal fun TextFieldLayout(
     animationProgress: Float,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
+    prefix: (@Composable () -> Unit)?,
+    suffix: (@Composable () -> Unit)?,
+    textLayoutResult: TextLayoutResult?,
 ) {
     val hasChips = chips != null
     val chipHeight = chipGroupStyle.chipStyle.dimensions.height
     val alignmentLine = dimensions.alignmentLineHeight - dimensions.boxPaddingTop * 2
+
     val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
         animationProgress,
@@ -162,6 +166,9 @@ internal fun TextFieldLayout(
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
                 singleLine = singleLine,
+                prefix = prefix,
+                suffix = suffix,
+                textLayoutResult = textLayoutResult,
             )
         },
         measurePolicy = measurePolicy,
@@ -242,13 +249,21 @@ private fun CompositeTextFieldContent(
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
     valueTextStyle: TextStyle,
+    prefix: (@Composable () -> Unit)?,
+    suffix: (@Composable () -> Unit)?,
+    textLayoutResult: TextLayoutResult?,
 ) {
     val textContent: @Composable () -> Unit = {
         Box {
             if (placeholder != null) {
                 Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
             }
-            textField()
+            PrefixSuffixWrapper(
+                mainContent = textField,
+                prefix = prefix,
+                suffix = suffix,
+                textLayoutResult = textLayoutResult,
+            )
         }
     }
     CompositionLocalProvider(
