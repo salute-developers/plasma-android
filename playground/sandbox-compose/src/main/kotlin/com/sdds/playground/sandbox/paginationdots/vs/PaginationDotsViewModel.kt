@@ -22,6 +22,7 @@ internal class PaginationDotsViewModel(
             PaginationDotsPropertyName.VISIBLE_ITEM_COUNT -> currentState.copy(
                 visibleItemCount = valueString.toIntOrNull() ?: 0,
             )
+            PaginationDotsPropertyName.STEP -> currentState.copy(step = valueString.toIntOrNull() ?: 1)
             else -> currentState
         }
     }
@@ -36,12 +37,17 @@ internal class PaginationDotsViewModel(
                 name = PaginationDotsPropertyName.VISIBLE_ITEM_COUNT.value,
                 value = visibleItemCount,
             ),
+            Property.IntProperty(
+                name = PaginationDotsPropertyName.STEP.value,
+                value = step,
+            ),
         )
     }
 
     private enum class PaginationDotsPropertyName(val value: String) {
         ITEM_COUNT("itemCount"),
         VISIBLE_ITEM_COUNT("visibleItemCount"),
+        STEP("step"),
     }
 }
 

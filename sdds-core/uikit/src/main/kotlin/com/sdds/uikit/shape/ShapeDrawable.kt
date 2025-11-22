@@ -253,7 +253,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     /**
      * Устанавливает [Xfermode] для объекта [Paint], который рисует форму и бордер
      */
-    open fun setXfermode(mode: Xfermode) {
+    open fun setXfermode(mode: Xfermode?) {
         _shapePaint.xfermode = mode
         _strokePaint.xfermode = mode
     }

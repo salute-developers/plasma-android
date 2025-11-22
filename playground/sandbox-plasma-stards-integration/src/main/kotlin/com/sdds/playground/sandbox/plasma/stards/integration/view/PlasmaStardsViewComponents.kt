@@ -251,5 +251,12 @@ object PlasmaStardsViewComponents : ComponentsProviderView() {
                     "Drawer" to PlasmaStardsDrawerVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to PlasmaStardsPaginationDotsHorizontalVariationsView,
+                    "PaginationDotsVertical" to PlasmaStardsPaginationDotsVerticalVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }
