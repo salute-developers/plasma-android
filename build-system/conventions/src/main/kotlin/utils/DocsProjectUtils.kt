@@ -114,6 +114,14 @@ val Project.docsDeployUrl: String
     get() = getArtifactDocsBaseUrl(docsArtifactId, versionInfo().name, docsBranch(true))
 
 /**
+ * Возвращает относительный путь к changelog.json на сервере
+ */
+fun Project.changelogUrl(deploy: Boolean = true): String {
+    val baseUrl = getArtifactDocsBaseUrl(docsArtifactId, "", docsBranch(deploy))
+    return "${baseUrl}changelog.json"
+}
+
+/**
  * Преобразует шаблоны документации, подставляя значения из проекта в плейсхолдеры.
  * Изменяет все `.md` файлы и файл `docusaurus.config.ts` внутри указанной директории.
  */
@@ -168,7 +176,8 @@ fun Project.getDocsDestinationDir(): File {
  */
 private fun Project.getArtifactDocsBaseUrl(artifactId: String, version: String, branch: String): String {
     val branchSuffix = if (branch.isNotEmpty()) "/$branch" else ""
-    return "$branchSuffix/$docsTarget/$artifactId/$version/"
+    val versionSuffix = if (version.isNotEmpty()) "$version/" else ""
+    return "$branchSuffix/$docsTarget/$artifactId/$versionSuffix"
 }
 
 private const val BASE_DOC_URL = "https://plasma.sberdevices.ru"

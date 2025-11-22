@@ -11,6 +11,7 @@ import org.jetbrains.kotlin.com.google.gson.JsonObject
 import utils.docsArtifactId
 import utils.isComposeLib
 import utils.parseTokenLibChangelog
+import utils.toDto
 import utils.toMarkdown
 import utils.versionInfo
 import java.io.File
@@ -51,10 +52,15 @@ abstract class BuildTokenChangelogTask : DefaultTask() {
 
         val sourceJsonFile = File(libraryChangelogJsonPath.get())
         if (!sourceJsonFile.exists()) {
+            logger.warn("${sourceJsonFile.path} is not exist, creating")
             sourceJsonFile.writeText("{}")
         }
+        logger.info("${sourceJsonFile.path} is exist ${sourceJsonFile.exists()}")
         val sourceJson = gson.fromJson(sourceJsonFile.readText(), JsonObject::class.java)
-        sourceJson.add(version, gson.toJsonTree(changelog))
+        if (sourceJson.has(version)) {
+            sourceJson.remove(version)
+        }
+        sourceJson.add(version, gson.toJsonTree(changelog.toDto()))
         sourceJsonFile.writeText(gson.toJson(sourceJson))
     }
 }

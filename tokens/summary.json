@@ -9,6 +9,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.21.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/changelog.json"
         }
       }
     },
@@ -21,6 +24,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/0.19.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/changelog.json"
         }
       }
     }
@@ -35,6 +41,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/0.18.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/changelog.json"
         }
       }
     }
@@ -49,6 +58,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/0.9.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/changelog.json"
         }
       }
     }
@@ -63,6 +75,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/0.20.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/changelog.json"
         }
       }
     },
@@ -75,6 +90,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/0.25.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/changelog.json"
         }
       }
     }
@@ -89,6 +107,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/xml/sdds-serv/0.24.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/xml/sdds-serv/changelog.json"
         }
       }
     },
@@ -101,6 +122,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/0.24.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/changelog.json"
         }
       }
     }
@@ -115,6 +139,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/xml/stylessalute/0.19.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/xml/stylessalute/changelog.json"
         }
       }
     },
@@ -127,6 +154,9 @@
         },
         "changelog": {
           "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/0.19.0/CHANGELOG/"
+        },
+        "changelogData": {
+          "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/changelog.json"
         }
       }
     }
