@@ -39,7 +39,7 @@ Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         iconRes = com.sdds.icons.R.drawable.ic_arrow_right_24,
         onClick = {
             // для корректной работы необходимо следить, чтобы индекс не выходил за пределы totalCount
-            selectedIndex = selectedIndex.plus(1).coerceIn(0, 10) // для корректной работы необходимо следить, чтобы индекс не выходил за пределы totalCount
+            selectedIndex = selectedIndex.plus(1).coerceIn(0, 10)
         },
     )
 }
