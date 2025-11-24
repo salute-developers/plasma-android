@@ -50,7 +50,7 @@ internal fun Modifier.handle(
     handleHeight: Dp = 10.dp,
     handleOffset: Dp = 5.dp,
     handlePlacement: BottomSheetHandlePlacement = BottomSheetHandlePlacement.Inner,
-    progress: Float = 0f,
+    progressProvider: () -> Float = { 0f },
     sheetState: BottomSheetState? = null,
 ): Modifier =
     if (handlePlacement == BottomSheetHandlePlacement.None) {
@@ -63,34 +63,32 @@ internal fun Modifier.handle(
                 val handleHeightPx = handleHeight.roundToPx()
                 val outer = -verticalOffset * 2
                 val inner = verticalOffset * 2 + handleHeightPx * 2
-                val deltaSpace = IntOffset(
-                    x = 0,
-                    y = when (handlePlacement) {
-                        BottomSheetHandlePlacement.Inner -> outer
-                        BottomSheetHandlePlacement.Outer -> inner
-                        else -> lerp(outer, inner, progress)
-                    },
-                )
-
-                val offset = alignment.align(
-                    IntSize(
-                        handleWidthPx,
-                        handleHeightPx,
-                    ),
-                    IntSize(
-                        (size.width + deltaSpace.x).toInt(),
-                        (size.height + deltaSpace.y).toInt(),
-                    ),
-                    layoutDirection = layoutDirection,
-                )
                 val outline = handleShape.createOutline(
                     Size(handleWidthPx.toFloat(), handleHeightPx.toFloat()),
                     layoutDirection = layoutDirection,
                     density = this,
                 )
-
-                val resultOffset = offset - deltaSpace / 2f
                 onDrawWithContent {
+                    val deltaSpace = IntOffset(
+                        x = 0,
+                        y = when (handlePlacement) {
+                            BottomSheetHandlePlacement.Inner -> outer
+                            BottomSheetHandlePlacement.Outer -> inner
+                            else -> lerp(outer, inner, progressProvider())
+                        },
+                    )
+                    val offset = alignment.align(
+                        IntSize(
+                            handleWidthPx,
+                            handleHeightPx,
+                        ),
+                        IntSize(
+                            (size.width + deltaSpace.x).toInt(),
+                            (size.height + deltaSpace.y).toInt(),
+                        ),
+                        layoutDirection = layoutDirection,
+                    )
+                    val resultOffset = offset - deltaSpace / 2f
                     if (sheetState?.currentValue != BottomSheetValue.Hidden) {
                         drawContent()
                         translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {

@@ -43,6 +43,7 @@ internal fun BaseModalBottomSheet(
     onDismiss: () -> Unit = {},
     hasHandle: Boolean = false,
     draggableAreaHeight: Dp = 10.dp,
+    edgeToEdge: Boolean = true,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val scope = rememberCoroutineScope()
@@ -51,7 +52,8 @@ internal fun BaseModalBottomSheet(
         if (bottomSheetState.currentValue == Hidden) bottomSheetState.hideDialog()
     }
     if (dialogState == DialogState.Show) {
-        Dialog(
+        EdgeToEdgeDialog(
+            edgeToEdge = edgeToEdge,
             onDismissRequest = {
                 if (bottomSheetState.confirmValueChange(Hidden)) {
                     scope.launch {
@@ -60,9 +62,6 @@ internal fun BaseModalBottomSheet(
                     onDismiss()
                 }
             },
-            properties = DialogProperties(
-                usePlatformDefaultWidth = false,
-            ),
         ) {
             BoxWithConstraints(
                 modifier = Modifier
