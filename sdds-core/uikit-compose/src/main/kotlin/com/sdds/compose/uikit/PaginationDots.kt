@@ -51,6 +51,7 @@ fun PaginationDots(
     visibleCount: Int = 5,
 ) {
     check(visibleCount <= totalCount) { "totalCount should be greater than or equal to the visibleCount" }
+    val safeSelectedIndex = selectedIndex.coerceIn(0, totalCount - 1)
 
     val dotMainAxisSize = getDotMainAxisSize(
         orientation = style.orientation,
@@ -65,12 +66,12 @@ fun PaginationDots(
     val viewportSize =
         dotMainAxisSize * (visibleCount - 1) + selectedDotMainAxisSize + style.dimensions.gap * (visibleCount)
     val visibleCenter = visibleCount / 2
-    val startOffset = (selectedIndex - visibleCenter).coerceIn(0, totalCount - visibleCount)
+    val startOffset = (safeSelectedIndex - visibleCenter).coerceIn(0, totalCount - visibleCount)
     val endOffset = (totalCount - visibleCount - startOffset).coerceIn(0, totalCount - visibleCount)
     val scrollStepPx = (dotMainAxisSize + style.dimensions.gap).toPxF().roundToInt()
     val scrollState = rememberScrollState()
 
-    LaunchedEffect(selectedIndex, totalCount, visibleCount, viewportSize) {
+    LaunchedEffect(safeSelectedIndex, totalCount, visibleCount, viewportSize) {
         scrollState.animateScrollTo(startOffset * scrollStepPx, tween())
     }
 
@@ -87,14 +88,14 @@ fun PaginationDots(
                         startOffset = startOffset,
                         endOffset = endOffset,
                         index = i,
-                        selectedIndex = selectedIndex,
+                        selectedIndex = safeSelectedIndex,
                         totalCount = totalCount,
                         edgeCount = style.edgeCount,
                         edgeShrinkFactor = style.edgeShrinkFactor,
                         visibleCount = visibleCount,
                     )
                     PaginationDot(
-                        isSelected = i == selectedIndex,
+                        isSelected = i == safeSelectedIndex,
                         backgroundColor = style.colors.dotBackgroundColor,
                         dotHeight = style.dimensions.dotHeight,
                         dotWidth = style.dimensions.dotWidth,
@@ -116,14 +117,14 @@ fun PaginationDots(
                         startOffset = startOffset,
                         endOffset = endOffset,
                         index = i,
-                        selectedIndex = selectedIndex,
+                        selectedIndex = safeSelectedIndex,
                         totalCount = totalCount,
                         edgeCount = style.edgeCount,
                         edgeShrinkFactor = style.edgeShrinkFactor,
                         visibleCount = visibleCount,
                     )
                     PaginationDot(
-                        isSelected = i == selectedIndex,
+                        isSelected = i == safeSelectedIndex,
                         backgroundColor = style.colors.dotBackgroundColor,
                         dotHeight = style.dimensions.dotHeight,
                         dotWidth = style.dimensions.dotWidth,
