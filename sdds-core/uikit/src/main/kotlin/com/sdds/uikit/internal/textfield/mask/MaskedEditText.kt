@@ -44,13 +44,12 @@ internal open class MaskedEditText @JvmOverloads constructor(
 
     val isMaskVisible: Boolean
         get() {
-            val textIsEmpty = text.isNullOrEmpty()
-            val placeholderIsEmpty = placeholder.isNullOrEmpty()
-            val canDisplayMask = mask != null && (!textIsEmpty || placeholderIsEmpty)
-            return when (maskDisplayMode) {
-                MASK_DISPLAY_MODE_ALWAYS -> canDisplayMask
-                MASK_DISPLAY_MODE_ON_INPUT -> isFocused && canDisplayMask
-                else -> false
+            return if (maskDisplayMode == MASK_DISPLAY_MODE_ALWAYS) {
+                val textIsEmpty = text.isNullOrEmpty()
+                val placeholderIsEmpty = placeholder.isNullOrEmpty()
+                mask != null && (!textIsEmpty || placeholderIsEmpty)
+            } else {
+                false
             }
         }
 
