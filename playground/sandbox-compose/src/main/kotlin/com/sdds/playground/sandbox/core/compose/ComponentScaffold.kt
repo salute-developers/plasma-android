@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
@@ -91,8 +92,19 @@ private fun <State : UiState, S : Style> MobileScaffold(
         val uiState by viewModel.uiState.collectAsState()
         val density = LocalDensity.current
         val statusBarHeight = WindowInsets.statusBars.getTop(density).toFloat()
+        val currentSubTheme by viewModel.subtheme.collectAsState()
+        val sandboxStyle = LocalSandboxStyle.current
+        val componentBackground by remember {
+            derivedStateOf {
+                val stateSet = currentSubTheme?.let { setOf(it) } ?: emptySet()
+                sandboxStyle.componentBackgroundColor.getValue(stateSet)
+            }
+        }
         Box(
             modifier = Modifier
+                .fillMaxSize()
+                .background(componentBackground, shape = sandboxStyle.componentBackgroundShape)
+                .padding(16.dp)
                 .align(componentAlignment(uiState))
                 .onGloballyPositioned { layoutCoordinates ->
                     val pos = layoutCoordinates.positionInRoot()
@@ -106,15 +118,15 @@ private fun <State : UiState, S : Style> MobileScaffold(
             contentAlignment = Alignment.Center,
         ) {
             val currentTheme by themeManager.currentTheme.collectAsState()
-            val currentSubtheme by viewModel.subtheme.collectAsState()
             val themeInfo = composeTheme(currentTheme)
             themeInfo.themeWrapper {
-                runCatching {
-                    SubTheme(themeInfo, currentSubtheme) {
+                val styleProvider = themeInfo.components.get<String, S>(key)
+                    .styleProviders[uiState.appearance]
+                if (styleProvider != null) {
+                    SubTheme(themeInfo, currentSubTheme) {
                         component(
                             uiState,
-                            themeInfo.components.get<String, S>(key)
-                                .styleProviders[uiState.appearance]!!.style(uiState.variant),
+                            styleProvider.style(uiState.variant),
                         )
                     }
                 }

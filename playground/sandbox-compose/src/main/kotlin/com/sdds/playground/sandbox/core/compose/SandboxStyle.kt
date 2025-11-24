@@ -22,6 +22,7 @@ internal interface SandboxStyle {
     val sheetShape: Shape
 
     val componentBackgroundColor: StatefulValue<Color>
+    val componentBackgroundShape: Shape
 
     companion object {
 
@@ -30,12 +31,14 @@ internal interface SandboxStyle {
             sheetBackgroundColor: Color = Color.LightGray,
             sheetShape: Shape = RectangleShape,
             componentBackgroundColor: StatefulValue<Color> = Color.Transparent.asStatefulValue(),
+            componentBackgroundShape: Shape = RectangleShape,
         ): SandboxStyle {
             return SandboxStyleImpl(
                 drawerBackgroundColor = drawerBackgroundColor,
                 sheetBackgroundColor = sheetBackgroundColor,
                 sheetShape = sheetShape,
                 componentBackgroundColor = componentBackgroundColor,
+                componentBackgroundShape = componentBackgroundShape,
             )
         }
     }
@@ -47,4 +50,5 @@ private data class SandboxStyleImpl(
     override val sheetBackgroundColor: Color,
     override val sheetShape: Shape,
     override val componentBackgroundColor: StatefulValue<Color>,
+    override val componentBackgroundShape: Shape,
 ) : SandboxStyle

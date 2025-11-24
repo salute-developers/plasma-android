@@ -166,6 +166,7 @@ fun SandboxTheme(
                         setOf(SubTheme.ON_DARK) to ComposeColor.Black,
                         setOf(SubTheme.ON_LIGHT) to ComposeColor.White,
                     ),
+                    componentBackgroundShape = SddsServTheme.shapes.roundM,
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
                     itemTextStyle = SddsServTheme.typography.bodyMBold,
