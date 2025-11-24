@@ -45,12 +45,14 @@ fun paginationDotsWithControls(
         setPadding(context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_3x))
         val spacing = context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_10x)
         updatePadding(top = spacing)
+        clipChildren = false
+        clipToPadding = false
         addView(
             iconButton(context).apply {
                 contentDescription = "Previous"
                 setIconResource(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
                 setOnClickListener {
-                    dots.currentIndex -= 1
+                    dots.currentIndex -= state.step
                 }
             },
             MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -62,7 +64,7 @@ fun paginationDotsWithControls(
                 contentDescription = "Next"
                 setIconResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
                 setOnClickListener {
-                    dots.currentIndex += 1
+                    dots.currentIndex += state.step
                 }
             },
         )
@@ -70,6 +72,8 @@ fun paginationDotsWithControls(
     return LinearLayout(context).apply {
         orientation = android.widget.LinearLayout.VERTICAL
         gravity = Gravity.CENTER_HORIZONTAL
+        clipChildren = false
+        clipToPadding = false
         addView(
             dots,
             ViewGroup.LayoutParams(

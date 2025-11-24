@@ -823,4 +823,22 @@
     <dimen name="sdkit_drawer_padding_bottom">36.0dp</dimen>
     <dimen name="sdkit_drawer_has_background_shape_adjustment">4.0dp</dimen>
     <dimen name="sdkit_drawer_has_background_stroke_width">2.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_gap">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_m_dot_width">24.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_m_dot_height">24.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_m_active_type_line_dot_width_value_0">96.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_m_active_type_line_dot_width_value_1">24.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_s_dot_width">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_s_dot_height">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_s_active_type_line_dot_width_value_0">64.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_horizontal_s_active_type_line_dot_width_value_1">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_gap">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_m_dot_width">24.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_m_dot_height">24.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_m_active_type_line_dot_height_value_0">96.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_m_active_type_line_dot_height_value_1">24.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_s_dot_width">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_s_dot_height">16.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_s_active_type_line_dot_height_value_0">64.0dp</dimen>
+    <dimen name="sdkit_pagination_dots_vertical_s_active_type_line_dot_height_value_1">16.0dp</dimen>
 </resources>

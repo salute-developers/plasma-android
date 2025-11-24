@@ -52,7 +52,7 @@ tasks.register<S3UploadTask>("dokkaDeploy") {
     endpoint.set(getS3Endpoint())
     region.set(getS3Region())
     bucket.set(getS3Bucket())
-    sourceFile.set(outputDokkaDir)
+    sourceDir.set(outputDokkaDir)
     destinationPath.set(docsDeployUrl)
 
     doLast {
