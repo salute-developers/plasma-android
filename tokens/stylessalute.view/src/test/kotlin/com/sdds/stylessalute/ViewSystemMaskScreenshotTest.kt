@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service
+package com.sdds.stylessalute
 
 import android.view.KeyEvent
 import android.widget.EditText
@@ -10,7 +10,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.plasma.sd.service.colorstate.TextFieldColorState
+import com.sdds.stylessalute.colorstate.TextFieldColorState
 import com.sdds.testing.vs.SDK_NUMBER
 import com.sdds.testing.vs.mask.MaskTestCases
 import org.hamcrest.CoreMatchers.allOf
@@ -31,7 +31,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskDefaultLOuterLabelMaskPlaceholderPhone() {
         themedComponent {
             maskPhoneDisplayAlways(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLOuterLabel,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLOuterLabel,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -41,7 +41,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskSuccessMOuterLabelMaskPlaceholderPhone() {
         themedComponent {
             maskPhoneDisplayAlways(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldMOuterLabel,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldMOuterLabel,
                 TextFieldColorState.SUCCESS,
             )
         }
@@ -51,7 +51,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskWarningSRequiredRightPlaceholderPhone() {
         themedComponent {
             maskPhoneDisplayAlways(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldSOuterLabelRequiredEnd,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldSOuterLabelRequiredEnd,
                 TextFieldColorState.WARNING,
             )
         }
@@ -62,7 +62,7 @@ class ViewSystemMaskScreenshotTest(
         themedComponent {
             margins {
                 maskPhoneDisplayAlways(
-                    R.style.Plasma_SdService_ComponentOverlays_TextFieldXsOuterLabelRequiredStart,
+                    R.style.Salute_StylesSalute_ComponentOverlays_TextFieldXsOuterLabelRequiredStart,
                     TextFieldColorState.ERROR,
                 )
             }
@@ -73,7 +73,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskDisabledIconAction() {
         themedComponent {
             maskDisabledIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -83,7 +83,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskReadOnlyIconAction() {
         themedComponent {
             maskReadOnlyIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -93,7 +93,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskXlDefaultOuterLabelDateIconAction() {
         themedComponent {
             maskDateShortDateAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldXlOuterLabelDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLOuterLabelDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -103,7 +103,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskLSuccessRequiredLeftInnerLabelTimeAlwaysIcon() {
         themedComponent {
             maskTimeAlwaysIcon(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLInnerLabelRequiredStart,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLInnerLabelRequiredStart,
                 TextFieldColorState.SUCCESS,
             )
         }
@@ -113,7 +113,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskMWarningRequiredRightOuterLabelNumberAlwaysAction() {
         themedComponent {
             maskNumberAlwaysAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldMOuterLabelRequiredEnd,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldMOuterLabelRequiredEnd,
                 TextFieldColorState.WARNING,
             )
         }
@@ -123,7 +123,7 @@ class ViewSystemMaskScreenshotTest(
     override fun testMaskErrorSuffixPrefixPhone() {
         themedComponent {
             maskSuffixPrefixPhone(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldSError,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldSError,
                 TextFieldColorState.ERROR,
             )
         }
@@ -139,16 +139,10 @@ class ViewSystemMaskScreenshotTest(
                         isAssignableFrom(EditText::class.java),
                     ),
                 ).perform(typeText("9"))
-                onView(
-                    allOf(
-                        isDescendantOfA(withId(it.id)),
-                        isAssignableFrom(EditText::class.java),
-                    ),
-                )
             },
         ) {
             maskPhoneOnInputIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldXsRequiredStart,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldXsRequiredStart,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -167,7 +161,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -186,7 +180,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -205,7 +199,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -230,7 +224,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -255,7 +249,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -271,16 +265,10 @@ class ViewSystemMaskScreenshotTest(
                         isAssignableFrom(EditText::class.java),
                     ),
                 ).perform(typeText("!w123ф%е45"))
-                onView(
-                    allOf(
-                        isDescendantOfA(withId(it.id)),
-                        isAssignableFrom(EditText::class.java),
-                    ),
-                )
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -311,7 +299,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -341,7 +329,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -366,7 +354,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskDateShortDateAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -391,7 +379,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskDateShortDateAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -416,7 +404,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskDateMediumDateAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -441,7 +429,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskTimeAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -466,7 +454,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskTimeAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -491,7 +479,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskTimeAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -516,7 +504,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskTimeAlwaysIconAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -541,7 +529,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskNumberAlwaysAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -566,7 +554,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskNumberAlwaysAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -591,7 +579,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskNumberAlwaysAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }
@@ -616,7 +604,7 @@ class ViewSystemMaskScreenshotTest(
             },
         ) {
             maskNumberAlwaysAction(
-                R.style.Plasma_SdService_ComponentOverlays_TextFieldLDefault,
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLDefault,
                 TextFieldColorState.DEFAULT,
             )
         }

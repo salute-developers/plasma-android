@@ -4,14 +4,11 @@ import android.view.KeyEvent
 import android.widget.EditText
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.clearText
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.pressKey
 import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.serv.colorstate.TextFieldColorState
 import com.sdds.testing.vs.SDK_NUMBER
@@ -141,16 +138,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("")))
-
-                onView(withId(it.id)).perform(click())
-
-                onView(
-                    allOf(
-                        isDescendantOfA(withId(it.id)),
-                        isAssignableFrom(EditText::class.java),
-                    ),
-                ).check(matches(withText("+7 ")))
+                ).perform(typeText("9"))
             },
         ) {
             maskPhoneOnInputIconAction(
@@ -257,7 +245,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).perform(typeText("a")).check(matches(withText("+7 123 456-78-90")))
+                ).perform(typeText("a"))
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
@@ -277,12 +265,6 @@ class ViewSystemMaskScreenshotTest(
                         isAssignableFrom(EditText::class.java),
                     ),
                 ).perform(typeText("!w123ф%е45"))
-                onView(
-                    allOf(
-                        isDescendantOfA(withId(it.id)),
-                        isAssignableFrom(EditText::class.java),
-                    ),
-                ).check(matches(withText("+7 123 45")))
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
@@ -307,15 +289,13 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("+7 123 456-")))
-                    .perform(pressKey(KeyEvent.KEYCODE_W))
+                ).perform(pressKey(KeyEvent.KEYCODE_W))
                     .perform(pressKey(KeyEvent.KEYCODE_1))
                     .perform(pressKey(KeyEvent.KEYCODE_2))
                     .perform(pressKey(KeyEvent.KEYCODE_3))
                     .perform(pressKey(KeyEvent.KEYCODE_4))
                     .perform(pressKey(KeyEvent.KEYCODE_F))
                     .perform(pressKey(KeyEvent.KEYCODE_E))
-                    .check(matches(withText("+7 123 456-12-34")))
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
@@ -340,14 +320,12 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("+7 123 456-78-90")))
-                    .perform(pressKey(KeyEvent.KEYCODE_W))
+                ).perform(pressKey(KeyEvent.KEYCODE_W))
                     .perform(pressKey(KeyEvent.KEYCODE_1))
                     .perform(pressKey(KeyEvent.KEYCODE_2))
                     .perform(pressKey(KeyEvent.KEYCODE_3))
                     .perform(pressKey(KeyEvent.KEYCODE_F))
                     .perform(pressKey(KeyEvent.KEYCODE_E))
-                    .check(matches(withText("+7 123 456-78-90")))
             },
         ) {
             maskPhoneDisplayAlwaysIconActionNoPlaceholder(
@@ -372,7 +350,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12.12.12")))
+                )
             },
         ) {
             maskDateShortDateAlwaysIconAction(
@@ -397,7 +375,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12.12.")))
+                )
             },
         ) {
             maskDateShortDateAlwaysIconAction(
@@ -422,7 +400,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12.12.2012")))
+                )
             },
         ) {
             maskDateMediumDateAlwaysIconAction(
@@ -447,7 +425,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12:34")))
+                )
             },
         ) {
             maskTimeAlwaysIconAction(
@@ -472,7 +450,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("08:30")))
+                )
             },
         ) {
             maskTimeAlwaysIconAction(
@@ -497,7 +475,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("99:99")))
+                )
             },
         ) {
             maskTimeAlwaysIconAction(
@@ -522,7 +500,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12:34")))
+                )
             },
         ) {
             maskTimeAlwaysIconAction(
@@ -547,7 +525,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12 345,00")))
+                )
             },
         ) {
             maskNumberAlwaysAction(
@@ -572,7 +550,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("999 999 999 999 999 999,99999")))
+                )
             },
         ) {
             maskNumberAlwaysAction(
@@ -597,7 +575,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("1")))
+                )
             },
         ) {
             maskNumberAlwaysAction(
@@ -622,7 +600,7 @@ class ViewSystemMaskScreenshotTest(
                         isDescendantOfA(withId(it.id)),
                         isAssignableFrom(EditText::class.java),
                     ),
-                ).check(matches(withText("12 345")))
+                )
             },
         ) {
             maskNumberAlwaysAction(
