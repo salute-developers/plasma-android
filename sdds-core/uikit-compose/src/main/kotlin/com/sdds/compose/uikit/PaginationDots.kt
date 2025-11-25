@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.horizontalScroll
@@ -70,7 +71,10 @@ fun PaginationDots(
     val scrollState = rememberScrollState()
 
     LaunchedEffect(safeSelectedIndex, totalCount, visibleCount, viewportSize) {
-        scrollState.animateScrollTo(startOffset * scrollStepPx, tween())
+        scrollState.animateScrollTo(
+            value = startOffset * scrollStepPx,
+            animationSpec = tween(durationMillis = SCROLL_ANIMATION_DURATION, easing = FastOutSlowInEasing),
+        )
     }
 
     when (style.orientation) {
@@ -224,12 +228,12 @@ private fun PaginationDot(
     }
     val selectedAlpha by animateFloatAsState(
         targetValue = if (isSelected) 1f else 0f,
-        animationSpec = tween(ANIMATION_DURATION),
+        animationSpec = tween(durationMillis = ALPHA_ANIMATION_DURATION),
         label = "alphaAnimation",
     )
     val animatedScale by animateFloatAsState(
         targetValue = scale,
-        animationSpec = tween(ANIMATION_DURATION),
+        animationSpec = tween(durationMillis = SCALE_ANIMATION_DURATION),
         label = "scaleAnimation",
     )
     val animatedWidth = dotWidth.getValue(stateSet = stateSet)
@@ -268,4 +272,6 @@ private fun PaginationDot(
     )
 }
 
-private const val ANIMATION_DURATION = 300
+private const val SCROLL_ANIMATION_DURATION = 300
+private const val ALPHA_ANIMATION_DURATION = 300
+private const val SCALE_ANIMATION_DURATION = 150

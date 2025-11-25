@@ -33,6 +33,14 @@ internal class PaginationDotsViewModel(
                         internalUiState.value.copy(visibleItemCount = it.coerceIn(1..itemCount))
                 },
             ),
+            Property.IntProperty(
+                name = "step",
+                value = step,
+                onApply = {
+                    internalUiState.value =
+                        internalUiState.value.copy(step = it.coerceIn(1..itemCount))
+                },
+            ),
         )
     }
 }

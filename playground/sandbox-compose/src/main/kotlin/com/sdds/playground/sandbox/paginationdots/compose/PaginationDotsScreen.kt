@@ -60,14 +60,18 @@ internal fun PaginationDotsScreen(componentKey: ComponentKey = ComponentKey.Pagi
                         iconRes = com.sdds.icons.R.drawable.ic_arrow_left_24,
                         style = IconButton.M.Default.style(),
                         onClick = {
-                            selectedIndex = selectedIndex.minus(1).coerceIn(0 until totalCount)
+                            selectedIndex = selectedIndex
+                                .minus(paginationDotsUiState.step)
+                                .coerceIn(0 until totalCount)
                         },
                     )
                     IconButton(
                         style = IconButton.M.Default.style(),
                         iconRes = com.sdds.icons.R.drawable.ic_arrow_right_24,
                         onClick = {
-                            selectedIndex = selectedIndex.plus(1).coerceIn(0 until totalCount)
+                            selectedIndex = selectedIndex
+                                .plus(paginationDotsUiState.step)
+                                .coerceIn(0 until totalCount)
                         },
                     )
                 }
