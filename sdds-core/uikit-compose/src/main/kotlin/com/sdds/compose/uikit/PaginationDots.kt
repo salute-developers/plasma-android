@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.horizontalScroll
@@ -28,6 +29,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.StatefulValue
+import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
 /**
@@ -71,6 +73,7 @@ fun PaginationDots(
     val scrollState = rememberScrollState()
 
     LaunchedEffect(safeSelectedIndex, totalCount, visibleCount, viewportSize) {
+        delay(50)
         scrollState.animateScrollTo(
             value = startOffset * scrollStepPx,
             animationSpec = tween(durationMillis = SCROLL_ANIMATION_DURATION, easing = FastOutSlowInEasing),
@@ -236,8 +239,14 @@ private fun PaginationDot(
         animationSpec = tween(durationMillis = SCALE_ANIMATION_DURATION),
         label = "scaleAnimation",
     )
-    val animatedWidth = dotWidth.getValue(stateSet = stateSet)
-    val animatedHeight = dotHeight.getValue(stateSet = stateSet)
+    val animatedWidth by animateDpAsState(
+        targetValue = dotWidth.getValue(stateSet = stateSet),
+        animationSpec = tween(LINE_ANIMATION_DURATION),
+    )
+    val animatedHeight by animateDpAsState(
+        targetValue = dotHeight.getValue(stateSet = stateSet),
+        animationSpec = tween(LINE_ANIMATION_DURATION),
+    )
     val selectedColor = backgroundColor.getValue(setOf(InteractiveState.Activated))
     val unselectedColor = backgroundColor.getDefaultValue()
     Box(
@@ -274,4 +283,5 @@ private fun PaginationDot(
 
 private const val SCROLL_ANIMATION_DURATION = 300
 private const val ALPHA_ANIMATION_DURATION = 300
-private const val SCALE_ANIMATION_DURATION = 150
+private const val SCALE_ANIMATION_DURATION = 200
+private const val LINE_ANIMATION_DURATION = 200
