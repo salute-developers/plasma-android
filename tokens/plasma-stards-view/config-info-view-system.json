@@ -5121,6 +5121,60 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.DrawerNoBackground"
             }
          ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsHorizontal",
+         "variations": [
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsHorizontal.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsHorizontalM"
+            },
+            {
+               "name": "m.active-type-line",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsHorizontal.M.ActiveTypeLine",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsHorizontalMActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsHorizontal.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsHorizontalS"
+            },
+            {
+               "name": "s.active-type-line",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsHorizontal.S.ActiveTypeLine",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsHorizontalSActiveTypeLine"
+            }
+         ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsVertical",
+         "variations": [
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsVertical.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsVerticalM"
+            },
+            {
+               "name": "m.active-type-line",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsVertical.M.ActiveTypeLine",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsVerticalMActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsVertical.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsVerticalS"
+            },
+            {
+               "name": "s.active-type-line",
+               "viewReference": "Sdkit.StarDs.Components.PaginationDotsVertical.S.ActiveTypeLine",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
+            }
+         ]
       }
    ]
 }

@@ -1,11 +1,13 @@
 package tasks.s3
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
 import org.gradle.api.Project
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
+import java.io.ByteArrayOutputStream
 
 /**
  * Базовая задача Gradle для выполнения команд `s3cmd` с параметрами подключения к S3.
@@ -55,13 +57,28 @@ abstract class S3BaseTask : DefaultTask() {
             *getConfig(),
             *getCommands(),
         )
-        project.exec {
+        val output = ByteArrayOutputStream()
+
+        val result = project.exec {
+            isIgnoreExitValue = true
             commandLine(*args)
+            standardOutput = output
+            errorOutput = output
+        }
+
+        val log = output.toString()
+
+        if (!ignoreError && result.exitValue != 0) {
+            throw GradleException("s3cmd failed with exit code ${result.exitValue}. Output:\n$log")
         }
     }
 
     @Internal
     protected abstract fun getCommands(): Array<String>
+
+    @get:Internal
+    protected open val ignoreError: Boolean
+        get() = false
 
     @Internal
     protected fun getBucketUrl(): String {

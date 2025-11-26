@@ -7,10 +7,13 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.SystemClock
 import android.util.AttributeSet
+import android.util.Log
 import androidx.core.animation.addListener
 import androidx.core.content.withStyledAttributes
 import androidx.core.graphics.withScale
@@ -25,6 +28,7 @@ import com.sdds.uikit.statelist.NumberStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.getIntForState
 import com.sdds.uikit.statelist.getNumberStateList
+import kotlin.math.absoluteValue
 
 /**
  * Класс PaginationDots — кастомный View для отображения пагинационных индикаторов (точек) с поддержкой анимаций,
@@ -48,6 +52,7 @@ open class PaginationDots @JvmOverloads constructor(
     private var _maxIndicatorWidth: Float = 0f
     private var _maxIndicatorHeight: Float = 0f
     private val _dotsPool: ArrayDeque<DotDrawable> = ArrayDeque()
+    private val _extraDotsPool: ArrayDeque<DotDrawable> = ArrayDeque()
     private var _itemCount: Int = 0
     private var _visibleItemCount: Int = 0
     private var _currentIndex: Int = 0
@@ -66,6 +71,7 @@ open class PaginationDots @JvmOverloads constructor(
     private var _edgeIndicatorShrinkFactor: Float = 0f
 
     private var _scrollShiftPx: Float = 0f
+    private var _mainSize: Int = 0
 
     // Debounce for currentIndex
     private var _lastIndexSetAt: Long = 0L
@@ -86,6 +92,7 @@ open class PaginationDots @JvmOverloads constructor(
     private var _edgeScaleProgress: Float = 0f
     private var _baseScrollOffset: Float = 0f
     private val _clipBounds = Rect()
+    private var _dotsDeactivatedBeforeAnim: Boolean = false
 
     private val prefetchSize: Int
         get() = if (visibleItemCount != itemCount) PREFETCH_SIZE else 0
@@ -135,7 +142,7 @@ open class PaginationDots @JvmOverloads constructor(
                         _scrollShiftPx = 0f
                     }
                     updateActiveDot(
-                        animate = false,
+                        animate = _dotsDeactivatedBeforeAnim,
                         windowChanged = true,
                     )
                     if (!_scrollAnimationCanceled) {
@@ -260,6 +267,7 @@ open class PaginationDots @JvmOverloads constructor(
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         var mainSize = 0
         var crossSize = 0
+        _extraDotsPool.forEach { it.setBounds(0, 0, it.intrinsicWidth, it.intrinsicHeight) }
         _dotsPool.forEachIndexed { i, indicator ->
             indicator.setBounds(0, 0, indicator.intrinsicWidth, indicator.intrinsicHeight)
             if (i in prefetchSize until (_dotsPool.size - prefetchSize)) {
@@ -277,6 +285,7 @@ open class PaginationDots @JvmOverloads constructor(
             }
         }
 
+        _mainSize = mainSize - gap
         val desiredHeight = if (_orientation == ORIENTATION_HORIZONTAL) crossSize else mainSize - gap
         val desiredWidth = if (_orientation == ORIENTATION_HORIZONTAL) mainSize - gap else crossSize
 
@@ -301,16 +310,52 @@ open class PaginationDots @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val count = canvas.save()
+        val count = canvas.saveLayer(null, null)
         if (!DRAW_DEBUG) canvas.clipRect(_clipBounds)
 
+        val starOffset = if (_animating && isFarScroll()) {
+            val diff = getAnimatedWindowDiff()
+            diff * _baseScrollOffset
+        } else {
+            0f
+        }
         when (_orientation) {
-            ORIENTATION_HORIZONTAL -> drawHorizontal(canvas)
-            else -> drawVertical(canvas)
+            ORIENTATION_HORIZONTAL -> {
+                if (starOffset != 0f) {
+                    drawHorizontal(_extraDotsPool, canvas, starOffset, true)
+                }
+                drawHorizontal(_dotsPool, canvas)
+            }
+
+            else -> {
+                if (starOffset != 0f) {
+                    drawVertical(_extraDotsPool, canvas, starOffset, true)
+                }
+                drawVertical(_dotsPool, canvas)
+            }
         }
 
         if (DRAW_DEBUG) drawDebugGuidelines(canvas)
         canvas.restoreToCount(count)
+    }
+
+    private fun getWindowWidth(): Float {
+        var total = 0f
+        val from = 0
+        val to = _dotsPool.size - prefetchSize
+
+        for (i in from until to) {
+            total += _dotsPool[i].bounds.width() + gap
+        }
+        return total - gap
+    }
+
+    private fun getAnimatedWindowDiff(): Int {
+        return _animToWindowStart - _animFromWindowStart
+    }
+
+    private fun isFarScroll(): Boolean {
+        return getAnimatedWindowDiff().absoluteValue > 1
     }
 
     private fun drawDebugGuidelines(canvas: Canvas) {
@@ -343,50 +388,62 @@ open class PaginationDots @JvmOverloads constructor(
     private fun getScrollOffset(): Float =
         _scrollShiftPx + prefetchSize * _baseScrollOffset
 
-    private fun drawHorizontal(canvas: Canvas) {
-        val countToDraw = _dotsPool.size
+    private fun drawHorizontal(
+        dotsPool: ArrayDeque<DotDrawable>,
+        canvas: Canvas,
+        startOffset: Float = 0f,
+        inverseScale: Boolean = false,
+    ) {
+        val countToDraw = dotsPool.size
         if (countToDraw <= 0) return
 
-        var dotX = _origin.toFloat() - getScrollOffset()
+        var dotX = _origin.toFloat() - getScrollOffset() + startOffset
 
         for (i in 0 until countToDraw) {
-            val dot = _dotsPool[i]
+            val dot = dotsPool[i]
             val dotY = (measuredHeight - dot.bounds.height()) / 2f
-            dot.draw(canvas, dotX, dotY, i)
+            dot.draw(canvas, dotX, dotY, i, inverseScale)
             dotX += dot.bounds.width() + gap
         }
     }
 
-    private fun drawVertical(canvas: Canvas) {
-        val countToDraw = _dotsPool.size
+    private fun drawVertical(
+        dotsPool: ArrayDeque<DotDrawable>,
+        canvas: Canvas,
+        startOffset: Float = 0f,
+        inverseScale: Boolean = false,
+    ) {
+        val countToDraw = dotsPool.size
         if (countToDraw <= 0) return
 
-        var dotY = _origin.toFloat() - getScrollOffset()
+        var dotY = _origin.toFloat() - getScrollOffset() + startOffset
 
         for (i in 0 until countToDraw) {
-            val dot = _dotsPool[i]
+            val dot = dotsPool[i]
             val dotX = (measuredWidth - dot.bounds.width()) / 2f
-            dot.draw(canvas, dotX, dotY, i)
+            dot.draw(canvas, dotX, dotY, i, inverseScale)
             dotY += dot.bounds.height() + gap
         }
     }
 
-    private fun DotDrawable.draw(canvas: Canvas, x: Float, y: Float, index: Int) {
+    private fun DotDrawable.draw(canvas: Canvas, x: Float, y: Float, index: Int, inverseScale: Boolean = false) {
+        if (inverseScale) setXfermode(PorterDuffXfermode(PorterDuff.Mode.DST))
         canvas.withTranslation(
             x = x,
             y = y,
         ) {
-            val scale = computeEdgeScale(index)
+            val scale = computeEdgeScale(index, inverseScale)
             val pivotX = bounds.width() / 2f
             val pivotY = bounds.height() / 2f
             canvas.withScale(scale, scale, pivotX, pivotY) {
                 draw(canvas)
             }
         }
+        if (inverseScale) setXfermode(null)
     }
 
     override fun verifyDrawable(who: Drawable): Boolean {
-        return super.verifyDrawable(who) || _dotsPool.contains(who)
+        return super.verifyDrawable(who) || _dotsPool.contains(who) || _extraDotsPool.contains(who)
     }
 
     private fun reset() {
@@ -407,11 +464,15 @@ open class PaginationDots @JvmOverloads constructor(
 
     private fun createDots() {
         _dotsPool.clear()
+        _extraDotsPool.clear()
         val poolSize = minOf(visibleItemCount, itemCount).let { size ->
             if (size < itemCount) size + prefetchSize * 2 else size
         }
+        val createExtraPool = if (visibleItemCount > 0) itemCount / visibleItemCount >= 2 else false
+        Log.e("Dots", "createExtraDots: $createExtraPool")
         for (i in 0 until poolSize) {
             _dotsPool.add(createIndicator(context))
+            if (createExtraPool) _extraDotsPool.add(createIndicator(context))
         }
         requestLayout()
         invalidate()
@@ -451,6 +512,14 @@ open class PaginationDots @JvmOverloads constructor(
         val steps = (newWindowStart - _windowStart)
         val shiftEnd = steps * _baseScrollOffset
 
+        val fullScroll = (currentIndex - newWindowStart + steps).let { it < 0 || it >= visibleItemCount }
+        if (fullScroll || (currentIndex == 0)) {
+            _dotsDeactivatedBeforeAnim = true
+            deactivateDots(true)
+        } else {
+            _dotsDeactivatedBeforeAnim = false
+        }
+
         _animFromWindowStart = _windowStart
         _animToWindowStart = newWindowStart
         _edgeScaleProgress = 0f
@@ -461,15 +530,17 @@ open class PaginationDots @JvmOverloads constructor(
     }
 
     private fun updateActiveDot(animate: Boolean = true, windowChanged: Boolean = false) {
-        updateDots(animate)
-        if (windowChanged || ensureIndexVisible()) return
+        deactivateDots(animate)
+        setDotActive(currentIndex, true, animate)
+        val shouldSkipAdjustEdges = windowChanged || ensureIndexVisible()
+        if (shouldSkipAdjustEdges) return
         if (animate) adjustEdges()
         invalidate()
     }
 
-    private fun updateDots(animate: Boolean) {
+    private fun deactivateDots(animate: Boolean) {
         _dotsPool.forEach { it.setActivated(false, animate) }
-        setDotActive(currentIndex, true, animate)
+        invalidate()
     }
 
     private fun setDotActive(index: Int, active: Boolean, animate: Boolean, windowStart: Int = _animToWindowStart) {
@@ -516,7 +587,7 @@ open class PaginationDots @JvmOverloads constructor(
         return scale.coerceIn(0f..1f)
     }
 
-    private fun computeEdgeScale(indexInWindow: Int): Float {
+    private fun computeEdgeScale(indexInWindow: Int, inverse: Boolean): Float {
         if (!edgeIndicatorEnabled || visibleItemCount == itemCount) return 1f
         val delta = _animToWindowStart - _animFromWindowStart
         val fromIndexInWindow: Int
@@ -539,7 +610,10 @@ open class PaginationDots @JvmOverloads constructor(
         val a = computeEdgeScaleAt(_animFromWindowStart, fromIndexInWindow, fromCurrentIndex)
         val b = computeEdgeScaleAt(_animToWindowStart, toIndexInWindow, toCurrentIndex)
 
-        return lerp(a, b, _edgeScaleProgress)
+        // вот ключевой момент: для второй «линии» точек (inverse = true)
+        // мы берём прогресс в обратную сторону
+        val t = if (inverse) 1f - _edgeScaleProgress else _edgeScaleProgress
+        return lerp(a, b, t)
     }
 
     private fun createIndicator(context: Context): DotDrawable = DotDrawable(context).apply {
@@ -576,6 +650,7 @@ open class PaginationDots @JvmOverloads constructor(
         private var _height: Int = 0
         private var _isActivated: Boolean = false
         private var _isBoundsAnimationEnabled: Boolean = true
+        private var _canActivate: Boolean = true
         private val _boundsAnimator: ValueAnimator by unsafeLazy {
             ValueAnimator.ofFloat().apply {
                 duration = AnimationUtils.DEFAULT_DURATION

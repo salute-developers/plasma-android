@@ -59,6 +59,7 @@ import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.tabs.IconTabsFragment
 import com.sdds.playground.sandbox.tabs.TabsFragment
+import com.sdds.playground.sandbox.textfield.vs.MaskFragment
 import com.sdds.playground.sandbox.textfield.vs.TextAreaFragment
 import com.sdds.playground.sandbox.textfield.vs.TextFieldFragment
 import com.sdds.playground.sandbox.textskeleton.vs.TextSkeletonFragment
@@ -101,6 +102,7 @@ import com.sdds.testing.vs.image.image
 import com.sdds.testing.vs.indicator.indicator
 import com.sdds.testing.vs.list.listView
 import com.sdds.testing.vs.loader.loader
+import com.sdds.testing.vs.mask.maskedTextField
 import com.sdds.testing.vs.modal.modalTrigger
 import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
 import com.sdds.testing.vs.navigationdrawer.navigationDrawer
@@ -156,7 +158,7 @@ internal class MenuItem(
 
 @Suppress("UNCHECKED_CAST")
 internal fun ComponentsProviderView.getMenuItems(): List<MenuItem> {
-    return all.toList().mapIndexedNotNull { index, (item, value) ->
+    return components.toList().mapIndexedNotNull { index, (item, value) ->
         val styleProvider = value.styleProviders.values.first() as ViewStyleProvider<String>
         MenuItem(
             id = item.routeId() ?: return@mapIndexedNotNull null,
@@ -399,9 +401,13 @@ internal sealed class ComponentScreen(
     object ToolBar : ComponentScreen(
         { item -> fragment<ToolBarFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Mask : ComponentScreen(
+        { item -> fragment<MaskFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun CoreComponent.screen(): ComponentScreen {
     return when (this) {
         CoreComponent.AVATAR -> ComponentScreen.Avatar
@@ -458,11 +464,12 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
+        CoreComponent.MASK -> ComponentScreen.Mask
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun ComponentKey.routeId(): Int? {
     return when (this.core) {
         CoreComponent.AVATAR -> R.id.nav_avatar
@@ -519,6 +526,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.NOTE_COMPACT -> R.id.nav_note_compact
         CoreComponent.PAGINATION_DOTS -> R.id.nav_pagination_dots
         CoreComponent.TOOL_BAR -> R.id.nav_toolbar
+        CoreComponent.MASK -> R.id.nav_note_compact
         else -> null
     }?.let { it + hashCode() }
 }
@@ -626,6 +634,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.NOTE_COMPACT -> noteCompact(context, style)
         CoreComponent.PAGINATION_DOTS -> paginationDots(context, style)
         CoreComponent.TOOL_BAR -> toolBar(context, style)
+        CoreComponent.MASK -> maskedTextField(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

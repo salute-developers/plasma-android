@@ -5,6 +5,7 @@ import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.tasks.OutputFile
 import org.gradle.api.tasks.TaskAction
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
+import utils.changelogUrl
 import utils.docsBaseProdUrl
 import utils.docsUrl
 import utils.isComposeLib
@@ -26,6 +27,7 @@ abstract class ProjectSummaryTask : DefaultTask() {
             .mapNotNull {
                 val key = it.properties["summary.key"]?.toString() ?: return@mapNotNull null
                 val docsUrl = "${it.docsUrl}${it.docsBaseProdUrl}"
+                val changelogUrl = "${it.docsUrl}${it.changelogUrl(false)}"
                 key to ProjectSummaryItem(
                     title = if (it.isComposeLib()) {
                         ProjectSummaryTitle.ComposeUI.title
@@ -36,6 +38,7 @@ abstract class ProjectSummaryTask : DefaultTask() {
                     links = ProjectLinks(
                         documentation = ProjectLink(docsUrl),
                         changelog = ProjectLink("${docsUrl}CHANGELOG/"),
+                        changelogData = ProjectLink(changelogUrl)
                     )
                 )
             }
@@ -72,6 +75,7 @@ internal data class ProjectSummaryItem(
 internal data class ProjectLinks(
     val documentation: ProjectLink,
     val changelog: ProjectLink,
+    val changelogData: ProjectLink,
 )
 
 internal data class ProjectLink(

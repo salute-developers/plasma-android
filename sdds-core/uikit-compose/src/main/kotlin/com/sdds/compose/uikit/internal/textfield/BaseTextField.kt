@@ -34,6 +34,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -42,8 +43,9 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
@@ -179,27 +181,6 @@ internal fun BaseTextField(
     val finalOptionalText =
         if (labelPlacement == TextFieldLabelPlacement.None) "" else optionalText
 
-    val valuePrefixSuffixTransformation = rememberPrefixSuffixTransformation(
-        prefix = prefix,
-        suffix = suffix,
-        prefixTextStyle = prefixStyle,
-        suffixTextStyle = suffixStyle,
-        transparent = value.text.isEmpty(),
-    )
-    // TODO: https://github.com/salute-developers/plasma-android/issues/284
-    val valueTransformation = if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
-        visualTransformation
-    } else {
-        valuePrefixSuffixTransformation
-    }
-    val placeholderPrefixSuffixTransformation = rememberPrefixSuffixTransformation(
-        prefix = prefix,
-        suffix = suffix,
-        prefixTextStyle = prefixStyle,
-        suffixTextStyle = suffixStyle,
-        transparent = value.text.isNotEmpty(),
-    )
-
     var isComponentFocused by remember { mutableStateOf(false) }
 
     /**
@@ -223,6 +204,7 @@ internal fun BaseTextField(
 
     val verticalScrollState = if (!singleLine) rememberScrollState() else null
     val horizontalScrollState = if (singleLine) rememberScrollState() else null
+    var textLayoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
     LaunchedEffect(value.text) {
         horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
         verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
@@ -247,13 +229,14 @@ internal fun BaseTextField(
             .testTag("textField"),
         value = value,
         onValueChange = onValueChange,
+        onTextLayout = { textLayoutResult = it },
         enabled = enabled,
         readOnly = readOnly,
         textStyle = valueStyle,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        singleLine = singleLine,
-        visualTransformation = valueTransformation,
+        keyboardOptions = keyboardOptions.updateKeyboardOptions(singleLine),
+        keyboardActions = keyboardActions.updateKeyboardActions(singleLine),
+        maxLines = if (singleLine) 1 else Int.MAX_VALUE,
+        visualTransformation = visualTransformation,
         interactionSource = innerInteractionSource,
         cursorBrush = SolidColor(
             colors.cursorColor(readOnly).colorForInteraction(interactionSource),
@@ -336,8 +319,8 @@ internal fun BaseTextField(
                                 },
                             ),
                         value = value.text,
+                        textLayoutResult = textLayoutResult,
                         innerTextField = it,
-                        visualTransformation = visualTransformation,
                         interactionSource = innerInteractionSource,
                         innerLabel = innerLabel(
                             label = finalLabelText,
@@ -359,9 +342,12 @@ internal fun BaseTextField(
                             hasChips = chipsContent != null,
                         ),
                         placeholder = placeholder(
-                            placeholderText,
-                            placeholderStyle,
-                            placeholderPrefixSuffixTransformation,
+                            placeholder = placeholderText,
+                            prefix = prefix,
+                            suffix = suffix,
+                            textStyle = placeholderStyle,
+                            prefixStyle = prefixStyle,
+                            suffixStyle = suffixStyle,
                         ),
                         startIcon = icon(
                             startContent,
@@ -386,6 +372,16 @@ internal fun BaseTextField(
                         singleLine = singleLine,
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = labelStyle,
+                        prefix = textOrNull(
+                            modifier = Modifier.graphicsLayer(alpha = if (value.text.isEmpty()) 0f else 1f),
+                            text = prefix,
+                            textStyle = prefixStyle,
+                        ),
+                        suffix = textOrNull(
+                            modifier = Modifier.graphicsLayer(alpha = if (value.text.isEmpty()) 0f else 1f),
+                            text = suffix,
+                            textStyle = suffixStyle,
+                        ),
                     )
 
                     OuterBottomText(
@@ -646,29 +642,39 @@ private fun outerLabelIndicatorAlignment(fieldType: TextFieldType): Alignment {
 }
 
 private fun placeholder(
+    prefix: String?,
+    suffix: String?,
     placeholder: String?,
+    prefixStyle: TextStyle,
+    suffixStyle: TextStyle,
     textStyle: TextStyle,
-    visualTransformation: VisualTransformation,
 ): @Composable (() -> Unit)? {
-    if (placeholder.isNullOrEmpty() && visualTransformation == VisualTransformation.None) return null
+    if (placeholder.isNullOrEmpty() && prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) return null
     return {
-        val annotatedPlaceholder = visualTransformation
-            .filter(AnnotatedString(placeholder.orEmpty()))
-            .text
-        Text(
-            text = annotatedPlaceholder,
-            style = textStyle,
+        PrefixSuffixWrapper(
+            mainContent = {
+                placeholder?.let {
+                    Text(
+                        text = it,
+                        style = textStyle,
+                    )
+                }
+            },
+            prefix = textOrNull(text = prefix, textStyle = prefixStyle),
+            suffix = textOrNull(text = suffix, textStyle = suffixStyle),
         )
     }
 }
 
 private fun textOrNull(
+    modifier: Modifier = Modifier,
     text: String?,
     textStyle: TextStyle?,
 ): @Composable (() -> Unit)? {
     return if (!text.isNullOrEmpty() && textStyle != null) {
         {
             Text(
+                modifier = modifier,
                 text = text,
                 style = textStyle,
                 overflow = TextOverflow.Ellipsis,
@@ -815,6 +821,41 @@ private class BaseTextFieldMeasurePolicy : MeasurePolicy {
                 topPlaceable.heightOrZero() + fieldContent.heightOrZero(),
             )
         }
+    }
+}
+
+private fun KeyboardOptions.updateKeyboardOptions(singleLine: Boolean): KeyboardOptions {
+    return if (singleLine) {
+        KeyboardOptions(
+            capitalization = capitalization,
+            autoCorrectEnabled = autoCorrectEnabled,
+            keyboardType = keyboardType,
+            imeAction = if (imeAction == ImeAction.Unspecified) ImeAction.Done else imeAction,
+            platformImeOptions = platformImeOptions,
+            showKeyboardOnFocus = showKeyboardOnFocus,
+            hintLocales = hintLocales,
+        )
+    } else {
+        this
+    }
+}
+
+private fun KeyboardActions.updateKeyboardActions(singleLine: Boolean): KeyboardActions {
+    return if (singleLine) {
+        KeyboardActions(
+            onDone = if (onDone == null) {
+                { defaultKeyboardAction(ImeAction.Done) }
+            } else {
+                onDone
+            },
+            onGo = onGo,
+            onNext = onNext,
+            onPrevious = onPrevious,
+            onSearch = onSearch,
+            onSend = onSend,
+        )
+    } else {
+        this
     }
 }
 

@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.core.integration.component
 
 import android.os.Parcelable
+import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
@@ -10,12 +11,32 @@ import kotlinx.serialization.Serializable
 /**
  * Провайдер компонентов для представлений (View).
  */
-interface ComponentsProviderView {
+abstract class ComponentsProviderView {
 
     /**
-     * Все компоненты
+     * Все сгенерированные компоненты
      */
-    val all: Map<ComponentKey, ViewComponent<*>>
+    abstract val generated: Map<ComponentKey, ViewComponent<*>>
+
+    /**
+     * Все компоненты, включая общие и сгенерированные.
+     */
+    @Suppress("UNCHECKED_CAST")
+    val components: Map<ComponentKey, ViewComponent<*>> by lazy {
+        mutableMapOf<ComponentKey, ViewComponent<*>>().apply {
+            putAll(generated)
+
+            val textFieldStyles = (
+                generated[ComponentKey.TextField]
+                    ?.styleProviders as? Map<String, ViewStyleProvider<String>>
+                )
+                ?: emptyMap()
+            if (textFieldStyles.isNotEmpty()) {
+                val maskKey = ComponentKey.Mask
+                put(maskKey, ViewComponent(maskKey, textFieldStyles))
+            }
+        }
+    }
 
     /**
      * Получает компонент представления по ключу.
@@ -26,19 +47,39 @@ interface ComponentsProviderView {
      */
     @Suppress("UNCHECKED_CAST")
     operator fun <K : Any> get(key: ComponentKey): ViewComponent<K> {
-        return all[key] as? ViewComponent<K> ?: throw IllegalArgumentException("No $key exists")
+        return components[key] as? ViewComponent<K> ?: throw IllegalArgumentException("No $key exists")
     }
 }
 
 /**
  * Провайдер компонентов для Compose.
  */
-interface ComponentsProviderCompose {
+abstract class ComponentsProviderCompose {
 
     /**
-     * Все компоненты
+     * Все cutythbhjdfyyst компоненты
      */
-    val all: Map<ComponentKey, ComposeComponent<*, *>>
+    abstract val generated: Map<ComponentKey, ComposeComponent<*, *>>
+
+    /**
+     * Все компоненты, включая общие и сгенерированные.
+     */
+    @Suppress("UNCHECKED_CAST")
+    val components: Map<ComponentKey, ComposeComponent<*, *>> by lazy {
+        mutableMapOf<ComponentKey, ComposeComponent<*, *>>().apply {
+            putAll(generated)
+
+            val textFieldStyles = (
+                generated[ComponentKey.TextField]
+                    ?.styleProviders as? Map<String, ComposeStyleProvider<String, TextFieldStyle>>
+                )
+                ?: emptyMap()
+            if (textFieldStyles.isNotEmpty()) {
+                val maskKey = ComponentKey.Mask
+                put(maskKey, ComposeComponent(maskKey, textFieldStyles))
+            }
+        }
+    }
 
     /**
      * Получает Compose-компонент по ключу.
@@ -49,7 +90,7 @@ interface ComponentsProviderCompose {
      */
     @Suppress("UNCHECKED_CAST")
     operator fun <K : Any, S : Style> get(key: ComponentKey): ComposeComponent<K, S> {
-        return all[key] as? ComposeComponent<K, S> ?: throw IllegalArgumentException("No $key exists")
+        return components[key] as? ComposeComponent<K, S> ?: throw IllegalArgumentException("No $key exists")
     }
 }
 
@@ -214,6 +255,7 @@ data class ComponentKey(
         val Toolbar = ComponentKey("Toolbar", CoreComponent.TOOL_BAR)
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
         val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
+        val Mask = ComponentKey("Mask", CoreComponent.MASK)
     }
 }
 
@@ -300,6 +342,7 @@ enum class CoreComponent {
     NAVIGATION_BAR,
     PAGINATION_DOTS,
     TOOL_BAR,
+    MASK,
 }
 
 /**
@@ -360,6 +403,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.SEGMENT_ITEM,
         CoreComponent.SWITCH,
         CoreComponent.WHEEL,
+        CoreComponent.MASK,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,
