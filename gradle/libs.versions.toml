@@ -39,10 +39,10 @@ glide = "4.16.0"
 
 koilVersion-compose = "2.2.0"
 
-sdds-uikit = "0.30.0"
-sdds-uikit-compose = "0.32.0"
+sdds-uikit = "0.31.0"
+sdds-uikit-compose = "0.33.0"
 sdds-icons = "0.15.0"
-sdds-theme-builder = "0.29.0"
+sdds-theme-builder = "0.30.0"
 
 uikit-input-masks-version = "7.2.6"
 
