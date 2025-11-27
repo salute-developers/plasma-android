@@ -141,9 +141,7 @@
     <attr format="reference|color" name="plasma_textInverseWarning"/>
     <attr format="reference|color" name="plasma_textInverseNegative"/>
     <attr format="reference|color" name="plasma_textInversePrimaryHover"/>
-    <attr format="reference|color" name="plasma_textInversePrimaryHoverBrightness"/>
     <attr format="reference|color" name="plasma_textInversePrimaryActive"/>
-    <attr format="reference|color" name="plasma_textInversePrimaryActiveBrightness"/>
     <attr format="reference|color" name="plasma_textInverseSecondaryHover"/>
     <attr format="reference|color" name="plasma_textInverseSecondaryActive"/>
     <attr format="reference|color" name="plasma_textInverseTertiaryHover"/>
@@ -178,7 +176,6 @@
     <attr format="reference|color" name="plasma_textInverseNegativeMinor"/>
     <attr format="reference|color" name="plasma_textInverseInfoMinor"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidDefault"/>
-    <attr format="reference|color" name="plasma_surfaceDefaultSolidDefaultBrightness"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidPrimary"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidPrimaryBrightness"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidSecondary"/>
@@ -231,9 +228,7 @@
     <attr format="reference|color" name="plasma_surfaceDefaultInfoMinor"/>
     <attr format="reference|color" name="plasma_surfaceDefaultTransparentInfo"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidDefaultHover"/>
-    <attr format="reference|color" name="plasma_surfaceDefaultSolidDefaultHoverBrightness"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidDefaultActive"/>
-    <attr format="reference|color" name="plasma_surfaceDefaultSolidDefaultActiveBrightness"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidPrimaryHover"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidPrimaryActive"/>
     <attr format="reference|color" name="plasma_surfaceDefaultSolidSecondaryHover"/>

@@ -40,6 +40,12 @@ internal abstract class TokenGenerator<T : Token, Result>(
 
     private var needGenerateCompose: Boolean = false
     private var needGenerateViewSystem: Boolean = false
+    private val _tokens: MutableList<T> = mutableListOf()
+
+    /**
+     * Исходные данные о токенах
+     */
+    val tokens: List<T> get() = _tokens.toList()
 
     /**
      * Возвращает реультат [Result]
@@ -50,6 +56,7 @@ internal abstract class TokenGenerator<T : Token, Result>(
      * Добавляет [token] для генерации данных
      */
     fun addToken(token: T) {
+        _tokens.add(token)
         val result = when (target) {
             ThemeBuilderTarget.VIEW_SYSTEM -> addViewSystemToken(token)
             ThemeBuilderTarget.COMPOSE -> addComposeToken(token)

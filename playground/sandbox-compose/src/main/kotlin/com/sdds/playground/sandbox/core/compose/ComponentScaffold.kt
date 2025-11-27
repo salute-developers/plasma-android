@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
@@ -15,10 +16,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -33,6 +36,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.Style
+import com.sdds.playground.sandbox.SubTheme
+import com.sdds.playground.sandbox.ThemeInfoCompose
 import com.sdds.playground.sandbox.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.compose.bottomsheet.BottomSheetScaffold
@@ -87,8 +92,19 @@ private fun <State : UiState, S : Style> MobileScaffold(
         val uiState by viewModel.uiState.collectAsState()
         val density = LocalDensity.current
         val statusBarHeight = WindowInsets.statusBars.getTop(density).toFloat()
+        val currentSubTheme by viewModel.subtheme.collectAsState()
+        val sandboxStyle = LocalSandboxStyle.current
+        val componentBackground by remember {
+            derivedStateOf {
+                val stateSet = currentSubTheme?.let { setOf(it) } ?: emptySet()
+                sandboxStyle.componentBackgroundColor.getValue(stateSet)
+            }
+        }
         Box(
             modifier = Modifier
+                .fillMaxSize()
+                .background(componentBackground, shape = sandboxStyle.componentBackgroundShape)
+                .padding(16.dp)
                 .align(componentAlignment(uiState))
                 .onGloballyPositioned { layoutCoordinates ->
                     val pos = layoutCoordinates.positionInRoot()
@@ -104,12 +120,15 @@ private fun <State : UiState, S : Style> MobileScaffold(
             val currentTheme by themeManager.currentTheme.collectAsState()
             val themeInfo = composeTheme(currentTheme)
             themeInfo.themeWrapper {
-                runCatching {
-                    component(
-                        uiState,
-                        themeInfo.components.get<String, S>(key)
-                            .styleProviders[uiState.appearance]!!.style(uiState.variant),
-                    )
+                val styleProvider = themeInfo.components.get<String, S>(key)
+                    .styleProviders[uiState.appearance]
+                if (styleProvider != null) {
+                    SubTheme(themeInfo, currentSubTheme) {
+                        component(
+                            uiState,
+                            styleProvider.style(uiState.variant),
+                        )
+                    }
                 }
             }
         }
@@ -136,10 +155,19 @@ private fun <State : UiState, S : Style> TvScaffold(
             AnimatedMenuProperty(title = "${key.group.displayName},${key.value}", viewModel = viewModel)
         }
         val uiState by viewModel.uiState.collectAsState()
+        val currentSubTheme by viewModel.subtheme.collectAsState()
+        val sandboxStyle = LocalSandboxStyle.current
+        val componentBackground by remember {
+            derivedStateOf {
+                val stateSet = currentSubTheme?.let { setOf(it) } ?: emptySet()
+                sandboxStyle.componentBackgroundColor.getValue(stateSet)
+            }
+        }
         Box(
             modifier = Modifier
                 .weight(1f, fill = true)
-                .fillMaxHeight(),
+                .fillMaxHeight()
+                .background(componentBackground),
             contentAlignment = componentAlignment(uiState),
         ) {
             val currentTheme by themeManager.currentTheme.collectAsState()
@@ -148,13 +176,29 @@ private fun <State : UiState, S : Style> TvScaffold(
                 val styleProvider = themeInfo.components.get<String, S>(key)
                     .styleProviders[uiState.appearance]
                 if (styleProvider != null) {
-                    component(
-                        uiState,
-                        styleProvider.style(uiState.variant),
-                    )
+                    SubTheme(themeInfo, currentSubTheme) {
+                        component(
+                            uiState,
+                            styleProvider.style(uiState.variant),
+                        )
+                    }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun SubTheme(
+    currentTheme: ThemeInfoCompose,
+    subThemeType: SubTheme?,
+    content: @Composable () -> Unit,
+) {
+    val wrapper = currentTheme.subthemes[subThemeType]
+    if (wrapper != null) {
+        wrapper(content)
+    } else {
+        content()
     }
 }
 

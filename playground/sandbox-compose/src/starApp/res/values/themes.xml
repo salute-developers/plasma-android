@@ -13,6 +13,7 @@
         <item name="android:textColorSecondary">?sdkit_textDefaultSecondary</item>
 
         <item name="android:colorBackground">?sdkit_backgroundDefaultPrimary</item>
+        <item name="sandbox_colorInverseBackground">?sdkit_backgroundInversePrimary</item>
 
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>

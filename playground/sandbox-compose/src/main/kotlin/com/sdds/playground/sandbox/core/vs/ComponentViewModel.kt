@@ -4,6 +4,7 @@ import androidx.annotation.CallSuper
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sdds.playground.sandbox.SubTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
@@ -30,6 +31,7 @@ internal abstract class ComponentViewModel<State : UiState>(
 ) : ViewModel(), PropertiesOwner {
 
     protected val internalUiState = MutableStateFlow(defaultState)
+    private val _subtheme = MutableStateFlow<SubTheme?>(null)
     private val _showEditor = MutableSharedFlow<Property<*>>()
 
     protected open val colorVariantPropertyName: String
@@ -40,6 +42,12 @@ internal abstract class ComponentViewModel<State : UiState>(
      */
     val theme: StateFlow<Theme>
         get() = themeManager.currentTheme
+
+    /**
+     * Подтема
+     */
+    val subtheme: StateFlow<SubTheme?>
+        get() = _subtheme.asStateFlow()
 
     /**
      * Cостояние компонента
@@ -62,6 +70,11 @@ internal abstract class ComponentViewModel<State : UiState>(
                 internalUiState.value.updateVariant(appearance = valueString) as State
         }
 
+        if (name == SUBTHEME_PROPERTY_NAME) {
+            val type = SubTheme.values().firstOrNull { it.key == valueString }
+            _subtheme.value = type
+        }
+
         if (name == VARIANT_PROPERTY_NAME) {
             internalUiState.value =
                 internalUiState.value.updateVariant(variant = valueString) as State
@@ -73,10 +86,13 @@ internal abstract class ComponentViewModel<State : UiState>(
     }
 
     final override val properties: StateFlow<List<Property<*>>>
-        get() = internalUiState
-            .combine(theme) { state, _ ->
-                appearanceProperties(state) + variantProperties(state) + state.toProps()
-            }
+        get() = combine(
+            internalUiState,
+            theme,
+            _subtheme,
+        ) { state, _, _ ->
+            appearanceProperties(state) + variantProperties(state) + state.toProps()
+        }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     private fun appearanceProperties(state: State): List<Property.SingleChoiceProperty> {
@@ -91,6 +107,7 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     private fun variantProperties(state: State): List<Property.SingleChoiceProperty> {
         val styleProvider = getStyleProvider(state.appearance)
+        val subthemes = getSubthemes()
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
             updateUiStateWithDefaultVariant()
@@ -109,6 +126,15 @@ internal abstract class ComponentViewModel<State : UiState>(
                     colorVariantPropertyName,
                     variants = styleProvider.colorVariants,
                     value = state.colorVariant,
+                ),
+            )
+        }
+        if (subthemes.isNotEmpty()) {
+            variantProperties.add(
+                Property.SingleChoiceProperty(
+                    SUBTHEME_PROPERTY_NAME,
+                    variants = subthemes.map { it.key.key },
+                    value = _subtheme.value?.key ?: subthemes.keys.first().key,
                 ),
             )
         }
@@ -147,6 +173,9 @@ internal abstract class ComponentViewModel<State : UiState>(
             styleProviders[appearance] ?: styleProviders.values.first()
         }
     }
+    open fun getSubthemes(): Map<SubTheme, Int> {
+        return viewTheme(theme.value).subthemes
+    }
 
     open fun getAppearances(): Set<String> {
         return viewTheme(theme.value).components.get<String>(componentKey).styleProviders.keys
@@ -171,6 +200,7 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     private companion object {
         const val VARIANT_PROPERTY_NAME = "variant"
+        const val SUBTHEME_PROPERTY_NAME = "subtheme"
         const val APPEARANCE_PROPERTY_NAME = "appearance"
         const val COLOR_VARIANT_PROPERTY_NAME = "view"
     }
