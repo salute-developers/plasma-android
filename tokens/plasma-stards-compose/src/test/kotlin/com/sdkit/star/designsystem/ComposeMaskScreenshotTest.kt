@@ -1,0 +1,286 @@
+package com.sdkit.star.designsystem
+
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextClearance
+import androidx.compose.ui.test.performTextInput
+import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
+import com.sdds.testing.compose.RoborazziConfigCompose
+import com.sdds.testing.compose.mask.MaskDisabledIconAction
+import com.sdds.testing.compose.mask.MaskLongDateAlwaysIconAction
+import com.sdds.testing.compose.mask.MaskNumberAlwaysAction
+import com.sdds.testing.compose.mask.MaskNumberIconAction
+import com.sdds.testing.compose.mask.MaskPhoneDisplayAlwaysPlaceholder
+import com.sdds.testing.compose.mask.MaskPhoneOnInput
+import com.sdds.testing.compose.mask.MaskPhoneType
+import com.sdds.testing.compose.mask.MaskReadOnlyIconAction
+import com.sdds.testing.compose.mask.MaskShortDateAlwaysIconAction
+import com.sdds.testing.compose.mask.MaskTimeAlwaysIcon
+import com.sdds.testing.compose.mask.MaskTimeAlwaysTBTA
+import com.sdds.testing.compose.mask.MaskTimeIconAction
+import com.sdds.testing.vs.SDK_NUMBER
+import com.sdkit.star.designsystem.styles.textfield.Default
+import com.sdkit.star.designsystem.styles.textfield.Error
+import com.sdkit.star.designsystem.styles.textfield.InnerLabel
+import com.sdkit.star.designsystem.styles.textfield.M
+import com.sdkit.star.designsystem.styles.textfield.OuterLabel
+import com.sdkit.star.designsystem.styles.textfield.S
+import com.sdkit.star.designsystem.styles.textfield.TextField
+import com.sdkit.star.designsystem.styles.textfield.Xs
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
+
+@RunWith(RobolectricTestRunner::class)
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
+@Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Television1080p)
+class ComposeMaskScreenshotTest : RoborazziConfigCompose("+night") {
+
+    @Test
+    fun testMaskLDefaultOuterPhoneDisplayAlwaysPlaceholder() {
+        composeTestRule.content {
+            MaskPhoneDisplayAlwaysPlaceholder(TextField.M.OuterLabel.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskMSuccessOuterPhoneDisplayAlwaysPlaceholder() {
+        composeTestRule.content {
+            MaskPhoneDisplayAlwaysPlaceholder(TextField.M.OuterLabel.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskSWarningRequiredRightPhoneDisplayAlwaysPlaceholder() {
+        composeTestRule.content {
+            MaskPhoneDisplayAlwaysPlaceholder(TextField.S.OuterLabel.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskXsErrorRequiredLeftPhoneDisplayAlwaysPlaceholder() {
+        composeTestRule.content {
+            MaskPhoneDisplayAlwaysPlaceholder(TextField.Xs.OuterLabel.Error.style())
+        }
+    }
+
+    @Test
+    fun testMaskDisabledIconAction() {
+        composeTestRule.content {
+            MaskDisabledIconAction(TextField.M.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskReadOnlyIconAction() {
+        composeTestRule.content {
+            MaskReadOnlyIconAction(TextField.M.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskXlDefaultShortDateAlwaysIconAction() {
+        composeTestRule.content {
+            MaskShortDateAlwaysIconAction(TextField.M.OuterLabel.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskLSuccessRequiredLeftInnerTimeAlwaysIconAction() {
+        composeTestRule.content {
+            MaskTimeAlwaysIcon(TextField.M.InnerLabel.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performClick()
+    }
+
+    @Test
+    fun testMaskMWarningRequiredRightOuterNumberAlwaysAction() {
+        composeTestRule.content {
+            MaskNumberAlwaysAction(TextField.M.OuterLabel.Default.style())
+        }
+    }
+
+    @Test
+    fun testMaskSErrorTimeAlwaysTBTA() {
+        composeTestRule.content {
+            MaskTimeAlwaysTBTA(TextField.S.Error.style())
+        }
+    }
+
+    @Test
+    fun testMaskXsDefaultRequiredLeftPhoneOnInput() {
+        composeTestRule.content {
+            MaskPhoneOnInput(TextField.Xs.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField")
+            .performClick()
+            .performTextInput("9")
+    }
+
+    @Test
+    fun testMaskTypeLetterInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField")
+            .performClick()
+            .performTextInput("a0")
+    }
+
+    @Test
+    fun testMaskTypeNumberInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField")
+            .performClick()
+            .performTextInput("7")
+    }
+
+    @Test
+    fun testMaskTypeAnyOtherNumberInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField")
+            .performTextInput("495")
+    }
+
+    @Test
+    fun testMaskDeleteNumberInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("495")
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextClearance()
+    }
+
+    @Test
+    fun testMaskInputFullNumberInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("1234567890")
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("a")
+    }
+
+    @Test
+    fun testMaskInputLetterAndNumbersInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("!w123ф%е45")
+    }
+
+    @Test
+    fun testMaskInputPartiallyFilledNumberInTelephone() {
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("123456")
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("!w123ф%е45")
+    }
+
+    @Test
+    fun testMaskInputFullyFilledNumberInTelephone() {
+        val pasteText = "!w123ф%е45"
+        composeTestRule.content {
+            MaskPhoneType(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("1234567890")
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput(pasteText)
+    }
+
+    @Test
+    fun testMaskShortDateInput() {
+        composeTestRule.content {
+            MaskShortDateAlwaysIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("121212")
+    }
+
+    @Test
+    fun testMaskShortDateInputNotFull() {
+        composeTestRule.content {
+            MaskShortDateAlwaysIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("1212")
+    }
+
+    @Test
+    fun testMaskFullDateInput() {
+        composeTestRule.content {
+            MaskLongDateAlwaysIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("12122012")
+    }
+
+    @Test
+    fun testMaskTimeInput() {
+        composeTestRule.content {
+            MaskTimeIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("1234")
+    }
+
+    @Test
+    fun testMaskTimeInputStartWithZero() {
+        composeTestRule.content {
+            MaskTimeIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("0830")
+    }
+
+    @Test
+    fun testMaskTimeInputMaxNumber() {
+        composeTestRule.content {
+            MaskTimeIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("9999")
+    }
+
+    @Test
+    fun testMaskTimeInputWithLetter() {
+        val pasteText = "12a34"
+        composeTestRule.content {
+            MaskTimeIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput(pasteText)
+    }
+
+    @Test
+    fun testMaskNumberInput() {
+        composeTestRule.content {
+            MaskNumberIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("12345,00")
+    }
+
+    @Test
+    fun testMaskNumberInputMaxNumber() {
+        composeTestRule.content {
+            MaskNumberIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField")
+            .performTextInput("999999999999999999,99999")
+    }
+
+    @Test
+    fun testMaskNumberInputOneNumber() {
+        composeTestRule.content {
+            MaskNumberIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("1")
+    }
+
+    @Test
+    fun testMaskNumberInputSymbolsAndLetters() {
+        composeTestRule.content {
+            MaskNumberIconAction(TextField.M.Default.style())
+        }
+        composeTestRule.onNodeWithTag("MaskedTextField").performTextInput("!w123ф%е45")
+    }
+}
