@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter" parent="Sdds.Components.Slider">
+        <item name="sd_trackThickness">@dimen/serv_slider_horizontal_label_outer_track_thickness</item>
+        <item name="sd_indicatorThickness">@dimen/serv_slider_horizontal_label_outer_indicator_thickness</item>
+        <item name="sd_strokeWidth">@dimen/serv_slider_horizontal_label_outer_stroke_width</item>
+        <item name="sd_thumbShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_tooltipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TooltipS</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_labelAlignment">top</item>
+        <item name="sd_titleAlignment">end</item>
+        <item name="sd_slideDirection">normal</item>
+        <item name="sd_valuePlacement">top</item>
+        <item name="sd_thumbColor">?serv_surfaceOnLightSolidCard</item>
+        <item name="sd_strokeColor">@xml/serv_slider_horizontal_label_outer_stroke_color</item>
+        <item name="sd_trackColor">?serv_surfaceDefaultSolidTertiary</item>
+        <item name="sd_indicatorColor">@xml/serv_slider_horizontal_label_outer_indicator_color</item>
+        <item name="sd_iconTint">?serv_textDefaultPrimary</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_limitLabelColor">?serv_textDefaultSecondary</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.SliderColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_l_title_margin</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_limitLabelAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_limitLabelAlignment">end</item>
+        <item name="sd_alignment">start</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterL">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_l_title_margin</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_l_title_margin</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_l_title_margin</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter">
+        <item name="sd_limitLabelAlignment">center</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenter">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Default">
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Accent">
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Gradient">
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_limit_label_center_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_l_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_m_title_margin</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_limitLabelAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_limitLabelAlignment">end</item>
+        <item name="sd_alignment">start</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterM">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_m_title_margin</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_m_title_margin</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_m_title_margin</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter">
+        <item name="sd_limitLabelAlignment">center</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenter">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Default">
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Accent">
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Gradient">
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_limit_label_center_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_m_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_s_title_margin</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_limitLabelAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_limitLabelAlignment">end</item>
+        <item name="sd_alignment">start</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_s_title_margin</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_s_title_margin</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_horizontal_label_outer_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_horizontal_label_outer_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_horizontal_label_outer_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_horizontal_label_outer_s_title_margin</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter">
+        <item name="sd_limitLabelAlignment">center</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenter">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Default">
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Accent">
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Gradient">
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_limit_label_center_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_limit_label_center_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_horizontal_label_outer_s_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Gradient</item>
+    </style>
+</resources>
