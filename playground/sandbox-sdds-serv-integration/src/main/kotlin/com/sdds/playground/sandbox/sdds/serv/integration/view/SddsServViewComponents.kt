@@ -306,6 +306,15 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Slider,
+                mapOf(
+                    "SliderHorizontalLabelInner" to SddsServSliderHorizontalLabelInnerVariationsView,
+                    "SliderHorizontalLabelOuter" to SddsServSliderHorizontalLabelOuterVariationsView,
+                    "SliderVerticalLabelInner" to SddsServSliderVerticalLabelInnerVariationsView,
+                    "SliderVerticalLabelOuter" to SddsServSliderVerticalLabelOuterVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Image,
                 mapOf(
                     "ImageView" to SddsServImageViewVariationsView,
