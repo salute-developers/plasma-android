@@ -256,6 +256,7 @@ data class ComponentKey(
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
         val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
         val Mask = ComponentKey("Mask", CoreComponent.MASK)
+        val Slider = ComponentKey("Slider", CoreComponent.SLIDER)
     }
 }
 
@@ -343,6 +344,7 @@ enum class CoreComponent {
     PAGINATION_DOTS,
     TOOL_BAR,
     MASK,
+    SLIDER,
 }
 
 /**
@@ -404,6 +406,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.SWITCH,
         CoreComponent.WHEEL,
         CoreComponent.MASK,
+        CoreComponent.SLIDER,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,
