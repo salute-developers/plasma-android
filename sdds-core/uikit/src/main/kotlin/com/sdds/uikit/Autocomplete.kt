@@ -58,6 +58,15 @@ open class Autocomplete @JvmOverloads constructor(
     val textField: TextField
         get() = _textField
 
+    /**
+     * Включает/выключает отображение пустого состояния
+     */
+    var emptyStateEnabled: Boolean
+        get() = _dropdown.emptyStateEnabled
+        set(value) {
+            _dropdown.emptyStateEnabled = value
+        }
+
     init {
         clipChildren = false
         clipToPadding = false
@@ -173,7 +182,7 @@ open class Autocomplete @JvmOverloads constructor(
     }
 
     private fun shouldShowDropdown(itemCount: Int = _dropdown.itemAdapter?.itemCount ?: 0): Boolean {
-        return itemCount > 0 || getEmptyStateView() != null
+        return itemCount > 0 || (getEmptyStateView() != null && emptyStateEnabled)
     }
 
     private companion object {
@@ -194,11 +203,11 @@ open class Autocomplete @JvmOverloads constructor(
             context.withStyledAttributes(attrs, R.styleable.Autocomplete, defStyleAttr, defStyleRes) {
                 val textFieldStyleOverlay = getResourceId(R.styleable.Autocomplete_sd_textFieldStyleOverlay, 0)
                 if (textFieldStyleOverlay != 0) {
-                    themeOverlay = ContextThemeWrapper(context, textFieldStyleOverlay)
+                    themeOverlay = ContextThemeWrapper(themeOverlay, textFieldStyleOverlay)
                 }
                 val dropDownStyleOverlay = getResourceId(R.styleable.Autocomplete_sd_dropdownMenuStyleOverlay, 0)
                 if (dropDownStyleOverlay != 0) {
-                    themeOverlay = ContextThemeWrapper(context, dropDownStyleOverlay)
+                    themeOverlay = ContextThemeWrapper(themeOverlay, dropDownStyleOverlay)
                 }
             }
             return emptyStateWrapper(themeOverlay)

@@ -34,6 +34,7 @@ open class DropdownMenu @JvmOverloads constructor(
         this@DropdownMenu.shape?.let { setShape(it) }
     }
     private var _itemDividerEnabled: Boolean = false
+    private var _emptyStateEnabled: Boolean = false
     private var _dividerItemDecoration = Divider.asItemDecoration(
         dividerWrapper(context, attrs, defStyleAttr, defStyleRes),
         RecyclerView.VERTICAL,
@@ -81,6 +82,18 @@ open class DropdownMenu @JvmOverloads constructor(
             if (_itemDividerEnabled != value) {
                 _itemDividerEnabled = value
                 updateItemDividers()
+            }
+        }
+
+    /**
+     * Включает/выключает отображение пустого состояния
+     */
+    var emptyStateEnabled: Boolean
+        get() = _emptyStateEnabled
+        set(value) {
+            if (_emptyStateEnabled != value) {
+                _emptyStateEnabled = value
+                updateEmptyState()
             }
         }
 
@@ -163,7 +176,7 @@ open class DropdownMenu @JvmOverloads constructor(
 
     private fun updateEmptyState() {
         val itemCount = itemAdapter?.itemCount ?: 0
-        _emptyStateView.isVisible = isShowing && itemCount == 0
+        _emptyStateView.isVisible = emptyStateEnabled && isShowing && itemCount == 0
         _footer.isVisible = !_emptyStateView.isVisible
     }
 

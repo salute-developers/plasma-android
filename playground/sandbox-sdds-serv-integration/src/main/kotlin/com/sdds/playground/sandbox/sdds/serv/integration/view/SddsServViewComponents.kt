@@ -377,5 +377,18 @@ object SddsServViewComponents : ComponentsProviderView() {
                     "Carousel" to SddsServCarouselVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to SddsServAutocompleteTightVariationsView,
+                    "AutocompleteNormal" to SddsServAutocompleteNormalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to SddsServDropdownEmptyStateVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

@@ -47,6 +47,6 @@ fun autocomplete(
  * Применяет [AutocompleteUiState] к [Autocomplete]
  */
 fun Autocomplete.applyState(state: AutocompleteUiState): Autocomplete = apply {
-    getEmptyStateView()?.isVisible = state.withEmptyState
+    emptyStateEnabled = state.withEmptyState
     getFooterView()?.isVisible = state.showLoading
 }
