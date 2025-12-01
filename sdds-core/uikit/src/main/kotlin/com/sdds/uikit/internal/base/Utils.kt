@@ -169,7 +169,7 @@ internal fun View.getScreenRect(): Rect {
 internal fun View.getVisibleDisplayFrame(): Rect {
     return Rect().apply {
         val insets = WindowInsetsCompat.toWindowInsetsCompat(rootWindowInsets)
-            .getInsets(WindowInsetsCompat.Type.systemBars())
+            .getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime())
         rootView.getWindowVisibleDisplayFrame(this)
         left += insets.left
         top += insets.top

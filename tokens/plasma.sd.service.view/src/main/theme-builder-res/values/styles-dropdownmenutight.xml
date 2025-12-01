@@ -4,14 +4,22 @@
 <resources>
     <style name="Plasma.SdService.Components.DropdownMenuTight" parent="Sdds.Components.DropdownMenu">
         <item name="sd_shadowAppearance">?plasma_shadowDownHardM</item>
+        <item name="sd_scrollBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ScrollBarS</item>
         <item name="sd_dividerStyleOverlay">@style/Plasma.SdService.ComponentOverlays.Divider</item>
         <item name="sd_offset">@dimen/plasma_dropdown_menu_tight_offset</item>
+        <item name="android:paddingStart">@dimen/plasma_dropdown_menu_tight_padding_start</item>
+        <item name="android:paddingTop">@dimen/plasma_dropdown_menu_tight_padding_top</item>
+        <item name="android:paddingEnd">@dimen/plasma_dropdown_menu_tight_padding_end</item>
+        <item name="android:paddingBottom">@dimen/plasma_dropdown_menu_tight_padding_bottom</item>
         <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
     </style>
     <style name="Plasma.SdService.Components.DropdownMenuTight.Xl">
         <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
         <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightXl</item>
+        <item name="sd_emptyStateStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownEmptyStateXlHasButton</item>
         <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_xl_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/plasma_dropdown_menu_tight_xl_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/plasma_dropdown_menu_tight_xl_scrollbar_padding_bottom</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightXl">
         <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.Xl</item>
@@ -20,7 +28,10 @@
         <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_tight_l_shape_adjustment</item>
         <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightL</item>
+        <item name="sd_emptyStateStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownEmptyStateLHasButton</item>
         <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_l_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/plasma_dropdown_menu_tight_l_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/plasma_dropdown_menu_tight_l_scrollbar_padding_bottom</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightL">
         <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.L</item>
@@ -28,7 +39,10 @@
     <style name="Plasma.SdService.Components.DropdownMenuTight.M">
         <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
         <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightM</item>
+        <item name="sd_emptyStateStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownEmptyStateMHasButton</item>
         <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_m_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/plasma_dropdown_menu_tight_m_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/plasma_dropdown_menu_tight_m_scrollbar_padding_bottom</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightM">
         <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.M</item>
@@ -37,7 +51,10 @@
         <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_dropdown_menu_tight_s_shape_adjustment</item>
         <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightS</item>
+        <item name="sd_emptyStateStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownEmptyStateSHasButton</item>
         <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_s_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/plasma_dropdown_menu_tight_s_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/plasma_dropdown_menu_tight_s_scrollbar_padding_bottom</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightS">
         <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.S</item>
@@ -45,7 +62,10 @@
     <style name="Plasma.SdService.Components.DropdownMenuTight.Xs">
         <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
         <item name="sd_listViewStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuListTightXs</item>
+        <item name="sd_emptyStateStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownEmptyStateXsHasButton</item>
         <item name="android:minWidth">@dimen/plasma_dropdown_menu_tight_xs_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/plasma_dropdown_menu_tight_xs_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/plasma_dropdown_menu_tight_xs_scrollbar_padding_bottom</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.DropdownMenuTightXs">
         <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuTight.Xs</item>

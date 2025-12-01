@@ -11,7 +11,9 @@ import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
+import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateProperties
 import com.sdds.plugin.themebuilder.internal.components.list.ListProperties
+import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -23,10 +25,19 @@ internal data class DropdownMenuProperties(
     val width: Dimension? = null,
     val offset: Dimension? = null,
     val strokeWidth: Dimension? = null,
+    val paddingStart: Dimension? = null,
+    val paddingEnd: Dimension? = null,
+    val paddingTop: Dimension? = null,
+    val paddingBottom: Dimension? = null,
+    val scrollBarPaddingTop: Dimension? = null,
+    val scrollBarPaddingBottom: Dimension? = null,
     val listStyle: ComponentStyle<ListProperties>? = null,
     val dividerStyle: ComponentStyle<DividerProperties>? = null,
+    val scrollBarStyle: ComponentStyle<ScrollBarProperties>? = null,
+    val emptyStateStyle: ComponentStyle<EmptyStateProperties>? = null,
 ) : PropertyOwner {
 
+    @Suppress("CyclomaticComplexMethod")
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? DropdownMenuProperties ?: return this
         return copy(
@@ -39,6 +50,14 @@ internal data class DropdownMenuProperties(
             listStyle = listStyle ?: otherProps.listStyle,
             dividerStyle = dividerStyle ?: otherProps.dividerStyle,
             strokeWidth = strokeWidth ?: otherProps.strokeWidth,
+            paddingStart = paddingStart ?: otherProps.paddingStart,
+            paddingEnd = paddingEnd ?: otherProps.paddingEnd,
+            paddingTop = paddingTop ?: otherProps.paddingTop,
+            paddingBottom = paddingBottom ?: otherProps.paddingBottom,
+            scrollBarPaddingTop = scrollBarPaddingTop ?: otherProps.scrollBarPaddingTop,
+            scrollBarPaddingBottom = scrollBarPaddingBottom ?: otherProps.scrollBarPaddingBottom,
+            scrollBarStyle = scrollBarStyle ?: otherProps.scrollBarStyle,
+            emptyStateStyle = emptyStateStyle ?: otherProps.emptyStateStyle,
         )
     }
 }

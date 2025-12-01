@@ -9,6 +9,7 @@ import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
 import androidx.navigation.fragment.fragment
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.accordion.view.AccordionFragment
+import com.sdds.playground.sandbox.autocomplete.view.AutocompleteFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarGroupFragment
 import com.sdds.playground.sandbox.badge.vs.BadgeFragment
@@ -69,6 +70,7 @@ import com.sdds.playground.sandbox.toolbar.vs.ToolBarFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
 import com.sdds.testing.vs.accordion.accordion
+import com.sdds.testing.vs.autocomplete.autocomplete
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
 import com.sdds.testing.vs.avatar.avatarGroup
@@ -411,6 +413,10 @@ internal sealed class ComponentScreen(
     object Carousel : ComponentScreen(
         { item -> fragment<CarouselFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Autocomplete : ComponentScreen(
+        { item -> fragment<AutocompleteFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -472,6 +478,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         CoreComponent.MASK -> ComponentScreen.Mask
         CoreComponent.CAROUSEL -> ComponentScreen.Carousel
+        CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -535,6 +542,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.TOOL_BAR -> R.id.nav_toolbar
         CoreComponent.MASK -> R.id.nav_note_compact
         CoreComponent.CAROUSEL -> R.id.nav_carousel
+        CoreComponent.AUTOCOMPLETE -> R.id.nav_autocomplete
         else -> null
     }?.let { it + hashCode() }
 }
@@ -644,6 +652,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.TOOL_BAR -> toolBar(context, style)
         CoreComponent.MASK -> maskedTextField(context, style)
         CoreComponent.CAROUSEL -> carousel(context, style)
+        CoreComponent.AUTOCOMPLETE -> autocomplete(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

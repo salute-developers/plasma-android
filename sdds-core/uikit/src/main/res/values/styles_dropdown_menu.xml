@@ -4,4 +4,6 @@
     <style name="Sdds.Components.DropdownMenu" parent="Sdds.Components.Popover">
         <item name="sd_shapeTailEnabled">false</item>
     </style>
+
+    <style name="Sdds.Components.DropdownEmptyState"/>
 </resources>

@@ -1,4 +1,4 @@
-package com.sdds.plugin.themebuilder.internal.components.dropdownmenu.view
+package com.sdds.plugin.themebuilder.internal.components.emptystate.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -7,7 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
-import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuProperties
+import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
@@ -17,7 +17,7 @@ import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import org.w3c.dom.Element
 import java.io.File
 
-internal class DropdownMenuStyleGeneratorView(
+internal class EmptyStateStyleGeneratorView(
     xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     resourceReferenceProvider: ResourceReferenceProvider,
     dimensAggregator: DimensAggregator,
@@ -29,7 +29,7 @@ internal class DropdownMenuStyleGeneratorView(
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
     defStyleAttr: String = DEF_STYLE_ATTR,
-) : ViewVariationGenerator<DropdownMenuProperties>(
+) : ViewVariationGenerator<EmptyStateProperties>(
     xmlBuilderFactory = xmlBuilderFactory,
     resourceReferenceProvider = resourceReferenceProvider,
     dimensAggregator = dimensAggregator,
@@ -47,97 +47,69 @@ internal class DropdownMenuStyleGeneratorView(
         variation: String,
         rootDocument: XmlResourcesDocumentBuilder,
         styleElement: Element,
-        variationNode: VariationNode<DropdownMenuProperties>,
+        variationNode: VariationNode<EmptyStateProperties>,
+        props: EmptyStateProperties,
     ) = with(styleElement) {
-        addProps(variation, variationNode)
-        DropdownMenuDimensionProperties.values().forEach {
+        addProps(variation, props)
+        EmptyStateDimensionProperties.values().forEach {
             addDimensionProperty(it, variation, variationNode)
         }
-        DropdownMenuColorProperty.values().forEach {
+        EmptyStateColorProperty.values().forEach {
             addColorProperty(it, variation, variationNode)
         }
     }
 
-    private fun Element.addProps(variation: String, variationNode: VariationNode<DropdownMenuProperties>) {
-        val props = variationNode.value.props
-
-        props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
-        props.shadow?.let { shadowAttribute(it.value) }
-        props.listStyle?.let {
+    private fun Element.addProps(variation: String, props: EmptyStateProperties) {
+        props.descriptionStyle?.let { typographyAttribute("sd_descriptionTextAppearance", it.value) }
+        props.buttonStyle?.let {
             componentOverlayAttribute(
-                "sd_listViewStyleOverlay",
-                it.value.techToCamelCase(),
-            )
-        }
-        props.emptyStateStyle?.let {
-            componentOverlayAttribute(
-                "sd_emptyStateStyleOverlay",
-                it.value.techToCamelCase(),
-            )
-        }
-        props.scrollBarStyle?.let {
-            componentOverlayAttribute(
-                "sd_scrollBarStyleOverlay",
-                it.value.techToCamelCase(),
-            )
-        }
-        props.dividerStyle?.let {
-            componentOverlayAttribute(
-                "sd_dividerStyleOverlay",
+                "sd_actionButtonStyleOverlay",
                 it.value.techToCamelCase(),
             )
         }
     }
 
-    internal enum class DropdownMenuColorProperty(
+    internal enum class EmptyStateColorProperty(
         override val attribute: String,
         override val colorFileSuffix: String,
-    ) : ProvidableColorProperty<DropdownMenuProperties> {
-        BACKGROUND_COLOR("sd_background", "bg_color"),
-        STROKE_COLOR("sd_strokeColor", "stroke_color"),
+    ) : ProvidableColorProperty<EmptyStateProperties> {
+        DESCRIPTION_COLOR("sd_descriptionTextColor", "description_color"),
+        ICON_COLOR("sd_iconTint", "icon_color"),
         ;
 
-        override fun provide(owner: DropdownMenuProperties): Color? {
+        override fun provide(owner: EmptyStateProperties): Color? {
             return when (this) {
-                BACKGROUND_COLOR -> owner.backgroundColor
-                STROKE_COLOR -> owner.strokeColor
+                DESCRIPTION_COLOR -> owner.descriptionColor
+                ICON_COLOR -> owner.iconColor
             }
         }
     }
 
-    internal enum class DropdownMenuDimensionProperties(
+    internal enum class EmptyStateDimensionProperties(
         override val attribute: String,
         override val fileSuffix: String,
-    ) : ProvidableProperty<DropdownMenuProperties, Float, Dimension> {
-        MIN_WIDTH("android:minWidth", "min_width"),
-        STROKE_WIDTH("sd_strokeWidth", "stroke_width"),
-        OFFSET("sd_offset", "offset"),
+    ) : ProvidableProperty<EmptyStateProperties, Float, Dimension> {
         PADDING_START("android:paddingStart", "padding_start"),
-        PADDING_TOP("android:paddingTop", "padding_top"),
         PADDING_END("android:paddingEnd", "padding_end"),
+        PADDING_TOP("android:paddingTop", "padding_top"),
         PADDING_BOTTOM("android:paddingBottom", "padding_bottom"),
-        SCROLLBAR_PADDING_TOP("sd_scrollBarPaddingTop", "scrollbar_padding_top"),
-        SCROLLBAR_PADDING_BOTTOM("sd_scrollBarPaddingBottom", "scrollbar_padding_bottom"),
+        DESCRIPTION_PADDING("sd_descriptionPadding", "description_padding"),
         ;
 
-        override fun provide(owner: DropdownMenuProperties): Dimension? {
+        override fun provide(owner: EmptyStateProperties): Dimension? {
             return when (this) {
-                MIN_WIDTH -> owner.width
-                STROKE_WIDTH -> owner.strokeWidth
-                OFFSET -> owner.offset
                 PADDING_START -> owner.paddingStart
-                PADDING_TOP -> owner.paddingTop
                 PADDING_END -> owner.paddingEnd
+                PADDING_TOP -> owner.paddingTop
                 PADDING_BOTTOM -> owner.paddingBottom
-                SCROLLBAR_PADDING_TOP -> owner.scrollBarPaddingTop
-                SCROLLBAR_PADDING_BOTTOM -> owner.scrollBarPaddingBottom
+                DESCRIPTION_PADDING -> owner.descriptionPadding
             }?.copy(states = emptyList())
         }
     }
 
     private companion object {
-        const val CORE_COMPONENT_NAME = "DropdownMenu"
-        const val DEF_STYLE_ATTR = "sd_dropdownMenuStyle"
-        const val COMPONENT_PARENT = "Sdds.Components.DropdownMenu"
+        const val CORE_COMPONENT_NAME = "DropdownEmptyStateView"
+        const val DEF_STYLE_ATTR = "sd_dropdownEmptyStateStyle"
+        const val COMPONENT_PARENT = "Sdds.Components.DropdownEmptyState"
     }
 }

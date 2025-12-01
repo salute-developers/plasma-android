@@ -19,6 +19,7 @@ import android.view.ViewTreeObserver.OnScrollChangedListener
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.ViewCompat
 import androidx.core.view.allViews
 import androidx.core.view.children
 import com.sdds.uikit.colorstate.ColorState
@@ -107,6 +108,18 @@ open class Popover @JvmOverloads constructor(
             _content.minimumHeight = value
         }
 
+    /**
+     * Смещение относительно якоря
+     */
+    var offset: Int
+        get() = _offset
+        set(value) {
+            if (_offset != value) {
+                _offset = value
+                updateLocationPoint()
+            }
+        }
+
     init {
         context.withStyledAttributes(attrs, R.styleable.Popover, defStyleAttr, defStyleRes) {
             _offset = getDimensionPixelOffset(R.styleable.Popover_sd_offset, 0)
@@ -186,6 +199,11 @@ open class Popover @JvmOverloads constructor(
         contentView.requestLayout()
         contentView.invalidate()
         _content.invalidateOutline()
+        ViewCompat.setOnApplyWindowInsetsListener(_content) { v, insets ->
+            updateLocationPoint()
+            v.requestLayout()
+            insets
+        }
 
         // Автоматическое скрытие
         duration?.let {
@@ -316,7 +334,12 @@ open class Popover @JvmOverloads constructor(
             ?: (visibleDisplayFrame.height() - (safePaddings.top + safePaddings.bottom))
 
         if (placementMode == PLACEMENT_MODE_STRICT) {
-            return Size(fullWidth, fullHeight)
+            val maxHeight = when (placement) {
+                PLACEMENT_TOP -> getTopSpace()
+                PLACEMENT_BOTTOM -> getBottomSpace()
+                else -> fullHeight
+            }
+            return Size(fullWidth, maxHeight)
         }
 
         val verticalSpace = maxOf(getTopSpace(), getBottomSpace()) - (safePaddings.top + safePaddings.bottom)

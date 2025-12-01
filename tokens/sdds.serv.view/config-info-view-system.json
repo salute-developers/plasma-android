@@ -11513,6 +11513,127 @@
          ]
       },
       {
+         "key": "autocomplete",
+         "coreName": "Autocomplete",
+         "styleName": "AutocompleteTight",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.AutocompleteTight.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteTightXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.AutocompleteTight.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteTightL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AutocompleteTight.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteTightM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AutocompleteTight.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteTightS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.AutocompleteTight.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteTightXs"
+            }
+         ]
+      },
+      {
+         "key": "autocomplete",
+         "coreName": "Autocomplete",
+         "styleName": "AutocompleteNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.AutocompleteNormal.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteNormalXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.AutocompleteNormal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteNormalL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.AutocompleteNormal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteNormalM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.AutocompleteNormal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteNormalS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.AutocompleteNormal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.AutocompleteNormalXs"
+            }
+         ]
+      },
+      {
+         "key": "dropdown-empty-state",
+         "coreName": "DropdownEmptyStateView",
+         "styleName": "DropdownEmptyState",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateXs"
+            },
+            {
+               "name": "xs.has-button",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.Xs.HasButton",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateXsHasButton"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateS"
+            },
+            {
+               "name": "s.has-button",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.S.HasButton",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateSHasButton"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateM"
+            },
+            {
+               "name": "m.has-button",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.M.HasButton",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateMHasButton"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateL"
+            },
+            {
+               "name": "l.has-button",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.L.HasButton",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateLHasButton"
+            },
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateXl"
+            },
+            {
+               "name": "xl.has-button",
+               "viewReference": "Serv.Sdds.Components.DropdownEmptyState.Xl.HasButton",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.DropdownEmptyStateXlHasButton"
+            }
+         ]
+      },
+      {
          "key": "carousel",
          "coreName": "Carousel",
          "styleName": "Carousel",
