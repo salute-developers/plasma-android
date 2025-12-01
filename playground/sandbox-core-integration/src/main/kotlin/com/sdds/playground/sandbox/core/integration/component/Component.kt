@@ -35,6 +35,13 @@ abstract class ComponentsProviderView {
                 val maskKey = ComponentKey.Mask
                 put(maskKey, ViewComponent(maskKey, textFieldStyles))
             }
+            put(
+                ComponentKey.Autocomplete,
+                ViewComponent(
+                    ComponentKey.Autocomplete,
+                    mapOf("Default" to ViewStyleProvider.Empty),
+                ),
+            )
         }
     }
 
@@ -256,6 +263,7 @@ data class ComponentKey(
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
         val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
         val Mask = ComponentKey("Mask", CoreComponent.MASK)
+        val Autocomplete = ComponentKey("Autocomplete", CoreComponent.AUTOCOMPLETE)
     }
 }
 
@@ -343,6 +351,7 @@ enum class CoreComponent {
     PAGINATION_DOTS,
     TOOL_BAR,
     MASK,
+    AUTOCOMPLETE,
 }
 
 /**
@@ -404,6 +413,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.SWITCH,
         CoreComponent.WHEEL,
         CoreComponent.MASK,
+        CoreComponent.AUTOCOMPLETE,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,

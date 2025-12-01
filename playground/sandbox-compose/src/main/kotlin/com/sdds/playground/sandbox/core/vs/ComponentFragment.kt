@@ -104,6 +104,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
 
     abstract fun onComponentUpdate(component: Component?, state: State)
 
+    protected open fun onComponentOffsetChanged(component: Component, offset: Float) {}
+
     protected inline fun <reified T> getState(default: () -> T): T {
         return (
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -133,6 +135,13 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
                 setOnClickListener {
                     _sheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
                     view?.findFocus()?.clearFocus()
+                }
+                ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+                    _propsBottomSheetDelegate?.run {
+                        currentOffset = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom.toFloat()
+                        offsetComponentLayout(currentOffset)
+                    }
+                    insets
                 }
             }
 
@@ -339,6 +348,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
         fun offsetComponentLayout(offset: Float) {
             val component = componentRef ?: return
             component.translationY = -offset.coerceAtMost(component.top.toFloat())
+            onComponentOffsetChanged(component, offset)
         }
 
         override fun onApplyWindowInsets(v: View, insets: WindowInsetsCompat): WindowInsetsCompat {
