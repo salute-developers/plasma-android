@@ -57,6 +57,7 @@ import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
 import com.sdds.playground.sandbox.scrollbar.vs.ScrollBarFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
+import com.sdds.playground.sandbox.slider.vs.SliderFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.tabs.IconTabsFragment
@@ -130,6 +131,7 @@ import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.testing.vs.skeleton.rectSkeleton
 import com.sdds.testing.vs.skeleton.textSkeleton
+import com.sdds.testing.vs.slider.slider
 import com.sdds.testing.vs.spinner.spinner
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
@@ -360,6 +362,10 @@ internal sealed class ComponentScreen(
         { item -> fragment<ScrollBarFragment>(item.route, item.defaultBuilder) },
     )
 
+    object Slider : ComponentScreen(
+        { item -> fragment<SliderFragment>(item.route, item.defaultBuilder) },
+    )
+
     object Accordion : ComponentScreen(
         { item -> fragment<AccordionFragment>(item.route, item.defaultBuilder) },
     )
@@ -464,6 +470,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.WHEEL -> ComponentScreen.Wheel
         CoreComponent.IMAGE -> ComponentScreen.Image
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
+        CoreComponent.SLIDER -> ComponentScreen.Slider
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
@@ -528,6 +535,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.WHEEL -> R.id.nav_wheel
         CoreComponent.IMAGE -> R.id.nav_image
         CoreComponent.SCROLL_BAR -> R.id.nav_scrollbar
+        CoreComponent.SLIDER -> R.id.nav_slider
         CoreComponent.LOADER -> R.id.nav_loader
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
@@ -630,6 +638,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.WHEEL -> wheel(context, style)
         CoreComponent.IMAGE -> image(context, style)
         CoreComponent.SCROLL_BAR -> scrollBar(context, style)
+        CoreComponent.SLIDER -> slider(context, style)
         CoreComponent.SPINNER -> spinner(context, style)
         CoreComponent.LOADER -> loader(context, style)
         CoreComponent.ACCORDION -> accordion(context, style)

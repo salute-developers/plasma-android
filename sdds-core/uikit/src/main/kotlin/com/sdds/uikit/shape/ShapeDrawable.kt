@@ -215,8 +215,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     /**
-     * Устанавливает цвета текста
-     * @param colors цвета текста
+     * Устанавливает цвета [colors] для этого объекта рисования в виде списка значений состояния цвета.
+     * @see ColorValueStateList
      */
     open fun setTintValue(colors: ColorValueStateList?) {
         if (_shapeTintValue != colors) {

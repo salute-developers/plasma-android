@@ -1,0 +1,58 @@
+package com.sdds.playground.sandbox.sdds.serv.integration.view
+
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.serv.R as DsR
+
+internal object SddsServSliderHorizontalLabelInnerVariationsView : ViewStyleProvider<String>() {
+    override val variations: Map<String, Int> =
+        mapOf(
+            "L" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerL,
+            "L.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLDefault,
+            "L.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLAccent,
+            "L.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLGradient,
+            "L.LimitLabelCenter" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenter,
+            "L.LimitLabelCenter.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterDefault,
+            "L.LimitLabelCenter.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterAccent,
+            "L.LimitLabelCenter.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterGradient,
+            "L.LimitLabelCenter.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterThumbS,
+            "L.LimitLabelCenter.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterThumbSDefault,
+            "L.LimitLabelCenter.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterThumbSAccent,
+            "L.LimitLabelCenter.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLLimitLabelCenterThumbSGradient,
+            "L.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLThumbS,
+            "L.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLThumbSDefault,
+            "L.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLThumbSAccent,
+            "L.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerLThumbSGradient,
+            "M" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerM,
+            "M.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMDefault,
+            "M.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMAccent,
+            "M.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMGradient,
+            "M.LimitLabelCenter" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenter,
+            "M.LimitLabelCenter.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterDefault,
+            "M.LimitLabelCenter.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterAccent,
+            "M.LimitLabelCenter.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterGradient,
+            "M.LimitLabelCenter.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterThumbS,
+            "M.LimitLabelCenter.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterThumbSDefault,
+            "M.LimitLabelCenter.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterThumbSAccent,
+            "M.LimitLabelCenter.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMLimitLabelCenterThumbSGradient,
+            "M.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMThumbS,
+            "M.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMThumbSDefault,
+            "M.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMThumbSAccent,
+            "M.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerMThumbSGradient,
+            "S" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerS,
+            "S.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSDefault,
+            "S.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSAccent,
+            "S.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSGradient,
+            "S.LimitLabelCenter" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenter,
+            "S.LimitLabelCenter.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterDefault,
+            "S.LimitLabelCenter.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterAccent,
+            "S.LimitLabelCenter.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterGradient,
+            "S.LimitLabelCenter.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterThumbS,
+            "S.LimitLabelCenter.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterThumbSDefault,
+            "S.LimitLabelCenter.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterThumbSAccent,
+            "S.LimitLabelCenter.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSLimitLabelCenterThumbSGradient,
+            "S.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSThumbS,
+            "S.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSThumbSDefault,
+            "S.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSThumbSAccent,
+            "S.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderHorizontalLabelInnerSThumbSGradient,
+        )
+}

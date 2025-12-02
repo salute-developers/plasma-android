@@ -5,11 +5,13 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.doOnPreDraw
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
@@ -38,7 +40,12 @@ open class Tooltip @JvmOverloads constructor(
         }
 
     init {
-        contentView = _tooltipContent
+        contentView = _tooltipContent.also {
+            it.layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+            )
+        }
     }
 
     /**
@@ -47,6 +54,8 @@ open class Tooltip @JvmOverloads constructor(
     open var text: CharSequence?
         get() = _tooltipContent.text
         set(value) {
+            if (_tooltipContent.text == value) return
+            _tooltipContent.doOnPreDraw { updateLocationPoint() }
             _tooltipContent.text = value ?: ""
             _tooltipContent.resetContentStartPadding()
         }
@@ -106,6 +115,13 @@ open class Tooltip @JvmOverloads constructor(
      */
     fun setContentStartColor(@ColorInt color: Int) {
         setContentStartColors(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает выравнивание текста
+     */
+    fun setTextGravity(gravity: Int) {
+        _tooltipContent.gravity = gravity
     }
 
     override fun showWithTrigger(
@@ -175,7 +191,10 @@ open class Tooltip @JvmOverloads constructor(
         }
 
         fun resetContentStartPadding() {
-            compoundDrawablePadding = if (text.isNullOrBlank()) 0 else _contentStartPadding
+            val newPadding = if (text.isNullOrBlank()) 0 else _contentStartPadding
+            if (compoundDrawablePadding != newPadding) {
+                compoundDrawablePadding = newPadding
+            }
         }
 
         private fun resetCompoundDrawable() {
