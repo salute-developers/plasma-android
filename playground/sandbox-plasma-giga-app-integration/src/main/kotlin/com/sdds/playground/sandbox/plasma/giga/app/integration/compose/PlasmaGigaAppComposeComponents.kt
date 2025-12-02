@@ -355,5 +355,12 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose() {
                     "NavigationBarInternalPage" to PlasmaGigaAppNavigationBarInternalPageVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to PlasmaGigaAppAutocompleteTightVariationsCompose,
+                    "AutocompleteNormal" to PlasmaGigaAppAutocompleteNormalVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

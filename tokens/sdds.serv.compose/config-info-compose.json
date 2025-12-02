@@ -10287,6 +10287,107 @@
                "composeReference": "PaginationDotsVertical.S.ActiveTypeLine"
             }
          ]
+      },
+      {
+         "key": "autocomplete",
+         "coreName": "Autocomplete",
+         "styleName": "AutocompleteTight",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "AutocompleteTight.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "AutocompleteTight.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "AutocompleteTight.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "AutocompleteTight.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "AutocompleteTight.Xs"
+            }
+         ]
+      },
+      {
+         "key": "autocomplete",
+         "coreName": "Autocomplete",
+         "styleName": "AutocompleteNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "AutocompleteNormal.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "AutocompleteNormal.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "AutocompleteNormal.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "AutocompleteNormal.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "AutocompleteNormal.Xs"
+            }
+         ]
+      },
+      {
+         "key": "dropdown-empty-state",
+         "coreName": "DropdownEmptyState",
+         "styleName": "DropdownEmptyState",
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "DropdownEmptyState.Xs"
+            },
+            {
+               "name": "xs.has-button",
+               "composeReference": "DropdownEmptyState.Xs.HasButton"
+            },
+            {
+               "name": "s",
+               "composeReference": "DropdownEmptyState.S"
+            },
+            {
+               "name": "s.has-button",
+               "composeReference": "DropdownEmptyState.S.HasButton"
+            },
+            {
+               "name": "m",
+               "composeReference": "DropdownEmptyState.M"
+            },
+            {
+               "name": "m.has-button",
+               "composeReference": "DropdownEmptyState.M.HasButton"
+            },
+            {
+               "name": "l",
+               "composeReference": "DropdownEmptyState.L"
+            },
+            {
+               "name": "l.has-button",
+               "composeReference": "DropdownEmptyState.L.HasButton"
+            },
+            {
+               "name": "xl",
+               "composeReference": "DropdownEmptyState.Xl"
+            },
+            {
+               "name": "xl.has-button",
+               "composeReference": "DropdownEmptyState.Xl.HasButton"
+            }
+         ]
       }
    ]
 }

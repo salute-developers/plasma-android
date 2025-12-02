@@ -9258,6 +9258,53 @@
                "composeReference": "DrawerCloseOuter.M.HasShadow"
             }
          ]
+      },
+      {
+         "key": "dropdown-empty-state",
+         "coreName": "DropdownEmptyState",
+         "styleName": "DropdownEmptyState",
+         "variations": [
+            {
+               "name": "xs",
+               "composeReference": "DropdownEmptyState.Xs"
+            },
+            {
+               "name": "xs.has-button",
+               "composeReference": "DropdownEmptyState.Xs.HasButton"
+            },
+            {
+               "name": "s",
+               "composeReference": "DropdownEmptyState.S"
+            },
+            {
+               "name": "s.has-button",
+               "composeReference": "DropdownEmptyState.S.HasButton"
+            },
+            {
+               "name": "m",
+               "composeReference": "DropdownEmptyState.M"
+            },
+            {
+               "name": "m.has-button",
+               "composeReference": "DropdownEmptyState.M.HasButton"
+            },
+            {
+               "name": "l",
+               "composeReference": "DropdownEmptyState.L"
+            },
+            {
+               "name": "l.has-button",
+               "composeReference": "DropdownEmptyState.L.HasButton"
+            },
+            {
+               "name": "xl",
+               "composeReference": "DropdownEmptyState.Xl"
+            },
+            {
+               "name": "xl.has-button",
+               "composeReference": "DropdownEmptyState.Xl.HasButton"
+            }
+         ]
       }
    ]
 }

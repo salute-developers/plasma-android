@@ -24,6 +24,8 @@ import com.sdds.stylessalute.styles.list.L
 import com.sdds.stylessalute.styles.list.M
 import com.sdds.stylessalute.styles.list.S
 import com.sdds.stylessalute.styles.list.Xs
+import com.sdds.stylessalute.styles.scrollbar.S
+import com.sdds.stylessalute.styles.scrollbar.ScrollBar
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -78,8 +80,13 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
         }
         .dimensions {
             offset(8.0.dp)
+            paddingStart(2.0.dp)
+            paddingEnd(2.0.dp)
+            paddingTop(2.0.dp)
+            paddingBottom(2.0.dp)
         }
         .dividerStyle(Divider.Default.style())
+        .scrollBarStyle(ScrollBar.S.style())
 
 public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
     @Composable
@@ -89,6 +96,8 @@ public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
         .shape(StylesSaluteTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions {
             width(200.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.L.style())
         .wrap(::WrapperDropdownMenuNormalL)
@@ -101,6 +110,8 @@ public val DropdownMenuNormal.M: WrapperDropdownMenuNormalM
         .shape(StylesSaluteTheme.shapes.roundM)
         .dimensions {
             width(200.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.M.style())
         .wrap(::WrapperDropdownMenuNormalM)
@@ -113,6 +124,8 @@ public val DropdownMenuNormal.S: WrapperDropdownMenuNormalS
         .shape(StylesSaluteTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
             width(160.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.S.style())
         .wrap(::WrapperDropdownMenuNormalS)
@@ -125,6 +138,8 @@ public val DropdownMenuNormal.Xs: WrapperDropdownMenuNormalXs
         .shape(StylesSaluteTheme.shapes.roundS)
         .dimensions {
             width(160.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.Xs.style())
         .wrap(::WrapperDropdownMenuNormalXs)

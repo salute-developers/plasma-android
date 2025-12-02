@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutocompleteConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutoCompleteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
