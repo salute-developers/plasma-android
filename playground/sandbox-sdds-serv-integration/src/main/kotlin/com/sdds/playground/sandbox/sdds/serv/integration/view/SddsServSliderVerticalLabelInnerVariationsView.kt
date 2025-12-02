@@ -1,0 +1,58 @@
+package com.sdds.playground.sandbox.sdds.serv.integration.view
+
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.serv.R as DsR
+
+internal object SddsServSliderVerticalLabelInnerVariationsView : ViewStyleProvider<String>() {
+    override val variations: Map<String, Int> =
+        mapOf(
+            "L" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerL,
+            "L.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLDefault,
+            "L.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLAccent,
+            "L.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLGradient,
+            "L.LabelEnd" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEnd,
+            "L.LabelEnd.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndDefault,
+            "L.LabelEnd.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndAccent,
+            "L.LabelEnd.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndGradient,
+            "L.LabelEnd.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndThumbS,
+            "L.LabelEnd.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndThumbSDefault,
+            "L.LabelEnd.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndThumbSAccent,
+            "L.LabelEnd.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLLabelEndThumbSGradient,
+            "L.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLThumbS,
+            "L.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLThumbSDefault,
+            "L.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLThumbSAccent,
+            "L.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerLThumbSGradient,
+            "M" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerM,
+            "M.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMDefault,
+            "M.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMAccent,
+            "M.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMGradient,
+            "M.LabelEnd" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEnd,
+            "M.LabelEnd.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndDefault,
+            "M.LabelEnd.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndAccent,
+            "M.LabelEnd.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndGradient,
+            "M.LabelEnd.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndThumbS,
+            "M.LabelEnd.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndThumbSDefault,
+            "M.LabelEnd.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndThumbSAccent,
+            "M.LabelEnd.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMLabelEndThumbSGradient,
+            "M.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMThumbS,
+            "M.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMThumbSDefault,
+            "M.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMThumbSAccent,
+            "M.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerMThumbSGradient,
+            "S" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerS,
+            "S.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSDefault,
+            "S.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSAccent,
+            "S.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSGradient,
+            "S.LabelEnd" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEnd,
+            "S.LabelEnd.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndDefault,
+            "S.LabelEnd.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndAccent,
+            "S.LabelEnd.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndGradient,
+            "S.LabelEnd.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndThumbS,
+            "S.LabelEnd.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndThumbSDefault,
+            "S.LabelEnd.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndThumbSAccent,
+            "S.LabelEnd.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSLabelEndThumbSGradient,
+            "S.ThumbS" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSThumbS,
+            "S.ThumbS.Default" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSThumbSDefault,
+            "S.ThumbS.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSThumbSAccent,
+            "S.ThumbS.Gradient" to DsR.style.Serv_Sdds_ComponentOverlays_SliderVerticalLabelInnerSThumbSGradient,
+        )
+}

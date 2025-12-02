@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<color-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_pressed="true" app:sd_color="?serv_outlineDefaultSolidDefault" app:serv_slider_state_default="true"/>
+    <item app:sd_color="?serv_outlineDefaultSolidSecondary" app:serv_slider_state_default="true"/>
+    <item android:state_pressed="true" app:sd_color="?serv_surfaceDefaultAccent" app:serv_slider_state_accent="true"/>
+    <item app:sd_color="?serv_outlineDefaultSolidSecondary" app:serv_slider_state_accent="true"/>
+    <item android:state_pressed="true" app:sd_color="?serv_surfaceDefaultAccentGradient" app:serv_slider_state_gradient="true"/>
+    <item app:sd_color="?serv_outlineDefaultSolidSecondary" app:serv_slider_state_gradient="true"/>
+</color-selector>
