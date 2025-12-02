@@ -462,6 +462,10 @@ internal class SliderView @JvmOverloads constructor(
      * Устанавливает значение [value] прогресса в диапазоне от установленных значений minProgress и maxProgress
      */
     fun setProgressValue(value: Float) {
+        if (maxProgress == minProgress) {
+            setProgress(0f)
+            return
+        }
         val clamped = if (maxProgress > minProgress) {
             value.coerceIn(minProgress, maxProgress)
         } else {
@@ -492,9 +496,9 @@ internal class SliderView @JvmOverloads constructor(
             needToSetProgress = false
         } else {
             sliderDrawable.updateThumbOffset()
-            tooltip?.apply {
-                setWindowWidth(ViewGroup.LayoutParams.MATCH_PARENT)
-            }
+        }
+        tooltip?.apply {
+            setWindowWidth(ViewGroup.LayoutParams.MATCH_PARENT)
         }
     }
 

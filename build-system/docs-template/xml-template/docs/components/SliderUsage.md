@@ -87,17 +87,17 @@ Popover.PLACEMENT_BOTTOM.
 
 ## ProgressListener
 
-Для установки колбэка на изменение выбранного значения, используйте setProgressListener {progress -> }.  
+Для установки колбэка на изменение выбранного значения, используйте setProgressListener `{ progress: Float -> }`.  
 Значение прогресса находится в диапазоне от 0 до 1.  
 
 ## ProgressFormatTransformer
 
-Для конфигурирования формата вывода установленного значения используйте setProgressFormatTransformer { progress -> }.  
+Для конфигурирования формата вывода установленного значения используйте setProgressFormatTransformer `{ progress: Float -> }`.  
 Здесь прогресс возвращается в диапазоне установленных минимального и максимального значений (minProgress, maxProgress).  
 Пример конфигурирования для перевода значения в формате минуты:секунды
 
 ```kotlin
-setProgressFormatTransformer { progress ->
+setProgressFormatTransformer { progress: Float ->
     val totalSeconds = progress.toInt()
     val minutes = totalSeconds / 60
     val seconds = totalSeconds % 60
