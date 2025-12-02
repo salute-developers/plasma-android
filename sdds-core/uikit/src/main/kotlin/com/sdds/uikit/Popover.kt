@@ -69,6 +69,7 @@ open class Popover @JvmOverloads constructor(
     private var _choreographer: Choreographer = Choreographer.getInstance()
     private var _contentWidth: Int = -1
     private var _contentHeight: Int = -1
+    private var _triggerLocationProvider: TriggerLocationProvider? = null
 
     override val shape: ShapeModel?
         get() = _content.shape
@@ -120,23 +121,73 @@ open class Popover @JvmOverloads constructor(
         if (contentView != null) {
             contentView.minimumWidth = _content.minimumWidth
             contentView.minimumHeight = _content.minimumHeight
-            _content.addView(
-                contentView,
-                LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT),
-            )
+            if (contentView.layoutParams == null) {
+                _content.addView(
+                    contentView,
+                    LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT),
+                )
+            } else {
+                _content.addView(contentView)
+            }
             super.setContentView(_content.wrapWithShadows())
         } else {
             super.setContentView(null)
         }
     }
 
+    /**
+     * Устанавливает ширину окна, в котором будет размещен [Popover]
+     */
+    open fun setWindowWidth(width: Int) {
+        super.setWidth(width)
+    }
+
+    /**
+     * Ширина окна
+     */
+    open fun getWindowWidth(): Int = super.getWidth()
+
     override fun setWidth(width: Int) = Unit
 
     override fun getWidth(): Int = _content.width
 
+    /**
+     * Устанавливает высоту окна, в котором будет размещен [Popover]
+     */
+    open fun setWindowHeight(height: Int) {
+        super.setHeight(height)
+    }
+
+    /**
+     * Высота окна
+     */
+    open fun getWindowHeight(): Int = super.getHeight()
+
     override fun setHeight(height: Int) = Unit
 
     override fun getHeight(): Int = _content.height
+
+    /**
+     * Провайдер координат прямоугольной области для привезки [Popover]
+     */
+    fun interface TriggerLocationProvider {
+
+        /**
+         * Колбэк предоставления области [screenRect]
+         * расположенной внутри [trigger]
+         */
+        fun provide(trigger: View, screenRect: Rect): Rect
+    }
+
+    /**
+     * Получает прямоугольник Rect для привязки к нему [Popover]
+     * Если задан [TriggerLocationProvider] используется предоставляемая им область
+     * в противном случае возвращаются координаты прямоугольной области самой view
+     */
+    private fun View.getTriggerRect(): Rect {
+        val viewGlobalRect = this.getScreenRect()
+        return _triggerLocationProvider?.provide(this, viewGlobalRect) ?: viewGlobalRect
+    }
 
     /**
      * Отображает [Popover] рядом с [trigger], учитывая [placement] и [alignment]
@@ -165,13 +216,13 @@ open class Popover @JvmOverloads constructor(
             triggerCentered = triggerCentered,
             placementMode = placementMode,
             visibleDisplayFrame = trigger.getVisibleDisplayFrame(),
-            triggerRect = trigger.getScreenRect(),
+            triggerRect = trigger.getTriggerRect(),
         )
         _scaleAnimationListener = (trigger as? HasFocusSelector)
             ?.doOnScaleAnimation { _, _, _, _, _ -> updateLocationPoint() }
         _scrollChangedListener = OnScrollChangedListener {
             _choreographer.postFrameCallback {
-                _currentLocation = _currentLocation.copy(triggerRect = trigger.getScreenRect())
+                _currentLocation = _currentLocation.copy(triggerRect = trigger.getTriggerRect())
                 if (_currentLocation.isAnchorVisible()) {
                     updateLocationPoint()
                 } else {
@@ -207,6 +258,13 @@ open class Popover @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает провайдер, предоставляющий Rect для привязки к нему [Popover]
+     */
+    fun setTriggerLocationProvider(provider: TriggerLocationProvider?) {
+        _triggerLocationProvider = provider
+    }
+
+    /**
      * Обновляет точку привязки [Popover]
      */
     fun updateLocationPoint() {
@@ -233,7 +291,7 @@ open class Popover @JvmOverloads constructor(
         val trigger = _triggerRef?.get() ?: return Point(INITIAL_POSITION, INITIAL_POSITION)
         val safePaddings = _content.getSafePaddings()
         val rootRect = trigger.rootView.getScreenRect()
-        val triggerRect = trigger.getScreenRect()
+        val triggerRect = trigger.getTriggerRect()
         val visibleDisplayFrame = trigger.getVisibleDisplayFrame()
 
         return _currentLocation.copy(triggerRect = triggerRect, visibleDisplayFrame = visibleDisplayFrame)
