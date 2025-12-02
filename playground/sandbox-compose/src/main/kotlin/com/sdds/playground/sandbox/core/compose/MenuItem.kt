@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.AccordionStyle
+import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.BadgeStyle
@@ -54,6 +55,8 @@ import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.accordion.AccordionPreview
 import com.sdds.playground.sandbox.accordion.AccordionScreen
+import com.sdds.playground.sandbox.autocomplete.AutocompletePreview
+import com.sdds.playground.sandbox.autocomplete.AutocompleteScreen
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
@@ -361,6 +364,10 @@ internal sealed class ComponentScreen(
         { PaginationDotsScreen(it) },
         { style, _ -> PaginationDotsPreview(style as PaginationDotsStyle) },
     )
+    object Autocomplete : ComponentScreen(
+        { AutocompleteScreen(it) },
+        { style, _ -> AutocompletePreview(style as AutocompleteStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -422,6 +429,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         CoreComponent.MASK -> ComponentScreen.TextFieldMasks
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
+        CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         else -> ComponentScreen.Empty
     }
 }

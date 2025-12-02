@@ -19,12 +19,21 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.styles.divider.Default
 import com.sdds.plasma.giga.styles.divider.Divider
+import com.sdds.plasma.giga.styles.dropdownemptystate.DropdownEmptyState
+import com.sdds.plasma.giga.styles.dropdownemptystate.HasButton
+import com.sdds.plasma.giga.styles.dropdownemptystate.L
+import com.sdds.plasma.giga.styles.dropdownemptystate.M
+import com.sdds.plasma.giga.styles.dropdownemptystate.S
+import com.sdds.plasma.giga.styles.dropdownemptystate.Xl
+import com.sdds.plasma.giga.styles.dropdownemptystate.Xs
 import com.sdds.plasma.giga.styles.list.DropdownMenuListNormal
 import com.sdds.plasma.giga.styles.list.L
 import com.sdds.plasma.giga.styles.list.M
 import com.sdds.plasma.giga.styles.list.S
 import com.sdds.plasma.giga.styles.list.Xl
 import com.sdds.plasma.giga.styles.list.Xs
+import com.sdds.plasma.giga.styles.scrollbar.S
+import com.sdds.plasma.giga.styles.scrollbar.ScrollBar
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -87,8 +96,13 @@ private val DropdownMenuStyleBuilder.invariantProps: DropdownMenuStyleBuilder
         }
         .dimensions {
             offset(8.0.dp)
+            paddingStart(2.0.dp)
+            paddingEnd(2.0.dp)
+            paddingTop(2.0.dp)
+            paddingBottom(2.0.dp)
         }
         .dividerStyle(Divider.Default.style())
+        .scrollBarStyle(ScrollBar.S.style())
 
 public val DropdownMenuNormal.Xl: WrapperDropdownMenuNormalXl
     @Composable
@@ -98,8 +112,11 @@ public val DropdownMenuNormal.Xl: WrapperDropdownMenuNormalXl
         .shape(PlasmaGigaTheme.shapes.roundL)
         .dimensions {
             width(200.0.dp)
+            scrollBarPaddingTop(10.0.dp)
+            scrollBarPaddingBottom(12.0.dp)
         }
         .listStyle(DropdownMenuListNormal.Xl.style())
+        .emptyStateStyle(DropdownEmptyState.Xl.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalXl)
 
 public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
@@ -110,8 +127,11 @@ public val DropdownMenuNormal.L: WrapperDropdownMenuNormalL
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions {
             width(200.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.L.style())
+        .emptyStateStyle(DropdownEmptyState.L.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalL)
 
 public val DropdownMenuNormal.M: WrapperDropdownMenuNormalM
@@ -122,8 +142,11 @@ public val DropdownMenuNormal.M: WrapperDropdownMenuNormalM
         .shape(PlasmaGigaTheme.shapes.roundM)
         .dimensions {
             width(200.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.M.style())
+        .emptyStateStyle(DropdownEmptyState.M.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalM)
 
 public val DropdownMenuNormal.S: WrapperDropdownMenuNormalS
@@ -134,8 +157,11 @@ public val DropdownMenuNormal.S: WrapperDropdownMenuNormalS
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
             width(160.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.S.style())
+        .emptyStateStyle(DropdownEmptyState.S.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalS)
 
 public val DropdownMenuNormal.Xs: WrapperDropdownMenuNormalXs
@@ -146,6 +172,9 @@ public val DropdownMenuNormal.Xs: WrapperDropdownMenuNormalXs
         .shape(PlasmaGigaTheme.shapes.roundS)
         .dimensions {
             width(160.0.dp)
+            scrollBarPaddingTop(6.0.dp)
+            scrollBarPaddingBottom(8.0.dp)
         }
         .listStyle(DropdownMenuListNormal.Xs.style())
+        .emptyStateStyle(DropdownEmptyState.Xs.HasButton.style())
         .wrap(::WrapperDropdownMenuNormalXs)

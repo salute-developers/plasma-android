@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Matrix
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.addOutline
+import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
@@ -365,6 +366,30 @@ private class PopoverPositionProvider(
         popoverOffsetWhenTriggerCentered = Offset.Zero
     }
 
+    private fun alignedOffset(): Int {
+        val triggerWidth = triggerInfo.size.width
+        val triggerHeight = triggerInfo.size.height
+        val startCompensation = triggerInfo.startAlignmentLine.zeroIfUnspecified()
+        val endCompensation = (triggerWidth - triggerInfo.endAlignmentLine.ifUnspecified(triggerWidth))
+        val topCompensation = triggerInfo.topAlignmentLine.zeroIfUnspecified()
+        val bottomCompensation = (triggerHeight - triggerInfo.bottomAlignmentLine.ifUnspecified(triggerHeight))
+
+        return when (innerPlacement) {
+            PopoverPlacement.Start -> offset + startCompensation
+            PopoverPlacement.Top -> offset + topCompensation
+            PopoverPlacement.End -> offset - endCompensation
+            PopoverPlacement.Bottom -> offset - bottomCompensation
+        }
+    }
+
+    private fun Int.zeroIfUnspecified(): Int {
+        return if (this == AlignmentLine.Unspecified) 0 else this
+    }
+
+    private fun Int.ifUnspecified(offset: Int): Int {
+        return if (this == AlignmentLine.Unspecified) offset else this
+    }
+
     override fun calculatePosition(
         anchorBounds: IntRect,
         windowSize: IntSize,
@@ -552,23 +577,23 @@ private class PopoverPositionProvider(
 
         return when (innerPlacement) {
             PopoverPlacement.Start -> IntOffset(
-                x = triggerPositionInRoot.x - offset - popupContentSize.width + shadowPaddings.end,
+                x = triggerPositionInRoot.x - alignedOffset() - popupContentSize.width + shadowPaddings.end,
                 y = triggerPositionInRoot.y + verticalAlignment,
             )
 
             PopoverPlacement.End -> IntOffset(
-                x = triggerPositionInRoot.x + triggerSize.width + offset - shadowPaddings.start,
+                x = triggerPositionInRoot.x + triggerSize.width + alignedOffset() - shadowPaddings.start,
                 y = triggerPositionInRoot.y + verticalAlignment,
             )
 
             PopoverPlacement.Top -> IntOffset(
                 x = triggerPositionInRoot.x + horizontalAlignment,
-                y = triggerPositionInRoot.y - offset - popupContentSize.height + shadowPaddings.bottom,
+                y = triggerPositionInRoot.y - alignedOffset() - popupContentSize.height + shadowPaddings.bottom,
             )
 
             PopoverPlacement.Bottom -> IntOffset(
                 x = triggerPositionInRoot.x + horizontalAlignment,
-                y = triggerPositionInRoot.y + triggerSize.height + offset - shadowPaddings.top,
+                y = triggerPositionInRoot.y + triggerSize.height + alignedOffset() - shadowPaddings.top,
             )
         }
     }

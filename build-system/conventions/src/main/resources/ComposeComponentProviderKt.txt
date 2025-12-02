@@ -8,9 +8,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComposeComponent
 /**
  *  Компоненты
  */
-object ${{ themeName }}ComposeComponents : ComponentsProviderCompose {
+object ${{ themeName }}ComposeComponents : ComponentsProviderCompose() {
 
-    override val all: Map<ComponentKey, ComposeComponent<String, out Style>> =
+    override val generated: Map<ComponentKey, ComposeComponent<String, out Style>> =
         listOf(
             ${{ components }}
         ).associateBy { it.key }

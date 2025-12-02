@@ -13,8 +13,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.layout.AlignmentLine
+import androidx.compose.ui.layout.HorizontalAlignmentLine
+import androidx.compose.ui.layout.VerticalAlignmentLine
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
@@ -23,6 +26,7 @@ import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.internal.popover.BasePopover
 import com.sdds.compose.uikit.internal.popover.DefaultPopupProperties
+import kotlin.math.max
 
 /**
  * Компонент Popover.
@@ -164,7 +168,18 @@ enum class PopoverPlacementMode {
 fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
-        this@popoverTrigger then onGloballyPositioned {
+        this then layout { measurable, constraints ->
+            val placeable = measurable.measure(constraints)
+            triggerInfo.value = triggerInfo.value.copy(
+                topAlignmentLine = placeable[topAlignmentLine],
+                bottomAlignmentLine = placeable[bottomAlignmentLine],
+                startAlignmentLine = placeable[startAlignmentLine],
+                endAlignmentLine = placeable[endAlignmentLine],
+            )
+            return@layout layout(placeable.width, placeable.height) {
+                placeable.placeRelative(IntOffset.Zero)
+            }
+        } then onGloballyPositioned {
             triggerInfo.value = triggerInfo.value.copy(
                 size = it.size,
                 positionInRoot = it.positionInWindow().round(),
@@ -180,16 +195,31 @@ fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
     }
 }
 
+internal val topAlignmentLine = HorizontalAlignmentLine(merger = { old, new -> max(old, new) })
+internal val bottomAlignmentLine = HorizontalAlignmentLine(merger = { old, new -> max(old, new) })
+internal val startAlignmentLine = VerticalAlignmentLine(merger = { old, new -> max(old, new) })
+internal val endAlignmentLine = VerticalAlignmentLine(merger = { old, new -> max(old, new) })
+
 /**
  * Информация о размерах и расположении триггера
  *
  * @property positionInRoot координаты триггера
  * @property size размеры триггера
  * @property focusScaleFactor на сколько триггер увеличен в фокусе
+ * @property topAlignmentLine верхняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
+ * @property bottomAlignmentLine верхняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
+ * @property topAlignmentLine верхняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
+ * @property bottomAlignmentLine нижняя линия выранивания триггера. Рассчитывается относительно [positionInRoot]
+ * @property startAlignmentLine начальная линия выранивания триггера. Рассчитывается относительно [positionInRoot]
+ * @property endAlignmentLine конечная линия выранивания триггера. Рассчитывается относительно [positionInRoot]
  */
 @Stable
 data class TriggerInfo(
     val positionInRoot: IntOffset = IntOffset.Zero,
     val size: IntSize = IntSize.Zero,
     val focusScaleFactor: Float = 0f,
+    val topAlignmentLine: Int = AlignmentLine.Unspecified,
+    val bottomAlignmentLine: Int = AlignmentLine.Unspecified,
+    val startAlignmentLine: Int = AlignmentLine.Unspecified,
+    val endAlignmentLine: Int = AlignmentLine.Unspecified,
 )

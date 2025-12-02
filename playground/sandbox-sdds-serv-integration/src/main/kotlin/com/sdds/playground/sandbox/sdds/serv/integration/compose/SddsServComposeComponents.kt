@@ -400,5 +400,12 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                     "PaginationDotsVertical" to SddsServPaginationDotsVerticalVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to SddsServAutocompleteTightVariationsCompose,
+                    "AutocompleteNormal" to SddsServAutocompleteNormalVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

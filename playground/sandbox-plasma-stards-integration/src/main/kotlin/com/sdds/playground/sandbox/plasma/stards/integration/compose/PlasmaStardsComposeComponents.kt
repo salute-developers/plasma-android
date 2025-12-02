@@ -248,5 +248,12 @@ object PlasmaStardsComposeComponents : ComponentsProviderCompose() {
                     "Drawer" to PlasmaStardsDrawerVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to PlasmaStardsPaginationDotsHorizontalVariationsCompose,
+                    "PaginationDotsVertical" to PlasmaStardsPaginationDotsVerticalVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

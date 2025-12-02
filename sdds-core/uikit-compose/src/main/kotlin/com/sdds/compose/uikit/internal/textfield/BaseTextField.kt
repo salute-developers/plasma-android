@@ -64,6 +64,8 @@ import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldType
+import com.sdds.compose.uikit.bottomAlignmentLine
+import com.sdds.compose.uikit.endAlignmentLine
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
@@ -76,6 +78,8 @@ import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.scrollbar
+import com.sdds.compose.uikit.startAlignmentLine
+import com.sdds.compose.uikit.topAlignmentLine
 
 /**
  * Поле ввода текста
@@ -809,7 +813,16 @@ private class BaseTextFieldMeasurePolicy : MeasurePolicy {
         )
         val totalWidth = minOf(fieldContent.widthOrZero(), constraints.maxWidth)
 
-        return layout(totalWidth, totalHeight) {
+        return layout(
+            width = totalWidth,
+            height = totalHeight,
+            alignmentLines = mapOf(
+                topAlignmentLine to (topPlaceable.heightOrZero()),
+                bottomAlignmentLine to (topPlaceable.heightOrZero() + fieldContent.heightOrZero()),
+                startAlignmentLine to 0,
+                endAlignmentLine to totalWidth,
+            ),
+        ) {
             topPlaceable?.placeRelative(0, 0)
             fieldContent?.placeRelative(0, topPlaceable.heightOrZero())
             captionPlaceable?.placeRelative(
