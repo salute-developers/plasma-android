@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_sliderStyle" format="reference" />
+
+    <declare-styleable name="Slider" tools:ignore="ResourceName">
+        <!-- Ориентация  -->
+        <attr name="android:orientation" />
+
+        <!-- Текст в title  -->
+        <attr name="sd_title" />
+        <!-- Цвет текста Title  -->
+        <attr name="sd_titleColor" />
+        <!-- Стиль текста Title  -->
+        <attr name="sd_titleAppearance" />
+        <!-- Отступ от между текстом Title и иконкой -->
+        <attr name="sd_titleMargin" format="dimension" />
+        <!-- Расположение текста в лэйбле -->
+        <attr name="sd_titleAlignment" format="enum">
+            <!-- Не отображается  -->
+            <enum name="none" value="0" />
+            <!-- Вначале или сверху  -->
+            <enum name="start" value="1" />
+            <!-- Вконце или снизу  -->
+            <enum name="end" value="2" />
+        </attr>
+
+        <!-- Ссылка на ресурс иконки в Label -->
+        <attr name="sd_icon" />
+        <!-- Размер иконки -->
+        <attr name="sd_iconSize" />
+        <!-- Окрас иконки  -->
+        <attr name="sd_iconTint" />
+
+        <!-- Отступ от Label до Slider -->
+        <attr name="sd_labelMargin" format="dimension" />
+        <!-- Отображение Label -->
+        <attr name="sd_labelEnabled" format="boolean" />
+        <!-- Расположение лэйбла с иконкой относительной Slider -->
+        <attr name="sd_labelAlignment" format="enum">
+            <!-- Сверху  -->
+            <enum name="top" value="0" />
+            <!-- В одну линию со Slider  -->
+            <enum name="center" value="1" />
+            <!-- Снизу  -->
+            <enum name="bottom" value="2" />
+        </attr>
+
+        <!-- Выравнивание всего контента внутри Slider -->
+        <attr name="sd_alignment" />
+
+        <attr name="sd_progress" />
+        <attr name="sd_maxProgress" />
+        <attr name="sd_minProgress" />
+        <attr name="sd_thumbEnabled" />
+        <attr name="sd_limitLabelEnabled" />
+        <attr name="sd_limitLabelAlignment" />
+        <attr name="sd_limitLabelMargin" />
+        <attr name="sd_tooltipStyleOverlay" />
+        <attr name="sd_limitLabelAppearance" />
+        <attr name="sd_limitLabelColor" />
+        <attr name="sd_valuePlacement" />
+        <attr name="sd_valueMode" />
+        <attr name="sd_slideDirection" />
+        <attr name="sd_trackColor" />
+        <attr name="sd_thumbColor" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_indicatorColor" />
+        <attr name="sd_trackThickness" />
+        <attr name="sd_indicatorThickness" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_thumbShapeAppearance" />
+        <attr name="sd_indicatorShapeAppearance" />
+        <attr name="sd_thumbSize" />
+        <attr name="sd_strokeWidth" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SliderView" tools:ignore="ResourceName" >
+        <!-- Текущий прогресс -->
+        <attr name="sd_progress" />
+        <!-- Максимальный прогресс -->
+        <attr name="sd_maxProgress" />
+        <!-- Минимальный прогресс -->
+        <attr name="sd_minProgress" />
+        <!-- Стиль текста Label  -->
+        <attr name="sd_limitLabelAppearance" format="reference" />
+        <!-- Цвет текста Label  -->
+        <attr name="sd_limitLabelColor" format="reference|color" />
+        <!-- Отступ от limitLabel до Slider  -->
+        <attr name="sd_limitLabelMargin" format="dimension" />
+        <!-- Отображение limitLabel -->
+        <attr name="sd_limitLabelEnabled" format="boolean" />
+        <!-- Оверлэй стиль компоннета ToolTip, отображающего текст, установленного значения  -->
+        <attr name="sd_tooltipStyleOverlay" format="reference" />
+
+
+        <!-- Режим отображения текста установленного значения -->
+        <attr name="sd_valueMode" format="enum">
+            <!-- Не отображается  -->
+            <enum name="none" value="0" />
+            <!-- Отображается пока идет взаимодействие с thumb  -->
+            <enum name="interaction" value="1" />
+        </attr>
+
+        <!-- Расположение текста установленного значения -->
+        <attr name="sd_valuePlacement" format="enum">
+            <!-- Вначале  -->
+            <enum name="start" value="0" />
+            <!-- Сверху  -->
+            <enum name="top" value="1" />
+            <!-- Вконце  -->
+            <enum name="end" value="2" />
+            <!-- Снизу  -->
+            <enum name="bottom" value="3" />
+        </attr>
+
+        <!-- Расположение лэйблов ограничений -->
+        <attr name="sd_limitLabelAlignment" format="enum">
+            <!-- Сверху или вначале  -->
+            <enum name="start" value="0" />
+            <!-- В одну линию со Slider  -->
+            <enum name="center" value="1" />
+            <!-- Снизу или вконце  -->
+            <enum name="end" value="2" />
+        </attr>
+
+        <attr name="android:orientation" />
+        <attr name="sd_thumbEnabled" />
+        <attr name="sd_slideDirection" />
+        <attr name="sd_trackColor" />
+        <attr name="sd_thumbColor" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_indicatorColor" />
+        <attr name="sd_trackThickness" />
+        <attr name="sd_indicatorThickness" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_thumbShapeAppearance" />
+        <attr name="sd_indicatorShapeAppearance" />
+        <attr name="sd_thumbSize" />
+        <attr name="sd_strokeWidth" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SdSliderDrawable">
+        <attr name="android:orientation" />
+        <!-- Направление slide -->
+        <attr name="sd_slideDirection" format="enum">
+            <!-- Увеличение значения происходит слева направо, либо снизу вверх  -->
+            <enum name="normal" value="0" />
+            <!-- Увеличение значения происходит справо налево, либо сверху вниз  -->
+            <enum name="reversed" value="1" />
+        </attr>
+        <attr name="sd_progress" />
+        <!-- Отображение ползунка -->
+        <attr name="sd_thumbEnabled" format="boolean" />
+        <!-- Цвет неподвижной части slider -->
+        <attr name="sd_trackColor" />
+        <!-- Цвет подвижной части slider -->
+        <attr name="sd_thumbColor" />
+        <!-- Цвет бордера подвижной части slider -->
+        <attr name="sd_strokeColor" />
+        <!-- Цвет неподвижной части slider в пределах установленного значения -->
+        <attr name="sd_indicatorColor" format="reference|color" />
+        <!-- Толщина трэка -->
+        <attr name="sd_trackThickness" />
+        <!-- Толщина линии прогресса -->
+        <attr name="sd_indicatorThickness" format="dimension|reference" />
+        <!-- Размер ползунка (thumb) -->
+        <attr name="sd_thumbSize" format="dimension" />
+        <!-- Толщина бордера ползунка (thumb) -->
+        <attr name="sd_strokeWidth" />
+        <!-- Форма скруглений ползунка (thumb)-->
+        <attr name="sd_thumbShapeAppearance" />
+        <!-- Форма скруглений неподвижной части -->
+        <attr name="sd_shapeAppearance" />
+        <!-- Форма скруглений неподвижной части в пределах установленного значения -->
+        <attr name="sd_indicatorShapeAppearance" />
+    </declare-styleable>
+</resources>

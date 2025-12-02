@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner" parent="Sdds.Components.Slider">
+        <item name="sd_trackThickness">@dimen/serv_slider_vertical_label_inner_track_thickness</item>
+        <item name="sd_indicatorThickness">@dimen/serv_slider_vertical_label_inner_indicator_thickness</item>
+        <item name="sd_strokeWidth">@dimen/serv_slider_vertical_label_inner_stroke_width</item>
+        <item name="sd_thumbShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_indicatorShapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_tooltipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TooltipS</item>
+        <item name="android:orientation">vertical</item>
+        <item name="sd_valuePlacement">end</item>
+        <item name="sd_limitLabelAlignment">center</item>
+        <item name="sd_alignment">center</item>
+        <item name="sd_thumbColor">?serv_surfaceOnLightSolidCard</item>
+        <item name="sd_strokeColor">@xml/serv_slider_vertical_label_inner_stroke_color</item>
+        <item name="sd_trackColor">?serv_surfaceDefaultSolidTertiary</item>
+        <item name="sd_indicatorColor">@xml/serv_slider_vertical_label_inner_indicator_color</item>
+        <item name="sd_iconTint">?serv_textDefaultPrimary</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_limitLabelColor">?serv_textDefaultSecondary</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.SliderColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_l_title_margin</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_limitLabelAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_labelAlignment">top</item>
+        <item name="sd_titleAlignment">start</item>
+        <item name="sd_slideDirection">normal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerL">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_l_title_margin</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_l_title_margin</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_l_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_l_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_l_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_l_title_margin</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd">
+        <item name="sd_labelAlignment">bottom</item>
+        <item name="sd_titleAlignment">end</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEnd">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Default">
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Accent">
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Gradient">
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_label_end_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_l_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_m_title_margin</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_limitLabelAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_labelAlignment">top</item>
+        <item name="sd_titleAlignment">start</item>
+        <item name="sd_slideDirection">normal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerM">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_m_title_margin</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_m_title_margin</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_m_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_m_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_m_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_m_title_margin</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd">
+        <item name="sd_labelAlignment">bottom</item>
+        <item name="sd_titleAlignment">end</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEnd">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Default">
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Accent">
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Gradient">
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_label_end_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_m_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_s_title_margin</item>
+        <item name="sd_titleAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_limitLabelAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAlignment">top</item>
+        <item name="sd_titleAlignment">start</item>
+        <item name="sd_slideDirection">normal</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_s_title_margin</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_s_title_margin</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_size</item>
+        <item name="sd_iconSize">@dimen/serv_slider_vertical_label_inner_s_icon_size</item>
+        <item name="sd_labelMargin">@dimen/serv_slider_vertical_label_inner_s_label_margin</item>
+        <item name="sd_limitLabelMargin">@dimen/serv_slider_vertical_label_inner_s_limit_label_margin</item>
+        <item name="sd_titleMargin">@dimen/serv_slider_vertical_label_inner_s_title_margin</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd">
+        <item name="sd_labelAlignment">bottom</item>
+        <item name="sd_titleAlignment">end</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEnd">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Default">
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Accent">
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Gradient">
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_label_end_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_label_end_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_s_thumb_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbS">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Default">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbSDefault">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Accent">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbSAccent">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Gradient">
+        <item name="sd_thumbSize">@dimen/serv_slider_vertical_label_inner_s_thumb_s_thumb_size</item>
+        <item name="serv_sliderColors">state_gradient</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbSGradient">
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Gradient</item>
+    </style>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="ServSliderColorState">
+        <attr format="boolean" name="serv_slider_state_default"/>
+        <attr format="boolean" name="serv_slider_state_accent"/>
+        <attr format="boolean" name="serv_slider_state_gradient"/>
+    </declare-styleable>
+    <declare-styleable name="Slider" tools:ignore="ResourceName">
+        <attr format="enum" name="serv_sliderColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+            <enum name="state_gradient" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

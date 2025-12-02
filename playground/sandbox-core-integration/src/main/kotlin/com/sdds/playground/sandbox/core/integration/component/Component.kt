@@ -240,6 +240,7 @@ data class ComponentKey(
         val AccordionItem = ComponentKey("AccordionItem", CoreComponent.ACCORDION_ITEM)
         val Wheel = ComponentKey("Wheel", CoreComponent.WHEEL)
         val ScrollBar = ComponentKey("ScrollBar", CoreComponent.SCROLL_BAR)
+        val Slider = ComponentKey("Slider", CoreComponent.SLIDER)
         val Image = ComponentKey("Image", CoreComponent.IMAGE)
         val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
@@ -328,6 +329,7 @@ enum class CoreComponent {
     ACCORDION_ITEM,
     WHEEL,
     SCROLL_BAR,
+    SLIDER,
     IMAGE,
     TAB_BAR,
     TAB_BAR_ITEM,
@@ -404,6 +406,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.SWITCH,
         CoreComponent.WHEEL,
         CoreComponent.MASK,
+        CoreComponent.SLIDER,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,
