@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Carousel" parent="Sdds.Components.Carousel">
+        <item name="sd_nextButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSPilledSecondary</item>
+        <item name="sd_prevButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSPilledSecondary</item>
+        <item name="sd_paginationDotsStyleOverlay">@style/Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalS</item>
+        <item name="sd_nextButtonIcon">@drawable/ic_chevron_right_24</item>
+        <item name="sd_prevButtonIcon">@drawable/ic_chevron_left_24</item>
+        <item name="sd_indicatorPadding">@dimen/plasma_carousel_indicator_padding</item>
+        <item name="sd_nextButtonPadding">@dimen/plasma_carousel_next_padding</item>
+        <item name="sd_prevButtonPadding">@dimen/plasma_carousel_prev_padding</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.Carousel">
+        <item name="sd_carouselStyle">@style/Plasma.SdService.Components.Carousel</item>
+    </style>
+</resources>

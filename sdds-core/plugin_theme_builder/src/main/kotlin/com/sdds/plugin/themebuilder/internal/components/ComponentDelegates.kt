@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDeleg
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
 import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.carousel.CarouselConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.checkbox.group.CheckBoxGroupConfigDelegate
@@ -123,5 +124,6 @@ internal val componentDelegates by unsafeLazy {
         "toolbar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),
+        "carousel" to CarouselConfigDelegate(),
     )
 }

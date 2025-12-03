@@ -56,4 +56,5 @@
     <item type="id" name="note"/>
     <item type="id" name="pagination_dots"/>
     <item type="id" name="toolbar"/>
+    <item type="id" name="carousel"/>
 </resources>

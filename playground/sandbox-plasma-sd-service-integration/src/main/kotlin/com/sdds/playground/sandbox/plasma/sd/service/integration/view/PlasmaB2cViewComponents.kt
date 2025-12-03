@@ -319,5 +319,18 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                     "DrawerCloseOuter" to PlasmaB2cDrawerCloseOuterVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to PlasmaB2cCarouselVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to PlasmaB2cPaginationDotsHorizontalVariationsView,
+                    "PaginationDotsVertical" to PlasmaB2cPaginationDotsVerticalVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

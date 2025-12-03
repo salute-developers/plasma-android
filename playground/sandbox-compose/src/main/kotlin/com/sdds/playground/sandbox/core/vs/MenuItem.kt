@@ -18,6 +18,7 @@ import com.sdds.playground.sandbox.buttons.vs.BasicButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.IconButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment
 import com.sdds.playground.sandbox.card.vs.CardFragment
+import com.sdds.playground.sandbox.carousel.vs.CarouselFragment
 import com.sdds.playground.sandbox.cell.vs.CellFragment
 import com.sdds.playground.sandbox.checkbox.vs.CheckBoxFragment
 import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
@@ -81,6 +82,7 @@ import com.sdds.testing.vs.button.iconButton
 import com.sdds.testing.vs.button.linkButton
 import com.sdds.testing.vs.card.CardUiState
 import com.sdds.testing.vs.card.card
+import com.sdds.testing.vs.carousel.carousel
 import com.sdds.testing.vs.cell.CellUiState
 import com.sdds.testing.vs.cell.cellLayout
 import com.sdds.testing.vs.checkbox.CheckBoxUiState
@@ -405,6 +407,10 @@ internal sealed class ComponentScreen(
     object Mask : ComponentScreen(
         { item -> fragment<MaskFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Carousel : ComponentScreen(
+        { item -> fragment<CarouselFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -465,6 +471,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         CoreComponent.MASK -> ComponentScreen.Mask
+        CoreComponent.CAROUSEL -> ComponentScreen.Carousel
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -527,6 +534,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.PAGINATION_DOTS -> R.id.nav_pagination_dots
         CoreComponent.TOOL_BAR -> R.id.nav_toolbar
         CoreComponent.MASK -> R.id.nav_note_compact
+        CoreComponent.CAROUSEL -> R.id.nav_carousel
         else -> null
     }?.let { it + hashCode() }
 }
@@ -635,6 +643,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.PAGINATION_DOTS -> paginationDots(context, style)
         CoreComponent.TOOL_BAR -> toolBar(context, style)
         CoreComponent.MASK -> maskedTextField(context, style)
+        CoreComponent.CAROUSEL -> carousel(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

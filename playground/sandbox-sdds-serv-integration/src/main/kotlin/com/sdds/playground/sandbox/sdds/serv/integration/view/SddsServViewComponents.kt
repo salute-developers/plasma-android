@@ -371,5 +371,11 @@ object SddsServViewComponents : ComponentsProviderView() {
                     "PaginationDotsVertical" to SddsServPaginationDotsVerticalVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to SddsServCarouselVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }
