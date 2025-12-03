@@ -27,9 +27,11 @@ internal fun SliderScreen(componentKey: ComponentKey = ComponentKey.Slider) {
         ),
         component = { sliderUiState, style ->
             Slider(
-                modifier = Modifier.fillMaxWidth(0.7f),
+                modifier = Modifier.fillMaxWidth(),
                 value = 0.7f,
-                style = style
+                style = style,
+                onValueChange = {},
+                valueRange = 0f..1f,
             )
         },
     )
