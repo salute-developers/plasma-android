@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -34,6 +36,7 @@ fun Slider(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     val state = remember(valueRange) {SliderState(value, valueRange)}
+    val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
     state.value = value
     state.onValueChange = onValueChange
 
@@ -51,7 +54,8 @@ fun Slider(
         },
         thumb = {
             Thumb(
-                modifier = Modifier,
+                modifier = Modifier
+                    .popoverTrigger(triggerInfo),
                 style = style,
                 interactionSource = interactionSource
             )
@@ -120,7 +124,7 @@ private fun SliderImpl(
     track: @Composable () -> Unit,
     thumb: @Composable () -> Unit,
 ) {
-    state.isRtl = false
+    state.reverse = true
     val gestures = Modifier.sliderGestures(
         state
     )
@@ -138,23 +142,22 @@ private fun SliderImpl(
     ) { measurables, constraints ->
 
         val thumbPlaceable = measurables.fastFirst { it.layoutId == THUMB }
-            .measure(constraints)
+            .measure(constraints.copy(minWidth = 0, minHeight = 0))
         val trackPlaceable = measurables.fastFirst { it.layoutId == TRACK }
-            .measure(constraints.offset(
-                horizontal = - thumbPlaceable.width
-            ).copy(minWidth = 0, minHeight = 0)
-            )
+            .measure(constraints.copy(minWidth = 0, minHeight = 0))
 
         val sliderWidth = trackPlaceable.width
-        val sliderHeight = maxOf(trackPlaceable.width, thumbPlaceable.width)
-
+        val sliderHeight = maxOf(trackPlaceable.height, thumbPlaceable.height)
         state.updateDimensions(
             thumbWidth = thumbPlaceable.width.toFloat(),
             totalWidth = sliderWidth
         )
-
-
-        val thumbX = ((sliderWidth - thumbPlaceable.width) * state.fraction).roundToInt()
+        val frac = state.fraction
+        val thumbX = if (state.reverse) {
+            ((sliderWidth - thumbPlaceable.width) * (1f - frac)).roundToInt()
+        } else {
+            ((sliderWidth - thumbPlaceable.width) * frac).roundToInt()
+        }
         val trackX = 0
         val thumbY = (sliderHeight - thumbPlaceable.height) / 2
         val trackY = (sliderHeight - trackPlaceable.height) / 2
@@ -172,6 +175,7 @@ class SliderState(
     val valueRange: ClosedFloatingPointRange<Float> = 0f..1f
 ) {
     private var valueState by mutableFloatStateOf(value)
+    private var offsetInitialized = false
 
     var value: Float
         get() = valueState
@@ -179,6 +183,7 @@ class SliderState(
             valueState = newValue.coerceIn(valueRange.start, valueRange.endInclusive)
         }
     internal var onValueChange: ((Float) -> Unit)? = null
+    internal var reverse by mutableStateOf(false)
 
     internal var isRtl = false
 
@@ -197,12 +202,15 @@ class SliderState(
     internal fun updateDimensions(thumbWidth: Float, totalWidth: Int) {
         thumbWidthPx = thumbWidth
         trackWidthPx = totalWidth.toFloat() - thumbWidth
-        rawOffset = scaleToOffset(value)
+        if (!offsetInitialized) {
+            rawOffset = if (reverse) trackWidthPx - scaleToOffset(value) else scaleToOffset(value)
+            offsetInitialized = true
+        }
     }
 
     internal fun onPress(pos: Offset) {
-        val x = if (isRtl) {
-            (thumbWidthPx + trackWidthPx) - pos.x
+        val x = if (reverse) {
+            thumbWidthPx + trackWidthPx - pos.x
         } else {
             pos.x
         }
@@ -215,19 +223,28 @@ class SliderState(
         moveToRawOffset(rawOffset + deltaPx)
     }
 
-    private fun scaleToOffset(v: Float) =
-        lerp(
-            start = 0f,
-            stop = trackWidthPx,
-            fraction = calcFraction(valueRange.start, valueRange.endInclusive, v)
-        )
+    private fun scaleToOffset(v: Float): Float {
+        val frac = calcFraction(valueRange.start, valueRange.endInclusive, v)
+        return if (reverse) {
+            lerp(trackWidthPx, 0f, fraction)
+        } else  {
+            lerp(start = 0f, stop = trackWidthPx, fraction = frac)
+        }
+    }
 
-    private fun scaleToValue(px: Float) =
-        lerp(
+    private fun scaleToValue(px: Float): Float {
+        if (trackWidthPx == 0f) return valueRange.start
+        val frac = if (reverse) {
+            1f - (px / trackWidthPx)
+        } else {
+            px / trackWidthPx
+        }
+        return lerp(
             start = valueRange.start,
             stop = valueRange.endInclusive,
-            fraction = if (trackWidthPx == 0f) 0f else px / trackWidthPx
+            fraction = frac
         )
+    }
 
     private fun moveToRawOffset(newOffset: Float) {
         val clamped = newOffset.coerceIn(0f, trackWidthPx)
