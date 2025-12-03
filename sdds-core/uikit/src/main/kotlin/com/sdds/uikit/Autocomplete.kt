@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.doOnLayout
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.ListAdapter
 import com.sdds.uikit.dropdown.DropdownEmptyStateView
@@ -167,14 +168,19 @@ open class Autocomplete @JvmOverloads constructor(
     }
 
     private fun showDropdown() {
-        if (_dropdown.isShowing) return
-        _dropdown.setFixedWidth(textField.measuredWidth)
-        _dropdown.showWithTrigger(
-            textField.findViewById(R.id.sd_textFieldDecorationBox) ?: textField,
-            placement = Popover.PLACEMENT_BOTTOM,
-            placementMode = Popover.PLACEMENT_MODE_STRICT,
-            tailEnabled = false,
-        )
+        if (_dropdown.isShowing) {
+            updateDropdownLocation()
+            return
+        }
+        textField.doOnLayout {
+            _dropdown.setFixedWidth(textField.measuredWidth)
+            _dropdown.showWithTrigger(
+                textField.findViewById(R.id.sd_textFieldDecorationBox) ?: textField,
+                placement = Popover.PLACEMENT_BOTTOM,
+                placementMode = Popover.PLACEMENT_MODE_STRICT,
+                tailEnabled = false,
+            )
+        }
     }
 
     private fun hideDropdown() {
