@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_carouselStyle" format="reference" />
+
+    <declare-styleable name="Carousel" tools:ignore="ResourceName">
+        <attr name="sd_paginationDotsStyleOverlay" format="reference" />
+        <attr name="sd_nextButtonStyleOverlay" format="reference" />
+        <attr name="sd_prevButtonStyleOverlay" format="reference" />
+
+        <attr name="sd_indicatorVisibleItemCount" format="integer" />
+        <attr name="sd_indicatorEnabled" format="boolean" />
+        <attr name="sd_indicatorPadding" format="dimension" />
+
+        <attr name="sd_nextButtonPadding" format="dimension" />
+        <attr name="sd_nextButtonIcon" format="reference" />
+        <attr name="sd_prevButtonPadding" format="dimension" />
+        <attr name="sd_prevButtonIcon" format="dimension" />
+        <attr name="sd_controlsEnabled"/>
+        <attr name="sd_controlsPlacement" format="enum">
+            <enum name="inner" value="0"/>
+            <enum name="outer" value="1"/>
+        </attr>
+
+        <attr name="sd_gap"/>
+        <attr name="sd_offscreenOffset" format="dimension" />
+        <attr name="sd_contentAlignment" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="end" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

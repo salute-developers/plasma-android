@@ -5,4 +5,6 @@
     <attr name="testingShapeTint" format="color" />
     <attr name="testingTextColorPrimary" format="color" />
     <attr name="testTextAppearance" format="reference" />
+    <attr name="testCarouselItemTextAppearance" format="reference" />
+    <attr name="testCarouselItemBackground" format="reference" />
 </resources>

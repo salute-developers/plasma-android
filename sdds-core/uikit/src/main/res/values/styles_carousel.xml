@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Carousel">
+        <item name="sd_controlsEnabled">true</item>
+        <item name="sd_controlsPlacement">inner</item>
+        <item name="sd_offscreenOffset">100dp</item>
+    </style>
+</resources>

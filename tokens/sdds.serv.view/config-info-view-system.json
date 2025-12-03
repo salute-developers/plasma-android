@@ -11511,6 +11511,18 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
             }
          ]
+      },
+      {
+         "key": "carousel",
+         "coreName": "Carousel",
+         "styleName": "Carousel",
+         "variations": [
+            {
+               "name": "default",
+               "viewReference": "Serv.Sdds.Components.Carousel",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.Carousel"
+            }
+         ]
       }
    ]
 }

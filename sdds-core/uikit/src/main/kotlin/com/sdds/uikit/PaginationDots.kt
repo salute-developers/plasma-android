@@ -170,7 +170,9 @@ open class PaginationDots @JvmOverloads constructor(
                 val newCount = value.coerceAtLeast(0)
                 if (newCount == _itemCount) return
                 _itemCount = newCount
-                currentIndex = currentIndex.coerceIn(0, (_itemCount - 1).coerceAtLeast(0))
+                val range = 0..(_itemCount - 1).coerceAtLeast(0)
+                currentIndex = currentIndex.coerceIn(range)
+                visibleItemCount = visibleItemCount.coerceIn(range)
                 reset()
             }
         }
@@ -183,7 +185,8 @@ open class PaginationDots @JvmOverloads constructor(
     var visibleItemCount: Int
         get() = _visibleItemCount
         set(value) {
-            val newVisible = value.coerceAtLeast(0)
+            val maxValue = if (itemCount > 0) itemCount else Int.MAX_VALUE
+            val newVisible = value.coerceIn(0..maxValue)
             if (newVisible == visibleItemCount) return
             _visibleItemCount = newVisible
             reset()
@@ -285,10 +288,12 @@ open class PaginationDots @JvmOverloads constructor(
             }
         }
 
-        _mainSize = mainSize - gap
-        val desiredHeight = if (_orientation == ORIENTATION_HORIZONTAL) crossSize else mainSize - gap
-        val desiredWidth = if (_orientation == ORIENTATION_HORIZONTAL) mainSize - gap else crossSize
+        _mainSize = (mainSize - gap).coerceAtLeast(0)
+        var desiredHeight = if (_orientation == ORIENTATION_HORIZONTAL) crossSize else mainSize - gap
+        var desiredWidth = if (_orientation == ORIENTATION_HORIZONTAL) mainSize - gap else crossSize
 
+        desiredWidth = desiredWidth.coerceAtLeast(0)
+        desiredHeight = desiredHeight.coerceAtLeast(0)
         _clipBounds.set(0, 0, desiredWidth, desiredHeight)
         setMeasuredDimension(
             resolveSize(desiredWidth + paddingLeft + paddingRight, widthMeasureSpec),
