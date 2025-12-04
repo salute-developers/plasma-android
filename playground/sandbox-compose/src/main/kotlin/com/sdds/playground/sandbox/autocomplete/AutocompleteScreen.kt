@@ -46,6 +46,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
  * Экран с компонентом [Autocomplete]
  */
 @Composable
+@Suppress("LongMethod")
 internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autocomplete) {
     ComponentScaffold(
         key = componentKey,
@@ -81,6 +82,8 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                             focusSelectorSettings = FocusSelectorSettings.None,
                         )
                     },
+                    placementMode = autocompleteUiState.placementMode,
+                    dropdownPlacement = autocompleteUiState.placement,
                     showEmptyState = showEmptyState,
                     emptyState = {
                         EmptyState(

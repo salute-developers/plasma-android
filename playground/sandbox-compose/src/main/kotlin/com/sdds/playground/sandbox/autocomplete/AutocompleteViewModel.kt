@@ -39,6 +39,20 @@ internal class AutocompleteViewModel(
                     internalUiState.value = internalUiState.value.copy(fieldAlignment = it)
                 },
             ),
+            enumProperty(
+                name = "placement",
+                value = placement,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(placement = it)
+                },
+            ),
+            enumProperty(
+                name = "placementMode",
+                value = placementMode,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(placementMode = it)
+                },
+            ),
         )
     }
 }

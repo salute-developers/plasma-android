@@ -26,6 +26,8 @@ import androidx.compose.ui.window.PopupProperties
  * @param onDismissRequest колбэк, который будет вызван при нажатии вне меню
  * @param showEmptyState будет ли показано пустое состояние [emptyState]. Если true - основной контент [listContent] скрывается.
  * @param popupProperties настройки [PopupProperties]
+ * @param dropdownPlacement расположение дропдауна относительно текстового поля [field]
+ * @param placementMode режим расположения dropdown [PopoverPlacementMode]
  * @param dropdownWidth настройки ширины dropdown
  * @param dropdownHeight настройки высоты dropdown
  * @param emptyState слот для пустого состояния. Будет показано, если [showEmptyState] == true
