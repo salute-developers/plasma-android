@@ -11,6 +11,8 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 internal class DropdownMenuComposeVariationGenerator(
     private val listStylesPackage: String,
     private val dividerStylesPackage: String,
+    private val scrollBarStylesPackage: String,
+    private val emptyStateStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -53,6 +55,8 @@ internal class DropdownMenuComposeVariationGenerator(
         dimensionsCall(props, variationId),
         listStyleCall(props, ktFileBuilder),
         dividerStyleCall(props, ktFileBuilder),
+        scrollBarStyleCall(props, ktFileBuilder),
+        emptyStateStyleCall(props, ktFileBuilder),
     )
 
     private fun listStyleCall(
@@ -64,6 +68,34 @@ internal class DropdownMenuComposeVariationGenerator(
                 it.value.getComponentStyle(
                     ktFileBuilder,
                     listStylesPackage,
+                )
+            }.style())"
+        }
+    }
+
+    private fun scrollBarStyleCall(
+        props: DropdownMenuProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.scrollBarStyle?.let {
+            ".scrollBarStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    scrollBarStylesPackage,
+                )
+            }.style())"
+        }
+    }
+
+    private fun emptyStateStyleCall(
+        props: DropdownMenuProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.emptyStateStyle?.let {
+            ".emptyStateStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    emptyStateStylesPackage,
                 )
             }.style())"
         }
@@ -128,6 +160,24 @@ internal class DropdownMenuComposeVariationGenerator(
                 props.strokeWidth?.let {
                     appendDimension("stroke_width", it, variationId)
                 }
+                props.paddingStart?.let {
+                    appendDimension("padding_start", it, variationId)
+                }
+                props.paddingEnd?.let {
+                    appendDimension("padding_end", it, variationId)
+                }
+                props.paddingTop?.let {
+                    appendDimension("padding_top", it, variationId)
+                }
+                props.paddingBottom?.let {
+                    appendDimension("padding_bottom", it, variationId)
+                }
+                props.scrollBarPaddingTop?.let {
+                    appendDimension("scroll_bar_padding_top", it, variationId)
+                }
+                props.scrollBarPaddingBottom?.let {
+                    appendDimension("scroll_bar_padding_bottom", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -138,6 +188,12 @@ internal class DropdownMenuComposeVariationGenerator(
     private fun DropdownMenuProperties.hasDimensions(): Boolean {
         return width != null ||
             offset != null ||
+            paddingStart != null ||
+            paddingEnd != null ||
+            paddingTop != null ||
+            paddingBottom != null ||
+            scrollBarPaddingTop != null ||
+            scrollBarPaddingBottom != null ||
             strokeWidth != null
     }
 

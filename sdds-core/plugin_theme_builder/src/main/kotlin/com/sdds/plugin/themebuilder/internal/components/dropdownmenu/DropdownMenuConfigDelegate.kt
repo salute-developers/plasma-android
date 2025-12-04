@@ -48,6 +48,8 @@ internal class DropdownMenuConfigDelegate : ComponentConfigDelegate<DropdownMenu
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         listStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.list",
         dividerStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.divider",
+        scrollBarStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.scrollbar",
+        emptyStateStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.dropdownemptystate",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
     )
 }

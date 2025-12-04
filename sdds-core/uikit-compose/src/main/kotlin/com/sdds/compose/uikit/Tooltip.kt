@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
@@ -110,10 +111,10 @@ fun Tooltip(
     }
 }
 
-private fun TooltipDimensions.toPopoverDimensions(): PopoverDimensions {
+private fun TooltipDimensions.toPopoverDimensions(offset: Dp = this.offset): PopoverDimensions {
     return object : PopoverDimensions {
         override val width = 0.dp
-        override val offset = this@toPopoverDimensions.offset
+        override val offset = offset
         override val tailWidth = this@toPopoverDimensions.tailWidth
         override val tailHeight = this@toPopoverDimensions.tailHeight
         override val tailPadding = this@toPopoverDimensions.tailPadding
