@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
+import com.sdds.playground.sandbox.core.compose.enumProperty
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
@@ -29,6 +30,13 @@ internal class AutocompleteViewModel(
                 value = showLoading,
                 onApply = {
                     internalUiState.value = internalUiState.value.copy(showLoading = it)
+                },
+            ),
+            enumProperty(
+                name = "fieldAlignment",
+                value = fieldAlignment,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(fieldAlignment = it)
                 },
             ),
         )

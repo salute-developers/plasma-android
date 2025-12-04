@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
@@ -24,6 +23,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -31,6 +33,7 @@ import com.sdds.compose.uikit.Autocomplete
 import com.sdds.compose.uikit.AutocompleteDropdownHeight
 import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.compose.uikit.EmptyState
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
@@ -55,13 +58,12 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
-                val componentKeyboardOffset by getComponentOffset()
-                var text by remember { mutableStateOf("") }
+                var text by remember { mutableStateOf(TextFieldValue()) }
                 var showDropdown by remember { mutableStateOf(false) }
-                val filteredList = AutocompleteSuggestions.filterSuggestions(text)
+                val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
                 val showEmptyState = autocompleteUiState.withEmptyState && filteredList.isEmpty()
                 Autocomplete(
-                    modifier = Modifier.offset { componentKeyboardOffset },
+                    modifier = Modifier.align(autocompleteUiState.fieldAlignment.alignment),
                     showDropdown = showDropdown,
                     onDismissRequest = { showDropdown = false },
                     style = style,
@@ -75,6 +77,7 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                                 text = it
                                 showDropdown = true
                             },
+                            endContent = { Icon(painterResource(com.sdds.icons.R.drawable.ic_search_24), "") },
                             focusSelectorSettings = FocusSelectorSettings.None,
                         )
                     },
@@ -86,12 +89,12 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                             buttonLabel = "Action",
                         )
                     },
-                    footer = { Loading() },
+                    footer = if (autocompleteUiState.showLoading) { { Loading() } } else null,
                     listContent = {
                         listContent(
                             filteredList = filteredList,
                             onClick = {
-                                text = it
+                                text = TextFieldValue(it, TextRange(it.length))
                                 showDropdown = false
                             },
                         )
@@ -139,10 +142,10 @@ private fun getComponentOffset(): State<IntOffset> {
 
 @Composable
 internal fun AutocompletePreview(style: AutocompleteStyle) {
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(TextFieldValue()) }
     var showDropdown by remember { mutableStateOf(false) }
     val textFieldInteractionSource = remember { MutableInteractionSource() }
-    val filteredList = AutocompleteSuggestions.filterSuggestions(text)
+    val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
     val showEmptyState = filteredList.isEmpty()
 
     Autocomplete(
@@ -158,6 +161,9 @@ internal fun AutocompletePreview(style: AutocompleteStyle) {
                 onValueChange = {
                     text = it
                     showDropdown = true
+                },
+                endContent = {
+                    Icon(painter = painterResource(com.sdds.icons.R.drawable.ic_search_24), "")
                 },
                 focusSelectorSettings = FocusSelectorSettings.None,
                 interactionSource = textFieldInteractionSource,
@@ -182,7 +188,10 @@ internal fun AutocompletePreview(style: AutocompleteStyle) {
                         indication = null,
                         interactionSource = remember { MutableInteractionSource() },
                     ) {
-                        text = filteredList[index]
+                        text = TextFieldValue(
+                            text = filteredList[index],
+                            selection = TextRange(filteredList[index].length),
+                        )
                         showDropdown = false
                     },
                 text = filteredList[index],

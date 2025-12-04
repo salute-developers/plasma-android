@@ -19,7 +19,7 @@ import androidx.compose.ui.window.PopupProperties
 /**
  * Поле ввода с возможностью подстановки значения из предварительно заполненного выпадающего списка по мере ввода данных
  *
- * @param modifier модификатор
+ * @param modifier модификатор текстового поля
  * @param style стиль компонента
  * @param field слот для текстового поля
  * @param showDropdown показан dropdown или нет
@@ -40,9 +40,9 @@ fun Autocomplete(
     showDropdown: Boolean = false,
     onDismissRequest: () -> Unit = {},
     showEmptyState: Boolean = false,
-    popupProperties: PopupProperties = PopupProperties(),
+    popupProperties: PopupProperties = remember { PopupProperties(clippingEnabled = false) },
     dropdownWidth: AutocompleteDropdownWidth = AutocompleteDropdownWidth.TriggerWidth,
-    dropdownHeight: AutocompleteDropdownHeight = AutocompleteDropdownHeight.Strict(400.dp),
+    dropdownHeight: AutocompleteDropdownHeight = AutocompleteDropdownHeight.Strict(300.dp),
     emptyState: (@Composable DropdownScope.() -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
     listContent: LazyListScope.() -> Unit = {},
