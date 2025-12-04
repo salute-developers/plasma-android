@@ -3,6 +3,7 @@
 
     <style name="Sdds.Components.DropdownMenu" parent="Sdds.Components.Popover">
         <item name="sd_shapeTailEnabled">false</item>
+        <item name="sd_clipHeight">true</item>
     </style>
 
     <style name="Sdds.Components.DropdownEmptyState"/>

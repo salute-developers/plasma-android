@@ -12,18 +12,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:sd_icon="@drawable/ic_plasma_24"
-        app:sd_description="Список пуст" />
+        app:sd_description="Список пуст"
+        app:sd_actionButtonText="Повторить"/>
 
     <com.sdds.uikit.dropdown.DropdownFooterView
         android:layout_width="match_parent"
         android:layout_height="48dp">
 
-        <com.sdds.uikit.TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Загрузка..."
-            android:layout_gravity="center"
-            android:textColor="?testingTextColorPrimary" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            
+            <com.sdds.uikit.Spinner
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="6dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Загрузка"
+                android:layout_gravity="center"
+                android:textColor="?testingTextColorPrimary" />
+        </LinearLayout>
 
     </com.sdds.uikit.dropdown.DropdownFooterView>
 

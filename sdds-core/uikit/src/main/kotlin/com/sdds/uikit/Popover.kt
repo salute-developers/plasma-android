@@ -70,6 +70,7 @@ open class Popover @JvmOverloads constructor(
     private var _choreographer: Choreographer = Choreographer.getInstance()
     private var _contentWidth: Int = -1
     private var _contentHeight: Int = -1
+    private var _isContentInRemeasuring: Boolean = false
 
     override val shape: ShapeModel?
         get() = _content.shape
@@ -120,9 +121,21 @@ open class Popover @JvmOverloads constructor(
             }
         }
 
+    /**
+     * Ограничивать ли ширину [Popover] по границам экрана
+     */
+    var clipWidth: Boolean = false
+
+    /**
+     * Ограничивать ли высоту [Popover] по границам экрана
+     */
+    var clipHeight: Boolean = false
+
     init {
         context.withStyledAttributes(attrs, R.styleable.Popover, defStyleAttr, defStyleRes) {
             _offset = getDimensionPixelOffset(R.styleable.Popover_sd_offset, 0)
+            clipWidth = getBoolean(R.styleable.Popover_sd_clipWidth, false)
+            clipHeight = getBoolean(R.styleable.Popover_sd_clipHeight, false)
             _backgroundList = getColorValueStateList(context, R.styleable.Popover_sd_background)
             _content.setBackgroundValueList(_backgroundList)
         }
@@ -233,10 +246,12 @@ open class Popover @JvmOverloads constructor(
         val trigger = _triggerRef?.get() ?: return
         if (!isShowing) {
             // Делаем принудительное измерение контента, чтобы точнее расположить Popover при первом показе.
+            _isContentInRemeasuring = true
             contentView.measure(
                 MeasureSpec.makeMeasureSpec(_currentLocation.visibleDisplayFrame.width(), MeasureSpec.AT_MOST),
                 MeasureSpec.makeMeasureSpec(_currentLocation.visibleDisplayFrame.height(), MeasureSpec.AT_MOST),
             )
+            _isContentInRemeasuring = false
             val safePaddings = _content.getSafePaddings()
             contentView.setPadding(safePaddings.left, safePaddings.top, safePaddings.right, safePaddings.bottom)
         }
@@ -335,26 +350,32 @@ open class Popover @JvmOverloads constructor(
         val fullHeight = maxHeight.takeIf { it > 0 }
             ?: (visibleDisplayFrame.height() - (safePaddings.top + safePaddings.bottom))
 
-        if (placementMode == PLACEMENT_MODE_STRICT) {
-            val needIme = needConsiderIme()
-            val maxHeight = when {
-                needIme && placement == PLACEMENT_TOP -> getTopSpace()
-                needIme && placement == PLACEMENT_BOTTOM -> getBottomSpace()
+        val shouldClip = !_isContentInRemeasuring
+        val maxHeight = if (clipHeight && shouldClip) {
+            val maxVerticalSpace = when (placement) {
+                PLACEMENT_TOP -> getTopSpace()
+                PLACEMENT_BOTTOM -> getBottomSpace()
                 else -> fullHeight
             }
-            return Size(fullWidth, maxHeight)
-        }
+            maxVerticalSpace.coerceAtMost(fullHeight)
+        } else fullHeight
 
-        val verticalSpace = maxOf(getTopSpace(), getBottomSpace()) - (safePaddings.top + safePaddings.bottom)
-        val maxHeight = verticalSpace.coerceAtMost(fullHeight)
-        return Size(fullWidth, maxHeight)
+        val maxWidth = if (clipWidth && shouldClip) {
+            val maxHorizontalSpace = when (placement) {
+                PLACEMENT_START -> getStartSpace()
+                PLACEMENT_END -> getEndSpace()
+                else -> fullWidth
+            }
+            maxHorizontalSpace.coerceAtMost(fullWidth)
+        } else fullWidth
+        return Size(maxWidth, maxHeight)
     }
 
     private fun PopoverLocation.isAnchorVisible(): Boolean {
         val isVisibleHorizontally = triggerRect.right > visibleDisplayFrame.left &&
-            triggerRect.left < visibleDisplayFrame.right
+                triggerRect.left < visibleDisplayFrame.right
         val isVisibleVertically = triggerRect.bottom > visibleDisplayFrame.top &&
-            triggerRect.top < visibleDisplayFrame.bottom
+                triggerRect.top < visibleDisplayFrame.bottom
         return isVisibleHorizontally && isVisibleVertically
     }
 
@@ -370,6 +391,15 @@ open class Popover @JvmOverloads constructor(
         val enoughBottomSpace = enoughBottomSpace(height)
         val enoughStartSpace = enoughStartSpace(width)
         val enoughEndSpace = enoughEndSpace(width)
+        if (!enoughStartSpace && !enoughTopSpace && !enoughEndSpace && !enoughBottomSpace) {
+            val spaces =  mapOf(
+                PLACEMENT_TOP to getTopSpace(),
+                PLACEMENT_END to getEndSpace(),
+                PLACEMENT_BOTTOM to getBottomSpace(),
+                PLACEMENT_START to getStartSpace(),
+            )
+            return spaces.maxBy { it.value }.key
+        }
         return when {
             placement == PLACEMENT_TOP && enoughTopSpace -> PLACEMENT_TOP
             placement == PLACEMENT_BOTTOM && enoughBottomSpace -> PLACEMENT_BOTTOM
