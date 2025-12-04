@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.LocalProgressBarStyle
 import com.sdds.compose.uikit.LocalRadioBoxGroupStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
+import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -80,6 +81,9 @@ import com.sdds.serv.styles.radioboxgroup.RadioBoxGroup
 import com.sdds.serv.styles.segmentitem.M
 import com.sdds.serv.styles.segmentitem.Primary
 import com.sdds.serv.styles.segmentitem.SegmentItem
+import com.sdds.serv.styles.spinner.Default
+import com.sdds.serv.styles.spinner.Spinner
+import com.sdds.serv.styles.spinner.Xs
 import com.sdds.serv.styles.switcher.M
 import com.sdds.serv.styles.switcher.Switch
 import com.sdds.serv.styles.switcher.ToggleS
@@ -140,6 +144,7 @@ fun SandboxTheme(
                 ),
                 LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
                 LocalSwitchStyle provides Switch.M.style(),
+                LocalSpinnerStyle provides Spinner.Xs.Default.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalIconButtonStyle provides IconButton.M.Default.style(),
                 LocalModalBottomSheetStyle provides ModalBottomSheet.Default.style(),

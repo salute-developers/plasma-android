@@ -24,6 +24,7 @@ val Dp.floatPx: Float
 /**
  * Px -> Dp
  */
+@Deprecated("Don't use")
 val Int.dp: Dp
     @Composable
     get() = with(LocalDensity.current) { this@dp.toDp() }
