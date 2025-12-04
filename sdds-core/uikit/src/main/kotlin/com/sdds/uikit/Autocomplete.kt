@@ -42,6 +42,7 @@ open class Autocomplete @JvmOverloads constructor(
             }
             inputMethodMode = PopupWindow.INPUT_METHOD_NEEDED
             isFocusable = false
+            clipHeight = true
             itemListView.itemAnimator = null
             offset = 0
         }
