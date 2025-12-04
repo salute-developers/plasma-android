@@ -199,10 +199,12 @@ open class Popover @JvmOverloads constructor(
         contentView.requestLayout()
         contentView.invalidate()
         _content.invalidateOutline()
-        ViewCompat.setOnApplyWindowInsetsListener(_content) { v, insets ->
-            updateLocationPoint()
-            v.requestLayout()
-            insets
+        if (needConsiderIme()) {
+            ViewCompat.setOnApplyWindowInsetsListener(_content) { v, insets ->
+                updateLocationPoint()
+                v.requestLayout()
+                insets
+            }
         }
 
         // Автоматическое скрытие
@@ -334,9 +336,10 @@ open class Popover @JvmOverloads constructor(
             ?: (visibleDisplayFrame.height() - (safePaddings.top + safePaddings.bottom))
 
         if (placementMode == PLACEMENT_MODE_STRICT) {
-            val maxHeight = when (placement) {
-                PLACEMENT_TOP -> getTopSpace()
-                PLACEMENT_BOTTOM -> getBottomSpace()
+            val needIme = needConsiderIme()
+            val maxHeight = when {
+                needIme && placement == PLACEMENT_TOP -> getTopSpace()
+                needIme && placement == PLACEMENT_BOTTOM -> getBottomSpace()
                 else -> fullHeight
             }
             return Size(fullWidth, maxHeight)
@@ -353,6 +356,10 @@ open class Popover @JvmOverloads constructor(
         val isVisibleVertically = triggerRect.bottom > visibleDisplayFrame.top &&
             triggerRect.top < visibleDisplayFrame.bottom
         return isVisibleHorizontally && isVisibleVertically
+    }
+
+    private fun needConsiderIme(): Boolean {
+        return inputMethodMode != INPUT_METHOD_NOT_NEEDED
     }
 
     private fun PopoverLocation.getSafePlacement(
