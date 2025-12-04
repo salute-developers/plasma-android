@@ -5,6 +5,8 @@
 
     <declare-styleable name="Popover" tools:ignore="ResourceName">
         <attr name="sd_offset" format="dimension" />
+        <attr name="sd_clipWidth" format="boolean" />
+        <attr name="sd_clipHeight" format="boolean" />
         <attr name="sd_shadowAppearance" />
         <attr name="sd_background" />
 

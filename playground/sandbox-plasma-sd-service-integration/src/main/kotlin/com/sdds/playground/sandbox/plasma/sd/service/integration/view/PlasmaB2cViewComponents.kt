@@ -319,5 +319,18 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                     "DrawerCloseOuter" to PlasmaB2cDrawerCloseOuterVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to PlasmaB2cAutocompleteTightVariationsView,
+                    "AutocompleteNormal" to PlasmaB2cAutocompleteNormalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to PlasmaB2cDropdownEmptyStateVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

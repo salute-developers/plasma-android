@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_autocompleteStyle" format="reference"/>
+
+    <declare-styleable name="Autocomplete" tools:ignore="ResourceName">
+        <attr name="sd_textFieldStyleOverlay" format="reference" />
+        <attr name="sd_dropdownMenuStyleOverlay"/>
+    </declare-styleable>
+</resources>

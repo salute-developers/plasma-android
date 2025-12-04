@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutocompleteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
@@ -22,6 +23,7 @@ import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDel
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
@@ -123,5 +125,7 @@ internal val componentDelegates by unsafeLazy {
         "toolbar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),
+        "dropdown-empty-state" to EmptyStateConfigDelegate(),
+        "autocomplete" to AutocompleteConfigDelegate(),
     )
 }

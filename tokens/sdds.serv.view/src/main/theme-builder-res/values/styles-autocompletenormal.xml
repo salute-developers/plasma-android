@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.AutocompleteNormal" parent="Sdds.Components.Autocomplete"/>
+    <style name="Serv.Sdds.Components.AutocompleteNormal.Xl">
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXlDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AutocompleteNormalXl">
+        <item name="sd_autocompleteStyle">@style/Serv.Sdds.Components.AutocompleteNormal.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.AutocompleteNormal.L">
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldLDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AutocompleteNormalL">
+        <item name="sd_autocompleteStyle">@style/Serv.Sdds.Components.AutocompleteNormal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.AutocompleteNormal.M">
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldMDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AutocompleteNormalM">
+        <item name="sd_autocompleteStyle">@style/Serv.Sdds.Components.AutocompleteNormal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.AutocompleteNormal.S">
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldSDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AutocompleteNormalS">
+        <item name="sd_autocompleteStyle">@style/Serv.Sdds.Components.AutocompleteNormal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.AutocompleteNormal.Xs">
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXsDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.AutocompleteNormalXs">
+        <item name="sd_autocompleteStyle">@style/Serv.Sdds.Components.AutocompleteNormal.Xs</item>
+    </style>
+</resources>
