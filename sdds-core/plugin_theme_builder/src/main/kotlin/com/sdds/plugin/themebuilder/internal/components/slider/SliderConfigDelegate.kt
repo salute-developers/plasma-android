@@ -38,5 +38,6 @@ internal class SliderConfigDelegate : ComponentConfigDelegate<SliderConfig>() {
         componentName = component.styleName.techToSnakeCase(),
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+        tooltipStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.tooltip",
     )
 }
