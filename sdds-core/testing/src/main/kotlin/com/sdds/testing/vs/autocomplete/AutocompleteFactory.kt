@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.annotation.StyleRes
 import androidx.core.view.isVisible
 import com.sdds.testing.databinding.LayoutComponentAutocompleteBinding
+import com.sdds.testing.vs.popover.toPlacementMode
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Autocomplete
 import com.sdds.uikit.ListItem
@@ -48,5 +49,6 @@ fun autocomplete(
  */
 fun Autocomplete.applyState(state: AutocompleteUiState): Autocomplete = apply {
     emptyStateEnabled = state.withEmptyState
+    dropdownPlacementMode = state.dropdownPlacementMode.toPlacementMode()
     getFooterView()?.isVisible = state.showLoading
 }

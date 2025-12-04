@@ -1,6 +1,7 @@
 package com.sdds.testing.vs.autocomplete
 
 import com.sdds.testing.vs.UiState
+import com.sdds.testing.vs.popover.PopoverPlacementMode
 import com.sdds.testing.vs.popover.PopoverTriggerAlignment
 
 /**
@@ -13,6 +14,7 @@ import com.sdds.testing.vs.popover.PopoverTriggerAlignment
  * @property showLoading Показывать ли индикатор загрузки.
  * @property withEmptyState Отображать ли секцию пустого состояния при отсутствии подсказок
  * @property fieldAlignment Выравнивание поля Autocomplete относительно экрана.
+ * @property dropdownPlacementMode Режим расположения Dropdown
  */
 data class AutocompleteUiState(
     override val variant: String = "",
@@ -20,6 +22,7 @@ data class AutocompleteUiState(
     val showLoading: Boolean = false,
     val withEmptyState: Boolean = true,
     val fieldAlignment: PopoverTriggerAlignment = PopoverTriggerAlignment.CENTER,
+    val dropdownPlacementMode: PopoverPlacementMode = PopoverPlacementMode.LOOSE,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {

@@ -30,6 +30,7 @@ open class Autocomplete @JvmOverloads constructor(
 ) : LinearLayout(wrapper(context, attrs, defStyleAttr, defStyleRes), attrs, defStyleAttr, defStyleRes) {
 
     private var _textField: TextField = TextField(this.context)
+    private var _dropdownPlacementMode = Popover.PLACEMENT_MODE_LOOSE
     private val _dropdown: DropdownMenu = DropdownMenu(this.context)
         .apply {
             itemAdapter = SimpleListViewAdapter().apply {
@@ -68,6 +69,19 @@ open class Autocomplete @JvmOverloads constructor(
             _dropdown.emptyStateEnabled = value
         }
 
+    /**
+     * Режим расположения [DropdownMenu]
+     * @see Popover.PLACEMENT_MODE_STRICT
+     * @see Popover.PLACEMENT_MODE_LOOSE
+     */
+    var dropdownPlacementMode: Int
+        get() = _dropdownPlacementMode
+        set(value) {
+            if (_dropdownPlacementMode != value) {
+                _dropdownPlacementMode = value
+            }
+        }
+
     init {
         clipChildren = false
         clipToPadding = false
@@ -79,7 +93,7 @@ open class Autocomplete @JvmOverloads constructor(
      * @param items список элементов-подсказок.
      * Выпадающее меню будет автоматически показано или скрыто в зависимости от количества элементов.
      */
-    fun setItems(items: List<ListItem>) {
+    open fun setItems(items: List<ListItem>) {
         _dropdown.setItems<ListAdapter<ListItem, *>>(items)
         if (shouldShowDropdown(items.size)) {
             showDropdown()
@@ -96,7 +110,7 @@ open class Autocomplete @JvmOverloads constructor(
      *
      * @param producer функция, принимающая текущий текст и возвращающая список подсказок.
      */
-    fun setItemProducer(producer: (CharSequence) -> List<ListItem>) {
+    open fun setItemProducer(producer: (CharSequence) -> List<ListItem>) {
         textField.editText.doAfterTextChanged { text ->
             setItems(producer(text.toString()))
         }
@@ -107,7 +121,7 @@ open class Autocomplete @JvmOverloads constructor(
      *
      * @param emptyStateView виджет, который будет отображаться, когда список подсказок пуст; null удаляет его.
      */
-    fun setDropdownEmptyStateView(emptyStateView: View?) {
+    open fun setDropdownEmptyStateView(emptyStateView: View?) {
         _dropdown.setEmptyStateView(emptyStateView)
     }
 
@@ -116,7 +130,7 @@ open class Autocomplete @JvmOverloads constructor(
      *
      * @param footer виджет, отображаемый внизу выпадающего меню; null удаляет его.
      */
-    fun setDropdownFooterView(footer: View?) {
+    open fun setDropdownFooterView(footer: View?) {
         _dropdown.setFooter(footer)
     }
 
@@ -125,14 +139,14 @@ open class Autocomplete @JvmOverloads constructor(
      *
      * @return виджет пустого состояния или null, если он не установлен.
      */
-    fun getEmptyStateView(): View? = _dropdown.getEmptyStateView()
+    open fun getEmptyStateView(): View? = _dropdown.getEmptyStateView()
 
     /**
      * Возвращает текущий footer выпадающего меню.
      *
      * @return footer или null, если он не установлен.
      */
-    fun getFooterView(): View? = _dropdown.getFooterView()
+    open fun getFooterView(): View? = _dropdown.getFooterView()
 
     /**
      * Обновляет позицию выпадающего меню, если оно отображается.
@@ -140,10 +154,36 @@ open class Autocomplete @JvmOverloads constructor(
      * Полезно при изменениях компоновки, когда меню должно оставаться выровненным
      * относительно текстового поля.
      */
-    fun updateDropdownLocation() {
+    open fun updateDropdownLocation() {
         if (_dropdown.isShowing) {
             _dropdown.updateLocationPoint()
         }
+    }
+
+    /**
+     * Показывает [DropdownMenu]
+     */
+    open fun showDropdown() {
+        if (_dropdown.isShowing) {
+            updateDropdownLocation()
+            return
+        }
+        textField.doOnLayout {
+            _dropdown.setFixedWidth(textField.measuredWidth)
+            _dropdown.showWithTrigger(
+                textField.findViewById(R.id.sd_textFieldDecorationBox) ?: textField,
+                placement = Popover.PLACEMENT_BOTTOM,
+                placementMode = _dropdownPlacementMode,
+                tailEnabled = false,
+            )
+        }
+    }
+
+    /**
+     * Скрывает [DropdownMenu]
+     */
+    open fun hideDropdown() {
+        _dropdown.dismiss()
     }
 
     override fun onAttachedToWindow() {
@@ -153,6 +193,7 @@ open class Autocomplete @JvmOverloads constructor(
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
+        hideDropdown()
         viewTreeObserver.removeOnGlobalFocusChangeListener(_globalFocusListener)
     }
 
@@ -165,26 +206,6 @@ open class Autocomplete @JvmOverloads constructor(
                 super.addView(child, index, params)
             }
         }
-    }
-
-    private fun showDropdown() {
-        if (_dropdown.isShowing) {
-            updateDropdownLocation()
-            return
-        }
-        textField.doOnLayout {
-            _dropdown.setFixedWidth(textField.measuredWidth)
-            _dropdown.showWithTrigger(
-                textField.findViewById(R.id.sd_textFieldDecorationBox) ?: textField,
-                placement = Popover.PLACEMENT_BOTTOM,
-                placementMode = Popover.PLACEMENT_MODE_STRICT,
-                tailEnabled = false,
-            )
-        }
-    }
-
-    private fun hideDropdown() {
-        _dropdown.dismiss()
     }
 
     private fun shouldShowDropdown(itemCount: Int = _dropdown.itemAdapter?.itemCount ?: 0): Boolean {

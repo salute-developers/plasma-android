@@ -7,6 +7,7 @@ import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
 import com.sdds.testing.vs.autocomplete.AutocompleteUiState
+import com.sdds.testing.vs.popover.PopoverPlacementMode
 import com.sdds.testing.vs.popover.PopoverTriggerAlignment
 
 internal class AutocompleteViewModel(
@@ -24,6 +25,12 @@ internal class AutocompleteViewModel(
             AutocompleteProperties.EmptyState -> currentState.copy(withEmptyState = valueString.toBoolean())
             AutocompleteProperties.FieldAlignment -> currentState.copy(
                 fieldAlignment = PopoverTriggerAlignment.valueOf(
+                    valueString,
+                ),
+            )
+
+            AutocompleteProperties.DropdownPlacementMode -> currentState.copy(
+                dropdownPlacementMode = PopoverPlacementMode.valueOf(
                     valueString,
                 ),
             )
@@ -45,6 +52,10 @@ internal class AutocompleteViewModel(
                 name = AutocompleteProperties.FieldAlignment.value,
                 value = fieldAlignment,
             ),
+            enumProperty(
+                name = AutocompleteProperties.DropdownPlacementMode.value,
+                value = dropdownPlacementMode,
+            ),
         )
     }
 
@@ -52,6 +63,7 @@ internal class AutocompleteViewModel(
         ShowLoading("loading"),
         EmptyState("emptyState"),
         FieldAlignment("fieldAlignment"),
+        DropdownPlacementMode("dropdownPlacementMode"),
     }
 }
 
