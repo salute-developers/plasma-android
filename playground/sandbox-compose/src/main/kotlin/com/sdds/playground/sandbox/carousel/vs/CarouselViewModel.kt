@@ -7,7 +7,6 @@ import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
 import com.sdds.testing.vs.carousel.CarouselContentAlignment
-import com.sdds.testing.vs.carousel.CarouselControlsPlacement
 import com.sdds.testing.vs.carousel.CarouselUiState
 
 internal class CarouselViewModel(
@@ -22,11 +21,6 @@ internal class CarouselViewModel(
         val currentState = internalUiState.value
         internalUiState.value = when (propertyName) {
             CarouselProperty.ITEM_COUNT -> currentState.copy(itemCount = valueString.toIntOrNull() ?: 0)
-            CarouselProperty.CONTROLS_PLACEMENT -> currentState.copy(
-                controlsPlacement = CarouselControlsPlacement.valueOf(
-                    valueString,
-                ),
-            )
 
             CarouselProperty.CONTROLS_ENABLED -> currentState.copy(controlsEnabled = valueString.toBoolean())
             CarouselProperty.INDICATOR_ENABLED -> currentState.copy(indicatorEnabled = valueString.toBoolean())
@@ -48,10 +42,6 @@ internal class CarouselViewModel(
             enumProperty(
                 name = CarouselProperty.ALIGNMENT.value,
                 value = alignment,
-            ),
-            enumProperty(
-                name = CarouselProperty.CONTROLS_PLACEMENT.value,
-                value = controlsPlacement,
             ),
             Property.BooleanProperty(
                 name = CarouselProperty.CONTROLS_ENABLED.value,
@@ -75,7 +65,6 @@ internal class CarouselViewModel(
     private enum class CarouselProperty(val value: String) {
         ITEM_COUNT("itemCount"),
         ALIGNMENT("contentAlignment"),
-        CONTROLS_PLACEMENT("buttonsPlacement"),
         CONTROLS_ENABLED("controlsEnabled"),
         INDICATOR_ENABLED("indicatorEnabled"),
         INDICATOR_VISIBLE_ITEM_COUNT("indicatorCount"),

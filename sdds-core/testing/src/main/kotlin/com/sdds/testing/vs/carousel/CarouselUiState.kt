@@ -8,7 +8,6 @@ import com.sdds.uikit.Carousel
  * @property variant вариация
  * @property appearance внешний вид
  * @property itemCount кол-во элементов в карусели
- * @property controlsPlacement расположение кнопок расположения
  * @property alignment выравнивание по горизонтали
  * @property controlsEnabled включены ли кнопки расположения
  * @property indicatorEnabled включен ли индикатор
@@ -19,7 +18,6 @@ data class CarouselUiState(
     override val variant: String = "",
     override val appearance: String = "",
     val itemCount: Int = 10,
-    val controlsPlacement: CarouselControlsPlacement = CarouselControlsPlacement.INNER,
     val alignment: CarouselContentAlignment = CarouselContentAlignment.CENTER,
     val controlsEnabled: Boolean = true,
     val indicatorEnabled: Boolean = true,
@@ -29,16 +27,6 @@ data class CarouselUiState(
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }
-}
-
-/**
- * Расположение кнопок управления
- * @property raw значение расположения
- * @see Carousel.controlsPlacement
- */
-enum class CarouselControlsPlacement(val raw: Int) {
-    INNER(Carousel.CONTROLS_PLACEMENT_INNER),
-    OUTER(Carousel.CONTROLS_PLACEMENT_OUTER),
 }
 
 /**

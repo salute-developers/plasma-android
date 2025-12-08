@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorProperties
@@ -23,6 +24,7 @@ internal data class CarouselProperties(
     val prevButtonPadding: Dimension? = null,
     val indicatorPadding: Dimension? = null,
     val gap: Dimension? = null,
+    val buttonsPlacement: Value? = null,
 ) : PropertyOwner {
 
     override fun merge(parent: PropertyOwner): PropertyOwner {
@@ -37,6 +39,7 @@ internal data class CarouselProperties(
             prevButtonPadding = prevButtonPadding ?: otherProps.prevButtonPadding,
             indicatorPadding = indicatorPadding ?: otherProps.indicatorPadding,
             gap = gap ?: otherProps.gap,
+            buttonsPlacement = buttonsPlacement ?: otherProps.buttonsPlacement,
         )
     }
 }

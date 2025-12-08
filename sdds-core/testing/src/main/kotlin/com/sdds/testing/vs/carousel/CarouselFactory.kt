@@ -41,7 +41,6 @@ fun Carousel.applyState(state: CarouselUiState) = apply {
     (adapter as CarouselTextAdapter).updateItemCount(state.itemCount)
     contentAlignment = state.alignment.raw
     controlsEnabled = state.controlsEnabled
-    controlsPlacement = state.controlsPlacement.raw
     indicatorEnabled = state.indicatorEnabled
     indicatorVisibleItemCount = state.indicatorVisibleItemCount
 

@@ -6,6 +6,7 @@ import com.sdds.plasma.sd.service.R as DsR
 internal object PlasmaB2cCarouselVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
-            "Default" to DsR.style.Plasma_SdService_ComponentOverlays_Carousel,
+            "ButtonsPlacementInner" to DsR.style.Plasma_SdService_ComponentOverlays_CarouselButtonsPlacementInner,
+            "ButtonsPlacementOuter" to DsR.style.Plasma_SdService_ComponentOverlays_CarouselButtonsPlacementOuter,
         )
 }

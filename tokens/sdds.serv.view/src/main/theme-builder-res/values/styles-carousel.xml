@@ -12,7 +12,20 @@
         <item name="sd_nextButtonPadding">@dimen/serv_carousel_next_padding</item>
         <item name="sd_prevButtonPadding">@dimen/serv_carousel_prev_padding</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.Carousel">
-        <item name="sd_carouselStyle">@style/Serv.Sdds.Components.Carousel</item>
+    <style name="Serv.Sdds.Components.Carousel.ButtonsPlacementInner">
+        <item name="sd_controlsPlacement">inner</item>
+        <item name="sd_nextButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSPilledSecondary</item>
+        <item name="sd_prevButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSPilledSecondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementInner">
+        <item name="sd_carouselStyle">@style/Serv.Sdds.Components.Carousel.ButtonsPlacementInner</item>
+    </style>
+    <style name="Serv.Sdds.Components.Carousel.ButtonsPlacementOuter">
+        <item name="sd_controlsPlacement">outer</item>
+        <item name="sd_nextButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSPilledClear</item>
+        <item name="sd_prevButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSPilledClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementOuter">
+        <item name="sd_carouselStyle">@style/Serv.Sdds.Components.Carousel.ButtonsPlacementOuter</item>
     </style>
 </resources>

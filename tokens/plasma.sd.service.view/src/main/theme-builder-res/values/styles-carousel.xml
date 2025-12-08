@@ -12,7 +12,20 @@
         <item name="sd_nextButtonPadding">@dimen/plasma_carousel_next_padding</item>
         <item name="sd_prevButtonPadding">@dimen/plasma_carousel_prev_padding</item>
     </style>
-    <style name="Plasma.SdService.ComponentOverlays.Carousel">
-        <item name="sd_carouselStyle">@style/Plasma.SdService.Components.Carousel</item>
+    <style name="Plasma.SdService.Components.Carousel.ButtonsPlacementInner">
+        <item name="sd_controlsPlacement">inner</item>
+        <item name="sd_nextButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSPilledSecondary</item>
+        <item name="sd_prevButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSPilledSecondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementInner">
+        <item name="sd_carouselStyle">@style/Plasma.SdService.Components.Carousel.ButtonsPlacementInner</item>
+    </style>
+    <style name="Plasma.SdService.Components.Carousel.ButtonsPlacementOuter">
+        <item name="sd_controlsPlacement">outer</item>
+        <item name="sd_nextButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSPilledClear</item>
+        <item name="sd_prevButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSPilledClear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementOuter">
+        <item name="sd_carouselStyle">@style/Plasma.SdService.Components.Carousel.ButtonsPlacementOuter</item>
     </style>
 </resources>

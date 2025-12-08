@@ -10074,9 +10074,14 @@
          "styleName": "Carousel",
          "variations": [
             {
-               "name": "default",
-               "viewReference": "Plasma.SdService.Components.Carousel",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.Carousel"
+               "name": "buttons-placement-inner",
+               "viewReference": "Plasma.SdService.Components.Carousel.ButtonsPlacementInner",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementInner"
+            },
+            {
+               "name": "buttons-placement-outer",
+               "viewReference": "Plasma.SdService.Components.Carousel.ButtonsPlacementOuter",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementOuter"
             }
          ]
       },

@@ -77,8 +77,8 @@ open class Carousel @JvmOverloads constructor(
     private var _nextButtonPadding: Int = 0
     private var _prevButtonPadding: Int = 0
     private var _gap: Int = 0
-    private var spacingDecorator: SpacingDecorator? = null
-    private var offscreenOffsetDecorator: OffsetDecorator? = null
+    private var spacingDecorator: ItemDecoration? = null
+    private var offscreenOffsetDecorator: ItemDecoration? = null
     private var offscreenOffsetTransformer: PageTransformer? = null
     private var _indicatorEnabled: Boolean = true
     private var _controlsEnabled: Boolean = true
@@ -243,8 +243,8 @@ open class Carousel @JvmOverloads constructor(
         }
 
     init {
-        obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         populate()
+        obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         updateButtonsPaddings()
         updateItemsSpacing()
     }
@@ -496,6 +496,7 @@ open class Carousel @JvmOverloads constructor(
     private fun updateItemsSpacing() {
         spacingDecorator?.let { viewPager.removeItemDecoration(it) }
         spacingDecorator = SpacingDecorator(
+            alignmentProvider = { contentAlignment },
             spacingProvider = { _gap },
         )
             .also { viewPager.addItemDecoration(it) }
@@ -515,6 +516,7 @@ open class Carousel @JvmOverloads constructor(
     }
 
     private class SpacingDecorator(
+        private val alignmentProvider: () -> Int,
         private val spacingProvider: (view: View) -> Int,
     ) : ItemDecoration() {
 
@@ -522,14 +524,29 @@ open class Carousel @JvmOverloads constructor(
             val position = parent.getChildLayoutPosition(view)
             val itemCount = state.itemCount
             if (itemCount <= 1) return
-            val spacing = spacingProvider(view) / 2
-            when (position) {
-                0 -> outRect.right = spacing
-                itemCount - 1 -> outRect.left = spacing
-                else -> {
-                    outRect.left = spacing
-                    outRect.right = spacing
-                }
+            val spacing = spacingProvider(view)
+            val alignment = alignmentProvider()
+            when (alignment) {
+                CONTENT_ALIGNMENT_START -> outRect.applyContentStartSpacing(spacing, position, itemCount)
+                CONTENT_ALIGNMENT_CENTER -> outRect.applyContentCenterSpacing(spacing, position, itemCount)
+                CONTENT_ALIGNMENT_END -> outRect.applyContentEndSpacing(spacing, position, itemCount)
+            }
+        }
+
+        private fun Rect.applyContentStartSpacing(spacing: Int, position: Int, itemCount: Int) {
+            if (position in 0 until itemCount) {
+                right = spacing
+            }
+        }
+
+        private fun Rect.applyContentCenterSpacing(spacing: Int, position: Int, itemCount: Int) {
+            left = spacing / 2
+            right = spacing / 2
+        }
+
+        private fun Rect.applyContentEndSpacing(spacing: Int, position: Int, itemCount: Int) {
+            if (position in 0 until itemCount) {
+                left = spacing
             }
         }
     }

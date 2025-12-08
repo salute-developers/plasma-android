@@ -11518,9 +11518,14 @@
          "styleName": "Carousel",
          "variations": [
             {
-               "name": "default",
-               "viewReference": "Serv.Sdds.Components.Carousel",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.Carousel"
+               "name": "buttons-placement-inner",
+               "viewReference": "Serv.Sdds.Components.Carousel.ButtonsPlacementInner",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementInner"
+            },
+            {
+               "name": "buttons-placement-outer",
+               "viewReference": "Serv.Sdds.Components.Carousel.ButtonsPlacementOuter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementOuter"
             }
          ]
       }

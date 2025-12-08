@@ -57,6 +57,12 @@ internal open class CarouselStyleGeneratorView(
     }
 
     private fun Element.addProps(props: CarouselProperties) {
+        props.buttonsPlacement?.let {
+            valueAttribute(
+                "sd_controlsPlacement",
+                it.value,
+            )
+        }
         props.nextButtonStyle?.let {
             componentOverlayAttribute(
                 "sd_nextButtonStyleOverlay",
