@@ -358,7 +358,9 @@ open class Popover @JvmOverloads constructor(
                 else -> fullHeight
             }
             maxVerticalSpace.coerceAtMost(fullHeight)
-        } else fullHeight
+        } else {
+            fullHeight
+        }
 
         val maxWidth = if (clipWidth && shouldClip) {
             val maxHorizontalSpace = when (placement) {
@@ -367,15 +369,17 @@ open class Popover @JvmOverloads constructor(
                 else -> fullWidth
             }
             maxHorizontalSpace.coerceAtMost(fullWidth)
-        } else fullWidth
+        } else {
+            fullWidth
+        }
         return Size(maxWidth, maxHeight)
     }
 
     private fun PopoverLocation.isAnchorVisible(): Boolean {
         val isVisibleHorizontally = triggerRect.right > visibleDisplayFrame.left &&
-                triggerRect.left < visibleDisplayFrame.right
+            triggerRect.left < visibleDisplayFrame.right
         val isVisibleVertically = triggerRect.bottom > visibleDisplayFrame.top &&
-                triggerRect.top < visibleDisplayFrame.bottom
+            triggerRect.top < visibleDisplayFrame.bottom
         return isVisibleHorizontally && isVisibleVertically
     }
 
@@ -391,8 +395,10 @@ open class Popover @JvmOverloads constructor(
         val enoughBottomSpace = enoughBottomSpace(height)
         val enoughStartSpace = enoughStartSpace(width)
         val enoughEndSpace = enoughEndSpace(width)
-        if (!enoughStartSpace && !enoughTopSpace && !enoughEndSpace && !enoughBottomSpace) {
-            val spaces =  mapOf(
+        val noVerticalSpace = !enoughTopSpace && !enoughBottomSpace
+        val noHorizontalSpace = !enoughStartSpace && !enoughEndSpace
+        if (noVerticalSpace && noHorizontalSpace) {
+            val spaces = mapOf(
                 PLACEMENT_TOP to getTopSpace(),
                 PLACEMENT_END to getEndSpace(),
                 PLACEMENT_BOTTOM to getBottomSpace(),
