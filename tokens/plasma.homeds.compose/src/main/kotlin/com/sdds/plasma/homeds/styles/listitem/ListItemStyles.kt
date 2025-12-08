@@ -69,6 +69,7 @@ public val ListItem.S: WrapperListItemS
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingEnd(12.0.dp)
+            contentPaddingStart(12.0.dp)
             height(48.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)

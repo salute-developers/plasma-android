@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.internal.switch
+package com.sdds.compose.uikit.internal.checkable.switch
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween

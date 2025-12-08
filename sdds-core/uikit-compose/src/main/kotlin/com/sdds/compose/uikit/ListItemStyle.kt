@@ -80,6 +80,11 @@ interface ListItemStyle : Style {
     val disclosureIconRes: Int?
 
     /**
+     * Стиль текста disclosure
+     */
+    val disclosureTextStyle: StatefulValue<TextStyle>
+
+    /**
      * Цвета компонента
      */
     val colors: ListItemColors
@@ -88,6 +93,36 @@ interface ListItemStyle : Style {
      * Отступы компонента
      */
     val dimensions: ListItemDimensions
+
+    /**
+     * Стиль [Avatar], используемых в [ListItem]
+     */
+    val avatarStyle: AvatarStyle?
+
+    /**
+     * Стиль [IconButton], используемых в [ListItem]
+     */
+    val iconButtonStyle: ButtonStyle?
+
+    /**
+     * Стиль [CheckBox], используемых в [ListItem]
+     */
+    val checkBoxStyle: CheckBoxStyle?
+
+    /**
+     * Стиль [RadioBox], используемых в [ListItem]
+     */
+    val radioBoxStyle: RadioBoxStyle?
+
+    /**
+     * Стиль [Switch], используемых в [ListItem]
+     */
+    val switchStyle: SwitchStyle?
+
+    /**
+     * Стиль [Counter], используемых в [ListItem]
+     */
+    val counterStyle: CounterStyle?
 
     companion object {
         /**
@@ -108,6 +143,13 @@ private data class DefaultListItemStyle(
     override val titleStyles: StatefulValue<TextStyle>,
     override val subtitleStyles: StatefulValue<TextStyle>,
     override val labelStyles: StatefulValue<TextStyle>,
+    override val avatarStyle: AvatarStyle?,
+    override val iconButtonStyle: ButtonStyle?,
+    override val checkBoxStyle: CheckBoxStyle?,
+    override val radioBoxStyle: RadioBoxStyle?,
+    override val switchStyle: SwitchStyle?,
+    override val counterStyle: CounterStyle?,
+    override val disclosureTextStyle: StatefulValue<TextStyle>,
 ) : ListItemStyle {
 
     override val titleStyle: TextStyle get() = titleStyles.getDefaultValue()
@@ -117,12 +159,19 @@ private data class DefaultListItemStyle(
     class Builder : ListItemStyleBuilder {
         private var shape: Shape? = null
         private var titleStyle: StatefulValue<TextStyle>? = null
+        private var disclosureStyle: StatefulValue<TextStyle>? = null
         private var subtitleStyle: StatefulValue<TextStyle>? = null
         private var labelStyle: StatefulValue<TextStyle>? = null
         private var disclosureIcon: Painter? = null
         private var disclosureIconRes: Int? = null
         private var colorsBuilder: ListItemColorsBuilder = ListItemColors.builder()
         private var dimensionsBuilder: ListItemDimensionsBuilder = ListItemDimensions.builder()
+        private var avatarStyle: AvatarStyle? = null
+        private var iconButtonStyle: ButtonStyle? = null
+        private var checkBoxStyle: CheckBoxStyle? = null
+        private var radioBoxStyle: RadioBoxStyle? = null
+        private var switchStyle: SwitchStyle? = null
+        private var counterStyle: CounterStyle? = null
 
         override fun shape(shape: Shape) = apply {
             this.shape = shape
@@ -169,6 +218,34 @@ private data class DefaultListItemStyle(
                 this.dimensionsBuilder.builder()
             }
 
+        override fun avatarStyle(avatarStyle: AvatarStyle) = apply {
+            this.avatarStyle = avatarStyle
+        }
+
+        override fun iconButtonStyle(iconButtonStyle: ButtonStyle) = apply {
+            this.iconButtonStyle = iconButtonStyle
+        }
+
+        override fun checkBoxStyle(checkBoxStyle: CheckBoxStyle) = apply {
+            this.checkBoxStyle = checkBoxStyle
+        }
+
+        override fun radioBoxStyle(radioBoxStyle: RadioBoxStyle) = apply {
+            this.radioBoxStyle = radioBoxStyle
+        }
+
+        override fun switchStyle(switchStyle: SwitchStyle) = apply {
+            this.switchStyle = switchStyle
+        }
+
+        override fun counterStyle(counterStyle: CounterStyle) = apply {
+            this.counterStyle = counterStyle
+        }
+
+        override fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>) = apply {
+            this.disclosureStyle = disclosureStyle
+        }
+
         override fun style(): ListItemStyle {
             return DefaultListItemStyle(
                 shape = shape ?: RectangleShape,
@@ -179,6 +256,13 @@ private data class DefaultListItemStyle(
                 disclosureIconRes = disclosureIconRes,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
+                avatarStyle = avatarStyle,
+                iconButtonStyle = iconButtonStyle,
+                checkBoxStyle = checkBoxStyle,
+                radioBoxStyle = radioBoxStyle,
+                switchStyle = switchStyle,
+                counterStyle = counterStyle,
+                disclosureTextStyle = disclosureStyle ?: TextStyle.Default.asStatefulValue(),
             )
         }
     }
@@ -246,6 +330,41 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
      */
     @Composable
     fun dimensions(builder: @Composable ListItemDimensionsBuilder.() -> Unit): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [Avatar] в компоненте
+     */
+    fun avatarStyle(avatarStyle: AvatarStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [IconButton] в компоненте
+     */
+    fun iconButtonStyle(iconButtonStyle: ButtonStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [CheckBox] в компоненте
+     */
+    fun checkBoxStyle(checkBoxStyle: CheckBoxStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [RadioBox] в компоненте
+     */
+    fun radioBoxStyle(radioBoxStyle: RadioBoxStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [Switch] в компоненте
+     */
+    fun switchStyle(switchStyle: SwitchStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [Counter] в компоненте
+     */
+    fun counterStyle(counterStyle: CounterStyle): ListItemStyleBuilder
+
+    /**
+     * Устанавливает стиль disclosure
+     */
+    fun disclosureTextStyle(disclosureStyle: StatefulValue<TextStyle>): ListItemStyleBuilder
 }
 
 /**
@@ -255,7 +374,7 @@ interface ListItemStyleBuilder : StyleBuilder<ListItemStyle> {
 interface ListItemDimensions {
 
     /**
-     * Отступ между контентом вначале и контентом в конце
+     * Отступ между контентом в центре и контентом в конце
      */
     val contentPaddingEnd: Dp
 
@@ -284,6 +403,11 @@ interface ListItemDimensions {
      */
     val height: Dp
 
+    /**
+     * Отступ между контентом в начале и контентом в центре
+     */
+    val contentPaddingStart: Dp
+
     companion object {
 
         /**
@@ -299,7 +423,7 @@ interface ListItemDimensions {
 interface ListItemDimensionsBuilder {
 
     /**
-     * Устанавливает отступ между контентом вначале и контентом в конце
+     * Устанавливает отступ между контентом в центре и контентом в конце
      */
     fun contentPaddingEnd(contentPaddingEnd: Dp): ListItemDimensionsBuilder
 
@@ -329,6 +453,11 @@ interface ListItemDimensionsBuilder {
     fun height(height: Dp): ListItemDimensionsBuilder
 
     /**
+     * Устанавливает отступ между контентом в начале и контентом в центре
+     */
+    fun contentPaddingStart(contentPaddingStart: Dp): ListItemDimensionsBuilder
+
+    /**
      * Создаёт экземпляр [ListItemDimensions]
      */
     fun build(): ListItemDimensions
@@ -342,9 +471,11 @@ private class DefaultListItemDimensions(
     override val paddingTop: Dp,
     override val paddingBottom: Dp,
     override val height: Dp,
+    override val contentPaddingStart: Dp,
 ) : ListItemDimensions {
     class Builder : ListItemDimensionsBuilder {
         private var contentPaddingEnd: Dp? = null
+        private var contentPaddingStart: Dp? = null
         private var paddingStart: Dp? = null
         private var paddingEnd: Dp? = null
         private var paddingTop: Dp? = null
@@ -353,6 +484,10 @@ private class DefaultListItemDimensions(
 
         override fun contentPaddingEnd(contentPaddingEnd: Dp) = apply {
             this.contentPaddingEnd = contentPaddingEnd
+        }
+
+        override fun contentPaddingStart(contentPaddingStart: Dp) = apply {
+            this.contentPaddingStart = contentPaddingStart
         }
 
         override fun paddingStart(paddingStart: Dp) = apply {
@@ -382,7 +517,8 @@ private class DefaultListItemDimensions(
                 paddingEnd = paddingEnd ?: 0.dp,
                 paddingTop = paddingTop ?: 0.dp,
                 paddingBottom = paddingBottom ?: 0.dp,
-                height = height ?: 48.dp,
+                height = height ?: 0.dp,
+                contentPaddingStart = contentPaddingStart ?: 0.dp,
             )
         }
     }
@@ -418,6 +554,11 @@ interface ListItemColors {
      * Цвет иконки disclosure
      */
     val disclosureIconColor: InteractiveColor
+
+    /**
+     * Цвет текста disclosure
+     */
+    val disclosureTextColor: InteractiveColor
 
     companion object {
 
@@ -489,6 +630,11 @@ interface ListItemColorsBuilder {
     fun disclosureIconColor(disclosureIconColor: InteractiveColor): ListItemColorsBuilder
 
     /**
+     * Устанавливает цвет текста disclosure
+     */
+    fun disclosureTextColor(disclosureTextColor: InteractiveColor): ListItemColorsBuilder
+
+    /**
      * Возвращает [ListItemColors]
      */
     fun build(): ListItemColors
@@ -501,6 +647,7 @@ private class DefaultListItemColors(
     override val backgroundColor: InteractiveColor,
     override val subtitleColor: InteractiveColor,
     override val labelColor: InteractiveColor,
+    override val disclosureTextColor: InteractiveColor,
 ) : ListItemColors {
     class Builder : ListItemColorsBuilder {
         private var titleColor: InteractiveColor? = null
@@ -508,6 +655,7 @@ private class DefaultListItemColors(
         private var labelColor: InteractiveColor? = null
         private var backgroundColor: InteractiveColor? = null
         private var disclosureIconColor: InteractiveColor? = null
+        private var disclosureTextColor: InteractiveColor? = null
 
         override fun titleColor(titleColor: InteractiveColor) = apply {
             this.titleColor = titleColor
@@ -529,6 +677,10 @@ private class DefaultListItemColors(
             this.disclosureIconColor = disclosureIconColor
         }
 
+        override fun disclosureTextColor(disclosureTextColor: InteractiveColor) = apply {
+            this.disclosureTextColor = disclosureTextColor
+        }
+
         override fun build(): ListItemColors {
             return DefaultListItemColors(
                 titleColor = titleColor ?: Color.Black.asInteractive(),
@@ -536,6 +688,7 @@ private class DefaultListItemColors(
                 labelColor = labelColor ?: Color.LightGray.asInteractive(),
                 backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
                 disclosureIconColor = disclosureIconColor ?: Color.Black.asInteractive(),
+                disclosureTextColor = disclosureTextColor ?: Color.Black.asInteractive(),
             )
         }
     }

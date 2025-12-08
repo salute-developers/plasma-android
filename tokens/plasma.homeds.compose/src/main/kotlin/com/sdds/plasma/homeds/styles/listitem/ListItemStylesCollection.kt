@@ -27,6 +27,7 @@ public enum class ListItemStyles(
 ) {
     ListItemS("ListItem.S"),
     ListItemSHasBackground("ListItem.S.HasBackground"),
+    ListNumberedItemS("ListNumberedItem.S"),
 }
 
 /**
@@ -37,6 +38,7 @@ public fun ListItemStyles.style(modifyAction: @Composable ListItemStyleBuilder.(
     val builder = when (this) {
         ListItemStyles.ListItemS -> ListItem.S
         ListItemStyles.ListItemSHasBackground -> ListItem.S.HasBackground
+        ListItemStyles.ListNumberedItemS -> ListNumberedItem.S
     }
     return builder.modify(modifyAction).style()
 }

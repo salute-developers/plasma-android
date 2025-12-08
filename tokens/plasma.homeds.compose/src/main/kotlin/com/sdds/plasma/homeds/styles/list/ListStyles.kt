@@ -50,6 +50,14 @@ public value class WrapperListSNoBackgroundHasItemBackground(
     public override val builder: ListStyleBuilder,
 ) : WrapperList
 
+/**
+ * Обертка для вариации SHasBackground
+ */
+@JvmInline
+public value class WrapperListSHasBackground(
+    public override val builder: ListStyleBuilder,
+) : WrapperList
+
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
@@ -77,3 +85,16 @@ public val WrapperListSNoBackground.HasItemBackground: WrapperListSNoBackgroundH
     get() = builder
         .listItemStyle(ListItem.S.HasBackground.style())
         .wrap(::WrapperListSNoBackgroundHasItemBackground)
+
+public val WrapperListS.HasBackground: WrapperListSHasBackground
+    @Composable
+    @JvmName("WrapperListSHasBackground")
+    get() = builder
+        .listItemStyle(ListItem.S.style())
+        .dimensions {
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
+        }
+        .wrap(::WrapperListSHasBackground)

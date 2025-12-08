@@ -28,6 +28,8 @@ public enum class ListStyles(
     ListS("List.S"),
     ListSNoBackground("List.S.NoBackground"),
     ListSNoBackgroundHasItemBackground("List.S.NoBackground.HasItemBackground"),
+    ListSHasBackground("List.S.HasBackground"),
+    ListNumberedS("ListNumbered.S"),
 }
 
 /**
@@ -39,6 +41,8 @@ public fun ListStyles.style(modifyAction: @Composable ListStyleBuilder.() -> Uni
         ListStyles.ListS -> List.S
         ListStyles.ListSNoBackground -> List.S.NoBackground
         ListStyles.ListSNoBackgroundHasItemBackground -> List.S.NoBackground.HasItemBackground
+        ListStyles.ListSHasBackground -> List.S.HasBackground
+        ListStyles.ListNumberedS -> ListNumbered.S
     }
     return builder.modify(modifyAction).style()
 }

@@ -14,9 +14,11 @@ import utils.docsBaseProdUrl
 import utils.docsBaseUrl
 import utils.docsDeployUrl
 import utils.docsUrl
+import utils.filterComponents
 import utils.getDocsDestinationDir
 import utils.getDocsTemplateDir
 import utils.isComposeLib
+import utils.mergePlusPrefixedDocs
 import utils.transformTemplate
 import utils.versionInfo
 
@@ -60,6 +62,10 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
             from(overrideDocsDir)
             into(destinationDir)
         }
+
+        val docsDir = destinationDir.resolve("docs")
+        mergePlusPrefixedDocs(docsDir)
+        filterComponents(docsDir)
     }
 }
 

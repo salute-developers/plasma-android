@@ -44,6 +44,7 @@ internal class BottomSheetComposeVariationGenerator(
     ): List<String> {
         return listOfNotNull(
             shapeCall(props, variationId),
+            shadowCall(props),
             dimensionsCall(props, variationId),
             colorsCall(props),
             handlePlacementCall(props),
@@ -66,6 +67,12 @@ internal class BottomSheetComposeVariationGenerator(
             }
         } else {
             null
+        }
+    }
+
+    private fun shadowCall(props: BottomSheetProperties): String? {
+        return props.shadow?.let {
+            getShadow(it)
         }
     }
 

@@ -17,8 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt

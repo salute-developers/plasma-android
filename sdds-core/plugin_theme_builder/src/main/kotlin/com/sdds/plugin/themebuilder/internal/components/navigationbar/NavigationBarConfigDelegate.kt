@@ -37,5 +37,6 @@ internal class NavigationBarConfigDelegate : ComponentConfigDelegate<NavigationB
         componentName = component.styleName.techToSnakeCase(),
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+        packageResolver = deps.packageResolver,
     )
 }

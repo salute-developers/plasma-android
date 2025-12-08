@@ -5,23 +5,18 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.ValueState
-import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
-import com.sdds.compose.uikit.internal.checkable.checkableDescription
-import com.sdds.compose.uikit.internal.checkable.checkableLabel
-import com.sdds.compose.uikit.internal.checkable.radiobox.RadioBoxControl
+import com.sdds.compose.uikit.internal.checkable.radiobox.BaseRadioBox
 
 /**
  * Компонент RadioBox
@@ -35,6 +30,7 @@ import com.sdds.compose.uikit.internal.checkable.radiobox.RadioBoxControl
  * @param interactionSource источник событий
  */
 @Composable
+@NonRestartableComposable
 fun RadioBox(
     checked: Boolean,
     modifier: Modifier = Modifier,
@@ -46,47 +42,61 @@ fun RadioBox(
     animationDuration: Int = style.animationDuration,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val selectableModifier = if (onClick != null) {
-        Modifier.selectable(
-            selected = checked,
-            onClick = onClick,
-            enabled = enabled,
-            role = Role.RadioButton,
-            interactionSource = interactionSource,
-            indication = null,
-        )
-    } else {
-        Modifier
-    }
-
-    BaseCheckableLayout(
-        modifier = modifier
-            .then(selectableModifier)
-            .graphicsLayer { alpha = if (enabled) 1f else 0.4f },
-        control = {
-            RadioBoxControl(
-                modifier = it,
-                checked = checked,
-                shape = style.shape,
-                dimensions = style.dimensionValues,
-                animationDuration = animationDuration,
-                colors = style.colorValues,
-                interactionSource = interactionSource,
-                iconContent = null,
-            )
+    BaseRadioBox(
+        checked = checked,
+        modifier = modifier,
+        style = style,
+        onClick = onClick,
+        enabled = enabled,
+        animationDuration = animationDuration,
+        interactionSource = interactionSource,
+        labelContent = label?.let {
+            {
+                Text(it)
+            }
         },
-        label = checkableLabel(
-            value = label,
-            textStyle = style.labelStyle,
-            color = style.colorValues.labelColor.colorForInteraction(interactionSource),
-        ),
-        description = checkableDescription(
-            value = description,
-            textStyle = style.descriptionStyle,
-            color = style.colorValues.descriptionColor.colorForInteraction(interactionSource),
-        ),
-        verticalSpacing = style.dimensionValues.descriptionPadding,
-        horizontalSpacing = style.dimensionValues.textPadding,
+        descriptionContent = description?.let {
+            {
+                Text(it)
+            }
+        },
+    )
+}
+
+/**
+ * Компонент RadioBox
+ * @param checked флаг-индикатор выбора
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param onClick слушатель нажатий
+ * @param labelContent основной контент
+ * @param descriptionContent контент для описания
+ * @param enabled включен ли компонент
+ * @param interactionSource источник событий
+ */
+@Composable
+@NonRestartableComposable
+fun RadioBox(
+    checked: Boolean,
+    labelContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: RadioBoxStyle = LocalRadioBoxStyle.current,
+    onClick: (() -> Unit)? = null,
+    descriptionContent: (@Composable () -> Unit)? = null,
+    enabled: Boolean = true,
+    animationDuration: Int = style.animationDuration,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    BaseRadioBox(
+        checked = checked,
+        modifier = modifier,
+        style = style,
+        onClick = onClick,
+        enabled = enabled,
+        labelContent = labelContent,
+        descriptionContent = descriptionContent,
+        animationDuration = animationDuration,
+        interactionSource = interactionSource,
     )
 }
 

@@ -116,6 +116,11 @@ interface CellStyle : Style {
      */
     val switchStyle: SwitchStyle
 
+    /**
+     * Стиль [Counter], используемых в [Cell]
+     */
+    val counterStyle: CounterStyle
+
     companion object {
         /**
          * Возвращает экземпляр [CellStyleBuilder]
@@ -140,6 +145,7 @@ private data class DefaultCellStyle(
     override val titleStyles: StatefulValue<TextStyle>,
     override val subtitleStyles: StatefulValue<TextStyle>,
     override val disclosureTextStyles: StatefulValue<TextStyle>,
+    override val counterStyle: CounterStyle,
 ) : CellStyle {
 
     override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
@@ -161,6 +167,7 @@ private data class DefaultCellStyle(
         private var checkBoxStyle: CheckBoxStyle? = null
         private var radioBoxStyle: RadioBoxStyle? = null
         private var switchStyle: SwitchStyle? = null
+        private var counterStyle: CounterStyle? = null
 
         override fun labelStyle(labelStyle: TextStyle) =
             labelStyle(labelStyle.asStatefulValue())
@@ -229,6 +236,10 @@ private data class DefaultCellStyle(
             this.switchStyle = switchStyle
         }
 
+        override fun counterStyle(counterStyle: CounterStyle) = apply {
+            this.counterStyle = counterStyle
+        }
+
         override fun style(): CellStyle {
             return DefaultCellStyle(
                 labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
@@ -244,6 +255,7 @@ private data class DefaultCellStyle(
                 checkBoxStyle = checkBoxStyle ?: CheckBoxStyle.builder().style(),
                 radioBoxStyle = radioBoxStyle ?: RadioBoxStyle.builder().style(),
                 switchStyle = switchStyle ?: SwitchStyle.builder().style(),
+                counterStyle = counterStyle ?: CounterStyle.builder().style(),
             )
         }
     }
@@ -341,6 +353,11 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
      * Устанавливает стиль компонентов [Switch] в компоненте
      */
     fun switchStyle(switchStyle: SwitchStyle): CellStyleBuilder
+
+    /**
+     * Устанавливает стиль компонентов [Counter] в компоненте
+     */
+    fun counterStyle(counterStyle: CounterStyle): CellStyleBuilder
 }
 
 /**

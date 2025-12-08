@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.internal.modal.BottomSheetState
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
 import com.sdds.compose.uikit.internal.modal.handle
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
+import com.sdds.compose.uikit.shadow.shadow
 
 /**
  * Компонент ModalBottomSheet
@@ -72,6 +73,9 @@ fun ModalBottomSheet(
     )
     val draggableAreaHeight = style.dimensions.handleHeight + style.dimensions.handleOffset
     val measurePolicy = BottomSheetMeasurePolicy(fitContent)
+    val shadowModifier = style.shadow?.let {
+        Modifier.shadow(it, newShape)
+    } ?: Modifier
     BaseModalBottomSheet(
         modifier = modifier
             .statusBarsPadding()
@@ -88,6 +92,7 @@ fun ModalBottomSheet(
                 backgroundColor,
                 newShape,
             )
+            .then(shadowModifier)
             .navigationBarsPadding()
             .padding(
                 start = style.dimensions.paddingStart,

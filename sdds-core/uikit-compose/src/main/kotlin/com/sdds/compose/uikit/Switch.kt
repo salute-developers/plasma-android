@@ -1,28 +1,27 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.internal.switch.BaseSwitchLayout
-import com.sdds.compose.uikit.internal.switch.SwitchToggle
-import com.sdds.compose.uikit.internal.switch.switchText
+import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitch
+import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitchLayout
+import com.sdds.compose.uikit.internal.checkable.switch.SwitchToggle
+import com.sdds.compose.uikit.internal.checkable.switch.switchText
 
 /**
  * Компонент Switch (переключатель)
@@ -52,59 +51,62 @@ fun Switch(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val stateSet = remember(active) { if (active) setOf(SwitchStates.Checked) else emptySet() }
-    val toggleableModifier =
-        if (onActiveChanged != null) {
-            Modifier.toggleable(
-                value = active,
-                onValueChange = onActiveChanged,
-                enabled = enabled,
-                role = Role.Switch,
-                interactionSource = interactionSource,
-                indication = null,
-            )
-        } else {
-            Modifier
-        }
-    val labelColor =
-        style.colorValues.labelColor.colorForInteractionAsState(interactionSource, stateSet)
-    val backgroundColor by
-        style.colorValues.backgroundColor.colorForInteractionAsState(interactionSource, stateSet)
-    val descriptionColor =
-        style.colorValues.descriptionColor.colorForInteractionAsState(interactionSource, stateSet)
-    val paddings = style.dimensionValues.getPaddings()
-    BaseSwitchLayout(
-        modifier = modifier
-            .then(toggleableModifier)
-            .background(backgroundColor, style.shape)
-            .padding(paddings)
-            .graphicsLayer { alpha = if (enabled) 1f else style.disableAlpha },
-        switch = {
-            SwitchToggle(
-                active = active,
-                modifier = it,
-                thumbShape = style.toggleThumbShape,
-                trackShape = style.toggleTrackShape,
-                colors = style.colorValues,
-                dimensions = style.dimensionValues,
-                animationDuration = animationDuration,
-                interactionSource = interactionSource,
-            )
+    BaseSwitch(
+        active = active,
+        modifier = modifier,
+        onActiveChanged = onActiveChanged,
+        labelContent = label?.let {
+            {
+                Text(it, maxLines = labelMaxLines, overflow = TextOverflow.Ellipsis)
+            }
         },
-        label = switchText(
-            value = label,
-            textStyle = style.labelStyle,
-            maxLines = labelMaxLines,
-            color = labelColor,
-        ),
-        description = switchText(
-            value = description,
-            textStyle = style.descriptionStyle,
-            maxLines = descriptionMaxLines,
-            color = descriptionColor,
-        ),
-        verticalSpacing = style.dimensionValues.descriptionPadding,
-        horizontalSpacing = style.dimensionValues.textPadding,
+        descriptionContent = description?.let {
+            {
+                Text(it, maxLines = descriptionMaxLines, overflow = TextOverflow.Ellipsis)
+            }
+        },
+        style = style,
+        animationDuration = animationDuration,
+        enabled = enabled,
+        interactionSource = interactionSource,
+    )
+}
+
+/**
+ * Компонент Switch (переключатель)
+ * @param active активен ли переключатель
+ * @param labelContent основной контент Switch
+ * @param modifier модификатор
+ * @param onActiveChanged колбэк изменения состояния переключателя
+ * @param descriptionContent контент для описания Switch
+ * @param style стиль компонента [SwitchStyle]
+ * @param animationDuration длительность анимации
+ * @param enabled доступен ли переключатель
+ * @param interactionSource источник взамодействий
+ */
+@Composable
+@NonRestartableComposable
+fun Switch(
+    active: Boolean,
+    labelContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    onActiveChanged: ((Boolean) -> Unit)? = null,
+    style: SwitchStyle = LocalSwitchStyle.current,
+    descriptionContent: (@Composable () -> Unit)? = null,
+    animationDuration: Int = style.animationDurationMillis,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    BaseSwitch(
+        active = active,
+        modifier = modifier,
+        onActiveChanged = onActiveChanged,
+        labelContent = labelContent,
+        descriptionContent = descriptionContent,
+        style = style,
+        animationDuration = animationDuration,
+        enabled = enabled,
+        interactionSource = interactionSource,
     )
 }
 
@@ -170,7 +172,6 @@ fun Switch(
         switch = {
             SwitchToggle(
                 active = active,
-                modifier = it,
                 thumbShape = style.toggleThumbShape,
                 trackShape = style.toggleTrackShape,
                 colors = colorValues,
@@ -193,15 +194,6 @@ fun Switch(
         ),
         verticalSpacing = dimensionValues.descriptionPadding,
         horizontalSpacing = dimensionValues.textPadding,
-    )
-}
-
-private fun SwitchDimensionValues.getPaddings(): PaddingValues {
-    return PaddingValues(
-        start = paddingStart,
-        top = paddingTop,
-        end = paddingEnd,
-        bottom = paddingBottom,
     )
 }
 

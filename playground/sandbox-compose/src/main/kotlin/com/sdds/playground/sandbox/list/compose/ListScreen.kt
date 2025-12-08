@@ -2,14 +2,19 @@ package com.sdds.playground.sandbox.list.compose
 
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
+import com.sdds.compose.uikit.ListItemStyle
+import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -30,9 +35,10 @@ internal fun ListScreen(componentKey: ComponentKey = ComponentKey.List) {
                     val interactionSource = remember { MutableInteractionSource() }
                     ListItem(
                         modifier = Modifier
-                            .fillMaxWidth()
+                            .widthIn(max = 400.dp)
                             .focusable(interactionSource = interactionSource),
-                        text = "${uiState.title} $it",
+                        startContent = getStartContent(style.listItemStyle, it),
+                        titleContent = { Text("${uiState.title} $it") },
                         disclosureEnabled = uiState.hasDisclosure,
                         interactionSource = interactionSource,
                     )
@@ -40,6 +46,16 @@ internal fun ListScreen(componentKey: ComponentKey = ComponentKey.List) {
             }
         },
     )
+}
+
+private fun getStartContent(
+    style: ListItemStyle,
+    itemIndex: Int,
+): (@Composable RowScope.() -> Unit)? {
+    val counterStyle = style.counterStyle ?: return null
+    return {
+        Counter(count = itemIndex.toString(), style = counterStyle)
+    }
 }
 
 @Preview

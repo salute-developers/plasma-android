@@ -27,7 +27,7 @@ internal fun Modifier.background(
 ) = this.then(
     Background(
         brushes = brushes,
-        alpha = alpha,
+        alpha = { alpha },
         shape = shape,
         inspectorInfo = debugInspectorInfo {
             name = "background"
@@ -37,6 +37,30 @@ internal fun Modifier.background(
         },
     ),
 )
+
+/**
+ * Рисует [brush] в пределах формы [shape], учитывая прозрачность [alpha]
+ */
+internal fun Modifier.background(
+    brush: Brush,
+    shape: Shape = RectangleShape,
+    alpha: () -> Float = { 1.0f },
+): Modifier {
+    val brushes = listOf(brush)
+    return this.then(
+        Background(
+            brushes = brushes,
+            alpha = alpha,
+            shape = shape,
+            inspectorInfo = debugInspectorInfo {
+                name = "background"
+                properties["alpha"] = alpha()
+                properties["brushes"] = brushes
+                properties["shape"] = shape
+            },
+        ),
+    )
+}
 
 /**
  * Рисует [brush] или [color] в пределах формы [shape], учитывая прозрачность [alpha]
@@ -54,7 +78,7 @@ internal fun Modifier.background(
 
 private class Background(
     private val brushes: List<Brush>,
-    private val alpha: Float = 1.0f,
+    private val alpha: () -> Float = { 1.0f },
     private val shape: Shape,
     inspectorInfo: InspectorInfo.() -> Unit,
 ) : DrawModifier, InspectorValueInfo(inspectorInfo) {
@@ -64,19 +88,20 @@ private class Background(
     private var lastOutline: Outline? = null
 
     override fun ContentDrawScope.draw() {
+        val alpha = alpha()
         if (shape === RectangleShape) {
-            drawRect()
+            drawRect(alpha)
         } else {
-            drawOutline()
+            drawOutline(alpha)
         }
         drawContent()
     }
 
-    private fun ContentDrawScope.drawRect() {
+    private fun ContentDrawScope.drawRect(alpha: Float) {
         brushes.forEach { drawRect(brush = it, alpha = alpha) }
     }
 
-    private fun ContentDrawScope.drawOutline() {
+    private fun ContentDrawScope.drawOutline(alpha: Float) {
         val outline =
             if (size == lastSize && layoutDirection == lastLayoutDirection) {
                 lastOutline!!

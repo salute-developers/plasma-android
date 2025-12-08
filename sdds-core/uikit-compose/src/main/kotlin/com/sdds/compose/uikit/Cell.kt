@@ -21,6 +21,54 @@ import com.sdds.compose.uikit.internal.common.StyledText
  * @param modifier модификатор
  * @param style стиль компонента
  * @param gravity режим выравнивания контента по вертикали
+ * @param titleContent тайтл
+ * @param labelContent лэйбл
+ * @param subtitleContent сабтайтл
+ * @param disclosureContent контент disclosure
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun Cell(
+    modifier: Modifier = Modifier,
+    style: CellStyle = LocalCellStyle.current,
+    gravity: CellGravity = CellGravity.Center,
+    labelContent: (@Composable () -> Unit)? = null,
+    titleContent: (@Composable () -> Unit)? = null,
+    subtitleContent: (@Composable () -> Unit)? = null,
+    disclosureContent: (@Composable RowScope.() -> Unit)? = null,
+    startContent: (@Composable RowScope.() -> Unit)? = null,
+    endContent: (@Composable RowScope.() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    BaseCell(
+        modifier = modifier,
+        style = style,
+        gravity = gravity,
+        centerContent = {
+            CellCenterContent(
+                titleContent = titleContent,
+                labelContent = labelContent,
+                subtitleContent = subtitleContent,
+                style = style,
+                interactionSource = interactionSource,
+            )
+        },
+        startContent = startContent,
+        endContent = endContent,
+        disclosureEnabled = disclosureContent != null,
+        disclosureContent = disclosureContent,
+        interactionSource = interactionSource,
+    )
+}
+
+/**
+ * Компонент Cell.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param gravity режим выравнивания контента по вертикали
  * @param title тайтл
  * @param label лэйбл
  * @param subtitle сабтайтл

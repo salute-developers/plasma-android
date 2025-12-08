@@ -236,10 +236,10 @@ private fun startContent(
                 horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
             ) {
                 if (actionStart != null && textAlign != NavigationBarTextAlign.Start) {
-                    Action(actionStart, style.colors.actionStartColor, interactionSource)
+                    Action(actionStart, style.colors.actionStartColor, interactionSource, style.actionButtonStyle)
                 }
                 if (actionEnd != null && textAlign == NavigationBarTextAlign.End) {
-                    Action(actionEnd, style.colors.actionEndColor, interactionSource)
+                    Action(actionEnd, style.colors.actionEndColor, interactionSource, style.actionButtonStyle)
                 }
             }
         }
@@ -262,10 +262,10 @@ private fun endContent(
                 horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
             ) {
                 if (actionStart != null && textAlign == NavigationBarTextAlign.Start) {
-                    Action(actionStart, style.colors.actionStartColor, interactionSource)
+                    Action(actionStart, style.colors.actionStartColor, interactionSource, style.actionButtonStyle)
                 }
                 if (actionEnd != null && textAlign != NavigationBarTextAlign.End) {
-                    Action(actionEnd, style.colors.actionEndColor, interactionSource)
+                    Action(actionEnd, style.colors.actionEndColor, interactionSource, style.actionButtonStyle)
                 }
             }
         }
@@ -279,10 +279,20 @@ private fun Action(
     actionContent: (@Composable () -> Unit),
     tint: InteractiveColor,
     interactionSource: InteractionSource,
+    actionButtonStyle: ButtonStyle?,
 ) {
     val iconColor = tint.colorForInteraction(interactionSource)
-    CompositionLocalProvider(LocalTint provides iconColor) {
-        actionContent.invoke()
+    if (actionButtonStyle != null) {
+        CompositionLocalProvider(
+            LocalTint provides iconColor,
+            LocalIconButtonStyle provides actionButtonStyle,
+            content = actionContent,
+        )
+    } else {
+        CompositionLocalProvider(
+            LocalTint provides iconColor,
+            content = actionContent,
+        )
     }
 }
 
