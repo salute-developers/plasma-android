@@ -25,4 +25,7 @@ internal enum class AutocompleteFieldAlignment(val alignment: Alignment) {
     Center(Alignment.Center),
     CenterStart(Alignment.CenterStart),
     CenterEnd(Alignment.CenterEnd),
+    BottomStart(Alignment.BottomStart),
+    BottomEnd(Alignment.BottomEnd),
+    BottomCenter(Alignment.BottomCenter),
 }

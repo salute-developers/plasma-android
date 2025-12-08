@@ -54,7 +54,14 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
             ) {
                 var showDropdown by remember { mutableStateOf(false) }
                 var text by remember { mutableStateOf(TextFieldValue()) }
-                val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
+                val filteredList =
+                    remember {
+                        mutableListOf<String>().apply {
+                            addAll(
+                                AutocompleteSuggestions.filterSuggestions(text.text),
+                            )
+                        }
+                    }
                 val showEmptyState = autocompleteUiState.withEmptyState && filteredList.isEmpty()
                 Autocomplete(
                     modifier = Modifier.align(autocompleteUiState.fieldAlignment.alignment),
@@ -70,7 +77,9 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                             captionText = "Введите имя Алексей",
                             onValueChange = {
                                 text = it
-                                showDropdown = filteredList.isNotEmpty() || showEmptyState
+                                filteredList.clear()
+                                filteredList.addAll(AutocompleteSuggestions.filterSuggestions(text.text))
+                                showDropdown = filteredList.isNotEmpty() || autocompleteUiState.withEmptyState
                             },
                             endContent = { Icon(painterResource(com.sdds.icons.R.drawable.ic_search_24), "") },
                             focusSelectorSettings = FocusSelectorSettings.None,
