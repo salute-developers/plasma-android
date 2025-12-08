@@ -2,8 +2,9 @@ package com.sdds.playground.sandbox.dropdownmenu.compose
 
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
@@ -41,43 +42,47 @@ internal fun DropdownMenuScreen(componentKey: ComponentKey = ComponentKey.Dropdo
             ),
             key = componentKey.toString(),
         ),
-        componentAlignment = { dropdownMenuUiState -> dropdownMenuUiState.triggerPlacement.toAlignment() },
         component = { dropdownMenuUiState, style ->
-            val showDropdownMenu = remember { mutableStateOf(false) }
-            val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
-            Button(
-                modifier = Modifier.popoverTrigger(triggerInfo),
-                label = "show",
-                onClick = { showDropdownMenu.value = true },
-            )
-            DropdownMenu(
-                opened = showDropdownMenu.value,
-                onDismissRequest = {
-                    showDropdownMenu.value = false
-                },
-                triggerInfo = triggerInfo.value,
-                placement = dropdownMenuUiState.placement,
-                placementMode = dropdownMenuUiState.placementMode,
-                alignment = dropdownMenuUiState.alignment,
-                style = style,
+            Box(
+                Modifier.fillMaxSize(),
+                contentAlignment = dropdownMenuUiState.triggerPlacement.toAlignment(),
             ) {
-                List(
-                    modifier = Modifier
-                        .widthIn(0.dp, 200.dp)
-                        .heightIn(0.dp, 300.dp),
+                val showDropdownMenu = remember { mutableStateOf(false) }
+                val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+                Button(
+                    modifier = Modifier.popoverTrigger(triggerInfo),
+                    label = "show",
+                    onClick = { showDropdownMenu.value = true },
+                )
+                DropdownMenu(
+                    opened = showDropdownMenu.value,
+                    onDismissRequest = {
+                        showDropdownMenu.value = false
+                    },
+                    triggerInfo = triggerInfo.value,
+                    placement = dropdownMenuUiState.placement,
+                    placementMode = dropdownMenuUiState.placementMode,
+                    alignment = dropdownMenuUiState.alignment,
+                    style = style,
+                    clipHeight = true,
+                    clipWidth = true,
                 ) {
-                    items(dropdownMenuUiState.amount) {
-                        val interactionSource = remember { MutableInteractionSource() }
-                        ListItem(
-                            modifier = Modifier
-                                .focusable(interactionSource = interactionSource)
-                                .fillMaxWidth(),
-                            title = "${dropdownMenuUiState.itemTitle} $it",
-                            disclosureEnabled = dropdownMenuUiState.hasDisclosure,
-                            interactionSource = interactionSource,
-                        )
-                        if (dropdownMenuUiState.itemDividerEnabled && it != dropdownMenuUiState.amount - 1) {
-                            Divider()
+                    List(
+                        modifier = Modifier.widthIn(0.dp, 200.dp),
+                    ) {
+                        items(dropdownMenuUiState.amount) {
+                            val interactionSource = remember { MutableInteractionSource() }
+                            ListItem(
+                                modifier = Modifier
+                                    .focusable(interactionSource = interactionSource)
+                                    .fillMaxWidth(),
+                                title = "${dropdownMenuUiState.itemTitle} $it",
+                                disclosureEnabled = dropdownMenuUiState.hasDisclosure,
+                                interactionSource = interactionSource,
+                            )
+                            if (dropdownMenuUiState.itemDividerEnabled && it != dropdownMenuUiState.amount - 1) {
+                                Divider()
+                            }
                         }
                     }
                 }

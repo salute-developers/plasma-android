@@ -41,16 +41,24 @@ internal class AutocompleteViewModel(
             ),
             enumProperty(
                 name = "placement",
-                value = placement,
+                value = dropdownProperties.placement,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(placement = it)
+                    internalUiState.value = internalUiState.value.copy(
+                        dropdownProperties = internalUiState.value.dropdownProperties.copy(
+                            placement = it,
+                        ),
+                    )
                 },
             ),
             enumProperty(
                 name = "placementMode",
-                value = placementMode,
+                value = dropdownProperties.placementMode,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(placementMode = it)
+                    internalUiState.value = internalUiState.value.copy(
+                        dropdownProperties = internalUiState.value.dropdownProperties.copy(
+                            placementMode = it,
+                        ),
+                    )
                 },
             ),
         )

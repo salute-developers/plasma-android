@@ -1,8 +1,7 @@
 package com.sdds.playground.sandbox.autocomplete
 
 import androidx.compose.ui.Alignment
-import com.sdds.compose.uikit.PopoverPlacement
-import com.sdds.compose.uikit.PopoverPlacementMode
+import com.sdds.compose.uikit.DropdownProperties
 import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class AutocompleteUiState(
@@ -10,9 +9,8 @@ internal data class AutocompleteUiState(
     override val appearance: String = "",
     val showLoading: Boolean = false,
     val withEmptyState: Boolean = true,
-    val fieldAlignment: AutocompleteFieldAlignment = AutocompleteFieldAlignment.Center,
-    val placement: PopoverPlacement = PopoverPlacement.Bottom,
-    val placementMode: PopoverPlacementMode = PopoverPlacementMode.Strict,
+    val fieldAlignment: AutocompleteFieldAlignment = AutocompleteFieldAlignment.TopCenter,
+    val dropdownProperties: DropdownProperties = DropdownProperties(),
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {

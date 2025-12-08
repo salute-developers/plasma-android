@@ -41,6 +41,9 @@ import com.sdds.compose.uikit.internal.widthOrZero
  * Представляет из себя раскрывающееся меню — отображает список пунктов поверх контента.
  *
  * @param opened будет ли открыто меню
+ * @param modifier модификатор
+ * @param clipHeight высота DropdownMenu будет ограничена доступным пространством на экране, с учетом клавиатуры
+ * @param clipWidth ширина DropdownMenu будет ограничена доступным пространством на экране
  * @param onDismissRequest колбэк, который будет вызван при нажатии вне меню
  * @param triggerInfo информация о размерах и размещении триггера
  * @param style стиль компонента
@@ -57,10 +60,13 @@ import com.sdds.compose.uikit.internal.widthOrZero
  * @param content содержимое DropdownMenu
  */
 @Composable
+@Suppress("LongMethod")
 @NonRestartableComposable
 fun DropdownMenu(
     opened: Boolean,
     modifier: Modifier = Modifier,
+    clipHeight: Boolean = false,
+    clipWidth: Boolean = false,
     onDismissRequest: () -> Unit,
     triggerInfo: TriggerInfo,
     style: DropdownMenuStyle = LocalDropdownMenuStyle.current,
@@ -92,6 +98,8 @@ fun DropdownMenu(
         triggerCentered = false,
         tailEnabled = false,
         duration = null,
+        clipWidth = clipWidth,
+        clipHeight = clipHeight,
         popupProperties = popupProperties,
         enterTransition = enterTransition,
         exitTransition = exitTransition,

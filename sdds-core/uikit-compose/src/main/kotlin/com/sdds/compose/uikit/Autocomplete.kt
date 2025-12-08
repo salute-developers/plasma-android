@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -15,6 +16,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
+import com.sdds.compose.uikit.DropdownProperties.Height
+import com.sdds.compose.uikit.DropdownProperties.Width
 
 /**
  * Поле ввода с возможностью подстановки значения из предварительно заполненного выпадающего списка по мере ввода данных
@@ -25,11 +28,7 @@ import androidx.compose.ui.window.PopupProperties
  * @param showDropdown показан dropdown или нет
  * @param onDismissRequest колбэк, который будет вызван при нажатии вне меню
  * @param showEmptyState будет ли показано пустое состояние [emptyState]. Если true - основной контент [listContent] скрывается.
- * @param popupProperties настройки [PopupProperties]
- * @param dropdownPlacement расположение дропдауна относительно текстового поля [field]
- * @param placementMode режим расположения dropdown [PopoverPlacementMode]
- * @param dropdownWidth настройки ширины dropdown
- * @param dropdownHeight настройки высоты dropdown
+ * @param dropdownProperties настройки dropdown [DropdownProperties]
  * @param emptyState слот для пустого состояния. Будет показано, если [showEmptyState] == true
  * @param footer слот для footer в dropdown (состояние загрузки, кнопка "обновить" и т.д.)
  * @param listContent список данных в [DropdownMenu]
@@ -42,11 +41,7 @@ fun Autocomplete(
     showDropdown: Boolean = false,
     onDismissRequest: () -> Unit = {},
     showEmptyState: Boolean = false,
-    dropdownPlacement: PopoverPlacement = PopoverPlacement.Bottom,
-    placementMode: PopoverPlacementMode = PopoverPlacementMode.Strict,
-    popupProperties: PopupProperties = remember { PopupProperties(clippingEnabled = false) },
-    dropdownWidth: AutocompleteDropdownWidth = AutocompleteDropdownWidth.TriggerWidth,
-    dropdownHeight: AutocompleteDropdownHeight = AutocompleteDropdownHeight.Strict(300.dp),
+    dropdownProperties: DropdownProperties = DropdownProperties(),
     emptyState: (@Composable DropdownScope.() -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
     listContent: LazyListScope.() -> Unit = {},
@@ -62,15 +57,15 @@ fun Autocomplete(
         offset = 0.dp,
         modifier = Modifier
             .width(
-                when (dropdownWidth) {
-                    is AutocompleteDropdownWidth.TriggerWidth -> triggerInfo.value.size.width.toDp()
-                    is AutocompleteDropdownWidth.Exactly -> dropdownWidth.width
+                when (dropdownProperties.width) {
+                    is Width.TriggerWidth -> triggerInfo.value.size.width.toDp()
+                    is Width.Exactly -> dropdownProperties.width.width
                 },
             )
             .then(
-                when (dropdownHeight) {
-                    is AutocompleteDropdownHeight.Loose -> Modifier
-                    is AutocompleteDropdownHeight.Strict -> Modifier.heightIn(max = dropdownHeight.maxHeight)
+                when (dropdownProperties.height) {
+                    is Height.Constrained -> Modifier.heightIn(max = dropdownProperties.height.maxHeight)
+                    else -> Modifier
                 },
             ),
         opened = showDropdown,
@@ -78,9 +73,11 @@ fun Autocomplete(
         style = style.dropdownStyle,
         onDismissRequest = onDismissRequest,
         triggerInfo = triggerInfo.value,
-        placement = dropdownPlacement,
-        placementMode = placementMode,
-        popupProperties = popupProperties,
+        clipWidth = false,
+        clipHeight = true,
+        placement = dropdownProperties.placement,
+        placementMode = dropdownProperties.placementMode,
+        popupProperties = dropdownProperties.popupProperties,
         emptyState = emptyState,
         showEmptyState = showEmptyState,
         footer = footer,
@@ -95,33 +92,51 @@ fun Autocomplete(
 }
 
 /**
- * Настройки высоты [DropdownMenu] в [Autocomplete]
+ * Настройки дропдауна
+ *
+ * @property width настройки ширины dropdown
+ * @property height настройки высоты dropdown
+ * @property popupProperties настройки [PopupProperties]
+ * @property placement расположение дропдауна относительно текстового поля
+ * @property placementMode режим расположения dropdown [PopoverPlacementMode]
  */
-sealed class AutocompleteDropdownHeight {
+@Immutable
+data class DropdownProperties(
+    val height: Height = Height.FullHeight,
+    val width: Width = Width.TriggerWidth,
+    val popupProperties: PopupProperties = PopupProperties(clippingEnabled = false),
+    val placement: PopoverPlacement = PopoverPlacement.Bottom,
+    val placementMode: PopoverPlacementMode = PopoverPlacementMode.Strict,
+) {
     /**
-     * Высота [DropdownMenu] не ограничена
+     * Настройки высоты [DropdownMenu] в [Autocomplete]
      */
-    object Loose : AutocompleteDropdownHeight()
+    sealed class Height {
+        /**
+         * Высота [DropdownMenu] ограничена доступным пространством на экране
+         */
+        object FullHeight : Height()
+
+        /**
+         * Высота [DropdownMenu] ограничена значением [maxHeight]
+         */
+        data class Constrained(val maxHeight: Dp = 400.dp) : Height()
+    }
 
     /**
-     * Высота [DropdownMenu] ограничена значением [maxHeight]
+     * Настройки ширины [DropdownMenu] в [Autocomplete]
      */
-    data class Strict(val maxHeight: Dp = 400.dp) : AutocompleteDropdownHeight()
-}
+    sealed class Width {
+        /**
+         * Ширина [DropdownMenu] равна ширины триггера
+         */
+        object TriggerWidth : Width()
 
-/**
- * Настройки ширины [DropdownMenu] в [Autocomplete]
- */
-sealed class AutocompleteDropdownWidth {
-    /**
-     * Ширина [DropdownMenu] равна ширины триггера
-     */
-    object TriggerWidth : AutocompleteDropdownWidth()
-
-    /**
-     * Ширина [DropdownMenu] имеет определенное значение [width]
-     */
-    data class Exactly(val width: Dp = 240.dp) : AutocompleteDropdownWidth()
+        /**
+         * Ширина [DropdownMenu] имеет определенное значение [width]
+         */
+        data class Exactly(val width: Dp = 240.dp) : Width()
+    }
 }
 
 @Composable

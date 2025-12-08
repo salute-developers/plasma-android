@@ -1,36 +1,29 @@
 package com.sdds.playground.sandbox.autocomplete
 
-import androidx.compose.animation.core.animateIntOffsetAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Autocomplete
-import com.sdds.compose.uikit.AutocompleteDropdownHeight
 import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.compose.uikit.EmptyState
 import com.sdds.compose.uikit.Icon
@@ -59,8 +52,8 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
-                var text by remember { mutableStateOf(TextFieldValue()) }
                 var showDropdown by remember { mutableStateOf(false) }
+                var text by remember { mutableStateOf(TextFieldValue()) }
                 val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
                 val showEmptyState = autocompleteUiState.withEmptyState && filteredList.isEmpty()
                 Autocomplete(
@@ -68,6 +61,7 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                     showDropdown = showDropdown,
                     onDismissRequest = { showDropdown = false },
                     style = style,
+                    dropdownProperties = autocompleteUiState.dropdownProperties,
                     field = {
                         TextField(
                             modifier = Modifier.width(240.dp),
@@ -76,14 +70,12 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                             captionText = "Введите имя Алексей",
                             onValueChange = {
                                 text = it
-                                showDropdown = true
+                                showDropdown = filteredList.isNotEmpty() || showEmptyState
                             },
                             endContent = { Icon(painterResource(com.sdds.icons.R.drawable.ic_search_24), "") },
                             focusSelectorSettings = FocusSelectorSettings.None,
                         )
                     },
-                    placementMode = autocompleteUiState.placementMode,
-                    dropdownPlacement = autocompleteUiState.placement,
                     showEmptyState = showEmptyState,
                     emptyState = {
                         EmptyState(
@@ -97,7 +89,7 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                         listContent(
                             filteredList = filteredList,
                             onClick = {
-                                text = TextFieldValue(it, TextRange(it.length))
+                                text = text.copy(it, TextRange(it.length))
                                 showDropdown = false
                             },
                         )
@@ -125,22 +117,6 @@ private fun LazyListScope.listContent(
             text = filteredList[index],
         )
     }
-}
-
-@Composable
-private fun getComponentOffset(): State<IntOffset> {
-    val density = LocalDensity.current
-    val imeInsets = WindowInsets.ime.getBottom(density)
-    val keyboardHeightDp = with(density) { imeInsets.toDp() }
-    val isKeyboardOpen = keyboardHeightDp.value > 0
-    val componentKeyboardOffset = animateIntOffsetAsState(
-        if (isKeyboardOpen) {
-            -IntOffset(0, imeInsets)
-        } else {
-            IntOffset.Zero
-        },
-    )
-    return componentKeyboardOffset
 }
 
 @Composable
@@ -172,7 +148,6 @@ internal fun AutocompletePreview(style: AutocompleteStyle) {
                 interactionSource = textFieldInteractionSource,
             )
         },
-        dropdownHeight = AutocompleteDropdownHeight.Loose,
         showEmptyState = showEmptyState,
         emptyState = {
             EmptyState(
