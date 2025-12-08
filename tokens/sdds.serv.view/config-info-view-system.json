@@ -11511,6 +11511,23 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
             }
          ]
+      },
+      {
+         "key": "carousel",
+         "coreName": "Carousel",
+         "styleName": "Carousel",
+         "variations": [
+            {
+               "name": "buttons-placement-inner",
+               "viewReference": "Serv.Sdds.Components.Carousel.ButtonsPlacementInner",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementInner"
+            },
+            {
+               "name": "buttons-placement-outer",
+               "viewReference": "Serv.Sdds.Components.Carousel.ButtonsPlacementOuter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementOuter"
+            }
+         ]
       }
    ]
 }
