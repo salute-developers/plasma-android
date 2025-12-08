@@ -10069,77 +10069,6 @@
          ]
       },
       {
-         "key": "carousel",
-         "coreName": "Carousel",
-         "styleName": "Carousel",
-         "variations": [
-            {
-               "name": "buttons-placement-inner",
-               "viewReference": "Plasma.SdService.Components.Carousel.ButtonsPlacementInner",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementInner"
-            },
-            {
-               "name": "buttons-placement-outer",
-               "viewReference": "Plasma.SdService.Components.Carousel.ButtonsPlacementOuter",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementOuter"
-            }
-         ]
-      },
-      {
-         "key": "pagination-dots",
-         "coreName": "PaginationDots",
-         "styleName": "PaginationDotsHorizontal",
-         "variations": [
-            {
-               "name": "m",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.M",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalM"
-            },
-            {
-               "name": "m.active-type-line",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.M.ActiveTypeLine",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalMActiveTypeLine"
-            },
-            {
-               "name": "s",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.S",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalS"
-            },
-            {
-               "name": "s.active-type-line",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.S.ActiveTypeLine",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalSActiveTypeLine"
-            }
-         ]
-      },
-      {
-         "key": "pagination-dots",
-         "coreName": "PaginationDots",
-         "styleName": "PaginationDotsVertical",
-         "variations": [
-            {
-               "name": "m",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.M",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalM"
-            },
-            {
-               "name": "m.active-type-line",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.M.ActiveTypeLine",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalMActiveTypeLine"
-            },
-            {
-               "name": "s",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.S",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalS"
-            },
-            {
-               "name": "s.active-type-line",
-               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.S.ActiveTypeLine",
-               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
-            }
-         ]
-      },
-      {
          "key": "autocomplete",
          "coreName": "Autocomplete",
          "styleName": "AutocompleteTight",
@@ -10257,6 +10186,77 @@
                "name": "xl.has-button",
                "viewReference": "Plasma.SdService.Components.DropdownEmptyState.Xl.HasButton",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateXlHasButton"
+            }
+         ]
+      },
+      {
+         "key": "carousel",
+         "coreName": "Carousel",
+         "styleName": "Carousel",
+         "variations": [
+            {
+               "name": "buttons-placement-inner",
+               "viewReference": "Plasma.SdService.Components.Carousel.ButtonsPlacementInner",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementInner"
+            },
+            {
+               "name": "buttons-placement-outer",
+               "viewReference": "Plasma.SdService.Components.Carousel.ButtonsPlacementOuter",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.CarouselButtonsPlacementOuter"
+            }
+         ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsHorizontal",
+         "variations": [
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalM"
+            },
+            {
+               "name": "m.active-type-line",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.M.ActiveTypeLine",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalMActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalS"
+            },
+            {
+               "name": "s.active-type-line",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsHorizontal.S.ActiveTypeLine",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsHorizontalSActiveTypeLine"
+            }
+         ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsVertical",
+         "variations": [
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalM"
+            },
+            {
+               "name": "m.active-type-line",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.M.ActiveTypeLine",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalMActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalS"
+            },
+            {
+               "name": "s.active-type-line",
+               "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.S.ActiveTypeLine",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
             }
          ]
       }

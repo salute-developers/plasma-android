@@ -320,19 +320,6 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
-                ComponentKey.Carousel,
-                mapOf(
-                    "Carousel" to PlasmaB2cCarouselVariationsView,
-                ),
-            ),
-            ViewComponent(
-                ComponentKey.PaginationDots,
-                mapOf(
-                    "PaginationDotsHorizontal" to PlasmaB2cPaginationDotsHorizontalVariationsView,
-                    "PaginationDotsVertical" to PlasmaB2cPaginationDotsVerticalVariationsView,
-                ),
-            ),
-            ViewComponent(
                 ComponentKey.Autocomplete,
                 mapOf(
                     "AutocompleteTight" to PlasmaB2cAutocompleteTightVariationsView,
@@ -343,6 +330,19 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                 ComponentKey.DropdownEmptyState,
                 mapOf(
                     "DropdownEmptyState" to PlasmaB2cDropdownEmptyStateVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to PlasmaB2cCarouselVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to PlasmaB2cPaginationDotsHorizontalVariationsView,
+                    "PaginationDotsVertical" to PlasmaB2cPaginationDotsVerticalVariationsView,
                 ),
             ),
         ).associateBy { it.key }

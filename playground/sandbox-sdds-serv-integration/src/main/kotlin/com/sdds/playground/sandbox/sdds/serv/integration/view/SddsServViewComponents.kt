@@ -372,12 +372,6 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
-                ComponentKey.Carousel,
-                mapOf(
-                    "Carousel" to SddsServCarouselVariationsView,
-                ),
-            ),
-            ViewComponent(
                 ComponentKey.Autocomplete,
                 mapOf(
                     "AutocompleteTight" to SddsServAutocompleteTightVariationsView,
@@ -388,6 +382,12 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ComponentKey.DropdownEmptyState,
                 mapOf(
                     "DropdownEmptyState" to SddsServDropdownEmptyStateVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to SddsServCarouselVariationsView,
                 ),
             ),
         ).associateBy { it.key }

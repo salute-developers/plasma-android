@@ -1904,9 +1904,6 @@
     <dimen name="serv_pagination_dots_vertical_s_dot_height">8.0dp</dimen>
     <dimen name="serv_pagination_dots_vertical_s_active_type_line_dot_height_value_0">32.0dp</dimen>
     <dimen name="serv_pagination_dots_vertical_s_active_type_line_dot_height_value_1">8.0dp</dimen>
-    <dimen name="serv_carousel_indicator_padding">12.0dp</dimen>
-    <dimen name="serv_carousel_next_padding">12.0dp</dimen>
-    <dimen name="serv_carousel_prev_padding">12.0dp</dimen>
     <dimen name="serv_dropdown_empty_state_xs_padding_start">10.0dp</dimen>
     <dimen name="serv_dropdown_empty_state_xs_padding_end">10.0dp</dimen>
     <dimen name="serv_dropdown_empty_state_xs_padding_top">16.0dp</dimen>
@@ -1942,4 +1939,7 @@
     <dimen name="serv_dropdown_empty_state_xl_description_padding">12.0dp</dimen>
     <dimen name="serv_dropdown_empty_state_xl_has_button_padding_top">32.0dp</dimen>
     <dimen name="serv_dropdown_empty_state_xl_has_button_padding_bottom">12.0dp</dimen>
+    <dimen name="serv_carousel_indicator_padding">12.0dp</dimen>
+    <dimen name="serv_carousel_next_padding">12.0dp</dimen>
+    <dimen name="serv_carousel_prev_padding">12.0dp</dimen>
 </resources>
