@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.AutocompleteTight" parent="Sdds.Components.Autocomplete"/>
+    <style name="Plasma.SdService.Components.AutocompleteTight.Xl">
+        <item name="sd_textFieldStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldXlDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuTightXl</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AutocompleteTightXl">
+        <item name="sd_autocompleteStyle">@style/Plasma.SdService.Components.AutocompleteTight.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.AutocompleteTight.L">
+        <item name="sd_textFieldStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldLDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuTightL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AutocompleteTightL">
+        <item name="sd_autocompleteStyle">@style/Plasma.SdService.Components.AutocompleteTight.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.AutocompleteTight.M">
+        <item name="sd_textFieldStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldMDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuTightM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AutocompleteTightM">
+        <item name="sd_autocompleteStyle">@style/Plasma.SdService.Components.AutocompleteTight.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.AutocompleteTight.S">
+        <item name="sd_textFieldStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldSDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuTightS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AutocompleteTightS">
+        <item name="sd_autocompleteStyle">@style/Plasma.SdService.Components.AutocompleteTight.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.AutocompleteTight.Xs">
+        <item name="sd_textFieldStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldXsDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Plasma.SdService.ComponentOverlays.DropdownMenuTightXs</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.AutocompleteTightXs">
+        <item name="sd_autocompleteStyle">@style/Plasma.SdService.Components.AutocompleteTight.Xs</item>
+    </style>
+</resources>

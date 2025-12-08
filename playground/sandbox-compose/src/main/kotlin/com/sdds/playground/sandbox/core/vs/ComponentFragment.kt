@@ -104,6 +104,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
 
     abstract fun onComponentUpdate(component: Component?, state: State)
 
+    protected open fun onComponentOffsetChanged(component: Component, offset: Float) {}
+
     protected inline fun <reified T> getState(default: () -> T): T {
         return (
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -133,6 +135,13 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
                 setOnClickListener {
                     _sheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
                     view?.findFocus()?.clearFocus()
+                }
+                ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+                    _propsBottomSheetDelegate?.run {
+                        val imeOffset = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom.toFloat()
+                        offsetComponentLayout(imeOffset)
+                    }
+                    insets
                 }
             }
 
@@ -200,7 +209,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
                 ),
                 LayoutParams(MATCH_PARENT, MATCH_PARENT),
             )
-            _propsBottomSheetDelegate?.run { offsetComponentLayout(currentOffset) }
+            _propsBottomSheetDelegate?.run { resetComponentLayoutOffset() }
         }
     }
 
@@ -228,7 +237,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
                 }
             addView(wrappedComponent, layoutParams)
             wrappedComponent.doOnPreDraw {
-                _propsBottomSheetDelegate?.run { offsetComponentLayout(currentOffset) }
+                _propsBottomSheetDelegate?.run { resetComponentLayoutOffset() }
             }
         }
     }
@@ -326,19 +335,26 @@ internal abstract class ComponentFragment<State : UiState, Component : View, VM 
         private val behavior: BottomSheetBehavior<ViewGroup>,
     ) : BottomSheetBehavior.BottomSheetCallback(), OnApplyWindowInsetsListener {
 
-        var currentOffset: Float = 0f
+        private var currentOffset: Float = 0f
+        private var sheetOffset: Float = 0f
         var previousState: Int? = null
 
         override fun onStateChanged(bottomSheet: View, newState: Int) = Unit
 
         override fun onSlide(bottomSheet: View, slideOffset: Float) {
-            currentOffset = (slideOffset * bottomSheet.height)
+            sheetOffset = (slideOffset * bottomSheet.height)
+            offsetComponentLayout(sheetOffset)
+        }
+
+        fun resetComponentLayoutOffset() {
             offsetComponentLayout(currentOffset)
         }
 
         fun offsetComponentLayout(offset: Float) {
             val component = componentRef ?: return
-            component.translationY = -offset.coerceAtMost(component.top.toFloat())
+            currentOffset = maxOf(offset, sheetOffset)
+            component.translationY = -currentOffset.coerceAtMost(component.top.toFloat())
+            onComponentOffsetChanged(component, currentOffset)
         }
 
         override fun onApplyWindowInsets(v: View, insets: WindowInsetsCompat): WindowInsetsCompat {

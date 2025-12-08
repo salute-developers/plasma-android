@@ -69,6 +69,18 @@ internal class DropdownMenuStyleGeneratorView(
                 it.value.techToCamelCase(),
             )
         }
+        props.emptyStateStyle?.let {
+            componentOverlayAttribute(
+                "sd_emptyStateStyleOverlay",
+                it.value.techToCamelCase(),
+            )
+        }
+        props.scrollBarStyle?.let {
+            componentOverlayAttribute(
+                "sd_scrollBarStyleOverlay",
+                it.value.techToCamelCase(),
+            )
+        }
         props.dividerStyle?.let {
             componentOverlayAttribute(
                 "sd_dividerStyleOverlay",
@@ -100,6 +112,12 @@ internal class DropdownMenuStyleGeneratorView(
         MIN_WIDTH("android:minWidth", "min_width"),
         STROKE_WIDTH("sd_strokeWidth", "stroke_width"),
         OFFSET("sd_offset", "offset"),
+        PADDING_START("android:paddingStart", "padding_start"),
+        PADDING_TOP("android:paddingTop", "padding_top"),
+        PADDING_END("android:paddingEnd", "padding_end"),
+        PADDING_BOTTOM("android:paddingBottom", "padding_bottom"),
+        SCROLLBAR_PADDING_TOP("sd_scrollBarPaddingTop", "scrollbar_padding_top"),
+        SCROLLBAR_PADDING_BOTTOM("sd_scrollBarPaddingBottom", "scrollbar_padding_bottom"),
         ;
 
         override fun provide(owner: DropdownMenuProperties): Dimension? {
@@ -107,6 +125,12 @@ internal class DropdownMenuStyleGeneratorView(
                 MIN_WIDTH -> owner.width
                 STROKE_WIDTH -> owner.strokeWidth
                 OFFSET -> owner.offset
+                PADDING_START -> owner.paddingStart
+                PADDING_TOP -> owner.paddingTop
+                PADDING_END -> owner.paddingEnd
+                PADDING_BOTTOM -> owner.paddingBottom
+                SCROLLBAR_PADDING_TOP -> owner.scrollBarPaddingTop
+                SCROLLBAR_PADDING_BOTTOM -> owner.scrollBarPaddingBottom
             }?.copy(states = emptyList())
         }
     }

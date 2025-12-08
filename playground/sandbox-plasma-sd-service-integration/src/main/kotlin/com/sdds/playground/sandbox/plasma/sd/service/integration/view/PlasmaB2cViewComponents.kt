@@ -320,6 +320,19 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to PlasmaB2cAutocompleteTightVariationsView,
+                    "AutocompleteNormal" to PlasmaB2cAutocompleteNormalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to PlasmaB2cDropdownEmptyStateVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Carousel,
                 mapOf(
                     "Carousel" to PlasmaB2cCarouselVariationsView,

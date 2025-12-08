@@ -372,6 +372,19 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to SddsServAutocompleteTightVariationsView,
+                    "AutocompleteNormal" to SddsServAutocompleteNormalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to SddsServDropdownEmptyStateVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Carousel,
                 mapOf(
                     "Carousel" to SddsServCarouselVariationsView,

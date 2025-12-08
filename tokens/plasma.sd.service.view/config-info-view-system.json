@@ -10069,6 +10069,127 @@
          ]
       },
       {
+         "key": "autocomplete",
+         "coreName": "Autocomplete",
+         "styleName": "AutocompleteTight",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Plasma.SdService.Components.AutocompleteTight.Xl",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteTightXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.AutocompleteTight.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteTightL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.AutocompleteTight.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteTightM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.AutocompleteTight.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteTightS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.AutocompleteTight.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteTightXs"
+            }
+         ]
+      },
+      {
+         "key": "autocomplete",
+         "coreName": "Autocomplete",
+         "styleName": "AutocompleteNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Plasma.SdService.Components.AutocompleteNormal.Xl",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteNormalXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.AutocompleteNormal.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteNormalL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.AutocompleteNormal.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteNormalM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.AutocompleteNormal.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteNormalS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.AutocompleteNormal.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.AutocompleteNormalXs"
+            }
+         ]
+      },
+      {
+         "key": "dropdown-empty-state",
+         "coreName": "DropdownEmptyStateView",
+         "styleName": "DropdownEmptyState",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateXs"
+            },
+            {
+               "name": "xs.has-button",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.Xs.HasButton",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateXsHasButton"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateS"
+            },
+            {
+               "name": "s.has-button",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.S.HasButton",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateSHasButton"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateM"
+            },
+            {
+               "name": "m.has-button",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.M.HasButton",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateMHasButton"
+            },
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateL"
+            },
+            {
+               "name": "l.has-button",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.L.HasButton",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateLHasButton"
+            },
+            {
+               "name": "xl",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.Xl",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateXl"
+            },
+            {
+               "name": "xl.has-button",
+               "viewReference": "Plasma.SdService.Components.DropdownEmptyState.Xl.HasButton",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.DropdownEmptyStateXlHasButton"
+            }
+         ]
+      },
+      {
          "key": "carousel",
          "coreName": "Carousel",
          "styleName": "Carousel",

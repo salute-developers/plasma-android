@@ -58,4 +58,5 @@
     <item type="id" name="nav_toolbar"/>
     <item type="id" name="nav_mask"/>
     <item type="id" name="nav_carousel"/>
+    <item type="id" name="nav_autocomplete"/>
 </resources>
