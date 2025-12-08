@@ -1,13 +1,16 @@
 package com.sdds.playground.sandbox.autocomplete
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListScope
@@ -18,9 +21,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Autocomplete
@@ -49,8 +56,11 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
         ),
         component = { autocompleteUiState, style ->
             Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .offset(y = -keyboardHeight / 2)
+                    .background(Color.Gray)
+                    .fillMaxWidth()
+                    .height(screenHeight),
             ) {
                 var showDropdown by remember { mutableStateOf(false) }
                 var text by remember { mutableStateOf(TextFieldValue()) }
@@ -81,7 +91,12 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
                                 filteredList.addAll(AutocompleteSuggestions.filterSuggestions(text.text))
                                 showDropdown = filteredList.isNotEmpty() || autocompleteUiState.withEmptyState
                             },
-                            endContent = { Icon(painterResource(com.sdds.icons.R.drawable.ic_search_24), "") },
+                            endContent = {
+                                Icon(
+                                    painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                                    "",
+                                )
+                            },
                             focusSelectorSettings = FocusSelectorSettings.None,
                         )
                     },
@@ -108,6 +123,20 @@ internal fun AutocompleteScreen(componentKey: ComponentKey = ComponentKey.Autoco
         },
     )
 }
+
+private val keyboardHeight: Dp
+    @Composable get() {
+        val windowInsets = WindowInsets.ime
+        val density = LocalDensity.current
+        return with(density) { windowInsets.getBottom(density).toDp() }
+    }
+
+private val screenHeight: Dp
+    @Composable get() {
+        val componentScreenPaddings = 32.dp
+        val screenSize = LocalConfiguration.current.screenHeightDp.dp
+        return screenSize - keyboardHeight - componentScreenPaddings
+    }
 
 private fun LazyListScope.listContent(
     filteredList: List<String>,
