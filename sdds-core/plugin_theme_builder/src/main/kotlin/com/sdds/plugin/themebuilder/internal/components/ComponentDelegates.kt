@@ -45,6 +45,7 @@ import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeleto
 import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.slider.SliderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tabbar.TabBarConfigDelegate
@@ -103,6 +104,7 @@ internal val componentDelegates by unsafeLazy {
         "notification-content" to NotificationContentConfigDelegate(),
         "rect-skeleton" to RectSkeletonConfigDelegate(),
         "spinner" to SpinnerConfigDelegate(),
+        "slider" to SliderConfigDelegate(),
         "list" to ListConfigDelegate(),
         "list-item" to ListItemConfigDelegate(),
         "dropdown-menu" to DropdownMenuConfigDelegate(),

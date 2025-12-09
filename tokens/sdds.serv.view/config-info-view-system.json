@@ -10501,6 +10501,1234 @@
          ]
       },
       {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderHorizontalLabelInner",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLDefault"
+            },
+            {
+               "name": "l.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLAccent"
+            },
+            {
+               "name": "l.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLGradient"
+            },
+            {
+               "name": "l.limit-label-center",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenter"
+            },
+            {
+               "name": "l.limit-label-center.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterDefault"
+            },
+            {
+               "name": "l.limit-label-center.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterAccent"
+            },
+            {
+               "name": "l.limit-label-center.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterGradient"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterThumbS"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterThumbSDefault"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterThumbSAccent"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLLimitLabelCenterThumbSGradient"
+            },
+            {
+               "name": "l.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLThumbS"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLThumbSDefault"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLThumbSAccent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.L.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerLThumbSGradient"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMDefault"
+            },
+            {
+               "name": "m.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMAccent"
+            },
+            {
+               "name": "m.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMGradient"
+            },
+            {
+               "name": "m.limit-label-center",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenter"
+            },
+            {
+               "name": "m.limit-label-center.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterDefault"
+            },
+            {
+               "name": "m.limit-label-center.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterAccent"
+            },
+            {
+               "name": "m.limit-label-center.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterGradient"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterThumbS"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterThumbSDefault"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterThumbSAccent"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMLimitLabelCenterThumbSGradient"
+            },
+            {
+               "name": "m.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMThumbS"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMThumbSDefault"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMThumbSAccent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.M.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerMThumbSGradient"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSDefault"
+            },
+            {
+               "name": "s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSAccent"
+            },
+            {
+               "name": "s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSGradient"
+            },
+            {
+               "name": "s.limit-label-center",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenter"
+            },
+            {
+               "name": "s.limit-label-center.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterDefault"
+            },
+            {
+               "name": "s.limit-label-center.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterAccent"
+            },
+            {
+               "name": "s.limit-label-center.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterGradient"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterThumbS"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterThumbSDefault"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterThumbSAccent"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSLimitLabelCenterThumbSGradient"
+            },
+            {
+               "name": "s.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSThumbS"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSThumbSDefault"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSThumbSAccent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelInner.S.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelInnerSThumbSGradient"
+            }
+         ]
+      },
+      {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderHorizontalLabelOuter",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLDefault"
+            },
+            {
+               "name": "l.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLAccent"
+            },
+            {
+               "name": "l.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLGradient"
+            },
+            {
+               "name": "l.limit-label-center",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenter"
+            },
+            {
+               "name": "l.limit-label-center.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterDefault"
+            },
+            {
+               "name": "l.limit-label-center.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterAccent"
+            },
+            {
+               "name": "l.limit-label-center.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterGradient"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbS"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbSDefault"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbSAccent"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLLimitLabelCenterThumbSGradient"
+            },
+            {
+               "name": "l.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbS"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbSDefault"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbSAccent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.L.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterLThumbSGradient"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMDefault"
+            },
+            {
+               "name": "m.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMAccent"
+            },
+            {
+               "name": "m.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMGradient"
+            },
+            {
+               "name": "m.limit-label-center",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenter"
+            },
+            {
+               "name": "m.limit-label-center.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterDefault"
+            },
+            {
+               "name": "m.limit-label-center.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterAccent"
+            },
+            {
+               "name": "m.limit-label-center.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterGradient"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbS"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbSDefault"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbSAccent"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMLimitLabelCenterThumbSGradient"
+            },
+            {
+               "name": "m.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbS"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbSDefault"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbSAccent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.M.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterMThumbSGradient"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSDefault"
+            },
+            {
+               "name": "s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSAccent"
+            },
+            {
+               "name": "s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSGradient"
+            },
+            {
+               "name": "s.limit-label-center",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenter"
+            },
+            {
+               "name": "s.limit-label-center.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterDefault"
+            },
+            {
+               "name": "s.limit-label-center.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterAccent"
+            },
+            {
+               "name": "s.limit-label-center.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterGradient"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbS"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbSDefault"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbSAccent"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSLimitLabelCenterThumbSGradient"
+            },
+            {
+               "name": "s.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbS"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbSDefault"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbSAccent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderHorizontalLabelOuter.S.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderHorizontalLabelOuterSThumbSGradient"
+            }
+         ]
+      },
+      {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderVerticalLabelInner",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLDefault"
+            },
+            {
+               "name": "l.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLAccent"
+            },
+            {
+               "name": "l.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLGradient"
+            },
+            {
+               "name": "l.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEnd"
+            },
+            {
+               "name": "l.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndDefault"
+            },
+            {
+               "name": "l.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndAccent"
+            },
+            {
+               "name": "l.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndGradient"
+            },
+            {
+               "name": "l.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbS"
+            },
+            {
+               "name": "l.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbSDefault"
+            },
+            {
+               "name": "l.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbSAccent"
+            },
+            {
+               "name": "l.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLLabelEndThumbSGradient"
+            },
+            {
+               "name": "l.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbS"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbSDefault"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbSAccent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.L.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerLThumbSGradient"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMDefault"
+            },
+            {
+               "name": "m.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMAccent"
+            },
+            {
+               "name": "m.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMGradient"
+            },
+            {
+               "name": "m.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEnd"
+            },
+            {
+               "name": "m.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndDefault"
+            },
+            {
+               "name": "m.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndAccent"
+            },
+            {
+               "name": "m.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndGradient"
+            },
+            {
+               "name": "m.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbS"
+            },
+            {
+               "name": "m.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbSDefault"
+            },
+            {
+               "name": "m.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbSAccent"
+            },
+            {
+               "name": "m.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMLabelEndThumbSGradient"
+            },
+            {
+               "name": "m.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbS"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbSDefault"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbSAccent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.M.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerMThumbSGradient"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSDefault"
+            },
+            {
+               "name": "s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSAccent"
+            },
+            {
+               "name": "s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSGradient"
+            },
+            {
+               "name": "s.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEnd"
+            },
+            {
+               "name": "s.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndDefault"
+            },
+            {
+               "name": "s.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndAccent"
+            },
+            {
+               "name": "s.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndGradient"
+            },
+            {
+               "name": "s.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbS"
+            },
+            {
+               "name": "s.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbSDefault"
+            },
+            {
+               "name": "s.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbSAccent"
+            },
+            {
+               "name": "s.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSLabelEndThumbSGradient"
+            },
+            {
+               "name": "s.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbS"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbSDefault"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbSAccent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelInner.S.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelInnerSThumbSGradient"
+            }
+         ]
+      },
+      {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderVerticalLabelOuter",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLDefault"
+            },
+            {
+               "name": "l.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAccent"
+            },
+            {
+               "name": "l.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLGradient"
+            },
+            {
+               "name": "l.alignment-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEnd"
+            },
+            {
+               "name": "l.alignment-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndDefault"
+            },
+            {
+               "name": "l.alignment-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndAccent"
+            },
+            {
+               "name": "l.alignment-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndGradient"
+            },
+            {
+               "name": "l.alignment-end.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEnd"
+            },
+            {
+               "name": "l.alignment-end.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndDefault"
+            },
+            {
+               "name": "l.alignment-end.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndAccent"
+            },
+            {
+               "name": "l.alignment-end.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndGradient"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndThumbS"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndThumbSDefault"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndThumbSAccent"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndLabelEndThumbSGradient"
+            },
+            {
+               "name": "l.alignment-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndThumbS"
+            },
+            {
+               "name": "l.alignment-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndThumbSDefault"
+            },
+            {
+               "name": "l.alignment-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndThumbSAccent"
+            },
+            {
+               "name": "l.alignment-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLAlignmentEndThumbSGradient"
+            },
+            {
+               "name": "l.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEnd"
+            },
+            {
+               "name": "l.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndDefault"
+            },
+            {
+               "name": "l.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndAccent"
+            },
+            {
+               "name": "l.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndGradient"
+            },
+            {
+               "name": "l.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndThumbS"
+            },
+            {
+               "name": "l.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndThumbSDefault"
+            },
+            {
+               "name": "l.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndThumbSAccent"
+            },
+            {
+               "name": "l.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLLabelEndThumbSGradient"
+            },
+            {
+               "name": "l.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLThumbS"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLThumbSDefault"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLThumbSAccent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.L.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterLThumbSGradient"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMDefault"
+            },
+            {
+               "name": "m.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAccent"
+            },
+            {
+               "name": "m.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMGradient"
+            },
+            {
+               "name": "m.alignment-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEnd"
+            },
+            {
+               "name": "m.alignment-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndDefault"
+            },
+            {
+               "name": "m.alignment-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndAccent"
+            },
+            {
+               "name": "m.alignment-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndGradient"
+            },
+            {
+               "name": "m.alignment-end.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEnd"
+            },
+            {
+               "name": "m.alignment-end.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndDefault"
+            },
+            {
+               "name": "m.alignment-end.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndAccent"
+            },
+            {
+               "name": "m.alignment-end.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndGradient"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndThumbS"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndThumbSDefault"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndThumbSAccent"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndLabelEndThumbSGradient"
+            },
+            {
+               "name": "m.alignment-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndThumbS"
+            },
+            {
+               "name": "m.alignment-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndThumbSDefault"
+            },
+            {
+               "name": "m.alignment-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndThumbSAccent"
+            },
+            {
+               "name": "m.alignment-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMAlignmentEndThumbSGradient"
+            },
+            {
+               "name": "m.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEnd"
+            },
+            {
+               "name": "m.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndDefault"
+            },
+            {
+               "name": "m.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndAccent"
+            },
+            {
+               "name": "m.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndGradient"
+            },
+            {
+               "name": "m.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndThumbS"
+            },
+            {
+               "name": "m.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndThumbSDefault"
+            },
+            {
+               "name": "m.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndThumbSAccent"
+            },
+            {
+               "name": "m.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMLabelEndThumbSGradient"
+            },
+            {
+               "name": "m.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMThumbS"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMThumbSDefault"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMThumbSAccent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.M.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterMThumbSGradient"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSDefault"
+            },
+            {
+               "name": "s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAccent"
+            },
+            {
+               "name": "s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSGradient"
+            },
+            {
+               "name": "s.alignment-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEnd"
+            },
+            {
+               "name": "s.alignment-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndDefault"
+            },
+            {
+               "name": "s.alignment-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndAccent"
+            },
+            {
+               "name": "s.alignment-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndGradient"
+            },
+            {
+               "name": "s.alignment-end.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEnd"
+            },
+            {
+               "name": "s.alignment-end.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndDefault"
+            },
+            {
+               "name": "s.alignment-end.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndAccent"
+            },
+            {
+               "name": "s.alignment-end.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndGradient"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndThumbS"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndThumbSDefault"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndThumbSAccent"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndLabelEndThumbSGradient"
+            },
+            {
+               "name": "s.alignment-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndThumbS"
+            },
+            {
+               "name": "s.alignment-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndThumbSDefault"
+            },
+            {
+               "name": "s.alignment-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndThumbSAccent"
+            },
+            {
+               "name": "s.alignment-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSAlignmentEndThumbSGradient"
+            },
+            {
+               "name": "s.label-end",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEnd"
+            },
+            {
+               "name": "s.label-end.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndDefault"
+            },
+            {
+               "name": "s.label-end.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndAccent"
+            },
+            {
+               "name": "s.label-end.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndGradient"
+            },
+            {
+               "name": "s.label-end.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndThumbS"
+            },
+            {
+               "name": "s.label-end.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndThumbSDefault"
+            },
+            {
+               "name": "s.label-end.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndThumbSAccent"
+            },
+            {
+               "name": "s.label-end.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.LabelEnd.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSLabelEndThumbSGradient"
+            },
+            {
+               "name": "s.thumb-s",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.ThumbS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSThumbS"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.ThumbS.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSThumbSDefault"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.ThumbS.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSThumbSAccent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "viewReference": "Serv.Sdds.Components.SliderVerticalLabelOuter.S.ThumbS.Gradient",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SliderVerticalLabelOuterSThumbSGradient"
+            }
+         ]
+      },
+      {
          "key": "image",
          "coreName": "ImageView",
          "styleName": "ImageView",
