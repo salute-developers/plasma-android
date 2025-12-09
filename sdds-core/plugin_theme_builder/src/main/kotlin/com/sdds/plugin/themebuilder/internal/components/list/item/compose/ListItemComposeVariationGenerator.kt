@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class ListItemComposeVariationGenerator(
+    private val counterStylePackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -49,6 +50,7 @@ internal class ListItemComposeVariationGenerator(
             disclosureIconCall(props),
             colorsCall(props),
             dimensionsCall(props, variationId),
+            counterStyleCall(props, ktFileBuilder),
         )
     }
 
@@ -67,6 +69,9 @@ internal class ListItemComposeVariationGenerator(
                 appendLine(".dimensions {")
                 props.contentPaddingEnd?.let {
                     appendDimension("content_padding_end", it, variationId)
+                }
+                props.contentPaddingStart?.let {
+                    appendDimension("content_padding_start", it, variationId)
                 }
                 props.height?.let {
                     appendDimension("height", it, variationId)
@@ -87,6 +92,17 @@ internal class ListItemComposeVariationGenerator(
             }
         } else {
             null
+        }
+    }
+
+    private fun counterStyleCall(props: ListItemProperties, ktFileBuilder: KtFileBuilder): String? {
+        return props.counterStyle?.let {
+            ".counterStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    counterStylePackage,
+                )
+            }.style())"
         }
     }
 

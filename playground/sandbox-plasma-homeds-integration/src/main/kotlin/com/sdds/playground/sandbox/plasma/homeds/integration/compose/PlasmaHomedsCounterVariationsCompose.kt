@@ -12,6 +12,7 @@ import com.sdds.plasma.homeds.styles.counter.M
 import com.sdds.plasma.homeds.styles.counter.Negative
 import com.sdds.plasma.homeds.styles.counter.Positive
 import com.sdds.plasma.homeds.styles.counter.S
+import com.sdds.plasma.homeds.styles.counter.Secondary
 import com.sdds.plasma.homeds.styles.counter.Warning
 import com.sdds.plasma.homeds.styles.counter.White
 import com.sdds.plasma.homeds.styles.counter.Xs
@@ -22,6 +23,7 @@ internal object PlasmaHomedsCounterVariationsCompose : ComposeStyleProvider<Stri
     override val variations: Map<String, @Composable () -> CounterStyle> =
         mapOf(
             "L.Default" to { Counter.L.Default.style() },
+            "L.Secondary" to { Counter.L.Secondary.style() },
             "L.Accent" to { Counter.L.Accent.style() },
             "L.Positive" to { Counter.L.Positive.style() },
             "L.Warning" to { Counter.L.Warning.style() },
@@ -29,6 +31,7 @@ internal object PlasmaHomedsCounterVariationsCompose : ComposeStyleProvider<Stri
             "L.Black" to { Counter.L.Black.style() },
             "L.White" to { Counter.L.White.style() },
             "M.Default" to { Counter.M.Default.style() },
+            "M.Secondary" to { Counter.M.Secondary.style() },
             "M.Accent" to { Counter.M.Accent.style() },
             "M.Positive" to { Counter.M.Positive.style() },
             "M.Warning" to { Counter.M.Warning.style() },
@@ -36,6 +39,7 @@ internal object PlasmaHomedsCounterVariationsCompose : ComposeStyleProvider<Stri
             "M.Black" to { Counter.M.Black.style() },
             "M.White" to { Counter.M.White.style() },
             "S.Default" to { Counter.S.Default.style() },
+            "S.Secondary" to { Counter.S.Secondary.style() },
             "S.Accent" to { Counter.S.Accent.style() },
             "S.Positive" to { Counter.S.Positive.style() },
             "S.Warning" to { Counter.S.Warning.style() },
@@ -43,6 +47,7 @@ internal object PlasmaHomedsCounterVariationsCompose : ComposeStyleProvider<Stri
             "S.Black" to { Counter.S.Black.style() },
             "S.White" to { Counter.S.White.style() },
             "Xs.Default" to { Counter.Xs.Default.style() },
+            "Xs.Secondary" to { Counter.Xs.Secondary.style() },
             "Xs.Accent" to { Counter.Xs.Accent.style() },
             "Xs.Positive" to { Counter.Xs.Positive.style() },
             "Xs.Warning" to { Counter.Xs.Warning.style() },
@@ -50,6 +55,7 @@ internal object PlasmaHomedsCounterVariationsCompose : ComposeStyleProvider<Stri
             "Xs.Black" to { Counter.Xs.Black.style() },
             "Xs.White" to { Counter.Xs.White.style() },
             "Xxs.Default" to { Counter.Xxs.Default.style() },
+            "Xxs.Secondary" to { Counter.Xxs.Secondary.style() },
             "Xxs.Accent" to { Counter.Xxs.Accent.style() },
             "Xxs.Positive" to { Counter.Xxs.Positive.style() },
             "Xxs.Warning" to { Counter.Xxs.Warning.style() },

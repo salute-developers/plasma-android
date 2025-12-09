@@ -27,10 +27,12 @@ import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalCellStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
+import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
@@ -57,6 +59,7 @@ internal fun BaseCell(
         LocalCheckBoxStyle provides style.checkBoxStyle,
         LocalRadioBoxStyle provides style.radioBoxStyle,
         LocalSwitchStyle provides style.switchStyle,
+        LocalCounterStyle provides style.counterStyle,
     ) {
         Layout(
             modifier = modifier,
@@ -218,4 +221,38 @@ internal fun ColumnScope.CellCenterContent(
         textStyle = style.subtitleStyles.getValue(interactionSource),
         textColor = colors.subtitleColor.colorForInteraction(interactionSource),
     )
+}
+
+@Composable
+internal fun ColumnScope.CellCenterContent(
+    style: CellStyle,
+    interactionSource: InteractionSource,
+    titleContent: (@Composable () -> Unit)? = null,
+    labelContent: (@Composable () -> Unit)? = null,
+    subtitleContent: (@Composable () -> Unit)? = null,
+) {
+    val colors = style.colors
+    if (labelContent != null) {
+        ProvideTextStyle(
+            style.labelStyles.getValue(interactionSource),
+            colors.labelColor.colorForInteraction(interactionSource),
+            labelContent,
+        )
+    }
+
+    if (titleContent != null) {
+        ProvideTextStyle(
+            style.titleStyles.getValue(interactionSource),
+            colors.titleColor.colorForInteraction(interactionSource),
+            titleContent,
+        )
+    }
+
+    if (subtitleContent != null) {
+        ProvideTextStyle(
+            style.subtitleStyles.getValue(interactionSource),
+            colors.subtitleColor.colorForInteraction(interactionSource),
+            subtitleContent,
+        )
+    }
 }

@@ -160,12 +160,14 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ComponentKey.List,
                 mapOf(
                     "List" to PlasmaHomedsListVariationsCompose,
+                    "ListNumbered" to PlasmaHomedsListNumberedVariationsCompose,
                 ),
             ),
             ComposeComponent(
                 ComponentKey.ListItem,
                 mapOf(
                     "ListItem" to PlasmaHomedsListItemVariationsCompose,
+                    "ListNumberedItem" to PlasmaHomedsListNumberedItemVariationsCompose,
                 ),
             ),
             ComposeComponent(
@@ -196,6 +198,36 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ComponentKey.Wheel,
                 mapOf(
                     "Wheel" to PlasmaHomedsWheelVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.Note,
+                mapOf(
+                    "Note" to PlasmaHomedsNoteVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.NoteCompact,
+                mapOf(
+                    "NoteCompact" to PlasmaHomedsNoteCompactVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.Toast,
+                mapOf(
+                    "Toast" to PlasmaHomedsToastVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.LinkButton,
+                mapOf(
+                    "LinkButton" to PlasmaHomedsLinkButtonVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.BottomSheet,
+                mapOf(
+                    "ModalBottomSheet" to PlasmaHomedsModalBottomSheetVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

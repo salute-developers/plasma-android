@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.buttongroup.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupProperties
@@ -20,7 +22,7 @@ internal class ButtonGroupComposeVariationGenerator(
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String,
-    private val buttonStylesPackage: String,
+    private val packageResolver: PackageResolver,
 ) : ComposeVariationGenerator<ButtonGroupProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -53,6 +55,8 @@ internal class ButtonGroupComposeVariationGenerator(
         ktFileBuilder: KtFileBuilder,
     ): String? {
         return props.buttonStyle?.let {
+            val buttonType = it.value.split("-").firstOrNull()
+            val buttonStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.${buttonType}button"
             ".buttonStyle(${
                 it.value.getComponentStyle(
                     ktFileBuilder,

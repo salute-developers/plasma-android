@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.navigationbar.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.navigationbar.NavigationBarProperties
@@ -20,6 +22,7 @@ internal class NavigationBarComposeVariationGenerator(
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String,
+    private val packageResolver: PackageResolver,
 ) : ComposeVariationGenerator<NavigationBarProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -51,6 +54,7 @@ internal class NavigationBarComposeVariationGenerator(
         backIconCall(props),
         colorsCall(props),
         dimensionsCall(props, variationId),
+        actionButtonStyleCall(props, ktFileBuilder),
     )
 
     private fun backIconCall(props: NavigationBarProperties): String? {
@@ -74,6 +78,22 @@ internal class NavigationBarComposeVariationGenerator(
     private fun shadowCall(props: NavigationBarProperties): String? {
         return props.shadow?.let {
             getShadow(it)
+        }
+    }
+
+    private fun actionButtonStyleCall(
+        props: NavigationBarProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.actionButtonStyle?.let {
+            val buttonType = it.value.split("-").firstOrNull()
+            val buttonStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.${buttonType}button"
+            ".actionButtonStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    buttonStylesPackage,
+                )
+            }.style())"
         }
     }
 

@@ -44,8 +44,6 @@ fun SwitchS(style: SwitchStyle) {
     Switch(
         style = style,
         active = true,
-        label = "",
-        description = "",
         enabled = true,
     )
 }

@@ -1,6 +1,8 @@
 package utils
 
 import org.gradle.api.Project
+import org.jetbrains.kotlin.com.google.gson.GsonBuilder
+import org.jetbrains.kotlin.com.google.gson.JsonObject
 import java.io.File
 
 /**
@@ -178,6 +180,74 @@ private fun Project.getArtifactDocsBaseUrl(artifactId: String, version: String, 
     val branchSuffix = if (branch.isNotEmpty()) "/$branch" else ""
     val versionSuffix = if (version.isNotEmpty()) "$version/" else ""
     return "$branchSuffix/$docsTarget/$artifactId/$versionSuffix"
+}
+
+fun Project.filterComponents(docsDir: File) {
+    val components = resolveComponents()
+
+    fileTree(docsDir.resolve("components"))
+        .filter {
+            val componentName = it.name.removeSuffix("Usage.md")
+            !components.contains(componentName)
+        }
+        .forEach {
+            it.delete()
+        }
+}
+
+fun Project.resolveComponents(): Set<String> {
+    val file = if (isComposeLib()) {
+        projectDir.resolve("config-info-compose.json")
+    } else {
+        projectDir.resolve("config-info-view-system.json")
+    }
+    val gson = GsonBuilder().setPrettyPrinting().create()
+    val info = gson.fromJson(file.readText(), JsonObject::class.java)
+    val components = info.getAsJsonArray("components")
+    return components.map { it.asJsonObject.get("coreName").asString }.toSet()
+}
+
+fun Project.mergePlusPrefixedDocs(docsDir: File) {
+    if (!docsDir.exists()) return
+
+    // Ищем только файлы, начинающиеся с "+"
+    val plusFiles = fileTree(docsDir).matching {
+        include("**/+*")
+    }.files
+
+    plusFiles.forEach { plusFile ->
+        val relative = plusFile.relativeTo(docsDir)
+        val parentDir = relative.parentFile // может быть null
+        val baseName = plusFile.name.removePrefix("+")
+
+        val baseFile = if (parentDir != null) {
+            docsDir.resolve(parentDir).resolve(baseName)
+        } else {
+            docsDir.resolve(baseName)
+        }
+
+        // Если базового файла нет — можно просто переименовать доп. файл в базовый
+        if (!baseFile.exists()) {
+            plusFile.renameTo(baseFile)
+            return@forEach
+        }
+
+        // Если базовый файл есть — мержим
+        val baseContent = baseFile.readText()
+        val extraContent = plusFile.readText()
+
+        val mergedContent = buildString {
+            append(baseContent)
+            appendLine()
+            appendLine()
+            appendLine("<!-- merged from ${plusFile.name} -->")
+            appendLine()
+            append(extraContent)
+        }
+
+        baseFile.writeText(mergedContent)
+        plusFile.delete()
+    }
 }
 
 private const val BASE_DOC_URL = "https://plasma.sberdevices.ru"

@@ -2643,6 +2643,10 @@
                "composeReference": "Counter.L.Default"
             },
             {
+               "name": "l.secondary",
+               "composeReference": "Counter.L.Secondary"
+            },
+            {
                "name": "l.accent",
                "composeReference": "Counter.L.Accent"
             },
@@ -2669,6 +2673,10 @@
             {
                "name": "m.default",
                "composeReference": "Counter.M.Default"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "Counter.M.Secondary"
             },
             {
                "name": "m.accent",
@@ -2699,6 +2707,10 @@
                "composeReference": "Counter.S.Default"
             },
             {
+               "name": "s.secondary",
+               "composeReference": "Counter.S.Secondary"
+            },
+            {
                "name": "s.accent",
                "composeReference": "Counter.S.Accent"
             },
@@ -2727,6 +2739,10 @@
                "composeReference": "Counter.Xs.Default"
             },
             {
+               "name": "xs.secondary",
+               "composeReference": "Counter.Xs.Secondary"
+            },
+            {
                "name": "xs.accent",
                "composeReference": "Counter.Xs.Accent"
             },
@@ -2753,6 +2769,10 @@
             {
                "name": "xxs.default",
                "composeReference": "Counter.Xxs.Default"
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "Counter.Xxs.Secondary"
             },
             {
                "name": "xxs.accent",
@@ -2957,6 +2977,10 @@
             {
                "name": "s.no-background.has-item-background",
                "composeReference": "List.S.NoBackground.HasItemBackground"
+            },
+            {
+               "name": "s.has-background",
+               "composeReference": "List.S.HasBackground"
             }
          ]
       },
@@ -3323,6 +3347,367 @@
             {
                "name": "h1.mixed-align",
                "composeReference": "Wheel.H1.MixedAlign"
+            }
+         ]
+      },
+      {
+         "key": "note",
+         "coreName": "Note",
+         "styleName": "Note",
+         "variations": [
+            {
+               "name": "has-close.default",
+               "composeReference": "Note.HasClose.Default"
+            },
+            {
+               "name": "has-close.positive",
+               "composeReference": "Note.HasClose.Positive"
+            },
+            {
+               "name": "has-close.negative",
+               "composeReference": "Note.HasClose.Negative"
+            },
+            {
+               "name": "has-close.warning",
+               "composeReference": "Note.HasClose.Warning"
+            },
+            {
+               "name": "has-close.info",
+               "composeReference": "Note.HasClose.Info"
+            },
+            {
+               "name": "has-close.content-scalable.default",
+               "composeReference": "Note.HasClose.ContentScalable.Default"
+            },
+            {
+               "name": "has-close.content-scalable.positive",
+               "composeReference": "Note.HasClose.ContentScalable.Positive"
+            },
+            {
+               "name": "has-close.content-scalable.negative",
+               "composeReference": "Note.HasClose.ContentScalable.Negative"
+            },
+            {
+               "name": "has-close.content-scalable.warning",
+               "composeReference": "Note.HasClose.ContentScalable.Warning"
+            },
+            {
+               "name": "has-close.content-scalable.info",
+               "composeReference": "Note.HasClose.ContentScalable.Info"
+            },
+            {
+               "name": "content-scalable.default",
+               "composeReference": "Note.ContentScalable.Default"
+            },
+            {
+               "name": "content-scalable.positive",
+               "composeReference": "Note.ContentScalable.Positive"
+            },
+            {
+               "name": "content-scalable.negative",
+               "composeReference": "Note.ContentScalable.Negative"
+            },
+            {
+               "name": "content-scalable.warning",
+               "composeReference": "Note.ContentScalable.Warning"
+            },
+            {
+               "name": "content-scalable.info",
+               "composeReference": "Note.ContentScalable.Info"
+            }
+         ]
+      },
+      {
+         "key": "note-compact",
+         "coreName": "NoteCompact",
+         "styleName": "NoteCompact",
+         "variations": [
+            {
+               "name": "has-close.default",
+               "composeReference": "NoteCompact.HasClose.Default"
+            },
+            {
+               "name": "has-close.positive",
+               "composeReference": "NoteCompact.HasClose.Positive"
+            },
+            {
+               "name": "has-close.negative",
+               "composeReference": "NoteCompact.HasClose.Negative"
+            },
+            {
+               "name": "has-close.warning",
+               "composeReference": "NoteCompact.HasClose.Warning"
+            },
+            {
+               "name": "has-close.info",
+               "composeReference": "NoteCompact.HasClose.Info"
+            },
+            {
+               "name": "has-close.content-scalable.default",
+               "composeReference": "NoteCompact.HasClose.ContentScalable.Default"
+            },
+            {
+               "name": "has-close.content-scalable.positive",
+               "composeReference": "NoteCompact.HasClose.ContentScalable.Positive"
+            },
+            {
+               "name": "has-close.content-scalable.negative",
+               "composeReference": "NoteCompact.HasClose.ContentScalable.Negative"
+            },
+            {
+               "name": "has-close.content-scalable.warning",
+               "composeReference": "NoteCompact.HasClose.ContentScalable.Warning"
+            },
+            {
+               "name": "has-close.content-scalable.info",
+               "composeReference": "NoteCompact.HasClose.ContentScalable.Info"
+            },
+            {
+               "name": "content-scalable.default",
+               "composeReference": "NoteCompact.ContentScalable.Default"
+            },
+            {
+               "name": "content-scalable.positive",
+               "composeReference": "NoteCompact.ContentScalable.Positive"
+            },
+            {
+               "name": "content-scalable.negative",
+               "composeReference": "NoteCompact.ContentScalable.Negative"
+            },
+            {
+               "name": "content-scalable.warning",
+               "composeReference": "NoteCompact.ContentScalable.Warning"
+            },
+            {
+               "name": "content-scalable.info",
+               "composeReference": "NoteCompact.ContentScalable.Info"
+            }
+         ]
+      },
+      {
+         "key": "toast",
+         "coreName": "Toast",
+         "styleName": "Toast",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "Toast.Default"
+            },
+            {
+               "name": "positive",
+               "composeReference": "Toast.Positive"
+            },
+            {
+               "name": "negative",
+               "composeReference": "Toast.Negative"
+            }
+         ]
+      },
+      {
+         "key": "list",
+         "coreName": "List",
+         "styleName": "ListNumbered",
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "ListNumbered.S"
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
+         "styleName": "ListNumberedItem",
+         "variations": [
+            {
+               "name": "s",
+               "composeReference": "ListNumberedItem.S"
+            }
+         ]
+      },
+      {
+         "key": "link-button",
+         "coreName": "LinkButton",
+         "styleName": "LinkButton",
+         "variations": [
+            {
+               "name": "xl.default",
+               "composeReference": "LinkButton.Xl.Default"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "LinkButton.Xl.Secondary"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "LinkButton.Xl.Accent"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "LinkButton.Xl.Positive"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "LinkButton.Xl.Negative"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "LinkButton.Xl.Warning"
+            },
+            {
+               "name": "xl.info",
+               "composeReference": "LinkButton.Xl.Info"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "LinkButton.L.Default"
+            },
+            {
+               "name": "l.secondary",
+               "composeReference": "LinkButton.L.Secondary"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "LinkButton.L.Accent"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "LinkButton.L.Positive"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "LinkButton.L.Negative"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "LinkButton.L.Warning"
+            },
+            {
+               "name": "l.info",
+               "composeReference": "LinkButton.L.Info"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "LinkButton.M.Default"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "LinkButton.M.Secondary"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "LinkButton.M.Accent"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "LinkButton.M.Positive"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "LinkButton.M.Negative"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "LinkButton.M.Warning"
+            },
+            {
+               "name": "m.info",
+               "composeReference": "LinkButton.M.Info"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "LinkButton.S.Default"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "LinkButton.S.Secondary"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "LinkButton.S.Accent"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "LinkButton.S.Positive"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "LinkButton.S.Negative"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "LinkButton.S.Warning"
+            },
+            {
+               "name": "s.info",
+               "composeReference": "LinkButton.S.Info"
+            },
+            {
+               "name": "xs.default",
+               "composeReference": "LinkButton.Xs.Default"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "LinkButton.Xs.Secondary"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "LinkButton.Xs.Accent"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "LinkButton.Xs.Positive"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "LinkButton.Xs.Negative"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "LinkButton.Xs.Warning"
+            },
+            {
+               "name": "xs.info",
+               "composeReference": "LinkButton.Xs.Info"
+            },
+            {
+               "name": "xxs.default",
+               "composeReference": "LinkButton.Xxs.Default"
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "LinkButton.Xxs.Secondary"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "LinkButton.Xxs.Accent"
+            },
+            {
+               "name": "xxs.positive",
+               "composeReference": "LinkButton.Xxs.Positive"
+            },
+            {
+               "name": "xxs.negative",
+               "composeReference": "LinkButton.Xxs.Negative"
+            },
+            {
+               "name": "xxs.warning",
+               "composeReference": "LinkButton.Xxs.Warning"
+            },
+            {
+               "name": "xxs.info",
+               "composeReference": "LinkButton.Xxs.Info"
+            }
+         ]
+      },
+      {
+         "key": "bottom-sheet",
+         "coreName": "BottomSheet",
+         "styleName": "ModalBottomSheet",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "ModalBottomSheet.Default"
             }
          ]
       }

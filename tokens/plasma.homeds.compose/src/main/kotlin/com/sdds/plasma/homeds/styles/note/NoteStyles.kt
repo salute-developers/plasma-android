@@ -1,0 +1,214 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdds.plasma.homeds.styles.note
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.ContentBeforeVerticalArrangement
+import com.sdds.compose.uikit.NoteStyle
+import com.sdds.compose.uikit.NoteStyleBuilder
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
+import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.homeds.styles.linkbutton.Info
+import com.sdds.plasma.homeds.styles.linkbutton.LinkButton
+import com.sdds.plasma.homeds.styles.linkbutton.Negative
+import com.sdds.plasma.homeds.styles.linkbutton.Positive
+import com.sdds.plasma.homeds.styles.linkbutton.S
+import com.sdds.plasma.homeds.styles.linkbutton.Warning
+import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
+
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
+public interface WrapperNote : BuilderWrapper<NoteStyle, NoteStyleBuilder>
+
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperNoteView : WrapperNote
+
+/**
+ * Терминальная обертка
+ */
+@JvmInline
+public value class WrapperNoteTerminate(
+    public override val builder: NoteStyleBuilder,
+) : WrapperNote
+
+/**
+ * Обертка для вариации HasClose
+ */
+@JvmInline
+public value class WrapperNoteHasClose(
+    public override val builder: NoteStyleBuilder,
+) : WrapperNoteView
+
+/**
+ * Обертка для вариации HasCloseContentScalable
+ */
+@JvmInline
+public value class WrapperNoteHasCloseContentScalable(
+    public override val builder: NoteStyleBuilder,
+) : WrapperNoteView
+
+/**
+ * Обертка для вариации ContentScalable
+ */
+@JvmInline
+public value class WrapperNoteContentScalable(
+    public override val builder: NoteStyleBuilder,
+) : WrapperNoteView
+
+public val WrapperNoteView.Default: WrapperNoteTerminate
+    @Composable
+    get() = builder
+        .linkButtonStyle(LinkButton.S.Positive.style())
+        .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidSecondary).asStatefulValue(),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperNoteTerminate)
+
+public val WrapperNoteView.Positive: WrapperNoteTerminate
+    @Composable
+    get() = builder
+        .linkButtonStyle(LinkButton.S.Positive.style())
+        .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultPositiveMinor).asStatefulValue(),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
+            )
+        }
+        .wrap(::WrapperNoteTerminate)
+
+public val WrapperNoteView.Negative: WrapperNoteTerminate
+    @Composable
+    get() = builder
+        .linkButtonStyle(LinkButton.S.Negative.style())
+        .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultNegativeMinor).asStatefulValue(),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
+            )
+        }
+        .wrap(::WrapperNoteTerminate)
+
+public val WrapperNoteView.Warning: WrapperNoteTerminate
+    @Composable
+    get() = builder
+        .linkButtonStyle(LinkButton.S.Warning.style())
+        .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultWarningMinor).asStatefulValue(),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultWarning.asInteractive(),
+            )
+        }
+        .wrap(::WrapperNoteTerminate)
+
+public val WrapperNoteView.Info: WrapperNoteTerminate
+    @Composable
+    get() = builder
+        .linkButtonStyle(LinkButton.S.Info.style())
+        .colors {
+            backgroundColor(
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultInfoMinor).asStatefulValue(),
+            )
+            iconColor(
+                PlasmaHomeDsTheme.colors.textDefaultInfo.asInteractive(),
+            )
+        }
+        .wrap(::WrapperNoteTerminate)
+
+private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
+    @Composable
+    get() = this
+        .shape(PlasmaHomeDsTheme.shapes.roundXl)
+        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Top)
+        .colors {
+            closeColor(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            titleColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            textColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .titleStyle(PlasmaHomeDsTheme.typography.textSBold)
+        .textStyle(PlasmaHomeDsTheme.typography.textSNormal)
+        .dimensions {
+            paddingStart(20.0.dp)
+            paddingEnd(20.0.dp)
+            paddingTop(16.0.dp)
+            paddingBottom(5.0.dp)
+            iconSize(16.0.dp)
+            closeTopMargin(0.0.dp)
+            contentBeforeEndMargin(8.0.dp)
+            textTopMargin(2.0.dp)
+            titlePaddingEnd(0.0.dp)
+            closeEndMargin(0.0.dp)
+            actionTopMargin(0.0.dp)
+        }
+
+public val Note.HasClose: WrapperNoteHasClose
+    @Composable
+    @JvmName("WrapperNoteHasClose")
+    get() = NoteStyle.builder(this)
+        .invariantProps
+        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .dimensions {
+            closeSize(24.0.dp)
+            closeTopMargin(10.0.dp)
+            titlePaddingEnd(26.0.dp)
+            closeEndMargin(10.0.dp)
+        }
+        .wrap(::WrapperNoteHasClose)
+
+public val WrapperNoteHasClose.ContentScalable: WrapperNoteHasCloseContentScalable
+    @Composable
+    @JvmName("WrapperNoteHasCloseContentScalable")
+    get() = builder
+        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
+        .dimensions {
+            iconSize(0.0.dp)
+            contentBeforeEndMargin(12.0.dp)
+        }
+        .wrap(::WrapperNoteHasCloseContentScalable)
+
+public val Note.ContentScalable: WrapperNoteContentScalable
+    @Composable
+    @JvmName("WrapperNoteContentScalable")
+    get() = NoteStyle.builder(this)
+        .invariantProps
+        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
+        .dimensions {
+            iconSize(0.0.dp)
+            contentBeforeEndMargin(12.0.dp)
+        }
+        .wrap(::WrapperNoteContentScalable)

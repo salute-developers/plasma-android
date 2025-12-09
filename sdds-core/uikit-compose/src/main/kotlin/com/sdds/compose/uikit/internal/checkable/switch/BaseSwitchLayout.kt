@@ -1,7 +1,8 @@
 @file:Suppress("TopLevelPropertyNaming")
 
-package com.sdds.compose.uikit.internal.switch
+package com.sdds.compose.uikit.internal.checkable.switch
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
@@ -37,9 +38,9 @@ import kotlin.math.max
  */
 @Composable
 internal fun BaseSwitchLayout(
-    switch: @Composable (Modifier) -> Unit,
-    label: (@Composable (Modifier) -> Unit)?,
-    description: (@Composable (Modifier) -> Unit)?,
+    switch: @Composable () -> Unit,
+    label: (@Composable () -> Unit)?,
+    description: (@Composable () -> Unit)?,
     verticalSpacing: Dp,
     horizontalSpacing: Dp,
     modifier: Modifier = Modifier,
@@ -56,9 +57,19 @@ internal fun BaseSwitchLayout(
     Layout(
         modifier = modifier,
         content = {
-            switch(Modifier.layoutId(SwitchId))
-            label?.invoke(Modifier.layoutId(LabelId))
-            description?.invoke(Modifier.layoutId(DescriptionId))
+            Box(Modifier.layoutId(SwitchId)) {
+                switch()
+            }
+            if (label != null) {
+                Box(Modifier.layoutId(LabelId)) {
+                    label()
+                }
+            }
+            if (description != null) {
+                Box(Modifier.layoutId(DescriptionId)) {
+                    description()
+                }
+            }
         },
         measurePolicy = measurePolicy,
     )
@@ -74,11 +85,10 @@ internal fun switchText(
     textStyle: TextStyle,
     color: State<Color>,
     maxLines: Int,
-): @Composable ((Modifier) -> Unit)? =
+): @Composable (() -> Unit)? =
     if (value != null) {
         {
             StyledText(
-                modifier = it,
                 text = AnnotatedString(value),
                 textStyle = textStyle,
                 textColor = color.value,

@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.base.view.camelCaseValue
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -61,11 +62,29 @@ internal class ListItemStyleGeneratorView(
         }
     }
 
+    override fun onCreateOverlayStyle(
+        variation: String,
+        rootDocument: XmlResourcesDocumentBuilder,
+        styleElement: Element,
+        variationNode: VariationNode<ListItemProperties>,
+    ) {
+        super.onCreateOverlayStyle(variation, rootDocument, styleElement, variationNode)
+        styleElement.addListContentStyleAttribute(variationNode)
+    }
+
     private fun Element.addProps(variation: String, variationNode: VariationNode<ListItemProperties>) {
         val props = variationNode.value.props
 
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.disclosureIcon?.let { iconAttribute("sd_disclosureIcon", it.value) }
+        props.counterStyle?.let {
+            iconAttribute("sd_disclosureIcon", it.value)
+        }
+    }
+
+    private fun Element.addListContentStyleAttribute(variationNode: VariationNode<ListItemProperties>) {
+        val props = variationNode.value.props
+        props.counterStyle?.let { componentStyleAttribute("sd_counterStyle", it.camelCaseValue(".")) }
     }
 
     internal enum class ListItemColorProperty(
@@ -95,6 +114,7 @@ internal class ListItemStyleGeneratorView(
         override val fileSuffix: String,
     ) : ProvidableProperty<ListItemProperties, Float, Dimension> {
         CONTENT_END_PADDING("sd_contentEndPadding", "content_end_padding"),
+        CONTENT_START_PADDING("sd_contentStartPadding", "content_start_padding"),
         PADDING_START("android:paddingStart", "padding_start"),
         PADDING_END("android:paddingEnd", "padding_end"),
         PADDING_TOP("android:paddingTop", "padding_top"),
@@ -105,6 +125,7 @@ internal class ListItemStyleGeneratorView(
         override fun provide(owner: ListItemProperties): Dimension? {
             return when (this) {
                 CONTENT_END_PADDING -> owner.contentPaddingEnd
+                CONTENT_START_PADDING -> owner.contentPaddingStart
                 PADDING_START -> owner.paddingStart
                 PADDING_END -> owner.paddingEnd
                 PADDING_TOP -> owner.paddingTop

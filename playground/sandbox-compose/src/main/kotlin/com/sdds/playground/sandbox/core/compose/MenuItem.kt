@@ -167,7 +167,7 @@ import com.sdds.testing.compose.rectskeleton.RectSkeletonForSandbox
 import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
 import com.sdds.testing.compose.segment.SegmentSizeLCounter
 import com.sdds.testing.compose.spinner.SpinnerTest
-import com.sdds.testing.compose.switcher.SwitchS
+import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.textarea.TextAreaLDefaultTBTA
 import com.sdds.testing.compose.textfield.TextFieldLDefaultInnerLeft
 import com.sdds.testing.compose.toast.ToastForSandbox
@@ -230,7 +230,7 @@ internal sealed class ComponentScreen(
     object RadioBoxGroup :
         ComponentScreen({ RadioBoxGroupScreen(it) }, { it, _ -> RadioBoxGroupSizeM(it as RadioBoxGroupStyle) })
 
-    object Switch : ComponentScreen({ SwitchScreen(it) }, { it, _ -> SwitchS(it as SwitchStyle) })
+    object Switch : ComponentScreen({ SwitchScreen(it) }, { it, _ -> SwitchLOn(it as SwitchStyle) })
     object Progress : ComponentScreen({ ProgressScreen(it) }, { it, _ -> ProgressBarDefault(it as ProgressBarStyle) })
     object CircularProgress :
         ComponentScreen({ CircularProgressScreen(it) }, { it, _ -> CircularProgress(it as CircularProgressBarStyle) })

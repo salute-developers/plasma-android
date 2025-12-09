@@ -204,7 +204,14 @@ class BottomSheetState(
         },
         velocityThreshold = { with(density) { ModalBottomSheetVelocityThreshold.toPx() } },
     )
-    private val _dialogState = MutableStateFlow(DialogState.Hide)
+    private val _dialogState = MutableStateFlow(
+        when (initialValue) {
+            Hidden -> DialogState.Hide
+            Expanded,
+            HalfExpanded,
+            -> DialogState.Show
+        },
+    )
     internal val dialogState = _dialogState.asStateFlow()
     internal fun hideDialog() {
         _dialogState.value = DialogState.Hide
@@ -457,6 +464,8 @@ private fun Modifier.bottomSheetAnchors(
     val previousValue = sheetState.currentValue
     val newTarget = if (!isInitialized && newAnchors.hasAnchorFor(previousValue)) {
         previousValue
+    } else if (sheetState.targetValue == previousValue) {
+        sheetState.targetValue
     } else {
         when (sheetState.targetValue) {
             Hidden -> Hidden
