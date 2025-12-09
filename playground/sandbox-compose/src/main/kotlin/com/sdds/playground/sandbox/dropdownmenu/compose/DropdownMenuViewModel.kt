@@ -21,7 +21,7 @@ internal class DropdownMenuViewModel(
             Property.IntProperty(
                 name = "amount",
                 value = amount,
-                onApply = { if (it in 1..10) { updateAmount(it) } },
+                onApply = { updateAmount(it) },
             ),
             Property.StringProperty(
                 name = "itemTitle",

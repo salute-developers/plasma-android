@@ -110,7 +110,7 @@ internal fun BoxWithConstraintsScope.BaseScrollBarThumb(
     val trackLengthPx = trackLengthPx(orientation)
     val thumbMinLengthPx = thumbMinLengthPx()
     val thumbLengthPx by thumbLengthPx(scrollState, trackLengthPx, thumbMinLengthPx)
-    val thumbOffsetPx by thumbOffsetPx(scrollState, trackLengthPx, thumbLengthPx)
+    val thumbOffsetPx by thumbOffsetPx(scrollState, trackLengthPx, thumbLengthPx, orientation)
     val dragModifier = Modifier.processLazyScrollBarDrag(
         scrollState = scrollState,
         orientation = orientation,
@@ -208,7 +208,8 @@ internal object BaseScrollBar {
         scrollState: LazyListState,
         trackLengthPx: Float,
         thumbLengthPx: Float,
-    ): State<Float> = remember(thumbLengthPx) {
+        orientation: Orientation,
+    ): State<Float> = remember(thumbLengthPx, trackLengthPx, orientation) {
         derivedStateOf {
             val layoutInfo = scrollState.layoutInfo
             val averageItemSize =
@@ -220,10 +221,16 @@ internal object BaseScrollBar {
                 layoutInfo.totalItemsCount * averageItemSize +
                     layoutInfo.beforeContentPadding + layoutInfo.afterContentPadding
             val availableTrackSpace = trackLengthPx - thumbLengthPx
-            val availableScrollContentSpace = totalContentSize - trackLengthPx
             val scrolledContentDelta =
                 firstVisibleItemIndex * averageItemSize - firstVisibleItemScrollOffset
-            val offset = (scrolledContentDelta / availableScrollContentSpace) * availableTrackSpace
+            val viewPortMainAxisSize = when (orientation) {
+                Orientation.Vertical -> layoutInfo.viewportSize.height
+                Orientation.Horizontal -> layoutInfo.viewportSize.width
+            }
+            val availableScrollContentSpace = totalContentSize - viewPortMainAxisSize
+            val offset = ((scrolledContentDelta / availableScrollContentSpace) * availableTrackSpace).coerceAtMost(
+                availableTrackSpace,
+            )
             offset
         }
     }
@@ -262,9 +269,10 @@ internal object BaseScrollBar {
         trackLengthPx: Float,
         thumbMinLengthPx: Float,
     ): State<Float> =
-        remember {
+        remember(scrollState.layoutInfo.visibleItemsInfo.isEmpty()) {
             derivedStateOf {
                 val layoutInfo = scrollState.layoutInfo
+                if (layoutInfo.visibleItemsInfo.isEmpty()) return@derivedStateOf thumbMinLengthPx
                 val averageItemSize =
                     layoutInfo.visibleItemsInfo.sumOf { it.size } / layoutInfo.visibleItemsInfo.size
                 val fullContentSize = layoutInfo.totalItemsCount * averageItemSize

@@ -57,6 +57,16 @@ interface DropdownMenuStyle : Style {
      */
     val dividerStyle: DividerStyle
 
+    /**
+     * Стиль пустого состояния
+     */
+    val emptyStateStyle: DropdownEmptyStateStyle
+
+    /**
+     * Стиль прокрутки
+     */
+    val scrollBarStyle: ScrollBarStyle
+
     companion object {
         /**
          * Возвращает экземпляр [DropdownMenuStyleBuilder]
@@ -102,6 +112,16 @@ interface DropdownMenuStyleBuilder : StyleBuilder<DropdownMenuStyle> {
      * Устанавливает стиль разделителя [dividerStyle]
      */
     fun dividerStyle(dividerStyle: DividerStyle): DropdownMenuStyleBuilder
+
+    /**
+     * Устанавливает стиль покрутки [scrollBarStyle]
+     */
+    fun scrollBarStyle(scrollBarStyle: ScrollBarStyle): DropdownMenuStyleBuilder
+
+    /**
+     * Устанавливает стиль пустого состояния [emptyStateStyle]
+     */
+    fun emptyStateStyle(emptyStateStyle: DropdownEmptyStateStyle): DropdownMenuStyleBuilder
 }
 
 @Immutable
@@ -112,6 +132,8 @@ private class DefaultDropdownMenuStyle(
     override val colors: DropdownMenuColors,
     override val listStyle: ListStyle,
     override val dividerStyle: DividerStyle,
+    override val emptyStateStyle: DropdownEmptyStateStyle,
+    override val scrollBarStyle: ScrollBarStyle,
 ) : DropdownMenuStyle {
 
     class Builder : DropdownMenuStyleBuilder {
@@ -121,6 +143,8 @@ private class DefaultDropdownMenuStyle(
         private val dimensionsBuilder = DropdownMenuDimensions.builder()
         private var listStyle: ListStyle? = null
         private var dividerStyle: DividerStyle? = null
+        private var emptyStateStyle: DropdownEmptyStateStyle? = null
+        private var scrollBarStyle: ScrollBarStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -149,6 +173,14 @@ private class DefaultDropdownMenuStyle(
             this.dividerStyle = dividerStyle
         }
 
+        override fun scrollBarStyle(scrollBarStyle: ScrollBarStyle) = apply {
+            this.scrollBarStyle = scrollBarStyle
+        }
+
+        override fun emptyStateStyle(emptyStateStyle: DropdownEmptyStateStyle) = apply {
+            this.emptyStateStyle = emptyStateStyle
+        }
+
         override fun style(): DropdownMenuStyle {
             return DefaultDropdownMenuStyle(
                 shape = shape ?: RoundedCornerShape(15),
@@ -157,6 +189,8 @@ private class DefaultDropdownMenuStyle(
                 dimensions = dimensionsBuilder.build(),
                 listStyle = listStyle ?: ListStyle.builder().style(),
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
+                scrollBarStyle = scrollBarStyle ?: ScrollBarStyle.builder().style(),
+                emptyStateStyle = emptyStateStyle ?: DropdownEmptyStateStyle.builder().style(),
             )
         }
     }
@@ -267,6 +301,36 @@ interface DropdownMenuDimensions {
      */
     val strokeWidth: Dp
 
+    /**
+     * Отступ в начале
+     */
+    val paddingStart: Dp
+
+    /**
+     * Отступ в конце
+     */
+    val paddingEnd: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val paddingTop: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottom: Dp
+
+    /**
+     * Отступ прокрутки сверху
+     */
+    val scrollBarPaddingTop: Dp
+
+    /**
+     * Отступ прокрутки снизу
+     */
+    val scrollBarPaddingBottom: Dp
+
     companion object {
         /**
          * Создает экземпляр [DropdownMenuDimensionsBuilder]
@@ -295,6 +359,36 @@ interface DropdownMenuDimensionsBuilder {
     fun strokeWidth(strokeWidth: Dp): DropdownMenuDimensionsBuilder
 
     /**
+     * Устанавливает отступ в начале [paddingStart]
+     */
+    fun paddingStart(paddingStart: Dp): DropdownMenuDimensionsBuilder
+
+    /**
+     * Устанавливает отступ в конце [paddingEnd]
+     */
+    fun paddingEnd(paddingEnd: Dp): DropdownMenuDimensionsBuilder
+
+    /**
+     * Устанавливает отступ сверху [paddingTop]
+     */
+    fun paddingTop(paddingTop: Dp): DropdownMenuDimensionsBuilder
+
+    /**
+     * Устанавливает отступ cнизу [paddingBottom]
+     */
+    fun paddingBottom(paddingBottom: Dp): DropdownMenuDimensionsBuilder
+
+    /**
+     * Устанавливает отступ прокрутки сверху [paddingBottom]
+     */
+    fun scrollBarPaddingTop(scrollBarPaddingTop: Dp): DropdownMenuDimensionsBuilder
+
+    /**
+     * Устанавливает отступ прокрутки cнизу [paddingBottom]
+     */
+    fun scrollBarPaddingBottom(scrollBarPaddingBottom: Dp): DropdownMenuDimensionsBuilder
+
+    /**
      * Создает экземпляр [DropdownMenuDimensions]
      */
     fun build(): DropdownMenuDimensions
@@ -305,6 +399,12 @@ private class DefaultDropdownMenuDimensions(
     override val width: Dp,
     override val offset: Dp,
     override val strokeWidth: Dp,
+    override val paddingStart: Dp,
+    override val paddingEnd: Dp,
+    override val paddingTop: Dp,
+    override val paddingBottom: Dp,
+    override val scrollBarPaddingTop: Dp,
+    override val scrollBarPaddingBottom: Dp,
 ) : DropdownMenuDimensions {
 
     class Builder : DropdownMenuDimensionsBuilder {
@@ -312,6 +412,12 @@ private class DefaultDropdownMenuDimensions(
         private var width: Dp? = null
         private var strokeWidth: Dp? = null
         private var offset: Dp? = null
+        private var paddingStart: Dp? = null
+        private var paddingEnd: Dp? = null
+        private var paddingTop: Dp? = null
+        private var paddingBottom: Dp? = null
+        private var scrollBarPaddingTop: Dp? = null
+        private var scrollBarPaddingBottom: Dp? = null
 
         override fun width(width: Dp) = apply {
             this.width = width
@@ -325,11 +431,41 @@ private class DefaultDropdownMenuDimensions(
             this.strokeWidth = strokeWidth
         }
 
+        override fun paddingStart(paddingStart: Dp) = apply {
+            this.paddingStart = paddingStart
+        }
+
+        override fun paddingEnd(paddingEnd: Dp) = apply {
+            this.paddingEnd = paddingEnd
+        }
+
+        override fun paddingTop(paddingTop: Dp) = apply {
+            this.paddingTop = paddingTop
+        }
+
+        override fun paddingBottom(paddingBottom: Dp) = apply {
+            this.paddingBottom = paddingBottom
+        }
+
+        override fun scrollBarPaddingTop(scrollBarPaddingTop: Dp) = apply {
+            this.scrollBarPaddingTop = scrollBarPaddingTop
+        }
+
+        override fun scrollBarPaddingBottom(scrollBarPaddingBottom: Dp) = apply {
+            this.scrollBarPaddingBottom = scrollBarPaddingBottom
+        }
+
         override fun build(): DropdownMenuDimensions {
             return DefaultDropdownMenuDimensions(
                 width = width ?: 40.dp,
                 offset = offset ?: 0.dp,
                 strokeWidth = strokeWidth ?: Dp.Unspecified,
+                paddingStart = paddingStart ?: Dp.Unspecified,
+                paddingEnd = paddingEnd ?: Dp.Unspecified,
+                paddingTop = paddingTop ?: Dp.Unspecified,
+                paddingBottom = paddingBottom ?: Dp.Unspecified,
+                scrollBarPaddingTop = scrollBarPaddingTop ?: Dp.Unspecified,
+                scrollBarPaddingBottom = scrollBarPaddingBottom ?: Dp.Unspecified,
             )
         }
     }
