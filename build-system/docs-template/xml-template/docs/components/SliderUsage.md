@@ -70,11 +70,11 @@ title: Slider
 
 Ползунок Slider поддерживает drag, для изменения значения нажмите на ползунок и потяните в нужную сторону, так же  
 имеется возможность моментальной установки значения нажатием на произвольное место в области трэка, если при этом не  
-отпускать  палец то нажатие переходит в режим drug и вы можете продолжить перетаскивать его.
+отпускать  палец то нажатие переходит в режим drag и вы можете продолжить перетаскивать его.
 
 ## ValueMode
 
-Для конфигурирования режима отображения выбранного значения, используйте setValueMode(valueMode: Int) и константами  
+Для конфигурирования режима отображения выбранного значения, используйте setValueMode(valueMode: Int) и константы  
 Slider.VALUE_MODE_NONE - не отображать, Slider.VALUE_MODE_INTERACTION - отображать пока идет взаимодействие со Slider  
 (пока есть событие касания полунка).
 
@@ -87,17 +87,17 @@ Popover.PLACEMENT_BOTTOM.
 
 ## ProgressListener
 
-Для установки колбэка на изменение выбранного значения, используйте setProgressListener {progress -> }.  
+Для установки колбэка на изменение выбранного значения, используйте setProgressListener `{ progress: Float -> }`.  
 Значение прогресса находится в диапазоне от 0 до 1.  
 
 ## ProgressFormatTransformer
 
-Для конфигурирования формата вывода установленного значения используйте setProgressFormatTransformer { progress -> }.  
+Для конфигурирования формата вывода установленного значения используйте setProgressFormatTransformer `{ progress: Float -> }`.  
 Здесь прогресс возвращается в диапазоне установленных минимального и максимального значений (minProgress, maxProgress).  
 Пример конфигурирования для перевода значения в формате минуты:секунды
 
 ```kotlin
-setProgressFormatTransformer { progress ->
+setProgressFormatTransformer { progress: Float ->
     val totalSeconds = progress.toInt()
     val minutes = totalSeconds / 60
     val seconds = totalSeconds % 60
