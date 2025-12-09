@@ -15,10 +15,11 @@ fun slider(
 ): Slider {
     return Slider(context.styleWrapper(style)).apply {
         setProgressFormatTransformer { progress ->
-            val totalSeconds = progress.toInt()
-            val minutes = totalSeconds / 60
-            val seconds = totalSeconds % 60
-            "%02d:%02d".format(minutes, seconds)
+            progress.toInt().toString()
+//            val totalSeconds = progress.toInt()
+//            val minutes = totalSeconds / 60
+//            val seconds = totalSeconds % 60
+//            "%02d:%02d".format(minutes, seconds)
         }
     }.applyState(state)
 }
