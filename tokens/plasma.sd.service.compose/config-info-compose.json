@@ -9422,6 +9422,130 @@
                "composeReference": "DropdownEmptyState.Xl.HasButton"
             }
          ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsHorizontal",
+         "variations": [
+            {
+               "name": "m",
+               "composeReference": "PaginationDotsHorizontal.M"
+            },
+            {
+               "name": "m.active-type-line",
+               "composeReference": "PaginationDotsHorizontal.M.ActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "composeReference": "PaginationDotsHorizontal.S"
+            },
+            {
+               "name": "s.active-type-line",
+               "composeReference": "PaginationDotsHorizontal.S.ActiveTypeLine"
+            }
+         ]
+      },
+      {
+         "key": "pagination-dots",
+         "coreName": "PaginationDots",
+         "styleName": "PaginationDotsVertical",
+         "variations": [
+            {
+               "name": "m",
+               "composeReference": "PaginationDotsVertical.M"
+            },
+            {
+               "name": "m.active-type-line",
+               "composeReference": "PaginationDotsVertical.M.ActiveTypeLine"
+            },
+            {
+               "name": "s",
+               "composeReference": "PaginationDotsVertical.S"
+            },
+            {
+               "name": "s.active-type-line",
+               "composeReference": "PaginationDotsVertical.S.ActiveTypeLine"
+            }
+         ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "FileCircularProgress",
+         "variations": [
+            {
+               "name": "xs.default",
+               "composeReference": "FileCircularProgress.Xs.Default"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "FileCircularProgress.Xs.Negative"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "FileCircularProgress.S.Default"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "FileCircularProgress.S.Negative"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "FileCircularProgress.M.Default"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "FileCircularProgress.M.Negative"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "FileCircularProgress.L.Default"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "FileCircularProgress.L.Negative"
+            }
+         ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "FileLinearProgress",
+         "variations": [
+            {
+               "name": "xs.default",
+               "composeReference": "FileLinearProgress.Xs.Default"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "FileLinearProgress.Xs.Negative"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "FileLinearProgress.S.Default"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "FileLinearProgress.S.Negative"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "FileLinearProgress.M.Default"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "FileLinearProgress.M.Negative"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "FileLinearProgress.L.Default"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "FileLinearProgress.L.Negative"
+            }
+         ]
       }
    ]
 }
