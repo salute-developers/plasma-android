@@ -260,6 +260,7 @@ data class ComponentKey(
         val Carousel = ComponentKey("Carousel", CoreComponent.CAROUSEL)
         val Autocomplete = ComponentKey("Autocomplete", CoreComponent.AUTOCOMPLETE)
         val DropdownEmptyState = ComponentKey("DropdownEmptyState", CoreComponent.DROPDOWN_EMPTY_STATE)
+        val File = ComponentKey("File", CoreComponent.FILE)
     }
 }
 
@@ -351,6 +352,7 @@ enum class CoreComponent {
     CAROUSEL,
     AUTOCOMPLETE,
     DROPDOWN_EMPTY_STATE,
+    FILE,
 }
 
 /**
@@ -415,6 +417,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.MASK,
         CoreComponent.AUTOCOMPLETE,
         CoreComponent.SLIDER,
+        CoreComponent.FILE,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,

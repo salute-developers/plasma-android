@@ -407,5 +407,18 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                     "AutocompleteNormal" to SddsServAutocompleteNormalVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to SddsServDropdownEmptyStateVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.File,
+                mapOf(
+                    "FileCircularProgress" to SddsServFileCircularProgressVariationsCompose,
+                    "FileLinearProgress" to SddsServFileLinearProgressVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }
