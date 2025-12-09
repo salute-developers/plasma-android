@@ -2,10 +2,12 @@ package com.sdds.plugin.themebuilder.internal.components.list
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
+import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
 import com.sdds.plugin.themebuilder.internal.components.list.item.ListItemProperties
@@ -20,6 +22,8 @@ internal data class ListProperties(
     val paddingTop: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingBottom: Dimension? = null,
+    val backgroundColor: Color? = null,
+    val shape: Shape? = null,
 ) : PropertyOwner {
 
     override fun merge(parent: PropertyOwner): PropertyOwner {
@@ -32,6 +36,8 @@ internal data class ListProperties(
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
+            backgroundColor = backgroundColor ?: otherProps.backgroundColor,
+            shape = shape ?: otherProps.shape,
         )
     }
 }

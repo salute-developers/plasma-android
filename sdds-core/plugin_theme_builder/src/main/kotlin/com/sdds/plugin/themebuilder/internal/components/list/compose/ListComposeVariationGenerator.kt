@@ -46,7 +46,15 @@ internal class ListComposeVariationGenerator(
             listItemStyleCall(props, ktFileBuilder),
             dividerStyleCall(props, ktFileBuilder),
             dimensionsCall(props, variationId),
+            colorsCall(props),
+            shapeCall(props, variationId),
         )
+    }
+
+    private fun shapeCall(props: ListProperties, variationId: String): String? {
+        return props.shape?.let {
+            getShape(it, variationId)
+        }
     }
 
     private fun listItemStyleCall(props: ListProperties, ktFileBuilder: KtFileBuilder): String? {
@@ -98,6 +106,24 @@ internal class ListComposeVariationGenerator(
         } else {
             null
         }
+    }
+
+    private fun colorsCall(props: ListProperties): String? {
+        return if (props.hasColors()) {
+            buildString {
+                appendLine(".colors {")
+                props.backgroundColor?.let {
+                    appendLine(getColor("backgroundColor", it))
+                }
+                append("}")
+            }
+        } else {
+            null
+        }
+    }
+
+    private fun ListProperties.hasColors(): Boolean {
+        return backgroundColor != null
     }
 
     private fun ListProperties.hasDimensions(): Boolean {

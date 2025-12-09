@@ -11,12 +11,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.ListStyleBuilder
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.homeds.styles.listitem.HasBackground
 import com.sdds.plasma.homeds.styles.listitem.ListItem
 import com.sdds.plasma.homeds.styles.listitem.S
+import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -97,4 +100,10 @@ public val WrapperListS.HasBackground: WrapperListSHasBackground
             paddingTop(8.0.dp)
             paddingBottom(8.0.dp)
         }
+        .colors {
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+        }
+        .shape(PlasmaHomeDsTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .wrap(::WrapperListSHasBackground)
