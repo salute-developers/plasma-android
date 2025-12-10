@@ -1,12 +1,12 @@
 package com.sdds.compose.uikit.internal
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.progressSemantics
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.CacheDrawScope
 import androidx.compose.ui.draw.drawWithCache
@@ -19,16 +19,9 @@ import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.translate
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.Measurable
-import androidx.compose.ui.layout.MeasurePolicy
-import androidx.compose.ui.layout.MeasureResult
-import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.coerceAtLeast
-import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.dp
 
 /**
@@ -55,8 +48,7 @@ internal fun BaseProgress(
     indicatorShape: CornerBasedShape,
     backgroundShape: CornerBasedShape,
 ) {
-    Layout(
-        measurePolicy = remember(indicatorHeight) { ProgressBarMeasurePolicy(indicatorHeight) },
+    Box(
         modifier = modifier
             .progressSemantics(progress)
             .requiredHeight(maxOf(indicatorHeight, backgroundHeight))
@@ -81,28 +73,6 @@ internal fun BaseProgress(
                 }
             },
     )
-}
-
-private class ProgressBarMeasurePolicy(
-    private val indicatorHeight: Dp,
-) : MeasurePolicy {
-
-    override fun MeasureScope.measure(
-        measurables: List<Measurable>,
-        constraints: Constraints,
-    ): MeasureResult {
-        val minDefaultWidth = MIN_DEFAULT_WIDTH_DP.dp
-        val minDefaultWidthPx = minDefaultWidth.roundToPx()
-        val indicatorHeightPx = indicatorHeight.roundToPx()
-        return layout(
-            width = if (constraints.hasBoundedWidth) constraints.maxWidth else minDefaultWidthPx,
-            height = constraints.constrainHeight(indicatorHeightPx),
-        ) {}
-    }
-
-    private companion object {
-        const val MIN_DEFAULT_WIDTH_DP = 120
-    }
 }
 
 private fun DrawScope.drawFilledOutline(outline: Outline, color: Color?, brush: Brush?) {

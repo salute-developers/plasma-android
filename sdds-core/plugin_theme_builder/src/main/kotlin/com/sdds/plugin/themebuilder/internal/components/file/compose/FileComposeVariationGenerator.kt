@@ -182,7 +182,7 @@ internal class FileComposeVariationGenerator(
     private fun progressPlacementCall(props: FileProperties): String? {
         return props.progressPlacement?.let {
             val enumValue = when {
-                it.value.equals("inline", ignoreCase = true) -> "Inline"
+                it.value.equals("inner", ignoreCase = true) -> "Inner"
                 it.value.equals("outer", ignoreCase = true) -> "Outer"
                 else -> "None"
             }

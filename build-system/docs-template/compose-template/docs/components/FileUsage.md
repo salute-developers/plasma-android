@@ -101,4 +101,4 @@ FileStyle.builder()
 
 ## FileProgressPlacement
 
-Расположение `progress`. Возможные значения: Inline (прогресс встроен слева или справа от `label` и `description`), Outer (прогресс расположен снизу).
+Расположение `progress`. Возможные значения: Inner (прогресс встроен слева или справа от `label` и `description`), Outer (прогресс расположен снизу).

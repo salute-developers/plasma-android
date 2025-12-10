@@ -12,13 +12,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.cell.BaseCell
-import com.sdds.compose.uikit.internal.common.StyledText
 
 /**
  * Расположение кнопки действия и встроенного прогресса
@@ -43,12 +42,96 @@ enum class FileProgressPlacement {
     /**
      * Прогресс встроен слева или справа, см. [FileActionPlacement]
      */
-    Inline,
+    Inner,
 
     /**
      * Прогресс расположен снизу
      */
     Outer,
+}
+
+/**
+ * Компонент для отображения загрузки файла
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param isLoading состояние загрузки
+ * @param labelContent контент основной надписи, например название файла
+ * @param descriptionContent контент дополнительной надписи, например размер файла
+ * @param image слот для изображения
+ * @param progress слот для прогресса
+ * @param action слот для кнопки действия
+ * @param actionPlacement расположение кнопки действия [action] и встроенного [progress]
+ * @param interactionSource источник взаимодействий
+ *
+ */
+@Composable
+@NonRestartableComposable
+fun File(
+    modifier: Modifier = Modifier,
+    style: FileStyle = LocalFileStyle.current,
+    isLoading: Boolean = false,
+    labelContent: @Composable () -> Unit,
+    descriptionContent: (@Composable () -> Unit)?,
+    image: (@Composable () -> Unit)? = null,
+    progress: (@Composable () -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    actionPlacement: FileActionPlacement = style.actionPlacement,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+) {
+    Column(modifier.width(IntrinsicSize.Max)) {
+        BaseCell(
+            modifier = Modifier.fillMaxWidth(),
+            gravity = CellGravity.Center,
+            dimensions = object : CellDimensions {
+                override val contentPaddingStart: Dp = style.dimensions.startContentPadding
+                override val contentPaddingEnd: Dp = style.dimensions.endContentPadding
+            },
+            startContent = startContent(
+                style = style,
+                interactionSource = interactionSource,
+                actionPlacement = actionPlacement,
+                progressPlacement = style.progressPlacement,
+                image = image,
+                progress = progress,
+                action = action,
+                isLoading = isLoading,
+            ),
+            centerContent = {
+                val labelColor =
+                    style.colors.labelColor.colorForInteractionAsState(interactionSource)
+                ProvideTextStyle(
+                    value = style.labelStyle,
+                    color = { labelColor.value },
+                    content = labelContent,
+                )
+
+                descriptionContent?.let {
+                    Box(
+                        modifier = Modifier.padding(top = style.dimensions.descriptionPadding),
+                    ) {
+                        val descriptionColor =
+                            style.colors.descriptionColor.colorForInteractionAsState(interactionSource)
+                        ProvideTextStyle(
+                            value = style.descriptionStyle,
+                            color = { descriptionColor.value },
+                            content = descriptionContent,
+                        )
+                    }
+                }
+            },
+            endContent = endContent(
+                style = style,
+                interactionSource = interactionSource,
+                actionPlacement = actionPlacement,
+                progressPlacement = style.progressPlacement,
+                progress = progress,
+                action = action,
+                isLoading = isLoading,
+            ),
+        )
+        BottomContent(style, isLoading, progress)
+    }
 }
 
 /**
@@ -79,57 +162,34 @@ fun File(
     actionPlacement: FileActionPlacement = style.actionPlacement,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
-    Column(modifier.width(IntrinsicSize.Max)) {
-        BaseCell(
-            modifier = Modifier.fillMaxWidth(),
-            gravity = CellGravity.Center,
-            dimensions = object : CellDimensions {
-                override val contentPaddingStart: Dp = style.dimensions.startContentPadding
-                override val contentPaddingEnd: Dp = style.dimensions.endContentPadding
-            },
-            startContent = startContent(
-                style = style,
-                interactionSource = interactionSource,
-                actionPlacement = actionPlacement,
-                progressPlacement = style.progressPlacement,
-                image = image,
-                progress = progress,
-                action = action,
-                isLoading = isLoading,
-            ),
-            centerContent = {
-                StyledText(
-                    text = label,
-                    textStyle = style.labelStyle,
-                    textColor = style.colors.labelColor.colorForInteraction(interactionSource),
+    File(
+        modifier = modifier,
+        style = style,
+        isLoading = isLoading,
+        labelContent = {
+            Text(
+                text = label,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        },
+        descriptionContent = if (!description.isNullOrEmpty()) {
+            {
+                Text(
+                    text = description,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                description?.let {
-                    StyledText(
-                        text = it,
-                        modifier = Modifier.padding(top = style.dimensions.descriptionPadding),
-                        textStyle = style.descriptionStyle,
-                        textColor = style.colors.descriptionColor.colorForInteraction(
-                            interactionSource,
-                        ),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                }
-            },
-            endContent = endContent(
-                style = style,
-                interactionSource = interactionSource,
-                actionPlacement = actionPlacement,
-                progressPlacement = style.progressPlacement,
-                progress = progress,
-                action = action,
-                isLoading = isLoading,
-            ),
-        )
-        BottomContent(style, isLoading, progress)
-    }
+            }
+        } else {
+            null
+        },
+        image = image,
+        progress = progress,
+        action = action,
+        actionPlacement = actionPlacement,
+        interactionSource = interactionSource,
+    )
 }
 
 @Composable
@@ -142,7 +202,12 @@ private fun ColumnScope.BottomContent(
         CompositionLocalProvider(
             LocalProgressBarStyle provides style.progressBarStyle,
         ) {
-            Box(Modifier.padding(top = 8.dp)) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = style.dimensions.bottomContentPadding),
+                propagateMinConstraints = true,
+            ) {
                 progress?.invoke()
             }
         }
@@ -169,7 +234,7 @@ private fun startContent(
     }
 
     return when (progressPlacement) {
-        FileProgressPlacement.Inline -> {
+        FileProgressPlacement.Inner -> {
             when (actionPlacement) {
                 FileActionPlacement.Start -> {
                     if (progress == null && action == null) return null
@@ -208,7 +273,7 @@ private fun endContent(
     isLoading: Boolean,
 ): (@Composable RowScope.() -> Unit)? {
     return when (progressPlacement) {
-        FileProgressPlacement.Inline -> {
+        FileProgressPlacement.Inner -> {
             when (actionPlacement) {
                 FileActionPlacement.End -> {
                     if (progress == null && action == null) return null
