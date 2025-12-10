@@ -49,5 +49,6 @@ internal class ListItemConfigDelegate : ComponentConfigDelegate<ListItemConfig>(
         componentName = component.styleName.techToSnakeCase(),
         styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+        counterStylePackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.counter",
     )
 }

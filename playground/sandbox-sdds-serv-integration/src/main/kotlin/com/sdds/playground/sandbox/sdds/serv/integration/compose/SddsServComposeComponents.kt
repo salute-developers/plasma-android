@@ -393,5 +393,19 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                     "NavigationBarInternalPage" to SddsServNavigationBarInternalPageVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to SddsServPaginationDotsHorizontalVariationsCompose,
+                    "PaginationDotsVertical" to SddsServPaginationDotsVerticalVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to SddsServAutocompleteTightVariationsCompose,
+                    "AutocompleteNormal" to SddsServAutocompleteNormalVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

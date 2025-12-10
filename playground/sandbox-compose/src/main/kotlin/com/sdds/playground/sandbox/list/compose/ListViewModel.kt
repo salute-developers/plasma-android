@@ -28,6 +28,13 @@ internal class ListViewModel(
                     internalUiState.value = internalUiState.value.copy(hasDisclosure = it)
                 },
             ),
+            Property.BooleanProperty(
+                name = "hasDivider",
+                value = hasDivider,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(hasDivider = it)
+                },
+            ),
             Property.IntProperty(
                 name = "amount",
                 value = amount,

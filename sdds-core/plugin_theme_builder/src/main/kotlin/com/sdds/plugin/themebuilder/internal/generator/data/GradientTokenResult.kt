@@ -1,12 +1,16 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
+import com.sdds.plugin.themebuilder.internal.token.GradientToken
+
 /**
  * Данные о токенах градиента.
  *
+ * @property tokens исходные данные о токенах градиента
  * @property composeTokens данные о токенах для Compose
  * @property viewXmlTokens данные о токенах для View
  */
 internal data class GradientTokenResult(
+    val tokens: List<GradientToken>,
     val composeTokens: ComposeTokenData,
     val viewXmlTokens: ViewTokenData,
 ) {

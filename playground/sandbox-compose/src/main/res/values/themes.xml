@@ -2,6 +2,7 @@
 
     <attr name="sandbox_shapeRoundXxs" format="reference"/>
     <attr name="sandbox_shapeRoundL" format="reference"/>
+    <attr name="sandbox_colorInverseBackground" format="color"/>
 
     <!-- Base application theme. -->
     <style name="Theme.SddsSandbox" parent="Theme.AppCompat.Light.NoActionBar" />
@@ -21,6 +22,7 @@
         <item name="android:textColorSecondaryInverse">?serv_textInverseSecondary</item>
 
         <item name="android:colorBackground">?serv_backgroundDefaultPrimary</item>
+        <item name="sandbox_colorInverseBackground">?serv_backgroundInversePrimary</item>
 
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
@@ -35,6 +37,8 @@
         <item name="sandbox_shapeRoundXxs">?serv_shapeRoundXxs</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="testTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="testCarouselItemTextAppearance">@style/Serv.Sdds.TextAppearance.DisplayMBold</item>
+        <item name="testCarouselItemBackground">?serv_surfaceDefaultTransparentInfo</item>
 
         <item name="sd_dropdownMenuStyle">@style/Theme.Sandbox.Components.DropdownMenu</item>
     </style>

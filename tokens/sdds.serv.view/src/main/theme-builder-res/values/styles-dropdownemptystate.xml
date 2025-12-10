@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.DropdownEmptyState" parent="Sdds.Components.DropdownEmptyState">
+        <item name="sd_descriptionTextColor">?serv_textDefaultPrimary</item>
+        <item name="sd_iconTint">?serv_textDefaultPrimary</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.Xs">
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_empty_state_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_empty_state_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_xs_padding_bottom</item>
+        <item name="sd_descriptionPadding">@dimen/serv_dropdown_empty_state_xs_description_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateXs">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.Xs.HasButton">
+        <item name="sd_actionButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXsClear</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_xs_has_button_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_xs_has_button_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateXsHasButton">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.Xs.HasButton</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.S">
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_empty_state_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_empty_state_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_s_padding_bottom</item>
+        <item name="sd_descriptionPadding">@dimen/serv_dropdown_empty_state_s_description_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateS">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.S.HasButton">
+        <item name="sd_actionButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonSClear</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_s_has_button_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_s_has_button_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateSHasButton">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.S.HasButton</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.M">
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_empty_state_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_empty_state_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_m_padding_bottom</item>
+        <item name="sd_descriptionPadding">@dimen/serv_dropdown_empty_state_m_description_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateM">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.M.HasButton">
+        <item name="sd_actionButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonMClear</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_m_has_button_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_m_has_button_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateMHasButton">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.M.HasButton</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.L">
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_empty_state_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_empty_state_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_l_padding_bottom</item>
+        <item name="sd_descriptionPadding">@dimen/serv_dropdown_empty_state_l_description_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateL">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.L.HasButton">
+        <item name="sd_actionButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonLClear</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_l_has_button_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_l_has_button_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateLHasButton">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.L.HasButton</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.Xl">
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="android:paddingStart">@dimen/serv_dropdown_empty_state_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_dropdown_empty_state_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_xl_padding_bottom</item>
+        <item name="sd_descriptionPadding">@dimen/serv_dropdown_empty_state_xl_description_padding</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateXl">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.DropdownEmptyState.Xl.HasButton">
+        <item name="sd_actionButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXlClear</item>
+        <item name="android:paddingTop">@dimen/serv_dropdown_empty_state_xl_has_button_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_dropdown_empty_state_xl_has_button_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.DropdownEmptyStateXlHasButton">
+        <item name="sd_dropdownEmptyStateStyle">@style/Serv.Sdds.Components.DropdownEmptyState.Xl.HasButton</item>
+    </style>
+</resources>

@@ -355,5 +355,12 @@ object PlasmaB2cComposeComponents : ComponentsProviderCompose() {
                     "NavigationBarInternalPage" to PlasmaB2cNavigationBarInternalPageVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to PlasmaB2cAutocompleteTightVariationsCompose,
+                    "AutocompleteNormal" to PlasmaB2cAutocompleteNormalVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

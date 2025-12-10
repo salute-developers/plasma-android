@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGenera
 import com.sdds.plugin.themebuilder.internal.factory.ComposeSpacingAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeTypographyAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.SubThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShadowAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
@@ -30,12 +31,14 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGrad
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShadowAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeSpacingAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeSubThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShadowAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewSpacingAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewSubThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewXmlGradientAttributeGenerator
@@ -63,6 +66,7 @@ internal class ThemeGenerator(
     private val target: ThemeBuilderTarget,
     private val generatorMode: ThemeBuilderMode,
     private val shouldGenerateViewShapeStyle: Boolean,
+    private val subThemeGeneratorFactory: SubThemeGeneratorFactory,
 ) : SimpleBaseGenerator {
 
     private val composeThemeGenerator: ComposeThemeGenerator by unsafeLazy {
@@ -108,6 +112,13 @@ internal class ThemeGenerator(
         viewTypographyAttributeGeneratorFactory.create()
     }
 
+    private val viewSubThemeGenerator: ViewSubThemeGenerator by unsafeLazy {
+        subThemeGeneratorFactory.createView()
+    }
+    private val composeSubThemeGenerator: ComposeSubThemeGenerator by unsafeLazy {
+        subThemeGeneratorFactory.createCompose()
+    }
+
     /**
      * Устанавливает данные о токенах цвета
      *
@@ -118,10 +129,12 @@ internal class ThemeGenerator(
         if (target.isComposeOrAll) {
             composeColorAttributeGenerator.setColorTokenData(colorTokenResult.composeTokens)
             composeThemeGenerator.setColorTokenData(colorTokenResult.composeTokens)
+            composeSubThemeGenerator.setColorTokens(colorTokenResult.tokens, colorTokenResult.composeTokens)
         }
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens)
             viewThemeGenerator.setColorTokenData(colorTokenResult.viewTokens)
+            viewSubThemeGenerator.setColorTokens(colorTokenResult.tokens, colorTokenResult.viewTokens)
         }
     }
 
@@ -136,10 +149,12 @@ internal class ThemeGenerator(
             composeGradientAttributeGenerator.setGradientTokenData(
                 data = gradientTokenResult.composeTokens,
             )
+            composeSubThemeGenerator.setGradientTokens(gradientTokenResult.tokens, gradientTokenResult.composeTokens)
         }
         if (target.isViewSystemOrAll) {
             viewXmlGradientAttributeGenerator.setGradientTokenData(gradientTokenResult.viewXmlTokens)
             viewThemeGenerator.setGradientTokenData(gradientTokenResult.viewXmlTokens)
+            viewSubThemeGenerator.setGradientTokens(gradientTokenResult.tokens, gradientTokenResult.viewXmlTokens)
         }
     }
 
@@ -223,6 +238,7 @@ internal class ThemeGenerator(
             composeTypographyAttributeGenerator.generate()
             composeSpacingAttributeGenerator.generate()
             composeThemeGenerator.generate()
+            composeSubThemeGenerator.generate()
         }
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.generate()
@@ -232,6 +248,7 @@ internal class ThemeGenerator(
             viewTypographyAttributeGenerator.generate()
             viewSpacingAttributeGenerator.generate()
             viewThemeGenerator.generate()
+            viewSubThemeGenerator.generate()
         }
     }
 }

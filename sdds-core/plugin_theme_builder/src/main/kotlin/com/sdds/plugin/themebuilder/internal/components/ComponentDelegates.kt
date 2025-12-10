@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.accordion.AccordionItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.autocomplete.AutoCompleteConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
@@ -10,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDeleg
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
 import com.sdds.plugin.themebuilder.internal.components.buttongroup.ButtonGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.carousel.CarouselConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.checkbox.group.CheckBoxGroupConfigDelegate
@@ -22,6 +24,7 @@ import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDel
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
@@ -42,6 +45,7 @@ import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeleto
 import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.slider.SliderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.tabbar.TabBarConfigDelegate
@@ -100,6 +104,7 @@ internal val componentDelegates by unsafeLazy {
         "notification-content" to NotificationContentConfigDelegate(),
         "rect-skeleton" to RectSkeletonConfigDelegate(),
         "spinner" to SpinnerConfigDelegate(),
+        "slider" to SliderConfigDelegate(),
         "list" to ListConfigDelegate(),
         "list-item" to ListItemConfigDelegate(),
         "dropdown-menu" to DropdownMenuConfigDelegate(),
@@ -123,5 +128,8 @@ internal val componentDelegates by unsafeLazy {
         "toolbar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),
+        "carousel" to CarouselConfigDelegate(),
+        "dropdown-empty-state" to EmptyStateConfigDelegate(),
+        "autocomplete" to AutoCompleteConfigDelegate(),
     )
 }

@@ -5,8 +5,13 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -37,6 +42,16 @@ interface ListStyle : Style {
      */
     val dimensions: ListDimensions
 
+    /**
+     * Цвета
+     */
+    val colors: ListColors
+
+    /**
+     * Форма
+     */
+    val shape: Shape
+
     companion object {
         /**
          * Возвращает экземпляр [ListStyleBuilder]
@@ -65,6 +80,37 @@ interface ListStyleBuilder : StyleBuilder<ListStyle> {
      */
     @Composable
     fun dimensions(builder: @Composable ListDimensionsBuilder.() -> Unit): ListStyleBuilder
+
+    /**
+     * Устанавливает цвета компонента при помощи [builder]
+     */
+    @Composable
+    fun colors(builder: @Composable ListColorsBuilder.() -> Unit): ListStyleBuilder
+
+    /**
+     * Устанавливает форму компонента
+     */
+    fun shape(shape: Shape): ListStyleBuilder
+}
+
+/**
+ * Цвета компонента [ListItem]
+ */
+@Stable
+interface ListColors {
+
+    /**
+     * Цвет фона
+     */
+    val backgroundColor: InteractiveColor
+
+    companion object {
+
+        /**
+         * Возвращает экземпляр [ListColorsBuilder]
+         */
+        fun builder(): ListColorsBuilder = DefaultListColors.Builder()
+    }
 }
 
 /**
@@ -143,17 +189,43 @@ interface ListDimensionsBuilder {
     fun build(): ListDimensions
 }
 
+/**
+ * Билдер для [ListItemColors]
+ */
+interface ListColorsBuilder {
+
+    /**
+     * Устанавливает цвет фона
+     */
+    fun backgroundColor(backgroundColor: Color): ListColorsBuilder =
+        backgroundColor(backgroundColor.asInteractive())
+
+    /**
+     * Устанавливает цвет фона
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): ListColorsBuilder
+
+    /**
+     * Возвращает [ListItemColors]
+     */
+    fun build(): ListColors
+}
+
 @Immutable
 private class DefaultListStyle(
     override val listItemStyle: ListItemStyle,
     override val dividerStyle: DividerStyle,
     override val dimensions: ListDimensions,
+    override val colors: ListColors,
+    override val shape: Shape,
 ) : ListStyle {
 
     class Builder : ListStyleBuilder {
         private var listItemStyle: ListItemStyle? = null
         private var dividerStyle: DividerStyle? = null
         private var dimensionsBuilder: ListDimensionsBuilder = ListDimensions.builder()
+        private var colorsBuilder: ListColorsBuilder = ListColors.builder()
+        private var shape: Shape? = null
 
         override fun dividerStyle(dividerStyle: DividerStyle) = apply {
             this.dividerStyle = dividerStyle
@@ -168,6 +240,15 @@ private class DefaultListStyle(
             this.dimensionsBuilder.builder()
         }
 
+        @Composable
+        override fun colors(builder: @Composable (ListColorsBuilder.() -> Unit)) = apply {
+            this.colorsBuilder.builder()
+        }
+
+        override fun shape(shape: Shape) = apply {
+            this.shape = shape
+        }
+
         override fun listItemStyle(listItemStyle: ListItemStyle) = apply {
             this.listItemStyle = listItemStyle
         }
@@ -177,6 +258,27 @@ private class DefaultListStyle(
                 listItemStyle = listItemStyle ?: ListItemStyle.builder().style(),
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
                 dimensions = dimensionsBuilder.build(),
+                colors = colorsBuilder.build(),
+                shape = shape ?: RectangleShape,
+            )
+        }
+    }
+}
+
+@Immutable
+private class DefaultListColors(
+    override val backgroundColor: InteractiveColor,
+) : ListColors {
+    class Builder : ListColorsBuilder {
+        private var backgroundColor: InteractiveColor? = null
+
+        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
+            this.backgroundColor = backgroundColor
+        }
+
+        override fun build(): ListColors {
+            return DefaultListColors(
+                backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
             )
         }
     }

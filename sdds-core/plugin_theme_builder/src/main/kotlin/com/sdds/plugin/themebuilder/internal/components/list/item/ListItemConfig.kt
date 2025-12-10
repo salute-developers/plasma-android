@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.list.item
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
@@ -10,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.counter.CounterProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -21,6 +23,7 @@ internal data class ListItemProperties(
     val labelColor: Color? = null,
     val disclosureIconColor: Color? = null,
     val contentPaddingEnd: Dimension? = null,
+    val contentPaddingStart: Dimension? = null,
     val titleStyle: Typography? = null,
     val subtitleStyle: Typography? = null,
     val labelStyle: Typography? = null,
@@ -30,6 +33,7 @@ internal data class ListItemProperties(
     val paddingEnd: Dimension? = null,
     val paddingBottom: Dimension? = null,
     val height: Dimension? = null,
+    val counterStyle: ComponentStyle<CounterProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -42,6 +46,7 @@ internal data class ListItemProperties(
             labelColor = labelColor ?: otherProps.labelColor,
             disclosureIconColor = disclosureIconColor ?: otherProps.disclosureIconColor,
             contentPaddingEnd = contentPaddingEnd ?: otherProps.contentPaddingEnd,
+            contentPaddingStart = contentPaddingStart ?: otherProps.contentPaddingStart,
             titleStyle = titleStyle ?: otherProps.titleStyle,
             subtitleStyle = subtitleStyle ?: otherProps.subtitleStyle,
             labelStyle = labelStyle ?: otherProps.labelStyle,
@@ -51,6 +56,7 @@ internal data class ListItemProperties(
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
             height = height ?: otherProps.height,
+            counterStyle = counterStyle ?: otherProps.counterStyle,
         )
     }
 }

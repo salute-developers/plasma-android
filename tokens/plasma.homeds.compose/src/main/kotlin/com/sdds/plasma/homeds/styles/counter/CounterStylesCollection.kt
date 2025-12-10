@@ -26,6 +26,7 @@ public enum class CounterStyles(
     public val key: String,
 ) {
     CounterLDefault("Counter.L.Default"),
+    CounterLSecondary("Counter.L.Secondary"),
     CounterLAccent("Counter.L.Accent"),
     CounterLPositive("Counter.L.Positive"),
     CounterLWarning("Counter.L.Warning"),
@@ -33,6 +34,7 @@ public enum class CounterStyles(
     CounterLBlack("Counter.L.Black"),
     CounterLWhite("Counter.L.White"),
     CounterMDefault("Counter.M.Default"),
+    CounterMSecondary("Counter.M.Secondary"),
     CounterMAccent("Counter.M.Accent"),
     CounterMPositive("Counter.M.Positive"),
     CounterMWarning("Counter.M.Warning"),
@@ -40,6 +42,7 @@ public enum class CounterStyles(
     CounterMBlack("Counter.M.Black"),
     CounterMWhite("Counter.M.White"),
     CounterSDefault("Counter.S.Default"),
+    CounterSSecondary("Counter.S.Secondary"),
     CounterSAccent("Counter.S.Accent"),
     CounterSPositive("Counter.S.Positive"),
     CounterSWarning("Counter.S.Warning"),
@@ -47,6 +50,7 @@ public enum class CounterStyles(
     CounterSBlack("Counter.S.Black"),
     CounterSWhite("Counter.S.White"),
     CounterXsDefault("Counter.Xs.Default"),
+    CounterXsSecondary("Counter.Xs.Secondary"),
     CounterXsAccent("Counter.Xs.Accent"),
     CounterXsPositive("Counter.Xs.Positive"),
     CounterXsWarning("Counter.Xs.Warning"),
@@ -54,6 +58,7 @@ public enum class CounterStyles(
     CounterXsBlack("Counter.Xs.Black"),
     CounterXsWhite("Counter.Xs.White"),
     CounterXxsDefault("Counter.Xxs.Default"),
+    CounterXxsSecondary("Counter.Xxs.Secondary"),
     CounterXxsAccent("Counter.Xxs.Accent"),
     CounterXxsPositive("Counter.Xxs.Positive"),
     CounterXxsWarning("Counter.Xxs.Warning"),
@@ -69,6 +74,7 @@ public enum class CounterStyles(
 public fun CounterStyles.style(modifyAction: @Composable CounterStyleBuilder.() -> Unit = {}): CounterStyle {
     val builder = when (this) {
         CounterStyles.CounterLDefault -> Counter.L.Default
+        CounterStyles.CounterLSecondary -> Counter.L.Secondary
         CounterStyles.CounterLAccent -> Counter.L.Accent
         CounterStyles.CounterLPositive -> Counter.L.Positive
         CounterStyles.CounterLWarning -> Counter.L.Warning
@@ -76,6 +82,7 @@ public fun CounterStyles.style(modifyAction: @Composable CounterStyleBuilder.() 
         CounterStyles.CounterLBlack -> Counter.L.Black
         CounterStyles.CounterLWhite -> Counter.L.White
         CounterStyles.CounterMDefault -> Counter.M.Default
+        CounterStyles.CounterMSecondary -> Counter.M.Secondary
         CounterStyles.CounterMAccent -> Counter.M.Accent
         CounterStyles.CounterMPositive -> Counter.M.Positive
         CounterStyles.CounterMWarning -> Counter.M.Warning
@@ -83,6 +90,7 @@ public fun CounterStyles.style(modifyAction: @Composable CounterStyleBuilder.() 
         CounterStyles.CounterMBlack -> Counter.M.Black
         CounterStyles.CounterMWhite -> Counter.M.White
         CounterStyles.CounterSDefault -> Counter.S.Default
+        CounterStyles.CounterSSecondary -> Counter.S.Secondary
         CounterStyles.CounterSAccent -> Counter.S.Accent
         CounterStyles.CounterSPositive -> Counter.S.Positive
         CounterStyles.CounterSWarning -> Counter.S.Warning
@@ -90,6 +98,7 @@ public fun CounterStyles.style(modifyAction: @Composable CounterStyleBuilder.() 
         CounterStyles.CounterSBlack -> Counter.S.Black
         CounterStyles.CounterSWhite -> Counter.S.White
         CounterStyles.CounterXsDefault -> Counter.Xs.Default
+        CounterStyles.CounterXsSecondary -> Counter.Xs.Secondary
         CounterStyles.CounterXsAccent -> Counter.Xs.Accent
         CounterStyles.CounterXsPositive -> Counter.Xs.Positive
         CounterStyles.CounterXsWarning -> Counter.Xs.Warning
@@ -97,6 +106,7 @@ public fun CounterStyles.style(modifyAction: @Composable CounterStyleBuilder.() 
         CounterStyles.CounterXsBlack -> Counter.Xs.Black
         CounterStyles.CounterXsWhite -> Counter.Xs.White
         CounterStyles.CounterXxsDefault -> Counter.Xxs.Default
+        CounterStyles.CounterXxsSecondary -> Counter.Xxs.Secondary
         CounterStyles.CounterXxsAccent -> Counter.Xxs.Accent
         CounterStyles.CounterXxsPositive -> Counter.Xxs.Positive
         CounterStyles.CounterXxsWarning -> Counter.Xxs.Warning

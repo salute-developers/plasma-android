@@ -306,6 +306,15 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Slider,
+                mapOf(
+                    "SliderHorizontalLabelInner" to SddsServSliderHorizontalLabelInnerVariationsView,
+                    "SliderHorizontalLabelOuter" to SddsServSliderHorizontalLabelOuterVariationsView,
+                    "SliderVerticalLabelInner" to SddsServSliderVerticalLabelInnerVariationsView,
+                    "SliderVerticalLabelOuter" to SddsServSliderVerticalLabelOuterVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Image,
                 mapOf(
                     "ImageView" to SddsServImageViewVariationsView,
@@ -369,6 +378,25 @@ object SddsServViewComponents : ComponentsProviderView() {
                 mapOf(
                     "PaginationDotsHorizontal" to SddsServPaginationDotsHorizontalVariationsView,
                     "PaginationDotsVertical" to SddsServPaginationDotsVerticalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to SddsServAutocompleteTightVariationsView,
+                    "AutocompleteNormal" to SddsServAutocompleteNormalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to SddsServDropdownEmptyStateVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to SddsServCarouselVariationsView,
                 ),
             ),
         ).associateBy { it.key }

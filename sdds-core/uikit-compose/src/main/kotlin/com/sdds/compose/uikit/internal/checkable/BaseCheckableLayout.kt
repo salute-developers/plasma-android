@@ -2,11 +2,11 @@
 
 package com.sdds.compose.uikit.internal.checkable
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -14,12 +14,10 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
-import com.sdds.compose.uikit.Text
 import kotlin.math.max
 
 /**
@@ -34,9 +32,9 @@ import kotlin.math.max
  */
 @Composable
 internal fun BaseCheckableLayout(
-    control: @Composable (Modifier) -> Unit,
-    label: (@Composable (Modifier) -> Unit)?,
-    description: (@Composable (Modifier) -> Unit)?,
+    control: @Composable () -> Unit,
+    label: (@Composable () -> Unit)?,
+    description: (@Composable () -> Unit)?,
     verticalSpacing: Dp,
     horizontalSpacing: Dp,
     modifier: Modifier = Modifier,
@@ -53,57 +51,23 @@ internal fun BaseCheckableLayout(
     Layout(
         modifier = modifier,
         content = {
-            control(Modifier.layoutId(ControlId))
-            label?.invoke(Modifier.layoutId(LabelId))
-            description?.invoke(Modifier.layoutId(DescriptionId))
+            Box(Modifier.layoutId(ControlId)) {
+                control()
+            }
+            if (label != null) {
+                Box(Modifier.layoutId(LabelId)) {
+                    label()
+                }
+            }
+            if (description != null) {
+                Box(Modifier.layoutId(DescriptionId)) {
+                    description()
+                }
+            }
         },
         measurePolicy = measurePolicy,
     )
 }
-
-/**
- * Создает Composable для названия (label) в [BaseCheckableLayout].
- * Возвращает null, если [value] - null
- * @param value название
- */
-internal fun checkableLabel(
-    value: String?,
-    textStyle: TextStyle,
-    color: Color,
-): @Composable ((Modifier) -> Unit)? =
-    if (value != null) {
-        {
-            Text(
-                text = value,
-                modifier = it,
-                style = textStyle.copy(color = color),
-            )
-        }
-    } else {
-        null
-    }
-
-/**
- * Создает Composable для описания (description) в [BaseCheckableLayout].
- * Возвращает null, если [value] - null
- * @param value название
- */
-internal fun checkableDescription(
-    value: String?,
-    textStyle: TextStyle,
-    color: Color,
-): @Composable ((Modifier) -> Unit)? =
-    if (value != null) {
-        {
-            Text(
-                text = value,
-                modifier = it,
-                style = textStyle.copy(color = color),
-            )
-        }
-    } else {
-        null
-    }
 
 private class BaseCheckableMeasurePolicy(
     private val horizontalSpacing: Int,

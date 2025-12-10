@@ -240,6 +240,7 @@ data class ComponentKey(
         val AccordionItem = ComponentKey("AccordionItem", CoreComponent.ACCORDION_ITEM)
         val Wheel = ComponentKey("Wheel", CoreComponent.WHEEL)
         val ScrollBar = ComponentKey("ScrollBar", CoreComponent.SCROLL_BAR)
+        val Slider = ComponentKey("Slider", CoreComponent.SLIDER)
         val Image = ComponentKey("Image", CoreComponent.IMAGE)
         val ButtonGroup = ComponentKey("ButtonGroup", CoreComponent.BUTTON_GROUP)
         val TabBar = ComponentKey("TabBar", CoreComponent.TAB_BAR)
@@ -256,6 +257,9 @@ data class ComponentKey(
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
         val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
         val Mask = ComponentKey("Mask", CoreComponent.MASK)
+        val Carousel = ComponentKey("Carousel", CoreComponent.CAROUSEL)
+        val Autocomplete = ComponentKey("Autocomplete", CoreComponent.AUTOCOMPLETE)
+        val DropdownEmptyState = ComponentKey("DropdownEmptyState", CoreComponent.DROPDOWN_EMPTY_STATE)
     }
 }
 
@@ -328,6 +332,7 @@ enum class CoreComponent {
     ACCORDION_ITEM,
     WHEEL,
     SCROLL_BAR,
+    SLIDER,
     IMAGE,
     TAB_BAR,
     TAB_BAR_ITEM,
@@ -343,6 +348,9 @@ enum class CoreComponent {
     PAGINATION_DOTS,
     TOOL_BAR,
     MASK,
+    CAROUSEL,
+    AUTOCOMPLETE,
+    DROPDOWN_EMPTY_STATE,
 }
 
 /**
@@ -385,6 +393,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.NOTE,
         CoreComponent.NOTE_COMPACT,
         CoreComponent.PAGINATION_DOTS,
+        CoreComponent.DROPDOWN_EMPTY_STATE,
         -> CoreComponentGroup.DATA_DISPLAY
 
         CoreComponent.BASIC_BUTTON,
@@ -404,6 +413,8 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.SWITCH,
         CoreComponent.WHEEL,
         CoreComponent.MASK,
+        CoreComponent.AUTOCOMPLETE,
+        CoreComponent.SLIDER,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,
@@ -415,6 +426,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.ICON_TABS,
         CoreComponent.TAB_BAR,
         CoreComponent.TAB_BAR_ITEM,
+        CoreComponent.CAROUSEL,
         -> CoreComponentGroup.NAVIGATION
 
         CoreComponent.DRAWER,

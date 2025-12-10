@@ -139,6 +139,7 @@ internal class KtFileBuilder(
      * @param typeName тип свойства
      * @param parameterizedType типовой аргумент
      * @param initializer инициализатор свойства
+     * @param lazy инициализация через lazy делегат
      */
     fun appendRootVal(
         name: String,
@@ -150,6 +151,7 @@ internal class KtFileBuilder(
         setter: Setter? = null,
         getter: Getter? = null,
         receiver: TypeName? = null,
+        lazy: Boolean = false,
     ) {
         val type = if (parameterizedType != null) {
             typeName.parameterizedBy(parameterizedType)
@@ -165,6 +167,7 @@ internal class KtFileBuilder(
             setter = setter,
             getter = getter,
             receiver = receiver,
+            lazy = lazy,
         ).also(rootPropBuilders::add)
     }
 
@@ -429,6 +432,7 @@ internal class KtFileBuilder(
         getter: Getter? = null,
         delegate: String? = null,
         receiver: TypeName? = null,
+        lazy: Boolean = false,
     ): PropertySpec.Builder {
         if (typeName is ClassName) addImport(typeName)
         val spec = PropertySpec.builder(
@@ -437,7 +441,17 @@ internal class KtFileBuilder(
         )
         spec.mutable(isMutable)
         modifiers?.let(spec::addModifiers)
-        initializer?.let(spec::initializer)
+        if (lazy && initializer != null) {
+            spec.delegate(
+                CodeBlock.builder()
+                    .beginControlFlow("lazy")
+                    .add(initializer)
+                    .endControlFlow()
+                    .build(),
+            )
+        } else {
+            initializer?.let(spec::initializer)
+        }
         description?.let(spec::addKdoc)
         setter?.let { spec.setter(it.toFunSpec()) }
         getter?.let { spec.getter(it.toFunSpec()) }
@@ -657,6 +671,7 @@ internal class KtFileBuilder(
     companion object {
         internal const val DEFAULT_FILE_INDENT = "    "
 
+        val TypeBoolean = Boolean::class.asClassName()
         val TypeString = String::class.asClassName()
         val TypeFloat = Float::class.asClassName()
         val TypeInt = Int::class.asClassName()

@@ -2,10 +2,34 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_dropdownMenuStyle" format="reference" />
+    <attr name="sd_dropdownEmptyStateStyle" format="reference" />
 
-    <declare-styleable name="DropdownMenu" tools:ignore="ResourceName" >
+    <declare-styleable name="DropdownMenu" tools:ignore="ResourceName">
         <attr name="sd_itemDividerEnabled" format="boolean" />
         <attr name="sd_listViewStyleOverlay" format="reference" />
         <attr name="sd_dividerStyleOverlay" format="reference" />
+        <attr name="sd_scrollBarStyleOverlay" format="reference"/>
+        <attr name="sd_emptyStateStyleOverlay" format="reference"/>
+        <attr name="android:padding"/>
+        <attr name="android:paddingTop"/>
+        <attr name="android:paddingStart"/>
+        <attr name="android:paddingEnd"/>
+        <attr name="android:paddingBottom"/>
+        <attr name="sd_scrollBarPaddingTop"/>
+        <attr name="sd_scrollBarPaddingBottom"/>
+    </declare-styleable>
+
+    <declare-styleable name="DropdownEmptyStateView" tools:ignore="ResourceName">
+        <attr name="sd_icon" />
+        <attr name="sd_iconTint" />
+
+        <attr name="sd_description" />
+        <attr name="sd_descriptionPadding" />
+        <attr name="sd_descriptionTextColor" />
+        <attr name="sd_descriptionTextAppearance" />
+
+        <attr name="sd_actionButtonText" format="string" />
+        <attr name="sd_actionButtonStyleOverlay" format="reference" />
+
     </declare-styleable>
 </resources>

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
 import androidx.navigation.fragment.fragment
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.accordion.view.AccordionFragment
+import com.sdds.playground.sandbox.autocomplete.view.AutocompleteFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarFragment
 import com.sdds.playground.sandbox.avatar.vs.AvatarGroupFragment
 import com.sdds.playground.sandbox.badge.vs.BadgeFragment
@@ -18,6 +19,7 @@ import com.sdds.playground.sandbox.buttons.vs.BasicButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.IconButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment
 import com.sdds.playground.sandbox.card.vs.CardFragment
+import com.sdds.playground.sandbox.carousel.vs.CarouselFragment
 import com.sdds.playground.sandbox.cell.vs.CellFragment
 import com.sdds.playground.sandbox.checkbox.vs.CheckBoxFragment
 import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
@@ -55,6 +57,7 @@ import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
 import com.sdds.playground.sandbox.scrollbar.vs.ScrollBarFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
+import com.sdds.playground.sandbox.slider.vs.SliderFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
 import com.sdds.playground.sandbox.tabs.IconTabsFragment
@@ -68,6 +71,7 @@ import com.sdds.playground.sandbox.toolbar.vs.ToolBarFragment
 import com.sdds.playground.sandbox.tooltip.vs.TooltipFragment
 import com.sdds.playground.sandbox.wheel.vs.WheelFragment
 import com.sdds.testing.vs.accordion.accordion
+import com.sdds.testing.vs.autocomplete.autocomplete
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.avatar
 import com.sdds.testing.vs.avatar.avatarGroup
@@ -81,6 +85,7 @@ import com.sdds.testing.vs.button.iconButton
 import com.sdds.testing.vs.button.linkButton
 import com.sdds.testing.vs.card.CardUiState
 import com.sdds.testing.vs.card.card
+import com.sdds.testing.vs.carousel.carousel
 import com.sdds.testing.vs.cell.CellUiState
 import com.sdds.testing.vs.cell.cellLayout
 import com.sdds.testing.vs.checkbox.CheckBoxUiState
@@ -126,6 +131,7 @@ import com.sdds.testing.vs.segement.segment
 import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.testing.vs.skeleton.rectSkeleton
 import com.sdds.testing.vs.skeleton.textSkeleton
+import com.sdds.testing.vs.slider.slider
 import com.sdds.testing.vs.spinner.spinner
 import com.sdds.testing.vs.switcher.SwitchUiState
 import com.sdds.testing.vs.switcher.switch
@@ -356,6 +362,10 @@ internal sealed class ComponentScreen(
         { item -> fragment<ScrollBarFragment>(item.route, item.defaultBuilder) },
     )
 
+    object Slider : ComponentScreen(
+        { item -> fragment<SliderFragment>(item.route, item.defaultBuilder) },
+    )
+
     object Accordion : ComponentScreen(
         { item -> fragment<AccordionFragment>(item.route, item.defaultBuilder) },
     )
@@ -405,6 +415,14 @@ internal sealed class ComponentScreen(
     object Mask : ComponentScreen(
         { item -> fragment<MaskFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Carousel : ComponentScreen(
+        { item -> fragment<CarouselFragment>(item.route, item.defaultBuilder) },
+    )
+
+    object Autocomplete : ComponentScreen(
+        { item -> fragment<AutocompleteFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -452,6 +470,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.WHEEL -> ComponentScreen.Wheel
         CoreComponent.IMAGE -> ComponentScreen.Image
         CoreComponent.SCROLL_BAR -> ComponentScreen.ScrollBar
+        CoreComponent.SLIDER -> ComponentScreen.Slider
         CoreComponent.LOADER -> ComponentScreen.Loader
         CoreComponent.ACCORDION -> ComponentScreen.Accordion
         CoreComponent.BUTTON_GROUP -> ComponentScreen.ButtonGroup
@@ -465,6 +484,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         CoreComponent.MASK -> ComponentScreen.Mask
+        CoreComponent.CAROUSEL -> ComponentScreen.Carousel
+        CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -514,6 +535,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.WHEEL -> R.id.nav_wheel
         CoreComponent.IMAGE -> R.id.nav_image
         CoreComponent.SCROLL_BAR -> R.id.nav_scrollbar
+        CoreComponent.SLIDER -> R.id.nav_slider
         CoreComponent.LOADER -> R.id.nav_loader
         CoreComponent.ACCORDION -> R.id.nav_accordion
         CoreComponent.BUTTON_GROUP -> R.id.nav_button_group
@@ -527,6 +549,8 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.PAGINATION_DOTS -> R.id.nav_pagination_dots
         CoreComponent.TOOL_BAR -> R.id.nav_toolbar
         CoreComponent.MASK -> R.id.nav_note_compact
+        CoreComponent.CAROUSEL -> R.id.nav_carousel
+        CoreComponent.AUTOCOMPLETE -> R.id.nav_autocomplete
         else -> null
     }?.let { it + hashCode() }
 }
@@ -614,6 +638,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.WHEEL -> wheel(context, style)
         CoreComponent.IMAGE -> image(context, style)
         CoreComponent.SCROLL_BAR -> scrollBar(context, style)
+        CoreComponent.SLIDER -> slider(context, style)
         CoreComponent.SPINNER -> spinner(context, style)
         CoreComponent.LOADER -> loader(context, style)
         CoreComponent.ACCORDION -> accordion(context, style)
@@ -635,6 +660,8 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.PAGINATION_DOTS -> paginationDots(context, style)
         CoreComponent.TOOL_BAR -> toolBar(context, style)
         CoreComponent.MASK -> maskedTextField(context, style)
+        CoreComponent.CAROUSEL -> carousel(context, style)
+        CoreComponent.AUTOCOMPLETE -> autocomplete(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

@@ -59,6 +59,11 @@ interface NavigationBarStyle : Style {
      */
     val colors: NavigationBarColors
 
+    /**
+     * Стиль кнопки действия
+     */
+    val actionButtonStyle: ButtonStyle?
+
     companion object {
         /**
          * Возвращает экземпляр [NavigationBarStyleBuilder]
@@ -104,6 +109,11 @@ interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
      */
     @Composable
     fun dimensions(builder: @Composable NavigationBarDimensionsBuilder.() -> Unit): NavigationBarStyleBuilder
+
+    /**
+     * Устанавливает стиль кнопок действия
+     */
+    fun actionButtonStyle(actionButtonStyle: ButtonStyle): NavigationBarStyleBuilder
 }
 
 private class DefaultNavigationBarStyle(
@@ -113,6 +123,7 @@ private class DefaultNavigationBarStyle(
     override val colors: NavigationBarColors,
     override val bottomShape: CornerBasedShape,
     override val textStyle: TextStyle,
+    override val actionButtonStyle: ButtonStyle?,
 ) : NavigationBarStyle {
 
     class Builder : NavigationBarStyleBuilder {
@@ -123,6 +134,7 @@ private class DefaultNavigationBarStyle(
         private val colorsBuilder = NavigationBarColors.builder()
         private val dimensionsBuilder = NavigationBarDimensions.builder()
         private var textStyle: TextStyle? = null
+        private var actionButtonStyle: ButtonStyle? = null
 
         override fun textStyle(textStyle: TextStyle) = apply {
             this.textStyle = textStyle
@@ -151,6 +163,10 @@ private class DefaultNavigationBarStyle(
                 this.dimensionsBuilder.builder()
             }
 
+        override fun actionButtonStyle(actionButtonStyle: ButtonStyle) = apply {
+            this.actionButtonStyle = actionButtonStyle
+        }
+
         override fun style(): NavigationBarStyle {
             return DefaultNavigationBarStyle(
                 backIcon = backIcon,
@@ -159,6 +175,7 @@ private class DefaultNavigationBarStyle(
                 shadow = shadow ?: ShadowAppearance(),
                 bottomShape = bottomShape ?: RoundedCornerShape(ZeroCornerSize),
                 textStyle = textStyle ?: TextStyle.Default,
+                actionButtonStyle = actionButtonStyle,
             )
         }
     }

@@ -8,6 +8,7 @@ internal data class ListUiState(
     val title: String = "Title",
     val hasDisclosure: Boolean = true,
     val amount: Int = 3,
+    val hasDivider: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {

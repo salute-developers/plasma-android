@@ -229,6 +229,19 @@ internal class GeneratorFactory(
         )
     }
 
+    private val subthemeGeneratorFactory: SubThemeGeneratorFactory by unsafeLazy {
+        SubThemeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            packageResolver = packageResolver,
+            outputLocation = OutputLocation.Directory(outputDir),
+            xmlResourcesDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            themeName = themeName,
+            resPrefixConfig = resPrefixConfig,
+            resourceReferenceProvider = resourceReferenceProvider,
+        )
+    }
+
     /**
      * Создает генератор темы [ThemeGenerator]
      */
@@ -250,6 +263,7 @@ internal class GeneratorFactory(
         target = target,
         generatorMode = generatorMode,
         shouldGenerateViewShapeStyle = viewShapeAppearanceConfig.isNotEmpty(),
+        subThemeGeneratorFactory = subthemeGeneratorFactory,
     )
 
     /**

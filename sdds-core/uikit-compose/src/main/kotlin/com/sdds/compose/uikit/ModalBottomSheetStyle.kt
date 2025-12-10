@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -52,6 +53,11 @@ interface ModalBottomSheetStyle : Style {
      * @see BottomSheetHandlePlacement
      */
     val handlePlacement: BottomSheetHandlePlacement
+
+    /**
+     * Тень ModalBottomSheet
+     */
+    val shadow: ShadowAppearance?
 
     companion object {
         /**
@@ -96,6 +102,11 @@ interface ModalBottomSheetStyleBuilder : StyleBuilder<ModalBottomSheetStyle> {
      * @see BottomSheetHandlePlacement
      */
     fun handlePlacement(handlePlacement: BottomSheetHandlePlacement): ModalBottomSheetStyleBuilder
+
+    /**
+     * Устанавливает тень [ModalBottomSheet]
+     */
+    fun shadow(shadow: ShadowAppearance): ModalBottomSheetStyleBuilder
 }
 
 /**
@@ -355,6 +366,7 @@ private class DefaultModalBottomSheetStyle(
     override val dimensions: ModalBottomSheetDimensions,
     override val handleShape: CornerBasedShape,
     override val handlePlacement: BottomSheetHandlePlacement,
+    override val shadow: ShadowAppearance?,
 ) : ModalBottomSheetStyle
 
 private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomSheetStyleBuilder {
@@ -363,6 +375,7 @@ private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomShee
     private var handleShape: CornerBasedShape? = null
     private var handlePlacement: BottomSheetHandlePlacement? = null
     private var dimensionsBuilder: ModalBottomSheetDimensionsBuilder = ModalBottomSheetDimensionsBuilder.builder()
+    private var shadow: ShadowAppearance? = null
 
     @Composable
     override fun colors(
@@ -394,6 +407,10 @@ private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomShee
         this.handlePlacement = handlePlacement
     }
 
+    override fun shadow(shadow: ShadowAppearance): ModalBottomSheetStyleBuilder = apply {
+        this.shadow = shadow
+    }
+
     override fun style(): ModalBottomSheetStyle {
         return DefaultModalBottomSheetStyle(
             colors = colorsBuilder.build(),
@@ -401,6 +418,7 @@ private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomShee
             handleShape = handleShape ?: RoundedCornerShape(100),
             dimensions = dimensionsBuilder.build(),
             handlePlacement = handlePlacement ?: BottomSheetHandlePlacement.Auto,
+            shadow = shadow,
         )
     }
 }

@@ -8,7 +8,6 @@ import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependenci
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.buttongroup.compose.ButtonGroupComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.buttongroup.vs.ButtonGroupStyleGeneratorView
-import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
@@ -40,9 +39,6 @@ internal class ButtonGroupConfigDelegate : ComponentConfigDelegate<ButtonGroupCo
         deps: StyleGeneratorDependencies,
         component: Component,
     ): ComponentStyleGenerator<ButtonGroupConfig> {
-        val buttonType = component.styleName.split("-").firstOrNull()
-            ?: throw ThemeBuilderException("Wrong styleName ${component.styleName} for ButtonGroup")
-
         return ButtonGroupComposeVariationGenerator(
             themeClassName = deps.themeClassName,
             themePackage = deps.packageResolver.getPackage(TargetPackage.THEME),
@@ -55,7 +51,7 @@ internal class ButtonGroupConfigDelegate : ComponentConfigDelegate<ButtonGroupCo
             componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
-            buttonStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${buttonType}button",
+            packageResolver = deps.packageResolver,
         )
     }
 }

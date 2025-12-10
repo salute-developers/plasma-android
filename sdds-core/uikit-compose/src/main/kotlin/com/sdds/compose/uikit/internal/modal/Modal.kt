@@ -17,8 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
@@ -43,6 +41,7 @@ internal fun BaseModalBottomSheet(
     onDismiss: () -> Unit = {},
     hasHandle: Boolean = false,
     draggableAreaHeight: Dp = 10.dp,
+    edgeToEdge: Boolean = true,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val scope = rememberCoroutineScope()
@@ -51,7 +50,8 @@ internal fun BaseModalBottomSheet(
         if (bottomSheetState.currentValue == Hidden) bottomSheetState.hideDialog()
     }
     if (dialogState == DialogState.Show) {
-        Dialog(
+        EdgeToEdgeDialog(
+            edgeToEdge = edgeToEdge,
             onDismissRequest = {
                 if (bottomSheetState.confirmValueChange(Hidden)) {
                     scope.launch {
@@ -60,9 +60,6 @@ internal fun BaseModalBottomSheet(
                     onDismiss()
                 }
             },
-            properties = DialogProperties(
-                usePlatformDefaultWidth = false,
-            ),
         ) {
             BoxWithConstraints(
                 modifier = Modifier

@@ -18,7 +18,6 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 @Composable
 internal fun CodeFieldScreen(componentKey: ComponentKey = ComponentKey.CodeField) {
     val focusRequester = remember { FocusRequester() }
-    LaunchedEffect(Unit) { focusRequester.requestFocus() }
     ComponentScaffold(
         key = componentKey,
         viewModel = viewModel<CodeFieldViewModel>(
@@ -37,6 +36,8 @@ internal fun CodeFieldScreen(componentKey: ComponentKey = ComponentKey.CodeField
                 caption = codeFieldUiState.caption,
                 captionAlignment = codeFieldUiState.captionAlignment,
             )
+
+            LaunchedEffect(Unit) { focusRequester.requestFocus() }
         },
     )
 }

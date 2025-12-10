@@ -319,5 +319,31 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                     "DrawerCloseOuter" to PlasmaB2cDrawerCloseOuterVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Autocomplete,
+                mapOf(
+                    "AutocompleteTight" to PlasmaB2cAutocompleteTightVariationsView,
+                    "AutocompleteNormal" to PlasmaB2cAutocompleteNormalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to PlasmaB2cDropdownEmptyStateVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to PlasmaB2cCarouselVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to PlasmaB2cPaginationDotsHorizontalVariationsView,
+                    "PaginationDotsVertical" to PlasmaB2cPaginationDotsVerticalVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

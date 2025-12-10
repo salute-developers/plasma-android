@@ -19,6 +19,7 @@ import android.view.ViewTreeObserver.OnScrollChangedListener
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.ViewCompat
 import androidx.core.view.allViews
 import androidx.core.view.children
 import com.sdds.uikit.colorstate.ColorState
@@ -69,6 +70,8 @@ open class Popover @JvmOverloads constructor(
     private var _choreographer: Choreographer = Choreographer.getInstance()
     private var _contentWidth: Int = -1
     private var _contentHeight: Int = -1
+    private var _isContentInRemeasuring: Boolean = false
+    private var _triggerLocationProvider: TriggerLocationProvider? = null
 
     override val shape: ShapeModel?
         get() = _content.shape
@@ -107,9 +110,33 @@ open class Popover @JvmOverloads constructor(
             _content.minimumHeight = value
         }
 
+    /**
+     * Смещение относительно якоря
+     */
+    var offset: Int
+        get() = _offset
+        set(value) {
+            if (_offset != value) {
+                _offset = value
+                updateLocationPoint()
+            }
+        }
+
+    /**
+     * Ограничивать ли ширину [Popover] по границам экрана
+     */
+    var clipWidth: Boolean = false
+
+    /**
+     * Ограничивать ли высоту [Popover] по границам экрана
+     */
+    var clipHeight: Boolean = false
+
     init {
         context.withStyledAttributes(attrs, R.styleable.Popover, defStyleAttr, defStyleRes) {
             _offset = getDimensionPixelOffset(R.styleable.Popover_sd_offset, 0)
+            clipWidth = getBoolean(R.styleable.Popover_sd_clipWidth, false)
+            clipHeight = getBoolean(R.styleable.Popover_sd_clipHeight, false)
             _backgroundList = getColorValueStateList(context, R.styleable.Popover_sd_background)
             _content.setBackgroundValueList(_backgroundList)
         }
@@ -120,23 +147,73 @@ open class Popover @JvmOverloads constructor(
         if (contentView != null) {
             contentView.minimumWidth = _content.minimumWidth
             contentView.minimumHeight = _content.minimumHeight
-            _content.addView(
-                contentView,
-                LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT),
-            )
+            if (contentView.layoutParams == null) {
+                _content.addView(
+                    contentView,
+                    LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT),
+                )
+            } else {
+                _content.addView(contentView)
+            }
             super.setContentView(_content.wrapWithShadows())
         } else {
             super.setContentView(null)
         }
     }
 
+    /**
+     * Устанавливает ширину окна, в котором будет размещен [Popover]
+     */
+    open fun setWindowWidth(width: Int) {
+        super.setWidth(width)
+    }
+
+    /**
+     * Ширина окна
+     */
+    open fun getWindowWidth(): Int = super.getWidth()
+
     override fun setWidth(width: Int) = Unit
 
     override fun getWidth(): Int = _content.width
 
+    /**
+     * Устанавливает высоту окна, в котором будет размещен [Popover]
+     */
+    open fun setWindowHeight(height: Int) {
+        super.setHeight(height)
+    }
+
+    /**
+     * Высота окна
+     */
+    open fun getWindowHeight(): Int = super.getHeight()
+
     override fun setHeight(height: Int) = Unit
 
     override fun getHeight(): Int = _content.height
+
+    /**
+     * Провайдер координат прямоугольной области для привезки [Popover]
+     */
+    fun interface TriggerLocationProvider {
+
+        /**
+         * Колбэк предоставления области [screenRect]
+         * расположенной внутри [trigger]
+         */
+        fun provide(trigger: View, screenRect: Rect): Rect
+    }
+
+    /**
+     * Получает прямоугольник Rect для привязки к нему [Popover]
+     * Если задан [TriggerLocationProvider] используется предоставляемая им область
+     * в противном случае возвращаются координаты прямоугольной области самой view
+     */
+    private fun View.getTriggerRect(): Rect {
+        val viewGlobalRect = this.getScreenRect()
+        return _triggerLocationProvider?.provide(this, viewGlobalRect) ?: viewGlobalRect
+    }
 
     /**
      * Отображает [Popover] рядом с [trigger], учитывая [placement] и [alignment]
@@ -165,13 +242,13 @@ open class Popover @JvmOverloads constructor(
             triggerCentered = triggerCentered,
             placementMode = placementMode,
             visibleDisplayFrame = trigger.getVisibleDisplayFrame(),
-            triggerRect = trigger.getScreenRect(),
+            triggerRect = trigger.getTriggerRect(),
         )
         _scaleAnimationListener = (trigger as? HasFocusSelector)
             ?.doOnScaleAnimation { _, _, _, _, _ -> updateLocationPoint() }
         _scrollChangedListener = OnScrollChangedListener {
             _choreographer.postFrameCallback {
-                _currentLocation = _currentLocation.copy(triggerRect = trigger.getScreenRect())
+                _currentLocation = _currentLocation.copy(triggerRect = trigger.getTriggerRect())
                 if (_currentLocation.isAnchorVisible()) {
                     updateLocationPoint()
                 } else {
@@ -186,6 +263,13 @@ open class Popover @JvmOverloads constructor(
         contentView.requestLayout()
         contentView.invalidate()
         _content.invalidateOutline()
+        if (needConsiderIme()) {
+            ViewCompat.setOnApplyWindowInsetsListener(_content) { v, insets ->
+                updateLocationPoint()
+                v.requestLayout()
+                insets
+            }
+        }
 
         // Автоматическое скрытие
         duration?.let {
@@ -207,16 +291,25 @@ open class Popover @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает провайдер, предоставляющий Rect для привязки к нему [Popover]
+     */
+    fun setTriggerLocationProvider(provider: TriggerLocationProvider?) {
+        _triggerLocationProvider = provider
+    }
+
+    /**
      * Обновляет точку привязки [Popover]
      */
     fun updateLocationPoint() {
         val trigger = _triggerRef?.get() ?: return
         if (!isShowing) {
             // Делаем принудительное измерение контента, чтобы точнее расположить Popover при первом показе.
+            _isContentInRemeasuring = true
             contentView.measure(
                 MeasureSpec.makeMeasureSpec(_currentLocation.visibleDisplayFrame.width(), MeasureSpec.AT_MOST),
                 MeasureSpec.makeMeasureSpec(_currentLocation.visibleDisplayFrame.height(), MeasureSpec.AT_MOST),
             )
+            _isContentInRemeasuring = false
             val safePaddings = _content.getSafePaddings()
             contentView.setPadding(safePaddings.left, safePaddings.top, safePaddings.right, safePaddings.bottom)
         }
@@ -233,7 +326,7 @@ open class Popover @JvmOverloads constructor(
         val trigger = _triggerRef?.get() ?: return Point(INITIAL_POSITION, INITIAL_POSITION)
         val safePaddings = _content.getSafePaddings()
         val rootRect = trigger.rootView.getScreenRect()
-        val triggerRect = trigger.getScreenRect()
+        val triggerRect = trigger.getTriggerRect()
         val visibleDisplayFrame = trigger.getVisibleDisplayFrame()
 
         return _currentLocation.copy(triggerRect = triggerRect, visibleDisplayFrame = visibleDisplayFrame)
@@ -315,13 +408,29 @@ open class Popover @JvmOverloads constructor(
         val fullHeight = maxHeight.takeIf { it > 0 }
             ?: (visibleDisplayFrame.height() - (safePaddings.top + safePaddings.bottom))
 
-        if (placementMode == PLACEMENT_MODE_STRICT) {
-            return Size(fullWidth, fullHeight)
+        val shouldClip = !_isContentInRemeasuring
+        val maxHeight = if (clipHeight && shouldClip) {
+            val maxVerticalSpace = when (placement) {
+                PLACEMENT_TOP -> getTopSpace()
+                PLACEMENT_BOTTOM -> getBottomSpace()
+                else -> fullHeight
+            }
+            maxVerticalSpace.coerceAtMost(fullHeight)
+        } else {
+            fullHeight
         }
 
-        val verticalSpace = maxOf(getTopSpace(), getBottomSpace()) - (safePaddings.top + safePaddings.bottom)
-        val maxHeight = verticalSpace.coerceAtMost(fullHeight)
-        return Size(fullWidth, maxHeight)
+        val maxWidth = if (clipWidth && shouldClip) {
+            val maxHorizontalSpace = when (placement) {
+                PLACEMENT_START -> getStartSpace()
+                PLACEMENT_END -> getEndSpace()
+                else -> fullWidth
+            }
+            maxHorizontalSpace.coerceAtMost(fullWidth)
+        } else {
+            fullWidth
+        }
+        return Size(maxWidth, maxHeight)
     }
 
     private fun PopoverLocation.isAnchorVisible(): Boolean {
@@ -332,6 +441,10 @@ open class Popover @JvmOverloads constructor(
         return isVisibleHorizontally && isVisibleVertically
     }
 
+    private fun needConsiderIme(): Boolean {
+        return inputMethodMode != INPUT_METHOD_NOT_NEEDED
+    }
+
     private fun PopoverLocation.getSafePlacement(
         width: Int = bounds.width(),
         height: Int = bounds.height(),
@@ -340,6 +453,17 @@ open class Popover @JvmOverloads constructor(
         val enoughBottomSpace = enoughBottomSpace(height)
         val enoughStartSpace = enoughStartSpace(width)
         val enoughEndSpace = enoughEndSpace(width)
+        val noVerticalSpace = !enoughTopSpace && !enoughBottomSpace
+        val noHorizontalSpace = !enoughStartSpace && !enoughEndSpace
+        if (noVerticalSpace && noHorizontalSpace) {
+            val spaces = mapOf(
+                PLACEMENT_TOP to getTopSpace(),
+                PLACEMENT_END to getEndSpace(),
+                PLACEMENT_BOTTOM to getBottomSpace(),
+                PLACEMENT_START to getStartSpace(),
+            )
+            return spaces.maxBy { it.value }.key
+        }
         return when {
             placement == PLACEMENT_TOP && enoughTopSpace -> PLACEMENT_TOP
             placement == PLACEMENT_BOTTOM && enoughBottomSpace -> PLACEMENT_BOTTOM

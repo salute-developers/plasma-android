@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
@@ -27,6 +28,7 @@ internal data class BottomSheetProperties(
 
     val backgroundColor: Color? = null,
     val handleColor: Color? = null,
+    val shadow: Shadow? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -45,6 +47,7 @@ internal data class BottomSheetProperties(
             handlePlacement = handlePlacement ?: otherProps.handlePlacement,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             handleColor = handleColor ?: otherProps.handleColor,
+            shadow = shadow ?: otherProps.shadow,
         )
     }
 }

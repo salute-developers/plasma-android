@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.core.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.compose.uikit.style.Style
+import com.sdds.playground.sandbox.SubTheme
 import com.sdds.playground.sandbox.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -23,9 +24,16 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
 ) : ViewModel(), PropertiesOwner {
 
     protected val internalUiState = MutableStateFlow(defaultState)
+    private val _subtheme = MutableStateFlow<SubTheme?>(null)
 
     val uiState: StateFlow<State>
         get() = internalUiState.asStateFlow()
+
+    /**
+     * Подтема
+     */
+    val subtheme: StateFlow<SubTheme?>
+        get() = _subtheme.asStateFlow()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     final override val properties: StateFlow<List<Property<*>>>
@@ -69,6 +77,7 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
     @Suppress("UNCHECKED_CAST")
     private fun variantProperty(state: State): List<Property.SingleChoiceProperty> {
         val styleProvider = getStyleProvider(state.appearance) ?: return emptyList()
+        val subthemes = getSubthemes()
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
             variantProperties.add(
@@ -78,6 +87,19 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
                     value = state.variant,
                     onApply = {
                         internalUiState.value = internalUiState.value.updateVariant(state.appearance, it) as State
+                    },
+                ),
+            )
+        }
+        if (subthemes.isNotEmpty()) {
+            variantProperties.add(
+                Property.SingleChoiceProperty(
+                    SUBTHEME_PROPERTY_NAME,
+                    variants = subthemes.map { it.key },
+                    value = _subtheme.value?.key ?: subthemes.first().key,
+                    onApply = { value ->
+                        val type = SubTheme.values().firstOrNull { it.key == value }
+                        _subtheme.value = type
                     },
                 ),
             )
@@ -102,6 +124,10 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
             .components.get<String, S>(componentKey).defaultAppearance
     }
 
+    open fun getSubthemes(): Set<SubTheme> {
+        return composeTheme(themeManager.currentTheme.value).subthemes.keys
+    }
+
     abstract fun State.toProps(): List<Property<*>>
 
     final override fun resetToDefault() {
@@ -110,6 +136,7 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
 
     private companion object {
         const val VARIANT_PROPERTY_NAME = "variant"
+        const val SUBTHEME_PROPERTY_NAME = "subtheme"
         const val APPEARANCE_PROPERTY_NAME = "appearance"
     }
 }

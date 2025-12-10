@@ -105,6 +105,29 @@ public val WrapperCounterView.Default: WrapperCounterTerminate
         }
         .wrap(::WrapperCounterTerminate)
 
+public val WrapperCounterView.Secondary: WrapperCounterTerminate
+    @Composable
+    get() = builder
+        .colors {
+            backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
+            )
+            textColor(
+                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaHomeDsTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperCounterTerminate)
+
 public val WrapperCounterView.Accent: WrapperCounterTerminate
     @Composable
     get() = builder

@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.AccordionStyle
+import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.BadgeStyle
@@ -32,6 +33,7 @@ import com.sdds.compose.uikit.NoteStyle
 import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.OverlayStyle
+import com.sdds.compose.uikit.PaginationDotsStyle
 import com.sdds.compose.uikit.PopoverStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -53,6 +55,8 @@ import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.accordion.AccordionPreview
 import com.sdds.playground.sandbox.accordion.AccordionScreen
+import com.sdds.playground.sandbox.autocomplete.AutocompletePreview
+import com.sdds.playground.sandbox.autocomplete.AutocompleteScreen
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
@@ -98,6 +102,8 @@ import com.sdds.playground.sandbox.notification.compose.NotificationScreen
 import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentPreview
 import com.sdds.playground.sandbox.notificationcontent.compose.NotificationContentScreen
 import com.sdds.playground.sandbox.overlay.compose.OverlayScreen
+import com.sdds.playground.sandbox.paginationdots.compose.PaginationDotsPreview
+import com.sdds.playground.sandbox.paginationdots.compose.PaginationDotsScreen
 import com.sdds.playground.sandbox.popover.compose.PopoverScreen
 import com.sdds.playground.sandbox.progress.compose.CircularProgressScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
@@ -161,7 +167,7 @@ import com.sdds.testing.compose.rectskeleton.RectSkeletonForSandbox
 import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
 import com.sdds.testing.compose.segment.SegmentSizeLCounter
 import com.sdds.testing.compose.spinner.SpinnerTest
-import com.sdds.testing.compose.switcher.SwitchS
+import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.textarea.TextAreaLDefaultTBTA
 import com.sdds.testing.compose.textfield.TextFieldLDefaultInnerLeft
 import com.sdds.testing.compose.toast.ToastForSandbox
@@ -224,7 +230,7 @@ internal sealed class ComponentScreen(
     object RadioBoxGroup :
         ComponentScreen({ RadioBoxGroupScreen(it) }, { it, _ -> RadioBoxGroupSizeM(it as RadioBoxGroupStyle) })
 
-    object Switch : ComponentScreen({ SwitchScreen(it) }, { it, _ -> SwitchS(it as SwitchStyle) })
+    object Switch : ComponentScreen({ SwitchScreen(it) }, { it, _ -> SwitchLOn(it as SwitchStyle) })
     object Progress : ComponentScreen({ ProgressScreen(it) }, { it, _ -> ProgressBarDefault(it as ProgressBarStyle) })
     object CircularProgress :
         ComponentScreen({ CircularProgressScreen(it) }, { it, _ -> CircularProgress(it as CircularProgressBarStyle) })
@@ -354,10 +360,18 @@ internal sealed class ComponentScreen(
         { IconTabsScreen(it) },
         { style, _ -> IconTabsPreview(style as TabsStyle) },
     )
+    object PaginationDots : ComponentScreen(
+        { PaginationDotsScreen(it) },
+        { style, _ -> PaginationDotsPreview(style as PaginationDotsStyle) },
+    )
+    object Autocomplete : ComponentScreen(
+        { AutocompleteScreen(it) },
+        { style, _ -> AutocompletePreview(style as AutocompleteStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
-@Suppress("CyclomaticComplexMethod")
+@Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun CoreComponent.screen(): ComponentScreen {
     return when (this) {
         CoreComponent.AVATAR -> ComponentScreen.Avatar
@@ -414,6 +428,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TABS -> ComponentScreen.Tabs
         CoreComponent.ICON_TABS -> ComponentScreen.IconTabs
         CoreComponent.MASK -> ComponentScreen.TextFieldMasks
+        CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
+        CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         else -> ComponentScreen.Empty
     }
 }

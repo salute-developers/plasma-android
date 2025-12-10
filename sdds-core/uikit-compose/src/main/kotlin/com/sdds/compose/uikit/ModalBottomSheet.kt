@@ -5,7 +5,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -25,6 +27,7 @@ import com.sdds.compose.uikit.internal.modal.BottomSheetState
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
 import com.sdds.compose.uikit.internal.modal.handle
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
+import com.sdds.compose.uikit.shadow.shadow
 
 /**
  * Компонент ModalBottomSheet
@@ -41,6 +44,8 @@ import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
  * @param fitContent ModalBottomSheet открывается по высоте контента
  * @param header заголовок
  * @param footer нижний колонтитул
+ * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
+ * (компонент рисуется под navBar и под statusBar)
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -57,6 +62,7 @@ fun ModalBottomSheet(
     fitContent: Boolean,
     header: (@Composable () -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
+    edgeToEdge: Boolean = true,
     body: (@Composable () -> Unit),
 ) {
     val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
@@ -67,21 +73,27 @@ fun ModalBottomSheet(
     )
     val draggableAreaHeight = style.dimensions.handleHeight + style.dimensions.handleOffset
     val measurePolicy = BottomSheetMeasurePolicy(fitContent)
+    val shadowModifier = style.shadow?.let {
+        Modifier.shadow(it, newShape)
+    } ?: Modifier
     BaseModalBottomSheet(
         modifier = modifier
+            .statusBarsPadding()
             .handle(
                 handleShape = style.handleShape,
                 handleColor = handleColor,
                 handleWidth = style.dimensions.handleWidth,
                 handleHeight = style.dimensions.handleHeight,
                 handleOffset = style.dimensions.handleOffset,
-                progress = (sheetState.progressFromHalfExpandedToExpanded),
+                progressProvider = { (sheetState.progressFromHalfExpandedToExpanded) },
                 handlePlacement = handlePlacement,
             )
             .background(
                 backgroundColor,
                 newShape,
             )
+            .then(shadowModifier)
+            .navigationBarsPadding()
             .padding(
                 start = style.dimensions.paddingStart,
                 end = style.dimensions.paddingEnd,
@@ -93,6 +105,7 @@ fun ModalBottomSheet(
         onDismiss = onDismiss,
         hasHandle = handlePlacement != BottomSheetHandlePlacement.None,
         draggableAreaHeight = draggableAreaHeight,
+        edgeToEdge = edgeToEdge,
     ) {
         Layout(
             measurePolicy = measurePolicy,
