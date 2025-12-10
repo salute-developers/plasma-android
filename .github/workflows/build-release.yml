@@ -29,7 +29,7 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
 
       - name: Run assembleReleaseAll
-        run: ./gradlew assembleReleaseAll --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
+        run: ./gradlew assembleReleaseAll -PbranchName=${{ steps.extract_branch.outputs.branch }}
 
       - name: Upload APK
         id: upload_apk
