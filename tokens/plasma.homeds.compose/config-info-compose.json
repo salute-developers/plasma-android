@@ -3356,64 +3356,84 @@
          "styleName": "Note",
          "variations": [
             {
-               "name": "has-close.default",
-               "composeReference": "Note.HasClose.Default"
+               "name": "content-before-scalable.default",
+               "composeReference": "Note.ContentBeforeScalable.Default"
             },
             {
-               "name": "has-close.positive",
-               "composeReference": "Note.HasClose.Positive"
+               "name": "content-before-scalable.positive",
+               "composeReference": "Note.ContentBeforeScalable.Positive"
             },
             {
-               "name": "has-close.negative",
-               "composeReference": "Note.HasClose.Negative"
+               "name": "content-before-scalable.negative",
+               "composeReference": "Note.ContentBeforeScalable.Negative"
             },
             {
-               "name": "has-close.warning",
-               "composeReference": "Note.HasClose.Warning"
+               "name": "content-before-scalable.warning",
+               "composeReference": "Note.ContentBeforeScalable.Warning"
             },
             {
-               "name": "has-close.info",
-               "composeReference": "Note.HasClose.Info"
+               "name": "content-before-scalable.info",
+               "composeReference": "Note.ContentBeforeScalable.Info"
             },
             {
-               "name": "has-close.content-scalable.default",
-               "composeReference": "Note.HasClose.ContentScalable.Default"
+               "name": "content-before-scalable.has-close.default",
+               "composeReference": "Note.ContentBeforeScalable.HasClose.Default"
             },
             {
-               "name": "has-close.content-scalable.positive",
-               "composeReference": "Note.HasClose.ContentScalable.Positive"
+               "name": "content-before-scalable.has-close.positive",
+               "composeReference": "Note.ContentBeforeScalable.HasClose.Positive"
             },
             {
-               "name": "has-close.content-scalable.negative",
-               "composeReference": "Note.HasClose.ContentScalable.Negative"
+               "name": "content-before-scalable.has-close.negative",
+               "composeReference": "Note.ContentBeforeScalable.HasClose.Negative"
             },
             {
-               "name": "has-close.content-scalable.warning",
-               "composeReference": "Note.HasClose.ContentScalable.Warning"
+               "name": "content-before-scalable.has-close.warning",
+               "composeReference": "Note.ContentBeforeScalable.HasClose.Warning"
             },
             {
-               "name": "has-close.content-scalable.info",
-               "composeReference": "Note.HasClose.ContentScalable.Info"
+               "name": "content-before-scalable.has-close.info",
+               "composeReference": "Note.ContentBeforeScalable.HasClose.Info"
             },
             {
-               "name": "content-scalable.default",
-               "composeReference": "Note.ContentScalable.Default"
+               "name": "content-before-fixed.default",
+               "composeReference": "Note.ContentBeforeFixed.Default"
             },
             {
-               "name": "content-scalable.positive",
-               "composeReference": "Note.ContentScalable.Positive"
+               "name": "content-before-fixed.positive",
+               "composeReference": "Note.ContentBeforeFixed.Positive"
             },
             {
-               "name": "content-scalable.negative",
-               "composeReference": "Note.ContentScalable.Negative"
+               "name": "content-before-fixed.negative",
+               "composeReference": "Note.ContentBeforeFixed.Negative"
             },
             {
-               "name": "content-scalable.warning",
-               "composeReference": "Note.ContentScalable.Warning"
+               "name": "content-before-fixed.warning",
+               "composeReference": "Note.ContentBeforeFixed.Warning"
             },
             {
-               "name": "content-scalable.info",
-               "composeReference": "Note.ContentScalable.Info"
+               "name": "content-before-fixed.info",
+               "composeReference": "Note.ContentBeforeFixed.Info"
+            },
+            {
+               "name": "content-before-fixed.has-close.default",
+               "composeReference": "Note.ContentBeforeFixed.HasClose.Default"
+            },
+            {
+               "name": "content-before-fixed.has-close.positive",
+               "composeReference": "Note.ContentBeforeFixed.HasClose.Positive"
+            },
+            {
+               "name": "content-before-fixed.has-close.negative",
+               "composeReference": "Note.ContentBeforeFixed.HasClose.Negative"
+            },
+            {
+               "name": "content-before-fixed.has-close.warning",
+               "composeReference": "Note.ContentBeforeFixed.HasClose.Warning"
+            },
+            {
+               "name": "content-before-fixed.has-close.info",
+               "composeReference": "Note.ContentBeforeFixed.HasClose.Info"
             }
          ]
       },
@@ -3423,64 +3443,84 @@
          "styleName": "NoteCompact",
          "variations": [
             {
-               "name": "has-close.default",
-               "composeReference": "NoteCompact.HasClose.Default"
+               "name": "content-before-fixed.default",
+               "composeReference": "NoteCompact.ContentBeforeFixed.Default"
             },
             {
-               "name": "has-close.positive",
-               "composeReference": "NoteCompact.HasClose.Positive"
+               "name": "content-before-fixed.positive",
+               "composeReference": "NoteCompact.ContentBeforeFixed.Positive"
             },
             {
-               "name": "has-close.negative",
-               "composeReference": "NoteCompact.HasClose.Negative"
+               "name": "content-before-fixed.negative",
+               "composeReference": "NoteCompact.ContentBeforeFixed.Negative"
             },
             {
-               "name": "has-close.warning",
-               "composeReference": "NoteCompact.HasClose.Warning"
+               "name": "content-before-fixed.warning",
+               "composeReference": "NoteCompact.ContentBeforeFixed.Warning"
             },
             {
-               "name": "has-close.info",
-               "composeReference": "NoteCompact.HasClose.Info"
+               "name": "content-before-fixed.info",
+               "composeReference": "NoteCompact.ContentBeforeFixed.Info"
             },
             {
-               "name": "has-close.content-scalable.default",
-               "composeReference": "NoteCompact.HasClose.ContentScalable.Default"
+               "name": "content-before-fixed.has-close.default",
+               "composeReference": "NoteCompact.ContentBeforeFixed.HasClose.Default"
             },
             {
-               "name": "has-close.content-scalable.positive",
-               "composeReference": "NoteCompact.HasClose.ContentScalable.Positive"
+               "name": "content-before-fixed.has-close.positive",
+               "composeReference": "NoteCompact.ContentBeforeFixed.HasClose.Positive"
             },
             {
-               "name": "has-close.content-scalable.negative",
-               "composeReference": "NoteCompact.HasClose.ContentScalable.Negative"
+               "name": "content-before-fixed.has-close.negative",
+               "composeReference": "NoteCompact.ContentBeforeFixed.HasClose.Negative"
             },
             {
-               "name": "has-close.content-scalable.warning",
-               "composeReference": "NoteCompact.HasClose.ContentScalable.Warning"
+               "name": "content-before-fixed.has-close.warning",
+               "composeReference": "NoteCompact.ContentBeforeFixed.HasClose.Warning"
             },
             {
-               "name": "has-close.content-scalable.info",
-               "composeReference": "NoteCompact.HasClose.ContentScalable.Info"
+               "name": "content-before-fixed.has-close.info",
+               "composeReference": "NoteCompact.ContentBeforeFixed.HasClose.Info"
             },
             {
-               "name": "content-scalable.default",
-               "composeReference": "NoteCompact.ContentScalable.Default"
+               "name": "content-before-scalable.default",
+               "composeReference": "NoteCompact.ContentBeforeScalable.Default"
             },
             {
-               "name": "content-scalable.positive",
-               "composeReference": "NoteCompact.ContentScalable.Positive"
+               "name": "content-before-scalable.positive",
+               "composeReference": "NoteCompact.ContentBeforeScalable.Positive"
             },
             {
-               "name": "content-scalable.negative",
-               "composeReference": "NoteCompact.ContentScalable.Negative"
+               "name": "content-before-scalable.negative",
+               "composeReference": "NoteCompact.ContentBeforeScalable.Negative"
             },
             {
-               "name": "content-scalable.warning",
-               "composeReference": "NoteCompact.ContentScalable.Warning"
+               "name": "content-before-scalable.warning",
+               "composeReference": "NoteCompact.ContentBeforeScalable.Warning"
             },
             {
-               "name": "content-scalable.info",
-               "composeReference": "NoteCompact.ContentScalable.Info"
+               "name": "content-before-scalable.info",
+               "composeReference": "NoteCompact.ContentBeforeScalable.Info"
+            },
+            {
+               "name": "content-before-scalable.has-close.default",
+               "composeReference": "NoteCompact.ContentBeforeScalable.HasClose.Default"
+            },
+            {
+               "name": "content-before-scalable.has-close.positive",
+               "composeReference": "NoteCompact.ContentBeforeScalable.HasClose.Positive"
+            },
+            {
+               "name": "content-before-scalable.has-close.negative",
+               "composeReference": "NoteCompact.ContentBeforeScalable.HasClose.Negative"
+            },
+            {
+               "name": "content-before-scalable.has-close.warning",
+               "composeReference": "NoteCompact.ContentBeforeScalable.HasClose.Warning"
+            },
+            {
+               "name": "content-before-scalable.has-close.info",
+               "composeReference": "NoteCompact.ContentBeforeScalable.HasClose.Info"
             }
          ]
       },

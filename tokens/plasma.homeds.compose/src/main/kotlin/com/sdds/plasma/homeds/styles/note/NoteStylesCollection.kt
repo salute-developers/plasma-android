@@ -25,21 +25,26 @@ import kotlin.Unit
 public enum class NoteStyles(
     public val key: String,
 ) {
-    NoteHasCloseDefault("Note.HasClose.Default"),
-    NoteHasClosePositive("Note.HasClose.Positive"),
-    NoteHasCloseNegative("Note.HasClose.Negative"),
-    NoteHasCloseWarning("Note.HasClose.Warning"),
-    NoteHasCloseInfo("Note.HasClose.Info"),
-    NoteHasCloseContentScalableDefault("Note.HasClose.ContentScalable.Default"),
-    NoteHasCloseContentScalablePositive("Note.HasClose.ContentScalable.Positive"),
-    NoteHasCloseContentScalableNegative("Note.HasClose.ContentScalable.Negative"),
-    NoteHasCloseContentScalableWarning("Note.HasClose.ContentScalable.Warning"),
-    NoteHasCloseContentScalableInfo("Note.HasClose.ContentScalable.Info"),
-    NoteContentScalableDefault("Note.ContentScalable.Default"),
-    NoteContentScalablePositive("Note.ContentScalable.Positive"),
-    NoteContentScalableNegative("Note.ContentScalable.Negative"),
-    NoteContentScalableWarning("Note.ContentScalable.Warning"),
-    NoteContentScalableInfo("Note.ContentScalable.Info"),
+    NoteContentBeforeScalableDefault("Note.ContentBeforeScalable.Default"),
+    NoteContentBeforeScalablePositive("Note.ContentBeforeScalable.Positive"),
+    NoteContentBeforeScalableNegative("Note.ContentBeforeScalable.Negative"),
+    NoteContentBeforeScalableWarning("Note.ContentBeforeScalable.Warning"),
+    NoteContentBeforeScalableInfo("Note.ContentBeforeScalable.Info"),
+    NoteContentBeforeScalableHasCloseDefault("Note.ContentBeforeScalable.HasClose.Default"),
+    NoteContentBeforeScalableHasClosePositive("Note.ContentBeforeScalable.HasClose.Positive"),
+    NoteContentBeforeScalableHasCloseNegative("Note.ContentBeforeScalable.HasClose.Negative"),
+    NoteContentBeforeScalableHasCloseWarning("Note.ContentBeforeScalable.HasClose.Warning"),
+    NoteContentBeforeScalableHasCloseInfo("Note.ContentBeforeScalable.HasClose.Info"),
+    NoteContentBeforeFixedDefault("Note.ContentBeforeFixed.Default"),
+    NoteContentBeforeFixedPositive("Note.ContentBeforeFixed.Positive"),
+    NoteContentBeforeFixedNegative("Note.ContentBeforeFixed.Negative"),
+    NoteContentBeforeFixedWarning("Note.ContentBeforeFixed.Warning"),
+    NoteContentBeforeFixedInfo("Note.ContentBeforeFixed.Info"),
+    NoteContentBeforeFixedHasCloseDefault("Note.ContentBeforeFixed.HasClose.Default"),
+    NoteContentBeforeFixedHasClosePositive("Note.ContentBeforeFixed.HasClose.Positive"),
+    NoteContentBeforeFixedHasCloseNegative("Note.ContentBeforeFixed.HasClose.Negative"),
+    NoteContentBeforeFixedHasCloseWarning("Note.ContentBeforeFixed.HasClose.Warning"),
+    NoteContentBeforeFixedHasCloseInfo("Note.ContentBeforeFixed.HasClose.Info"),
 }
 
 /**
@@ -48,21 +53,32 @@ public enum class NoteStyles(
 @Composable
 public fun NoteStyles.style(modifyAction: @Composable NoteStyleBuilder.() -> Unit = {}): NoteStyle {
     val builder = when (this) {
-        NoteStyles.NoteHasCloseDefault -> Note.HasClose.Default
-        NoteStyles.NoteHasClosePositive -> Note.HasClose.Positive
-        NoteStyles.NoteHasCloseNegative -> Note.HasClose.Negative
-        NoteStyles.NoteHasCloseWarning -> Note.HasClose.Warning
-        NoteStyles.NoteHasCloseInfo -> Note.HasClose.Info
-        NoteStyles.NoteHasCloseContentScalableDefault -> Note.HasClose.ContentScalable.Default
-        NoteStyles.NoteHasCloseContentScalablePositive -> Note.HasClose.ContentScalable.Positive
-        NoteStyles.NoteHasCloseContentScalableNegative -> Note.HasClose.ContentScalable.Negative
-        NoteStyles.NoteHasCloseContentScalableWarning -> Note.HasClose.ContentScalable.Warning
-        NoteStyles.NoteHasCloseContentScalableInfo -> Note.HasClose.ContentScalable.Info
-        NoteStyles.NoteContentScalableDefault -> Note.ContentScalable.Default
-        NoteStyles.NoteContentScalablePositive -> Note.ContentScalable.Positive
-        NoteStyles.NoteContentScalableNegative -> Note.ContentScalable.Negative
-        NoteStyles.NoteContentScalableWarning -> Note.ContentScalable.Warning
-        NoteStyles.NoteContentScalableInfo -> Note.ContentScalable.Info
+        NoteStyles.NoteContentBeforeScalableDefault -> Note.ContentBeforeScalable.Default
+        NoteStyles.NoteContentBeforeScalablePositive -> Note.ContentBeforeScalable.Positive
+        NoteStyles.NoteContentBeforeScalableNegative -> Note.ContentBeforeScalable.Negative
+        NoteStyles.NoteContentBeforeScalableWarning -> Note.ContentBeforeScalable.Warning
+        NoteStyles.NoteContentBeforeScalableInfo -> Note.ContentBeforeScalable.Info
+        NoteStyles.NoteContentBeforeScalableHasCloseDefault ->
+            Note.ContentBeforeScalable.HasClose.Default
+        NoteStyles.NoteContentBeforeScalableHasClosePositive ->
+            Note.ContentBeforeScalable.HasClose.Positive
+        NoteStyles.NoteContentBeforeScalableHasCloseNegative ->
+            Note.ContentBeforeScalable.HasClose.Negative
+        NoteStyles.NoteContentBeforeScalableHasCloseWarning ->
+            Note.ContentBeforeScalable.HasClose.Warning
+        NoteStyles.NoteContentBeforeScalableHasCloseInfo -> Note.ContentBeforeScalable.HasClose.Info
+        NoteStyles.NoteContentBeforeFixedDefault -> Note.ContentBeforeFixed.Default
+        NoteStyles.NoteContentBeforeFixedPositive -> Note.ContentBeforeFixed.Positive
+        NoteStyles.NoteContentBeforeFixedNegative -> Note.ContentBeforeFixed.Negative
+        NoteStyles.NoteContentBeforeFixedWarning -> Note.ContentBeforeFixed.Warning
+        NoteStyles.NoteContentBeforeFixedInfo -> Note.ContentBeforeFixed.Info
+        NoteStyles.NoteContentBeforeFixedHasCloseDefault -> Note.ContentBeforeFixed.HasClose.Default
+        NoteStyles.NoteContentBeforeFixedHasClosePositive ->
+            Note.ContentBeforeFixed.HasClose.Positive
+        NoteStyles.NoteContentBeforeFixedHasCloseNegative ->
+            Note.ContentBeforeFixed.HasClose.Negative
+        NoteStyles.NoteContentBeforeFixedHasCloseWarning -> Note.ContentBeforeFixed.HasClose.Warning
+        NoteStyles.NoteContentBeforeFixedHasCloseInfo -> Note.ContentBeforeFixed.HasClose.Info
     }
     return builder.modify(modifyAction).style()
 }

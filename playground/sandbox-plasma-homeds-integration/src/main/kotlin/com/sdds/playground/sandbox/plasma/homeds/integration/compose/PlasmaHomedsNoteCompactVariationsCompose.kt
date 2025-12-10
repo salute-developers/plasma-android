@@ -3,7 +3,8 @@ package com.sdds.playground.sandbox.plasma.homeds.integration.compose
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.homeds.styles.notecompact.ContentScalable
+import com.sdds.plasma.homeds.styles.notecompact.ContentBeforeFixed
+import com.sdds.plasma.homeds.styles.notecompact.ContentBeforeScalable
 import com.sdds.plasma.homeds.styles.notecompact.Default
 import com.sdds.plasma.homeds.styles.notecompact.HasClose
 import com.sdds.plasma.homeds.styles.notecompact.Info
@@ -16,20 +17,25 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 internal object PlasmaHomedsNoteCompactVariationsCompose : ComposeStyleProvider<String, NoteCompactStyle>() {
     override val variations: Map<String, @Composable () -> NoteCompactStyle> =
         mapOf(
-            "HasClose.Default" to { NoteCompact.HasClose.Default.style() },
-            "HasClose.Positive" to { NoteCompact.HasClose.Positive.style() },
-            "HasClose.Negative" to { NoteCompact.HasClose.Negative.style() },
-            "HasClose.Warning" to { NoteCompact.HasClose.Warning.style() },
-            "HasClose.Info" to { NoteCompact.HasClose.Info.style() },
-            "HasClose.ContentScalable.Default" to { NoteCompact.HasClose.ContentScalable.Default.style() },
-            "HasClose.ContentScalable.Positive" to { NoteCompact.HasClose.ContentScalable.Positive.style() },
-            "HasClose.ContentScalable.Negative" to { NoteCompact.HasClose.ContentScalable.Negative.style() },
-            "HasClose.ContentScalable.Warning" to { NoteCompact.HasClose.ContentScalable.Warning.style() },
-            "HasClose.ContentScalable.Info" to { NoteCompact.HasClose.ContentScalable.Info.style() },
-            "ContentScalable.Default" to { NoteCompact.ContentScalable.Default.style() },
-            "ContentScalable.Positive" to { NoteCompact.ContentScalable.Positive.style() },
-            "ContentScalable.Negative" to { NoteCompact.ContentScalable.Negative.style() },
-            "ContentScalable.Warning" to { NoteCompact.ContentScalable.Warning.style() },
-            "ContentScalable.Info" to { NoteCompact.ContentScalable.Info.style() },
+            "ContentBeforeFixed.Default" to { NoteCompact.ContentBeforeFixed.Default.style() },
+            "ContentBeforeFixed.Positive" to { NoteCompact.ContentBeforeFixed.Positive.style() },
+            "ContentBeforeFixed.Negative" to { NoteCompact.ContentBeforeFixed.Negative.style() },
+            "ContentBeforeFixed.Warning" to { NoteCompact.ContentBeforeFixed.Warning.style() },
+            "ContentBeforeFixed.Info" to { NoteCompact.ContentBeforeFixed.Info.style() },
+            "ContentBeforeFixed.HasClose.Default" to { NoteCompact.ContentBeforeFixed.HasClose.Default.style() },
+            "ContentBeforeFixed.HasClose.Positive" to { NoteCompact.ContentBeforeFixed.HasClose.Positive.style() },
+            "ContentBeforeFixed.HasClose.Negative" to { NoteCompact.ContentBeforeFixed.HasClose.Negative.style() },
+            "ContentBeforeFixed.HasClose.Warning" to { NoteCompact.ContentBeforeFixed.HasClose.Warning.style() },
+            "ContentBeforeFixed.HasClose.Info" to { NoteCompact.ContentBeforeFixed.HasClose.Info.style() },
+            "ContentBeforeScalable.Default" to { NoteCompact.ContentBeforeScalable.Default.style() },
+            "ContentBeforeScalable.Positive" to { NoteCompact.ContentBeforeScalable.Positive.style() },
+            "ContentBeforeScalable.Negative" to { NoteCompact.ContentBeforeScalable.Negative.style() },
+            "ContentBeforeScalable.Warning" to { NoteCompact.ContentBeforeScalable.Warning.style() },
+            "ContentBeforeScalable.Info" to { NoteCompact.ContentBeforeScalable.Info.style() },
+            "ContentBeforeScalable.HasClose.Default" to { NoteCompact.ContentBeforeScalable.HasClose.Default.style() },
+            "ContentBeforeScalable.HasClose.Positive" to { NoteCompact.ContentBeforeScalable.HasClose.Positive.style() },
+            "ContentBeforeScalable.HasClose.Negative" to { NoteCompact.ContentBeforeScalable.HasClose.Negative.style() },
+            "ContentBeforeScalable.HasClose.Warning" to { NoteCompact.ContentBeforeScalable.HasClose.Warning.style() },
+            "ContentBeforeScalable.HasClose.Info" to { NoteCompact.ContentBeforeScalable.HasClose.Info.style() },
         )
 }
