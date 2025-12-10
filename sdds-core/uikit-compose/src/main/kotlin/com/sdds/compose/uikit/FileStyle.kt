@@ -196,7 +196,7 @@ private data class DefaultFileStyle(
             descriptionStyle = descriptionStyle ?: TextStyle.Default,
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
-            progressPlacement = progressPlacement ?: FileProgressPlacement.Inline,
+            progressPlacement = progressPlacement ?: FileProgressPlacement.Inner,
             actionPlacement = actionPlacement ?: FileActionPlacement.End,
             actionButtonStyle = actionButtonStyle ?: ButtonStyle.iconButtonBuilder().style(),
             progressBarStyle = progressBarStyle ?: ProgressBarStyle.builder().style(),

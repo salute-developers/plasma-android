@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.file
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -63,13 +62,12 @@ internal fun FileScreen(componentKey: ComponentKey = ComponentKey.File) {
                     null
                 },
                 progress = when (style.progressPlacement) {
-                    FileProgressPlacement.Inline -> {
+                    FileProgressPlacement.Inner -> {
                         {
                             CircularProgressBar(
                                 progress = 0.4f,
                                 valueContent = {
                                     Icon(
-                                        modifier = Modifier.size(12.dp),
                                         painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
                                         contentDescription = "",
                                     )
@@ -112,7 +110,6 @@ internal fun FilePreview(style: FileStyle) {
                 progress = 0.4f,
                 valueContent = {
                     Icon(
-                        modifier = Modifier.size(12.dp),
                         painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
                         contentDescription = "",
                     )

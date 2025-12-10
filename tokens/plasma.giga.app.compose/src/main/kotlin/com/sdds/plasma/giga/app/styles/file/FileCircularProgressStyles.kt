@@ -149,7 +149,7 @@ public val WrapperFileCircularProgressView.Negative: WrapperFileCircularProgress
 private val FileStyleBuilder.invariantProps: FileStyleBuilder
     @Composable
     get() = this
-        .progressPlacement(FileProgressPlacement.Inline)
+        .progressPlacement(FileProgressPlacement.Inner)
         .actionPlacement(FileActionPlacement.End)
         .actionButtonStyle(IconButton.Xs.Clear.style())
         .colors {

@@ -19,6 +19,7 @@ internal data class CircularProgressProperties(
     val height: Dimension? = null,
     val trackThickness: Dimension? = null,
     val progressThickness: Dimension? = null,
+    val iconSize: Dimension? = null,
 
     val indicatorColor: Color? = null,
     val trackColor: Color? = null,
@@ -38,6 +39,7 @@ internal data class CircularProgressProperties(
             height = height ?: otherProps.height,
             trackThickness = trackThickness ?: otherProps.trackThickness,
             progressThickness = progressThickness ?: otherProps.progressThickness,
+            iconSize = iconSize ?: otherProps.iconSize,
             indicatorColor = indicatorColor ?: otherProps.indicatorColor,
             trackColor = trackColor ?: otherProps.trackColor,
             valueColor = valueColor ?: otherProps.valueColor,
