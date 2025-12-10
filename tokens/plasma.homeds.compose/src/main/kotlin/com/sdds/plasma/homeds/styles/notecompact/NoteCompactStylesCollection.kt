@@ -25,21 +25,26 @@ import kotlin.Unit
 public enum class NoteCompactStyles(
     public val key: String,
 ) {
-    NoteCompactHasCloseDefault("NoteCompact.HasClose.Default"),
-    NoteCompactHasClosePositive("NoteCompact.HasClose.Positive"),
-    NoteCompactHasCloseNegative("NoteCompact.HasClose.Negative"),
-    NoteCompactHasCloseWarning("NoteCompact.HasClose.Warning"),
-    NoteCompactHasCloseInfo("NoteCompact.HasClose.Info"),
-    NoteCompactHasCloseContentScalableDefault("NoteCompact.HasClose.ContentScalable.Default"),
-    NoteCompactHasCloseContentScalablePositive("NoteCompact.HasClose.ContentScalable.Positive"),
-    NoteCompactHasCloseContentScalableNegative("NoteCompact.HasClose.ContentScalable.Negative"),
-    NoteCompactHasCloseContentScalableWarning("NoteCompact.HasClose.ContentScalable.Warning"),
-    NoteCompactHasCloseContentScalableInfo("NoteCompact.HasClose.ContentScalable.Info"),
-    NoteCompactContentScalableDefault("NoteCompact.ContentScalable.Default"),
-    NoteCompactContentScalablePositive("NoteCompact.ContentScalable.Positive"),
-    NoteCompactContentScalableNegative("NoteCompact.ContentScalable.Negative"),
-    NoteCompactContentScalableWarning("NoteCompact.ContentScalable.Warning"),
-    NoteCompactContentScalableInfo("NoteCompact.ContentScalable.Info"),
+    NoteCompactContentBeforeFixedDefault("NoteCompact.ContentBeforeFixed.Default"),
+    NoteCompactContentBeforeFixedPositive("NoteCompact.ContentBeforeFixed.Positive"),
+    NoteCompactContentBeforeFixedNegative("NoteCompact.ContentBeforeFixed.Negative"),
+    NoteCompactContentBeforeFixedWarning("NoteCompact.ContentBeforeFixed.Warning"),
+    NoteCompactContentBeforeFixedInfo("NoteCompact.ContentBeforeFixed.Info"),
+    NoteCompactContentBeforeFixedHasCloseDefault("NoteCompact.ContentBeforeFixed.HasClose.Default"),
+    NoteCompactContentBeforeFixedHasClosePositive("NoteCompact.ContentBeforeFixed.HasClose.Positive"),
+    NoteCompactContentBeforeFixedHasCloseNegative("NoteCompact.ContentBeforeFixed.HasClose.Negative"),
+    NoteCompactContentBeforeFixedHasCloseWarning("NoteCompact.ContentBeforeFixed.HasClose.Warning"),
+    NoteCompactContentBeforeFixedHasCloseInfo("NoteCompact.ContentBeforeFixed.HasClose.Info"),
+    NoteCompactContentBeforeScalableDefault("NoteCompact.ContentBeforeScalable.Default"),
+    NoteCompactContentBeforeScalablePositive("NoteCompact.ContentBeforeScalable.Positive"),
+    NoteCompactContentBeforeScalableNegative("NoteCompact.ContentBeforeScalable.Negative"),
+    NoteCompactContentBeforeScalableWarning("NoteCompact.ContentBeforeScalable.Warning"),
+    NoteCompactContentBeforeScalableInfo("NoteCompact.ContentBeforeScalable.Info"),
+    NoteCompactContentBeforeScalableHasCloseDefault("NoteCompact.ContentBeforeScalable.HasClose.Default"),
+    NoteCompactContentBeforeScalableHasClosePositive("NoteCompact.ContentBeforeScalable.HasClose.Positive"),
+    NoteCompactContentBeforeScalableHasCloseNegative("NoteCompact.ContentBeforeScalable.HasClose.Negative"),
+    NoteCompactContentBeforeScalableHasCloseWarning("NoteCompact.ContentBeforeScalable.HasClose.Warning"),
+    NoteCompactContentBeforeScalableHasCloseInfo("NoteCompact.ContentBeforeScalable.HasClose.Info"),
 }
 
 /**
@@ -51,26 +56,45 @@ public fun NoteCompactStyles.style(
         {},
 ): NoteCompactStyle {
     val builder = when (this) {
-        NoteCompactStyles.NoteCompactHasCloseDefault -> NoteCompact.HasClose.Default
-        NoteCompactStyles.NoteCompactHasClosePositive -> NoteCompact.HasClose.Positive
-        NoteCompactStyles.NoteCompactHasCloseNegative -> NoteCompact.HasClose.Negative
-        NoteCompactStyles.NoteCompactHasCloseWarning -> NoteCompact.HasClose.Warning
-        NoteCompactStyles.NoteCompactHasCloseInfo -> NoteCompact.HasClose.Info
-        NoteCompactStyles.NoteCompactHasCloseContentScalableDefault ->
-            NoteCompact.HasClose.ContentScalable.Default
-        NoteCompactStyles.NoteCompactHasCloseContentScalablePositive ->
-            NoteCompact.HasClose.ContentScalable.Positive
-        NoteCompactStyles.NoteCompactHasCloseContentScalableNegative ->
-            NoteCompact.HasClose.ContentScalable.Negative
-        NoteCompactStyles.NoteCompactHasCloseContentScalableWarning ->
-            NoteCompact.HasClose.ContentScalable.Warning
-        NoteCompactStyles.NoteCompactHasCloseContentScalableInfo ->
-            NoteCompact.HasClose.ContentScalable.Info
-        NoteCompactStyles.NoteCompactContentScalableDefault -> NoteCompact.ContentScalable.Default
-        NoteCompactStyles.NoteCompactContentScalablePositive -> NoteCompact.ContentScalable.Positive
-        NoteCompactStyles.NoteCompactContentScalableNegative -> NoteCompact.ContentScalable.Negative
-        NoteCompactStyles.NoteCompactContentScalableWarning -> NoteCompact.ContentScalable.Warning
-        NoteCompactStyles.NoteCompactContentScalableInfo -> NoteCompact.ContentScalable.Info
+        NoteCompactStyles.NoteCompactContentBeforeFixedDefault ->
+            NoteCompact.ContentBeforeFixed.Default
+        NoteCompactStyles.NoteCompactContentBeforeFixedPositive ->
+            NoteCompact.ContentBeforeFixed.Positive
+        NoteCompactStyles.NoteCompactContentBeforeFixedNegative ->
+            NoteCompact.ContentBeforeFixed.Negative
+        NoteCompactStyles.NoteCompactContentBeforeFixedWarning ->
+            NoteCompact.ContentBeforeFixed.Warning
+        NoteCompactStyles.NoteCompactContentBeforeFixedInfo -> NoteCompact.ContentBeforeFixed.Info
+        NoteCompactStyles.NoteCompactContentBeforeFixedHasCloseDefault ->
+            NoteCompact.ContentBeforeFixed.HasClose.Default
+        NoteCompactStyles.NoteCompactContentBeforeFixedHasClosePositive ->
+            NoteCompact.ContentBeforeFixed.HasClose.Positive
+        NoteCompactStyles.NoteCompactContentBeforeFixedHasCloseNegative ->
+            NoteCompact.ContentBeforeFixed.HasClose.Negative
+        NoteCompactStyles.NoteCompactContentBeforeFixedHasCloseWarning ->
+            NoteCompact.ContentBeforeFixed.HasClose.Warning
+        NoteCompactStyles.NoteCompactContentBeforeFixedHasCloseInfo ->
+            NoteCompact.ContentBeforeFixed.HasClose.Info
+        NoteCompactStyles.NoteCompactContentBeforeScalableDefault ->
+            NoteCompact.ContentBeforeScalable.Default
+        NoteCompactStyles.NoteCompactContentBeforeScalablePositive ->
+            NoteCompact.ContentBeforeScalable.Positive
+        NoteCompactStyles.NoteCompactContentBeforeScalableNegative ->
+            NoteCompact.ContentBeforeScalable.Negative
+        NoteCompactStyles.NoteCompactContentBeforeScalableWarning ->
+            NoteCompact.ContentBeforeScalable.Warning
+        NoteCompactStyles.NoteCompactContentBeforeScalableInfo ->
+            NoteCompact.ContentBeforeScalable.Info
+        NoteCompactStyles.NoteCompactContentBeforeScalableHasCloseDefault ->
+            NoteCompact.ContentBeforeScalable.HasClose.Default
+        NoteCompactStyles.NoteCompactContentBeforeScalableHasClosePositive ->
+            NoteCompact.ContentBeforeScalable.HasClose.Positive
+        NoteCompactStyles.NoteCompactContentBeforeScalableHasCloseNegative ->
+            NoteCompact.ContentBeforeScalable.HasClose.Negative
+        NoteCompactStyles.NoteCompactContentBeforeScalableHasCloseWarning ->
+            NoteCompact.ContentBeforeScalable.HasClose.Warning
+        NoteCompactStyles.NoteCompactContentBeforeScalableHasCloseInfo ->
+            NoteCompact.ContentBeforeScalable.HasClose.Info
     }
     return builder.modify(modifyAction).style()
 }
