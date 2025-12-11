@@ -3,7 +3,7 @@ package com.sdds.testing.vs.carousel
 import com.sdds.testing.vs.ComponentScope
 import com.sdds.testing.vs.RoborazziConfig
 import com.sdds.uikit.Carousel
-import com.sdds.uikit.CellLayout
+import com.sdds.uikit.dp
 
 /**
  * Тест-кейсы для [Carousel]
@@ -27,5 +27,5 @@ abstract class CarouselTestCases(mode: String) : RoborazziConfig(mode) {
                 indicatorVisibleItemCount = 5,
                 withGap = true,
             ),
-        )
+        ).apply { setOffscreenOffset(10f.dp) }
 }

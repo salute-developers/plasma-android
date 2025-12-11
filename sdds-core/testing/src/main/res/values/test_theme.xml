@@ -6,6 +6,8 @@
         <item name="testingShape">@style/Testing.Shape.Round</item>
         <item name="testingTextColorPrimary">#000</item>
         <item name="testTextAppearance">@style/TestTextStyle</item>
+        <item name="testCarouselItemTextAppearance">@style/TestTextStyle</item>
+        <item name="testCarouselItemBackground">#1F118CDF</item>
     </style>
     <style name="TestTextStyle">
         <item name="android:fontFamily">sans-serif-medium</item>
