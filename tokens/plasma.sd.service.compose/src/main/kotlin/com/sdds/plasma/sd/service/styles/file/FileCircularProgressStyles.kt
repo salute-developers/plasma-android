@@ -25,7 +25,7 @@ import com.sdds.plasma.sd.service.styles.circularprogressbar.S
 import com.sdds.plasma.sd.service.styles.circularprogressbar.Xs
 import com.sdds.plasma.sd.service.styles.iconbutton.Clear
 import com.sdds.plasma.sd.service.styles.iconbutton.IconButton
-import com.sdds.plasma.sd.service.styles.iconbutton.Xs
+import com.sdds.plasma.sd.service.styles.iconbutton.S
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -151,7 +151,6 @@ private val FileStyleBuilder.invariantProps: FileStyleBuilder
     get() = this
         .progressPlacement(FileProgressPlacement.Inner)
         .actionPlacement(FileActionPlacement.End)
-        .actionButtonStyle(IconButton.Xs.Clear.style())
         .colors {
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
@@ -262,6 +261,7 @@ public val FileCircularProgress.S: WrapperFileCircularProgressS
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(8.0.dp)
             endContentPadding(8.0.dp)
@@ -309,6 +309,7 @@ public val FileCircularProgress.M: WrapperFileCircularProgressM
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(10.0.dp)
             endContentPadding(10.0.dp)
@@ -356,6 +357,7 @@ public val FileCircularProgress.L: WrapperFileCircularProgressL
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(12.0.dp)
             endContentPadding(12.0.dp)

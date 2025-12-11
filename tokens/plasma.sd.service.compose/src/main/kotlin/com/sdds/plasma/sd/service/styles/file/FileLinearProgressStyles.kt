@@ -20,6 +20,7 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.styles.iconbutton.Clear
 import com.sdds.plasma.sd.service.styles.iconbutton.IconButton
+import com.sdds.plasma.sd.service.styles.iconbutton.S
 import com.sdds.plasma.sd.service.styles.iconbutton.Xs
 import com.sdds.plasma.sd.service.styles.progressbar.Default
 import com.sdds.plasma.sd.service.styles.progressbar.Negative
@@ -149,7 +150,6 @@ private val FileStyleBuilder.invariantProps: FileStyleBuilder
     get() = this
         .progressPlacement(FileProgressPlacement.Outer)
         .actionPlacement(FileActionPlacement.End)
-        .actionButtonStyle(IconButton.Xs.Clear.style())
         .colors {
             labelColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
@@ -214,6 +214,7 @@ public val FileLinearProgress.Xs: WrapperFileLinearProgressXs
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
@@ -261,6 +262,7 @@ public val FileLinearProgress.S: WrapperFileLinearProgressS
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(8.0.dp)
             endContentPadding(8.0.dp)
@@ -308,6 +310,7 @@ public val FileLinearProgress.M: WrapperFileLinearProgressM
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(10.0.dp)
             endContentPadding(10.0.dp)
@@ -355,6 +358,7 @@ public val FileLinearProgress.L: WrapperFileLinearProgressL
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.S.Clear.style())
         .dimensions {
             startContentPadding(12.0.dp)
             endContentPadding(12.0.dp)
