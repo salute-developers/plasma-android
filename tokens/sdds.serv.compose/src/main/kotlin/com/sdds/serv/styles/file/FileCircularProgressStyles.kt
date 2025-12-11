@@ -26,6 +26,7 @@ import com.sdds.serv.styles.circularprogressbar.Xs
 import com.sdds.serv.styles.iconbutton.Clear
 import com.sdds.serv.styles.iconbutton.IconButton
 import com.sdds.serv.styles.iconbutton.S
+import com.sdds.serv.styles.iconbutton.Xs
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -214,6 +215,7 @@ public val FileCircularProgress.Xs: WrapperFileCircularProgressXs
         .invariantProps
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)

@@ -26,6 +26,7 @@ import com.sdds.plasma.giga.app.styles.circularprogressbar.Xs
 import com.sdds.plasma.giga.app.styles.iconbutton.Clear
 import com.sdds.plasma.giga.app.styles.iconbutton.IconButton
 import com.sdds.plasma.giga.app.styles.iconbutton.S
+import com.sdds.plasma.giga.app.styles.iconbutton.Xs
 import com.sdds.plasma.giga.app.theme.PlasmaGigaAppTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -214,6 +215,7 @@ public val FileCircularProgress.Xs: WrapperFileCircularProgressXs
         .invariantProps
         .labelStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
         .descriptionStyle(PlasmaGigaAppTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
