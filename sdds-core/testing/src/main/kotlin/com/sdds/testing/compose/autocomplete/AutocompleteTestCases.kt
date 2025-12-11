@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Autocomplete
 import com.sdds.compose.uikit.AutocompleteStyle
 import com.sdds.compose.uikit.DropdownProperties
+import com.sdds.compose.uikit.DropdownScope
 import com.sdds.compose.uikit.EmptyState
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ListItem
@@ -62,7 +63,13 @@ fun AutoCompleteEmptyStateCenterStart(style: AutocompleteStyle) {
     CommonAutocompleteForTest(
         alignment = Alignment.CenterStart,
         style = style,
-        emptyState = {},
+        emptyState = {
+            EmptyState(
+                iconRes = com.sdds.icons.R.drawable.ic_plasma_36,
+                description = "Empty State",
+                buttonLabel = "Action",
+            )
+        },
     )
 }
 
@@ -149,19 +156,26 @@ fun AutoCompleteBottomEnd(style: AutocompleteStyle) {
  * Общий autocomplete для тестов
  */
 @Composable
-fun CommonAutocompleteForTest(
+private fun CommonAutocompleteForTest(
     alignment: Alignment,
     style: AutocompleteStyle,
     placementMode: PopoverPlacementMode = PopoverPlacementMode.Strict,
     loadingComponent: @Composable (() -> Unit)? = null,
-    emptyState: @Composable (() -> Unit)? = null,
+    emptyState: @Composable (DropdownScope.() -> Unit)? = null,
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         var showDropdown by remember { mutableStateOf(false) }
         var text by remember { mutableStateOf(TextFieldValue()) }
         val textFieldInteractionSource = remember { MutableInteractionSource() }
-        val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
-        val showEmptyState = filteredList.isEmpty()
+        val filteredList =
+            remember {
+                mutableListOf<String>().apply {
+                    addAll(
+                        AutocompleteSuggestions.filterSuggestions(text.text),
+                    )
+                }
+            }
+        val showEmptyState = emptyState != null && filteredList.isEmpty()
 
         Autocomplete(
             modifier = Modifier
@@ -172,30 +186,19 @@ fun CommonAutocompleteForTest(
             onDismissRequest = { showDropdown = false },
             style = style,
             field = {
-                TextField(
-                    modifier = Modifier.width(240.dp),
-                    value = text,
-                    placeholderText = "Сотрудник",
-                    captionText = "Введите имя Алексей",
+                TextFieldForTest(
+                    text = text,
                     onValueChange = {
                         text = it
-                        showDropdown = true
+                        filteredList.clear()
+                        filteredList.addAll(AutocompleteSuggestions.filterSuggestions(text.text))
+                        showDropdown = filteredList.isNotEmpty() || emptyState != null
                     },
-                    endContent = {
-                        Icon(painter = painterResource(com.sdds.icons.R.drawable.ic_search_24), "")
-                    },
-                    focusSelectorSettings = FocusSelectorSettings.None,
                     interactionSource = textFieldInteractionSource,
                 )
             },
-            showEmptyState = showEmptyState && emptyState != null,
-            emptyState = {
-                EmptyState(
-                    iconRes = com.sdds.icons.R.drawable.ic_plasma_36,
-                    description = "Empty State",
-                    buttonLabel = "Action",
-                )
-            },
+            showEmptyState = showEmptyState,
+            emptyState = emptyState,
             footer = loadingComponent,
         ) {
             items(filteredList.size) { index ->
@@ -212,6 +215,27 @@ fun CommonAutocompleteForTest(
             }
         }
     }
+}
+
+@Composable
+private fun TextFieldForTest(
+    text: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    interactionSource: MutableInteractionSource,
+    modifier: Modifier = Modifier,
+) {
+    TextField(
+        modifier = Modifier.width(240.dp),
+        value = text,
+        placeholderText = "Сотрудник",
+        captionText = "Введите имя Алексей",
+        onValueChange = onValueChange,
+        endContent = {
+            Icon(painter = painterResource(com.sdds.icons.R.drawable.ic_search_24), "")
+        },
+        focusSelectorSettings = FocusSelectorSettings.None,
+        interactionSource = interactionSource,
+    )
 }
 
 @Composable
