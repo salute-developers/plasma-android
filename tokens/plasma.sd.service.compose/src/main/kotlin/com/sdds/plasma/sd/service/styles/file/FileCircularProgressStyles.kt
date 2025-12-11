@@ -26,6 +26,7 @@ import com.sdds.plasma.sd.service.styles.circularprogressbar.Xs
 import com.sdds.plasma.sd.service.styles.iconbutton.Clear
 import com.sdds.plasma.sd.service.styles.iconbutton.IconButton
 import com.sdds.plasma.sd.service.styles.iconbutton.S
+import com.sdds.plasma.sd.service.styles.iconbutton.Xs
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -214,6 +215,7 @@ public val FileCircularProgress.Xs: WrapperFileCircularProgressXs
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .descriptionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .actionButtonStyle(IconButton.Xs.Clear.style())
         .dimensions {
             startContentPadding(6.0.dp)
             endContentPadding(6.0.dp)
