@@ -362,5 +362,18 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose() {
                     "AutocompleteNormal" to PlasmaGigaAppAutocompleteNormalVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to PlasmaGigaAppDropdownEmptyStateVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.File,
+                mapOf(
+                    "FileCircularProgress" to PlasmaGigaAppFileCircularProgressVariationsCompose,
+                    "FileLinearProgress" to PlasmaGigaAppFileLinearProgressVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

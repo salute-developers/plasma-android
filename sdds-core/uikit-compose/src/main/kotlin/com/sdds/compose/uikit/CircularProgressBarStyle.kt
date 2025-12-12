@@ -317,6 +317,11 @@ interface CircularProgressBarDimensions {
      */
     val progressThickness: Dp
 
+    /**
+     * Размер иконки
+     */
+    val iconSize: Dp
+
     companion object {
 
         /**
@@ -353,6 +358,11 @@ interface CircularProgressBarDimensionsBuilder {
     fun progressThickness(progressThickness: Dp): CircularProgressBarDimensionsBuilder
 
     /**
+     * Устанавливает размер иконки [iconSize]
+     */
+    fun iconSize(iconSize: Dp): CircularProgressBarDimensionsBuilder
+
+    /**
      * Возвращает экземпляр [CircularProgressBarDimensions]
      */
     fun build(): CircularProgressBarDimensions
@@ -364,6 +374,7 @@ private class DefaultCircularProgressBarDimensions(
     override val height: Dp,
     override val trackThickness: Dp,
     override val progressThickness: Dp,
+    override val iconSize: Dp,
 ) : CircularProgressBarDimensions {
 
     class Builder : CircularProgressBarDimensionsBuilder {
@@ -371,6 +382,7 @@ private class DefaultCircularProgressBarDimensions(
         private var height: Dp? = null
         private var trackThickness: Dp? = null
         private var progressThickness: Dp? = null
+        private var iconSize: Dp? = null
 
         override fun width(width: Dp) = apply {
             this.width = width
@@ -388,12 +400,17 @@ private class DefaultCircularProgressBarDimensions(
             this.progressThickness = progressThickness
         }
 
+        override fun iconSize(iconSize: Dp) = apply {
+            this.iconSize = iconSize
+        }
+
         override fun build(): CircularProgressBarDimensions {
             return DefaultCircularProgressBarDimensions(
                 width = width ?: 100.dp,
                 height = height ?: 100.dp,
                 trackThickness = trackThickness ?: progressThickness ?: 2.dp,
                 progressThickness = progressThickness ?: trackThickness ?: 2.dp,
+                iconSize = iconSize ?: Dp.Unspecified,
             )
         }
     }

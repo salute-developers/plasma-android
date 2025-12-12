@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.StyledText
@@ -124,8 +125,10 @@ fun CircularProgressBar(
 
         if (valueContent != null) {
             CompositionLocalProvider(
-                LocalTextStyle provides style.valueStyle.copy(
-                    brush = valueColor.value,
+                LocalTextStyle provides style.valueStyle.copy(brush = valueColor.value),
+                LocalIconDefaultSize provides DpSize(
+                    width = style.dimensions.iconSize,
+                    height = style.dimensions.iconSize,
                 ),
             ) {
                 valueContent.invoke()

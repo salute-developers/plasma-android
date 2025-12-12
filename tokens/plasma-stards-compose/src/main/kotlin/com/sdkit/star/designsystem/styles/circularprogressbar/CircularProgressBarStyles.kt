@@ -231,6 +231,7 @@ public val CircularProgressBar.L: WrapperCircularProgressBarL
             height(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_height_l))
             trackThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_track_thickness_l))
             progressThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_progress_thickness_l))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_icon_size_l))
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarL)
@@ -245,6 +246,7 @@ public val CircularProgressBar.M: WrapperCircularProgressBarM
             height(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_height_m))
             trackThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_track_thickness_m))
             progressThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_progress_thickness_m))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_icon_size_m))
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarM)
@@ -259,6 +261,7 @@ public val CircularProgressBar.S: WrapperCircularProgressBarS
             height(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_height_s))
             trackThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_track_thickness_s))
             progressThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_progress_thickness_s))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_icon_size_s))
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarS)
@@ -273,6 +276,7 @@ public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
             height(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_height_xs))
             trackThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_track_thickness_xs))
             progressThickness(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_progress_thickness_xs))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_circular_progress_bar_icon_size_xs))
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarXs)

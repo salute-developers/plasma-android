@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
@@ -86,6 +87,8 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
+import com.sdds.playground.sandbox.file.FilePreview
+import com.sdds.playground.sandbox.file.FileScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
@@ -368,6 +371,10 @@ internal sealed class ComponentScreen(
         { AutocompleteScreen(it) },
         { style, _ -> AutocompletePreview(style as AutocompleteStyle) },
     )
+    object File : ComponentScreen(
+        { FileScreen(it) },
+        { style, _ -> FilePreview(style as FileStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -430,6 +437,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MASK -> ComponentScreen.TextFieldMasks
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
+        CoreComponent.FILE -> ComponentScreen.File
         else -> ComponentScreen.Empty
     }
 }
