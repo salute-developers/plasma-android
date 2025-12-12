@@ -42,6 +42,7 @@ import com.sdds.compose.uikit.RectSkeletonStyle
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.SliderStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TabBarStyle
@@ -114,6 +115,8 @@ import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
+import com.sdds.playground.sandbox.slider.compose.SliderPreview
+import com.sdds.playground.sandbox.slider.compose.SliderScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.tabbar.compose.TabBarPreview
@@ -368,6 +371,10 @@ internal sealed class ComponentScreen(
         { AutocompleteScreen(it) },
         { style, _ -> AutocompletePreview(style as AutocompleteStyle) },
     )
+    object Slider : ComponentScreen(
+        { SliderScreen(it) },
+        { style, _ -> SliderPreview(style as SliderStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -430,6 +437,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MASK -> ComponentScreen.TextFieldMasks
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
+        CoreComponent.SLIDER -> ComponentScreen.Slider
         else -> ComponentScreen.Empty
     }
 }

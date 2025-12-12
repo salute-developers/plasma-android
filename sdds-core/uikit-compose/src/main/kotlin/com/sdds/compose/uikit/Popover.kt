@@ -72,7 +72,7 @@ fun Popover(
     BasePopover(
         show = show,
         onDismissRequest = onDismissRequest,
-        triggerInfo = triggerInfo,
+        triggerInfo = { triggerInfo },
         shape = style.shape,
         shadow = style.shadow,
         dimensions = style.dimensions,

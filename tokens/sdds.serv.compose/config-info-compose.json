@@ -8461,6 +8461,754 @@
          ]
       },
       {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderHorizontalLabelInner",
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "SliderHorizontalLabelInner.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "SliderHorizontalLabelInner.L.Accent"
+            },
+            {
+               "name": "l.gradient",
+               "composeReference": "SliderHorizontalLabelInner.L.Gradient"
+            },
+            {
+               "name": "l.limit-label-center.default",
+               "composeReference": "SliderHorizontalLabelInner.L.LimitLabelCenter.Default"
+            },
+            {
+               "name": "l.limit-label-center.accent",
+               "composeReference": "SliderHorizontalLabelInner.L.LimitLabelCenter.Accent"
+            },
+            {
+               "name": "l.limit-label-center.gradient",
+               "composeReference": "SliderHorizontalLabelInner.L.LimitLabelCenter.Gradient"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS.Default"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS.Accent"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.L.LimitLabelCenter.ThumbS.Gradient"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelInner.L.ThumbS.Default"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelInner.L.ThumbS.Accent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.L.ThumbS.Gradient"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "SliderHorizontalLabelInner.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "SliderHorizontalLabelInner.M.Accent"
+            },
+            {
+               "name": "m.gradient",
+               "composeReference": "SliderHorizontalLabelInner.M.Gradient"
+            },
+            {
+               "name": "m.limit-label-center.default",
+               "composeReference": "SliderHorizontalLabelInner.M.LimitLabelCenter.Default"
+            },
+            {
+               "name": "m.limit-label-center.accent",
+               "composeReference": "SliderHorizontalLabelInner.M.LimitLabelCenter.Accent"
+            },
+            {
+               "name": "m.limit-label-center.gradient",
+               "composeReference": "SliderHorizontalLabelInner.M.LimitLabelCenter.Gradient"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS.Default"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS.Accent"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.M.LimitLabelCenter.ThumbS.Gradient"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelInner.M.ThumbS.Default"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelInner.M.ThumbS.Accent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.M.ThumbS.Gradient"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "SliderHorizontalLabelInner.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "SliderHorizontalLabelInner.S.Accent"
+            },
+            {
+               "name": "s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.S.Gradient"
+            },
+            {
+               "name": "s.limit-label-center.default",
+               "composeReference": "SliderHorizontalLabelInner.S.LimitLabelCenter.Default"
+            },
+            {
+               "name": "s.limit-label-center.accent",
+               "composeReference": "SliderHorizontalLabelInner.S.LimitLabelCenter.Accent"
+            },
+            {
+               "name": "s.limit-label-center.gradient",
+               "composeReference": "SliderHorizontalLabelInner.S.LimitLabelCenter.Gradient"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS.Default"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS.Accent"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.S.LimitLabelCenter.ThumbS.Gradient"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelInner.S.ThumbS.Default"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelInner.S.ThumbS.Accent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelInner.S.ThumbS.Gradient"
+            }
+         ]
+      },
+      {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderHorizontalLabelOuter",
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "SliderHorizontalLabelOuter.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "SliderHorizontalLabelOuter.L.Accent"
+            },
+            {
+               "name": "l.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.L.Gradient"
+            },
+            {
+               "name": "l.limit-label-center.default",
+               "composeReference": "SliderHorizontalLabelOuter.L.LimitLabelCenter.Default"
+            },
+            {
+               "name": "l.limit-label-center.accent",
+               "composeReference": "SliderHorizontalLabelOuter.L.LimitLabelCenter.Accent"
+            },
+            {
+               "name": "l.limit-label-center.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.L.LimitLabelCenter.Gradient"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Default"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Accent"
+            },
+            {
+               "name": "l.limit-label-center.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.L.LimitLabelCenter.ThumbS.Gradient"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelOuter.L.ThumbS.Default"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.L.ThumbS.Accent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.L.ThumbS.Gradient"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "SliderHorizontalLabelOuter.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "SliderHorizontalLabelOuter.M.Accent"
+            },
+            {
+               "name": "m.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.M.Gradient"
+            },
+            {
+               "name": "m.limit-label-center.default",
+               "composeReference": "SliderHorizontalLabelOuter.M.LimitLabelCenter.Default"
+            },
+            {
+               "name": "m.limit-label-center.accent",
+               "composeReference": "SliderHorizontalLabelOuter.M.LimitLabelCenter.Accent"
+            },
+            {
+               "name": "m.limit-label-center.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.M.LimitLabelCenter.Gradient"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Default"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Accent"
+            },
+            {
+               "name": "m.limit-label-center.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.M.LimitLabelCenter.ThumbS.Gradient"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelOuter.M.ThumbS.Default"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.M.ThumbS.Accent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.M.ThumbS.Gradient"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "SliderHorizontalLabelOuter.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.S.Accent"
+            },
+            {
+               "name": "s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.S.Gradient"
+            },
+            {
+               "name": "s.limit-label-center.default",
+               "composeReference": "SliderHorizontalLabelOuter.S.LimitLabelCenter.Default"
+            },
+            {
+               "name": "s.limit-label-center.accent",
+               "composeReference": "SliderHorizontalLabelOuter.S.LimitLabelCenter.Accent"
+            },
+            {
+               "name": "s.limit-label-center.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.S.LimitLabelCenter.Gradient"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Default"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Accent"
+            },
+            {
+               "name": "s.limit-label-center.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.S.LimitLabelCenter.ThumbS.Gradient"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "composeReference": "SliderHorizontalLabelOuter.S.ThumbS.Default"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "composeReference": "SliderHorizontalLabelOuter.S.ThumbS.Accent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "composeReference": "SliderHorizontalLabelOuter.S.ThumbS.Gradient"
+            }
+         ]
+      },
+      {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderVerticalLabelInner",
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "SliderVerticalLabelInner.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "SliderVerticalLabelInner.L.Accent"
+            },
+            {
+               "name": "l.gradient",
+               "composeReference": "SliderVerticalLabelInner.L.Gradient"
+            },
+            {
+               "name": "l.label-end.default",
+               "composeReference": "SliderVerticalLabelInner.L.LabelEnd.Default"
+            },
+            {
+               "name": "l.label-end.accent",
+               "composeReference": "SliderVerticalLabelInner.L.LabelEnd.Accent"
+            },
+            {
+               "name": "l.label-end.gradient",
+               "composeReference": "SliderVerticalLabelInner.L.LabelEnd.Gradient"
+            },
+            {
+               "name": "l.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelInner.L.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "l.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelInner.L.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "l.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelInner.L.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "composeReference": "SliderVerticalLabelInner.L.ThumbS.Default"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelInner.L.ThumbS.Accent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelInner.L.ThumbS.Gradient"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "SliderVerticalLabelInner.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "SliderVerticalLabelInner.M.Accent"
+            },
+            {
+               "name": "m.gradient",
+               "composeReference": "SliderVerticalLabelInner.M.Gradient"
+            },
+            {
+               "name": "m.label-end.default",
+               "composeReference": "SliderVerticalLabelInner.M.LabelEnd.Default"
+            },
+            {
+               "name": "m.label-end.accent",
+               "composeReference": "SliderVerticalLabelInner.M.LabelEnd.Accent"
+            },
+            {
+               "name": "m.label-end.gradient",
+               "composeReference": "SliderVerticalLabelInner.M.LabelEnd.Gradient"
+            },
+            {
+               "name": "m.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelInner.M.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "m.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelInner.M.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "m.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelInner.M.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "composeReference": "SliderVerticalLabelInner.M.ThumbS.Default"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelInner.M.ThumbS.Accent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelInner.M.ThumbS.Gradient"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "SliderVerticalLabelInner.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "SliderVerticalLabelInner.S.Accent"
+            },
+            {
+               "name": "s.gradient",
+               "composeReference": "SliderVerticalLabelInner.S.Gradient"
+            },
+            {
+               "name": "s.label-end.default",
+               "composeReference": "SliderVerticalLabelInner.S.LabelEnd.Default"
+            },
+            {
+               "name": "s.label-end.accent",
+               "composeReference": "SliderVerticalLabelInner.S.LabelEnd.Accent"
+            },
+            {
+               "name": "s.label-end.gradient",
+               "composeReference": "SliderVerticalLabelInner.S.LabelEnd.Gradient"
+            },
+            {
+               "name": "s.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelInner.S.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "s.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelInner.S.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "s.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "composeReference": "SliderVerticalLabelInner.S.ThumbS.Default"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelInner.S.ThumbS.Accent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelInner.S.ThumbS.Gradient"
+            }
+         ]
+      },
+      {
+         "key": "slider",
+         "coreName": "Slider",
+         "styleName": "SliderVerticalLabelOuter",
+         "variations": [
+            {
+               "name": "l.default",
+               "composeReference": "SliderVerticalLabelOuter.L.Default"
+            },
+            {
+               "name": "l.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.Accent"
+            },
+            {
+               "name": "l.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.Gradient"
+            },
+            {
+               "name": "l.alignment-end.default",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.Default"
+            },
+            {
+               "name": "l.alignment-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.Accent"
+            },
+            {
+               "name": "l.alignment-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.Gradient"
+            },
+            {
+               "name": "l.alignment-end.label-end.default",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.Default"
+            },
+            {
+               "name": "l.alignment-end.label-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.Accent"
+            },
+            {
+               "name": "l.alignment-end.label-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.Gradient"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "l.alignment-end.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "l.alignment-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS.Default"
+            },
+            {
+               "name": "l.alignment-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS.Accent"
+            },
+            {
+               "name": "l.alignment-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.AlignmentEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "l.label-end.default",
+               "composeReference": "SliderVerticalLabelOuter.L.LabelEnd.Default"
+            },
+            {
+               "name": "l.label-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.LabelEnd.Accent"
+            },
+            {
+               "name": "l.label-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.LabelEnd.Gradient"
+            },
+            {
+               "name": "l.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.L.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "l.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "l.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "l.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.L.ThumbS.Default"
+            },
+            {
+               "name": "l.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.L.ThumbS.Accent"
+            },
+            {
+               "name": "l.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.L.ThumbS.Gradient"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "SliderVerticalLabelOuter.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.Accent"
+            },
+            {
+               "name": "m.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.Gradient"
+            },
+            {
+               "name": "m.alignment-end.default",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.Default"
+            },
+            {
+               "name": "m.alignment-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.Accent"
+            },
+            {
+               "name": "m.alignment-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.Gradient"
+            },
+            {
+               "name": "m.alignment-end.label-end.default",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.Default"
+            },
+            {
+               "name": "m.alignment-end.label-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.Accent"
+            },
+            {
+               "name": "m.alignment-end.label-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.Gradient"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "m.alignment-end.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "m.alignment-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS.Default"
+            },
+            {
+               "name": "m.alignment-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS.Accent"
+            },
+            {
+               "name": "m.alignment-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.AlignmentEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "m.label-end.default",
+               "composeReference": "SliderVerticalLabelOuter.M.LabelEnd.Default"
+            },
+            {
+               "name": "m.label-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.LabelEnd.Accent"
+            },
+            {
+               "name": "m.label-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.LabelEnd.Gradient"
+            },
+            {
+               "name": "m.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.M.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "m.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "m.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "m.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.M.ThumbS.Default"
+            },
+            {
+               "name": "m.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.M.ThumbS.Accent"
+            },
+            {
+               "name": "m.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.M.ThumbS.Gradient"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "SliderVerticalLabelOuter.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.Accent"
+            },
+            {
+               "name": "s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.Gradient"
+            },
+            {
+               "name": "s.alignment-end.default",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.Default"
+            },
+            {
+               "name": "s.alignment-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.Accent"
+            },
+            {
+               "name": "s.alignment-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.Gradient"
+            },
+            {
+               "name": "s.alignment-end.label-end.default",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.Default"
+            },
+            {
+               "name": "s.alignment-end.label-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.Accent"
+            },
+            {
+               "name": "s.alignment-end.label-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.Gradient"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "s.alignment-end.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "s.alignment-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS.Default"
+            },
+            {
+               "name": "s.alignment-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS.Accent"
+            },
+            {
+               "name": "s.alignment-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.AlignmentEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "s.label-end.default",
+               "composeReference": "SliderVerticalLabelOuter.S.LabelEnd.Default"
+            },
+            {
+               "name": "s.label-end.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.LabelEnd.Accent"
+            },
+            {
+               "name": "s.label-end.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.LabelEnd.Gradient"
+            },
+            {
+               "name": "s.label-end.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.S.LabelEnd.ThumbS.Default"
+            },
+            {
+               "name": "s.label-end.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.LabelEnd.ThumbS.Accent"
+            },
+            {
+               "name": "s.label-end.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.LabelEnd.ThumbS.Gradient"
+            },
+            {
+               "name": "s.thumb-s.default",
+               "composeReference": "SliderVerticalLabelOuter.S.ThumbS.Default"
+            },
+            {
+               "name": "s.thumb-s.accent",
+               "composeReference": "SliderVerticalLabelOuter.S.ThumbS.Accent"
+            },
+            {
+               "name": "s.thumb-s.gradient",
+               "composeReference": "SliderVerticalLabelOuter.S.ThumbS.Gradient"
+            }
+         ]
+      },
+      {
          "key": "image",
          "coreName": "Image",
          "styleName": "Image",

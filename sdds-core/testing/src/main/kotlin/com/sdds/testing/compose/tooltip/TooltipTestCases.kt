@@ -50,7 +50,7 @@ fun TooltipMStrictBottomEndTopStart(style: TooltipStyle, buttonStyle: ButtonStyl
         Tooltip(
             show = showTooltip.value,
             modifier = Modifier.widthIn(0.dp, 160.dp),
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Bottom,
             placementMode = PopoverPlacementMode.Strict,
             triggerCentered = true,
@@ -85,7 +85,7 @@ fun TooltipMStrictTopCenterCenterStart(style: TooltipStyle, buttonStyle: ButtonS
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Top,
             placementMode = PopoverPlacementMode.Strict,
             triggerCentered = false,
@@ -122,7 +122,7 @@ fun TooltipSLooseEndBottomStart(style: TooltipStyle, buttonStyle: ButtonStyle) {
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.End,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -159,7 +159,7 @@ fun TooltipSStrictBottomStartTopCenter(style: TooltipStyle, buttonStyle: ButtonS
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Bottom,
             placementMode = PopoverPlacementMode.Strict,
             triggerCentered = false,
@@ -196,7 +196,7 @@ fun TooltipMLooseStartCenter(style: TooltipStyle, buttonStyle: ButtonStyle) {
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Start,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -232,7 +232,7 @@ fun TooltipMLooseStartBottomCenter(style: TooltipStyle, buttonStyle: ButtonStyle
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Start,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -271,7 +271,7 @@ fun TooltipMLooseTopEndNotVisible(style: TooltipStyle, buttonStyle: ButtonStyle)
             modifier = Modifier
                 .testTag("Tooltip"),
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Top,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -307,7 +307,7 @@ fun TooltipMLooseStartCenterEnd(style: TooltipStyle, buttonStyle: ButtonStyle) {
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Start,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -344,7 +344,7 @@ fun TooltipMLooseStartCenterBottomEnd(style: TooltipStyle, buttonStyle: ButtonSt
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Start,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -381,7 +381,7 @@ fun TooltipMLooseTopEnd(style: TooltipStyle, buttonStyle: ButtonStyle) {
         )
         Tooltip(
             show = showPopover.value,
-            triggerInfo = triggerInfo.value,
+            triggerInfo = { triggerInfo.value },
             placement = PopoverPlacement.Top,
             placementMode = PopoverPlacementMode.Loose,
             triggerCentered = false,
@@ -417,7 +417,7 @@ fun TooltipForSandbox(style: TooltipStyle) {
     Tooltip(
         show = showTooltip.value,
         modifier = Modifier.widthIn(0.dp, 160.dp),
-        triggerInfo = triggerInfo.value,
+        triggerInfo = { triggerInfo.value },
         placement = PopoverPlacement.Top,
         placementMode = PopoverPlacementMode.Loose,
         triggerCentered = false,

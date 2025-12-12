@@ -256,6 +256,7 @@ data class ComponentKey(
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
         val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
         val Mask = ComponentKey("Mask", CoreComponent.MASK)
+        val Slider = ComponentKey("Slider", CoreComponent.SLIDER)
         val Carousel = ComponentKey("Carousel", CoreComponent.CAROUSEL)
         val Autocomplete = ComponentKey("Autocomplete", CoreComponent.AUTOCOMPLETE)
         val DropdownEmptyState = ComponentKey("DropdownEmptyState", CoreComponent.DROPDOWN_EMPTY_STATE)
@@ -349,6 +350,7 @@ enum class CoreComponent {
     CAROUSEL,
     AUTOCOMPLETE,
     DROPDOWN_EMPTY_STATE,
+    SLIDER,
 }
 
 /**
@@ -412,6 +414,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.WHEEL,
         CoreComponent.MASK,
         CoreComponent.AUTOCOMPLETE,
+        CoreComponent.SLIDER,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,

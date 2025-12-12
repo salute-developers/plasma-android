@@ -87,7 +87,7 @@ fun DropdownMenu(
     BasePopover(
         show = opened,
         onDismissRequest = onDismissRequest,
-        triggerInfo = triggerInfo,
+        triggerInfo = { triggerInfo },
         colors = style.colors.toPopoverColors(),
         dimensions = style.dimensions.toPopoverDimensions(offset),
         shape = style.shape,
