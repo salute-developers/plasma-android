@@ -1,4 +1,4 @@
-package com.sdds.serv
+package com.sdds.plasma.sd.service
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -24,7 +24,9 @@ class ViewSystemCarouselScreenshotTest(
     override fun testCarouselStartInnerControlsIndicatorWithGap() {
         themedComponent {
             fillSize {
-                carouselStartControlsIndicatorWithGap(R.style.Serv_Sdds_ComponentOverlays_CarouselButtonsPlacementInner)
+                carouselStartControlsIndicatorWithGap(
+                    R.style.Plasma_SdService_ComponentOverlays_CarouselButtonsPlacementInner,
+                )
             }
         }
     }
@@ -37,7 +39,7 @@ class ViewSystemCarouselScreenshotTest(
             },
         ) {
             fillSize {
-                carouselCenterControls(R.style.Serv_Sdds_ComponentOverlays_CarouselButtonsPlacementOuter)
+                carouselCenterControls(R.style.Plasma_SdService_ComponentOverlays_CarouselButtonsPlacementOuter)
             }
         }
     }
@@ -50,7 +52,9 @@ class ViewSystemCarouselScreenshotTest(
             },
         ) {
             fillSize {
-                carouselEndControlsIndicatorWithGap(R.style.Serv_Sdds_ComponentOverlays_CarouselButtonsPlacementInner)
+                carouselEndControlsIndicatorWithGap(
+                    R.style.Plasma_SdService_ComponentOverlays_CarouselButtonsPlacementInner,
+                )
             }
         }
     }
@@ -63,7 +67,7 @@ class ViewSystemCarouselScreenshotTest(
             },
         ) {
             fillSize {
-                carouselCenter(R.style.Serv_Sdds_ComponentOverlays_CarouselButtonsPlacementInner)
+                carouselCenter(R.style.Plasma_SdService_ComponentOverlays_CarouselButtonsPlacementInner)
             }
         }
     }
