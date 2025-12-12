@@ -25,7 +25,7 @@ fun FileCircularProgressIsLoadingStart(style: FileStyle) {
         isLoading = true,
         label = "image.jpg",
         description = "1.2MB",
-        image = {},
+        image = null,
         actionPlacement = FileActionPlacement.Start,
         progress = {
             CircularProgressBar(
@@ -150,7 +150,7 @@ fun FileCircularProgressIsLoadingEndLongText(style: FileStyle) {
         isLoading = true,
         label = "Lorem Ipsum is simply dummy text of the printing and typesetting",
         description = "Lorem Ipsum is simply dummy text of the printing and typesetting",
-        image = {},
+        image = null,
         actionPlacement = FileActionPlacement.End,
         progress = {
             CircularProgressBar(
