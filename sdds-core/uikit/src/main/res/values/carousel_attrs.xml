@@ -3,6 +3,9 @@
 
     <attr name="sd_carouselStyle" format="reference" />
 
+    <item name="sd_carouselNextButtonId" type="id"/>
+    <item name="sd_carouselPrevButtonId" type="id"/>
+
     <declare-styleable name="Carousel" tools:ignore="ResourceName">
         <attr name="sd_paginationDotsStyleOverlay" format="reference" />
         <attr name="sd_nextButtonStyleOverlay" format="reference" />
