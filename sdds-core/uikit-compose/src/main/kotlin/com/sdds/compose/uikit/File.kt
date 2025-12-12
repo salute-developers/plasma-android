@@ -240,7 +240,7 @@ private fun startContent(
                     if (progress == null && action == null) return null
 
                     if (isLoading) {
-                        inlineProgress(progress, style)
+                        inlineProgress(progress, style, interactionSource)
                     } else {
                         action(action, style, interactionSource)
                     }
@@ -279,7 +279,7 @@ private fun endContent(
                     if (progress == null && action == null) return null
 
                     if (isLoading) {
-                        inlineProgress(progress, style)
+                        inlineProgress(progress, style, interactionSource)
                     } else {
                         action(action, style, interactionSource)
                     }
@@ -306,10 +306,13 @@ private fun endContent(
 private fun inlineProgress(
     progress: @Composable (() -> Unit)?,
     style: FileStyle,
+    interactionSource: InteractionSource,
 ): @Composable (RowScope.() -> Unit)? {
     progress ?: return null
     return {
+        val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
         CompositionLocalProvider(
+            LocalTint provides iconColor,
             LocalCircularProgressBarStyle provides style.circularProgressBarStyle,
         ) {
             progress.invoke()
