@@ -396,7 +396,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             measureChildWithMargins(_descriptionView, widthMeasureSpec, 0, heightMeasureSpec, 0)
         }
 
-        _listView.extraItemOffset = _descriptionView.measuredHeight / 2
+        _listView.extraItemOffset = _descriptionView.measuredHeight
         measureChildWithMargins(_listView, widthMeasureSpec, 0, heightMeasureSpec, totalHeight)
         totalHeight += _listView.fullHeight()
         totalWidth = maxOf(totalWidth, _listView.fullWidth(), _descriptionView.fullWidth())
@@ -565,8 +565,9 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     }
 
     private fun getDescriptionPosition(): Int {
+        val itemHeight = _listView.itemHeight - _descriptionView.measuredHeight
         val centerTop = (_listView.measuredHeight - _listView.itemHeight) / 2
-        return _listView.top + centerTop + _listView.itemHeight - _descriptionView.measuredHeight - entryMinSpacing
+        return _listView.top + centerTop + itemHeight - entryMinSpacing
     }
 
     private class DescriptionView(context: Context) : TextView(context) {

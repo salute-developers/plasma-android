@@ -127,7 +127,7 @@ internal class WheelListView(context: Context) : ListView(context) {
         set(value) {
             if (_extraItemOffset != value) {
                 _extraItemOffset = value
-                refresh()
+                fakeChild = null
             }
         }
 
@@ -143,8 +143,18 @@ internal class WheelListView(context: Context) : ListView(context) {
     val itemHeight: Int
         get() = estimateChildHeight()
 
-    private val estimateChild: View? by lazy {
-        getChildAt(0) ?: adapter?.onCreateViewHolder(this, 0)?.itemView
+    private var fakeChild: View? = null
+
+    private fun createMeasurementItem(): View? {
+        return adapter?.onCreateViewHolder(this, 0)?.apply {
+            adapter?.onBindViewHolder(this, 0)
+        }?.itemView
+    }
+
+    private val estimateChild: View? get() {
+        return fakeChild ?: createMeasurementItem()?.also {
+            fakeChild = it
+        }
     }
 
     init {
@@ -348,8 +358,8 @@ internal class WheelListView(context: Context) : ListView(context) {
     }
 
     private fun estimateWheelHeight(widthSpec: Int, heightSpec: Int): Int {
-        val extraSpacing = if (extraItemOffsetEnabled) extraItemOffset * 2 else 0
-        val itemHeight = estimateChildHeight(widthSpec, heightSpec)
+        val extraSpacing = if (extraItemOffsetEnabled) extraItemOffset else 0
+        val itemHeight = estimateChildHeight(widthSpec, heightSpec) - extraSpacing - entryMinSpacing
         val centerY = visibleCount * itemHeight / 2
         val maxDist = visibleCount * itemHeight / 2f
         var estimateHeight = 0f
@@ -361,7 +371,7 @@ internal class WheelListView(context: Context) : ListView(context) {
             childrenCenter += itemHeight
             distance = centerY - childrenCenter
         }
-        return estimateHeight.toInt() + extraSpacing
+        return estimateHeight.toInt()
     }
 
     override fun onScrolled(dx: Int, dy: Int) {
@@ -444,7 +454,7 @@ internal class WheelListView(context: Context) : ListView(context) {
     private fun getItemHeightForDistance(itemHeight: Int, distance: Float, maxDist: Float): Float {
         val factor = getDistanceFactor(distance, maxDist)
         val scale = getScaleByDistanceFactor(factor)
-        return (itemHeight - extraItemOffset - entryMinSpacing) * scale
+        return (itemHeight) * scale
     }
 
     private fun getTranslationForDistance(itemHeight: Int, distance: Float, maxDescriptionTranslation: Float): Float {
@@ -751,7 +761,7 @@ internal class WheelListView(context: Context) : ListView(context) {
                     isFocusable = itemsFocusable
                     updatePadding(
                         top = entryMinSpacing / 2,
-                        bottom = descriptionOffset * 2 + entryMinSpacing / 2,
+                        bottom = descriptionOffset + entryMinSpacing / 2,
                     )
                 }
             }
