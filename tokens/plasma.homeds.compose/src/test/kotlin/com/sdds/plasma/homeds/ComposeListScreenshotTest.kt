@@ -2,7 +2,10 @@ package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.homeds.styles.list.HasBackground
+import com.sdds.plasma.homeds.styles.list.HasItemBackground
 import com.sdds.plasma.homeds.styles.list.List
+import com.sdds.plasma.homeds.styles.list.NoBackground
 import com.sdds.plasma.homeds.styles.list.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.list.ListAmountThreeHasDisclosure
@@ -40,6 +43,27 @@ class ComposeListScreenshotTest(
     fun testListSAmountTwenty() {
         composeTestRule.content {
             ListAmountTwenty(List.S.style())
+        }
+    }
+
+    @Test
+    fun testListSNoBackground() {
+        composeTestRule.content {
+            ListAmountThreeHasDisclosure(List.S.NoBackground.style())
+        }
+    }
+
+    @Test
+    fun testListSNoBackgroundHasItemBackground() {
+        composeTestRule.content {
+            ListAmountThreeHasDisclosure(List.S.NoBackground.HasItemBackground.style())
+        }
+    }
+
+    @Test
+    fun testListSHasBackground() {
+        composeTestRule.content {
+            ListAmountThreeHasDisclosure(List.S.HasBackground.style())
         }
     }
 }
