@@ -230,6 +230,7 @@ public val CircularProgressBar.L: WrapperCircularProgressBarL
             height(56.0.dp)
             trackThickness(2.0.dp)
             progressThickness(2.0.dp)
+            iconSize(24.0.dp)
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarL)
@@ -244,6 +245,7 @@ public val CircularProgressBar.M: WrapperCircularProgressBarM
             height(48.0.dp)
             trackThickness(2.0.dp)
             progressThickness(2.0.dp)
+            iconSize(16.0.dp)
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarM)
@@ -258,6 +260,7 @@ public val CircularProgressBar.S: WrapperCircularProgressBarS
             height(36.0.dp)
             trackThickness(2.0.dp)
             progressThickness(2.0.dp)
+            iconSize(16.0.dp)
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarS)
@@ -272,6 +275,7 @@ public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
             height(24.0.dp)
             trackThickness(2.0.dp)
             progressThickness(2.0.dp)
+            iconSize(12.0.dp)
         }
         .valueEnabled(false)
         .wrap(::WrapperCircularProgressBarXs)
