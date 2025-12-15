@@ -9,11 +9,16 @@ internal data class FileUiState(
     val label: String = "Label",
     val description: String = "Description",
     val isLoading: Boolean = false,
-    val hasImage: Boolean = true,
+    val hasContentStart: Boolean = true,
+    val contentType: FileContentType = FileContentType.Icon,
     val actionPlacement: FileActionPlacement = FileActionPlacement.End,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }
+}
+
+internal enum class FileContentType {
+    Icon, Image
 }

@@ -1,14 +1,19 @@
 package com.sdds.playground.sandbox.file
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.File
 import com.sdds.compose.uikit.FileActionPlacement
@@ -51,16 +56,7 @@ internal fun FileScreen(componentKey: ComponentKey = ComponentKey.File) {
                 label = fileUiState.label,
                 description = fileUiState.description,
                 isLoading = fileUiState.isLoading,
-                image = if (fileUiState.hasImage) {
-                    {
-                        Icon(
-                            painterResource(R.drawable.ic_file_check_fill_36),
-                            contentDescription = "",
-                        )
-                    }
-                } else {
-                    null
-                },
+                image = getImageContent(fileUiState),
                 progress = when (style.progressPlacement) {
                     FileProgressPlacement.Inner -> {
                         {
@@ -91,6 +87,30 @@ internal fun FileScreen(componentKey: ComponentKey = ComponentKey.File) {
         },
     )
 }
+
+@Composable
+private fun getImageContent(fileUiState: FileUiState): @Composable (() -> Unit)? =
+    if (fileUiState.hasContentStart) {
+        {
+            when (fileUiState.contentType) {
+                FileContentType.Icon -> Icon(
+                    painterResource(R.drawable.ic_file_check_fill_36),
+                    contentDescription = "",
+                )
+
+                FileContentType.Image -> AsyncImage(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(RoundedCornerShape(6.dp)),
+                    contentScale = ContentScale.Crop,
+                    model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
+                    contentDescription = "FileImage",
+                )
+            }
+        }
+    } else {
+        null
+    }
 
 @Composable
 internal fun FilePreview(style: FileStyle) {

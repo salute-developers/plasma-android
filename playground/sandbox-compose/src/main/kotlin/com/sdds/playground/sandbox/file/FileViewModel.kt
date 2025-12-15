@@ -17,16 +17,25 @@ internal class FileViewModel(
 ) : ComponentViewModel<FileUiState, FileStyle>(defaultState, componentKey) {
 
     override fun FileUiState.toProps(): List<Property<*>> {
+        val contentPropsList = if (hasContentStart) {
+            listOf(
+                enumProperty(
+                    name = "contentType",
+                    value = contentType,
+                    onApply = {
+                        internalUiState.value = internalUiState.value.copy(contentType = it)
+                    },
+                ),
+            )
+        } else {
+            emptyList()
+        }
+
         return listOf(
             Property.BooleanProperty(
                 name = "isLoading",
                 value = isLoading,
                 onApply = { internalUiState.value = internalUiState.value.copy(isLoading = it) },
-            ),
-            Property.BooleanProperty(
-                name = "hasImage",
-                value = hasImage,
-                onApply = { internalUiState.value = internalUiState.value.copy(hasImage = it) },
             ),
             Property.StringProperty(
                 name = "label",
@@ -45,8 +54,14 @@ internal class FileViewModel(
                     internalUiState.value = internalUiState.value.copy(actionPlacement = it)
                 },
             ),
-
-        )
+            Property.BooleanProperty(
+                name = "hasContentStart",
+                value = hasContentStart,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(hasContentStart = it)
+                },
+            ),
+        ) + contentPropsList
     }
 }
 
