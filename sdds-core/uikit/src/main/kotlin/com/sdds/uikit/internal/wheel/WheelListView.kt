@@ -349,7 +349,7 @@ internal class WheelListView(context: Context) : ListView(context) {
 
     private fun estimateWheelHeight(widthSpec: Int, heightSpec: Int): Int {
         val extraSpacing = if (extraItemOffsetEnabled) extraItemOffset * 2 else 0
-        val itemHeight = estimateChildHeight(widthSpec, heightSpec) - extraSpacing
+        val itemHeight = estimateChildHeight(widthSpec, heightSpec)
         val centerY = visibleCount * itemHeight / 2
         val maxDist = visibleCount * itemHeight / 2f
         var estimateHeight = 0f

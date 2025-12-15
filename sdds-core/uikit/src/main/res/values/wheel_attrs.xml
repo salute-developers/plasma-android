@@ -20,6 +20,7 @@
         <attr name="sd_visibleItemsCount" format="integer" />
 
         <attr name="sd_controlsEnabled" format="boolean"/>
+        <attr name="sd_controlsClickable" format="boolean"/>
         <attr name="sd_controlsDisplayMode" format="enum">
             <enum name="always" value="0"/>
             <enum name="if_active" value="1"/>

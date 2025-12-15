@@ -11,6 +11,7 @@ import com.sdds.uikit.Wheel
  * @property itemTextAfter Текст после значения.
  * @property description Описание колеса.
  * @property hasControls Флаг отображения кнопок управления.
+ * @property controlsClickable Кликабельны ли кнопки управления.
  * @property wheelCount Количество колес.
  * @property visibleItemsCount Количество видимых элементов.
  * @property separatorType Тип разделителя между элементами.
@@ -24,6 +25,7 @@ data class WheelUiState(
     val itemTextAfter: String = "",
     val description: String = "",
     val hasControls: Boolean = true,
+    val controlsClickable: Boolean = true,
     val wheelCount: Int = 2,
     val visibleItemsCount: Int = 5,
     val separatorType: WheelSeparatorType = WheelSeparatorType.DOTS,
