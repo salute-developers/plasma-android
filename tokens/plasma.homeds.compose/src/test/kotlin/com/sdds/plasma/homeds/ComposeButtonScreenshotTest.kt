@@ -18,6 +18,18 @@ import com.sdds.plasma.homeds.styles.iconbutton.Negative
 import com.sdds.plasma.homeds.styles.iconbutton.S
 import com.sdds.plasma.homeds.styles.iconbutton.Secondary
 import com.sdds.plasma.homeds.styles.iconbutton.Warning
+import com.sdds.plasma.homeds.styles.linkbutton.Accent
+import com.sdds.plasma.homeds.styles.linkbutton.Default
+import com.sdds.plasma.homeds.styles.linkbutton.L
+import com.sdds.plasma.homeds.styles.linkbutton.LinkButton
+import com.sdds.plasma.homeds.styles.linkbutton.M
+import com.sdds.plasma.homeds.styles.linkbutton.Negative
+import com.sdds.plasma.homeds.styles.linkbutton.S
+import com.sdds.plasma.homeds.styles.linkbutton.Secondary
+import com.sdds.plasma.homeds.styles.linkbutton.Warning
+import com.sdds.plasma.homeds.styles.linkbutton.Xl
+import com.sdds.plasma.homeds.styles.linkbutton.Xs
+import com.sdds.plasma.homeds.styles.linkbutton.Xxs
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.button.ButtonSizeLDisabled
 import com.sdds.testing.compose.button.ButtonSizeLIsLoading
@@ -35,6 +47,15 @@ import com.sdds.testing.compose.button.IconButtonLSecondary
 import com.sdds.testing.compose.button.IconButtonMClear
 import com.sdds.testing.compose.button.IconButtonSWarning
 import com.sdds.testing.compose.button.IconButtonXSNegative
+import com.sdds.testing.compose.button.LinkButtonSizeLDefault
+import com.sdds.testing.compose.button.LinkButtonSizeLDisabled
+import com.sdds.testing.compose.button.LinkButtonSizeLIsLoading
+import com.sdds.testing.compose.button.LinkButtonSizeLSecondary
+import com.sdds.testing.compose.button.LinkButtonSizeMAccent
+import com.sdds.testing.compose.button.LinkButtonSizeSWarning
+import com.sdds.testing.compose.button.LinkButtonSizeXSNegative
+import com.sdds.testing.compose.button.LinkButtonSizeXlDefault
+import com.sdds.testing.compose.button.LinkButtonSizeXxsDefault
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -161,6 +182,69 @@ class ComposeButtonScreenshotTest(
     fun testIconButtonSNegative() {
         composeTestRule.content {
             IconButtonXSNegative(iconButtonStyle = IconButton.S.Negative.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeLDefault() {
+        composeTestRule.content {
+            LinkButtonSizeLDefault(linkButtonStyle = LinkButton.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeLIsLoading() {
+        composeTestRule.content {
+            LinkButtonSizeLIsLoading(linkButtonStyle = LinkButton.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeLSecondary() {
+        composeTestRule.content {
+            LinkButtonSizeLSecondary(linkButtonStyle = LinkButton.L.Secondary.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeMAccent() {
+        composeTestRule.content {
+            LinkButtonSizeMAccent(linkButtonStyle = LinkButton.M.Accent.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeLDisabled() {
+        composeTestRule.content {
+            LinkButtonSizeLDisabled(linkButtonStyle = LinkButton.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeSWarning() {
+        composeTestRule.content {
+            LinkButtonSizeSWarning(linkButtonStyle = LinkButton.S.Warning.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeXSNegative() {
+        composeTestRule.content {
+            LinkButtonSizeXSNegative(linkButtonStyle = LinkButton.Xs.Negative.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeXlDefault() {
+        composeTestRule.content {
+            LinkButtonSizeXlDefault(linkButtonStyle = LinkButton.Xl.Default.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeXxsDefault() {
+        composeTestRule.content {
+            LinkButtonSizeXxsDefault(linkButtonStyle = LinkButton.Xxs.Default.style())
         }
     }
 }
