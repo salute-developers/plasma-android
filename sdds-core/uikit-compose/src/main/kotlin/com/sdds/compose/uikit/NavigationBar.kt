@@ -135,7 +135,7 @@ fun NavigationBar(
     Column(
         modifier = modifier
             .shadow(style.shadow)
-            .clip(rememberBarShape(style.bottomShape))
+            .clip(rememberNavBarShape(style.bottomShape))
             .background(style.colors.backgroundColor.colorForInteraction(interactionSource)),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -272,7 +272,7 @@ private fun NavigationBarTextAlign.toAlignment(): Alignment.Horizontal {
 }
 
 @Composable
-private fun rememberBarShape(bottomShape: CornerBasedShape): RoundedCornerShape {
+internal fun rememberNavBarShape(bottomShape: CornerBasedShape): RoundedCornerShape {
     return remember(bottomShape) {
         RoundedCornerShape(
             topStart = ZeroCornerSize,
