@@ -1,5 +1,6 @@
 package com.sdds.uikit.internal.wheel
 
+import android.animation.ArgbEvaluator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -31,10 +32,13 @@ import com.sdds.uikit.Wheel.Companion.ITEM_ALIGNMENT_END
 import com.sdds.uikit.Wheel.Companion.ITEM_ALIGNMENT_START
 import com.sdds.uikit.Wheel.WheelItemEntry
 import com.sdds.uikit.dp
+import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.isParentOf
+import com.sdds.uikit.statelist.ColorValueHolder
 import com.sdds.uikit.statelist.ColorValueStateList
 import kotlin.math.abs
+import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 import kotlin.math.sign
 
@@ -523,6 +527,7 @@ internal class WheelListView(context: Context) : ListView(context) {
         _wasFling = false
     }
 
+    @Suppress("LongMethod")
     private fun updateChildTransforms() {
         if (measuredHeight == 0) return
         val centerY = measuredHeight / 2f
@@ -574,13 +579,18 @@ internal class WheelListView(context: Context) : ListView(context) {
                 ITEM_ALIGNMENT_END -> -widthDiff
                 else -> 0f
             }
-
+            val selectionFactor = if (hasFocus()) {
+                1f - (distance.absoluteValue / itemHeight).coerceIn(0f, 1f)
+            } else {
+                0f
+            }
             childHolder.updateTransform(
                 scale = scale,
                 translateX = translationX,
                 translateY = translationY,
                 alpha = alpha,
                 descriptionCompensation = descriptionCompensation,
+                factor = selectionFactor,
             )
         }
     }
@@ -725,6 +735,7 @@ internal class WheelListView(context: Context) : ListView(context) {
                 translateY: Float,
                 alpha: Float,
                 descriptionCompensation: Float,
+                factor: Float,
             ) {
                 itemView.translationX = translateX
                 itemView.translationY = translateY
@@ -732,6 +743,7 @@ internal class WheelListView(context: Context) : ListView(context) {
                 itemView.scaleY = scale
                 itemView.alpha = alpha
                 wheelItem.translationY = descriptionCompensation
+                (itemView as WheelListItemView).updateSelectionFactor(factor)
             }
 
             fun setFocusLock(lock: Boolean) {
@@ -741,7 +753,6 @@ internal class WheelListView(context: Context) : ListView(context) {
             private fun updateStyle() {
                 itemTitleView.apply {
                     setTextAppearance(_itemTextAppearance)
-                    setTextColor(_itemTextColor)
                 }
                 wheelItem.apply {
                     updateLayoutParams<FrameLayout.LayoutParams> {
@@ -757,8 +768,10 @@ internal class WheelListView(context: Context) : ListView(context) {
                     setTextColor(_itemTextAfterColor)
                 }
                 itemTextAfterView.updatePaddingRelative(start = _itemTextAfterPadding)
-                itemView.apply {
+                (itemView as WheelListItemView).apply {
                     isFocusable = itemsFocusable
+                    setTitleColor(_itemTextColor)
+                    setTextAfterColor(_itemTextAfterColor)
                     updatePadding(
                         top = entryMinSpacing / 2,
                         bottom = descriptionOffset + entryMinSpacing / 2,
@@ -820,7 +833,14 @@ internal class WheelListView(context: Context) : ListView(context) {
 
     internal class WheelListItemView(context: Context) : FrameLayout(context) {
 
+        private val argbEvaluator = ArgbEvaluator()
         private var _focusLocked: Boolean = false
+        private var _titleColor: ColorValueStateList? = null
+        private var _titleSelectionColor: Int? = null
+        private var _titleDefaultColor: Int? = null
+        private var _textAfterColor: ColorValueStateList? = null
+        private var _textAfterSelectionColor: Int? = null
+        private var _textAfterDefaultColor: Int? = null
         private val _itemTitleView = TextView(context)
             .apply {
                 id = R.id.sd_wheel_item_title
@@ -858,6 +878,31 @@ internal class WheelListView(context: Context) : ListView(context) {
             _focusLocked = lock
         }
 
+        fun setTitleColor(color: ColorValueStateList?) {
+            _titleColor = color
+            _titleSelectionColor = color?.getSelectionColor()
+            _titleDefaultColor = color?.getDefaultColor()
+        }
+
+        fun setTextAfterColor(color: ColorValueStateList?) {
+            _textAfterColor = color
+            _textAfterSelectionColor = color?.getSelectionColor()
+            _textAfterDefaultColor = color?.getDefaultColor()
+        }
+
+        fun updateSelectionFactor(factor: Float) {
+            if (_titleSelectionColor != null && _titleDefaultColor != null) {
+                _itemTitleView.setTextColor(
+                    argbEvaluator.evaluate(factor, _titleDefaultColor, _titleSelectionColor) as Int,
+                )
+            }
+            if (_textAfterSelectionColor != null && _textAfterDefaultColor != null) {
+                _itemTextAfterView.setTextColor(
+                    argbEvaluator.evaluate(factor, _textAfterDefaultColor, _textAfterSelectionColor) as Int,
+                )
+            }
+        }
+
         fun estimateWidth(entry: WheelItemEntry): Int {
             val titleWidth = _itemTitleView.paint.measureText(entry.title, 0, entry.title.length)
             val textAfterWidth = entry.textAfter?.let {
@@ -873,6 +918,32 @@ internal class WheelListView(context: Context) : ListView(context) {
                 mergeDrawableStates(state, intArrayOf(android.R.attr.state_focused))
             }
             return state
+        }
+
+        override fun drawableStateChanged() {
+            super.drawableStateChanged()
+            _itemTitleView.setTextColor(_titleColor)
+            _itemTextAfterView.setTextColor(_textAfterColor)
+        }
+
+        private companion object {
+            val FocusState = intArrayOf(android.R.attr.state_focused)
+
+            fun ColorValueStateList.getSelectionColor(): Int {
+                return when (val holder = getValueForState(FocusState)) {
+                    is ColorValueHolder.ColorValue -> holder.value
+                    is ColorValueHolder.ColorListValue -> holder.value.colorForState(FocusState)
+                    else -> 0
+                }
+            }
+
+            fun ColorValueStateList.getDefaultColor(): Int {
+                return when (val holder = getValueForState(FocusState)) {
+                    is ColorValueHolder.ColorValue -> holder.value
+                    is ColorValueHolder.ColorListValue -> holder.value.defaultColor
+                    else -> 0
+                }
+            }
         }
     }
 
