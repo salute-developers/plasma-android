@@ -1,10 +1,15 @@
 package com.sdds.compose.uikit.internal.navigationbar
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -27,27 +32,33 @@ internal fun NavigationBarLayout(
     startContent: (@Composable () -> Unit)?,
     centerContent: (@Composable () -> Unit)?,
     endContent: (@Composable () -> Unit)?,
-    contentPadding: Dp,
+    backgroundContent: (@Composable BoxScope.() -> Unit)? = null,
+    horizontalSpacing: Dp,
+    paddings: PaddingValues,
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy,
     textAlign: NavigationBarTextAlign,
+    alpha: () -> Float = { 1f },
+    offsetPx: () -> Float = { 0f },
+    onMainContentSizeChanged: (Int) -> Unit = {},
 ) {
     Layout(
         modifier = modifier,
-        measurePolicy = remember(centerAlignmentStrategy, textAlign) {
-            NavBarMeasurePolicy(centerAlignmentStrategy, textAlign)
+        measurePolicy = remember(centerAlignmentStrategy, textAlign, offsetPx, onMainContentSizeChanged, paddings) {
+            NavBarMeasurePolicy(centerAlignmentStrategy, textAlign, offsetPx, onMainContentSizeChanged, paddings)
         },
         content = {
             startContent?.let {
                 Box(
                     modifier = Modifier
                         .layoutId("StartContent")
-                        .padding(end = contentPadding),
+                        .padding(end = horizontalSpacing),
                     content = { startContent() },
                 )
             }
             centerContent?.let {
                 Box(
                     modifier = Modifier
+                        .graphicsLayer { this.alpha = alpha() }
                         .layoutId("CenterContent"),
                     content = { centerContent() },
                 )
@@ -56,8 +67,18 @@ internal fun NavigationBarLayout(
                 Box(
                     modifier = Modifier
                         .layoutId("EndContent")
-                        .padding(start = contentPadding),
+                        .padding(start = horizontalSpacing),
                     content = { endContent() },
+                )
+            }
+            backgroundContent?.let {
+                Box(
+                    modifier = Modifier
+                        .graphicsLayer {
+                            this.alpha = alpha()
+                        }
+                        .layoutId("BackgroundContent"),
+                    content = { backgroundContent() },
                 )
             }
         },
@@ -66,7 +87,10 @@ internal fun NavigationBarLayout(
 
 private class NavBarMeasurePolicy(
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy,
-    textAlign: NavigationBarTextAlign,
+    private val textAlign: NavigationBarTextAlign,
+    private val offsetPx: (() -> Float)?,
+    private val onMainContentSizeChanged: (Int) -> Unit,
+    private val paddings: PaddingValues,
 ) : MeasurePolicy {
 
     private val hasAbsoluteCenter = textAlign == NavigationBarTextAlign.Center &&
@@ -77,6 +101,11 @@ private class NavBarMeasurePolicy(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
+        val paddingStart = paddings.calculateStartPadding(layoutDirection).roundToPx()
+        val paddingEnd = paddings.calculateEndPadding(layoutDirection).roundToPx()
+        val paddingTop = paddings.calculateTopPadding().roundToPx()
+        val paddingBottom = paddings.calculateBottomPadding().roundToPx()
+
         val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
         val startContent = measurables
             .firstOrNull { it.layoutId == "StartContent" }
@@ -96,21 +125,39 @@ private class NavBarMeasurePolicy(
         val centerContent = measurables.firstOrNull { it.layoutId == "CenterContent" }
             ?.measure(centerConstraints)
 
-        val height = maxOf(
+        val contentHeight = maxOf(
             startContent.heightOrZero(),
             centerContent.heightOrZero(),
             endContent.heightOrZero(),
         )
+        onMainContentSizeChanged.invoke(contentHeight + paddingTop + paddingBottom)
+        val offset = (offsetPx?.invoke()?.roundToInt() ?: 0)
+        val height = contentHeight + offset + paddingTop + paddingBottom
         val width = constraints.constrainWidth(
-            startContent.widthOrZero() + centerContent.widthOrZero() + endContent.widthOrZero(),
+            startContent.widthOrZero() +
+                centerContent.widthOrZero() +
+                endContent.widthOrZero() +
+                paddingStart +
+                paddingEnd,
         )
 
+        val backgroundContent = measurables.firstOrNull { it.layoutId == "BackgroundContent" }
+            ?.measure(
+                constraints.copy(
+                    minHeight = height,
+                    maxHeight = height,
+                    minWidth = constraints.maxWidth,
+                    maxWidth = constraints.maxWidth,
+                ),
+            )
+
         return layout(width, height) {
+            backgroundContent?.placeRelative(0, 0)
             startContent?.let {
                 it.placeRelative(
-                    x = 0,
-                    y = calculateVerticalPosition(
-                        containerHeight = height,
+                    x = paddingStart,
+                    y = paddingTop + offset + calculateVerticalPosition(
+                        containerHeight = contentHeight,
                         elementHeight = it.heightOrZero(),
                     ),
                 )
@@ -123,19 +170,32 @@ private class NavBarMeasurePolicy(
                             elementWidth = it.widthOrZero(),
                         )
                     } else {
-                        startContent.widthOrZero()
+                        when (textAlign) {
+                            NavigationBarTextAlign.Start -> paddingStart + startContent.widthOrZero()
+                            NavigationBarTextAlign.Center -> {
+                                val startPoint = paddingStart + startContent.widthOrZero()
+                                val endPoint = width - paddingEnd - endContent.widthOrZero()
+                                val centerPoint = endPoint - startPoint
+                                centerPoint
+                            }
+                            NavigationBarTextAlign.End ->
+                                width -
+                                    paddingEnd -
+                                    it.widthOrZero() -
+                                    endContent.widthOrZero()
+                        }
                     },
-                    y = calculateVerticalPosition(
-                        containerHeight = height,
+                    y = paddingTop + offset + calculateVerticalPosition(
+                        containerHeight = contentHeight,
                         elementHeight = it.heightOrZero(),
                     ),
                 )
             }
             endContent?.let {
                 it.placeRelative(
-                    x = width - it.widthOrZero(),
-                    y = calculateVerticalPosition(
-                        containerHeight = height,
+                    x = width - it.widthOrZero() - paddingEnd,
+                    y = paddingTop + offset + calculateVerticalPosition(
+                        containerHeight = contentHeight,
                         elementHeight = it.heightOrZero(),
                     ),
                 )
