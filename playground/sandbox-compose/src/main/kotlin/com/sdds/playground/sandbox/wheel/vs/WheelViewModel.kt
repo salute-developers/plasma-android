@@ -15,6 +15,7 @@ internal class WheelViewModel(
     componentKey: ComponentKey,
 ) : ComponentViewModel<WheelUiState>(defaultState, componentKey) {
 
+    @Suppress("CyclomaticComplexMethod")
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
         val valueString = value?.toString() ?: return
@@ -25,6 +26,7 @@ internal class WheelViewModel(
             PropertyName.Description -> currentState.copy(description = valueString)
             PropertyName.ItemTextAfter -> currentState.copy(itemTextAfter = valueString)
             PropertyName.HasControls -> currentState.copy(hasControls = valueString.toBoolean())
+            PropertyName.ControlsClickable -> currentState.copy(controlsClickable = valueString.toBoolean())
             PropertyName.ControlsDisplayMode -> currentState.copy(
                 controlsDisplayMode = WheelControlsDisplayMode.valueOf(valueString),
             )
@@ -54,6 +56,10 @@ internal class WheelViewModel(
             Property.BooleanProperty(
                 name = PropertyName.HasControls.value,
                 value = hasControls,
+            ),
+            Property.BooleanProperty(
+                name = PropertyName.ControlsClickable.value,
+                value = controlsClickable,
             ),
             enumProperty(
                 name = PropertyName.ControlsDisplayMode.value,
@@ -85,6 +91,7 @@ internal class WheelViewModel(
         ItemTextAfter("itemTextAfter"),
         ItemAlignment("itemAlignment"),
         HasControls("hasControls"),
+        ControlsClickable("controlsClickable"),
         ControlsDisplayMode("controlsDisplayMode"),
         WheelCount("wheelCount"),
         VisibleItemsCount("visibleItemsCount"),
