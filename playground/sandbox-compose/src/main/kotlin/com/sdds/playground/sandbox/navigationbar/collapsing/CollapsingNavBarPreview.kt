@@ -5,10 +5,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.sdds.compose.uikit.CollapsingNavBar
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
@@ -41,6 +44,17 @@ fun CollapsingNavNavBarPreview() {
                 Icon(
                     painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
                     contentDescription = ""
+                )
+            },
+            expandedContent = {
+                AsyncImage(
+                    modifier = Modifier
+                        .matchParentSize()
+                        .graphicsLayer(alpha = 0.6f)
+                    ,
+                    contentScale = ContentScale.Crop,
+                    model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
+                    contentDescription = "AsyncAvatar",
                 )
             }
         )

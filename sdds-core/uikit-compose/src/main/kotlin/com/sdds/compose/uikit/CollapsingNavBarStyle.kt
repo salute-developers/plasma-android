@@ -180,7 +180,7 @@ private class DefaultCollapsingNavBarStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 shadow = shadow ?: ShadowAppearance(),
-                bottomShape = bottomShape ?: RoundedCornerShape(ZeroCornerSize),
+                bottomShape = bottomShape ?: RoundedCornerShape(16.dp),
                 actionButtonStyle = actionButtonStyle,
                 titleStyle = titleStyle ?: TextStyle().asStatefulValue(),
                 descriptionStyle = descriptionStyle ?: TextStyle().asStatefulValue(),
@@ -350,14 +350,18 @@ private data class DefaultCollapsingNavBarColors(
 
         override fun build(): CollapsingNavBarColors {
             return DefaultCollapsingNavBarColors(
-                backgroundColor = backgroundColor ?: Color.LightGray.asStatefulValue(
-                    setOf(CollapsingNavBarState.Collapsed) to Color.Gray.copy(0.6f)
+                backgroundColor = backgroundColor ?: Color.Red.copy(0.2f).asStatefulValue(
+                    setOf(CollapsingNavBarState.Collapsed) to Color.Blue.copy(0.2f)
                 ),
                 backIconColor = backIconColor ?: Color.Black.asStatefulValue(),
                 actionStartColor = actionStartColor ?: Color.Black.asStatefulValue(),
                 actionEndColor = actionEndColor ?: Color.Black.asStatefulValue(),
-                titleColor = titleColor ?: Color.Black.asStatefulValue(),
-                descriptionColor = descriptionColor ?: Color.DarkGray.asStatefulValue(),
+                titleColor = titleColor ?: Color.White.asStatefulValue(
+                    setOf(CollapsingNavBarState.Collapsed) to Color.Black
+                ),
+                descriptionColor = descriptionColor ?: Color.LightGray.asStatefulValue(
+                    setOf(CollapsingNavBarState.Collapsed) to Color.DarkGray
+                ),
             )
         }
     }

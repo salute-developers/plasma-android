@@ -10,6 +10,7 @@ import androidx.compose.animation.core.animateDecay
 import androidx.compose.animation.core.animateTo
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.rememberSplineBasedDecay
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
@@ -17,6 +18,7 @@ import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -26,7 +28,6 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
@@ -40,6 +41,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -75,6 +77,7 @@ fun CollapsingNavBar(
     description: @Composable () -> Unit = {},
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
+    expandedContent: @Composable BoxScope.() -> Unit = {}, //todo поддержать фоновый контент в раскрытом состоянии
     windowInsets: WindowInsets = CollapsingNavBarDefaults.windowInsets,
     scrollBehavior: TopAppBarScrollBehavior? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
@@ -86,6 +89,7 @@ fun CollapsingNavBar(
         smallTitle = title,
         description = description,
         smallDescription = description,
+        expandedContent = expandedContent,
         navigationIcon = navigationIcon,
         actions = actions,
         windowInsets = windowInsets,
@@ -378,6 +382,7 @@ private fun BaseCollapsingNavBar(
     smallDescription: @Composable (() -> Unit),
     navigationIcon: @Composable () -> Unit,
     actions: @Composable RowScope.() -> Unit,
+    expandedContent: @Composable (BoxScope.() -> Unit),
     windowInsets: WindowInsets,
     scrollBehavior: TopAppBarScrollBehavior?,
     interactionSource: InteractionSource,
@@ -455,68 +460,73 @@ private fun BaseCollapsingNavBar(
         Modifier
     }
 
-    Surface(modifier = modifier.then(appBarDragModifier), color = appBarContainerColor) { //todo
-        Column {
-            NavBarLayout(
-                modifier = Modifier //todo применить отступы в закрытом положении
-                    .windowInsetsPadding(windowInsets)
-                    // clip after padding so we don't show the title over the inset area
-                    .clipToBounds(),
-                heightPx = pinnedHeightPx,
-                navigationIconContentColor = style.colors.backIconColor.getValue(
-                    interactionSource,
-                    collapsedStateSet
-                ),
-                titleContentColor = style.colors.titleColor.getValue(
-                    interactionSource,
-                    collapsedStateSet
-                ),
-                actionIconContentColor = style.colors.actionStartColor.getValue(
-                    interactionSource,
-                    collapsedStateSet
-                ),
-                title = smallTitle,
-                description = smallDescription,
-                titleTextStyle = style.titleStyle.getValue(interactionSource, collapsedStateSet),
-                titleAlpha = collapsedAlpha,
-                textVerticalArrangement = Arrangement.Center,
-                textHorizontalArrangement = Arrangement.Start,//todo вынести в публичное апи или брать из стиля
-                hideTitleSemantics = hideTopRowSemantics,
-                navigationIcon = navigationIcon,
-                actions = actionsRow,
-                descriptionContentColor = style.colors.descriptionColor.getValue(
-                    interactionSource,
-                    collapsedStateSet
-                ),
-                descriptionTextStyle = style.descriptionStyle.getValue(
-                    interactionSource,
-                    collapsedStateSet
-                )
-            )
-            NavBarLayout(
-                modifier = Modifier //todo применить отступы в открытом положении
-                    // only apply the horizontal sides of the window insets padding, since the top
-                    // padding will always be applied by the layout above
-                    .windowInsetsPadding(windowInsets.only(WindowInsetsSides.Horizontal))
-                    .clipToBounds(),
-                heightPx = maxHeightPx - pinnedHeightPx + (scrollBehavior?.state?.heightOffset
-                    ?: 0f),
-                navigationIconContentColor = style.colors.backIconColor.getValue(interactionSource),
-                titleContentColor = style.colors.titleColor.getValue(interactionSource),
-                actionIconContentColor = style.colors.actionStartColor.getValue(interactionSource),
-                title = title,
-                description = description,
-                titleTextStyle = style.titleStyle.getValue(interactionSource),
-                titleAlpha = expandedAlpha,
-                textVerticalArrangement = Arrangement.Bottom,
-                textHorizontalArrangement = Arrangement.Center, //todo
-                hideTitleSemantics = hideBottomRowSemantics,
-                navigationIcon = {},
-                actions = {},
-                descriptionContentColor = style.colors.descriptionColor.getValue(interactionSource),
-                descriptionTextStyle = style.descriptionStyle.getValue(interactionSource),
-            )
-        }
+    Box(
+        modifier = modifier
+            .then(appBarDragModifier)
+            .clip(rememberNavBarShape(style.bottomShape))
+            .background(appBarContainerColor),
+        contentAlignment = Alignment.TopCenter,
+    ) {
+        NavBarLayout(
+            modifier = Modifier //todo применить отступы в закрытом положении
+                .windowInsetsPadding(windowInsets)
+                // clip after padding so we don't show the title over the inset area
+                .clipToBounds(),
+            heightPx = pinnedHeightPx,
+            navigationIconContentColor = style.colors.backIconColor.getValue(
+                interactionSource,
+                collapsedStateSet
+            ),
+            titleContentColor = style.colors.titleColor.getValue(
+                interactionSource,
+                collapsedStateSet
+            ),
+            actionIconContentColor = style.colors.actionStartColor.getValue(
+                interactionSource,
+                collapsedStateSet
+            ),
+            title = smallTitle,
+            description = smallDescription,
+            titleTextStyle = style.titleStyle.getValue(interactionSource, collapsedStateSet),
+            collapsedAlpha = collapsedAlpha,
+            textVerticalArrangement = Arrangement.Center,
+            textHorizontalArrangement = Arrangement.Start,//todo вынести в публичное апи или брать из стиля и сделать enum
+            hideTitleSemantics = hideTopRowSemantics,
+            navigationIcon = navigationIcon,
+            actions = actionsRow,
+            descriptionContentColor = style.colors.descriptionColor.getValue(
+                interactionSource,
+                collapsedStateSet
+            ),
+            descriptionTextStyle = style.descriptionStyle.getValue(
+                interactionSource,
+                collapsedStateSet
+            ),
+        )
+        NavBarLayout(
+            modifier = Modifier //todo применить отступы в открытом положении
+                // only apply the horizontal sides of the window insets padding, since the top
+                // padding will always be applied by the layout above
+                .windowInsetsPadding(windowInsets.only(WindowInsetsSides.Horizontal))
+                .clipToBounds(),
+            heightPx = maxHeightPx + (scrollBehavior?.state?.heightOffset
+                ?: 0f),
+            navigationIconContentColor = style.colors.backIconColor.getValue(interactionSource),
+            titleContentColor = style.colors.titleColor.getValue(interactionSource),
+            actionIconContentColor = style.colors.actionStartColor.getValue(interactionSource),
+            title = title,
+            description = description,
+            titleTextStyle = style.titleStyle.getValue(interactionSource),
+            collapsedAlpha = expandedAlpha,
+            textVerticalArrangement = Arrangement.Bottom,
+            textHorizontalArrangement = Arrangement.Start, //todo
+            hideTitleSemantics = hideBottomRowSemantics,
+            navigationIcon = {},
+            actions = {},
+            descriptionContentColor = style.colors.descriptionColor.getValue(interactionSource),
+            descriptionTextStyle = style.descriptionStyle.getValue(interactionSource),
+            expandedContent = expandedContent,
+        )
     }
 }
 
@@ -535,7 +545,7 @@ private fun BaseCollapsingNavBar(
  * @param title the top app bar title (header)
  * @param titleTextStyle the title's text style
  * @param modifier a [Modifier]
- * @param titleAlpha the title's alpha
+ * @param collapsedAlpha the title's alpha
  * @param titleVerticalArrangement the title's vertical arrangement
  * @param titleHorizontalArrangement the title's horizontal arrangement
  * @param titleBottomPadding the title's bottom padding
@@ -558,12 +568,13 @@ private fun NavBarLayout(
     description: @Composable () -> Unit,
     titleTextStyle: TextStyle,
     descriptionTextStyle: TextStyle,
-    titleAlpha: Float,
+    collapsedAlpha: Float,
     textVerticalArrangement: Arrangement.Vertical,
     textHorizontalArrangement: Arrangement.Horizontal,
     hideTitleSemantics: Boolean,
     navigationIcon: @Composable () -> Unit,
     actions: @Composable () -> Unit,
+    expandedContent: @Composable BoxScope.() -> Unit = {},
 ) {
     Layout(
         {
@@ -588,7 +599,7 @@ private fun NavBarLayout(
                     .layoutId("text")
                     .padding(horizontal = TopAppBarHorizontalPadding) //todo
                     .then(if (hideTitleSemantics) Modifier.clearAndSetSemantics { } else Modifier)
-                    .graphicsLayer(alpha = titleAlpha)
+                    .graphicsLayer(alpha = collapsedAlpha)
             ) {
                 ProvideTextStyle(
                     color = { titleContentColor },
@@ -611,6 +622,13 @@ private fun NavBarLayout(
                     content = actions
                 )
             }
+            Box(
+                modifier = Modifier
+                    .layoutId("expandedContent")
+                    .graphicsLayer(alpha = collapsedAlpha)
+                ,
+                content = expandedContent
+            )
         },
         modifier = modifier
     ) { measurables, constraints ->
@@ -632,8 +650,20 @@ private fun NavBarLayout(
                 .measure(constraints.copy(minWidth = 0, maxWidth = maxTextWidth))
 
         val layoutHeight = if (heightPx.isNaN()) 0 else heightPx.roundToInt()
+        val expandedContentPlaceable = measurables.fastFirst { it.layoutId == "expandedContent" }
+            .measure(
+                constraints.copy(
+                    minHeight = layoutHeight,
+                    maxHeight = layoutHeight,
+                    minWidth = constraints.maxWidth,
+                    maxWidth = constraints.maxWidth,
+                )
+            )
 
         layout(constraints.maxWidth, layoutHeight) {
+            // Expanded content
+            expandedContentPlaceable.placeRelative(0, 0)
+
             // Navigation icon
             navigationIconPlaceable.placeRelative(
                 x = 0,
