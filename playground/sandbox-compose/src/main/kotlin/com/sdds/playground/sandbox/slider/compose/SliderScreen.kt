@@ -12,6 +12,7 @@ import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import kotlin.math.roundToInt
 
 /**
  * Экран с компонентом [Slider]
@@ -46,12 +47,9 @@ internal fun SliderScreen(componentKey: ComponentKey = ComponentKey.Slider) {
                 limitLabelEnabled = sliderUiState.limitLabelEnabled,
                 slideDirection = sliderUiState.slideDirection,
                 valueRange =
-                (sliderUiState.minLabel.toFloatOrNull() ?: 0f)..(sliderUiState.maxLabel.toFloatOrNull() ?: 0f),
+                (sliderUiState.minLabel.toFloatOrNull() ?: 0f)..(sliderUiState.maxLabel.toFloatOrNull() ?: 1f),
                 valueFormatTransformer = { progress ->
-                    val totalSeconds = progress.toInt()
-                    val minutes = totalSeconds / 60
-                    val seconds = totalSeconds % 60
-                    "%02d:%02d".format(minutes, seconds)
+                    progress.roundToInt().toString()
                 },
                 alignment = if (horizontal) sliderUiState.alignment else style.alignment,
             )

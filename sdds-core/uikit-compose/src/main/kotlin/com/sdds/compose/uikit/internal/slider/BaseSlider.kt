@@ -38,6 +38,7 @@ import com.sdds.compose.uikit.SliderStyle
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.ValueFormatTransformer
+import com.sdds.compose.uikit.ValueMode
 import com.sdds.compose.uikit.ValuePlacement
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.popoverTrigger
@@ -53,6 +54,8 @@ internal fun BaseSlider(
     valueFormatTransformer: ValueFormatTransformer = ValueFormatTransformer { it.toString() },
     valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
     slideDirection: SlideDirection = SlideDirection.Normal,
+    valueMode: ValueMode = ValueMode.Interaction,
+    valuePlacement: ValuePlacement = style.valuePlacement,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val state = remember(valueRange, style.orientation) {
@@ -93,10 +96,10 @@ internal fun BaseSlider(
         },
         tooltip = {
             Tooltip(
-                show = state.showTooltip,
+                show = if (valueMode == ValueMode.Interaction) state.showTooltip else false,
                 modifier = Modifier.widthIn(0.dp, 160.dp),
                 triggerInfo = { triggerInfo.value },
-                placement = style.valuePlacement.toPopoverPlacement(),
+                placement = valuePlacement.toPopoverPlacement(),
                 triggerCentered = true,
                 alignment = PopoverAlignment.Center,
                 style = style.tooltipStyle,
@@ -169,17 +172,16 @@ private fun Modifier.sliderGestures(
         awaitPointerEventScope {
             while (true) {
                 val down = awaitFirstDown(requireUnconsumed = true)
-                state.onPress(down.position)
                 val press = PressInteraction.Press(down.position)
                 interactionSource.tryEmit(press)
                 val onThumb = state.isPosInsideThumb(down.position)
-                state.showTooltip = true
                 if (!onThumb) {
                     state.jumpTo(down.position, reverse)
                 }
+                state.onPress(down.position)
+                state.showTooltip = true
                 drag(down.id) { change ->
-                    val newPos = change.position
-                    state.onDrag(newPos, reverse)
+                    state.onDrag(change.position, reverse)
                     change.consume()
                 }
                 interactionSource.tryEmit(PressInteraction.Release(press))

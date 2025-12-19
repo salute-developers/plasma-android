@@ -414,6 +414,13 @@ interface SliderColorsBuilder {
      * Устанавливает цвет [thumbStrokeColor] индикатора компонента.
      * @see SliderColors.thumbStrokeColor
      */
+    fun thumbStrokeColor(thumbStrokeColor: Color): SliderColorsBuilder =
+        thumbStrokeColor(SolidColor(thumbStrokeColor))
+
+    /**
+     * Устанавливает цвет [thumbStrokeColor] индикатора компонента.
+     * @see SliderColors.thumbStrokeColor
+     */
     fun thumbStrokeColor(thumbStrokeColor: Brush): SliderColorsBuilder =
         thumbStrokeColor(thumbStrokeColor.asStatefulValue())
 

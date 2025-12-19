@@ -24,7 +24,7 @@ title: Slider
 Для конфигурирования стиля Slider предусмотрены следующие атрибуты:
 
 |Название атрибута|Описание|Формат данных|
-|android:orientation|Ориентация|enum(horizontal, vertical)|
+|android:orientation|ориентация|enum(horizontal, vertical)|
 |sd_progress|текущий прогресс|float|
 |sd_maxProgress|максимальный прогресс|float|
 |sd_minProgress|минимальный прогресс|float|
@@ -44,7 +44,7 @@ title: Slider
 |sd_limitLabelAlignment|расположение лэйблов ограничений|enum(start,center,end)|
 |sd_limitLabelMargin|отступ от limitLabel до Slider|dimension|
 |sd_limitLabelEnabled|отображение limitLabel|boolean|
-|sd_tooltipStyleOverlay|оверлэй стиль компоннета ToolTip, отображающего текст, установленного значения|reference|
+|sd_tooltipStyleOverlay|оверлэй стиль компонента ToolTip, отображающего текст, установленного значения|reference|
 |sd_limitLabelAppearance|стиль текста Label|reference|
 |sd_limitLabelColor|цвет текста Label|reference,color|
 |sd_valuePlacement|расположение текста установленного значения|enum(top,start,end,bottom)|
@@ -76,11 +76,11 @@ title: Slider
 
 Для конфигурирования режима отображения выбранного значения, используйте setValueMode(valueMode: Int) и константы  
 Slider.VALUE_MODE_NONE - не отображать, Slider.VALUE_MODE_INTERACTION - отображать пока идет взаимодействие со Slider  
-(пока есть событие касания полунка).
+(пока есть событие касания ползунка).
 
 ## ValuePlacement
 
-По скольку для отображения выбранного значения используется компонет [ToolTip](TooltipUsage.md), для конфигурирования  
+По скольку для отображения выбранного значения используется компонент [ToolTip](TooltipUsage.md), для конфигурирования  
 размещения в коде воспользуйтесь функцией setValueMode(valueMode: Int) и константами расположения  
 [Popover](PopoverUsage.md) Popover.PLACEMENT_START,  Popover.PLACEMENT_END, Popover.PLACEMENT_TOP,  
 Popover.PLACEMENT_BOTTOM.  
@@ -112,14 +112,14 @@ setProgressFormatTransformer { progress: Float ->
 
 Для конфигурирования расположения лэйблов минимального и максимального значений используйте свойство  
 limitLabelAlignment: Int  и константы Slider.LIMIT_LABEL_ALIGNMENT_START - расположение слева или сверху от  
-полосы прогресса, Slider.LIMIT_LABEL_ALIGNMENT_CENTER - на одном уроывне с полосой прогресса,  
+полосы прогресса, Slider.LIMIT_LABEL_ALIGNMENT_CENTER - на одном уровне с полосой прогресса,  
 Slider.LIMIT_LABEL_ALIGNMENT_END - снизу или справа от полосы прогресса.  
 
 ## LabelAlignment
 
 Для конфигурирования расположения лэйбла (заголовок и иконка) используйте свойство  
 labelAlignment: Int  и константы Slider.LABEL_ALIGNMENT_TOP - расположение сверху от полосы прогресса,  
-Slider.LABEL_ALIGNMENT_CENTER - на одном уроывне с полосой прогресса, Slider.LABEL_ALIGNMENT_BOTTOM -  
+Slider.LABEL_ALIGNMENT_CENTER - на одном уровне с полосой прогресса, Slider.LABEL_ALIGNMENT_BOTTOM -  
 снизу от полосы прогресса.  
 
 ## TitleAlignment
@@ -133,6 +133,6 @@ Slider.TITLE_ALIGNMENT_START - слева или сверху от иконки,
 
 Для конфигурирования выравнивания всего контента внутри [Slider] используйте свойство  
 alignment: Int  и константы Slider.ALIGNMENT_START - выравнивает весь контент к start, при этом в горизонтальной  
-ориентации, при LABEL_ALIGNMENT_CENTER - Label становится на start, то есть снача Label, затем Slider.  
-Slider.ALIGNMENT_END - противоположно ALIGNMENT_START. Slider.ALIGNMENT_CENTER - в вертикальной ориентации располагет
-весь контент в одну линию с поолосой прогресса.
+ориентации, при LABEL_ALIGNMENT_CENTER - Label становится на start, то есть сначала Label, затем Slider.  
+Slider.ALIGNMENT_END - противоположно ALIGNMENT_START. Slider.ALIGNMENT_CENTER - в вертикальной ориентации располагает
+весь контент в одну линию с полосой прогресса.

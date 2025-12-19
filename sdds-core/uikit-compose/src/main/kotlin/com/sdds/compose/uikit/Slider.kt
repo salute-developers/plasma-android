@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,13 +35,16 @@ import com.sdds.compose.uikit.internal.slider.BaseSlider
  * @param title текст заголовка
  * @param labelContent контент расположенный рядом с заголовком, как правило - иконка
  * @param onValueChange колбэк изменения прогрессса
+ * @param slideDirection направление slide
+ * @param alignment выравнивание всего контента
+ * @param valueRange диапазон значений полосы прогресса (от минимального до максимального значений)
+ * @param valueMode режим отображения выбранного значения
+ * @param valuePlacement расположение выбранного значения отностильно ползунка
  * @param valueFormatTransformer лямбда форматирующая значение (value) прогресса, а так же
  * отображение граничных значений.
  * @param thumbEnabled отображение ползунка (thumb) на полосе прогресса
  * @param labelEnabled отображение блока Label
  * @param limitLabelEnabled отображение лэйблов с граничными значениями
- * @param slideDirection направление slide
- * @param valueRange диапазон значений полосы прогресса (от минимального до максимального значений)
  * @param interactionSource источник взаимодействий
  */
 @Composable
@@ -51,14 +55,16 @@ fun Slider(
     title: String = "",
     labelContent: (@Composable () -> Unit)? = null,
     onValueChange: ((Float) -> Unit),
+    slideDirection: SlideDirection = style.slideDirection,
+    alignment: SliderAlignment = style.alignment,
+    valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
+    valueMode: ValueMode = ValueMode.Interaction,
+    valuePlacement: ValuePlacement = style.valuePlacement,
     valueFormatTransformer: ValueFormatTransformer = ValueFormatTransformer { it.toString() },
     thumbEnabled: Boolean = true,
     labelEnabled: Boolean = true,
     limitLabelEnabled: Boolean = true,
-    slideDirection: SlideDirection = style.slideDirection,
-    alignment: SliderAlignment = style.alignment,
-    valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val textColor = style.colors.limitLabelColor.colorForInteraction(interactionSource)
 
@@ -81,23 +87,25 @@ fun Slider(
         },
         minLabel = {
             if (limitLabelEnabled) {
-                StyledText(
-                    modifier = Modifier,
+                Text(
                     text = valueFormatTransformer.transform(valueRange.start),
-                    textStyle = style.limitLabelStyle,
-                    textColor = textColor,
+                    modifier = Modifier,
+                    style = style.limitLabelStyle,
                     overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    color = { textColor },
                 )
             }
         },
         maxLabel = {
             if (limitLabelEnabled) {
-                StyledText(
-                    modifier = Modifier,
+                Text(
                     text = valueFormatTransformer.transform(valueRange.endInclusive),
-                    textStyle = style.limitLabelStyle,
-                    textColor = textColor,
+                    modifier = Modifier,
+                    style = style.limitLabelStyle,
                     overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
+                    color = { textColor },
                 )
             }
         },
@@ -109,6 +117,8 @@ fun Slider(
                 onValueChange = onValueChange,
                 valueFormatTransformer = valueFormatTransformer,
                 valueRange = valueRange,
+                valueMode = valueMode,
+                valuePlacement = valuePlacement,
                 slideDirection = slideDirection,
                 thumbEnabled = thumbEnabled,
             )
@@ -271,6 +281,22 @@ enum class ValuePlacement {
     Bottom,
 }
 
+/**
+ * Режим отображения выбранного значения
+ */
+enum class ValueMode {
+
+    /**
+     * Значение не отображается
+     */
+    None,
+
+    /**
+     * Значение отображается пока идет взаимодействие с ползунком
+     */
+    Interaction,
+}
+
 @Composable
 private fun Label(
     modifier: Modifier = Modifier,
@@ -278,7 +304,7 @@ private fun Label(
     alignment: SliderAlignment,
     title: String = "",
     content: (@Composable () -> Unit)? = null,
-    interactionSource: MutableInteractionSource,
+    interactionSource: InteractionSource,
 ) {
     val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
     val iconSize = style.dimensions.iconSize
