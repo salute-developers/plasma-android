@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.animation.core.InfiniteTransition
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -41,6 +42,7 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
  *
  * Представляет собой прямоугольную область с формой [shape],
  * внутри которой бесконечно перемещается градиент [brush].
+ * Чтобы синхронизировать несколько [RectSkeleton], нужно передать одинаковый [transition]
  *
  * @param modifier модификатор компонента
  * @param style стиль компонента
@@ -48,6 +50,7 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
  * @param brush градиент шиммера
  * @param shape форма компонента
  * @param interactionSource источник взаимодейтсвий
+ * @param transition менеджер анимации
  */
 @Composable
 fun RectSkeleton(
@@ -57,6 +60,7 @@ fun RectSkeleton(
     brush: StatefulValue<Brush> = style.gradient,
     shape: Shape = style.shape,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    transition: InfiniteTransition = rememberInfiniteTransition(),
 ) {
     val brushValue = brush.getDefaultValue()
     val shimmerModifier: Modifier = if (brushValue !is SolidColor) {
@@ -64,6 +68,7 @@ fun RectSkeleton(
             brush = brushValue,
             shape = shape,
             durationMillis = duration,
+            transition = transition,
         )
     } else {
         Modifier.blink(
@@ -71,6 +76,7 @@ fun RectSkeleton(
             shape = shape,
             alphaDelta = 0.08f,
             durationMillis = duration,
+            transition = transition,
         )
     }
     Box(modifier.then(shimmerModifier))
@@ -81,12 +87,14 @@ fun RectSkeleton(
  *
  * Представляет собой прямоугольную область с формой [shape],
  * внутри которой бесконечно перемещается градиент [brush].
+ * Чтобы синхронизировать несколько [RectSkeleton], нужно передать одинаковый [transition]
  *
  * @param modifier модификатор компонента
  * @param style стиль компонента
  * @param duration время в мс, за которое градиент перемещается через всю ширину компонента
  * @param brush градиент шиммера
  * @param shape форма компонента
+ * @param transition менеджер анимации
  */
 @Composable
 @NonRestartableComposable
@@ -96,8 +104,16 @@ fun RectSkeleton(
     duration: Int = style.duration,
     brush: Brush = style.gradient.getDefaultValue(),
     shape: Shape = style.shape,
+    transition: InfiniteTransition = rememberInfiniteTransition(),
 ) {
-    RectSkeleton(modifier, style, duration, brush.asStatefulValue(), shape)
+    RectSkeleton(
+        modifier = modifier,
+        style = style,
+        duration = duration,
+        brush = brush.asStatefulValue(),
+        shape = shape,
+        transition = transition,
+    )
 }
 
 /**
@@ -110,6 +126,7 @@ fun RectSkeleton(
  * @param shape форма области
  * @param alphaDelta количество альфы, которое будет добавлено к исходной альфе [color] в процессе анимации
  * @param durationMillis время в мс, за которое альфа изменится от [color].alpha до [color].alpha + [alphaDelta]
+ * @param transition менеджер анимации
  */
 @Composable
 fun Modifier.blink(
@@ -117,8 +134,8 @@ fun Modifier.blink(
     shape: Shape = RectangleShape,
     alphaDelta: Float = 0.08f,
     durationMillis: Int = 700,
+    transition: InfiniteTransition = rememberInfiniteTransition(label = "shimmer"),
 ): Modifier {
-    val transition = rememberInfiniteTransition(label = "blink")
     val alpha by transition.animateFloat(
         initialValue = color.alpha,
         targetValue = (color.alpha + alphaDelta).coerceIn(0f..1f),
@@ -145,15 +162,15 @@ fun Modifier.blink(
  * @param brush градиент шиммера
  * @param shape форма
  * @param durationMillis время в мс, за которое градиент перемещается через всю ширину composable
- *
+ * @param transition менеджер анимации
  */
 @Composable
 fun Modifier.shimmer(
     brush: Brush,
     shape: Shape = RectangleShape,
     durationMillis: Int = 1000,
+    transition: InfiniteTransition = rememberInfiniteTransition(label = "shimmer"),
 ): Modifier {
-    val transition = rememberInfiniteTransition(label = "shimmer")
     val translateAnimation by transition.animateFloat(
         initialValue = 0f,
         targetValue = 1f,

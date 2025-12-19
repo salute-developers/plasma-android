@@ -1,5 +1,7 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.animation.core.InfiniteTransition
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,6 +20,7 @@ import kotlin.random.Random
  *
  * Представляет собой несколько прямоугольных областей с формой [shape],
  * внутри которых бесконечно перемещается градиент [brush].
+ * Чтобы синхронизировать несколько [TextSkeleton], нужно передать одинаковый [transition]
  *
  * @param modifier модификатор компонента
  * @param style стиль компонента
@@ -26,6 +29,7 @@ import kotlin.random.Random
  * @param shape форма компонента
  * @param textStyle стиль текста, который определяет высоту строк и межстрочное расстояние
  * @param lineWidthProvider провайдер ширины строк [SkeletonLineWidthProvider]
+ * @param transition менеджер анимации
  * @see SkeletonLineWidthProvider.RandomDeviation
  * @see SkeletonLineWidthProvider.FillMaxWidth
  */
@@ -39,6 +43,7 @@ fun TextSkeleton(
     duration: Int = style.duration,
     brush: Brush = style.gradient.getDefaultValue(),
     shape: Shape = style.shape,
+    transition: InfiniteTransition = rememberInfiniteTransition(),
 ) {
     if (lineCount < 1) throw IllegalStateException("RectSkeleton: line count must be greater than 0")
     val textSize = with(LocalDensity.current) { textStyle.fontSize.toDp() }
@@ -53,6 +58,7 @@ fun TextSkeleton(
                 duration = duration,
                 brush = brush,
                 shape = shape,
+                transition = transition,
             )
         }
     }
