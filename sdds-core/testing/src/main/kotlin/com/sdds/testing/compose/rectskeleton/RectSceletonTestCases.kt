@@ -22,6 +22,5 @@ fun RectSkeletonForSandbox(style: RectSkeletonStyle) {
             .width(200.dp)
             .height(60.dp),
         style = style,
-        duration = 5000,
     )
 }

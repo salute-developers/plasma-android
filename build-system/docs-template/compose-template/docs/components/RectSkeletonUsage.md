@@ -1,0 +1,43 @@
+---
+title: RectSkeleton
+---
+Компонент для анимированного отображения загрузки областей на экране любой формы.
+Для текста лучше использовать [TextSkeleton](TextSkeletonUsage.md)
+
+Поддерживает два типа анимации: перемещающийся градиент и фон, плавно изменюящий альфу.
+
+### Простой пример использования
+```kotlin
+RectSkeleton(
+    modifier = Modifier
+        .width(128.dp)
+        .height(32.dp),
+)
+```
+
+### Пример использования с кастомизацией параметров
+```kotlin
+RectSkeleton(
+    modifier = Modifier.size(64.dp),
+    shape = CircleShape, // кастомная форма
+    duration = 1200, // кастомная длительность анимации
+    brush = {{ docs-theme-codeReference }}.gradients.surfaceDefaultSkeletonGradient.asLayered(), // кастомный градиент
+)
+```
+
+> Параметр `brush` влияет на тип анимации. Если в brush установлен градиент, то скелетон будет выглядеть как перемещающийся в пространстве градиент.
+> Если в brush передан SolidColor(), будет анимация мерцания - изменение альфы исходного цвета.
+
+## Стиль RectSkeleton
+
+Стиль RectSkeleton можно настроить с помощью RectSkeletonStyle.builder(). Так же существует набор сгенерированных стилей.
+
+### Создание стиля с помощью builder()
+
+```kotlin
+RectSkeletonStyle.builder()
+    .gradient(Color.Cyan)
+    .shape(CircleShape)
+    .duration(700)
+    .style()
+```

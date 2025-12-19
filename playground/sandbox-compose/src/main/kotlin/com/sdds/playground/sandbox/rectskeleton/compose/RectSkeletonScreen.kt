@@ -1,7 +1,12 @@
 package com.sdds.playground.sandbox.rectskeleton.compose
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,13 +32,33 @@ internal fun RectSkeletonScreen(componentKey: ComponentKey = ComponentKey.RectSk
             key = componentKey.toString(),
         ),
         component = { _, style ->
-            RectSkeleton(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(30.dp),
-                style = style,
-                duration = 5000,
-            )
+            Column(
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                RectSkeleton(
+                    modifier = Modifier.size(60.dp),
+                    style = style,
+                    shape = CircleShape,
+                )
+                RectSkeleton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(30.dp),
+                    style = style,
+                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                ) {
+                    RectSkeleton(
+                        modifier = Modifier.size(60.dp),
+                        style = style,
+                    )
+                    RectSkeleton(
+                        modifier = Modifier.size(60.dp),
+                        style = style,
+                    )
+                }
+            }
         },
     )
 }
