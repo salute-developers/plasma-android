@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.popover.BasePopover
@@ -49,7 +50,7 @@ fun Tooltip(
     show: Boolean,
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
-    triggerInfo: TriggerInfo,
+    triggerInfo: () -> TriggerInfo,
     style: TooltipStyle = LocalTooltipStyle.current,
     contentStart: (@Composable () -> Unit)? = null,
     text: AnnotatedString = AnnotatedString(""),
@@ -62,6 +63,7 @@ fun Tooltip(
     enterTransition: EnterTransition = fadeIn(),
     exitTransition: ExitTransition = fadeOut(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    popupProperties: PopupProperties = remember { DefaultPopupProperties },
 ) {
     if (text.isEmpty() && contentStart == null) return
     BasePopover(
@@ -78,7 +80,7 @@ fun Tooltip(
         alignment = alignment,
         tailEnabled = tailEnabled,
         duration = duration,
-        popupProperties = DefaultPopupProperties,
+        popupProperties = popupProperties,
         enterTransition = enterTransition,
         exitTransition = exitTransition,
         interactionSource = interactionSource,

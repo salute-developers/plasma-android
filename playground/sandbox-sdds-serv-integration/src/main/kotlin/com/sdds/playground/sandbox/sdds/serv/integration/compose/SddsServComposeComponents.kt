@@ -308,6 +308,15 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.Slider,
+                mapOf(
+                    "SliderHorizontalLabelInner" to SddsServSliderHorizontalLabelInnerVariationsCompose,
+                    "SliderHorizontalLabelOuter" to SddsServSliderHorizontalLabelOuterVariationsCompose,
+                    "SliderVerticalLabelInner" to SddsServSliderVerticalLabelInnerVariationsCompose,
+                    "SliderVerticalLabelOuter" to SddsServSliderVerticalLabelOuterVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Image,
                 mapOf(
                     "Image" to SddsServImageVariationsCompose,

@@ -101,9 +101,10 @@ internal data class ColorState(
     override val state: List<String>,
     override val value: String,
     val alpha: Float? = null,
+    val type: String? = null,
 ) : State<String> {
     override fun clone(value: String, state: List<String>): State<String> {
-        return copy(state = state, value = value, alpha = alpha)
+        return copy(state = state, value = value, alpha = alpha, type = type)
     }
 }
 

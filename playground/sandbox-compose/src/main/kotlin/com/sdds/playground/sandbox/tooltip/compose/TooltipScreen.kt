@@ -50,7 +50,7 @@ internal fun TooltipScreen(componentKey: ComponentKey = ComponentKey.Tooltip) {
             Tooltip(
                 show = showTooltip.value,
                 modifier = Modifier.widthIn(0.dp, 160.dp),
-                triggerInfo = triggerInfo.value,
+                triggerInfo = { triggerInfo.value },
                 placement = tooltipUiState.placement,
                 placementMode = tooltipUiState.placementMode,
                 triggerCentered = tooltipUiState.triggerCentered,
