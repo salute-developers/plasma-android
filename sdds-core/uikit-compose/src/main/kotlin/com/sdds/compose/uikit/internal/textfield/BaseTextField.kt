@@ -209,11 +209,11 @@ internal fun BaseTextField(
     val verticalScrollState = if (!singleLine) rememberScrollState() else null
     val horizontalScrollState = if (singleLine) rememberScrollState() else null
     var textLayoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
-    LaunchedEffect(value.text) {
-        horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
-        verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
+    LaunchedEffect(value.text, value.selection) {
+        textLayoutResult?.let { layout ->
+            scrollToCaret(value, layout, horizontalScrollState, verticalScrollState)
+        }
     }
-
     /**
      * Источник взаимодействий внутреннего поля.
      * Когда внешний фокус выключен, он совпадает с [interactionSource].
@@ -412,6 +412,42 @@ internal fun BaseTextField(
             )
         },
     )
+}
+
+private suspend fun scrollToCaret(
+    value: TextFieldValue,
+    layout: TextLayoutResult,
+    horizontalScrollState: ScrollState?,
+    verticalScrollState: ScrollState?,
+) {
+    if (value.text.isEmpty()) {
+        horizontalScrollState?.scrollTo(0)
+        verticalScrollState?.scrollTo(0)
+        return
+    }
+    val cursorRect = layout.getCursorRect(value.selection.end)
+    horizontalScrollState?.let { scroll ->
+        val viewportWidth = layout.size.width
+        val cursorRight = cursorRect.right.toInt()
+        val cursorLeft = cursorRect.left.toInt()
+        val target = when {
+            cursorRight > scroll.value + viewportWidth -> cursorRight - viewportWidth
+            cursorLeft < scroll.value -> cursorLeft
+            else -> null
+        }
+        if (target != null && target != scroll.value) scroll.scrollTo(target)
+    }
+    verticalScrollState?.let { scroll ->
+        val viewportHeight = layout.size.height
+        val cursorTop = cursorRect.top.toInt()
+        val cursorBottom = cursorRect.bottom.toInt()
+        val target = when {
+            cursorBottom > scroll.value + viewportHeight -> cursorBottom - viewportHeight
+            cursorTop < scroll.value -> cursorTop
+            else -> null
+        }
+        if (target != null && target != scroll.value) scroll.scrollTo(target)
+    }
 }
 
 @Composable
