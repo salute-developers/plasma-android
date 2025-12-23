@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.IntSize
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.TextFieldAnimation
 import com.sdds.compose.uikit.TextFieldDimensions
@@ -47,6 +48,8 @@ internal fun DecorationBox(
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
     textLayoutResult: TextLayoutResult?,
+    onInnerTextFieldSizeChanged: (IntSize) -> Unit,
+    onChipGroupSizeChanged: (IntSize) -> Unit,
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState().value
     val inputState = when {
@@ -94,6 +97,8 @@ internal fun DecorationBox(
             prefix = prefix,
             suffix = suffix,
             textLayoutResult = textLayoutResult,
+            onInnerTextFieldSizeChanged = onInnerTextFieldSizeChanged,
+            onChipGroupSizeChanged = onChipGroupSizeChanged,
         )
     }
 }
