@@ -60,6 +60,7 @@ open class Wheel @JvmOverloads constructor(
 
     private var _visibleItemsCount: Int = MIN_VISIBLE_ITEMS_COUNT
     private var _controlsEnabled: Boolean = false
+    private var _controlsClickable: Boolean = false
     private var _controlsDisplayMode: Int = CONTROLS_DISPLAY_MODE_ALWAYS
     private var _controlIconUp: Drawable? = null
     private var _controlIconUpTintList: ColorStateList? = null
@@ -129,6 +130,18 @@ open class Wheel @JvmOverloads constructor(
             _controlsEnabled = value
             configureWheelItems {
                 it.controlsEnabled = value
+            }
+        }
+
+    /**
+     * Включает/выключает кликабельность кнопок управления (вверх/вниз) у элементов.
+     */
+    open var controlsClickable: Boolean
+        get() = _controlsClickable
+        set(value) {
+            _controlsClickable = value
+            configureWheelItems {
+                it.controlsClickable = value
             }
         }
 
@@ -254,6 +267,7 @@ open class Wheel @JvmOverloads constructor(
     init {
         context.withStyledAttributes(attrs, R.styleable.Wheel, defStyleAttr, defStyleRes) {
             controlsEnabled = getBoolean(R.styleable.Wheel_sd_controlsEnabled, false)
+            controlsClickable = getBoolean(R.styleable.Wheel_sd_controlsClickable, false)
             _controlsDisplayMode = getInt(R.styleable.Wheel_sd_controlsDisplayMode, CONTROLS_DISPLAY_MODE_ALWAYS)
             setItemTextAppearance(getResourceId(R.styleable.Wheel_sd_itemTextAppearance, 0))
             setItemTextColor(getColorValueStateList(context, R.styleable.Wheel_sd_itemTextColor))
@@ -605,6 +619,7 @@ open class Wheel @JvmOverloads constructor(
             controlIconUp = this@Wheel.controlIconUp?.newMutated()
             controlIconDown = this@Wheel.controlIconDown?.newMutated()
             controlsEnabled = this@Wheel.controlsEnabled
+            controlsClickable = this@Wheel.controlsClickable
             setControlIconUpColor(_controlIconUpTintList)
             setControlIconDownColor(_controlIconDownTintList)
             setEntrySelectedListener(_entrySelectedListener)

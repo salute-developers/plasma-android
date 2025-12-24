@@ -230,5 +230,17 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                     "ModalBottomSheet" to PlasmaHomedsModalBottomSheetVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                mapOf(
+                    "RectSkeleton" to PlasmaHomedsRectSkeletonVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.TextSkeleton,
+                mapOf(
+                    "TextSkeleton" to PlasmaHomedsTextSkeletonVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

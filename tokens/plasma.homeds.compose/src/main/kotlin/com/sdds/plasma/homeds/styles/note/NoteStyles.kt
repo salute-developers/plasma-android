@@ -51,26 +51,34 @@ public value class WrapperNoteTerminate(
 ) : WrapperNote
 
 /**
- * Обертка для вариации HasClose
+ * Обертка для вариации ContentBeforeScalable
  */
 @JvmInline
-public value class WrapperNoteHasClose(
+public value class WrapperNoteContentBeforeScalable(
     public override val builder: NoteStyleBuilder,
 ) : WrapperNoteView
 
 /**
- * Обертка для вариации HasCloseContentScalable
+ * Обертка для вариации ContentBeforeScalableHasClose
  */
 @JvmInline
-public value class WrapperNoteHasCloseContentScalable(
+public value class WrapperNoteContentBeforeScalableHasClose(
     public override val builder: NoteStyleBuilder,
 ) : WrapperNoteView
 
 /**
- * Обертка для вариации ContentScalable
+ * Обертка для вариации ContentBeforeFixed
  */
 @JvmInline
-public value class WrapperNoteContentScalable(
+public value class WrapperNoteContentBeforeFixed(
+    public override val builder: NoteStyleBuilder,
+) : WrapperNoteView
+
+/**
+ * Обертка для вариации ContentBeforeFixedHasClose
+ */
+@JvmInline
+public value class WrapperNoteContentBeforeFixedHasClose(
     public override val builder: NoteStyleBuilder,
 ) : WrapperNoteView
 
@@ -148,7 +156,6 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
     @Composable
     get() = this
         .shape(PlasmaHomeDsTheme.shapes.roundXl)
-        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Top)
         .colors {
             closeColor(
                 PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
@@ -167,20 +174,29 @@ private val NoteStyleBuilder.invariantProps: NoteStyleBuilder
             paddingEnd(20.0.dp)
             paddingTop(16.0.dp)
             paddingBottom(5.0.dp)
-            iconSize(16.0.dp)
             closeTopMargin(0.0.dp)
-            contentBeforeEndMargin(8.0.dp)
             textTopMargin(2.0.dp)
             titlePaddingEnd(0.0.dp)
             closeEndMargin(0.0.dp)
             actionTopMargin(0.0.dp)
         }
 
-public val Note.HasClose: WrapperNoteHasClose
+public val Note.ContentBeforeScalable: WrapperNoteContentBeforeScalable
     @Composable
-    @JvmName("WrapperNoteHasClose")
+    @JvmName("WrapperNoteContentBeforeScalable")
     get() = NoteStyle.builder(this)
         .invariantProps
+        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
+        .dimensions {
+            iconSize(0.0.dp)
+            contentBeforeEndMargin(12.0.dp)
+        }
+        .wrap(::WrapperNoteContentBeforeScalable)
+
+public val WrapperNoteContentBeforeScalable.HasClose: WrapperNoteContentBeforeScalableHasClose
+    @Composable
+    @JvmName("WrapperNoteContentBeforeScalableHasClose")
+    get() = builder
         .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
         .dimensions {
             closeSize(24.0.dp)
@@ -188,27 +204,29 @@ public val Note.HasClose: WrapperNoteHasClose
             titlePaddingEnd(26.0.dp)
             closeEndMargin(10.0.dp)
         }
-        .wrap(::WrapperNoteHasClose)
+        .wrap(::WrapperNoteContentBeforeScalableHasClose)
 
-public val WrapperNoteHasClose.ContentScalable: WrapperNoteHasCloseContentScalable
+public val Note.ContentBeforeFixed: WrapperNoteContentBeforeFixed
     @Composable
-    @JvmName("WrapperNoteHasCloseContentScalable")
-    get() = builder
-        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
-        .dimensions {
-            iconSize(0.0.dp)
-            contentBeforeEndMargin(12.0.dp)
-        }
-        .wrap(::WrapperNoteHasCloseContentScalable)
-
-public val Note.ContentScalable: WrapperNoteContentScalable
-    @Composable
-    @JvmName("WrapperNoteContentScalable")
+    @JvmName("WrapperNoteContentBeforeFixed")
     get() = NoteStyle.builder(this)
         .invariantProps
-        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Center)
+        .contentBeforeArrangement(ContentBeforeVerticalArrangement.Top)
         .dimensions {
-            iconSize(0.0.dp)
-            contentBeforeEndMargin(12.0.dp)
+            iconSize(16.0.dp)
+            contentBeforeEndMargin(8.0.dp)
         }
-        .wrap(::WrapperNoteContentScalable)
+        .wrap(::WrapperNoteContentBeforeFixed)
+
+public val WrapperNoteContentBeforeFixed.HasClose: WrapperNoteContentBeforeFixedHasClose
+    @Composable
+    @JvmName("WrapperNoteContentBeforeFixedHasClose")
+    get() = builder
+        .closeIcon(com.sdds.icons.R.drawable.ic_close_24)
+        .dimensions {
+            closeSize(24.0.dp)
+            closeTopMargin(10.0.dp)
+            titlePaddingEnd(26.0.dp)
+            closeEndMargin(10.0.dp)
+        }
+        .wrap(::WrapperNoteContentBeforeFixedHasClose)

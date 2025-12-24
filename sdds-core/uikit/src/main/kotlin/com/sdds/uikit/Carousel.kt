@@ -61,11 +61,13 @@ open class Carousel @JvmOverloads constructor(
         offscreenPageLimit = 3
     }
     private val nextButton: Button = IconButton(nextButtonWrapper(context, attrs, defStyleAttr, defStyleRes)).apply {
+        id = R.id.sd_carouselNextButtonId
         setOnClickListener {
             currentItem++
         }
     }
     private val prevButton: Button = IconButton(prevButtonWrapper(context, attrs, defStyleAttr, defStyleRes)).apply {
+        id = R.id.sd_carouselPrevButtonId
         setOnClickListener {
             currentItem--
         }

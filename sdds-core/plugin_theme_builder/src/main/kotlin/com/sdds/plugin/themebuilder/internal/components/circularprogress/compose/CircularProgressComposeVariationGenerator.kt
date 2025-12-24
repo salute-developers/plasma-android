@@ -108,6 +108,9 @@ internal class CircularProgressComposeVariationGenerator(
                 props.progressThickness?.let {
                     appendDimension("progress_thickness", it, variationId)
                 }
+                props.iconSize?.let {
+                    appendDimension("icon_size", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -119,6 +122,7 @@ internal class CircularProgressComposeVariationGenerator(
         return width != null ||
             height != null ||
             trackThickness != null ||
+            iconSize != null ||
             progressThickness != null
     }
 

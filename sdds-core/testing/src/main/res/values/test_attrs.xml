@@ -6,5 +6,5 @@
     <attr name="testingTextColorPrimary" format="color" />
     <attr name="testTextAppearance" format="reference" />
     <attr name="testCarouselItemTextAppearance" format="reference" />
-    <attr name="testCarouselItemBackground" format="reference" />
+    <attr name="testCarouselItemBackground" format="color" />
 </resources>

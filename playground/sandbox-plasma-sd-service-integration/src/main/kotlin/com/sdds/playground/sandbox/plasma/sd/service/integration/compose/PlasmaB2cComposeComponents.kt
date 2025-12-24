@@ -362,5 +362,25 @@ object PlasmaB2cComposeComponents : ComponentsProviderCompose() {
                     "AutocompleteNormal" to PlasmaB2cAutocompleteNormalVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to PlasmaB2cDropdownEmptyStateVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.PaginationDots,
+                mapOf(
+                    "PaginationDotsHorizontal" to PlasmaB2cPaginationDotsHorizontalVariationsCompose,
+                    "PaginationDotsVertical" to PlasmaB2cPaginationDotsVerticalVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.File,
+                mapOf(
+                    "FileCircularProgress" to PlasmaB2cFileCircularProgressVariationsCompose,
+                    "FileLinearProgress" to PlasmaB2cFileLinearProgressVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

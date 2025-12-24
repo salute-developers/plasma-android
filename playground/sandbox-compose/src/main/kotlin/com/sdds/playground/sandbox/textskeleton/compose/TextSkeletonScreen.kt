@@ -48,7 +48,6 @@ internal fun TextSkeletonScreen(componentKey: ComponentKey = ComponentKey.TextSk
                     },
                     modifier = Modifier.fillMaxWidth(),
                     style = style,
-                    duration = 5000,
                 )
             }
         },

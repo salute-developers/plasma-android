@@ -1,0 +1,49 @@
+---
+title: TextSkeleton
+---
+Компонент представляет из себя контейнер (Column),
+в котором может отображаться указанное количество строк-заглушек с анимированным мерцанием,  
+представленных компонентом [RectSkeleton](RectSkeletonUsage.md), поверх которых возможно наложение текста.  
+Высота строк и оступы между строками высчитываются на основе переданного стиля текста.  
+Ширина строк настраивается провайдером SkeletonLineWidthProvider и может быть двух видов -  
+на всю ширину контейнера или с учетом псевдо отклонения от ширины (имитируется неравномерность, как при написании текста).
+
+Для заглушек произвольной формы используй [RectSkeleton](RectSkeletonUsage.md)
+
+Поддерживает два типа анимации: перемещающийся градиент и фон, плавно изменюящий альфу.
+
+### Простой пример использования
+```kotlin
+TextSkeleton(
+    textStyle = {{ docs-theme-codeReference }}.typography.bodyMNormal,
+)
+```
+
+### Пример использования с кастомизацией
+```kotlin
+TextSkeleton(
+    textStyle = {{ docs-theme-codeReference }}.typography.bodyMNormal,
+    lineCount = 5,
+    lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
+    brush = {{ docs-theme-codeReference }}.gradients.surfaceDefaultSkeletonGradient.asLayered(),
+    duration = 1000,
+    shape = {{ docs-theme-codeReference }}.shapes.roundM,
+)
+```
+
+> Параметр `brush` влияет на тип анимации. Если в brush установлен градиент, то скелетон будет выглядеть как перемещающийся в пространстве градиент.
+> Если в brush передан SolidColor(), будет анимация мерцания - изменение альфы исходного цвета.
+
+## Стиль TextSkeleton
+
+Стиль TextSkeleton можно настроить с помощью TextSkeletonStyle.builder(). Так же существует набор сгенерированных стилей.
+
+### Создание стиля с помощью builder()
+
+```kotlin
+TextSkeletonStyle.builder()
+    .gradient(Color.Cyan)
+    .shape(CircleShape)
+    .duration(700)
+    .style()
+```

@@ -21,6 +21,7 @@ import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
@@ -42,6 +43,7 @@ import com.sdds.compose.uikit.RectSkeletonStyle
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.SliderStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TabBarStyle
@@ -86,6 +88,8 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
+import com.sdds.playground.sandbox.file.FilePreview
+import com.sdds.playground.sandbox.file.FileScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
@@ -114,6 +118,8 @@ import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
+import com.sdds.playground.sandbox.slider.compose.SliderPreview
+import com.sdds.playground.sandbox.slider.compose.SliderScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.tabbar.compose.TabBarPreview
@@ -368,6 +374,14 @@ internal sealed class ComponentScreen(
         { AutocompleteScreen(it) },
         { style, _ -> AutocompletePreview(style as AutocompleteStyle) },
     )
+    object File : ComponentScreen(
+        { FileScreen(it) },
+        { style, _ -> FilePreview(style as FileStyle) },
+    )
+    object Slider : ComponentScreen(
+        { SliderScreen(it) },
+        { style, _ -> SliderPreview(style as SliderStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -430,6 +444,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MASK -> ComponentScreen.TextFieldMasks
         CoreComponent.PAGINATION_DOTS -> ComponentScreen.PaginationDots
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
+        CoreComponent.FILE -> ComponentScreen.File
+        CoreComponent.SLIDER -> ComponentScreen.Slider
         else -> ComponentScreen.Empty
     }
 }

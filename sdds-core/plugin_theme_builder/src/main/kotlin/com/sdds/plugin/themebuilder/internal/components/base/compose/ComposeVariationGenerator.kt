@@ -142,6 +142,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     protected fun getGradientOrWrappedColor(colorName: String, color: Color): String {
+        val states = color.states ?: emptyList()
+        val hasGradients = states.any { it.type == "gradient" }
         val alphaString = when (color) {
             is Gradient -> color.alpha?.let { ".asLayered(${it}f)" } ?: ".asLayered()"
             is SolidColor -> color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
@@ -156,7 +158,15 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
         val tokenValue = color.default.toKtTokenName()
         val tokenRef = "$themeClassName.$tokenGroup.$tokenValue"
-        val wrappedTokenRef = if (color is SolidColor) "SolidColor($tokenRef)" else tokenRef
+        val wrappedTokenRef = if (color is SolidColor) {
+            if (hasGradients) {
+                "listOf(singleColor($tokenRef)).asLayered()"
+            } else {
+                "SolidColor($tokenRef)"
+            }
+        } else {
+            tokenRef
+        }
         val colorValue = "$wrappedTokenRef$alphaString.$stateSuffix"
         return """
             $colorName(
@@ -647,15 +657,26 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private fun Color.asStatefulFragment(wrapColor: Boolean = false): String =
-        if (states.isNullOrEmpty()) {
+    private fun Color.asStatefulFragment(wrapColor: Boolean = false): String {
+        val tokenGroup = when (this) {
+            is Gradient -> "gradients"
+            is SolidColor -> "colors"
+        }
+        val listStates = states ?: emptyList()
+        val containsGradient = listStates.any { it.type == "gradient" }
+        val containsColor = listStates.any { it.type == "color" }
+        val mixedTypes = (tokenGroup == "gradients" && containsColor) || (tokenGroup == "colors" && containsGradient)
+        val statefulGradient = tokenGroup == "gradients" && listStates.isNotEmpty()
+        val needToWrapAsLayered = mixedTypes || statefulGradient
+        return if (states.isNullOrEmpty()) {
             "asStatefulValue()"
         } else {
             """asStatefulValue·(
-                ${getAsInteractiveParameters(wrapColor)}
+                ${getAsInteractiveParameters(wrapColor, needToWrapAsLayered)}
             )
             """.trimIndent()
         }
+    }
 
     private fun Dimension.asStatefulFragment(dimensionName: String, dimensionResSuffix: String): String =
         if (states.isNullOrEmpty()) {
@@ -677,10 +698,19 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private fun Color?.getAsInteractiveParameters(wrapColor: Boolean = false): String {
-        return this?.states?.joinToString {
-            it.getStateParameter(isGradient = this is Gradient, wrapColor = wrapColor)
-        }.orEmpty()
+    private fun Color?.getAsInteractiveParameters(
+        wrapColor: Boolean = false,
+        needToWrapAsLayered: Boolean = false,
+    ): String {
+        return if (needToWrapAsLayered) {
+            this?.states?.joinToString {
+                it.getStateMixedParameter()
+            }.orEmpty()
+        } else {
+            this?.states?.joinToString {
+                it.getStateParameter(isGradient = this is Gradient, wrapColor = wrapColor)
+            }.orEmpty()
+        }
     }
 
     private fun Dimension.getAsInteractiveParameters(dimensionName: String, dimensionResSuffix: String): String {
@@ -720,6 +750,21 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return """
             setOf(${state.toStateEnums()})
                 to $finalValue
+        """.trimIndent()
+    }
+
+    /**
+     * Используется когда в states содержаться разные типы Color
+     */
+    private fun ColorState.getStateMixedParameter(): String {
+        val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        val isGradient = type == "gradient"
+        val tokenGroupName = if (isGradient) "gradients" else "colors"
+        val valueFromState = "$themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString"
+        val finalValue = if (!isGradient) "listOf(singleColor($valueFromState))" else valueFromState
+        return """
+            setOf(${state.toStateEnums()})
+                to $finalValue.asLayered()
         """.trimIndent()
     }
 

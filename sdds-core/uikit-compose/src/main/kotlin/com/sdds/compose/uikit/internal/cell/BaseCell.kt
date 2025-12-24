@@ -21,6 +21,8 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.constrainWidth
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.CellDimensions
 import com.sdds.compose.uikit.CellGravity
 import com.sdds.compose.uikit.CellStyle
@@ -113,27 +115,18 @@ private class BaseCellMeasurePolicy(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
+        val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
         val startContent = measurables
             .firstOrNull { it.layoutId == "StartContent" }
-            ?.measure(constraints.copy(minWidth = 0))
+            ?.measure(looseConstraints.copy(minWidth = 0))
 
         val endContent = measurables
             .firstOrNull { it.layoutId == "EndContent" }
-            ?.measure(
-                constraints
-                    .copy(
-                        minWidth = 0,
-                        maxWidth = (constraints.maxWidth - startContent.widthOrZero())
-                            .coerceAtLeast(0),
-                    ),
-            )
+            ?.measure(looseConstraints.offset(horizontal = -startContent.widthOrZero()))
 
-        val centerMaxWidth =
-            (constraints.maxWidth - startContent.widthOrZero() - endContent.widthOrZero())
-                .coerceAtLeast(0)
         val centerContent = measurables
             .firstOrNull { it.layoutId == "CenterContent" }
-            ?.measure(constraints.copy(minWidth = 0, maxWidth = centerMaxWidth))
+            ?.measure(looseConstraints.offset(-startContent.widthOrZero() - endContent.widthOrZero()))
 
         val height = maxOf(
             startContent.heightOrZero(),
@@ -141,9 +134,8 @@ private class BaseCellMeasurePolicy(
             endContent.heightOrZero(),
         )
 
-        val width = maxOf(
+        val width = constraints.constrainWidth(
             startContent.widthOrZero() + centerContent.widthOrZero() + endContent.widthOrZero(),
-            constraints.minWidth,
         )
 
         return layout(width, height) {

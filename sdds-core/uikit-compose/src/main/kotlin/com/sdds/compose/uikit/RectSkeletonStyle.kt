@@ -8,6 +8,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.SolidColor
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -62,6 +63,18 @@ interface RectSkeletonStyleBuilder : StyleBuilder<RectSkeletonStyle> {
      * Устанавливает градиент [gradient] шиммера
      */
     fun gradient(gradient: StatefulValue<Brush>): RectSkeletonStyleBuilder
+
+    /**
+     * Устанавливает градиент [gradient] шиммера
+     */
+    fun gradient(gradient: Brush): RectSkeletonStyleBuilder =
+        gradient(gradient.asStatefulValue())
+
+    /**
+     * Устанавливает градиент [gradient] шиммера
+     */
+    fun gradient(gradient: Color): RectSkeletonStyleBuilder =
+        gradient(SolidColor(gradient))
 
     /**
      * Устанавливает время в мс [duration], за которое градиент перемещается через всю ширину компонента

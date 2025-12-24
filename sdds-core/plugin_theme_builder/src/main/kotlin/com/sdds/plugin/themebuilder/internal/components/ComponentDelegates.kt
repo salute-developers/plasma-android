@@ -25,6 +25,7 @@ import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDel
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.file.FileConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
@@ -131,5 +132,6 @@ internal val componentDelegates by unsafeLazy {
         "carousel" to CarouselConfigDelegate(),
         "dropdown-empty-state" to EmptyStateConfigDelegate(),
         "autocomplete" to AutoCompleteConfigDelegate(),
+        "file" to FileConfigDelegate(),
     )
 }

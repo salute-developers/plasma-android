@@ -49,7 +49,7 @@ internal fun BaseProgress(
     backgroundShape: CornerBasedShape,
 ) {
     Box(
-        modifier
+        modifier = modifier
             .progressSemantics(progress)
             .requiredHeight(maxOf(indicatorHeight, backgroundHeight))
             .drawWithCache {

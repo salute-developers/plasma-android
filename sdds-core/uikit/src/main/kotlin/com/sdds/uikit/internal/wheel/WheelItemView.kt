@@ -88,6 +88,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     private var _description: CharSequence? = null
 
     private var _controlsEnabled: Boolean = false
+    private var _controlsClickable: Boolean = false
     private var _controlsDisplayMode: Int = Wheel.CONTROLS_DISPLAY_MODE_ALWAYS
     private var _controlIconUp: Drawable? = null
     private var _controlIconUpTintList: ColorStateList? = null
@@ -115,6 +116,11 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
                 updateSelectorBounds()
                 invalidate()
             }
+        } else {
+            _hasFocus = false
+            _listViewHasFocus = false
+            _descriptionView.isActivated = false
+            invalidate()
         }
     }
     private val _selectorDrawable: ShapeDrawable = ShapeDrawable()
@@ -134,8 +140,8 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             _descriptionView.apply {
                 isGone = description.isNullOrBlank() || value == 0
                 _listView.extraItemOffsetEnabled = isVisible
-                resetPositions()
             }
+            resetPositions(true)
         }
 
     var controlsEnabled: Boolean
@@ -144,6 +150,16 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             if (_controlsEnabled != value) {
                 _controlsEnabled = value
                 updateControlsVisibility()
+                resetPositions()
+            }
+        }
+
+    var controlsClickable: Boolean
+        get() = _controlsClickable
+        set(value) {
+            if (_controlsClickable != value) {
+                _controlsClickable = value
+                updateControls()
             }
         }
 
@@ -153,6 +169,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             if (_controlsDisplayMode != value) {
                 _controlsDisplayMode = value
                 updateControlsVisibility()
+                resetPositions()
             }
         }
 
@@ -208,7 +225,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
                     isGone = value.isNullOrBlank() || visibleItemsCount == 0
                     _listView.extraItemOffsetEnabled = isVisible
                     text = value
-                    resetPositions()
+                    resetPositions(true)
                 }
             }
         }
@@ -379,7 +396,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             measureChildWithMargins(_descriptionView, widthMeasureSpec, 0, heightMeasureSpec, 0)
         }
 
-        _listView.extraItemOffset = _descriptionView.measuredHeight / 2
+        _listView.extraItemOffset = _descriptionView.measuredHeight
         measureChildWithMargins(_listView, widthMeasureSpec, 0, heightMeasureSpec, totalHeight)
         totalHeight += _listView.fullHeight()
         totalWidth = maxOf(totalWidth, _listView.fullWidth(), _descriptionView.fullWidth())
@@ -487,10 +504,18 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     }
 
     private fun updateControls() {
-        _upButton.setImageDrawable(controlIconUp)
-        _downButton.setImageDrawable(controlIconDown)
-        _upButton.imageTintList = _controlIconUpTintList
-        _downButton.imageTintList = _controlIconDownTintList
+        _upButton.apply {
+            setImageDrawable(controlIconUp)
+            imageTintList = _controlIconUpTintList
+            isClickable = controlsClickable
+            isFocusable = controlsClickable
+        }
+        _downButton.apply {
+            setImageDrawable(controlIconDown)
+            imageTintList = _controlIconDownTintList
+            isClickable = controlsClickable
+            isFocusable = controlsClickable
+        }
         updateControlsVisibility()
         _listView.itemsFocusable = true
         resetPositions(true)
@@ -540,8 +565,9 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
     }
 
     private fun getDescriptionPosition(): Int {
+        val itemHeight = _listView.itemHeight - _descriptionView.measuredHeight
         val centerTop = (_listView.measuredHeight - _listView.itemHeight) / 2
-        return _listView.top + centerTop + _listView.itemHeight - _descriptionView.measuredHeight - entryMinSpacing
+        return _listView.top + centerTop + itemHeight - entryMinSpacing
     }
 
     private class DescriptionView(context: Context) : TextView(context) {
