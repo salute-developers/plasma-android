@@ -35,6 +35,7 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.drawer.vs.DrawerFragment
 import com.sdds.playground.sandbox.dropdownmenu.vs.DropdownMenuFragment
+import com.sdds.playground.sandbox.file.vs.FileFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.image.vs.ImageFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
@@ -101,6 +102,7 @@ import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.drawer.drawer
 import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
+import com.sdds.testing.vs.file.file
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.testing.vs.image.image
@@ -423,6 +425,10 @@ internal sealed class ComponentScreen(
     object Autocomplete : ComponentScreen(
         { item -> fragment<AutocompleteFragment>(item.route, item.defaultBuilder) },
     )
+
+    object File : ComponentScreen(
+        { item -> fragment<FileFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -486,6 +492,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.MASK -> ComponentScreen.Mask
         CoreComponent.CAROUSEL -> ComponentScreen.Carousel
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
+        CoreComponent.FILE -> ComponentScreen.File
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -551,6 +558,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.MASK -> R.id.nav_note_compact
         CoreComponent.CAROUSEL -> R.id.nav_carousel
         CoreComponent.AUTOCOMPLETE -> R.id.nav_autocomplete
+        CoreComponent.FILE -> R.id.nav_file
         else -> null
     }?.let { it + hashCode() }
 }
@@ -662,6 +670,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.MASK -> maskedTextField(context, style)
         CoreComponent.CAROUSEL -> carousel(context, style)
         CoreComponent.AUTOCOMPLETE -> autocomplete(context, style)
+        CoreComponent.FILE -> file(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

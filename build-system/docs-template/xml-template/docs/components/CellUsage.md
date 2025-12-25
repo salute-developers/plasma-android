@@ -69,7 +69,7 @@ title: Cell
 ## Стиль Cell
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
-Для использования заранее сгененрированного стиля, необходимо через атрибут style указатать стиль из библиотеки (пример выше).  
+Для использования заранее сгенерированного стиля, необходимо через атрибут style указать стиль из библиотеки (пример выше).  
 Для настройки стиля Cell в формате xml предусмотрены следующие атрибуты:
 
 |Название атрибута|Описание|Формат данных|
@@ -91,9 +91,9 @@ title: Cell
 |sd_disclosureIcon|drawable(иконка)|reference|
 |sd_disclosureColor / sd_disclosureTextColor|если не задан sd_disclosureTextColor то цвет текста и drawable будет определен атрибутом sd_disclosureColor|reference,color|
 
-Предполагается, что в качестве контента используются компоннеты [Avatar](AvatarUsage.md#avatar), [CheckBox](CheckBoxUsage.md#checkbox), [RadioBox](RadioBoxUsage.md#radiobox), [IconButton](ButtonUsage.md), [Switch](SwitchUsage.md#switch).  
+Предполагается, что в качестве контента используются компоненты [Avatar](AvatarUsage.md#avatar), [CheckBox](CheckBoxUsage.md#checkbox), [RadioBox](RadioBoxUsage.md#radiobox), [IconButton](ButtonUsage.md), [Switch](SwitchUsage.md#switch).  
 Если в CellLayout не используется сгенерированный стиль (который определяет стили контента в начале и в конце),  
-то возможно задать стили контента самомстоятельно при помощи следующих атрибутов
+то возможно задать стили контента самостоятельно при помощи следующих атрибутов
 
 |Название атрибута|Описание|Формат данных|
 |:-:|:-:|:-:|
