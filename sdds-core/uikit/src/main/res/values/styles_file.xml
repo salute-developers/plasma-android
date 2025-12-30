@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.File">
+        <item name="sd_contentStartPadding">6dp</item>
+        <item name="sd_contentEndPadding">6dp</item>
+        <item name="sd_contentBottomPadding">6dp</item>
+        <item name="sd_descriptionPadding">6dp</item>
+    </style>
+</resources>

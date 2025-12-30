@@ -2044,4 +2044,23 @@
     <dimen name="serv_carousel_indicator_padding">12.0dp</dimen>
     <dimen name="serv_carousel_next_padding">12.0dp</dimen>
     <dimen name="serv_carousel_prev_padding">12.0dp</dimen>
+    <dimen name="serv_file_circular_progress_description_padding">2.0dp</dimen>
+    <dimen name="serv_file_circular_progress_xs_content_start_padding">6.0dp</dimen>
+    <dimen name="serv_file_circular_progress_xs_content_end_padding">6.0dp</dimen>
+    <dimen name="serv_file_circular_progress_s_content_start_padding">8.0dp</dimen>
+    <dimen name="serv_file_circular_progress_s_content_end_padding">8.0dp</dimen>
+    <dimen name="serv_file_circular_progress_m_content_start_padding">10.0dp</dimen>
+    <dimen name="serv_file_circular_progress_m_content_end_padding">10.0dp</dimen>
+    <dimen name="serv_file_circular_progress_l_content_start_padding">12.0dp</dimen>
+    <dimen name="serv_file_circular_progress_l_content_end_padding">12.0dp</dimen>
+    <dimen name="serv_file_linear_progress_content_bottom_padding">8.0dp</dimen>
+    <dimen name="serv_file_linear_progress_description_padding">2.0dp</dimen>
+    <dimen name="serv_file_linear_progress_xs_content_start_padding">6.0dp</dimen>
+    <dimen name="serv_file_linear_progress_xs_content_end_padding">6.0dp</dimen>
+    <dimen name="serv_file_linear_progress_s_content_start_padding">8.0dp</dimen>
+    <dimen name="serv_file_linear_progress_s_content_end_padding">8.0dp</dimen>
+    <dimen name="serv_file_linear_progress_m_content_start_padding">10.0dp</dimen>
+    <dimen name="serv_file_linear_progress_m_content_end_padding">10.0dp</dimen>
+    <dimen name="serv_file_linear_progress_l_content_start_padding">12.0dp</dimen>
+    <dimen name="serv_file_linear_progress_l_content_end_padding">12.0dp</dimen>
 </resources>
