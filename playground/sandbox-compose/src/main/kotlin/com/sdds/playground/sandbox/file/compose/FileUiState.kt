@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.file
+package com.sdds.playground.sandbox.file.compose
 
 import com.sdds.compose.uikit.FileActionPlacement
 import com.sdds.playground.sandbox.core.compose.UiState
