@@ -534,24 +534,24 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     private fun TextView.applyLabelRole() {
-        setTextAppearancesList(_labelAppearance)
+        _labelAppearance?.let { setTextAppearancesList(_labelAppearance) }
         _labelColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _labelColor)
-        state = ViewState.SECONDARY
+        state = if (colorState == null) ViewState.PRIMARY else null
     }
 
     private fun TextView.applyTitleRole() {
-        setTextAppearancesList(_titleAppearance)
+        _titleAppearance?.let { setTextAppearancesList(it) }
         _titleColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _titleColor)
-        state = ViewState.PRIMARY
+        state = if (colorState == null) ViewState.PRIMARY else null
     }
 
     private fun TextView.applySubtitleRole() {
-        setTextAppearancesList(_subtitleAppearance)
+        _subtitleAppearance?.let { setTextAppearancesList(it) }
         _subtitleColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _subtitleColor)
-        state = ViewState.SECONDARY
+        state = if (colorState == null) ViewState.PRIMARY else null
     }
 
     private fun View.applyDisclosureRole() {

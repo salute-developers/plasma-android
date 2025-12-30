@@ -12877,6 +12877,140 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.CarouselButtonsPlacementOuter"
             }
          ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "FileCircularProgress",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressXsDefault"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.Xs.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressXsNegative"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressSDefault"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressSNegative"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressMDefault"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressMNegative"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressLDefault"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Serv.Sdds.Components.FileCircularProgress.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileCircularProgressLNegative"
+            }
+         ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "FileLinearProgress",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.Xs.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressXsDefault"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.Xs.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressXsNegative"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.S.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressSDefault"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.S.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressSNegative"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.M.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressMDefault"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.M.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressMNegative"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.L.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressLDefault"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Serv.Sdds.Components.FileLinearProgress.L.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressLNegative"
+            }
+         ]
       }
    ]
 }
