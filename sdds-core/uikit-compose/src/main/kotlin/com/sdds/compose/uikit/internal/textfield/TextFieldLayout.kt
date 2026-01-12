@@ -85,6 +85,7 @@ internal fun TextFieldLayout(
     textLayoutResult: TextLayoutResult?,
     onInnerTextFieldSizeChanged: (IntSize) -> Unit,
     onChipGroupSizeChanged: (IntSize) -> Unit,
+    onPrefixSizeChanged: (IntSize) -> Unit,
 ) {
     val hasChips = chips != null
     val chipHeight = chipGroupStyle.chipStyle.dimensions.height
@@ -176,6 +177,7 @@ internal fun TextFieldLayout(
                 suffix = suffix,
                 textLayoutResult = textLayoutResult,
                 onChipGroupSizeChanged = onChipGroupSizeChanged,
+                onPrefixSizeChanged = onPrefixSizeChanged,
             )
         },
         measurePolicy = measurePolicy,
@@ -185,6 +187,7 @@ internal fun TextFieldLayout(
 @Immutable
 internal data class InnerTextFieldLayoutInfo(
     val fieldSize: IntSize,
+    val prefixSize: IntSize,
     val chipGroupSize: IntSize,
 )
 
@@ -266,6 +269,7 @@ private fun CompositeTextFieldContent(
     suffix: (@Composable () -> Unit)?,
     textLayoutResult: TextLayoutResult?,
     onChipGroupSizeChanged: (IntSize) -> Unit,
+    onPrefixSizeChanged: (IntSize) -> Unit,
 ) {
     val textContent: @Composable () -> Unit = {
         Box {
@@ -277,6 +281,7 @@ private fun CompositeTextFieldContent(
                 prefix = prefix,
                 suffix = suffix,
                 textLayoutResult = textLayoutResult,
+                onPrefixSizeChanged = onPrefixSizeChanged,
             )
         }
     }

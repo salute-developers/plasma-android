@@ -210,12 +210,18 @@ internal fun BaseTextField(
 
     val verticalScrollState = if (!singleLine) rememberScrollState() else null
     val horizontalScrollState = if (singleLine) rememberScrollState() else null
+
     var textLayoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
     var innerFieldSize by remember { mutableStateOf(IntSize.Zero) }
     var chipGroupSize by remember { mutableStateOf(IntSize.Zero) }
+    var prefixSize by remember { mutableStateOf(IntSize.Zero) }
     val innerTextFieldInfo = remember {
         derivedStateOf {
-            InnerTextFieldLayoutInfo(innerFieldSize, chipGroupSize)
+            InnerTextFieldLayoutInfo(
+                fieldSize = innerFieldSize,
+                prefixSize = prefixSize,
+                chipGroupSize = chipGroupSize,
+            )
         }
     }
 
@@ -404,6 +410,7 @@ internal fun BaseTextField(
                         ),
                         onInnerTextFieldSizeChanged = { fieldSize -> innerFieldSize = fieldSize },
                         onChipGroupSizeChanged = { chipsSize -> chipGroupSize = chipsSize },
+                        onPrefixSizeChanged = { prefix -> prefixSize = prefix },
                     )
 
                     OuterBottomText(
@@ -439,7 +446,10 @@ private suspend fun scrollToCaret(
     verticalScrollState: ScrollState?,
     innerFieldInfo: InnerTextFieldLayoutInfo,
 ) {
-    val cursorRect = layout.getCursorRect(value.selection.end)
+    val prefixSize = innerFieldInfo.prefixSize
+    val cursorRect = layout
+        .getCursorRect(value.selection.end)
+        .translate(prefixSize.width.toFloat(), 0f)
     horizontalScrollState?.let { scroll ->
         val chipsWidth = innerFieldInfo.chipGroupSize.width
         val fieldWidth = innerFieldInfo.fieldSize.width

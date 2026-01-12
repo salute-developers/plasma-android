@@ -50,6 +50,7 @@ internal fun DecorationBox(
     textLayoutResult: TextLayoutResult?,
     onInnerTextFieldSizeChanged: (IntSize) -> Unit,
     onChipGroupSizeChanged: (IntSize) -> Unit,
+    onPrefixSizeChanged: (IntSize) -> Unit,
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState().value
     val inputState = when {
@@ -99,6 +100,7 @@ internal fun DecorationBox(
             textLayoutResult = textLayoutResult,
             onInnerTextFieldSizeChanged = onInnerTextFieldSizeChanged,
             onChipGroupSizeChanged = onChipGroupSizeChanged,
+            onPrefixSizeChanged = onPrefixSizeChanged,
         )
     }
 }
