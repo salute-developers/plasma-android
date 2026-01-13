@@ -44,7 +44,6 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
@@ -346,15 +345,26 @@ private fun TextAreaContent(
                 val chipHeight = chipStyle.dimensions.height
                 val chipSpacing = chipGroupStyle.dimensions.lineSpacing
                 val chipsBottomPadding = chipSpacing + (chipHeight - valueHeight) / 2
+                val chipsBottomPaddingPx = with(LocalDensity.current) {
+                    chipsBottomPadding.roundToPx()
+                }
                 ChipGroup(
                     modifier = Modifier
-                        .onSizeChanged(onChipGroupSizeChanged)
+                        .onSizeChanged {
+                            onChipGroupSizeChanged.invoke(
+                                IntSize(
+                                    width = it.width,
+                                    height = if (it.height != 0) it.height + chipsBottomPaddingPx else 0,
+                                ),
+                            )
+                        }
                         .padding(bottom = chipsBottomPadding),
-                    overflowMode = ChipGroupOverflowMode.Wrap,
                     style = chipGroupStyle,
                 ) {
                     chips.invoke()
                 }
+            } else {
+                onChipGroupSizeChanged.invoke(IntSize.Zero)
             }
             Box(
                 modifier = Modifier.padding(
@@ -400,17 +410,18 @@ private fun TextFieldContent(
                         .onSizeChanged {
                             onChipGroupSizeChanged.invoke(
                                 IntSize(
-                                    width = it.width + gapPx,
+                                    width = if (it.width != 0) it.width + gapPx else 0,
                                     height = it.height,
                                 ),
                             )
                         }
                         .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.gap),
                     style = chipGroupStyle,
-                    overflowMode = ChipGroupOverflowMode.Unlimited,
                 ) {
                     chips.invoke()
                 }
+            } else {
+                onChipGroupSizeChanged.invoke(IntSize.Zero)
             }
             textContent()
         },
