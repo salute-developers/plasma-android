@@ -251,6 +251,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to PlasmaHomeDsTheme.colors.textDefaultTertiary,
                 ),
             )
+            placeholderColorReadOnly(
+                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             indicatorColor(
                 PlasmaHomeDsTheme.colors.surfaceDefaultNegative.asInteractive(),
             )

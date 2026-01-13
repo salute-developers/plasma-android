@@ -469,6 +469,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to PlasmaSdServiceTheme.colors.textDefaultTertiary,
                 ),
             )
+            placeholderColorReadOnly(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             indicatorColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(),
             )

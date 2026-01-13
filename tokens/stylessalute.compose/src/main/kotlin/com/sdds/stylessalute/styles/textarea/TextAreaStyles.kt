@@ -397,6 +397,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to StylesSaluteTheme.colors.textDefaultTertiary,
                 ),
             )
+            placeholderColorReadOnly(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             indicatorColor(
                 StylesSaluteTheme.colors.surfaceDefaultNegative.asInteractive(),
             )
