@@ -89,6 +89,7 @@ jobs:
           git config --local user.email "salutedevs@gmail.com"
           git config --local user.name "Salute Android Team"
           git add ./sdds-core/icons/gradle.properties
+          git add ./gradle/icons.version.toml
           git commit -m "feat(sdds-acore/icons): Bump icons version"
 
       - name: Create drawables folder
