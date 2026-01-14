@@ -17,6 +17,7 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
@@ -32,11 +33,12 @@ internal fun PrefixSuffixWrapper(
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
     textLayoutResult: TextLayoutResult? = null,
+    onPrefixSizeChanged: ((IntSize) -> Unit)? = null,
 ) {
     Layout(
         modifier = modifier,
         measurePolicy = remember(textLayoutResult?.getSuffixCoordinates()) {
-            PrefixSuffixMeasurePolicy(textLayoutResult)
+            PrefixSuffixMeasurePolicy(textLayoutResult, onPrefixSizeChanged)
         },
         content = {
             Box(
@@ -68,6 +70,7 @@ internal fun PrefixSuffixWrapper(
 
 private class PrefixSuffixMeasurePolicy(
     private val textLayoutResult: TextLayoutResult?,
+    private val onPrefixSizeChanged: ((IntSize) -> Unit)?,
 ) : MeasurePolicy {
 
     override fun MeasureScope.measure(
@@ -77,6 +80,12 @@ private class PrefixSuffixMeasurePolicy(
         val prefixPlaceable = measurables
             .firstOrNull { it.layoutId == PREFIX_ID }
             ?.measure(constraints.copy(minWidth = 0, minHeight = 0))
+        onPrefixSizeChanged?.invoke(
+            IntSize(
+                prefixPlaceable.widthOrZero(),
+                prefixPlaceable.heightOrZero(),
+            ),
+        )
         val suffixPlaceable = measurables
             .firstOrNull { it.layoutId == SUFFIX_ID }
             ?.measure(constraints.copy(minWidth = 0, minHeight = 0))
