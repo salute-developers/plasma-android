@@ -62,8 +62,10 @@ done
 
 # Отправим одно событие для всех tokens-модулей
 if [[ ${#TOKENS_MODULES[@]} -gt 0 ]]; then
-  MODULE_LIST=$(printf "\"%s\", " "${TOKENS_MODULES[@]}" | sed 's/, $//')
-  PAYLOAD="{\"modules\": [ $MODULE_LIST ], \"tag\": \"$TAG\"}"
+  MODULES_JSON_STRING=$(printf "\"%s\"," "${TOKENS_MODULES[@]}" | sed 's/,$//')
+  MODULES_JSON_STRING="[$MODULES_JSON_STRING]"
+  ESCAPED_MODULES=$(echo "$MODULES_JSON_STRING" | jq -Rc .)  # превращает в строку с экранированными кавычками
+  PAYLOAD="{\"modules\": $ESCAPED_MODULES, \"tag\": \"$TAG\"}"
 
   echo "🚀 Dispatching publish-tokens for modules: ${TOKENS_MODULES[*]}"
   echo "📦 Payload: $PAYLOAD"

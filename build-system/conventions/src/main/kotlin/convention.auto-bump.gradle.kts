@@ -29,7 +29,8 @@ val syncCatalog = tasks.register("syncVersionCatalog") {
         }
 
         val artifactId = project.properties["nexus.artifactId"]?.toString() ?: return@doLast
-        val toml = rootProject.file("../gradle/libs.versions.toml")
+        val tomlPath = properties["tomlPath"]?.toString() ?: "../gradle/libs.versions.toml"
+        val toml = rootProject.file(tomlPath)
         toml.writeText(
             toml.readText()
                 .replace(
