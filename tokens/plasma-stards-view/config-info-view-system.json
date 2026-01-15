@@ -5175,6 +5175,30 @@
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
             }
          ]
+      },
+      {
+         "key": "rect-skeleton",
+         "coreName": "RectSkeleton",
+         "styleName": "RectSkeleton",
+         "variations": [
+            {
+               "name": "default",
+               "viewReference": "Sdkit.StarDs.Components.RectSkeleton",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.RectSkeleton"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeleton",
+         "variations": [
+            {
+               "name": "default",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeleton",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeleton"
+            }
+         ]
       }
    ]
 }

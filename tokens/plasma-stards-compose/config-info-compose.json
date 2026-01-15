@@ -3781,6 +3781,28 @@
                "composeReference": "PaginationDotsVertical.S.ActiveTypeLine"
             }
          ]
+      },
+      {
+         "key": "rect-skeleton",
+         "coreName": "RectSkeleton",
+         "styleName": "RectSkeleton",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "RectSkeleton.Default"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeleton",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "TextSkeleton.Default"
+            }
+         ]
       }
    ]
 }
