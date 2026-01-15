@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.file
+package com.sdds.playground.sandbox.file.compose
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -64,7 +64,7 @@ internal fun FileScreen(componentKey: ComponentKey = ComponentKey.File) {
                                 progress = 0.4f,
                                 valueContent = {
                                     Icon(
-                                        painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                                        painter = painterResource(id = R.drawable.ic_close_16),
                                         contentDescription = "",
                                     )
                                 },
@@ -78,7 +78,7 @@ internal fun FileScreen(componentKey: ComponentKey = ComponentKey.File) {
                 },
                 action = {
                     IconButton(
-                        iconRes = com.sdds.icons.R.drawable.ic_close_24,
+                        iconRes = R.drawable.ic_close_24,
                         onClick = {},
                     )
                 },
@@ -130,7 +130,7 @@ internal fun FilePreview(style: FileStyle) {
                 progress = 0.4f,
                 valueContent = {
                     Icon(
-                        painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                        painter = painterResource(id = R.drawable.ic_close_16),
                         contentDescription = "",
                     )
                 },
@@ -138,7 +138,7 @@ internal fun FilePreview(style: FileStyle) {
         },
         action = {
             IconButton(
-                iconRes = com.sdds.icons.R.drawable.ic_close_36,
+                iconRes = R.drawable.ic_close_36,
                 onClick = {},
             )
         },

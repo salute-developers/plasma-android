@@ -60,4 +60,5 @@
     <item type="id" name="nav_mask"/>
     <item type="id" name="nav_carousel"/>
     <item type="id" name="nav_autocomplete"/>
+    <item type="id" name="nav_file"/>
 </resources>

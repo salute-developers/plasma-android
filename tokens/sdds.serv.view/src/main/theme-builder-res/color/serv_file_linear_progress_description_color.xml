@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_textDefaultSecondaryHover" android:state_hovered="true" app:serv_file_state_default="true"/>
+    <item android:color="?serv_textDefaultSecondaryActive" android:state_pressed="true" app:serv_file_state_default="true"/>
+    <item android:color="?serv_textDefaultSecondary" app:serv_file_state_default="true"/>
+    <item android:color="?serv_textDefaultNegativeHover" android:state_hovered="true" app:serv_file_state_negative="true"/>
+    <item android:color="?serv_textDefaultNegativeActive" android:state_pressed="true" app:serv_file_state_negative="true"/>
+    <item android:color="?serv_textDefaultNegative" app:serv_file_state_negative="true"/>
+</selector>
