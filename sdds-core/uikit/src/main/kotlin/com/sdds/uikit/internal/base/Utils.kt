@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isGone
+import kotlin.math.roundToInt
 
 /**
  * Удобный вариант [lazy] с [LazyThreadSafetyMode.NONE]
@@ -44,6 +45,13 @@ internal fun Paint.FontMetricsInt.set(fm: Paint.FontMetricsInt) {
  */
 internal fun lerp(a: Float, b: Float, fraction: Float): Float {
     return a * (1f - fraction) + (b * fraction)
+}
+
+/**
+ * Рассчитывает линейную интерполяцию между значениями [a] в [b]
+ */
+internal fun lerp(a: Int, b: Int, fraction: Float): Int {
+    return (a * (1f - fraction) + (b * fraction)).roundToInt()
 }
 
 /**
