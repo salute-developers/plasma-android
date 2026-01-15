@@ -489,6 +489,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to SddsServTheme.colors.textDefaultTertiary,
                 ),
             )
+            placeholderColorReadOnly(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             indicatorColor(
                 SddsServTheme.colors.surfaceDefaultNegative.asInteractive(),
             )

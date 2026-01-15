@@ -489,6 +489,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
                         to PlasmaGigaAppTheme.colors.textDefaultTertiary,
                 ),
             )
+            placeholderColorReadOnly(
+                PlasmaGigaAppTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             indicatorColor(
                 PlasmaGigaAppTheme.colors.surfaceDefaultNegative.asInteractive(),
             )
