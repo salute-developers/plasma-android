@@ -57,9 +57,16 @@ open class File @JvmOverloads constructor(
     private var _progressPlacement: Int = PROGRESS_PLACEMENT_INNER
     private var _actionPlacement: Int = ACTION_PLACEMENT_START
     private var _isLoading: Boolean = false
+    private var iconView: View? = null
+    private var imageView: View? = null
+    private var actionView: View? = null
+    private var labelView: View? = null
+    private var descriptionView: View? = null
+    private var progressView: View? = null
 
     init {
         orientation = VERTICAL
+        gravity = Gravity.CENTER
         context.withStyledAttributes(attrs, R.styleable.File, defStyleAttr, defStyleRes) {
             _contentStartPadding = getDimensionPixelSize(R.styleable.File_sd_contentStartPadding, 0)
             _contentEndPadding = getDimensionPixelSize(R.styleable.File_sd_contentEndPadding, 0)
@@ -149,8 +156,9 @@ open class File @JvmOverloads constructor(
         set(value) {
             if (_progressPlacement != value) {
                 _progressPlacement = value
+                changeProgressPlacementGlobally()
+                setContentVisibility()
             }
-            setContentVisibility()
         }
 
     /**
@@ -161,9 +169,9 @@ open class File @JvmOverloads constructor(
         set(value) {
             if (_actionPlacement != value) {
                 _actionPlacement = value
+                changePlacement()
+                setCellContentVisibility()
             }
-            changeActionPlacement()
-            setCellContentVisibility()
         }
 
     /**
@@ -176,22 +184,23 @@ open class File @JvmOverloads constructor(
         set(value) {
             if (_isLoading != value) {
                 _isLoading = value
+                setContentVisibility()
             }
-            setContentVisibility()
         }
 
     /**
-     * Устанавливает Label, при этом все ранее установленные Label будут удалены
+     * Устанавливает Label, при этом ранее установленный Label будет удален
      * @param textView - [TextView] вью с текстом
      * @param params - [FileLayoutParams] лэйаут параметры для textview, если не заданы,
      * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
      * Роль назначается автоматически как [FileContent.LABEL]
      */
     open fun setLabel(textView: TextView, params: FileLayoutParams? = null) {
-        removeLabel()
+        val viewParams = textView.layoutParams as? FileLayoutParams
+        val finalParams = params ?: viewParams
         addView(
             textView,
-            params ?: FileLayoutParams(
+            finalParams ?: FileLayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT,
                 FileContent.LABEL,
@@ -200,17 +209,18 @@ open class File @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает Description, при этом все ранее установленные Description будут удалены
+     * Устанавливает Description, при этом ранее установленный Description будет удален
      * @param textView - [TextView] вью с текстом
      * @param params - [FileLayoutParams] лэйаут параметры для textview, если не заданы,
      * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
      * Роль назначается автоматически как [FileContent.DESCRIPTION]
      */
     open fun setDescription(textView: TextView, params: FileLayoutParams? = null) {
-        removeDescription()
+        val viewParams = textView.layoutParams as? FileLayoutParams
+        val finalParams = params ?: viewParams
         addView(
             textView,
-            params ?: FileLayoutParams(
+            finalParams ?: FileLayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT,
                 FileContent.DESCRIPTION,
@@ -220,17 +230,18 @@ open class File @JvmOverloads constructor(
 
     /**
      * Устанавливает Action - компонент предполагающий взаимодействие (например [LinkButton]),
-     * при этом все ранее установленные Action будут удалены
+     * при этом ранее установленный Action будет удален
      * @param view - [View] компонент для взаимодействия
      * @param params - [FileLayoutParams] лэйаут параметры для view, если не заданы,
      * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
      * Роль назначается автоматически как [FileContent.ACTION]
      */
     open fun setAction(view: View, params: FileLayoutParams? = null) {
-        removeActions()
+        val viewParams = view.layoutParams as? FileLayoutParams
+        val finalParams = params ?: viewParams
         addView(
             view,
-            params ?: FileLayoutParams(
+            finalParams ?: FileLayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT,
                 FileContent.ACTION,
@@ -239,18 +250,20 @@ open class File @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает  в качестве прогресса компонент [CircularProgressBar],
-     * при этом все ранее установленные [CircularProgressBar] будут удалены
-     * @param progress - [CircularProgressBar] круглый прогресс
+     * Устанавливает переданную вью в качестве прогресса,
+     * предполагаемые компоненты - [CircularProgressBar] или [ProgressBar],
+     * при этом ранее установленная вью с ролью [FileContent.PROGRESS] будет удалена.
+     * @param progress - [View]
      * @param params - [FileLayoutParams] лэйаут параметры для progress, если не заданы,
      * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
      * Роль назначается автоматически как [FileContent.PROGRESS]
      */
-    open fun setCircularProgress(progress: CircularProgressBar, params: FileLayoutParams? = null) {
-        removeCircularProgress()
+    open fun setProgress(progress: View, params: FileLayoutParams? = null) {
+        val viewParams = progress.layoutParams as? FileLayoutParams
+        val finalParams = params ?: viewParams
         addView(
             progress,
-            params ?: FileLayoutParams(
+            finalParams ?: FileLayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT,
                 FileContent.PROGRESS,
@@ -259,120 +272,108 @@ open class File @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает  в качестве прогресса компонент [ProgressBar],
-     * при этом все ранее установленные [ProgressBar] будут удалены
-     * @param progress - [ProgressBar] горизонтальный прогресс
-     * @param params - [FileLayoutParams] лэйаут параметры для progress, если не заданы,
-     * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
-     * Роль назначается автоматически как [FileContent.PROGRESS]
-     */
-    open fun setHorizontalProgress(progress: ProgressBar, params: FileLayoutParams? = null) {
-        removeHorizontalProgress()
-        addView(
-            progress,
-            params ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.PROGRESS,
-            ),
-        )
-    }
-
-    /**
-     * Устанавливает в качестве контента в начале - [ImageView],
-     * будьте внимательны, если вы использовали несколько [ImageView], они будут удалены
-     * (например одна из вью использовалась для отображения иконки а другая - для изображения)
+     * Устанавливает в качестве контента в начале - [ImageView] содержащую иконку,
+     * при этом ранее установленный [ImageView] с ролью [FileContent.ICON] будет удален
      * @param image - [ImageView]
-     * @param asIcon - установите true, если собираетесь использовать [ImageView] для отображения
-     * иконок, в этом случае к иконкам будет применен iconTint, заданный в стиле, через атрибут
-     * [R.styleable.File_sd_iconTint]
+     * @param params - [FileLayoutParams] лэйаут параметры для image, если не заданы,
+     * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
+     * Роль назначается автоматически как [FileContent.ICON].
+     * Если imageTintList == null, в этом случае к иконкам будет применен iconTint,
+     * заданный в стиле, через атрибут [R.styleable.File_sd_iconTint]
+     */
+    open fun setIcon(image: ImageView, params: FileLayoutParams? = null) {
+        val viewParams = image.layoutParams as? FileLayoutParams
+        val finalParams = params ?: viewParams
+        addView(
+            image,
+            finalParams ?: FileLayoutParams(
+                LayoutParams.WRAP_CONTENT,
+                LayoutParams.WRAP_CONTENT,
+                FileContent.ICON,
+            ),
+        )
+    }
+
+    /**
+     * Устанавливает в качестве контента в начале - [ImageView] содержащую изображение,
+     * при этом ранее установленный [ImageView] с ролью [FileContent.IMAGE] будет удален
+     * @param image - [ImageView]
      * @param params - [FileLayoutParams] лэйаут параметры для image, если не заданы,
      * ширина и высота будет установлена как [ViewGroup.LayoutParams.WRAP_CONTENT].
      * Роль назначается автоматически как [FileContent.IMAGE]
      */
-    open fun setImage(image: ImageView, asIcon: Boolean, params: FileLayoutParams? = null) {
-        removeImageAndIcon()
+    open fun setImage(image: ImageView, params: FileLayoutParams? = null) {
+        val viewParams = image.layoutParams as? FileLayoutParams
+        val finalParams = params ?: viewParams
         addView(
             image,
-            params ?: FileLayoutParams(
+            finalParams ?: FileLayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT,
-                fileContent = if (asIcon) FileContent.ICON else FileContent.IMAGE,
+                FileContent.IMAGE,
             ),
         )
     }
 
     /**
-     * Удаляет все установленные [ProgressBar]
+     * Удаляет установленную вью с ролью [FileContent.PROGRESS]
      */
-    open fun removeHorizontalProgress() {
-        children
-            .filter { it is ProgressBar }
-            .toList()
-            .forEach(::removeView)
+    open fun removeProgress() {
+        progressView?.let {
+            val parent = it.parent as? ViewGroup
+            parent?.removeView(it)
+            progressView = null
+        }
     }
 
     /**
-     * Удаляет все установленные [CircularProgressBar]
+     * Удаляет установленную вью с ролью [FileContent.ACTION]
      */
-    open fun removeCircularProgress() {
-        cell.children
-            .filter { it is CircularProgressBar }
-            .toList()
-            .forEach { cell.removeView(it) }
+    open fun removeAction() {
+        actionView?.let {
+            cell.removeView(it)
+            actionView = null
+        }
     }
 
     /**
-     * Удаляет все установленные вью с ролью [FileContent.ACTION]
+     * Удаляет установленную вью с ролью [FileContent.IMAGE]
      */
-    open fun removeActions() {
-        cell.children
-            .filter {
-                (it.layoutParams as? CellLayout.LayoutParams)?.cellContent ==
-                    when (_actionPlacement) {
-                        ACTION_PLACEMENT_END -> CellContent.END
-                        else -> CellContent.START
-                    }
-            }
-            .filter { it !is ImageView }
-            .toList()
-            .forEach { cell.removeView(it) }
+    open fun removeImage() {
+        imageView?.let {
+            cell.removeView(it)
+            imageView = null
+        }
     }
 
     /**
-     * Удаляет все установленные вью с ролью [FileContent.IMAGE]
+     * Удаляет установленную вью с ролью [FileContent.ICON]
      */
-    open fun removeImageAndIcon() {
-        cell.children
-            .filter { it is ImageView }
-            .toList()
-            .forEach { cell.removeView(it) }
+    open fun removeIcon() {
+        iconView?.let {
+            cell.removeView(it)
+            iconView = null
+        }
     }
 
     /**
-     * Удаляет все установленные вью с ролью [FileContent.LABEL]
+     * Удаляет установленную вью с ролью [FileContent.LABEL]
      */
     open fun removeLabel() {
-        cell.children
-            .filter { it is TextView }
-            .toList()
-            .forEach { view ->
-                val lp = view.layoutParams as? CellLayout.LayoutParams
-                if (lp?.cellContent == CellContent.TITLE) cell.removeView(view)
-            }
+        labelView?.let {
+            cell.removeView(it)
+            labelView = null
+        }
     }
 
     /**
-     * Удаляет все установленные вью с ролью [FileContent.DESCRIPTION]
+     * Удаляет установленную вью с ролью [FileContent.DESCRIPTION]
      */
     open fun removeDescription() {
-        cell.children
-            .filter { it is TextView }
-            .toList()
-            .forEach { view ->
-                val lp = view.layoutParams as? CellLayout.LayoutParams
-                if (lp?.cellContent == CellContent.SUBTITLE) cell.removeView(view)
-            }
+        descriptionView?.let {
+            cell.removeView(it)
+            descriptionView = null
+        }
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
@@ -381,9 +382,10 @@ open class File @JvmOverloads constructor(
             return
         }
         val fileParams = params as? FileLayoutParams ?: return
+        setRoleLink(child, fileParams)
         child?.applyContentRole(fileParams)
 
-        if (fileParams.fileContent == FileContent.PROGRESS && child is ProgressBar) {
+        if (fileParams.fileContent == FileContent.PROGRESS && progressPlacement == PROGRESS_PLACEMENT_OUTER) {
             super.addView(child, childCount, params)
         } else {
             val cellParams = convertToCellParams(fileParams)
@@ -394,20 +396,81 @@ open class File @JvmOverloads constructor(
 
     override fun removeView(view: View?) {
         if (view == cell) return
-        super.removeView(view)
+        val parent = view?.parent as? ViewGroup
+        if (parent == this) super.removeView(view)
+        if (parent == cell) cell.removeView(view)
+        clearRoleLink(view)
     }
 
     override fun removeViewAt(index: Int) {
         val view = getChildAt(index)
         if (view == cell) return
-        super.removeViewAt(index)
+        removeView(view)
     }
 
     override fun removeAllViews() {
+        clearAllRoleLinks()
         cell.removeAllViews()
         children.filter { it != cell }
             .toList()
             .forEach(::removeView)
+    }
+
+    private fun clearRoleLink(view: View?) {
+        when (view) {
+            actionView -> actionView = null
+            imageView -> imageView = null
+            iconView -> iconView = null
+            progressView -> progressView = null
+            labelView -> labelView = null
+            descriptionView -> descriptionView = null
+            else -> {}
+        }
+    }
+
+    private fun setRoleLink(view: View?, fileParams: FileLayoutParams) {
+        when (fileParams.fileContent) {
+            FileContent.ACTION -> {
+                removeAction()
+                actionView = view
+            }
+
+            FileContent.IMAGE -> {
+                removeImage()
+                imageView = view
+            }
+
+            FileContent.ICON -> {
+                removeIcon()
+                iconView = view
+            }
+
+            FileContent.PROGRESS -> {
+                removeProgress()
+                progressView = view
+            }
+
+            FileContent.LABEL -> {
+                removeLabel()
+                labelView = view
+            }
+
+            FileContent.DESCRIPTION -> {
+                removeDescription()
+                descriptionView = view
+            }
+
+            null -> {}
+        }
+    }
+
+    private fun clearAllRoleLinks() {
+        actionView = null
+        imageView = null
+        iconView = null
+        progressView = null
+        labelView = null
+        descriptionView = null
     }
 
     /**
@@ -475,7 +538,7 @@ open class File @JvmOverloads constructor(
      */
     enum class FileContent {
         /**
-         * Назначает этой [View] роль Иображения.
+         * Назначает этой [View] роль Изображения.
          * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
          * порядке, в котором они добавлялись в [File], в начало компонента.
          */
@@ -489,7 +552,7 @@ open class File @JvmOverloads constructor(
         ICON,
 
         /**
-         * Назначает этой [View] роль Активного элемента (с которым предполагается какое
+         * Назначает этой [View] роль Активного элемента (с которым предполагается какое-
          * то взаимодейстивие, например нажатие).
          * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
          * порядке, в котором они добавлялись в [File], позиционирование зависит от
@@ -527,20 +590,51 @@ open class File @JvmOverloads constructor(
     }
 
     private fun View.applyContentRole(fileParams: FileLayoutParams) {
-        (this as? TextView)?.apply {
-            when (fileParams.fileContent) {
-                FileContent.LABEL -> this@apply.applyLabelRole()
-                FileContent.DESCRIPTION -> this@apply.applyDescriptionRole()
-                else -> Unit
+        val group = this is ViewGroup
+        when (fileParams.fileContent) {
+            FileContent.PROGRESS -> {
+                if (progressPlacement == PROGRESS_PLACEMENT_OUTER) fileParams.topMargin = _contentBottomPadding
             }
-        }
-        if ((fileParams.fileContent == FileContent.ICON) && this is ImageView) {
-            if (imageTintList == null) {
-                iconTint?.let { imageTintList = it }
+
+            FileContent.LABEL -> {
+                if (group) {
+                    (this as ViewGroup).children.forEach {
+                        (it as? TextView)?.applyLabelRole()
+                    }
+                } else {
+                    (this as? TextView)?.applyLabelRole()
+                }
             }
+
+            FileContent.DESCRIPTION -> {
+                if (group) {
+                    (this as ViewGroup).children.forEach {
+                        (it as? TextView)?.applyDescriptionRole()
+                    }
+                } else {
+                    (this as? TextView)?.applyDescriptionRole()
+                }
+            }
+
+            FileContent.ICON -> {
+                if (group) {
+                    (this as ViewGroup).children.forEach {
+                        checkForImageToApplyTintList(it)
+                    }
+                } else {
+                    checkForImageToApplyTintList(this)
+                }
+            }
+
+            else -> {}
         }
-        if (fileParams.fileContent == FileContent.PROGRESS && this is ProgressBar) {
-            fileParams.topMargin = _contentBottomPadding
+    }
+
+    private fun checkForImageToApplyTintList(view: View) {
+        if (view is ImageView) {
+            if (view.imageTintList == null) {
+                iconTint?.let { view.imageTintList = it }
+            }
         }
     }
 
@@ -602,69 +696,55 @@ open class File @JvmOverloads constructor(
     }
 
     private fun setContentVisibility() {
-        setBottomContentVisibility()
+        setProgressVisibility()
         setCellContentVisibility()
     }
 
-    private fun setBottomContentVisibility() {
-        children.forEach { child ->
-            val lp = child.layoutParams as? FileLayoutParams
-            if (lp?.fileContent == FileContent.PROGRESS) {
-                if (child is ProgressBar) {
-                    child.isVisible =
-                        _progressPlacement == PROGRESS_PLACEMENT_OUTER && isLoading
-                }
+    private fun setProgressVisibility() {
+        progressView?.let {
+            val parent = it.parent as? ViewGroup
+            when (parent) {
+                this -> it.isVisible = _progressPlacement == PROGRESS_PLACEMENT_OUTER && isLoading
+                cell -> it.isVisible = _progressPlacement == PROGRESS_PLACEMENT_INNER && isLoading
+                else -> {}
             }
         }
     }
 
     private fun setCellContentVisibility() {
-        cell.children.forEach { child ->
-            val lp = child.layoutParams as? CellLayout.LayoutParams
-            if (lp?.cellContent == CellContent.START) {
-                if (_actionPlacement == ACTION_PLACEMENT_END) {
-                    child.isVisible = child is ImageView
-                } else {
-                    cellChildrenVisibility(child)
-                }
-            } else if (lp?.cellContent == CellContent.END) {
-                if (_actionPlacement == ACTION_PLACEMENT_START) {
-                    child.isVisible = false
-                } else {
-                    cellChildrenVisibility(child)
-                }
+        actionView?.let {
+            it.isVisible = _progressPlacement == PROGRESS_PLACEMENT_OUTER ||
+                _progressPlacement == PROGRESS_PLACEMENT_INNER && !isLoading
+        }
+        setImageOrIconVisibility(imageView)
+        setImageOrIconVisibility(iconView)
+    }
+
+    private fun setImageOrIconVisibility(view: View?) {
+        view?.isVisible = _actionPlacement != ACTION_PLACEMENT_START
+    }
+
+    private fun changePlacement() {
+        changeViewPlacementInsideCell(actionView)
+        changeViewPlacementInsideCell(progressView)
+    }
+
+    private fun changeViewPlacementInsideCell(view: View?) {
+        view?.let {
+            val lp = (it.layoutParams as? CellLayout.LayoutParams) ?: return
+            val newLp = lp
+            newLp.cellContent = if (_actionPlacement == ACTION_PLACEMENT_START) {
+                CellContent.START
+            } else {
+                CellContent.END
             }
+            it.layoutParams = newLp
         }
     }
 
-    private fun cellChildrenVisibility(child: View) {
-        when (child) {
-            is CircularProgressBar ->
-                child.isVisible = _progressPlacement == PROGRESS_PLACEMENT_INNER && isLoading
-
-            is ImageView -> child.isVisible = _actionPlacement != ACTION_PLACEMENT_START
-            else -> child.isVisible = !(_progressPlacement == PROGRESS_PLACEMENT_INNER && isLoading)
-        }
-    }
-
-    private fun changeActionPlacement() {
-        cell.children.forEach { child ->
-            val lp = child.layoutParams as? CellLayout.LayoutParams
-            when {
-                lp?.cellContent == CellContent.END && _actionPlacement == ACTION_PLACEMENT_START -> {
-                    val newLp = lp
-                    newLp.cellContent = CellContent.START
-                    child.layoutParams = newLp
-                }
-
-                lp?.cellContent == CellContent.START && _actionPlacement == ACTION_PLACEMENT_END -> {
-                    if (child !is ImageView) {
-                        val newLp = lp
-                        newLp.cellContent = CellContent.END
-                        child.layoutParams = newLp
-                    }
-                }
-            }
+    private fun changeProgressPlacementGlobally() {
+        progressView?.let {
+            addView(it)
         }
     }
 
@@ -699,15 +779,11 @@ open class File @JvmOverloads constructor(
             defStyleRes: Int,
         ): Context {
             var iconButtonStyleOverlay = 0
-            context.withStyledAttributes(attrs, R.styleable.File, defStyleAttr, defStyleRes) {
-                iconButtonStyleOverlay = getResourceId(R.styleable.File_sd_iconButtonStyleOverlay, 0)
-            }
             var progressBarStyleOverlay = 0
-            context.withStyledAttributes(attrs, R.styleable.File, defStyleAttr, defStyleRes) {
-                progressBarStyleOverlay = getResourceId(R.styleable.File_sd_progressBarStyleOverlay, 0)
-            }
             var circularBarStyleOverlay = 0
             context.withStyledAttributes(attrs, R.styleable.File, defStyleAttr, defStyleRes) {
+                iconButtonStyleOverlay = getResourceId(R.styleable.File_sd_iconButtonStyleOverlay, 0)
+                progressBarStyleOverlay = getResourceId(R.styleable.File_sd_progressBarStyleOverlay, 0)
                 circularBarStyleOverlay = getResourceId(R.styleable.File_sd_circularProgressBarStyleOverlay, 0)
             }
             val themeOverlay = createMergedOverlayContext(
@@ -723,7 +799,6 @@ open class File @JvmOverloads constructor(
             if (overlays.all { it == 0 }) return base
             val newTheme = base.resources.newTheme()
             newTheme.setTo(base.theme)
-
             overlays.filter { it != 0 }
                 .forEach { newTheme.applyStyle(it, true) }
             return ContextThemeWrapper(base, newTheme)

@@ -75,7 +75,7 @@ title: File
 Обратите внимание, что у каждого вложенного компонента указана роль layout_fileContent.  
 Стоит так же отметить, что внутри File предусмотрена автоматическая стилизация компонентов 
 ProgressBar, CircularProgressBar и IconButton (использующегося в качестве Action) если заданы атрибуты  
-заданы R.styleable.File_sd_circularProgressBarStyleOverlay, R.styleable.File_sd_progressBarStyleOverlay,  
+R.styleable.File_sd_circularProgressBarStyleOverlay, R.styleable.File_sd_progressBarStyleOverlay,  
 R.styleable.File_sd_iconButtonStyleOverlay.
 
 ## Стили
@@ -114,19 +114,17 @@ R.styleable.File_sd_iconButtonStyleOverlay.
 в качестве прогресса используется компонент CircularProgressBar, все компоненты, находящиеся в одном слоте с  
 прогрессом будут скрыты. Например: actionPlacement выставлен в end и присутствует компонент с ролью Action,  
 это означает, что при isLoading = true будет показан компонент CircularProgressBar, а компонент с ролью  
-Action скрыт. Если же в качестве компонента прогресса используется горизонтальный ProgressBar, то компонент с  
-ролью Action не будет скрываться, это объясняется тем, что ProgressBar расположен НЕ в Cell.
+Action скрыт. Если же progressPlacement = PROGRESS_PLACEMENT_OUTER и установлен компонент с ролью Progress,  
+то компонент с ролью Action не будет скрываться.
 
 ## ActionPlacement
 
 При переключении этого свойства, роли компонентов внутри Cell переприсваиваются автоматически, компоненты  
-с ролью Action и Progress меняют свое положение внутри компонента относительно Label и Description.
-При этом, если в File имеются компоненты с ролями Image или Icon, и actionPlacement = ACTION_PLACEMENT_START,  
-то эти компоненты будут скрыты.
+с ролью Action и Progress (если progressPlacement = PROGRESS_PLACEMENT_INNER) меняют свое положение внутри  
+компонента относительно Label и Description. При этом, если в File имеются компоненты с ролями Image или Icon,  
+и actionPlacement = ACTION_PLACEMENT_START, то эти компоненты будут скрыты.
 
 ## ProgressPlacement
 
-Указывает на то, какой компонент прогресса отобразить, если isLoading = true. Если добавлены оба компонента,  
-и ProgressBar в качестве горизонтального прогресса и CircularProgressBar в качестве круглого прогресса, будет
-отображен только один из них. При PROGRESS_PLACEMENT_OUTER- горизонтальный прогресс, при PROGRESS_PLACEMENT_INNER -  
-круглый прогресс.
+Изменяет расположение компонента с ролью Progress. При PROGRESS_PLACEMENT_OUTER - прогресс располагается снизу File,  
+при PROGRESS_PLACEMENT_INNER - внутри компонента Cell, взависимости от установленного actionPlacement.
