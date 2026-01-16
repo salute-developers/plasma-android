@@ -45,8 +45,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
                 label = "image.jpg",
                 description = "1.2MB",
                 isLoading = true,
@@ -61,8 +59,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
                 label = "image.jpg",
                 description = "1.2MB",
                 isLoading = true,
@@ -77,8 +73,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
                 label = "",
                 description = "1.2MB",
                 isLoading = false,
@@ -93,7 +87,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
                 appearance = "",
                 label = "Lorem Ipsum is simply dummy text of the printing and typesetting",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting",
@@ -109,7 +102,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
                 appearance = "",
                 label = "image.jpg",
                 description = "",
