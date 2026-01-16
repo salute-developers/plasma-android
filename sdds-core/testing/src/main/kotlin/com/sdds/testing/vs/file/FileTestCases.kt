@@ -45,8 +45,21 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
+                label = "image.jpg",
+                description = "1.2MB",
+                isLoading = true,
+                hasContentStart = false,
+                actionPlacement = ActionPlacement.Start,
+                contentType = FileContentType.Icon,
+            ),
+        )
+
+    fun ComponentScope.fileCircularLabelDescriptionIsLoadingStart(style: Int): File =
+        file(
+            context = context,
+            style = style,
+            state = FileUiState(
+                appearance = "circular",
                 label = "image.jpg",
                 description = "1.2MB",
                 isLoading = true,
@@ -61,8 +74,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
                 label = "image.jpg",
                 description = "1.2MB",
                 isLoading = true,
@@ -77,8 +88,6 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
                 label = "",
                 description = "1.2MB",
                 isLoading = false,
@@ -93,8 +102,7 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
+                appearance = "circular",
                 label = "Lorem Ipsum is simply dummy text of the printing and typesetting",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting",
                 isLoading = true,
@@ -109,8 +117,7 @@ abstract class FileTestCases(mode: String) : RoborazziConfig(mode) {
             context = context,
             style = style,
             state = FileUiState(
-                variant = "",
-                appearance = "",
+                appearance = "circular",
                 label = "image.jpg",
                 description = "",
                 isLoading = true,

@@ -19,7 +19,7 @@ class ViewSystemFileScreenshotTest(
     @Test
     override fun testFileCircularProgressLDefaultIsLoadingStart() {
         themedComponent {
-            fileLabelDescriptionIsLoadingStart(R.style.Serv_Sdds_ComponentOverlays_FileCircularProgressLDefault)
+            fileCircularLabelDescriptionIsLoadingStart(R.style.Serv_Sdds_ComponentOverlays_FileCircularProgressLDefault)
         }
     }
 
