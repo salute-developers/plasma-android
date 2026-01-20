@@ -45,31 +45,4 @@
         android:text="Description"
         app:layout_fileContent="description" />
 
-
-    <com.sdds.uikit.CircularProgressBar
-        android:id="@+id/componentFileCircularPB"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_fileContent="progress"
-        app:sd_progress="0.5" >
-
-        <com.sdds.uikit.ImageView
-            android:id="@+id/progressAction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tint="?testingTextColorPrimary"
-            android:src="@drawable/ic_close_16"
-            android:layout_gravity="center"
-            app:layout_fileContent="icon" />
-
-    </com.sdds.uikit.CircularProgressBar>
-
-    <com.sdds.uikit.ProgressBar
-        android:id="@+id/componentFilePB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_fileContent="progress"
-        app:sd_progress="0.5" />
-
 </com.sdds.uikit.File>

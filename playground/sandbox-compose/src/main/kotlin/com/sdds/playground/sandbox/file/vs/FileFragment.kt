@@ -39,12 +39,6 @@ internal class FileFragment : ComponentFragment<FileUiState, File, FileParameter
             .apply { id = R.id.file }
     }
 
-//    override fun getComponent(contextWrapper: ContextThemeWrapper): File {
-//        return file(contextWrapper)
-//    }
-//
-//    override fun onComponentUpdate(component: File?, state: FileUiState) = Unit
-
     override fun onComponentUpdate(component: File?, state: FileUiState) {
         fileLayout?.applyState(state)
     }
