@@ -150,6 +150,8 @@ internal class WheelListView(context: Context) : ListView(context) {
     private var fakeChild: View? = null
 
     private fun createMeasurementItem(): View? {
+        val itemCount = adapter?.itemCount ?: 0
+        if (itemCount == 0) return null
         return adapter?.onCreateViewHolder(this, 0)?.apply {
             adapter?.onBindViewHolder(this, 0)
         }?.itemView
