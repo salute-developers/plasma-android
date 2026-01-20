@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.StyleRes
 import com.sdds.testing.R
+import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.RectSkeleton
 import com.sdds.uikit.SkeletonLineWidthProvider
@@ -87,6 +88,7 @@ private fun text(
             id = R.id.text_over_skeleton
             layoutParams =
                 ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            setTextColor(context.getTextColorPrimary())
             setTextAppearance(textStyle)
         }
 }
