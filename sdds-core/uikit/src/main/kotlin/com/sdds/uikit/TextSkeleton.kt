@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.ViewGroup
+import androidx.annotation.ColorInt
 import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
@@ -140,6 +141,13 @@ open class TextSkeleton @JvmOverloads constructor(
      */
     fun setShimmerShader(shaderFactory: ShaderFactory) {
         modifyChildren { it.setShimmerShader(shaderFactory) }
+    }
+
+    /**
+     * Устанавливает цвет [color] для эффекта мерцания.
+     */
+    fun setShimmerColor(@ColorInt color: Int) {
+        modifyChildren { it.setShimmerColor(color) }
     }
 
     /**
