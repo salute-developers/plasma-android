@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_fileStyle" format="reference" />
+    <declare-styleable name="File" tools:ignore="ResourceName">
+        <!-- Оверлэй стиль компонента CircularProgressBar -->
+        <attr name="sd_circularProgressBarStyleOverlay" />
+        <!-- Оверлэй стиль компонента ProgressBar -->
+        <attr name="sd_progressBarStyleOverlay" format="reference" />
+        <!-- Оверлэй стиль компонента IconButton -->
+        <attr name="sd_iconButtonStyleOverlay" format="reference" />
+
+        <!-- Отступ после контента, расположенного в начале -->
+        <attr name="sd_contentStartPadding" />
+        <!-- Отступ перед контентом, расположенным в конце -->
+        <attr name="sd_contentEndPadding" />
+        <!-- Отступ перед контентом, расположенным снизу -->
+        <attr name="sd_contentBottomPadding" />
+        <!-- Отступ между Label и Description -->
+        <attr name="sd_descriptionPadding"  />
+
+        <!-- Стиль текста Label  -->
+        <attr name="sd_labelAppearance" />
+        <!-- Цвет текста Label  -->
+        <attr name="sd_labelColor" />
+
+        <!-- Окрас иконки  -->
+        <attr name="sd_iconTint" />
+
+        <!-- Стиль текста Description  -->
+        <attr name="sd_descriptionAppearance" format="reference" />
+        <!-- Цвет текста Description  -->
+        <attr name="sd_descriptionColor" format="reference|color" />
+
+        <!-- Перевод компонента в состояние загрузки -->
+        <attr name="sd_isLoading" format="boolean" />
+
+        <!-- Расположение компонента с ролью прогресс -->
+        <attr name="sd_progressPlacement" format="enum">
+            <!-- Размещает компонент прогресс в тот же слот что и Action,
+                он будет отображаться если isLoading = true, при этом компонент с ролью Action будет скрыт -->
+            <enum name="inner" value="0" />
+            <!-- Размещает компонент прогресс снизу File, он будет отображаться если isLoading = true
+                при этом компонент с ролью Action не будет скрыт -->
+            <enum name="outer" value="1" />
+        </attr>
+
+        <!-- Расположение компонента с ролью Action -->
+        <attr name="sd_actionPlacement" format="enum">
+            <!-- Размещает компонент с ролью Action в начале компонента, при этом, если имеется компоннет с ролью
+                Image или Icon, он будет скрыт -->
+            <enum name="start" value="0" />
+            <!-- Размещает компонент с ролью Action в конце компонента -->
+            <enum name="end" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="File_Layout" tools:ignore="ResourceName">
+        <!-- Роли компонентов, размещаемых внутри File -->
+        <attr name="layout_fileContent" format="enum">
+            <!-- Изображение -->
+            <enum name="image" value="0" />
+            <!-- Иконка -->
+            <enum name="icon" value="1" />
+            <!-- Компонент, предусматривающий взаимодействие (например нажатие) -->
+            <enum name="action" value="2" />
+            <!-- Компонент отображающий прогресс (например прогресс загрузки) -->
+            <enum name="progress" value="3"/>
+            <!-- Label -->
+            <enum name="label" value="4"/>
+            <!-- Описание -->
+            <enum name="description" value="5"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

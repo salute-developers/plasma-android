@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,6 +28,7 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ExperimentalTextApi
@@ -36,12 +38,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
@@ -80,6 +82,9 @@ internal fun TextFieldLayout(
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
     textLayoutResult: TextLayoutResult?,
+    onInnerTextFieldSizeChanged: (IntSize) -> Unit,
+    onChipGroupSizeChanged: (IntSize) -> Unit,
+    onPrefixSizeChanged: (IntSize) -> Unit,
 ) {
     val hasChips = chips != null
     val chipHeight = chipGroupStyle.chipStyle.dimensions.height
@@ -102,6 +107,7 @@ internal fun TextFieldLayout(
             chipHeight = chipHeight,
             alignmentLine = alignmentLine,
             hasChips = hasChips,
+            onInnerTextFieldMeasured = onInnerTextFieldSizeChanged,
         )
     }
     Layout(
@@ -169,11 +175,20 @@ internal fun TextFieldLayout(
                 prefix = prefix,
                 suffix = suffix,
                 textLayoutResult = textLayoutResult,
+                onChipGroupSizeChanged = onChipGroupSizeChanged,
+                onPrefixSizeChanged = onPrefixSizeChanged,
             )
         },
         measurePolicy = measurePolicy,
     )
 }
+
+@Immutable
+internal data class InnerTextFieldLayoutInfo(
+    val fieldSize: IntSize,
+    val prefixSize: IntSize,
+    val chipGroupSize: IntSize,
+)
 
 private fun adjustStartPaddingWhenHasChips(
     hasChips: Boolean,
@@ -252,6 +267,8 @@ private fun CompositeTextFieldContent(
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
     textLayoutResult: TextLayoutResult?,
+    onChipGroupSizeChanged: (IntSize) -> Unit,
+    onPrefixSizeChanged: (IntSize) -> Unit,
 ) {
     val textContent: @Composable () -> Unit = {
         Box {
@@ -263,6 +280,7 @@ private fun CompositeTextFieldContent(
                 prefix = prefix,
                 suffix = suffix,
                 textLayoutResult = textLayoutResult,
+                onPrefixSizeChanged = onPrefixSizeChanged,
             )
         }
     }
@@ -279,6 +297,7 @@ private fun CompositeTextFieldContent(
                 dimensions = dimensions,
                 scrollState = verticalScrollState,
                 valueTextStyle = valueTextStyle,
+                onChipGroupSizeChanged = onChipGroupSizeChanged,
             )
         } else {
             TextFieldContent(
@@ -288,6 +307,7 @@ private fun CompositeTextFieldContent(
                 chipGroupStyle = chipGroupStyle,
                 dimensions = dimensions,
                 scrollState = horizontalScrollState,
+                onChipGroupSizeChanged = onChipGroupSizeChanged,
             )
         }
     }
@@ -309,6 +329,7 @@ private fun TextAreaContent(
     dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
     valueTextStyle: TextStyle,
+    onChipGroupSizeChanged: (IntSize) -> Unit,
 ) {
     val chipStyle = chipGroupStyle.chipStyle
     Column(
@@ -324,13 +345,26 @@ private fun TextAreaContent(
                 val chipHeight = chipStyle.dimensions.height
                 val chipSpacing = chipGroupStyle.dimensions.lineSpacing
                 val chipsBottomPadding = chipSpacing + (chipHeight - valueHeight) / 2
+                val chipsBottomPaddingPx = with(LocalDensity.current) {
+                    chipsBottomPadding.roundToPx()
+                }
                 ChipGroup(
-                    modifier = Modifier.padding(bottom = chipsBottomPadding),
-                    overflowMode = ChipGroupOverflowMode.Wrap,
+                    modifier = Modifier
+                        .onSizeChanged {
+                            onChipGroupSizeChanged.invoke(
+                                IntSize(
+                                    width = it.width,
+                                    height = if (it.height != 0) it.height + chipsBottomPaddingPx else 0,
+                                ),
+                            )
+                        }
+                        .padding(bottom = chipsBottomPadding),
                     style = chipGroupStyle,
                 ) {
                     chips.invoke()
                 }
+            } else {
+                onChipGroupSizeChanged.invoke(IntSize.Zero)
             }
             Box(
                 modifier = Modifier.padding(
@@ -355,6 +389,7 @@ private fun TextFieldContent(
     chipGroupStyle: ChipGroupStyle,
     dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
+    onChipGroupSizeChanged: (IntSize) -> Unit,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -367,14 +402,26 @@ private fun TextFieldContent(
             .then(scrollState?.let { Modifier.horizontalScroll(it) } ?: Modifier),
         content = {
             if (chips != null) {
+                val gapPx = with(LocalDensity.current) {
+                    chipGroupStyle.dimensions.gap.roundToPx()
+                }
                 ChipGroup(
                     modifier = Modifier
+                        .onSizeChanged {
+                            onChipGroupSizeChanged.invoke(
+                                IntSize(
+                                    width = if (it.width != 0) it.width + gapPx else 0,
+                                    height = it.height,
+                                ),
+                            )
+                        }
                         .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.gap),
                     style = chipGroupStyle,
-                    overflowMode = ChipGroupOverflowMode.Unlimited,
                 ) {
                     chips.invoke()
                 }
+            } else {
+                onChipGroupSizeChanged.invoke(IntSize.Zero)
             }
             textContent()
         },
@@ -402,6 +449,7 @@ constructor(
     private val chipHeight: Dp,
     private val alignmentLine: Dp,
     private val hasChips: Boolean,
+    private val onInnerTextFieldMeasured: (IntSize) -> Unit,
 ) : MeasurePolicy {
 
     @OptIn(ExperimentalTextApi::class)
@@ -456,6 +504,9 @@ constructor(
         val textFieldPlaceable = measurables
             .first { it.layoutId == TextFieldId }
             .measure(textFieldConstraints)
+        onInnerTextFieldMeasured.invoke(
+            IntSize(textFieldPlaceable.width, textFieldPlaceable.height),
+        )
 
         // measure placeholder
         val placeholderConstraints = textFieldConstraints.copy(minWidth = 0)

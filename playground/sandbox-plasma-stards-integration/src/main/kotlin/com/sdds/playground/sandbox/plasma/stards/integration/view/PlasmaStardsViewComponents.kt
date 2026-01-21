@@ -258,5 +258,17 @@ object PlasmaStardsViewComponents : ComponentsProviderView() {
                     "PaginationDotsVertical" to PlasmaStardsPaginationDotsVerticalVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.RectSkeleton,
+                mapOf(
+                    "RectSkeleton" to PlasmaStardsRectSkeletonVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.TextSkeleton,
+                mapOf(
+                    "TextSkeleton" to PlasmaStardsTextSkeletonVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

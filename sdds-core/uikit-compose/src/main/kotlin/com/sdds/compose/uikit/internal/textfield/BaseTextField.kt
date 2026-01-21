@@ -21,6 +21,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -51,6 +52,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.IndicatorMode
 import com.sdds.compose.uikit.LocalTextFieldStyle
@@ -208,12 +210,32 @@ internal fun BaseTextField(
 
     val verticalScrollState = if (!singleLine) rememberScrollState() else null
     val horizontalScrollState = if (singleLine) rememberScrollState() else null
+
     var textLayoutResult by remember { mutableStateOf<TextLayoutResult?>(null) }
-    LaunchedEffect(value.text) {
-        horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
-        verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
+    var innerFieldSize by remember { mutableStateOf(IntSize.Zero) }
+    var chipGroupSize by remember { mutableStateOf(IntSize.Zero) }
+    var prefixSize by remember { mutableStateOf(IntSize.Zero) }
+    val innerTextFieldInfo = remember {
+        derivedStateOf {
+            InnerTextFieldLayoutInfo(
+                fieldSize = innerFieldSize,
+                prefixSize = prefixSize,
+                chipGroupSize = chipGroupSize,
+            )
+        }
     }
 
+    LaunchedEffect(value.text, value.selection, innerTextFieldInfo.value) {
+        textLayoutResult?.let { layout ->
+            scrollToCaret(
+                value,
+                layout,
+                horizontalScrollState,
+                verticalScrollState,
+                innerTextFieldInfo.value,
+            )
+        }
+    }
     /**
      * Источник взаимодействий внутреннего поля.
      * Когда внешний фокус выключен, он совпадает с [interactionSource].
@@ -386,6 +408,9 @@ internal fun BaseTextField(
                             text = suffix,
                             textStyle = suffixStyle,
                         ),
+                        onInnerTextFieldSizeChanged = { fieldSize -> innerFieldSize = fieldSize },
+                        onChipGroupSizeChanged = { chipsSize -> chipGroupSize = chipsSize },
+                        onPrefixSizeChanged = { prefix -> prefixSize = prefix },
                     )
 
                     OuterBottomText(
@@ -412,6 +437,43 @@ internal fun BaseTextField(
             )
         },
     )
+}
+
+private suspend fun scrollToCaret(
+    value: TextFieldValue,
+    layout: TextLayoutResult,
+    horizontalScrollState: ScrollState?,
+    verticalScrollState: ScrollState?,
+    innerFieldInfo: InnerTextFieldLayoutInfo,
+) {
+    val prefixSize = innerFieldInfo.prefixSize
+    val cursorRect = layout
+        .getCursorRect(value.selection.end)
+        .translate(prefixSize.width.toFloat(), 0f)
+    horizontalScrollState?.let { scroll ->
+        val chipsWidth = innerFieldInfo.chipGroupSize.width
+        val fieldWidth = innerFieldInfo.fieldSize.width
+        val cursorRight = cursorRect.right.toInt()
+        val cursorLeft = cursorRect.left.toInt()
+        val target = when {
+            chipsWidth + cursorRight > scroll.value + fieldWidth -> chipsWidth + cursorRight - fieldWidth
+            chipsWidth + cursorLeft < scroll.value -> chipsWidth + cursorLeft
+            else -> null
+        }
+        if (target != null && target != scroll.value) scroll.scrollTo(target)
+    }
+    verticalScrollState?.let { scroll ->
+        val chipsHeight = innerFieldInfo.chipGroupSize.height
+        val fieldHeight = innerFieldInfo.fieldSize.height
+        val cursorTop = cursorRect.top.toInt()
+        val cursorBottom = cursorRect.bottom.toInt()
+        val target = when {
+            chipsHeight + cursorBottom > scroll.value + fieldHeight -> chipsHeight + cursorBottom - fieldHeight
+            chipsHeight + cursorTop < scroll.value -> chipsHeight + cursorTop
+            else -> null
+        }
+        if (target != null && target != scroll.value) scroll.scrollTo(target)
+    }
 }
 
 @Composable

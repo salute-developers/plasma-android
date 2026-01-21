@@ -255,5 +255,17 @@ object PlasmaStardsComposeComponents : ComponentsProviderCompose() {
                     "PaginationDotsVertical" to PlasmaStardsPaginationDotsVerticalVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.RectSkeleton,
+                mapOf(
+                    "RectSkeleton" to PlasmaStardsRectSkeletonVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.TextSkeleton,
+                mapOf(
+                    "TextSkeleton" to PlasmaStardsTextSkeletonVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

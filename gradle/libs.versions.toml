@@ -39,10 +39,9 @@ glide = "4.16.0"
 
 koilVersion-compose = "2.2.0"
 
-sdds-uikit = "0.32.0"
-sdds-uikit-compose = "0.34.0"
-sdds-icons = "0.15.0"
-sdds-theme-builder = "0.31.0"
+sdds-uikit = "0.33.0"
+sdds-uikit-compose = "0.35.0"
+sdds-theme-builder = "0.32.0"
 
 uikit-input-masks-version = "7.2.6"
 
@@ -121,7 +120,6 @@ test-roborazzi-rule = { module = "io.github.takahirom.roborazzi:roborazzi-junit-
 
 sdds-uikit = { module = "io.github.salute-developers:sdds-uikit", version.ref = "sdds-uikit" }
 sdds-uikit-compose = { module = "io.github.salute-developers:sdds-uikit-compose", version.ref = "sdds-uikit-compose" }
-sdds-icons = { module = "io.github.salute-developers:sdds-icons", version.ref = "sdds-icons" }
 
 uikit-input-masks = { module = "com.redmadrobot:input-mask-android", version.ref = "uikit-input-masks-version" }
 

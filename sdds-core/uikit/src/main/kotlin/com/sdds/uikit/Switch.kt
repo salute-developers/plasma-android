@@ -15,11 +15,15 @@ import com.sdds.uikit.internal.CheckableDelegate
 import com.sdds.uikit.internal.SwitchDrawable
 import com.sdds.uikit.internal.base.TextHelper
 import com.sdds.uikit.internal.base.ViewAlphaHelper
+import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeHelper
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.StyleStateList
 import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.getStyleForState
+import com.sdds.uikit.statelist.getStyleStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
 
 /**
@@ -47,10 +51,15 @@ open class Switch @JvmOverloads constructor(
         descriptionLayoutMode = CheckableDelegate.DescriptionLayoutMode.FullWidth,
     )
     private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
+    private val textHelper = TextHelper(this)
     private var _buttonDrawable: SwitchDrawable? = null
     private var _offsetY = 0f
     private var _backgroundList: ColorValueStateList? = null
     private val _initialShape: ShapeModel? = _shapeHelper.shape
+    private var _textAppearances: StyleStateList? = null
+    private var _currentTextAppearance: Int = 0
+    private var _descriptionAppearances: StyleStateList? = null
+    private var _currentDescriptionAppearances: Int = 0
 
     override val shape: ShapeModel?
         get() = _shapeHelper.shape
@@ -80,6 +89,26 @@ open class Switch @JvmOverloads constructor(
      */
     open fun setDescriptionTextAppearance(@StyleRes textAppearanceId: Int) {
         _checkableDelegate.setDescriptionTextAppearance(textAppearanceId)
+    }
+
+    /**
+     * Устанавливает список стилей [StyleStateList] для description, которые соотвествуют drawableState
+     */
+    open fun setDescriptionTextAppearance(descriptionAppearances: StyleStateList?) {
+        if (_descriptionAppearances != descriptionAppearances) {
+            _descriptionAppearances = descriptionAppearances
+            refreshDrawableState()
+        }
+    }
+
+    /**
+     * Устанавливает список стилей [StyleStateList] для основного текста, которые соотвествуют drawableState
+     */
+    fun setTextAppearancesList(labelAppearances: StyleStateList?) {
+        if (_textAppearances != labelAppearances) {
+            _textAppearances = labelAppearances
+            refreshDrawableState()
+        }
     }
 
     /**
@@ -189,6 +218,8 @@ open class Switch @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
+        refreshTextAppearanceIfNeed()
+        refreshDescriptionAppearanceIfNeed()
         _checkableDelegate?.updateDescriptionColor()
         setBackgroundValueList(_backgroundList)
     }
@@ -200,9 +231,14 @@ open class Switch @JvmOverloads constructor(
             thumb = typedArray.getColorStateList(R.styleable.Switch_sd_buttonThumbColor),
             border = typedArray.getColorStateList(R.styleable.Switch_sd_buttonTrackBorderColor),
         )
-        val textHelper = TextHelper(this)
         _backgroundList = typedArray.getColorValueStateList(context, R.styleable.Switch_sd_background)
-        textHelper.loadFromAttributes(attrs, defStyleAttr, defStyleRes)
+        _textAppearances = typedArray.getStyleStateList(context, R.styleable.Switch_sd_textAppearance)
+        _descriptionAppearances = typedArray.getStyleStateList(context, R.styleable.Switch_sd_descriptionTextAppearance)
+        _textAppearances?.let {
+            _currentTextAppearance = it.getStyleForState(drawableState)
+            resetTextAppearance(_currentTextAppearance)
+        }
+        if (_textAppearances == null) textHelper.loadFromAttributes(attrs, defStyleAttr, defStyleRes)
         typedArray.recycle()
     }
 
@@ -214,6 +250,30 @@ open class Switch @JvmOverloads constructor(
         }
         if (newShape != null) {
             _shapeHelper.setShape(newShape)
+        }
+    }
+
+    private fun refreshTextAppearanceIfNeed() {
+        val stateList = _textAppearances ?: return
+        val old = _currentTextAppearance
+        _currentTextAppearance = stateList.getStyleForState(drawableState)
+        if (old != _currentTextAppearance) {
+            resetTextAppearance(_currentTextAppearance)
+        }
+    }
+
+    private fun refreshDescriptionAppearanceIfNeed() {
+        val stateList = _descriptionAppearances ?: return
+        val old = _currentDescriptionAppearances
+        _currentDescriptionAppearances = stateList.getStyleForState(drawableState)
+        if (old != _currentDescriptionAppearances) {
+            _checkableDelegate.setDescriptionTextAppearance(_currentDescriptionAppearances)
+        }
+    }
+
+    private fun resetTextAppearance(@StyleRes resId: Int) {
+        paint.applyTextAppearance(context, resId) {
+            requestLayout()
         }
     }
 

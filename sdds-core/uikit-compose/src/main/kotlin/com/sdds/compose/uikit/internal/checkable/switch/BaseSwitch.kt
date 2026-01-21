@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.SwitchDimensionValues
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.interactions.getValue
 
 @Composable
 internal fun BaseSwitch(
@@ -66,14 +67,18 @@ internal fun BaseSwitch(
             {
                 val labelColor = style.colorValues.labelColor
                     .colorForInteractionAsState(interactionSource, stateSet)
-                ProvideTextStyle(style.labelStyle, color = { labelColor.value }, content)
+                ProvideTextStyle(style.labelStyles.getValue(interactionSource), color = { labelColor.value }, content)
             }
         },
         description = descriptionContent?.let { content ->
             {
                 val descriptionColor = style.colorValues.descriptionColor
                     .colorForInteractionAsState(interactionSource, stateSet)
-                ProvideTextStyle(style.descriptionStyle, color = { descriptionColor.value }, content)
+                ProvideTextStyle(
+                    style.descriptionStyles.getValue(interactionSource),
+                    color = { descriptionColor.value },
+                    content,
+                )
             }
         },
         verticalSpacing = style.dimensionValues.descriptionPadding,

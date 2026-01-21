@@ -45,15 +45,15 @@ title: Loader
 |sd_progress|текущий прогресс|float|
 |sd_maxProgress|максимальный прогресс(это значение будет означать 100%)|float|
 |sd_minProgress|минимальный прогресс|float|
-|sd_trackEnabled|бордер, по которому отрисовывется прогресс|boolean|
+|sd_trackEnabled|бордер, по которому отрисовывается прогресс|boolean|
 |sd_progressValueEnabled|включение отображения численного значения прогресса|boolean|
-|sd_progressValueSuffix|суффикс(единца измерения прогресса)|string|
+|sd_progressValueSuffix|суффикс(единица измерения прогресса)|string|
 |sd_sweepAngle|угол дуги индикатора загрузки в градусах, определяет какую часть окружности занимает индикатор спиннера|float|
 |sd_loaderType|тип отображаемого индикатора загрузки Spinner или CircularProgressBar|enum(spinner, progress)|
 
 ## LoaderType
 
-Параметр, определяющй, какой компонент отображается в данный момент. Ожидаемое значение  
+Параметр, определяющий, какой компонент отображается в данный момент. Ожидаемое значение  
 Int,  для отображения [Spinner] - Loader.SPINNER, для [CircularProgressBar] - Loader.PROGRESS
 
 ## Примечание

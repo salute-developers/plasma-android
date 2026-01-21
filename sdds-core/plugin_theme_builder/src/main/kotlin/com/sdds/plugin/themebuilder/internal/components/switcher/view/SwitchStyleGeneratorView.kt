@@ -2,8 +2,10 @@ package com.sdds.plugin.themebuilder.internal.components.switcher.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
+import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -50,6 +52,9 @@ internal open class SwitchStyleGeneratorView(
         SwitchColorProperty.values().forEach { checkBoxColorProperty ->
             addColorProperty(checkBoxColorProperty, variation, variationNode)
         }
+        SwitchTypographyProperties.values().forEach {
+            addTypographyProperty(it, variation, variationNode)
+        }
     }
 
     @Suppress("CyclomaticComplexMethod")
@@ -61,13 +66,6 @@ internal open class SwitchStyleGeneratorView(
         props.toggleTrackShape?.let { shapeAttribute(variation, it.value, it.adjustment, attrName = "track") }
         props.toggleThumbShape?.let { shapeAttribute(variation, it.value, it.adjustment, attrName = "thumb") }
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
-        props.labelStyle?.let { typographyAttribute("android:textAppearance", it.value) }
-        props.descriptionStyle?.let {
-            typographyAttribute(
-                "sd_descriptionTextAppearance",
-                it.value,
-            )
-        }
         props.disableAlpha?.let { valueAttribute("sd_disabledAlpha", it.value.toString()) }
 
         props.togglePadding?.let {
@@ -125,6 +123,22 @@ internal open class SwitchStyleGeneratorView(
                 TOGGLE_TRACK_BORDER_COLOR -> owner.toggleTrackBorderColor
                 TOGGLE_THUMB_COLOR -> owner.toggleThumbColor
                 BACKGROUND_COLOR -> owner.backgroundColor
+            }
+        }
+    }
+
+    internal enum class SwitchTypographyProperties(
+        override val attribute: String,
+        override val fileSuffix: String,
+    ) : ProvidableProperty<SwitchProperties, String, Typography> {
+        LABEL_APPEARANCE("sd_textAppearance", "text_appearance"),
+        DESCRIPTION_APPEARANCE("sd_descriptionTextAppearance", "description_appearance"),
+        ;
+
+        override fun provide(owner: SwitchProperties): Typography? {
+            return when (this) {
+                LABEL_APPEARANCE -> owner.labelStyle
+                DESCRIPTION_APPEARANCE -> owner.descriptionStyle
             }
         }
     }

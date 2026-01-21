@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
+import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import com.sdds.uikit.internal.base.lerp
 import com.sdds.uikit.shader.GradientShader
@@ -19,9 +20,13 @@ import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.statelist.ColorValueHolder
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
+import kotlin.math.roundToInt
 
 /**
- * Контейнер для отрисовки эффекта мерцания
+ * Контейнер для отрисовки эффекта мерцания.
+ * Если установить цвет, то эффект мерцания будет достигаться за счет изменения альфы установленного цвета.
+ * Если установить градиент (шейдер), то эффект мерцания будет достигаться за счет перемещения прямоугольника с примененным шейдером.
+ *
  * @param context контекст
  * @param attrs аттрибуты view
  * @param defStyleAttr аттрибут стиля по умолчанию
@@ -35,6 +40,9 @@ open class ShimmerLayout @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private val shimmerPaint = Paint()
+
+    @ColorInt
+    private var shimmerColor: Int? = null
     private var shimmerShaderFactory: ShaderFactory? = null
     private var shimmerShader: Shader? = null
     private val shaderMatrix: Matrix = Matrix()
@@ -43,17 +51,26 @@ open class ShimmerLayout @JvmOverloads constructor(
 
     private var shimmerDuration: Long = DEFAULT_DURATION.toLong()
 
-    private var shimmerTranslateXFraction = 0f
+    private var shimmerFraction = 0f
     private val shimmerAnimationWidth = Resources.getSystem().displayMetrics.widthPixels.toFloat()
-    private val animator: ValueAnimator = ValueAnimator.ofFloat(1f).apply {
+
+    private val isBlinkingShimmer: Boolean
+        get() = shimmerColor != null
+
+    private val baseAnimator: ValueAnimator = ValueAnimator.ofFloat(1f).apply {
         duration = shimmerDuration
         repeatCount = ValueAnimator.INFINITE
         interpolator = LinearInterpolator()
         addUpdateListener {
-            shimmerTranslateXFraction = it.animatedValue as Float
+            shimmerFraction = it.animatedValue as Float
             invalidate()
         }
     }
+
+    private val animator: ValueAnimator
+        get() = baseAnimator.apply {
+            repeatMode = if (isBlinkingShimmer) ValueAnimator.REVERSE else ValueAnimator.RESTART
+        }
 
     /**
      * Включает/выключает автоматический запуск анимации эффекта мерцания
@@ -85,12 +102,13 @@ open class ShimmerLayout @JvmOverloads constructor(
     /**
      * Устанавливает список [ColorValueStateList] для эффекта мерцания.
      * В указанном [list] может быть либо ссылка на [ShapeDrawable] с установленным [ShaderFactory], либо ссылка
-     * на стиль шейдера
+     * на стиль шейдера, либо на цвет.
      */
     fun setShimmerShaderList(list: ColorValueStateList?) {
         if (_shimmerList != list) {
             _shimmerList = list
             updateShaderFactory()
+            updateColor()
             invalidate()
         }
     }
@@ -102,7 +120,17 @@ open class ShimmerLayout @JvmOverloads constructor(
      */
     fun setShimmerShader(shaderFactory: ShaderFactory) {
         shimmerShaderFactory = shaderFactory
+        shimmerColor = null
         createShader()
+        invalidate()
+    }
+
+    /**
+     * Устанавливает цвет [color] для эффекта мерцания.
+     */
+    fun setShimmerColor(@ColorInt color: Int) {
+        shimmerColor = color
+        shimmerShaderFactory = null
         invalidate()
     }
 
@@ -162,13 +190,26 @@ open class ShimmerLayout @JvmOverloads constructor(
         super.dispatchDraw(canvas)
         shimmerShader?.let {
             shaderMatrix.setTranslate(
-                lerp(-shimmerAnimationWidth, shimmerAnimationWidth, shimmerTranslateXFraction),
+                lerp(-shimmerAnimationWidth, shimmerAnimationWidth, shimmerFraction),
                 0f,
             )
             it.setLocalMatrix(shaderMatrix)
             shimmerPaint.shader = it
             canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), shimmerPaint)
         }
+        shimmerColor?.let {
+            shimmerPaint.color = it
+            shimmerPaint.alpha = lerp(
+                a = shimmerPaint.alpha,
+                b = shimmerPaint.alpha + alphaFloatToInt(DEFAULT_BLINK_ALPHA_DELTA),
+                fraction = shimmerFraction,
+            )
+            canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), shimmerPaint)
+        }
+    }
+
+    private fun alphaFloatToInt(alpha: Float): Int {
+        return (alpha.coerceIn(0f, 1f) * 255).roundToInt()
     }
 
     override fun onDetachedFromWindow() {
@@ -179,17 +220,29 @@ open class ShimmerLayout @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         updateShaderFactory()
+        updateColor()
     }
 
     private fun updateShaderFactory() {
-        shimmerShaderFactory = when (val shimmer = _shimmerList?.getValueForState(drawableState)) {
+        val shimmer = _shimmerList?.getValueForState(drawableState)
+        shimmerShaderFactory = when (shimmer) {
             is ColorValueHolder.DrawableValue -> (shimmer.value as? ShapeDrawable)?.shaderFactory
             is ColorValueHolder.ShaderValue -> shimmer.value
             else -> null
         }
     }
 
+    private fun updateColor() {
+        val shimmer = _shimmerList?.getValueForState(drawableState)
+        shimmerColor = when (shimmer) {
+            is ColorValueHolder.ColorValue -> shimmer.value
+            is ColorValueHolder.ColorListValue -> shimmer.value.defaultColor
+            else -> null
+        }
+    }
+
     private companion object {
         const val DEFAULT_DURATION = 1000
+        const val DEFAULT_BLINK_ALPHA_DELTA = 0.08f
     }
 }

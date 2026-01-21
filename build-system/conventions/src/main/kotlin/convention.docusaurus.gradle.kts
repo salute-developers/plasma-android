@@ -103,12 +103,13 @@ val docBuildTask by tasks.register("docusaurusBuild") {
     doLast {
         exec {
             workingDir = docusaurusDestinationDir
-            commandLine("yarn")
+            commandLine("npm", "ci")
         }
 
+        // npm-скрипт build из package.json
         exec {
             workingDir = docusaurusDestinationDir
-            commandLine("yarn", "build")
+            commandLine("npm", "run", "build")
         }
     }
 }
@@ -120,11 +121,11 @@ tasks.register("docusaurusRun") {
     doLast {
         exec {
             workingDir = docusaurusDestinationDir
-            commandLine("yarn")
+            commandLine("npm", "ci")
         }
         exec {
             workingDir = docusaurusDestinationDir
-            commandLine("yarn", "start")
+            commandLine("npm", "run", "start")
         }
     }
 }

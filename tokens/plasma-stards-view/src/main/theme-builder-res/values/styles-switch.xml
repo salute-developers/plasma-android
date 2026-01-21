@@ -13,14 +13,14 @@
         <item name="sd_buttonThumbColor">?sdkit_surfaceOnDarkSolidDefault</item>
     </style>
     <style name="Sdkit.StarDs.Components.Switch.L">
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
         <item name="android:drawablePadding">@dimen/sdkit_switch_l_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/sdkit_switch_l_description_padding</item>
         <item name="sd_switchWidth">@dimen/sdkit_switch_l_switch_width</item>
         <item name="sd_switchHeight">@dimen/sdkit_switch_l_switch_height</item>
         <item name="sd_thumbWidth">@dimen/sdkit_switch_l_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/sdkit_switch_l_thumb_height</item>
+        <item name="sd_textAppearance">@xml/sdkit_switch_l_text_appearance</item>
+        <item name="sd_descriptionTextAppearance">@xml/sdkit_switch_l_description_appearance</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SwitchL">
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.L</item>
@@ -37,14 +37,14 @@
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.L.HasBackground</item>
     </style>
     <style name="Sdkit.StarDs.Components.Switch.M">
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="android:drawablePadding">@dimen/sdkit_switch_m_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/sdkit_switch_m_description_padding</item>
         <item name="sd_switchWidth">@dimen/sdkit_switch_m_switch_width</item>
         <item name="sd_switchHeight">@dimen/sdkit_switch_m_switch_height</item>
         <item name="sd_thumbWidth">@dimen/sdkit_switch_m_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/sdkit_switch_m_thumb_height</item>
+        <item name="sd_textAppearance">@xml/sdkit_switch_m_text_appearance</item>
+        <item name="sd_descriptionTextAppearance">@xml/sdkit_switch_m_description_appearance</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SwitchM">
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
@@ -62,14 +62,14 @@
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.M.HasBackground</item>
     </style>
     <style name="Sdkit.StarDs.Components.Switch.S">
-        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="android:drawablePadding">@dimen/sdkit_switch_s_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/sdkit_switch_s_description_padding</item>
         <item name="sd_switchWidth">@dimen/sdkit_switch_s_switch_width</item>
         <item name="sd_switchHeight">@dimen/sdkit_switch_s_switch_height</item>
         <item name="sd_thumbWidth">@dimen/sdkit_switch_s_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/sdkit_switch_s_thumb_height</item>
+        <item name="sd_textAppearance">@xml/sdkit_switch_s_text_appearance</item>
+        <item name="sd_descriptionTextAppearance">@xml/sdkit_switch_s_description_appearance</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.SwitchS">
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.S</item>
