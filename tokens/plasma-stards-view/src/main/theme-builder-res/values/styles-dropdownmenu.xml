@@ -4,9 +4,14 @@
 <resources>
     <style name="Sdkit.StarDs.Components.DropdownMenu" parent="Sdds.Components.DropdownMenu">
         <item name="sd_shadowAppearance">?sdkit_shadowDownSoftS</item>
+        <item name="sd_scrollBarStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.ScrollBarS</item>
         <item name="sd_dividerStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.Divider</item>
         <item name="sd_strokeWidth">@dimen/sdkit_dropdown_menu_stroke_width</item>
         <item name="sd_offset">@dimen/sdkit_dropdown_menu_offset</item>
+        <item name="android:paddingStart">@dimen/sdkit_dropdown_menu_padding_start</item>
+        <item name="android:paddingTop">@dimen/sdkit_dropdown_menu_padding_top</item>
+        <item name="android:paddingEnd">@dimen/sdkit_dropdown_menu_padding_end</item>
+        <item name="android:paddingBottom">@dimen/sdkit_dropdown_menu_padding_bottom</item>
         <item name="sd_background">?sdkit_surfaceDefaultSolidCard</item>
         <item name="sd_strokeColor">?sdkit_outlineDefaultTransparentPrimary</item>
     </style>
@@ -14,6 +19,8 @@
         <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
         <item name="sd_listViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuListXl</item>
         <item name="android:minWidth">@dimen/sdkit_dropdown_menu_xl_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/sdkit_dropdown_menu_xl_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/sdkit_dropdown_menu_xl_scrollbar_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuXl">
         <item name="sd_dropdownMenuStyle">@style/Sdkit.StarDs.Components.DropdownMenu.Xl</item>
@@ -23,6 +30,8 @@
         <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_dropdown_menu_l_shape_adjustment</item>
         <item name="sd_listViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuListL</item>
         <item name="android:minWidth">@dimen/sdkit_dropdown_menu_l_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/sdkit_dropdown_menu_l_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/sdkit_dropdown_menu_l_scrollbar_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuL">
         <item name="sd_dropdownMenuStyle">@style/Sdkit.StarDs.Components.DropdownMenu.L</item>
@@ -31,6 +40,8 @@
         <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
         <item name="sd_listViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuListM</item>
         <item name="android:minWidth">@dimen/sdkit_dropdown_menu_m_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/sdkit_dropdown_menu_m_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/sdkit_dropdown_menu_m_scrollbar_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuM">
         <item name="sd_dropdownMenuStyle">@style/Sdkit.StarDs.Components.DropdownMenu.M</item>
@@ -40,6 +51,8 @@
         <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_dropdown_menu_s_shape_adjustment</item>
         <item name="sd_listViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuListS</item>
         <item name="android:minWidth">@dimen/sdkit_dropdown_menu_s_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/sdkit_dropdown_menu_s_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/sdkit_dropdown_menu_s_scrollbar_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuS">
         <item name="sd_dropdownMenuStyle">@style/Sdkit.StarDs.Components.DropdownMenu.S</item>
@@ -48,6 +61,8 @@
         <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
         <item name="sd_listViewStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuListXs</item>
         <item name="android:minWidth">@dimen/sdkit_dropdown_menu_xs_min_width</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/sdkit_dropdown_menu_xs_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/sdkit_dropdown_menu_xs_scrollbar_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.DropdownMenuXs">
         <item name="sd_dropdownMenuStyle">@style/Sdkit.StarDs.Components.DropdownMenu.Xs</item>

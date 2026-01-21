@@ -92,6 +92,10 @@
         <attr name="sd_buttonTrackBorderColor" format="reference|color" />
         <!-- Цвет подвижной части переключателя -->
         <attr name="sd_buttonThumbColor" format="reference|color" />
+        <!-- Стиль основного текста  -->
+        <attr name="sd_textAppearance" />
+        <!-- Стиль дополнительного текста  -->
+        <attr name="sd_descriptionTextAppearance" />
         <attr name="sd_buttonThumbColorMode"/>
         <attr name="sd_shapeAppearance"/>
         <attr name="sd_background"/>
