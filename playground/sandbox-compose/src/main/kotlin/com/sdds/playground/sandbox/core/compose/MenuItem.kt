@@ -88,8 +88,8 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
-import com.sdds.playground.sandbox.file.FilePreview
-import com.sdds.playground.sandbox.file.FileScreen
+import com.sdds.playground.sandbox.file.compose.FilePreview
+import com.sdds.playground.sandbox.file.compose.FileScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen

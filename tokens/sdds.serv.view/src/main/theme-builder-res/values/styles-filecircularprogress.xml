@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.FileCircularProgress" parent="Sdds.Components.File">
+        <item name="sd_descriptionPadding">@dimen/serv_file_circular_progress_description_padding</item>
+        <item name="sd_actionPlacement">end</item>
+        <item name="sd_progressPlacement">inner</item>
+        <item name="sd_iconTint">@color/serv_file_circular_progress_icon_tint</item>
+        <item name="sd_descriptionColor">@color/serv_file_circular_progress_description_color</item>
+        <item name="sd_labelColor">@color/serv_file_circular_progress_label_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.FileColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.Xs">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_xs_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonXsClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressXs">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.Xs.Default">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_xs_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarXsDefault</item>
+        <item name="serv_fileColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressXsDefault">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.Xs.Negative">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_xs_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarXsNegative</item>
+        <item name="serv_fileColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressXsNegative">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.S">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_s_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressS">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.S.Default">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_s_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarSDefault</item>
+        <item name="serv_fileColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressSDefault">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.S.Negative">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_s_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarSNegative</item>
+        <item name="serv_fileColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressSNegative">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.M">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_m_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressM">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.M.Default">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_m_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarSDefault</item>
+        <item name="serv_fileColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressMDefault">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.M.Negative">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_m_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarSNegative</item>
+        <item name="serv_fileColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressMNegative">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.L">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_l_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressL">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.L.Default">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_l_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarSDefault</item>
+        <item name="serv_fileColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressLDefault">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.FileCircularProgress.L.Negative">
+        <item name="sd_contentStartPadding">@dimen/serv_file_circular_progress_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_file_circular_progress_l_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CircularProgressBarSNegative</item>
+        <item name="serv_fileColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.FileCircularProgressLNegative">
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.L.Negative</item>
+    </style>
+</resources>

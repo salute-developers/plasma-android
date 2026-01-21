@@ -399,5 +399,12 @@ object SddsServViewComponents : ComponentsProviderView() {
                     "Carousel" to SddsServCarouselVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.File,
+                mapOf(
+                    "FileCircularProgress" to SddsServFileCircularProgressVariationsView,
+                    "FileLinearProgress" to SddsServFileLinearProgressVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

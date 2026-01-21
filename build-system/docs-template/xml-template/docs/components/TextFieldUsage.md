@@ -22,20 +22,20 @@ title: TextField
 ## Стиль TextField
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
-Для использования заранее сгененрированного стиля, необходимо через атрибут style указатать стиль из библиотеки (пример выше).  
+Для использования заранее сгенерированного стиля, необходимо через атрибут style указать стиль из библиотеки (пример выше).  
 Для настройки стиля TextField в формате xml предусмотрены следующие атрибуты:
 
 |Название атрибута|Описание|Формат данных|
 |:-:|:-:|:-:|
 |sd_label|текст лэйбла|string|
 |sd_labelAppearance|стиль лэйбла|reference|
-|sd_labelColor|цвет лэбла|color, reference|
+|sd_labelColor|цвет лэйбла|color, reference|
 |sd_labelPadding|отступ лэйбла от value|dimension|
 |sd_labelPlacement|расположение лэйбла|enum (none, outer, inner)|
 |sd_value|основной текст|string|
 |sd_valueAppearance|стиль основного текста|reference|
 |sd_valueColor|цвет основного текста|color, reference|
-|sd_placeholder|текст плйсхолдера|string|
+|sd_placeholder|текст плэйсхолдера|string|
 |sd_placeholderAppearance|стиль текста плэйхолдера|reference|
 |sd_placeholderColor|цвет текста плэйсхолдера|color, reference|
 |sd_caption|текст подписи|string|
@@ -68,8 +68,8 @@ title: TextField
 |sd_boxPaddingTop|отступ сверху текстового поля|dimension|
 |sd_boxPaddingEnd|отступ в конце текстового поля|dimension|
 |sd_boxPaddingBottom|отступ снизу текстового поля|dimension|
-|sd_chipGroupStyleOverlay|стиль компонента ChipGroup, если задан, то при вводе текста и нажатии клавиши пробел, введенный текст оборачивается в комопнент Chip с иконкой закрытия (удаления Chip) |reference|
-|sd_chipsPadding|оступы между Chip в текстовом поле|dimension|
+|sd_chipGroupStyleOverlay|стиль компонента ChipGroup, если задан, то при вводе текста и нажатии клавиши пробел, введенный текст оборачивается в компонент Chip с иконкой закрытия (удаления Chip) |reference|
+|sd_chipsPadding|отступы между Chip в текстовом поле|dimension|
 |sd_suffixText|текст после value|string|
 |sd_suffixDrawable|drawable после value|reference|
 |sd_suffixTextPadding|отступ между основным текстом (value) и suffix|dimension|
@@ -81,7 +81,7 @@ title: TextField
 |sd_scrollBarPaddingTop|отступ сверху|dimension|
 |sd_scrollBarPaddingEnd|отступ в конце|dimension|
 |sd_scrollBarPaddingStart|отступ в начале|dimension|
-|sd_scrollBarPaddingBottom|оступ снизу|dimension|
+|sd_scrollBarPaddingBottom|отступ снизу|dimension|
 |sd_scrollBarTrackColor|цвет фона полосы прокрутки|color, reference|
 |sd_scrollBarThumbColor|цвет индикатора прокрутки|color, reference|
 
@@ -90,7 +90,7 @@ title: TextField
 ## TextArea
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
-Для использования заранее сгененрированного стиля, необходимо через атрибут style указатать стиль из библиотеки.  
+Для использования заранее сгенерированного стиля, необходимо через атрибут style указать стиль из библиотеки.  
 Для настройки стиля TextArea в формате xml предусмотрены те же атрибуты, что у TextField,  
 так как эти два компонента отличаются друг от друга только визуально.
 
@@ -111,7 +111,7 @@ title: TextField
 
 ## TextField readOnly
 
-При включении этого параметра компоннет сатновится доступным только для чтения, изменение текстовых полей невозможно.
+При включении этого параметра компонент становится доступным только для чтения, изменение текстовых полей невозможно.
 
 ## TextField value
 

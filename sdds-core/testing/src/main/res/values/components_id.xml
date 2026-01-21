@@ -59,4 +59,5 @@
     <item type="id" name="carousel"/>
     <item type="id" name="slider"/>
     <item type="id" name="autocomplete"/>
+    <item type="id" name="file"/>
 </resources>

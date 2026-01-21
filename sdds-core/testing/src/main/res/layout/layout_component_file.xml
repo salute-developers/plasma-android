@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.File xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/file"
+    style="?sd_fileStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <com.sdds.uikit.ImageView
+        android:id="@+id/componentFileImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_fileContent="image" />
+
+    <com.sdds.uikit.ImageView
+        android:id="@+id/componentFileIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_file_check_fill_24"
+        app:layout_fileContent="icon" />
+
+    <com.sdds.uikit.IconButton
+        android:id="@+id/componentFileIconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_fileContent="action"
+        app:sd_icon="@drawable/ic_close_24" />
+
+    <com.sdds.uikit.TextView
+        android:id="@+id/componentFileLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_fileContent="label" />
+
+    <com.sdds.uikit.TextView
+        android:id="@+id/componentFileDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Description"
+        app:layout_fileContent="description" />
+
+</com.sdds.uikit.File>

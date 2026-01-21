@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.file
+package com.sdds.playground.sandbox.file.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
