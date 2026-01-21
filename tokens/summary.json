@@ -2,13 +2,13 @@
   "plasmaStarDS": {
     "viewSystem": {
       "title": "XML",
-      "version": "2.24.0",
+      "version": "2.25.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.24.0/"
+          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.25.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.24.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/2.25.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/xml/plasma-star-ds/changelog.json"
@@ -17,13 +17,13 @@
     },
     "composeUi": {
       "title": "Compose UI",
-      "version": "0.22.0",
+      "version": "0.23.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/0.22.0/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/0.23.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/0.22.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/0.23.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-star-ds-compose/changelog.json"
@@ -34,13 +34,13 @@
   "plasmaGigaApp": {
     "composeUi": {
       "title": "Compose UI",
-      "version": "0.21.0",
+      "version": "0.22.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/0.21.0/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/0.22.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/0.21.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/0.22.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-giga-app-compose/changelog.json"
@@ -51,13 +51,13 @@
   "plasmaHomeDS": {
     "composeUi": {
       "title": "Compose UI",
-      "version": "0.12.0",
+      "version": "0.13.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/0.12.0/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/0.13.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/0.12.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/0.13.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-homeds-compose/changelog.json"
@@ -68,13 +68,13 @@
   "plasmaSDService": {
     "viewSystem": {
       "title": "XML",
-      "version": "0.23.0",
+      "version": "0.24.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/0.23.0/"
+          "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/0.24.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/0.23.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/0.24.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/xml/plasma-sd-service/changelog.json"
@@ -83,13 +83,13 @@
     },
     "composeUi": {
       "title": "Compose UI",
-      "version": "0.28.0",
+      "version": "0.29.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/0.28.0/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/0.29.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/0.28.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/0.29.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/compose/plasma-sd-service-compose/changelog.json"
@@ -100,13 +100,13 @@
   "SDDSService": {
     "viewSystem": {
       "title": "XML",
-      "version": "0.27.0",
+      "version": "0.28.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/xml/sdds-serv/0.27.0/"
+          "href": "https://plasma.sberdevices.ru/xml/sdds-serv/0.28.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/xml/sdds-serv/0.27.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/xml/sdds-serv/0.28.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/xml/sdds-serv/changelog.json"
@@ -115,13 +115,13 @@
     },
     "composeUi": {
       "title": "Compose UI",
-      "version": "0.27.0",
+      "version": "0.28.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/0.27.0/"
+          "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/0.28.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/0.27.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/0.28.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/compose/sdds-serv-compose/changelog.json"
@@ -132,13 +132,13 @@
   "plasmaStylesSalute": {
     "viewSystem": {
       "title": "XML",
-      "version": "0.22.0",
+      "version": "0.23.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/xml/stylessalute/0.22.0/"
+          "href": "https://plasma.sberdevices.ru/xml/stylessalute/0.23.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/xml/stylessalute/0.22.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/xml/stylessalute/0.23.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/xml/stylessalute/changelog.json"
@@ -147,13 +147,13 @@
     },
     "composeUi": {
       "title": "Compose UI",
-      "version": "0.22.0",
+      "version": "0.23.0",
       "links": {
         "documentation": {
-          "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/0.22.0/"
+          "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/0.23.0/"
         },
         "changelog": {
-          "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/0.22.0/CHANGELOG/"
+          "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/0.23.0/CHANGELOG/"
         },
         "changelogData": {
           "href": "https://plasma.sberdevices.ru/compose/stylessalute-compose/changelog.json"
