@@ -51,3 +51,4 @@ jobs:
     with:
       modules: ${{ needs.state.outputs.modules }}
       ref: ${{ needs.state.outputs.ref }}
+      is_repository_dispatch: ${{ github.event_name == 'repository_dispatch' }}

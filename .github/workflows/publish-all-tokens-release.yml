@@ -32,14 +32,17 @@ jobs:
         id: inputs
         run: |
           if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
-            MODULES_LIST='${{ toJson(github.event.client_payload.modules) }}'
-            MODULES=$(echo "$MODULES_LIST" | jq -r '.[]' | paste -sd ' ' -)
+            echo "Using modules and tag from repository_dispatch event"
+            MODULES_JSON='${{ toJson(github.event.client_payload.modules) }}'
+            echo "Debug: modules (json) -> $MODULES_JSON"
+
+            MODULES=$(echo "$MODULES_JSON" | jq -r 'fromjson | .[]' | paste -sd ' ' -)
             TAG="${{ github.event.client_payload.tag }}"
           else
-          MODULES=$(echo "${{ github.event.inputs.modules }}" | tr ',' ' ')
-          TAG="${{ github.event.inputs.tag }}"
+            MODULES=$(echo "${{ github.event.inputs.modules }}" | tr ',' ' ')
+            TAG="${{ github.event.inputs.tag }}"
           fi
-      
+
           echo "✅ MODULES: $MODULES"
           echo "✅ TAG: $TAG"
           echo "modules=$MODULES" >> $GITHUB_OUTPUT

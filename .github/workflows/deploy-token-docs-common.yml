@@ -11,6 +11,11 @@ on:
         type: string
         description: 'Название ветки, тэга или хэш коммита'
         required: true
+      is_repository_dispatch:
+        type: boolean
+        description: 'True если workflow вызван через repository_dispatch'
+        required: false
+        default: false
 
 jobs:
   changelog:
@@ -63,7 +68,12 @@ jobs:
       - name: Extract branch name
         id: extract_branch
         shell: bash
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        run: |
+          if [[ "${{ inputs.is_repository_dispatch }}" == "true" ]]; then
+            echo "branch=main" >> $GITHUB_OUTPUT
+          else
+            echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Run deploy docusaurus and collect result
         id: deploy
