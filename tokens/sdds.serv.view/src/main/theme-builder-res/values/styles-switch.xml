@@ -13,14 +13,14 @@
         <item name="sd_buttonThumbColor">?serv_surfaceOnDarkSolidDefault</item>
     </style>
     <style name="Serv.Sdds.Components.Switch.L">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
         <item name="android:drawablePadding">@dimen/serv_switch_l_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/serv_switch_l_description_padding</item>
         <item name="sd_switchWidth">@dimen/serv_switch_l_switch_width</item>
         <item name="sd_switchHeight">@dimen/serv_switch_l_switch_height</item>
         <item name="sd_thumbWidth">@dimen/serv_switch_l_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/serv_switch_l_thumb_height</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SwitchL">
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.L</item>
@@ -35,14 +35,14 @@
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.L.ToggleS</item>
     </style>
     <style name="Serv.Sdds.Components.Switch.M">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
         <item name="android:drawablePadding">@dimen/serv_switch_m_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/serv_switch_m_description_padding</item>
         <item name="sd_switchWidth">@dimen/serv_switch_m_switch_width</item>
         <item name="sd_switchHeight">@dimen/serv_switch_m_switch_height</item>
         <item name="sd_thumbWidth">@dimen/serv_switch_m_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/serv_switch_m_thumb_height</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SwitchM">
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.M</item>
@@ -57,14 +57,14 @@
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.M.ToggleS</item>
     </style>
     <style name="Serv.Sdds.Components.Switch.S">
-        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
         <item name="android:drawablePadding">@dimen/serv_switch_s_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/serv_switch_s_description_padding</item>
         <item name="sd_switchWidth">@dimen/serv_switch_s_switch_width</item>
         <item name="sd_switchHeight">@dimen/serv_switch_s_switch_height</item>
         <item name="sd_thumbWidth">@dimen/serv_switch_s_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/serv_switch_s_thumb_height</item>
+        <item name="sd_textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.SwitchS">
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.S</item>

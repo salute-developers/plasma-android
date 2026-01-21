@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.SwitchStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
@@ -117,8 +118,16 @@ public val Switch.L: WrapperSwitchL
     @JvmName("WrapperSwitchL")
     get() = SwitchStyle.builder(this)
         .invariantProps
-        .labelStyle(StarDsTheme.typography.bodyLNormal)
-        .descriptionStyle(StarDsTheme.typography.bodyMNormal)
+        .labelStyle(
+            StarDsTheme.typography.bodyLNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyLBold,
+            ),
+        )
+        .descriptionStyle(
+            StarDsTheme.typography.bodyMNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyMBold,
+            ),
+        )
         .dimensionValues {
             toggleTrackWidth(dimensionResource(R.dimen.sdkit_cmp_switch_toggle_track_width_l))
             toggleTrackHeight(dimensionResource(R.dimen.sdkit_cmp_switch_toggle_track_height_l))
@@ -155,8 +164,16 @@ public val Switch.M: WrapperSwitchM
     @JvmName("WrapperSwitchM")
     get() = SwitchStyle.builder(this)
         .invariantProps
-        .labelStyle(StarDsTheme.typography.bodyMNormal)
-        .descriptionStyle(StarDsTheme.typography.bodySNormal)
+        .labelStyle(
+            StarDsTheme.typography.bodyMNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyMBold,
+            ),
+        )
+        .descriptionStyle(
+            StarDsTheme.typography.bodySNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodySBold,
+            ),
+        )
         .dimensionValues {
             toggleTrackWidth(dimensionResource(R.dimen.sdkit_cmp_switch_toggle_track_width_m))
             toggleTrackHeight(dimensionResource(R.dimen.sdkit_cmp_switch_toggle_track_height_m))
@@ -198,8 +215,16 @@ public val Switch.S: WrapperSwitchS
     @JvmName("WrapperSwitchS")
     get() = SwitchStyle.builder(this)
         .invariantProps
-        .labelStyle(StarDsTheme.typography.bodySNormal)
-        .descriptionStyle(StarDsTheme.typography.bodyXsNormal)
+        .labelStyle(
+            StarDsTheme.typography.bodySNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodySBold,
+            ),
+        )
+        .descriptionStyle(
+            StarDsTheme.typography.bodyXsNormal.asStatefulValue(
+                setOf(InteractiveState.Focused) to StarDsTheme.typography.bodyXsBold,
+            ),
+        )
         .dimensionValues {
             toggleTrackWidth(dimensionResource(R.dimen.sdkit_cmp_switch_toggle_track_width_s))
             toggleTrackHeight(dimensionResource(R.dimen.sdkit_cmp_switch_toggle_track_height_s))

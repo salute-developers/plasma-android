@@ -16,7 +16,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -74,9 +76,19 @@ interface SwitchStyle : Style {
     val labelStyle: TextStyle
 
     /**
+     * Стили основоного текста
+     */
+    val labelStyles: StatefulValue<TextStyle>
+
+    /**
      * Стиль дополнительного текста
      */
     val descriptionStyle: TextStyle
+
+    /**
+     * Стили дополнительного текста
+     */
+    val descriptionStyles: StatefulValue<TextStyle>
 
     /**
      * Длительность анимации в миллисекундах
@@ -141,10 +153,20 @@ interface SwitchStyleBuilder : StyleBuilder<SwitchStyle> {
     fun labelStyle(labelStyle: TextStyle): SwitchStyleBuilder
 
     /**
+     * Устанавливает стили лейбла [labelStyle]
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): SwitchStyleBuilder
+
+    /**
      * Устанавливает стиль дополнительного текста [descriptionStyle]
      * @see SwitchStyle.descriptionStyle
      */
     fun descriptionStyle(descriptionStyle: TextStyle): SwitchStyleBuilder
+
+    /**
+     * Устанавливает стили дополнительного текста [descriptionStyle]
+     */
+    fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): SwitchStyleBuilder
 
     /**
      * Устанавливает длительность анимации переключения контрола [animationDuration]
@@ -701,8 +723,8 @@ private class DefaultSwitchStyle(
     override val colors: SwitchColors,
     @Deprecated("Use dimensionValues instead")
     override val dimensions: SwitchDimensions,
-    override val labelStyle: TextStyle,
-    override val descriptionStyle: TextStyle,
+    override val labelStyles: StatefulValue<TextStyle>,
+    override val descriptionStyles: StatefulValue<TextStyle>,
     @Deprecated("Don't use")
     override val animationDurationMillis: Int,
     override val toggleTrackShape: CornerBasedShape,
@@ -713,14 +735,16 @@ private class DefaultSwitchStyle(
     override val shape: Shape,
 ) : SwitchStyle {
 
+    override val labelStyle: TextStyle get() = labelStyles.getDefaultValue()
+    override val descriptionStyle: TextStyle get() = descriptionStyles.getDefaultValue()
     class Builder : SwitchStyleBuilder {
 
         private val colorsBuilder: SwitchColorsBuilder = SwitchColors.builder()
         private val colorValuesBuilder = SwitchColorValues.builder()
         private var dimensions: SwitchDimensions? = null
         private val dimensionsBuilder = SwitchDimensionValues.builder()
-        private var labelStyle: TextStyle? = null
-        private var descriptionStyle: TextStyle? = null
+        private var labelStyle: StatefulValue<TextStyle>? = null
+        private var descriptionStyle: StatefulValue<TextStyle>? = null
         private var animationDurationMillis: Int? = null
         private var toggleTrackShape: CornerBasedShape? = null
         private var toggleThumbShape: CornerBasedShape? = null
@@ -751,10 +775,18 @@ private class DefaultSwitchStyle(
         }
 
         override fun labelStyle(labelStyle: TextStyle) = apply {
+            labelStyle(labelStyle.asStatefulValue())
+        }
+
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
             this.labelStyle = labelStyle
         }
 
         override fun descriptionStyle(descriptionStyle: TextStyle) = apply {
+            descriptionStyle(descriptionStyle.asStatefulValue())
+        }
+
+        override fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>) = apply {
             this.descriptionStyle = descriptionStyle
         }
 
@@ -783,8 +815,8 @@ private class DefaultSwitchStyle(
             return DefaultSwitchStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensions ?: SwitchDimensions(),
-                labelStyle = labelStyle ?: TextStyle.Default,
-                descriptionStyle = descriptionStyle ?: TextStyle.Default,
+                labelStyles = labelStyle ?: TextStyle.Default.asStatefulValue(),
+                descriptionStyles = descriptionStyle ?: TextStyle.Default.asStatefulValue(),
                 animationDurationMillis = animationDurationMillis ?: DEFAULT_ANIMATION_DURATION,
                 toggleTrackShape = toggleTrackShape ?: CircleShape,
                 toggleThumbShape = toggleThumbShape ?: CircleShape,

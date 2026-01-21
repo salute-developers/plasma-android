@@ -13,14 +13,14 @@
         <item name="sd_buttonThumbColor">?plasma_surfaceOnDarkSolidDefault</item>
     </style>
     <style name="Plasma.SdService.Components.Switch.L">
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
         <item name="android:drawablePadding">@dimen/plasma_switch_l_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/plasma_switch_l_description_padding</item>
         <item name="sd_switchWidth">@dimen/plasma_switch_l_switch_width</item>
         <item name="sd_switchHeight">@dimen/plasma_switch_l_switch_height</item>
         <item name="sd_thumbWidth">@dimen/plasma_switch_l_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/plasma_switch_l_thumb_height</item>
+        <item name="sd_textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.SwitchL">
         <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.L</item>
@@ -35,14 +35,14 @@
         <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.L.ToggleS</item>
     </style>
     <style name="Plasma.SdService.Components.Switch.M">
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
         <item name="android:drawablePadding">@dimen/plasma_switch_m_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/plasma_switch_m_description_padding</item>
         <item name="sd_switchWidth">@dimen/plasma_switch_m_switch_width</item>
         <item name="sd_switchHeight">@dimen/plasma_switch_m_switch_height</item>
         <item name="sd_thumbWidth">@dimen/plasma_switch_m_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/plasma_switch_m_thumb_height</item>
+        <item name="sd_textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.SwitchM">
         <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.M</item>
@@ -57,14 +57,14 @@
         <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.M.ToggleS</item>
     </style>
     <style name="Plasma.SdService.Components.Switch.S">
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="android:drawablePadding">@dimen/plasma_switch_s_drawable_padding</item>
         <item name="sd_descriptionPadding">@dimen/plasma_switch_s_description_padding</item>
         <item name="sd_switchWidth">@dimen/plasma_switch_s_switch_width</item>
         <item name="sd_switchHeight">@dimen/plasma_switch_s_switch_height</item>
         <item name="sd_thumbWidth">@dimen/plasma_switch_s_thumb_width</item>
         <item name="sd_thumbHeight">@dimen/plasma_switch_s_thumb_height</item>
+        <item name="sd_textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.SwitchS">
         <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.S</item>
