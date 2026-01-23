@@ -1,6 +1,7 @@
 package com.sdds.uikit.internal.overlays
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Build
 import android.util.AttributeSet
 import android.view.Gravity
@@ -11,6 +12,9 @@ import androidx.core.view.updateLayoutParams
 import com.sdds.uikit.FrameLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
+import com.sdds.uikit.internal.base.shape.ShapeHelper
+import com.sdds.uikit.shape.shapeHelper
+import kotlin.math.max
 
 internal open class ModalView @JvmOverloads constructor(
     context: Context,
@@ -20,6 +24,8 @@ internal open class ModalView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private var _closeIconSize: Int = DEFAULT_ICON_SIZE
+
+    private val _shapeHelper: ShapeHelper = shapeHelper(attrs, defStyleAttr, defStyleRes)
     private val closeIconView: ImageView = ImageView(context).apply {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             defaultFocusHighlightEnabled = false
@@ -73,6 +79,22 @@ internal open class ModalView @JvmOverloads constructor(
             }
             gravity = Gravity.CENTER_VERTICAL
         }
+    }
+
+    fun getShadowPaddings(): Rect {
+        val shadow = _shapeHelper.shadow ?: return Rect()
+        val biggestLayer = shadow.layers.maxBy { it.spreadRadius }
+        val radius = biggestLayer.spreadRadius + biggestLayer.blurRadius
+        val left = radius - biggestLayer.offsetX
+        val right = radius + biggestLayer.offsetX
+        val top = radius - biggestLayer.offsetY
+        val bottom = radius + biggestLayer.offsetY
+        return Rect(
+            max(0f, left).toInt(),
+            max(0f, top).toInt(),
+            max(0f, right).toInt(),
+            max(0f, bottom).toInt(),
+        )
     }
 
     private companion object {

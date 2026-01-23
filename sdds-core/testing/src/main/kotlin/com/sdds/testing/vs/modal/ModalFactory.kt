@@ -3,6 +3,7 @@ package com.sdds.testing.vs.modal
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,9 +68,26 @@ internal class SimpleModalFragment : ModalFragment() {
         return ModalOptions.Builder()
             .style(modalStyle)
             .width(300.dp)
-            .dimBackground(modalState.useNativeBlackout)
+            .dimBackground(modalState.hasDimBackground)
+            .useNativeBlackout(modalState.useNativeBlackout)
+            .gravity(modalState.gravity.toIntGravity())
+            .edgeToEdge(modalState.edgeToEdge)
             .hasClose(modalState.hasClose)
             .build()
+    }
+
+    private fun ModalGravity.toIntGravity(): Int {
+        return when (this) {
+            ModalGravity.TopStart -> Gravity.TOP or Gravity.START
+            ModalGravity.TopCenter -> Gravity.TOP or Gravity.CENTER
+            ModalGravity.TopEnd -> Gravity.TOP or Gravity.END
+            ModalGravity.CenterStart -> Gravity.CENTER or Gravity.START
+            ModalGravity.Center -> Gravity.CENTER
+            ModalGravity.CenterEnd -> Gravity.CENTER or Gravity.END
+            ModalGravity.BottomStart -> Gravity.BOTTOM or Gravity.START
+            ModalGravity.BottomCenter -> Gravity.BOTTOM or Gravity.CENTER
+            ModalGravity.BottomEnd -> Gravity.BOTTOM or Gravity.END
+        }
     }
 
     override fun getContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

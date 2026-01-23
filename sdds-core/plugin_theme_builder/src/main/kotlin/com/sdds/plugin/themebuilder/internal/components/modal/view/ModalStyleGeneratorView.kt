@@ -13,6 +13,7 @@ import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFact
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import org.w3c.dom.Element
 import java.io.File
 
@@ -62,6 +63,12 @@ internal class ModalStyleGeneratorView(
 
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.shadow?.let { shadowAttribute(it.value) }
+        props.overlayStyle?.let {
+            componentOverlayAttribute(
+                "sd_overlayStyleOverlay",
+                it.value.techToCamelCase(),
+            )
+        }
     }
 
     internal enum class ModalColorProperty(

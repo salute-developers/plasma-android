@@ -46,6 +46,9 @@ internal fun ModalScreen(componentKey: ComponentKey = ComponentKey.Modal) {
                 onDismissRequest = { showModal.value = false },
                 modifier = Modifier.width(300.dp),
                 hasClose = modalUiState.hasClose,
+                edgeToEdge = modalUiState.edgeToEdge,
+                gravity = modalUiState.gravity,
+                dimBackground = modalUiState.hasDimBackground,
                 useNativeBlackout = modalUiState.useNativeBlackout,
                 closeIcon = painterResource(R.drawable.ic_close_24),
             ) {
