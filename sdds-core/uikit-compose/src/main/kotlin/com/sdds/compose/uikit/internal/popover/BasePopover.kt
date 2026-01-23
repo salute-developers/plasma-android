@@ -21,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -64,6 +63,7 @@ import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.plus
 import com.sdds.compose.uikit.px
 import com.sdds.compose.uikit.shadow.ShadowAppearance
+import com.sdds.compose.uikit.shadow.getShadowSafePaddings
 import com.sdds.compose.uikit.shadow.shadow
 import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
@@ -202,24 +202,6 @@ internal val DefaultPopupProperties = PopupProperties(
     focusable = true,
     usePlatformDefaultWidth = true,
 )
-
-@Stable
-private fun ShadowAppearance.getShadowSafePaddings(): PaddingValues {
-    val shadow = this
-    if (shadow.layers.isEmpty()) return PaddingValues()
-    val biggestLayer = shadow.layers.maxBy { it.spreadRadius }
-    val radius = biggestLayer.spreadRadius + biggestLayer.blurRadius
-    val left = radius - biggestLayer.offset.x
-    val right = radius + biggestLayer.offset.x
-    val top = radius - biggestLayer.offset.y
-    val bottom = radius + biggestLayer.offset.y
-    return PaddingValues(
-        start = left,
-        end = right,
-        top = top,
-        bottom = bottom,
-    )
-}
 
 private fun tailCompensationPaddings(
     tailEnabled: Boolean,

@@ -49,6 +49,11 @@ interface ModalStyle : Style {
      */
     val colors: ModalColors
 
+    /**
+     * Стиль [Overlay]
+     */
+    val overlayStyle: OverlayStyle
+
     companion object {
         /**
          * Возвращает экземпляр [ModalStyleBuilder]
@@ -83,6 +88,11 @@ interface ModalStyleBuilder : StyleBuilder<ModalStyle> {
      */
     @Composable
     fun dimensions(builder: @Composable ModalDimensionsBuilder.() -> Unit): ModalStyleBuilder
+
+    /**
+     * Устанавливает стиль [overlayStyle]
+     */
+    fun overlayStyle(overlayStyle: OverlayStyle): ModalStyleBuilder
 }
 
 private class DefaultModalStyle(
@@ -90,6 +100,7 @@ private class DefaultModalStyle(
     override val shadow: ShadowAppearance,
     override val dimensions: ModalDimensions,
     override val colors: ModalColors,
+    override val overlayStyle: OverlayStyle,
 ) : ModalStyle {
 
     class Builder : ModalStyleBuilder {
@@ -97,6 +108,8 @@ private class DefaultModalStyle(
         private var shadow: ShadowAppearance? = null
         private val colorsBuilder = ModalColors.builder()
         private val dimensionsBuilder = ModalDimensions.builder()
+
+        private var overlayStyle: OverlayStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -117,12 +130,19 @@ private class DefaultModalStyle(
                 this.dimensionsBuilder.builder()
             }
 
+        override fun overlayStyle(overlayStyle: OverlayStyle) = apply {
+            this.overlayStyle = overlayStyle
+        }
+
         override fun style(): ModalStyle {
             return DefaultModalStyle(
                 shape = shape ?: RoundedCornerShape(15),
                 shadow = shadow ?: ShadowAppearance(),
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
+                overlayStyle = overlayStyle ?: OverlayStyle
+                    .builder()
+                    .style(),
             )
         }
     }

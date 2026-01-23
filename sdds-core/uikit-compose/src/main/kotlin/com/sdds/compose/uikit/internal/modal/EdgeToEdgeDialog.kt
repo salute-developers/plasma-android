@@ -15,14 +15,15 @@ import androidx.core.view.WindowCompat
 internal fun EdgeToEdgeDialog(
     onDismissRequest: () -> Unit,
     edgeToEdge: Boolean = true,
+    dialogProperties: DialogProperties = DialogProperties(
+        usePlatformDefaultWidth = edgeToEdge,
+        decorFitsSystemWindows = !edgeToEdge,
+    ),
     content: @Composable () -> Unit,
 ) {
     Dialog(
         onDismissRequest = onDismissRequest,
-        properties = DialogProperties(
-            usePlatformDefaultWidth = edgeToEdge,
-            decorFitsSystemWindows = !edgeToEdge,
-        ),
+        properties = dialogProperties.ensureCorrectProperties(edgeToEdge),
     ) {
         if (edgeToEdge) {
             val dialogWindowProvider = LocalView.current.parent as? DialogWindowProvider
@@ -40,5 +41,18 @@ internal fun EdgeToEdgeDialog(
             }
         }
         content()
+    }
+}
+
+private fun DialogProperties.ensureCorrectProperties(edgeToEdge: Boolean): DialogProperties {
+    return when {
+        edgeToEdge == usePlatformDefaultWidth && edgeToEdge != decorFitsSystemWindows -> this
+        else -> DialogProperties(
+            usePlatformDefaultWidth = edgeToEdge,
+            decorFitsSystemWindows = !edgeToEdge,
+            dismissOnBackPress = dismissOnBackPress,
+            dismissOnClickOutside = dismissOnClickOutside,
+            securePolicy = securePolicy,
+        )
     }
 }

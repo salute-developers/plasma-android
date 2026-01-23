@@ -3,12 +3,14 @@ package com.sdds.plugin.themebuilder.internal.components.modal
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shadow
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.overlay.OverlayProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -22,6 +24,7 @@ internal data class ModalProperties(
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
     val closeSize: Dimension? = null,
+    val overlayStyle: ComponentStyle<OverlayProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -37,6 +40,7 @@ internal data class ModalProperties(
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
             closeSize = closeSize ?: otherProps.closeSize,
+            overlayStyle = overlayStyle ?: otherProps.overlayStyle,
         )
     }
 }
