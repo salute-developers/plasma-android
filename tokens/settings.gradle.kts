@@ -27,11 +27,13 @@ include(
     ":plasma.giga.app.compose",
     ":plasma.sd.service.compose",
     ":plasma.homeds.compose",
+    ":plasma.homeds.compose:docs",
     ":plasma.sd.service.view",
     ":sdds.serv.compose",
     ":sdds.serv.view",
     ":stylessalute.compose",
     ":stylessalute.view",
     ":plasma-stards-view",
+    ":plasma-stards-view:docs",
     ":plasma-stards-compose",
 )

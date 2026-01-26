@@ -34,6 +34,7 @@ test-androidX-runner = "1.5.2"
 test-roborazzi = "1.44.0"
 
 kotlinSerialization = "1.4.0"
+kotlinKsp = "1.8.22-1.0.11"
 kotlinPoet = "1.12.0"
 glide = "4.16.0"
 
@@ -75,8 +76,10 @@ base-androidX-activity-compose = { module = "androidx.activity:activity-compose"
 
 base-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "global-kotlin" }
 base-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "global-kotlin" }
+base-kotlin-ksp = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "kotlinKsp" }
 base-kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 base-kotlin-poet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinPoet"}
+base-kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "global-kotlin"}
 
 base-staticAnalysis-ktlint = { module = "com.pinterest:ktlint", version.ref = "staticAnalysis-ktlint" }
 base-staticAnalysis-detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "staticAnalysis-detekt" }
@@ -129,6 +132,7 @@ android-app = { id = "com.android.application", version.ref = "global-gradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "global-kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "global-kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "global-kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinKsp" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "test-paparazzi" }
 jgp = { id = "java-gradle-plugin" }
 android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-androidCacheFix" }

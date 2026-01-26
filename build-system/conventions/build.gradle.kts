@@ -19,6 +19,7 @@ dependencies {
     implementation(libs.base.dokka.graddle)
     implementation(libs.base.dokka)
     implementation(libs.base.kotlin.serialization.json)
+    implementation(libs.base.kotlin.compiler.embeddable)
     implementation("org.commonmark:commonmark:0.21.0")
 
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))

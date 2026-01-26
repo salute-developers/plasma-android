@@ -1,5 +1,8 @@
 plugins {
     id("convention.root-project")
+    alias(libs.plugins.android.lib) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
 }
 
 allprojects {

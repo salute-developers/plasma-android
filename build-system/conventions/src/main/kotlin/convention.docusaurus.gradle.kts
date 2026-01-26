@@ -1,3 +1,4 @@
+import extensions.docs.DocusaurusExtension
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonObject
 import tasks.BuildTokenChangelogTask
@@ -14,7 +15,6 @@ import utils.docsBaseProdUrl
 import utils.docsBaseUrl
 import utils.docsDeployUrl
 import utils.docsUrl
-import utils.filterComponents
 import utils.getDocsDestinationDir
 import utils.getDocsTemplateDir
 import utils.isComposeLib
@@ -28,6 +28,8 @@ val docusaurusDestinationDir = getDocsDestinationDir()
 val docusaurusBuildDir = docusaurusDestinationDir.resolve("build")
 val changelogJsonDir = buildDir
 val changelogJsonPath = changelogJsonDir.resolve("changelog.json")
+
+val extension = extensions.create("docusaurus", DocusaurusExtension::class)
 
 val generateInstanceTask by tasks.register("docusaurusGenerate") {
     group = "documentation"
@@ -55,7 +57,7 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
             into(destinationDir)
         }
 
-        transformTemplate(destinationDir)
+        transformTemplate(destinationDir, extension.snippetsDir.asFile.get())
 
         copy {
             duplicatesStrategy = DuplicatesStrategy.INCLUDE
@@ -65,7 +67,6 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
 
         val docsDir = destinationDir.resolve("docs")
         mergePlusPrefixedDocs(docsDir)
-        filterComponents(docsDir)
     }
 }
 
