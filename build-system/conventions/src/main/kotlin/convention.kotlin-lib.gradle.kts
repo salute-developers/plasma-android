@@ -7,6 +7,9 @@ plugins {
     id("convention.kotlin-java-version-sync")
 }
 
+// Ничего не делаем
+tasks.register("lint")
+
 dependencies {
     withVersionCatalogs {
         implementation(base.kotlin.stdlib)
