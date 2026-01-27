@@ -1,6 +1,6 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("convention.documentation")
+    id("convention.documentation-view")
     id("convention.testing")
 }
 

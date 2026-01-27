@@ -24,7 +24,6 @@ val extension = extensions.create("fixtures", FixturesExtension::class).apply {
 }
 
 extensions.configure<DocusaurusExtension>("docusaurus") {
-    components.set(layout.projectDirectory.file("../config-info-view-system.json"))
     snippetsDir.set(layout.buildDirectory.dir(docsPath))
 }
 
@@ -70,7 +69,5 @@ val docsSnippets by configurations.creating {
 
 dependencies {
     "implementation"("sdds-core:docs")
-    "implementation"("sdds-core:docs-view")
-    "docsSnippets"("sdds-core:uikit-fixtures:unspecified:docs@jar")
     "ksp"(":sdds-core:docs-ksp")
 }
