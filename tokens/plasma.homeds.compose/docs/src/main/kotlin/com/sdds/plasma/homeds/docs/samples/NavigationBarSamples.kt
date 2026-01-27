@@ -32,5 +32,4 @@ fun NavigationBar_WithOverlay() {
             NavigationBar()
         }
     }
-
 }
