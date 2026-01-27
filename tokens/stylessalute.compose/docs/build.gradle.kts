@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.plasma.homeds.compose.docs"
+    namespace = "com.sdds.stylessalute.compose.docs"
 }
 
 dependencies {
-    implementation(project(":plasma.homeds.compose"))
+    implementation(project(":stylessalute.compose"))
     implementation(libs.sdds.uikit.compose)
     implementation(libs.base.androidX.compose.foundation)
 }

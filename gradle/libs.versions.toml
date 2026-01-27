@@ -108,6 +108,7 @@ base-gradle-paparazzi = { module = "app.cash.paparazzi:paparazzi-gradle-plugin",
 base-gradle-spotless= { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "staticAnalysis-spotless" }
 base-gradle-cacheFix= { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version.ref = "plugin-androidCacheFix" }
 base-gradle-nexusPublish= { module = "io.github.gradle-nexus:publish-plugin", version.ref = "plugin-gradleNexusPublish" }
+base-gradle-ksp= { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "kotlinKsp" }
 
 base-koil-compose = { module = "io.coil-kt:coil-compose", version.ref = "koilVersion-compose"}
 

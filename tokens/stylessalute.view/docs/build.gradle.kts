@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "com.sdkit.star.designsystem.docs"
+    namespace = "com.sdds.stylessalute.docs"
 }
 
 dependencies {
-    implementation(project(":plasma-stards-view"))
+    implementation(project(":stylessalute.view"))
     implementation(libs.sdds.uikit)
 }

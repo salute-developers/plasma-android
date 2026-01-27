@@ -57,8 +57,6 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
             into(destinationDir)
         }
 
-        transformTemplate(destinationDir, extension.snippetsDir.asFile.get())
-
         copy {
             duplicatesStrategy = DuplicatesStrategy.INCLUDE
             from(overrideDocsDir)
@@ -67,6 +65,8 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
 
         val docsDir = destinationDir.resolve("docs")
         mergePlusPrefixedDocs(docsDir)
+
+        transformTemplate(destinationDir, extension.snippetsDir.asFile.get())
     }
 }
 

@@ -10,6 +10,7 @@ import utils.isAndroidLib
 plugins {
     id("convention.android-lib")
     id("convention.docusaurus")
+    id("com.google.devtools.ksp")
 }
 
 val docsVariantAttr: Attribute<String> = Attribute.of("com.sdds.docs.variant", String::class.java)
@@ -71,4 +72,5 @@ dependencies {
     "implementation"("sdds-core:docs")
     "implementation"("sdds-core:docs-view")
     "docsSnippets"("sdds-core:uikit-fixtures:unspecified:docs@jar")
+    "ksp"(":sdds-core:docs-ksp")
 }

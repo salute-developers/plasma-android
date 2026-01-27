@@ -16,6 +16,7 @@ dependencies {
     implementation(libs.base.gradle.detekt)
     implementation(libs.base.gradle.spotless)
     implementation(libs.base.gradle.nexusPublish)
+    implementation(libs.base.gradle.ksp)
     implementation(libs.base.dokka.graddle)
     implementation(libs.base.dokka)
     implementation(libs.base.kotlin.serialization.json)
