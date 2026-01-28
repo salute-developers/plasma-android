@@ -1,13 +1,9 @@
 ---
 title: CircularProgressBar
---- 
+---
 
 ```kotlin
-CircularProgressBar(
-    progress = 0.5f,
-    style = CircularProgressBar.Xxl.Default.style(),
-    trackEnabled = true,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/progress/CircularProgress_Simple.kt
 ```
 
 ## Стиль CircularProgressBar
@@ -17,20 +13,7 @@ CircularProgressBar(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-CircularProgressBarStyle.builder()
-    .colors {
-        indicatorColor(SolidColor({{ docs-theme-codeReference }}.colors.surfaceDefaultWarning).asStatefulValue())
-        trackColor(SolidColor({{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary).asStatefulValue())
-        valueColor(SolidColor({{ docs-theme-codeReference }}.colors.textDefaultPrimary).asStatefulValue())
-    }
-    .valueStyle({{ docs-theme-codeReference }}.typography.headerH2Bold)
-    .dimensions {
-        width(128.0.dp)
-        height(128.0.dp)
-        trackThickness(4.0.dp)
-        progressThickness(4.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/progress/CircularProgress_Style.kt
 ```
 
 ## CircularProgressBar value и valueSuffix
@@ -39,11 +22,5 @@ value - параметр для отображения прогресса (ка�
 valueSuffix - параметр для отображения единиц измерения прогресса
 
 ```kotlin
-CircularProgressBar(
-    progress = 0.5f,
-    style = LocalCircularProgressBarStyle.current,
-    value = "${(progress * 100).roundToInt()}",
-    valueSuffix = "%",
-    ...
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/progress/CircularProgressSuffix_Simple.kt
 ```

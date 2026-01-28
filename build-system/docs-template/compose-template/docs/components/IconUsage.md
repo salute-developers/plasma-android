@@ -1,15 +1,12 @@
 ---
 title: Icon
---- 
+---
 
 `Icon` используется для отображения изображений (иконок) в разных форматах (векторных, растровых  
 или на основе painter), с поддержкой окрашивания (`tint`) и семантического описания контента для систем доступности.  
 
 ```kotlin
-Icon(
-    painter = painterResource(R.drawable.ic_alarm_done_fill_36),
-    contentDescription = "Будильник"
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Simple.kt
 ```
 
 ## Варианты использования
@@ -27,10 +24,7 @@ Icon(
 Используется, если необходимо отрисовать иконку через painter (например из ресурсов):  
 
 ```kotlin
-Image(
-    painter = painterResource(R.drawable.ic_alarm_done_fill_36),
-    contentDescription = null
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Image.kt
 ```
 
 ### ImageBitmap
@@ -38,11 +32,7 @@ Image(
 Используется для отображения растровых изображений (например, аватаров):  
 
 ```kotlin
-val bitmap = ImageBitmap.imageResource(R.drawable.ic_avatar)
-Image(
-    bitmap = bitmap,
-    contentDescription = "Avatar"
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Bitmap.kt
 ```  
 
 ## Настройка tint
@@ -51,23 +41,14 @@ Image(
  Если tint = Color.Unspecified, окрашивание не применяется.
 
 ```kotlin
-Image(
-    painter = painterResource(R.drawable.ic_alarm_done_fill_36),
-    contentDescription = null,
-    tint = Color.Red
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconTint_Simple.kt
 ```
 
 Так же цвет окрашивания можно задать по умолчанию, глобально, через CompositionLocal. Для этого существует  
 специальный CompositionLocal - `LocalTint`.  
 
 ```kotlin
-CompositionLocalProvider(LocalTint provides Color.Blue) {
-    Image(
-        painter = painterResource(R.drawable.ic_alarm_done_fill_36),
-        contentDescription = null
-    )
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconCompositionLocal_Simple.kt
 ```
 
 ## Настройка размера
@@ -79,12 +60,7 @@ CompositionLocalProvider(LocalTint provides Color.Blue) {
 - либо значением из `LocalIconDefaultSize` (специальный CompositionLocal)
 
 ```kotlin
-CompositionLocalProvider(LocalIconDefaultSize provides DpSize(24.dp, 24.dp)) {
-    Icon(
-        painter = painterResource(R.drawable.ic_alarm_done_fill_36),
-        contentDescription = null
-    )
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconCompositionLocalSize_Simple.kt
 ```
 
 ## Semantics

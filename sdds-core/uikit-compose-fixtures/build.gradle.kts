@@ -23,6 +23,7 @@ android {
 
 dependencies {
     implementation(project(":uikit-compose"))
+    implementation(project(":icons"))
     implementation(project(":docs"))
     implementation(project(":docs-compose"))
     ksp(project(":docs-ksp"))

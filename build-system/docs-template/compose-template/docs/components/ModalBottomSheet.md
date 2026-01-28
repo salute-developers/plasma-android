@@ -1,6 +1,6 @@
 ---
 title: ModalBottomSheet
---- 
+---
 
 Модальное, диалоговое окно в формате bottom sheet. Используется для отображения дополнительного контента
 поверх основного интерфейса, не переключая экран. Обычно применяется для показа выбора, подтверждений и
@@ -9,27 +9,7 @@ title: ModalBottomSheet
 Каждая часть может содержать любые composable элементы.
 
 ```kotlin
-val sheetState = rememberModalBottomSheetState(
-    initialValue = BottomSheetValue.Hidden,
-)
-Button(
-    label = "показать BottomSheet",
-    onClick = {
-        scope.launch {
-            sheetState.show()
-        }
-    },
-)
-ModalBottomSheet(
-    style = ModalBottomSheet.Default.style(),
-    sheetState = sheetState,
-    handlePlacement = BottomSheetHandlePlacement.Auto,
-    fitContent = false,
-    header = { ... },
-    footer = { ... },
-) {
-     Text(...)
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_Simple.kt
 ```
 
 ## Стиль ModalBottomSheet
@@ -39,28 +19,7 @@ ModalBottomSheet(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-ModalBottomSheetStyle.builder()
-    .shape({{ docs-theme-codeReference }}.shapes.roundXl)
-    .handleShape(CircleShape)
-    .dimensions {
-        paddingStart(16.0.dp)
-        paddingEnd(16.0.dp)
-        paddingTop(16.0.dp)
-        paddingBottom(16.0.dp)
-        handleHeight(4.0.dp)
-        handleWidth(48.0.dp)
-        handleOffset(6.0.dp)
-    }
-    .colors {
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidCard.asInteractive(),
-        )
-        handleColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidTertiary.asInteractive(),
-        )
-    }
-    .handlePlacement(BottomSheetHandlePlacement.Auto)
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_Style.kt
 ```
 
 ## ModalBottomSheet HandlePlacement (Ручка)
@@ -69,9 +28,7 @@ ModalBottomSheetStyle.builder()
 В режиме Auto (по дефолту) изначально handle находится снаружи, но по мере выдвижения ModalBottomSheet - смещается во внутрь.
 
 ```kotlin
-ModalBottomSheet(
-    handlePlacement = BottomSheetHandlePlacement.Inner,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetHandleInner_Simple.kt
 ```
 
 ## FeetContent
@@ -79,7 +36,5 @@ ModalBottomSheet(
 С помощью параметра feetContent возможно ограничить высоту bottomSheet в развернутом виде, но только в том случае, если высота контента меньше высоты экрана.
 
 ```kotlin
-ModalBottomSheet(
-     fitContent = true,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetFitContent_Simple.kt
 ```

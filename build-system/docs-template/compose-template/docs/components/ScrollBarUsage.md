@@ -1,6 +1,6 @@
 ---
 title: ScrollBar
---- 
+---
 
 Интерактивный индикатор для горизонтального или вертикального перемещения по контенту.
 
@@ -9,51 +9,13 @@ title: ScrollBar
 ### ScrollBar для обычного списка
 
 ```kotlin
-val scrollState = rememberScrollState()
-Box {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState),
-    ) {
-        repeat(100) {
-            Text(text = "Item $it")
-        }
-    }
-    ScrollBar(
-        modifier = Modifier.align(Alignment.CenterEnd),
-        style = ScrollBar.M.style(),
-        scrollState = scrollState,
-        orientation = Orientation.Vertical,
-        alwaysShowScrollbar = true,
-        hasTrack = true,
-        hoverExpand = false,
-    )
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/scrollbar/ScrollBar_Simple.kt
 ```
 
 ### ScrollBar для ленивого списка
 
 ```kotlin
-val lazyState = rememberLazyListState()
-Box {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        state = lazyState,
-    ) {
-        items(100) {
-            Text(text = "Item $it")
-        }
-    }
-    ScrollBar(
-        modifier = Modifier.align(Alignment.CenterEnd),
-        style = ScrollBar.M.style(),
-        scrollState = lazyState,
-        alwaysShowScrollbar = true,
-        hasTrack = true,
-        hoverExpand = true,
-    )
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/scrollbar/ScrollBarLazy_Simple.kt
 ```
 
 ## Стиль ScrollBar
@@ -63,19 +25,5 @@ Box {
 ### Создание стиля с помощью builder()
 
 ```kotlin
-ScrollBarStyle.builder()
-    .colors {
-        trackColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-        )
-        thumbColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultPositive.asInteractive(),
-        )
-    }
-    .shape(CircleShape)
-    .hoverExpandFactor(2.0f)
-    .dimensions {
-        width(4.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/scrollbar/ScrollBar_Style.kt
 ```

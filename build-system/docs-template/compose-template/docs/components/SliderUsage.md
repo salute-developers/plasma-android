@@ -10,31 +10,7 @@ title: Slider
 
 ### Пример использования в коде
 ```kotlin
-Slider(
-    modifier = Modifier,
-    value = 0f,
-    title = "Title",
-    labelContent = {
-        Icon(
-            painter = painterResource(R.drawable.ic_salute_outline_36),
-            contentDescription = null,
-        )
-    },
-    style = SliderHorizontalLabelInner.L.Default.style(),
-    onValueChange = {},
-    labelEnabled = true,
-    thumbEnabled = true,
-    limitLabelEnabled = true,
-    slideDirection = SlideDirection.Normal,
-    valueRange = 0f..1f,
-    valueFormatTransformer = { progress ->
-        val totalSeconds = progress.toInt()
-        val minutes = totalSeconds / 60
-        val seconds = totalSeconds % 60
-        "%02d:%02d".format(minutes, seconds)
-    },
-    alignment = SliderAlignment.Start,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/slider/Slider_Simple.kt
 ```
 
 ## Стиль Slider
@@ -44,40 +20,7 @@ Slider(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-SliderStyle.builder()
-    .colors {
-        thumbColor(Color.White)
-        trackColor(Color.LightGray)
-        iconColor(Color.Black)
-        titleColor(Color.Black)
-        limitLabelColor(Color.Black)
-        indicatorColor(Color.Green)
-        thumbStrokeColor(Color.Red),
-    }
-    .dimensions {
-        trackThickness(4.0.dp)
-        indicatorThickness(4.0.dp)
-        thumbStrokeWidth(1.0.dp)
-        thumbSize(20.0.dp)
-        iconSize(24.0.dp)
-        labelMargin(14.0.dp)
-        limitLabelMargin(12.0.dp)
-        titleMargin(4.0.dp)
-    }
-    .tooltipStyle(Tooltip.S.style())
-    .orientation(SliderOrientation.Horizontal)
-    .titleAlignment(TitleAlignment.End)
-    .labelAlignment(LabelAlignment.Center)
-    .slideDirection(SlideDirection.Normal)
-    .valuePlacement(ValuePlacement.Top)
-    .shape(CircleShape)
-    .indicatorShape(CircleShape)
-    .thumbShape(CircleShape)
-    .titleStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
-    .limitLabelStyle({{ docs-theme-codeReference }}.typography.bodySNormal)
-    .alignment(SliderAlignment.Start)
-    .limitLabelAlignment(LimitLabelAlignment.End)
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/slider/Slider_Style.kt
 ```
 
 ## Взаимодействие со Slider

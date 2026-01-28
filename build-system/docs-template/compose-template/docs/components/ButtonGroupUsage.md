@@ -7,26 +7,12 @@ title: ButtonGroup
 
 ### Группа кнопок BasicButton
 ```kotlin
-ButtonGroup(
-    style = BasicButtonGroup.M.NoGap.Segmented.style(),
-    orientation = ButtonGroupOrientation.Horizontal,
-) {
-    button { Button(label = "label", onClick = {...}) }
-    button { Button(label = "label", onClick = {...}) }
-    button { Button(label = "label", onClick = {...}) }
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/buttongroup/ButtonGroup_Simple.kt
 ```
 
 ### Группа кнопок IconButton
 ```kotlin
-ButtonGroup(
-    style = IconButtonGroup.M.Dense.Segmented.style(),
-    orientation = ButtonGroupOrientation.Horizontal,
-) {
-    button { IconButton(icon = painterResource(R.drawable.ic_plasma_24), onClick = {...}) }
-    button { IconButton(icon = painterResource(R.drawable.ic_plasma_24), onClick = {...}) }
-    button { IconButton(icon = painterResource(R.drawable.ic_plasma_24), onClick = {...}) }
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/buttongroup/IconButtonGroup_Simple.kt
 ```
 
 ## Стиль ButtonGroup
@@ -37,27 +23,13 @@ ButtonGroup(
 ### Создание стиля с помощью builder() для базовой кнопки BasicButton
 
 ```kotlin
-ButtonGroupStyle.builder()
-    .externalShape(CircleShape)
-    .internalShape(RoundedCornerShape(5))
-    .buttonStyle(BasicButton.M.Default.style())
-    .dimensions {
-        spacing(2.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/buttongroup/ButtonGroup_Style.kt
 ```
 
 ### Создание стиля с помощью builder() для кнопки с иконкой IconButton
 
 ```kotlin
-ButtonGroupStyle.builder()
-    .externalShape(CircleShape)
-    .internalShape(RoundedCornerShape(5))
-    .buttonStyle(IconButton.M.Default.style())
-    .dimensions {
-        spacing(2.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/buttongroup/IconButtonGroup_Style.kt
 ```
 
 ## ButtonGroupOrientation
