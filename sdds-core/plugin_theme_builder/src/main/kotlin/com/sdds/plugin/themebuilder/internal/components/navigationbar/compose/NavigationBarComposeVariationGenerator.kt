@@ -41,6 +41,14 @@ internal class NavigationBarComposeVariationGenerator(
 
     override fun KtFileBuilder.onAddImports() {
         addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
+        addImport("com.sdds.compose.uikit", listOf("NavigationBarTextPlacement"))
+    }
+
+    override fun getCustomState(state: String): String {
+        return when (state) {
+            "text-inlined" -> "NavigationBarTextPlacement.Inline"
+            else -> throw IllegalStateException("Unknown state $state for NavigationBar")
+        }
     }
 
     override fun propsToBuilderCalls(
@@ -51,6 +59,8 @@ internal class NavigationBarComposeVariationGenerator(
         shapeCall(props, variationId),
         shadowCall(props),
         textStyleCall(props),
+        titleStyleCall(props),
+        descriptionStyleCall(props),
         backIconCall(props),
         colorsCall(props),
         dimensionsCall(props, variationId),
@@ -66,6 +76,18 @@ internal class NavigationBarComposeVariationGenerator(
     private fun textStyleCall(props: NavigationBarProperties): String? {
         return props.textStyle?.let {
             getTypography("textStyle", it)
+        }
+    }
+
+    private fun titleStyleCall(props: NavigationBarProperties): String? {
+        return props.titleStyle?.let {
+            getTypography("titleStyle", it)
+        }
+    }
+
+    private fun descriptionStyleCall(props: NavigationBarProperties): String? {
+        return props.descriptionStyle?.let {
+            getTypography("descriptionStyle", it)
         }
     }
 
@@ -87,7 +109,8 @@ internal class NavigationBarComposeVariationGenerator(
     ): String? {
         return props.actionButtonStyle?.let {
             val buttonType = it.value.split("-").firstOrNull()
-            val buttonStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.${buttonType}button"
+            val buttonStylesPackage =
+                "${packageResolver.getPackage(TargetPackage.STYLES)}.${buttonType}button"
             ".actionButtonStyle(${
                 it.value.getComponentStyle(
                     ktFileBuilder,
@@ -109,6 +132,12 @@ internal class NavigationBarComposeVariationGenerator(
                 }
                 props.textColor?.let {
                     appendLine(getColor("textColor", it))
+                }
+                props.titleColor?.let {
+                    appendLine(getColor("titleColor", it))
+                }
+                props.descriptionColor?.let {
+                    appendLine(getColor("descriptionColor", it))
                 }
                 props.actionStartColor?.let {
                     appendLine(getColor("actionStartColor", it))
@@ -151,6 +180,9 @@ internal class NavigationBarComposeVariationGenerator(
                 props.horizontalSpacing?.let {
                     appendDimension("horizontal_spacing", it, variationId)
                 }
+                props.descriptionPadding?.let {
+                    appendDimension("description_padding", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -165,12 +197,15 @@ internal class NavigationBarComposeVariationGenerator(
             paddingStart != null ||
             paddingEnd != null ||
             paddingTop != null ||
-            paddingBottom != null
+            paddingBottom != null ||
+            descriptionPadding != null
     }
 
     private fun NavigationBarProperties.hasColors() = backgroundColor != null ||
         backIconColor != null ||
         textColor != null ||
+        titleColor != null ||
+        descriptionColor != null ||
         actionStartColor != null ||
         actionEndColor != null
 }
