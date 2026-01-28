@@ -264,7 +264,10 @@ object PlasmaStardsComposeComponents : ComponentsProviderCompose() {
             ComposeComponent(
                 ComponentKey.TextSkeleton,
                 mapOf(
-                    "TextSkeleton" to PlasmaStardsTextSkeletonVariationsCompose,
+                    "TextSkeletonBody" to PlasmaStardsTextSkeletonBodyVariationsCompose,
+                    "TextSkeletonDisplay" to PlasmaStardsTextSkeletonDisplayVariationsCompose,
+                    "TextSkeletonHeader" to PlasmaStardsTextSkeletonHeaderVariationsCompose,
+                    "TextSkeletonText" to PlasmaStardsTextSkeletonTextVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }
