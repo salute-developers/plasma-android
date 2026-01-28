@@ -24,6 +24,7 @@ dependencies {
     implementation("org.commonmark:commonmark:0.21.0")
 
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+    implementation(files(icons.javaClass.superclass.protectionDomain.codeSource.location))
     testImplementation(libs.base.test.unit.jUnit)
     testImplementation(libs.base.test.unit.mockk)
 }

@@ -134,7 +134,7 @@ internal class BottomSheetState(
         get() = currentValue == BottomSheetValue.Collapsed
 
     private val hasHalfExpandedState: Boolean
-        get() = draggableState.anchors.hasAnchorFor(BottomSheetValue.HalfExpanded)
+        get() = draggableState.anchors.hasPositionFor(BottomSheetValue.HalfExpanded)
 
     /**
      * Show the bottom sheet with animation and suspend until it's shown.
@@ -153,7 +153,7 @@ internal class BottomSheetState(
      * Expand the bottom sheet with an animation and suspend until the animation finishes or is cancelled.
      */
     suspend fun expand() {
-        if (draggableState.anchors.hasAnchorFor(BottomSheetValue.Expanded)) {
+        if (draggableState.anchors.hasPositionFor(BottomSheetValue.Expanded)) {
             animateTo(BottomSheetValue.Expanded)
         }
     }
@@ -162,7 +162,7 @@ internal class BottomSheetState(
      * Half expand the bottom sheet with an animation and suspend until the animation finishes or is cancelled.
      */
     suspend fun halfExpand() {
-        if (draggableState.anchors.hasAnchorFor(BottomSheetValue.HalfExpanded)) {
+        if (draggableState.anchors.hasPositionFor(BottomSheetValue.HalfExpanded)) {
             animateTo(BottomSheetValue.HalfExpanded)
         }
     }
@@ -182,7 +182,7 @@ internal class BottomSheetState(
         val peekHeightF = peekHeight.toFloat().coerceAtMost(layoutHeightF)
         val newAnchors = DraggableAnchors {
             BottomSheetValue
-                .values()
+                .entries
                 .forEach { anchor ->
                     when (anchor) {
                         BottomSheetValue.Collapsed -> anchor at (layoutHeightF - peekHeightF).coerceAtLeast(0f)

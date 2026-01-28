@@ -126,7 +126,7 @@ tasks.register("generateVersionDescription") {
 }
 
 dependencies {
-    implementation(libs.sdds.icons)
+    implementation(icons.sdds.icons)
     implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")
     implementation(project(":sandbox-sdds-serv-integration"))

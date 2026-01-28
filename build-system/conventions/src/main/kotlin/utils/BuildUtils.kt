@@ -2,6 +2,7 @@ package utils
 
 import com.android.build.gradle.LibraryExtension
 import org.gradle.accessors.dm.LibrariesForLibs
+import org.gradle.accessors.dm.LibrariesForIcons
 import java.io.File
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.findByType
@@ -41,6 +42,14 @@ fun Project.getVersionCatalog(): LibrariesForLibs? {
          the<LibrariesForLibs>()
     } else null
 }
+
+/**
+ * Возвращает делегат для доступа к каталогу версий
+ */
+fun Project.iconsCatalog(): LibrariesForIcons? =
+    if (name != "gradle-kotlin-dsl-accessors")
+        the<LibrariesForIcons>()
+    else null
 
 /**
  * Производит поиск свойства [propertyName] во всех файла gradle.properties,

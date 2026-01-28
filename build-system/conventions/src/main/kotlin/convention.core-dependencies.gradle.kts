@@ -12,7 +12,6 @@ subprojects {
                 @Suppress("LABEL_NAME_CLASH")
                 return@all
             }
-            println("requested module ${moduleSelector.module}")
             when (moduleSelector.module) {
                 "sdds-uikit-compose" -> useTarget(
                     "sdds-core:uikit-compose:*",

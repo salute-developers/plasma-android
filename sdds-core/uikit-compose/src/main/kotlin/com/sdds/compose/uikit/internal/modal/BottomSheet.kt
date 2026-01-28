@@ -221,7 +221,7 @@ class BottomSheetState(
      * The current value of the [ModalBottomSheetState].
      */
     val currentValue: BottomSheetValue
-        get() = anchoredDraggableState.currentValue
+        get() = anchoredDraggableState.settledValue
 
     /**
      * The target value the state will settle at once the current interaction ends, or the
@@ -236,7 +236,7 @@ class BottomSheetState(
      */
     @get:FloatRange(from = 0.0, to = 1.0)
     val progress: Float
-        get() = anchoredDraggableState.progress
+        get() = anchoredDraggableState.progress(anchoredDraggableState.settledValue, anchoredDraggableState.targetValue)
 
     /**
      * The fraction of the progress, within [0.5f..1f] bounds, or 1f if the [AnchoredDraggableState]
@@ -260,10 +260,10 @@ class BottomSheetState(
      * Whether the bottom sheet is visible.
      */
     val isVisible: Boolean
-        get() = anchoredDraggableState.currentValue != Hidden
+        get() = anchoredDraggableState.settledValue != Hidden
 
     internal val hasHalfExpandedState: Boolean
-        get() = anchoredDraggableState.anchors.hasAnchorFor(HalfExpanded)
+        get() = anchoredDraggableState.anchors.hasPositionFor(HalfExpanded)
 
     init {
         if (isSkipHalfExpanded) {
@@ -310,7 +310,7 @@ class BottomSheetState(
      * @throws [CancellationException] if the animation is interrupted
      */
     internal suspend fun expand() {
-        if (!anchoredDraggableState.anchors.hasAnchorFor(Expanded)) {
+        if (!anchoredDraggableState.anchors.hasPositionFor(Expanded)) {
             return
         }
         animateTo(Expanded)
@@ -417,7 +417,7 @@ private fun consumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
     override suspend fun onPreFling(available: Velocity): Velocity {
         val toFling = available.toFloat()
         val currentOffset = state.requireOffset()
-        return if (toFling < 0 && currentOffset > state.anchors.minAnchor()) {
+        return if (toFling < 0 && currentOffset > state.anchors.minPosition()) {
             state.settle(velocity = toFling)
             // since we go to the anchor with tween settling, consume all for the best UX
             available
@@ -462,7 +462,7 @@ private fun Modifier.bottomSheetAnchors(
     // the current (initial) value, prefer that
     val isInitialized = sheetState.anchoredDraggableState.anchors.size > 0
     val previousValue = sheetState.currentValue
-    val newTarget = if (!isInitialized && newAnchors.hasAnchorFor(previousValue)) {
+    val newTarget = if (!isInitialized && newAnchors.hasPositionFor(previousValue)) {
         previousValue
     } else if (sheetState.targetValue == previousValue) {
         sheetState.targetValue
@@ -470,10 +470,10 @@ private fun Modifier.bottomSheetAnchors(
         when (sheetState.targetValue) {
             Hidden -> Hidden
             HalfExpanded, Expanded -> {
-                val hasHalfExpandedState = newAnchors.hasAnchorFor(HalfExpanded)
+                val hasHalfExpandedState = newAnchors.hasPositionFor(HalfExpanded)
                 val newTarget = if (hasHalfExpandedState) {
                     HalfExpanded
-                } else if (newAnchors.hasAnchorFor(Expanded)) {
+                } else if (newAnchors.hasPositionFor(Expanded)) {
                     Expanded
                 } else {
                     Hidden
