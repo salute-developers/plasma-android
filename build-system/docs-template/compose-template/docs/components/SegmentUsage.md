@@ -1,28 +1,12 @@
 ---
 title: Segment
---- 
+---
 
 Компонент Segment - контейнер для отображения  SegmentItem.
 Контент Segment формируется с помощью функции segmentItem() из скоупа SegmentScope,
 
 ```kotlin
-SegmentHorizontal(
-    stretch = false,
-    hasBackground = true,
-    style = Segment.Xl.Primary.style(),
-) {
-    segmentItem {
-        SegmentItem(
-            isSelected = true,
-            style = SegmentItem.Xl.Primary.style(),
-            label = "Label",
-            value = "Value",
-            startIcon =  painterResource(id = R.drawable.ic_scribble_diagonal_24),
-            counter = "55",
-            enabled = true
-        )
-    }
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/segment/Segment_Simple.kt
 ```
 
 ## Стиль Segment
@@ -32,21 +16,7 @@ SegmentHorizontal(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-SegmentStyle.builder()
-    .segmentItemStyle(SegmentItem.Xl.Accent.style())
-    .colors {
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-        )
-    }
-    .shape({{ docs-theme-codeReference }}.shapes.roundXl.adjustBy(all = -2.0.dp))
-    .dimensions {
-        paddingStart(2.0.dp)
-        paddingEnd(2.0.dp)
-        paddingTop(2.0.dp)
-        paddingBottom(2.0.dp)
-    }
-    .sttyle()
+// @sample: com/sdds/compose/uikit/fixtures/samples/segment/Segment_Style.kt
 ```
 
 ## Ориентация Segment

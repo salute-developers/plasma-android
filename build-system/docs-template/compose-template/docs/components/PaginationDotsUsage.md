@@ -17,32 +17,7 @@ title: PaginationDots
 ## Пример использования
 
 ```kotlin
-var selectedIndex by remember { mutableIntStateOf(0) }
-PaginationDots(
-    style = PaginationDotsHorizontal.M.style(),
-    selectedIndex = selectedIndex,
-    totalCount = 11,
-    visibleCount = 5,
-)
-Spacer(Modifier.size(16.dp))
-Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-    IconButton(
-        iconRes = com.sdds.icons.R.drawable.ic_arrow_left_24,
-        style = IconButton.M.Default.style(),
-        onClick = {
-            // для корректной работы необходимо следить, чтобы индекс не выходил за пределы totalCount
-            selectedIndex = selectedIndex.minus(1).coerceIn(0, 10)
-        },
-    )
-    IconButton(
-        style = IconButton.M.Default.style(),
-        iconRes = com.sdds.icons.R.drawable.ic_arrow_right_24,
-        onClick = {
-            // для корректной работы необходимо следить, чтобы индекс не выходил за пределы totalCount
-            selectedIndex = selectedIndex.plus(1).coerceIn(0, 10)
-        },
-    )
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/paginationdots/PaginationDots_Simple.kt
 ```
 
 > Для корректной работы необходимо следить, чтобы selectedIndex не выходил за пределы общего количества точек totalCount
@@ -54,26 +29,5 @@ Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
 ### Создание стиля с помощью builder()
 
 ```kotlin
-PaginationDotsStyle.builder()
-    .orientation(PaginationDotsOrientation.Vertical)
-    .edgeShrinkFactor(0.3f)
-    .edgeCount(2)
-    .colors {
-        dotBackgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asStatefulValue(
-                setOf(InteractiveState.Activated)
-                        to {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidDefault,
-            ),
-        )
-    }
-    .dimensions {
-        gap(6.0.dp)
-        dotWidth(8.0.dp)
-        dotHeight(
-            8.0.dp.asStatefulValue(
-                setOf(InteractiveState.Activated) to 32.0.dp,
-            ),
-        )
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/paginationdots/PaginationDots_Style.kt
 ```

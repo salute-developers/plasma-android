@@ -1,15 +1,11 @@
 ---
 title: ProgressBar
---- 
+---
 
 Горизонтальный прогресс.
 
 ```kotlin
-  ProgressBar(
-    progress = 0.25f,
-    modifier = Modifier.width(240.dp),
-    style = ProgressBar.Default.style(),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/progress/Progress_Simple.kt
 ```
 
 ## Стиль ProgressBar
@@ -19,20 +15,5 @@ title: ProgressBar
 ### Создание стиля с помощью builder()
 
 ```kotlin
-ProgressBarStyle.builder()
-    .colorValues {
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary.asInteractive(),
-        )
-        indicatorColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultPositive.asInteractive(),
-        )
-    }
-    .indicatorShape(CircleShape)
-    .backgroundShape(CircleShape)
-    .dimensionValues {
-        indicatorHeight(4.0.dp)
-        backgroundHeight(4.0.dp)
-    .style()
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/progress/Progress_Style.kt
 ```

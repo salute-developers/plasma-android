@@ -1,41 +1,12 @@
 ---
 title: Popover
---- 
+---
 
 Всплывающее окно — появляется при наведении или клике на элемент (триггер), 
 используется для отображения одного контента поверх другого.
 
 ```kotlin
-val showPopover = remember { mutableStateOf(false) }
-val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
-Button(
-    modifier = Modifier
-        .popoverTrigger(triggerInfo),
-    label = "show",
-    onClick = { showPopover.value = true },
-)
-Popover(
-    show = showPopover.value,
-    triggerInfo = triggerInfo.value,
-    placement = PopoverPlacement.Top,
-    placementMode = PopoverPlacementMode.Loose,
-    triggerCentered = false,
-    alignment = PopoverAlignment.Start,
-    style = Popover.M.Default.style(),
-    onDismissRequest = {
-        showPopover.value = false
-    },
-    duration = 3000,
-) {
-    Column(
-        modifier = Modifier
-            .padding(top = 12.dp, bottom = 8.dp, start = 8.dp, end = 8.dp),
-    ) {
-        Text("Title")
-        Spacer(Modifier.height(4.dp))
-        Text("Description")
-    }
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/popover/Popover_Simple.kt
 ```
 
 ## Стиль Popover
@@ -45,20 +16,7 @@ Popover(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-PopoverStyle.builder()
-    .shadow({{ docs-theme-codeReference }}.shadows.downHardM)
-    .shape({{ docs-theme-codeReference }}.shapes.roundL)
-    .dimensions {
-        width(182.0.dp)
-        offset(8.0.dp)
-        tailWidth(20.0.dp)
-        tailHeight(8.0.dp)
-        tailPadding(20.0.dp)
-    }
-    .colors {
-        backgroundColor(SolidColor(Color.Gray))
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/popover/Popover_Style.kt
 ```
 
 ## TriggerInfo

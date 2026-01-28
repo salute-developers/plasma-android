@@ -5,31 +5,7 @@ title: ChipGroup
 ChipGroup контейнер для Chip.
 
 ```kotlin
-val items: List<String> = List(3) { "label" }
-ChipGroup(
-    style = ChipGroupDense.L.Default.style(),
-) {
-    items.forEach {
-        var isSelected by remember { mutableStateOf(false) }
-        Chip(
-            isSelected = isSelected,
-            onSelectedChange = { value -> isSelected = value },
-            label = it,
-            endContent = if (isSelected) {
-                {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_close_24),
-                        contentDescription = "",
-                    )
-                }
-            } else {
-                null
-            },
-            enabled = chipGroupState.enabled,
-        )
-    }
-}
-        
+// @sample: com/sdds/compose/uikit/fixtures/samples/chip/group/ChipGroup_Simple.kt
 ```
 
 ## Стиль ChipGroup
@@ -39,11 +15,5 @@ ChipGroup(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-ChipGroupStyle.builder()
-    .dimensions {
-        gap(2.0.dp)
-        lineSpacing(2.0.dp)
-    }
-    .chipStyle(Chip.L.Warning.style())
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/chip/group/ChipGroup_Style.kt
 ```

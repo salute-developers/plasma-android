@@ -149,6 +149,7 @@ fun Project.transformTemplate(templateDir: File, snippetsDir: File) {
                 .replace("{{ docs-api-href }}", docsApiHref)
                 .replaceKotlinSnippets(snippetsDir)
                 .replaceXmlSnippets(snippetsDir)
+                .replaceScreenshots()
 
 
             val destFile = File(
@@ -196,6 +197,12 @@ private fun String.replaceXmlSnippets(snippetsDir: File): String {
         val path = m.groupValues[1].trim()
         snippetsDir.resolve(path).readText().trim()
     }
+}
+
+private fun String.replaceScreenshots(): String {
+    return this.replace(
+        "<!--\\s*@screenshot:\\s*(.+)\\s*-->".toRegex(), "\n"
+    ).trimStart()
 }
 
 fun Project.filterComponents(docsDir: File, componentsConfig: File) {

@@ -1,6 +1,6 @@
 ---
 title: Overlay
---- 
+---
 
 Стилизованный контейнер на основе Box, который располагается поверх остального контента и используется для оформления полупрозрачных подложек, модальных слоёв и вспомогательных поверхностeй.
 
@@ -13,19 +13,7 @@ Overlay можно использовать, например, для:
 
 
 ```kotlin
-Overlay(
-    modifier = Modifier.fillMaxSize(),
-    style = Overlay.Default.style(),
-) {
-    IconButton(
-        modifier = Modifier
-            .align(Alignment.TopEnd)
-            .padding(end = 8.dp, top = 8.dp),
-        style = IconButton.S.Clear.style(),
-        icon = painterResource(id = R.drawable.ic_close_24),
-        onClick = {},
-    )
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/overlay/Overlay_Simple.kt
 ```
 
 ## Параметр `alpha`
@@ -46,24 +34,12 @@ Overlay(
 
 Для List:
 ```kotlin
-val listState = rememberLazyListState()
-val scrollOffset by remember {
-derivedStateOf {
-listState.firstVisibleItemIndex * (listState.layoutInfo.visibleItemsInfo.firstOrNull()?.size ?: 0) +
-listState.firstVisibleItemScrollOffset
-}
-}
-
+// @sample: com/sdds/compose/uikit/fixtures/samples/overlay/OverlayList_Simple.kt
 ```
 
 Для Modifier.verticalScroll():
 ```kotlin
-val scrollState = rememberScrollState()
-val scrollOffset by remember {
-derivedStateOf {
-scrollState.value.toFloat()
-}
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/overlay/OverlayVerticalScroll_Simple.kt
 ```
 
 Изменяем альфу в Overlay:
@@ -99,9 +75,5 @@ alpha = {
 ### Создание стиля с помощью builder()
 
 ```kotlin
-OverlayStyle.builder()
-    .colors {
-        backgroundColor(SolidColor(Color.Gray))
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/overlay/Overlay_Style.kt
 ```

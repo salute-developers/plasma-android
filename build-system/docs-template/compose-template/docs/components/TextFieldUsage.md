@@ -1,25 +1,9 @@
 ---
 title: TextField
---- 
+---
 
 ```kotlin
-var value by remember { mutableStateOf(TextFieldValue("value")) }
-TextField(
-    value = value,
-    captionText = "Caption",
-    labelText = "Label",
-    style = TextField.S.OuterLabel.RequiredStart.Warning.style(),
-    placeholderText = "Placeholder",
-    onValueChange = { value = it },
-    startContent = {
-        Icon(
-            painter = painterResource(id = R.drawable.ic_add_fill_24),
-            contentDescription = "",
-            tint = Color.Black,
-        )
-    },
-    chipsContent = { Chip(label = "Chip") },
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/textfield/TextField_Simple.kt
 ```
 
 ## Стиль TextField
@@ -29,96 +13,7 @@ TextField(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-TextFieldStyle.builder()
-    .colors {
-        captionColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultWarning.asInteractive(
-                setOf(InteractiveState.Activated)
-                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondary,
-            ),
-        )
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentWarning.asInteractive(
-                setOf(InteractiveState.Activated)
-                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary,
-            ),
-        )
-        optionalColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultTertiary.asInteractive(),
-        )
-        valueColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        placeholderColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(
-                setOf(InteractiveState.Activated)
-                    to {{ docs-theme-codeReference }}.colors.textDefaultTertiary,
-            ),
-        )
-        indicatorColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultNegative.asInteractive(),
-        )
-        startContentColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        endContentColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(
-                setOf(InteractiveState.Pressed)
-                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondaryActive,
-                setOf(InteractiveState.Hovered)
-                    to {{ docs-theme-codeReference }}.colors.textDefaultSecondaryHover,
-            ),
-        )
-        endContentColorReadOnly(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
-        )
-        captionColorReadOnly(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        counterColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        backgroundColorReadOnly(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
-        )
-        cursorColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultAccent.asInteractive(),
-        )
-        prefixColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultTertiary.asInteractive(),
-        )
-        suffixColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultTertiary.asInteractive(),
-        )
-    }
-    .singleLine(true)
-    .shape({{ docs-theme-codeReference }}.shapes.roundS.adjustBy(all = 0.0.dp))
-    .dimensions {
-        optionalPadding(4.0.dp)
-        helperTextPadding(4.0.dp)
-        chipsPadding(6.0.dp)
-        boxPaddingStart(8.0.dp)
-        boxPaddingEnd(8.0.dp)
-        boxPaddingTop(8.0.dp)
-        boxPaddingBottom(8.0.dp)
-        boxMinHeight(32.0.dp)
-        alignmentLineHeight(32.0.dp)
-        startContentPadding(4.0.dp)
-        endContentPadding(4.0.dp)
-        startContentSize(16.0.dp)
-        endContentSize(16.0.dp)
-    }
-    .captionStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
-    .counterStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
-    .captionPlacement(TextFieldHelperTextPlacement.Outer)
-    .counterPlacement(TextFieldHelperTextPlacement.Outer)
-    .valueStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
-    .prefixStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
-    .suffixStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
-    .placeholderStyle({{ docs-theme-codeReference }}.typography.bodyXsNormal)
-    .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
-    .labelPlacement(TextFieldLabelPlacement.None)
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/textfield/TextField_Style.kt
 ```
 
 ## TextField readOnly

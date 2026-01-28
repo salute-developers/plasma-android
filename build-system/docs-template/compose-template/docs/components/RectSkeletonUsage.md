@@ -8,21 +8,12 @@ title: RectSkeleton
 
 ### Простой пример использования
 ```kotlin
-RectSkeleton(
-    modifier = Modifier
-        .width(128.dp)
-        .height(32.dp),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/rectskeleton/RectSkeleton_Simple.kt
 ```
 
 ### Пример использования с кастомизацией параметров
 ```kotlin
-RectSkeleton(
-    modifier = Modifier.size(64.dp),
-    shape = CircleShape, // кастомная форма
-    duration = 1200, // кастомная длительность анимации
-    brush = {{ docs-theme-codeReference }}.gradients.surfaceDefaultSkeletonGradient.asLayered(), // кастомный градиент
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/rectskeleton/RectSkeleton_Custom.kt
 ```
 
 > Параметр `brush` влияет на тип анимации. Если в brush установлен градиент, то скелетон будет выглядеть как перемещающийся в пространстве градиент.
@@ -35,9 +26,5 @@ RectSkeleton(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-RectSkeletonStyle.builder()
-    .gradient(Color.Cyan)
-    .shape(CircleShape)
-    .duration(700)
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/rectskeleton/RectSkeleton_Style.kt
 ```

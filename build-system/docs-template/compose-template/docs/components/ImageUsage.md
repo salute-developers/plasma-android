@@ -1,22 +1,13 @@
 ---
 title: Image
---- 
+---
 
 Технический компонент отображения изображений.
 
 В качестве источника поддерживает Painter, ImageVector или ImageBitmap.
 
 ```kotlin
-Image(
-    modifier = Modifier
-        .width(100.dp)
-        .background(Color.Gray),
-    painter = painterResource(com.sdds.icons.R.drawable.ic_alarm_done_fill_36),
-    contentDescription = "image",
-    style = Image.Ratio3x4.style(),
-    contentScale = ContentScale.Fit,
-    alignment = Alignment.Center,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/image/Image_Simple.kt
 ```
 
 ## Стиль Image
@@ -26,9 +17,7 @@ Image(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-ImageStyle.builder()
-    .ratio(2f)
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/image/Image_Style.kt
 ```
 
 ## Поддержка стиля Image для других компонентов
