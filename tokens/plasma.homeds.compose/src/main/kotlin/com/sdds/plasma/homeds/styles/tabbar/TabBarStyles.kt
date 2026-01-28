@@ -47,8 +47,8 @@ public val TabBar.Default: WrapperTabBarDefault
             )
         }
         .dimensions {
-            paddingStart(48.0.dp)
-            paddingEnd(48.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
             contentPaddingStart(8.0.dp)
             contentPaddingEnd(8.0.dp)
             contentPaddingTop(2.0.dp)
