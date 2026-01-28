@@ -1,6 +1,6 @@
 ---
 title: Loader
---- 
+---
 
 Компонент Loader используется для отображения статуса загрузки. Включает в себя компоненты [Spinner](SpinnerUsage.md),  
 в качестве бесконечного прогресса, и [CircularProgressBar](CircularProgressBarUsage.md) - как конечный прогресс загрузки.  
@@ -9,36 +9,13 @@ title: Loader
 Пример использования с помощью стиля самого Loader:
 
 ```kotlin
-Loader(
-    style = Loader.Default.style(),
-    progress = 0.4f,
-    trackEnabled = true,
-    valueContent = {
-        Icon(
-            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
-            contentDescription = "",
-        )
-    },
-    loaderType = LoaderType.Progress,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/loader/Loader_Simple.kt
 ```
 
 Пример использования через стили [Spinner] и [CircularProgressBar]:
 
 ```kotlin
-Loader(
-    spinnerStyle = Spinner.M.Default.style()
-    circularProgressStyle = CircularProgressBar.L.Positive.style()
-    progress = 0.4f,
-    trackEnabled = true,
-    valueContent = {
-        Icon(
-            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
-            contentDescription = "",
-        )
-    },
-    loaderType = LoaderType.Progress,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/loader/LoaderSpinner_Simple.kt
 ```
 
 ## Стиль Loader
@@ -48,10 +25,7 @@ Loader(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-LoaderStyle.builder()
-    .spinnerStyle(Spinner.L.Default.style())
-    .circularProgressStyle(CircularProgressBar.L.Default.style())
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/loader/Loader_Style.kt
 ```
 
 ## LoaderType

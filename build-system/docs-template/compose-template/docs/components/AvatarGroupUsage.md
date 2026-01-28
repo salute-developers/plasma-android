@@ -6,20 +6,7 @@ title: AvatarGroup
 Counter - счетчик Avatar's, которые не отображаются на экране.
 
 ```kotlin
-AvatarGroup(
-    style = AvatarGroup.S.style(),
-    threshold = 1,
-) 
-    avatar {
-       Avatar(
-           style = Avatar.S.style(),
-           status = AvatarStatus.Active,
-           placeholder = AvatarPlaceholder.Name("Michael Scott"),
-       )
-}
-counter {
-    AvatarCounter(3)
-}     
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/group/AvatarGroup_Simple.kt  
 ```
 
 ## Стиль AvatarGroup
@@ -29,11 +16,5 @@ counter {
 ### Создание стиля с помощью builder()
 
 ```kotlin
-AvatarGroupStyle.builder()
-    .dimensions {
-        itemSpacing(2.0.dp)
-        itemOffset(16.0.dp)
-    }
-    .avatarStyle(Avatar.S.style())
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/group/AvatarGroup_Style.kt
 ```

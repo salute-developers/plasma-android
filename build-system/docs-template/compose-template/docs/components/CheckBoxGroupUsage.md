@@ -7,32 +7,7 @@ RootCheckBox() функция для главного чекбокса, кото
 или checkboxes().
 
 ```kotlin
-CheckBoxGroup(
-    style = CheckBoxGroup.M.style(),
-) {
-    rootCheckbox {
-        CheckBox(
-            state = ToggleableState.On,
-            label = "Label",
-            description = "Description",
-        )
-    }
-    checkbox {
-        CheckBox(
-            state = ToggleableState.On,
-            label = "Label",
-            description = "Description",
-        )
-    }
-    checkbox {
-        CheckBox(
-            state = ToggleableState.On,
-            label = "Label",
-            description = "Description",
-        )
-    }
-}
-        
+// @sample: com/sdds/compose/uikit/fixtures/samples/checkbox/group/CheckBoxGroup_Simple.kt
 ```
 
 ## Стиль CheckBoxGroup
@@ -42,11 +17,5 @@ CheckBoxGroup(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-CheckBoxGroupStyle.builder()
-    .checkBoxStyle(CheckBox.L.Default.style())
-    .dimensions {
-        itemSpacing(14.0.dp)
-        itemOffset(36.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/checkbox/group/CheckBoxGroup_Style.kt
 ```

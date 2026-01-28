@@ -14,21 +14,12 @@ title: TextSkeleton
 
 ### Простой пример использования
 ```kotlin
-TextSkeleton(
-    textStyle = {{ docs-theme-codeReference }}.typography.bodyMNormal,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/textskeleton/TextSkeleton_Simple.kt
 ```
 
 ### Пример использования с кастомизацией
 ```kotlin
-TextSkeleton(
-    textStyle = {{ docs-theme-codeReference }}.typography.bodyMNormal,
-    lineCount = 5,
-    lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
-    brush = {{ docs-theme-codeReference }}.gradients.surfaceDefaultSkeletonGradient.asLayered(),
-    duration = 1000,
-    shape = {{ docs-theme-codeReference }}.shapes.roundM,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/textskeleton/TextSkeleton_Custom.kt
 ```
 
 > Параметр `brush` влияет на тип анимации. Если в brush установлен градиент, то скелетон будет выглядеть как перемещающийся в пространстве градиент.
@@ -41,9 +32,5 @@ TextSkeleton(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-TextSkeletonStyle.builder()
-    .gradient(Color.Cyan)
-    .shape(CircleShape)
-    .duration(700)
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/textskeleton/TextSkeleton_Style.kt
 ```

@@ -1,14 +1,12 @@
 ---
 title: Text
---- 
+---
 
 `Text` используется для отображения текста в Compose. Оборачивает `BasicText`, добавляя поддержку  
 локального стиля `LocalTextStyle` и возможность объединения стилей через `ProvideTextStyle`.  
 
 ```kotlin
-Text(
-    text = "Hello, world!",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Simple.kt
 ```
 
 ## Варианты использования
@@ -24,10 +22,7 @@ Text(
 Используется для простого отображения текста.
 
 ```kotlin
-Text(
-    text = "Hello, world",
-    style = TextStyle(fontSize = 16.sp),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/TextStyle_Simple.kt
 ```
 
 ### AnnotatedString
@@ -35,16 +30,7 @@ Text(
 Поддерживает различные стили внутри одного текста и возможность вставки встроенных composable-элементов.
 
 ```kotlin
-val text = buildAnnbuildAnnotatedString {
-    append("Текст с ")
-    withStyle(SpanStyle(color = Color.Red)) {
-        append("цветным фрагментом")
-    }
-}
-Text(
-    text = text,
-    style = TextStyle(fontSize = 16.sp),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Custom.kt
 ```
 
 ## Настройка стиля текста
@@ -54,12 +40,7 @@ Text(
 стилем (`LocalTextStyle`), заполняя недостоющие пераметры.
 
 ```kotlin
-ProvideTextStyle(TextStyle(color = Color.Gray, fontSize = 20.sp)) {
-    Column{
-        Text("Заголовок")
-        Text("Описание")
-    }
-}
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Style.kt
 ```
 
 ## Inline Content
@@ -67,26 +48,7 @@ ProvideTextStyle(TextStyle(color = Color.Gray, fontSize = 20.sp)) {
 Текст с типом `AnnotatedString` поддерживает отображение встроенных composable через параметр `inlineContent`.  
 
 ```kotlin
-val inlineContent = mapOf(
-    "icon" to InlineTextContent(
-        placeholder = Placeholder(16.sp, 16.sp, PlaceholderVerticalAlign.Center),
-    ) {
-        Icon(
-            imageVector = Icons.Default.Home,
-            contentDescription = null,
-        )
-    }
-)
-
-val text = buildAnnotatedString {
-    append("Добавляем иконку")
-    appendInlineContent("icon","[icon]")
-}
-
-Text(
-    text = text,
-    inlineContent = inlineContent
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/TextInlineContent_Simple.kt
 ```
 
 ## Параметры отображения
@@ -94,10 +56,5 @@ Text(
 Компонент поддерживает стандартные параметры форматирования текста:  
 
 ```kotlin
-Text(
-    text = "Длинное описание чего то, содержащее много строк",
-    maxLines = 2,
-    overflow = TextOverflow.Ellipsis,
-    softWrap = true
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/TextFormat_Simple.kt
 ```

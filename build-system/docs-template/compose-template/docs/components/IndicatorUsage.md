@@ -1,14 +1,12 @@
 ---
 title: Indicator
---- 
+---
 
 Компонент Indicator как правило используется в составе других, более сложных компонентов (обычно для отображения статуса),
 например в Avatar, TextField и др.
 
 ```kotlin
-  Indicator(
-    style = Indicator.L.Default.style(),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/indicator/Indicator_Simple.kt
 ```
 
 ## Стиль Indicator
@@ -18,17 +16,7 @@ title: Indicator
 ### Создание стиля с помощью builder()
 
 ```kotlin
-IndicatorStyle.builder(this)
-    .color {
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefault.asInteractive(),
-        )
-    }
-    .dimensions {
-        height(12.0.dp)
-        width(12.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/indicator/Indicator_Style.kt
 ```
 
 ## Indicator как extension к Modifier
@@ -38,20 +26,5 @@ IndicatorStyle.builder(this)
 нужно установить параметры horizontalMode и/или verticalMode как IndicatorMode.Outer
 
 ```kotlin
-Avatar(
-    modifier = Modifier
-        .indicator(
-            alignment = Alignment.TopEnd,
-            style = Indicator.L.Black.style(),
-            horizontalPadding = 5.dp,
-            verticalPadding = 5.dp,
-            horizontalMode = IndicatorMode.Outer,
-            verticalMode = IndicatorMode.Outer,
-        ),
-    style = Avatar.Xxl.style(),
-    status = AvatarStatus.None,
-    painter = painterResource(id = R.drawable.il_avatar_test),
-    actionEnabled = false,
-    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/indicator/AvatarIndicator_Simple.kt
 ```

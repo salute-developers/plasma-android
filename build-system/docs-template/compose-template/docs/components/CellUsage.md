@@ -5,29 +5,7 @@ title: Cell
 Компонент ячейки представляет собой стилизованные слоты для контента.
 
 ```kotlin
-val interactionSource = remember { MutableInteractionSource() }
-val isFocused = interactionSource.collectIsFocusedAsState()
-Cell(
-    modifier = Modifier
-        .focusable(interactionSource = interactionSource)
-        .focusSelector(
-            settings = LocalFocusSelectorSettings.current,
-        ) { isFocused.value },
-    style = Cell.M.Style(),
-    title = AnnotatedString("Title"),
-    subtitle = AnnotatedString("Subtitle"),
-    label = AnnotatedString("Label"),
-    disclosureEnabled = true,
-    startContent =  Icon(
-        painter = painterResource(id = R.drawable.ic_plasma_16),
-        contentDescription = "",
-    ),
-    endContent = Icon(
-        painter = painterResource(id = R.drawable.ic_plasma_16),
-        contentDescription = "",
-    ),
-    interactionSource = interactionSource,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_Simple.kt
 ```
 
 ## Стиль Cell
@@ -37,39 +15,7 @@ Cell(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-CellStyle.builder()
-    .colors {
-        labelColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        titleColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        subtitleColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        disclosureTextColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        disclosureIconColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-    }
-    .labelStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
-    .titleStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
-    .subtitleStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
-    .disclosureTextStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
-    .disclosureIcon(painterResource(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24))
-    .dimensions {
-        contentPaddingStart(8.0.dp)
-        contentPaddingEnd(8.0.dp)
-    }
-    .avatarStyle(Avatar.L.style())
-    .iconButtonStyle(IconButton.L.Clear.style())
-    .checkBoxStyle(CheckBox.M.Default.style())
-    .radioBoxStyle(RadioBox.M.style())
-    .switchStyle(Switch.L.style())
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_Style.kt
 ```
 
 ## Cell Gravity
@@ -77,12 +23,7 @@ CellStyle.builder()
 Выравнивание контента по вертикали возможно установить спомощью параметра gravity.
 
 ```kotlin
-fun Cell(
-    modifier: Modifier = Modifier,
-    style: CellStyle,
-    gravity: CellGravity = CellGravity.Center,
-    ...
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_Gravity.kt
 ```
 
 ## Cell Disclosure
@@ -90,14 +31,7 @@ fun Cell(
 С помощью параметра disclosureEnabled возможно отобразить иконку "раскрытия" контента, а так же disclosureText текст - описание.
 
 ```kotlin
-fun Cell(
-    modifier: Modifier = Modifier,
-    style: CellStyle,
-    gravity: CellGravity = CellGravity.Center,
-    disclosureEnabled = true,
-    disclosureText = AnnotatedString("Discription"),
-    ...
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_Disclosure.kt
 ```
 
 ## Cell Content
@@ -106,16 +40,5 @@ fun Cell(
 Avatar(),  Switch(), CheckBox(), RadioBox(), IconButton() или иконка, а так же функций из RowScope.
 
 ```kotlin
-Cell(
-    ...
-    disclosureEnabled = true,
-    startContent =  Avatar(
-        painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24)
-    ),
-    endContent = @Composable {
-        var active by remember { mutableStateOf(false) }
-        Switch(active = active, onActiveChanged = { active = it })
-    }
-    ...
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_AvatarSwitch.kt
 ```

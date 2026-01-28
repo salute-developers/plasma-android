@@ -6,26 +6,7 @@ title: NavigationBar
 В качестве текста, контента и экшенов может принимать произвольный контент.
 
 ```kotlin
-NavigationBar(
-    style = NavigationBarMainPage.HasBackground.Shadow.Rounded.style(),
-    textPlacement = NavigationBarTextPlacement.Inline,
-    contentPlacement = NavigationBarContentPlacement.Inline,
-    textAlign = NavigationBarTextAlign.Start,
-    textContent = { Text("Text") },
-    content = { Text("Content") },
-    actionStart = {
-        Icon(
-            painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
-            contentDescription = "",
-        )
-    },
-    actionEnd = {
-        Icon(
-            painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
-            contentDescription = "",
-        )
-    },
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/navigationbar/NavigationBar_Simple.kt
 ```
 
 ## Стиль NavigationBar
@@ -35,38 +16,7 @@ NavigationBar(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-NavigationBarStyle.builder()
-    .shadow({{ docs-theme-codeReference }}.shadows.downSoftM)
-    .bottomShape({{ docs-theme-codeReference }}.shapes.roundL)
-    .textStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
-    .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
-    .colors {
-        backIconColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        textColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        actionStartColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        actionEndColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asInteractive(),
-        )
-    }
-    .dimensions {
-        paddingStart(20.0.dp)
-        paddingEnd(20.0.dp)
-        paddingTop(20.0.dp)
-        paddingBottom(20.0.dp)
-        backIconMargin(4.0.dp)
-        textBlockTopMargin(16.0.dp)
-        horizontalSpacing(16.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/navigationbar/NavigationBar_Style.kt
 ```
 
 ## NavigationBarTextPlacement
