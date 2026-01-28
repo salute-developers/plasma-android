@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ModalStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
+import com.sdds.playground.sandbox.core.compose.enumProperty
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
@@ -18,6 +19,21 @@ internal class ModalViewModel(
     override fun ModalUiState.toProps(): List<Property<*>> {
         return listOf(
             Property.BooleanProperty(
+                name = "hasClose",
+                value = hasClose,
+                onApply = { internalUiState.value = internalUiState.value.copy(hasClose = it) },
+            ),
+            enumProperty(
+                name = "gravity",
+                value = gravity,
+                onApply = { internalUiState.value = internalUiState.value.copy(gravity = it) },
+            ),
+            Property.BooleanProperty(
+                name = "hasDimBackground",
+                value = hasDimBackground,
+                onApply = { internalUiState.value = internalUiState.value.copy(hasDimBackground = it) },
+            ),
+            Property.BooleanProperty(
                 name = "useNativeBlackout",
                 value = useNativeBlackout,
                 onApply = {
@@ -25,9 +41,9 @@ internal class ModalViewModel(
                 },
             ),
             Property.BooleanProperty(
-                name = "hasClose",
-                value = hasClose,
-                onApply = { internalUiState.value = internalUiState.value.copy(hasClose = it) },
+                name = "edgeToEdge",
+                value = edgeToEdge,
+                onApply = { internalUiState.value = internalUiState.value.copy(edgeToEdge = it) },
             ),
         )
     }

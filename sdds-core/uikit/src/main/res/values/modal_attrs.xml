@@ -12,6 +12,10 @@
             <enum name="topEnd" value="0" />
             <enum name="centerEnd" value="1" />
         </attr>
-
+        <attr name="sd_overlayStyleOverlay" format="reference" />
+        <attr name="sd_enterAnimation" format="reference" />
+        <attr name="sd_exitAnimation" format="reference" />
+        <attr name="sd_overlayEnterAnimationDuration" format="integer" />
+        <attr name="sd_overlayExitAnimationDuration" format="integer" />
     </declare-styleable>
 </resources>
