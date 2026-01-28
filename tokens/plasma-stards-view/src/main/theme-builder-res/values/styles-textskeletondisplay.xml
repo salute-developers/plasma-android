@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.TextSkeletonDisplay" parent="Sdds.Components.TextSkeleton">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shimmerDuration">700</item>
+        <item name="sd_shimmer">?sdkit_surfaceDefaultTransparentSecondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonDisplay.L">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayLNormal</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonDisplayL">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonDisplay.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonDisplay.M">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayMNormal</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonDisplayM">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonDisplay.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonDisplay.S">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplaySNormal</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonDisplayS">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonDisplay.S</item>
+    </style>
+</resources>

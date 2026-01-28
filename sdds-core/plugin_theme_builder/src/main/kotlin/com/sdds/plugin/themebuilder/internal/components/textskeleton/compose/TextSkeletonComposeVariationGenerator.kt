@@ -18,6 +18,7 @@ internal class TextSkeletonComposeVariationGenerator(
     ktFileBuilderFactory: KtFileBuilderFactory,
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
+    styleBuilderName: String,
     componentName: String,
 ) : ComposeVariationGenerator<TextSkeletonProperties>(
     themeClassName = themeClassName,
@@ -29,6 +30,7 @@ internal class TextSkeletonComposeVariationGenerator(
     ktFileBuilderFactory = ktFileBuilderFactory,
     componentPackage = componentPackage,
     outputLocation = outputLocation,
+    styleBuilderName = styleBuilderName,
     componentName = componentName,
 ) {
 
@@ -36,15 +38,24 @@ internal class TextSkeletonComposeVariationGenerator(
         addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
     }
 
+    override val componentStyleName: String = "TextSkeletonStyle"
+
     override fun propsToBuilderCalls(
         props: TextSkeletonProperties,
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ) = listOfNotNull(
+        textStyleCall(props),
         shapeCall(props, variationId),
         durationCall(props),
         gradientCall(props),
     )
+
+    private fun textStyleCall(props: TextSkeletonProperties): String? {
+        return props.textStyle?.let {
+            getTypography("textStyle", it)
+        }
+    }
 
     private fun durationCall(props: TextSkeletonProperties): String? {
         return props.duration?.let {

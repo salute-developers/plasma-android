@@ -7,11 +7,13 @@ import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class TextSkeletonProperties(
+    val textStyle: Typography? = null,
     val shape: Shape? = null,
     val gradient: Color? = null,
     val duration: FloatValue? = null,
@@ -20,6 +22,7 @@ internal data class TextSkeletonProperties(
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? TextSkeletonProperties ?: return this
         return copy(
+            textStyle = textStyle ?: otherProps.textStyle,
             shape = shape ?: otherProps.shape,
             gradient = gradient ?: otherProps.gradient,
             duration = duration ?: otherProps.duration,

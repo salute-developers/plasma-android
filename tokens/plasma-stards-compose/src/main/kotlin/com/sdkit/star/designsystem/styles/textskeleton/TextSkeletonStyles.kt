@@ -1,4 +1,4 @@
-// AUTO-GENERATED. DO NOT MODIFY this file.
+// Deprecated. Replace with TextSkeletonBody or TextSkeletonDisplay or TextSkeletonHeader or TextSkeletonText
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",

@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -39,6 +40,11 @@ interface TextSkeletonStyle : Style {
      * Время в мс, за которое градиент перемещается через всю ширину компонента
      */
     val duration: Int
+
+    /**
+     * Стиль текста
+     */
+    val textStyle: TextStyle
 
     companion object {
         /**
@@ -80,18 +86,26 @@ interface TextSkeletonStyleBuilder : StyleBuilder<TextSkeletonStyle> {
      * Устанавливает время в мс [duration], за которое градиент перемещается через всю ширину компонента
      */
     fun duration(duration: Int): TextSkeletonStyleBuilder
+
+    /**
+     * Устанавливает стиль текста [textStyle]
+     * @see TextSkeletonStyle.textStyle
+     */
+    fun textStyle(textStyle: TextStyle): TextSkeletonStyleBuilder
 }
 
 private class DefaultTextSkeletonStyle(
     override val shape: CornerBasedShape,
     override val gradient: StatefulValue<Brush>,
     override val duration: Int,
+    override val textStyle: TextStyle,
 ) : TextSkeletonStyle {
 
     class Builder : TextSkeletonStyleBuilder {
         private var shape: CornerBasedShape? = null
         private var gradient: StatefulValue<Brush>? = null
         private var duration: Int? = null
+        private var textStyle: TextStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -105,6 +119,10 @@ private class DefaultTextSkeletonStyle(
             this.duration = duration
         }
 
+        override fun textStyle(textStyle: TextStyle) = apply {
+            this.textStyle = textStyle
+        }
+
         override fun style(): TextSkeletonStyle {
             return DefaultTextSkeletonStyle(
                 shape = shape ?: RoundedCornerShape(15),
@@ -116,6 +134,7 @@ private class DefaultTextSkeletonStyle(
                     end = Offset(Float.POSITIVE_INFINITY, 0f),
                 ).asStatefulValue(),
                 duration = duration ?: 5000,
+                textStyle = textStyle ?: TextStyle.Default,
             )
         }
     }
