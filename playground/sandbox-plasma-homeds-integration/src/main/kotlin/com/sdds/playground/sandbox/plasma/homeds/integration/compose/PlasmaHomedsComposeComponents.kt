@@ -83,6 +83,13 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to PlasmaHomedsNavigationBarMainPageVariationsCompose,
+                    "NavigationBarInternalPage" to PlasmaHomedsNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.BasicButton,
                 mapOf(
                     "BasicButton" to PlasmaHomedsBasicButtonVariationsCompose,
