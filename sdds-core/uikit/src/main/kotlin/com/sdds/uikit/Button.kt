@@ -766,7 +766,14 @@ open class Button @JvmOverloads constructor(
             end: Int,
             fm: Paint.FontMetricsInt?,
         ): Int {
-            fm?.set(paint.fontMetricsInt)
+            fm?.let {
+                val pfm = paint.fontMetricsInt
+                it.top = pfm.top
+                it.ascent = pfm.ascent
+                it.descent = pfm.descent
+                it.bottom = pfm.bottom
+                it.leading = pfm.leading
+            }
             return _spanSpaceSize
         }
 

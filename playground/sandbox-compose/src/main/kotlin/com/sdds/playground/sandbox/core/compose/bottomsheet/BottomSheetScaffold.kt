@@ -141,7 +141,7 @@ private fun consumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
     override suspend fun onPreFling(available: Velocity): Velocity {
         val toFling = available.velocityToFloat()
         val currentOffset = state.requireOffset()
-        return if (toFling < 0 && currentOffset > state.anchors.minAnchor()) {
+        return if (toFling < 0 && currentOffset > state.anchors.minPosition()) {
             state.settle(toFling)
             available
         } else {

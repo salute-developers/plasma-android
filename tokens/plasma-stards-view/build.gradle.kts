@@ -1,6 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import ru.sberdevices.starplugin.stardimens.GenerateStarDimensTask
 import utils.componentsName
 import utils.componentsVersion
 import utils.themeAlias
@@ -52,9 +53,13 @@ themeBuilder {
 }
 
 dependencies {
-    implementation(libs.sdds.icons)
+    implementation(icons.sdds.icons)
     implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.android.material)
+}
+
+tasks.matching { it.name.matches(Regex("generate\\w+Resources")) }.configureEach {
+    dependsOn(tasks.withType<GenerateStarDimensTask>())
 }

@@ -121,6 +121,10 @@ internal class BasicButtonViewModel(
                 name = PropertyName.Loading.value,
                 value = loading,
             ),
+            Property.BooleanProperty(
+                name = PropertyName.FixedSize.value,
+                value = fixedSize,
+            ),
         )
     }
 

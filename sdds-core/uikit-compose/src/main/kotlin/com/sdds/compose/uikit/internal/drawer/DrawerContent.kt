@@ -310,13 +310,13 @@ private fun DrawerState.updateAnchorsFor(size: IntSize, peekOffset: Float) {
     }
 
     val hasAnchors = anchoredDraggableState.anchors.size > 0
-    val newTarget = if (!hasAnchors && anchors.hasAnchorFor(currentValue)) {
+    val newTarget = if (!hasAnchors && anchors.hasPositionFor(currentValue)) {
         currentValue
     } else {
         when (targetValue) {
             DrawerValue.Closed -> DrawerValue.Closed
             DrawerValue.Opened -> {
-                val newTarget = if (anchors.hasAnchorFor(DrawerValue.Opened)) {
+                val newTarget = if (anchors.hasPositionFor(DrawerValue.Opened)) {
                     DrawerValue.Opened
                 } else {
                     DrawerValue.Closed
