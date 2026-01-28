@@ -51,7 +51,7 @@ fun NavigationBar(
     contentPlacement: NavigationBarContentPlacement = NavigationBarContentPlacement.Bottom,
     actionStart: (@Composable () -> Unit)? = null,
     actionEnd: (@Composable () -> Unit)? = null,
-    titleContent: (@Composable () -> Unit)?,
+    titleContent: (@Composable () -> Unit)? = null,
     descriptionContent: (@Composable () -> Unit)? = null,
     content: (@Composable () -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
