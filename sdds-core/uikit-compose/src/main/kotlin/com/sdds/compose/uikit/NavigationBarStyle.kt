@@ -12,7 +12,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -43,6 +45,16 @@ interface NavigationBarStyle : Style {
      * Стиль текста по умолчанию
      */
     val textStyle: TextStyle
+
+    /**
+     * Стиль описания по умолчанию
+     */
+    val descriptionStyle: StatefulValue<TextStyle>
+
+    /**
+     * Стиль основной надписи по умолчанию
+     */
+    val titleStyle: StatefulValue<TextStyle>
 
     /**
      * Тень компонента
@@ -84,6 +96,28 @@ interface NavigationBarStyleBuilder : StyleBuilder<NavigationBarStyle> {
     fun textStyle(textStyle: TextStyle): NavigationBarStyleBuilder
 
     /**
+     * Устанавливает стиль основной надписи по умолчанию [titleStyle]
+     */
+    fun titleStyle(titleStyle: StatefulValue<TextStyle>): NavigationBarStyleBuilder
+
+    /**
+     * Устанавливает стиль основной надписи по умолчанию [titleStyle]
+     */
+    fun titleStyle(titleStyle: TextStyle): NavigationBarStyleBuilder =
+        titleStyle(titleStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль описания по умолчанию [titleStyle]
+     */
+    fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>): NavigationBarStyleBuilder
+
+    /**
+     * Устанавливает стиль описания по умолчанию [titleStyle]
+     */
+    fun descriptionStyle(descriptionStyle: TextStyle): NavigationBarStyleBuilder =
+        descriptionStyle(descriptionStyle.asStatefulValue())
+
+    /**
      * Устанавливает иконку кнопки назад [backIcon]
      */
     fun backIcon(backIcon: Int?): NavigationBarStyleBuilder
@@ -123,6 +157,8 @@ private class DefaultNavigationBarStyle(
     override val colors: NavigationBarColors,
     override val bottomShape: CornerBasedShape,
     override val textStyle: TextStyle,
+    override val titleStyle: StatefulValue<TextStyle>,
+    override val descriptionStyle: StatefulValue<TextStyle>,
     override val actionButtonStyle: ButtonStyle?,
 ) : NavigationBarStyle {
 
@@ -134,10 +170,20 @@ private class DefaultNavigationBarStyle(
         private val colorsBuilder = NavigationBarColors.builder()
         private val dimensionsBuilder = NavigationBarDimensions.builder()
         private var textStyle: TextStyle? = null
+        private var titleStyle: StatefulValue<TextStyle>? = null
+        private var descriptionStyle: StatefulValue<TextStyle>? = null
         private var actionButtonStyle: ButtonStyle? = null
 
         override fun textStyle(textStyle: TextStyle) = apply {
             this.textStyle = textStyle
+        }
+
+        override fun titleStyle(titleStyle: StatefulValue<TextStyle>) = apply {
+            this.titleStyle = titleStyle
+        }
+
+        override fun descriptionStyle(descriptionStyle: StatefulValue<TextStyle>) = apply {
+            this.descriptionStyle = descriptionStyle
         }
 
         override fun backIcon(backIcon: Int?) = apply {
@@ -175,6 +221,8 @@ private class DefaultNavigationBarStyle(
                 shadow = shadow ?: ShadowAppearance(),
                 bottomShape = bottomShape ?: RoundedCornerShape(ZeroCornerSize),
                 textStyle = textStyle ?: TextStyle.Default,
+                titleStyle = titleStyle ?: TextStyle.Default.asStatefulValue(),
+                descriptionStyle = descriptionStyle ?: TextStyle.Default.asStatefulValue(),
                 actionButtonStyle = actionButtonStyle,
             )
         }
@@ -211,6 +259,16 @@ interface NavigationBarColors {
      * Цвет текста по умолчанию
      */
     val textColor: InteractiveColor
+
+    /**
+     * Цвет основной надписи по умолчанию
+     */
+    val titleColor: InteractiveColor
+
+    /**
+     * Цвет описания по умолчанию
+     */
+    val descriptionColor: InteractiveColor
 
     companion object {
 
@@ -281,6 +339,28 @@ interface NavigationBarColorsBuilder {
     fun textColor(textColor: InteractiveColor): NavigationBarColorsBuilder
 
     /**
+     * Устанавливает цвет основной надписи по умолчанию [titleColor].
+     */
+    fun titleColor(titleColor: Color): NavigationBarColorsBuilder =
+        titleColor(titleColor.asInteractive())
+
+    /**
+     * Устанавливает цвет основной надписи по умолчанию [titleColor].
+     */
+    fun titleColor(titleColor: InteractiveColor): NavigationBarColorsBuilder
+
+    /**
+     * Устанавливает цвет описания по умолчанию [descriptionColor].
+     */
+    fun descriptionColor(descriptionColor: Color): NavigationBarColorsBuilder =
+        descriptionColor(descriptionColor.asInteractive())
+
+    /**
+     * Устанавливает цвет описания по умолчанию [descriptionColor].
+     */
+    fun descriptionColor(descriptionColor: InteractiveColor): NavigationBarColorsBuilder
+
+    /**
      * Создает экземпляр [NavigationBarColors]
      */
     fun build(): NavigationBarColors
@@ -293,6 +373,8 @@ private data class DefaultNavigationBarColors(
     override val actionStartColor: InteractiveColor,
     override val actionEndColor: InteractiveColor,
     override val textColor: InteractiveColor,
+    override val titleColor: InteractiveColor,
+    override val descriptionColor: InteractiveColor,
 ) : NavigationBarColors {
 
     class Builder : NavigationBarColorsBuilder {
@@ -301,6 +383,8 @@ private data class DefaultNavigationBarColors(
         private var actionStartColor: InteractiveColor? = null
         private var actionEndColor: InteractiveColor? = null
         private var textColor: InteractiveColor? = null
+        private var titleColor: InteractiveColor? = null
+        private var descriptionColor: InteractiveColor? = null
 
         override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
             this.backgroundColor = backgroundColor
@@ -322,6 +406,14 @@ private data class DefaultNavigationBarColors(
             this.textColor = textColor
         }
 
+        override fun titleColor(titleColor: InteractiveColor) = apply {
+            this.titleColor = titleColor
+        }
+
+        override fun descriptionColor(descriptionColor: InteractiveColor) = apply {
+            this.descriptionColor = descriptionColor
+        }
+
         override fun build(): NavigationBarColors {
             return DefaultNavigationBarColors(
                 backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
@@ -329,6 +421,8 @@ private data class DefaultNavigationBarColors(
                 actionStartColor = actionStartColor ?: Color.Black.asInteractive(),
                 actionEndColor = actionEndColor ?: Color.Black.asInteractive(),
                 textColor = textColor ?: Color.Black.asInteractive(),
+                titleColor = titleColor ?: Color.Black.asInteractive(),
+                descriptionColor = descriptionColor ?: Color.Gray.asInteractive(),
             )
         }
     }
@@ -374,6 +468,11 @@ interface NavigationBarDimensions {
      * Отступ снизу
      */
     val paddingBottom: Dp
+
+    /**
+     * Отступ описания
+     */
+    val descriptionPadding: StatefulValue<Dp>
 
     companion object {
         /**
@@ -423,6 +522,17 @@ interface NavigationBarDimensionsBuilder {
     fun paddingBottom(paddingBottom: Dp): NavigationBarDimensionsBuilder
 
     /**
+     * Устанавливает отступ описания [descriptionPadding]
+     */
+    fun descriptionPadding(descriptionPadding: Dp): NavigationBarDimensionsBuilder =
+        descriptionPadding(descriptionPadding.asStatefulValue())
+
+    /**
+     * Устанавливает отступ описания [descriptionPadding]
+     */
+    fun descriptionPadding(descriptionPadding: StatefulValue<Dp>): NavigationBarDimensionsBuilder
+
+    /**
      * Создает экземпляр [NavigationBarDimensions]
      */
     fun build(): NavigationBarDimensions
@@ -436,6 +546,7 @@ private class DefaultNavigationBarDimensions(
     override val backIconMargin: Dp,
     override val horizontalSpacing: Dp,
     override val textBlockTopMargin: Dp,
+    override val descriptionPadding: StatefulValue<Dp>,
 ) : NavigationBarDimensions {
 
     class Builder : NavigationBarDimensionsBuilder {
@@ -447,6 +558,7 @@ private class DefaultNavigationBarDimensions(
         private var paddingEnd: Dp? = null
         private var paddingTop: Dp? = null
         private var paddingBottom: Dp? = null
+        private var descriptionPadding: StatefulValue<Dp>? = null
 
         override fun backIconMargin(backIconMargin: Dp) = apply {
             this.backIconMargin = backIconMargin
@@ -476,6 +588,10 @@ private class DefaultNavigationBarDimensions(
             this.paddingBottom = paddingBottom
         }
 
+        override fun descriptionPadding(descriptionPadding: StatefulValue<Dp>) = apply {
+            this.descriptionPadding = descriptionPadding
+        }
+
         override fun build(): NavigationBarDimensions {
             return DefaultNavigationBarDimensions(
                 paddingStart = paddingStart ?: 16.dp,
@@ -485,6 +601,7 @@ private class DefaultNavigationBarDimensions(
                 backIconMargin = backIconMargin ?: 4.dp,
                 horizontalSpacing = horizontalSpacing ?: 16.dp,
                 textBlockTopMargin = textBlockTopMargin ?: 16.dp,
+                descriptionPadding = descriptionPadding ?: 2.dp.asStatefulValue(),
             )
         }
     }

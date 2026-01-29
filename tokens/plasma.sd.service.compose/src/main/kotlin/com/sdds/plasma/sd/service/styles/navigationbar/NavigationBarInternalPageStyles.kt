@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.NavigationBarStyle
 import com.sdds.compose.uikit.NavigationBarStyleBuilder
+import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -77,6 +79,18 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
     @Composable
     get() = this
         .textStyle(PlasmaSdServiceTheme.typography.bodyLBold)
+        .titleStyle(
+            PlasmaSdServiceTheme.typography.headerH2Normal.asStatefulValue(
+                setOf(NavigationBarTextPlacement.Inline) to
+                    PlasmaSdServiceTheme.typography.bodyMNormal,
+            ),
+        )
+        .descriptionStyle(
+            PlasmaSdServiceTheme.typography.bodyMNormal.asStatefulValue(
+                setOf(NavigationBarTextPlacement.Inline) to
+                    PlasmaSdServiceTheme.typography.bodyXsNormal,
+            ),
+        )
         .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
         .colors {
             backIconColor(
@@ -84,6 +98,12 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
             )
             textColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            titleColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            descriptionColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
             )
             actionStartColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
@@ -100,6 +120,11 @@ private val NavigationBarStyleBuilder.invariantProps: NavigationBarStyleBuilder
             backIconMargin(4.0.dp)
             textBlockTopMargin(16.0.dp)
             horizontalSpacing(16.0.dp)
+            descriptionPadding(
+                12.0.dp.asStatefulValue(
+                    setOf(NavigationBarTextPlacement.Inline) to 4.0.dp,
+                ),
+            )
         }
 
 public val NavigationBarInternalPage.NoBackground: WrapperNavigationBarInternalPageNoBackground

@@ -1576,6 +1576,28 @@
          ]
       },
       {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarMainPage",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "NavigationBarMainPage.Default"
+            }
+         ]
+      },
+      {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarInternalPage",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "NavigationBarInternalPage.Default"
+            }
+         ]
+      },
+      {
          "key": "basic-button",
          "coreName": "BasicButton",
          "styleName": "BasicButton",
