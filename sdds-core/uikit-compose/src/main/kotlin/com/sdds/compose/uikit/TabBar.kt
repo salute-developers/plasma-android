@@ -6,9 +6,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -60,15 +60,15 @@ fun TabBar(
         }
     }
     Row(
-        modifier = modifier
-            .shadow(style.shadow)
-            .fillMaxWidth()
+        modifier = Modifier
             .padding(
                 start = style.dimensions.paddingStart,
                 end = style.dimensions.paddingEnd,
                 top = maxOf(style.dimensions.paddingTop, style.dimensions.dividerThickness),
                 bottom = style.dimensions.paddingBottom,
             )
+            .shadow(style.shadow)
+            .then(modifier)
             .background(backgroundColor, shape)
             .drawDivider(
                 shape = shape,
@@ -162,7 +162,9 @@ interface TabBarScope {
 @Preview(showBackground = true)
 private fun TabBarPreview() {
     TabBar(
-        modifier = Modifier.padding(top = 20.dp),
+        modifier = Modifier
+            .width(264.dp)
+            .padding(top = 20.dp),
         style = TabBarStyle.builder()
             .colors {
                 backgroundColor(Color.LightGray)
@@ -170,6 +172,8 @@ private fun TabBarPreview() {
             }
             .dimensions {
                 dividerThickness(2.dp)
+                paddingStart(8.dp)
+                paddingEnd(8.dp)
             }
             .topShape(RoundedCornerShape(15))
             .bottomShape(RoundedCornerShape(15))
