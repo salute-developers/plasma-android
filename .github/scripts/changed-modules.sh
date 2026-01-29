@@ -27,9 +27,9 @@ while IFS= read -r FILE; do
   # sdds-core (excluding icons/ and testing/)
   if [[ "$FILE" == sdds-core/*/* ]]; then
     FIRST=$(echo "$FILE" | cut -d '/' -f2)
-    if [[ "$FIRST" == "uikit-compose" ]]; then
+    if [[ "$FIRST" == "uikit-compose" || "$FIRST" == "uikit-compose-fixtures" ]]; then
       UIKIT_COMPOSE_CHANGED=true
-    elif [[ "$FIRST" == "uikit" ]]; then
+    elif [[ "$FIRST" == "uikit" || "$FIRST" == "uikit-fixtures" ]]; then
       UIKIT_CHANGED=true
     elif [[ "$FIRST" == "testing" ]]; then
       TESTING_CHANGED=true
@@ -133,6 +133,36 @@ if [[ "$INCLUDE_SANDBOX" == true ]]; then
 fi
 
 UNIQUE_MODULES=$(printf "%s\n" "${MODULES_SET[@]:-}" | sort -u | xargs)
+
+# Apply ignore list from .ignore-changed-modules (if exists)
+IGNORED_MODULES=()
+if [[ -f ".ignore-changed-modules" ]]; then
+  echo "🚫 Applying .ignore-changed-modules"
+  while IFS= read -r LINE || [[ -n "$LINE" ]]; do
+    # skip empty lines and comments
+    [[ -z "$LINE" || "$LINE" =~ ^# ]] && continue
+    IGNORED_MODULES+=("$LINE")
+  done < .ignore-changed-modules
+fi
+
+if [[ ${#IGNORED_MODULES[@]} -gt 0 ]]; then
+  FILTERED_MODULES=()
+  for MODULE in $UNIQUE_MODULES; do
+    SKIP=false
+    for IGNORED in "${IGNORED_MODULES[@]}"; do
+      if [[ "$MODULE" == "$IGNORED" ]]; then
+        echo "🚫 Excluded module: $MODULE"
+        SKIP=true
+        break
+      fi
+    done
+    if [[ "$SKIP" == false ]]; then
+      FILTERED_MODULES+=("$MODULE")
+    fi
+  done
+  UNIQUE_MODULES=$(printf "%s " "${FILTERED_MODULES[@]}")
+fi
+
 echo "✅ Final module list: $UNIQUE_MODULES"
 
 # Output testing target for GitHub Actions

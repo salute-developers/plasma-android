@@ -17,7 +17,6 @@ plugins {
     id("convention.testing-compose")
     id(libs.plugins.themebuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
-    id("convention.docusaurus")
 }
 
 android {

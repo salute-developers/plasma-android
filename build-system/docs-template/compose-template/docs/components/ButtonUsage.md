@@ -3,13 +3,7 @@ title: Button
 ---
 
 ```kotlin
-Button(
-    style = BasicButton.L.Default.style(),
-    label = "Label",
-    enabled = true,
-    loading = false,
-    onClick = {},
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_Simple.kt
 ```
 
 ## Стиль Button
@@ -19,50 +13,21 @@ Button(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-ButtonStyle.basicButtonBuilder()
-    .shape({{ docs-theme-codeReference }}.shapes.roundL)
-    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
-    .valueStyle({{ docs-theme-codeReference }}.typography.bodyLBold)
-    .colors {
-        spinnerColor(
-            {{ docs-theme-codeReference }}.colors.textOnLightPrimary.asInteractive(
-                setOf(InteractiveState.Pressed)
-                    to {{ docs-theme-codeReference }}.colors.textOnLightPrimaryActive,
-                setOf(InteractiveState.Hovered)
-                    to {{ docs-theme-codeReference }}.colors.textOnLightPrimaryHover,
-            ),
-        )
-        iconColor(...),
-        labelColor(...),
-        valueColor(...),
-        backgroundColor(...),
-    }
-    .dimensions {
-        height(64.0.dp)
-        paddingStart(28.0.dp)
-        paddingEnd(28.0.dp)
-        minWidth(106.0.dp)
-        iconSize(24.0.dp)
-        spinnerSize(24.0.dp)
-        spinnerStrokeWidth(2.0.dp)
-        iconMargin(8.0.dp)
-        valueMargin(4.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_BasicButtonStyle.kt
 ```
 
 ## Расположение контента внутри Button
 
-Расположение контента задается при помощи параметра spacing. Может быть Packed (контент центрирован, лишние оступы располагаются по краям) или SpaceBetween (Контент отобразится по всей ширине, отступы будут добавлены между элементами контента).
+Расположение контента задается при помощи параметра spacing. 
+Может быть Packed (контент центрирован, лишние оступы располагаются по краям):
 
 ```kotlin
-Button(
-    style = BasicButton.L.Default.style(),
-    label = "Label",
-    value = "Value",
-    spacing = ButtonSpacing.Packed,
-    onClick = {},
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_LabelValue_Packed.kt
+```
+
+или SpaceBetween (Контент отобразится по всей ширине, отступы будут добавлены между элементами контента): 
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_LabelValue_SpaceBetween.kt
 ```
 
 ## Button Loading
@@ -70,12 +35,5 @@ Button(
 Имеется возможность отобразить состояние загрузки (спиннер), вместо контента, с помощью параметра loading.
 
 ```kotlin
-Button(
-    style = BasicButton.L.Default.style(),
-    label = "Label",
-    value = "",
-    enabled = true,
-    loading = true,
-    onClick = {},
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_isLoading.kt
 ```

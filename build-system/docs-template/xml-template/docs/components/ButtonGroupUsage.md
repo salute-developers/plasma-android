@@ -2,7 +2,7 @@
 title: ButtonGroup
 ---
 
-Контент ButtonGroup формируется с помощью [Button](ButtonUsage).
+Контент ButtonGroup формируется с помощью [Button](Button/ButtonUsage.md).
 
 ```xml
 <com.sdds.uikit.ButtonGroup
@@ -30,7 +30,7 @@ title: ButtonGroup
 </com.sdds.uikit.ButtonGroup>
 ```
 
-Или с помощью [IconButton](ButtonUsage).
+Или с помощью [IconButton](Button/ButtonUsage.md).
 
 ```xml
 <com.sdds.uikit.ButtonGroup

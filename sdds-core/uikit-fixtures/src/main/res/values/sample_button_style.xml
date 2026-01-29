@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- sample-start: id=ButtonStyle -->
+    <!-- placeholder: <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item> -> <item name="sd_shapeAppearance">Стиль/атрибут формы</item>  -->
+    <!-- placeholder: <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item> -> <item name="android:textAppearance">Стиль/атрибут типографики</item>  -->
+    <style name="ButtonStyle" parent="Sdds.Components.Button">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">#000</item>
+        <item name="android:textColor">#fff</item>
+        <item name="sd_valueTextColor">#aaa</item>
+        <item name="sd_spinnerTint">#fff</item>
+        <item name="sd_iconTint">#fff</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_spinnerSize">24dp</item>
+        <item name="sd_spinnerStrokeWidth">1dp</item>
+        <item name="sd_iconPadding">10dp</item>
+        <item name="sd_valuePadding">10dp</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">2dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+    </style>
+    <!-- sample-end: id=ButtonStyle -->
+
+    <!-- sample-start: id=IconButtonStyle -->
+    <!-- placeholder: <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item> -> <item name="sd_shapeAppearance">Стиль/атрибут формы</item>  -->
+    <style name="IconButtonStyle" parent="Sdds.Components.IconButton">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">#000</item>
+        <item name="sd_spinnerTint">#fff</item>
+        <item name="sd_iconTint">#fff</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_spinnerSize">24dp</item>
+        <item name="sd_spinnerStrokeWidth">1dp</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">2dp</item>
+    </style>
+    <!-- sample-end: id=IconButtonStyle -->
+
+    <!-- sample-start: id=LinkButtonStyle -->
+    <!-- placeholder: <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item> -> <item name="sd_shapeAppearance">Стиль/атрибут формы</item>  -->
+    <!-- placeholder: <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item> -> <item name="android:textAppearance">Стиль/атрибут типографики</item>  -->
+    <style name="LinkButtonStyle" parent="Sdds.Components.LinkButton">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">#000</item>
+        <item name="sd_valueTextColor">#333</item>
+        <item name="sd_spinnerTint">#000</item>
+        <item name="sd_iconTint">#000</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_spinnerSize">24dp</item>
+        <item name="sd_spinnerStrokeWidth">1dp</item>
+        <item name="sd_iconPadding">10dp</item>
+        <item name="sd_valuePadding">10dp</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">2dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+    </style>
+    <!-- sample-end: id=LinkButtonStyle -->
+</resources>
