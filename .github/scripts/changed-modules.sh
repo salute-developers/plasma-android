@@ -41,7 +41,7 @@ while IFS= read -r FILE; do
         TESTING_SEEN_COMPOSE=true
       fi
     fi
-    if [[ "$FIRST" != "icons" && "$FIRST" != "testing" && "$FIRST" != "gradle"]]; then
+    if [[ "$FIRST" != "icons" && "$FIRST" != "testing" && "$FIRST" != "gradle" ]]; then
       MODULE=":sdds-core:$FIRST"
       MODULES_SET+=("$MODULE")
       echo "✅ Matched: $MODULE"
