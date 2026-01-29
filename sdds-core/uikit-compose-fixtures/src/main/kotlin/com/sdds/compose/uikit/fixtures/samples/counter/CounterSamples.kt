@@ -30,17 +30,17 @@ fun Counter_Style() {
                 backgroundColor(
                     placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                 textColor(
                     placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.DarkGray, "/** Токен цвета */"),
+                            to placeholder(Color.DarkGray, "/** Цвет в состоянии hovered */"),
                     ),
                 )
             }

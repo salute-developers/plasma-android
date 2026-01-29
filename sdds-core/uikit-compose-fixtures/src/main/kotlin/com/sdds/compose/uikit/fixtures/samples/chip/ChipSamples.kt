@@ -46,21 +46,16 @@ fun Chip_Style() {
                 backgroundColor(
                     placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Blue, "/** Токен цвета */"),
+                            to placeholder(Color.Blue, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                     .contentStartColor(placeholder(Color.White, "/** Токен цвета */"))
                     .contentEndColor(placeholder(Color.White, "/** Токен цвета */"))
                     .labelColor(placeholder(Color.Green, "/** Токен цвета */"))
             }
-            .shape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токен формы (скругления) */",
-                ),
-            )
+            .shape(placeholder(RoundedCornerShape(8.dp), "/** Токен формы (скругления) */"))
             .labelStyle(placeholder(TextStyle.Default, "/** Токен стиля текста */"))
             .dimensions {
                 height(48.0.dp)

@@ -52,18 +52,8 @@ fun LoaderSpinner_Simple() {
 fun Loader_Style() {
     composableCodeSnippet {
         LoaderStyle.builder()
-            .spinnerStyle(
-                placeholder(
-                    SpinnerStyle.builder().style(),
-                    "/** Стиль комопнента */",
-                ),
-            )
-            .circularProgressStyle(
-                placeholder(
-                    CircularProgressBarStyle.builder().style(),
-                    "/** Стиль комопнента */",
-                ),
-            )
+            .spinnerStyle(placeholder(SpinnerStyle.builder().style(), "/** Стиль комопнента */"))
+            .circularProgressStyle(placeholder(CircularProgressBarStyle.builder().style(), "/** Стиль комопнента */"))
             .style()
     }
 }

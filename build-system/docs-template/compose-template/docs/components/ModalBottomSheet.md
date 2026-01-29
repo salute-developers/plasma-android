@@ -31,9 +31,9 @@ title: ModalBottomSheet
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetHandleInner_Simple.kt
 ```
 
-## FeetContent
+## FitContent
 
-С помощью параметра feetContent возможно ограничить высоту bottomSheet в развернутом виде, но только в том случае, если высота контента меньше высоты экрана.
+С помощью параметра fitContent возможно ограничить высоту bottomSheet в развернутом виде, но только в том случае, если высота контента меньше высоты экрана.
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetFitContent_Simple.kt

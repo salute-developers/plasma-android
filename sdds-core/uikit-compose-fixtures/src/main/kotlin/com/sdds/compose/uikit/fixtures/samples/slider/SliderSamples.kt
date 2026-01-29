@@ -76,12 +76,7 @@ fun Slider_Style() {
                 limitLabelMargin(12.0.dp)
                 titleMargin(4.0.dp)
             }
-            .tooltipStyle(
-                placeholder(
-                    TooltipStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .tooltipStyle(placeholder(TooltipStyle.builder().style(), "/** Стиль компонента */"))
             .orientation(SliderOrientation.Horizontal)
             .titleAlignment(TitleAlignment.End)
             .labelAlignment(LabelAlignment.Center)

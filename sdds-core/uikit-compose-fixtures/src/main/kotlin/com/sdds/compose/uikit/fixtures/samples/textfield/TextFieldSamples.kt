@@ -59,39 +59,31 @@ fun TextField_Style() {
                 captionColor(
                     placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Activated)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Токен цвета в состоянии activated */"),
                     ),
                 )
                 backgroundColor(
                     placeholder(Color.Yellow, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Activated)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Токен цвета в состоянии activated */"),
                     ),
                 )
-                optionalColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                valueColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
+                optionalColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                valueColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
                 placeholderColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Activated)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Токен цвета в состоянии activated */"),
                     ),
                 )
-                indicatorColor(
-                    placeholder(Color.Red, "/** Токен цвета */").asInteractive(),
-                )
-                startContentColor(
-                    placeholder(Color.Gray, "/** Токен цвета */").asInteractive(),
-                )
+                indicatorColor(placeholder(Color.Red, "/** Токен цвета */").asInteractive())
+                startContentColor(placeholder(Color.Gray, "/** Токен цвета */").asInteractive())
                 endContentColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Токен цвета в состоянии pressed */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Токен цвета в состоянии hovered */"),
                     ),
                 )
                 endContentColorReadOnly(
@@ -101,29 +93,19 @@ fun TextField_Style() {
                 captionColorReadOnly(
                     placeholder(Color.Gray, "/** Токен цвета */").asInteractive(),
                 )
-                counterColor(
-                    placeholder(Color.Gray, "/** Токен цвета */").asInteractive(),
-                )
+                counterColor(placeholder(Color.Gray, "/** Токен цвета */").asInteractive())
                 backgroundColorReadOnly(
                     placeholder(Color.Black, "/** Токен цвета */").multiplyAlpha(0.4f)
                         .asInteractive(),
                 )
-                cursorColor(
-                    placeholder(Color.Blue, "/** Токен цвета */").asInteractive(),
-                )
-                prefixColor(
-                    placeholder(Color.Green, "/** Токен цвета */").asInteractive(),
-                )
-                suffixColor(
-                    placeholder(Color.Green, "/** Токен цвета */").asInteractive(),
-                )
+                cursorColor(placeholder(Color.Blue, "/** Токен цвета */").asInteractive())
+                prefixColor(placeholder(Color.Green, "/** Токен цвета */").asInteractive())
+                suffixColor(placeholder(Color.Green, "/** Токен цвета */").asInteractive())
             }
             .singleLine(true)
             .shape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токен формы(скругления) */",
-                ).adjustBy(all = 0.0.dp),
+                placeholder(RoundedCornerShape(8.dp), "/** Токен формы(скругления) */")
+                    .adjustBy(all = 0.0.dp),
             )
             .dimensions {
                 optionalPadding(4.0.dp)
@@ -148,12 +130,7 @@ fun TextField_Style() {
             .prefixStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .suffixStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .placeholderStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .chipGroupStyle(
-                placeholder(
-                    ChipGroupStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .chipGroupStyle(placeholder(ChipGroupStyle.builder().style(), "/** Стиль компонента */"))
             .labelPlacement(TextFieldLabelPlacement.None)
             .style()
     }

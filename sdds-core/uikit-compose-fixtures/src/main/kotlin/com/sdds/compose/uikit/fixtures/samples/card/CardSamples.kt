@@ -50,7 +50,6 @@ fun Card_Simple() {
                 }
                 CardContent(
                     modifier = Modifier
-                        .weight(2f)
                         .align(Alignment.CenterHorizontally),
                     focusSelectorSettings = FocusSelectorSettings.None,
                 ) {
@@ -98,9 +97,7 @@ fun Card_Style() {
         CardStyle.builder()
             .colors {
                 backgroundColor(
-                    Color.Black.asInteractive(
-                        placeholder(Color.Black, "/** Токен цвета */"),
-                    ),
+                    Color.Black.asInteractive(placeholder(Color.Black, "/** Токен цвета */")),
                 )
             }
             .shape(placeholder(RoundedCornerShape(8.dp), "/** Токен формы (скругления) */"))

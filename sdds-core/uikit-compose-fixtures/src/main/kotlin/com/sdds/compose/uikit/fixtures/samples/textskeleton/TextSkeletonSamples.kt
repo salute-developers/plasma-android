@@ -33,10 +33,7 @@ fun TextSkeleton_Custom() {
             lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
             brush = placeholder(Brush.horizontalGradient(), "/** Токен градиента */"),
             duration = 1000,
-            shape = placeholder(
-                RoundedCornerShape(8.dp),
-                "/** Токен формы(скругления) */",
-            ),
+            shape = placeholder(RoundedCornerShape(8.dp), "/** Токен формы(скругления) */"),
         )
     }
 }

@@ -17,6 +17,7 @@ import com.sdds.compose.uikit.AccordionItemStyle
 import com.sdds.compose.uikit.AccordionStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.docs.DocSample
 
@@ -33,17 +34,20 @@ fun Accordion_ItemStyle() {
             .colors {
                 backgroundColor(
                     Color.White.asInteractive(
-                        placeholder(Color.White, "/** Токен цвета */"),
+                        setOf(InteractiveState.Pressed)
+                            to placeholder(Color.White, "/** Цвет в состоянии pressed */"),
                     ),
                 )
                 titleColor(
                     Color.LightGray.asInteractive(
-                        placeholder(Color.LightGray, "/** Токен цвета */"),
+                        setOf(InteractiveState.Hovered)
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                 contentTextColor(
                     Color.LightGray.asInteractive(
-                        placeholder(Color.LightGray, "/** Токен цвета */"),
+                        setOf(InteractiveState.Hovered)
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии hovered */"),
                     ),
                 )
             }

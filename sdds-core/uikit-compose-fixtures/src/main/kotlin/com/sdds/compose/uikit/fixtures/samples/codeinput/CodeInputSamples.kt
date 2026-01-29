@@ -48,28 +48,25 @@ fun CodeInput_Style() {
                 codeColor(
                     placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии error */"),
                     ),
                 )
                 captionColor(
-                    placeholder(
-                        Color.LightGray,
-                        "/** Токен типографики */",
-                    ).asStatefulValue(
+                    placeholder(Color.LightGray, "/** Токен типографики */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии error */"),
                     ),
                 )
                 fillColor(
                     placeholder(Color.Transparent, "/** Токен цвета */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии error */"),
                     ),
                 )
                 strokeColor(
                     placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии error */"),
                     ),
                 )
             }

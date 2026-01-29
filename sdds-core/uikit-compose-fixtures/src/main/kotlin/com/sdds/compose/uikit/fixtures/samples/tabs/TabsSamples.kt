@@ -68,21 +68,15 @@ fun Tabs_Style() {
     composableCodeSnippet {
         TabsStyle.builder()
             .colors {
-                indicatorColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                overflowNextIconColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
-                overflowPrevIconColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
+                indicatorColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                overflowNextIconColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
+                overflowPrevIconColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
                 disclosureColor(
                     placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии pressed */"),
                     ),
                 )
             }
@@ -92,34 +86,14 @@ fun Tabs_Style() {
                 minHeight(68.dp)
             }
             .orientation(TabsOrientation.Vertical)
-            .dividerStyle(
-                placeholder(
-                    DividerStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .dividerStyle(placeholder(DividerStyle.builder().style(), "/** Стиль компонента */"))
             .overflowNextIcon(R.drawable.ic_disclosure_right_outline_24)
             .overflowPrevIcon(R.drawable.ic_disclosure_left_outline_24)
             .dividerEnabled(true)
             .indicatorEnabled(true)
-            .dropdownMenuStyle(
-                placeholder(
-                    DropdownMenuStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
-            .disclosureTextStyle(
-                placeholder(
-                    TextStyle.Default,
-                    "/** Токен типографики */",
-                ),
-            )
-            .tabItemStyle(
-                placeholder(
-                    TabItemStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .dropdownMenuStyle(placeholder(DropdownMenuStyle.builder().style(), "/** Стиль компонента */"))
+            .disclosureTextStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
+            .tabItemStyle(placeholder(TabItemStyle.builder().style(), "/** Стиль компонента */"))
             .overflowNextIcon(R.drawable.ic_disclosure_down_outline_24)
             .overflowPrevIcon(R.drawable.ic_disclosure_up_outline_24)
             .style()
@@ -135,77 +109,65 @@ fun TabItem_Style() {
                 labelColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
-                        setOf(
-                            InteractiveState.Selected,
-                            InteractiveState.Hovered,
-                        )
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + pressed */"),
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered)
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + hovered */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 valueColor(
                     placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
-                        setOf(
-                            InteractiveState.Selected,
-                            InteractiveState.Hovered,
-                        )
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + pressed */"),
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered)
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии selected + hovered */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 startContentColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
-                        setOf(
-                            InteractiveState.Selected,
-                            InteractiveState.Hovered,
-                        )
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + pressed */"),
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered)
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + hovered */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 endContentColor(
                     placeholder(Color.LightGray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
-                        setOf(
-                            InteractiveState.Selected,
-                            InteractiveState.Hovered,
-                        )
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + pressed */"),
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered)
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + hovered */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 actionColor(
                     placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии pressed */"),
                     ),
                 )
             }
@@ -237,43 +199,37 @@ fun TabItemIcon_Style() {
                 startContentColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
-                        setOf(
-                            InteractiveState.Selected,
-                            InteractiveState.Hovered,
-                        )
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + pressed */"),
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered)
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + hovered */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 endContentColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                            to placeholder(Color.LightGray, "/** Токен цвета */"),
-                        setOf(
-                            InteractiveState.Selected,
-                            InteractiveState.Hovered,
-                        )
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии selected + pressed */"),
+                        setOf(InteractiveState.Selected, InteractiveState.Hovered)
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected + hovered */"),
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии pressed */"),
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 actionColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии hovered */"),
                         setOf(InteractiveState.Pressed)
-                            to placeholder(Color.Gray, "/** Токен цвета */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии pressed */"),
                     ),
                 )
             }

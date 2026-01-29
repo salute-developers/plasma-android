@@ -71,61 +71,28 @@ fun Cell_Style() {
     composableCodeSnippet {
         CellStyle.builder()
             .colors {
-                labelColor(
-                    placeholder(Color.Black, "/** Токен цвета */"),
-                )
-                titleColor(
-                    placeholder(Color.Black, "/** Токен цвета */"),
-                )
-                subtitleColor(
-                    placeholder(Color.Gray, "/** Токен цвета */"),
-                )
-                disclosureTextColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */"),
-                )
-                disclosureIconColor(
-                    placeholder(Color.Gray, "/** Токен цвета */"),
-                )
+                labelColor(placeholder(Color.Black, "/** Токен цвета */"))
+                titleColor(placeholder(Color.Black, "/** Токен цвета */"))
+                subtitleColor(placeholder(Color.Gray, "/** Токен цвета */"))
+                disclosureTextColor(placeholder(Color.LightGray, "/** Токен цвета */"))
+                disclosureIconColor(placeholder(Color.Gray, "/** Токен цвета */"))
             }
             .labelStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .subtitleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .disclosureTextStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
+            .disclosureIcon(R.drawable.ic_disclosure_right_outline_24)
             .dimensions {
                 contentPaddingStart(8.0.dp)
                 contentPaddingEnd(8.0.dp)
             }
-            .avatarStyle(
-                placeholder(
-                    AvatarStyle.builder().style(),
-                    "/** Стиль компонента Avatar */",
-                ),
-            )
+            .avatarStyle(placeholder(AvatarStyle.builder().style(), "/** Стиль компонента Avatar */"))
             .iconButtonStyle(
-                placeholder(
-                    ButtonStyle.basicButtonBuilder().style(),
-                    "/** Стиль компонента IconButton */",
-                ),
+                placeholder(ButtonStyle.basicButtonBuilder().style(), "/** Стиль компонента IconButton */"),
             )
-            .checkBoxStyle(
-                placeholder(
-                    CheckBoxStyle.builder().style(),
-                    "/** Стиль компонента CheckBox */",
-                ),
-            )
-            .radioBoxStyle(
-                placeholder(
-                    RadioBoxStyle.builder().style(),
-                    "/** Стиль компонента RadioBox */",
-                ),
-            )
-            .switchStyle(
-                placeholder(
-                    SwitchStyle.builder().style(),
-                    "/** Стиль компонента Switch */",
-                ),
-            )
+            .checkBoxStyle(placeholder(CheckBoxStyle.builder().style(), "/** Стиль компонента CheckBox */"))
+            .radioBoxStyle(placeholder(RadioBoxStyle.builder().style(), "/** Стиль компонента RadioBox */"))
+            .switchStyle(placeholder(SwitchStyle.builder().style(), "/** Стиль компонента Switch */"))
             .style()
     }
 }

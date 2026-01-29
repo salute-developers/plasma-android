@@ -45,12 +45,7 @@ fun CheckBoxGroup_Simple() {
 fun CheckBoxGroup_Style() {
     composableCodeSnippet {
         CheckBoxGroupStyle.builder()
-            .checkBoxStyle(
-                placeholder(
-                    CheckBoxStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .checkBoxStyle(placeholder(CheckBoxStyle.builder().style(), "/** Стиль компонента */"))
             .dimensions {
                 itemSpacing(14.0.dp)
                 itemOffset(36.0.dp)

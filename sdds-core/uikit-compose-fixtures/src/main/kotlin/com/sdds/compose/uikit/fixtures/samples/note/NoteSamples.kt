@@ -70,12 +70,7 @@ fun Note_Simple() {
 fun NoteCompact_Style() {
     composableCodeSnippet {
         NoteCompactStyle.builder()
-            .shape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токе формы(скругления) */",
-                ).adjustBy(all = -2.0.dp),
-            )
+            .shape(placeholder(RoundedCornerShape(8.dp), "/** Токе формы(скругления) */").adjustBy(all = -2.0.dp))
             .contentBeforeArrangement(ContentBeforeVerticalArrangement.Top)
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .textStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
@@ -100,12 +95,7 @@ fun NoteCompact_Style() {
 fun Note_Style() {
     composableCodeSnippet {
         NoteStyle.builder()
-            .shape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токе формы(скругления) */",
-                ).adjustBy(all = -2.0.dp),
-            )
+            .shape(placeholder(RoundedCornerShape(8.dp), "/** Токе формы(скругления) */").adjustBy(all = -2.0.dp))
             .contentBeforeArrangement(ContentBeforeVerticalArrangement.Top)
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .textStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))

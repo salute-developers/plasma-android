@@ -79,12 +79,8 @@ fun ScrollBar_Style() {
     composableCodeSnippet {
         ScrollBarStyle.builder()
             .colors {
-                trackColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
-                thumbColor(
-                    placeholder(Color.Green, "/** Токен цвета */").asInteractive(),
-                )
+                trackColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
+                thumbColor(placeholder(Color.Green, "/** Токен цвета */").asInteractive())
             }
             .shape(CircleShape)
             .hoverExpandFactor(2.0f)

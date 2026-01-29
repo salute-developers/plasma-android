@@ -29,44 +29,23 @@ fun Avatar_Style() {
         AvatarStyle.builder()
             .shape(CircleShape)
             .colors {
-                backgroundColor(
-                    placeholder(
-                        Brush.sweepGradient(),
-                        "/** Токен градиента */",
-                    ).asStatefulValue(),
-                )
-                textColor(
-                    placeholder(
-                        Brush.linearGradient(),
-                        "/** Токен градиента */",
-                    ).asStatefulValue(),
-                )
+                backgroundColor(placeholder(Brush.sweepGradient(), "/** Токен градиента */").asStatefulValue())
+                textColor(placeholder(Brush.linearGradient(), "/** Токен градиента */").asStatefulValue())
             }
             .dimensions {
                 width(88.0.dp)
                 height(88.0.dp)
             }
             .textStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .badgeStyle(
-                placeholder(
-                    BadgeStyle.badgeBuilder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
-            .counterStyle(
-                placeholder(
-                    CounterStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .badgeStyle(placeholder(BadgeStyle.badgeBuilder().style(), "/** Стиль компонента */"))
+            .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
             .statusStyle(
                 IndicatorStyle.builder()
                     .color {
                         backgroundColor(
                             placeholder(Color.Red, "/** Токен цвета */").asInteractive(
-                                setOf(AvatarStatus.Active) to placeholder(
-                                    Color.Green, "/** Токен цвета */",
-                                ),
+                                setOf(AvatarStatus.Active)
+                                    to placeholder(Color.Green, "/** Цвет в состоянии active */"),
                             ),
                         )
                     }

@@ -30,9 +30,7 @@ fun Divider_Style() {
         DividerStyle.builder()
             .shape(CircleShape)
             .color {
-                backgroundColor(
-                    placeholder(Color.Transparent, "/** Токен цвета */").asInteractive(),
-                )
+                backgroundColor(placeholder(Color.Transparent, "/** Токен цвета */").asInteractive())
             }
             .dimensions {
                 thickness(1.0.dp)

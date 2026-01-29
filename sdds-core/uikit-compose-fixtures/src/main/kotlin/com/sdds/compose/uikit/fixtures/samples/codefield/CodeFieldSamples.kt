@@ -44,31 +44,21 @@ fun CodeField_Simple() {
 fun CodeField_Style() {
     composableCodeSnippet {
         CodeFieldStyle.builder()
-            .itemShape(
-                placeholder(
-                    RoundedCornerShape(8.0.dp),
-                    "/** Токен формы (скругления) */",
-                ),
-            )
-            .groupShape(
-                placeholder(
-                    RoundedCornerShape(8.0.dp),
-                    "/** Токен формы (скругления) */",
-                ),
-            )
+            .itemShape(placeholder(RoundedCornerShape(8.0.dp), "/** Токен формы (скругления) */"))
+            .groupShape(placeholder(RoundedCornerShape(8.0.dp), "/** Токен формы (скругления) */"))
             .valueStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .captionStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .colors {
                 valueColor(
                     placeholder(Color.Red, "/** Токен цвета */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии error */"),
                     ),
                 )
                 captionColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии error */"),
                     ),
                 )
                 dotColor(
@@ -80,14 +70,12 @@ fun CodeField_Style() {
                 backgroundColor(
                     placeholder(Color.DarkGray, "/** Токен цвета */").asStatefulValue(
                         setOf(CodeInputStates.Error)
-                            to placeholder(Color.Transparent, "/** Токен цвета */"),
+                            to placeholder(Color.Transparent, "/** Цвет в состоянии error */"),
                         setOf(InteractiveState.Activated)
-                            to placeholder(Color.Transparent, "/** Токен цвета */"),
+                            to placeholder(Color.Transparent, "/** Цвет в состоянии activated */"),
                     ),
                 )
-                cursorColor(
-                    placeholder(Color.Black, "/** Токен цвета */"),
-                )
+                cursorColor(placeholder(Color.Black, "/** Токен цвета */"))
             }
             .dimensions {
                 dotSize(16.0.dp)

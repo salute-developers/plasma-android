@@ -50,30 +50,15 @@ fun NavigationBar_Style() {
     composableCodeSnippet {
         NavigationBarStyle.builder()
             .shadow(placeholder(ShadowAppearance(), "/** Токен тени */"))
-            .bottomShape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токен формы(скругления) */",
-                ),
-            )
+            .bottomShape(placeholder(RoundedCornerShape(8.dp), "/** Токен формы(скругления) */"))
             .textStyle(placeholder(TextStyle.Default, "/** Токен типографки */"))
             .backIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)
             .colors {
-                backIconColor(
-                    placeholder(Color.DarkGray, "/** Токен цвета */").asInteractive(),
-                )
-                textColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                actionStartColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                actionEndColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                backgroundColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
+                backIconColor(placeholder(Color.DarkGray, "/** Токен цвета */").asInteractive())
+                textColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                actionStartColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                actionEndColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                backgroundColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
             }
             .dimensions {
                 paddingStart(20.0.dp)

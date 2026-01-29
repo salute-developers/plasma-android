@@ -33,24 +33,16 @@ fun Switch_Style() {
             .toggleTrackShape(CircleShape)
             .toggleThumbShape(CircleShape)
             .colorValues {
-                labelColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                descriptionColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
+                labelColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                descriptionColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
                 toggleTrackColor(
                     placeholder(Color.Black, "/** Токен цвета */").asInteractive(
                         setOf(SwitchStates.Checked)
-                            to placeholder(Color.Green, "/** Токен цвета */"),
+                            to placeholder(Color.Green, "/** Цвет в состоянии checked */"),
                     ),
                 )
-                toggleTrackBorderColor(
-                    placeholder(Color.Transparent, "/** Токен цвета */").asInteractive(),
-                )
-                toggleThumbColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
+                toggleTrackBorderColor(placeholder(Color.Transparent, "/** Токен цвета */").asInteractive())
+                toggleThumbColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
             }
             .labelStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .descriptionStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))

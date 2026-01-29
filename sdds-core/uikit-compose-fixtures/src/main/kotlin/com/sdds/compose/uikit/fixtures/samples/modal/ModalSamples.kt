@@ -49,12 +49,7 @@ fun Modal_Style() {
     composableCodeSnippet {
         ModalStyle.builder()
             .shadow(placeholder(ShadowAppearance(), "/** Токен тени */"))
-            .shape(
-                placeholder(
-                    RoundedCornerShape(16.dp),
-                    "/** Токен формы (скругления) */",
-                ),
-            )
+            .shape(placeholder(RoundedCornerShape(16.dp), "/** Токен формы (скругления) */"))
             .dimensions {
                 closeSize(16.0.dp)
                 paddingStart(8.dp)

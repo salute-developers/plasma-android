@@ -41,22 +41,14 @@ fun Segment_Simple() {
 fun Segment_Style() {
     composableCodeSnippet {
         SegmentStyle.builder()
-            .segmentItemStyle(
-                placeholder(
-                    SegmentItemStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .segmentItemStyle(placeholder(SegmentItemStyle.builder().style(), "/** Стиль компонента */"))
             .colors {
                 backgroundColor(
                     placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
                 )
             }
             .shape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токен формы(скругления) */",
-                ).adjustBy(all = -2.0.dp),
+                placeholder(RoundedCornerShape(8.dp), "/** Токен формы(скругления) */").adjustBy(all = -2.0.dp),
             )
             .dimensions {
                 paddingStart(2.0.dp)

@@ -63,7 +63,7 @@ fun PaginationDots_Style() {
                 dotBackgroundColor(
                     placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Activated)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии activated */"),
                     ),
                 )
             }

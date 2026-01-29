@@ -100,17 +100,9 @@ fun File_Style() {
             }
             .labelStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .descriptionStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .actionButtonStyle(
-                placeholder(
-                    ButtonStyle.iconButtonBuilder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .actionButtonStyle(placeholder(ButtonStyle.iconButtonBuilder().style(), "/** Стиль компонента */"))
             .circularProgressBarStyle(
-                placeholder(
-                    CircularProgressBarStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
+                placeholder(CircularProgressBarStyle.builder().style(), "/** Стиль компонента */"),
             )
             .style()
     }

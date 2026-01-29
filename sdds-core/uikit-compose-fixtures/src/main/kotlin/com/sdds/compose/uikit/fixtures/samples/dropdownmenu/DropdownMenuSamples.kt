@@ -78,24 +78,9 @@ fun DropdownMenu_Style() {
     composableCodeSnippet {
         DropdownMenuStyle.builder()
             .shadow(placeholder(ShadowAppearance(), "/** Токен тени */"))
-            .shape(
-                placeholder(
-                    RoundedCornerShape(10.dp),
-                    "/** Токен формы (скругления) */",
-                ),
-            )
-            .listStyle(
-                placeholder(
-                    ListStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
-            .dividerStyle(
-                placeholder(
-                    DividerStyle.builder().style(),
-                    "/** Стиль разделителя */",
-                ),
-            )
+            .shape(placeholder(RoundedCornerShape(10.dp), "/** Токен формы (скругления) */"))
+            .listStyle(placeholder(ListStyle.builder().style(), "/** Стиль компонента */"))
+            .dividerStyle(placeholder(DividerStyle.builder().style(), "/** Стиль разделителя */"))
             .dimensions {
                 width(200.dp)
                 strokeWidth(1.dp)

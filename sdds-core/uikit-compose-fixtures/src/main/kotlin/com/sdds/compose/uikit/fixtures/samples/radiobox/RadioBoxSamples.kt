@@ -34,30 +34,16 @@ fun RadioBox_Style() {
     composableCodeSnippet {
         RadioBoxStyle.builder()
             .colorValues {
-                labelColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                descriptionColor(
-                    placeholder(Color.Gray, "/** Токен цвета */").asInteractive(),
-                )
+                labelColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                descriptionColor(placeholder(Color.Gray, "/** Токен цвета */").asInteractive())
                 toggleColor(
                     placeholder(Color.Transparent, "/** Токен цвета */").asInteractive(
                         setOf(RadioBoxStates.Checked)
-                            to placeholder(Color.Blue, "/** Токен цвета */"),
+                            to placeholder(Color.Blue, "/** Цвет в состоянии checked */"),
                     ),
                 )
-                toggleIconColor(
-                    placeholder(
-                        Color.Black,
-                        "/** Токен цвета */",
-                    ).asInteractive(),
-                )
-                toggleBorderColor(
-                    placeholder(
-                        Color.Black,
-                        "/** Токен цвета */",
-                    ).asInteractive(),
-                )
+                toggleIconColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                toggleBorderColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
             }
             .shape(placeholder(RoundedCornerShape(8.dp), "/** Токе формы(скругления) */"))
             .labelStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))

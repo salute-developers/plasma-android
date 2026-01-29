@@ -56,12 +56,7 @@ fun TabBar_Simple() {
 fun TabBar_Style() {
     composableCodeSnippet {
         TabBarStyle.builder()
-            .tabBarItemStyle(
-                placeholder(
-                    TabBarItemStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .tabBarItemStyle(placeholder(TabBarItemStyle.builder().style(), "/** Стиль компонента */"))
             .topShape(CircleShape)
             .shadow(placeholder(ShadowAppearance(), "/** Токен тени */"))
             .colors {
@@ -92,19 +87,19 @@ fun TabBarItem_Style() {
                 backgroundColor(
                     placeholder(Color.Black, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.White, "/** Токен цвета */"),
+                            to placeholder(Color.White, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 labelColor(
                     placeholder(Color.LightGray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.White, "/** Токен цвета */"),
+                            to placeholder(Color.White, "/** Цвет в состоянии selected */"),
                     ),
                 )
                 iconColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asStatefulValue(
                         setOf(InteractiveState.Selected)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии selected */"),
                     ),
                 )
             }
@@ -115,24 +110,9 @@ fun TabBarItem_Style() {
                 minHeight(48.dp)
                 labelPadding(2.dp)
             }
-            .counterStyle(
-                placeholder(
-                    CounterStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
-            .badgeStyle(
-                placeholder(
-                    BadgeStyle.badgeBuilder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
-            .indicatorStyle(
-                placeholder(
-                    IndicatorStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
+            .badgeStyle(placeholder(BadgeStyle.badgeBuilder().style(), "/** Стиль компонента */"))
+            .indicatorStyle(placeholder(IndicatorStyle.builder().style(), "/** Стиль компонента */"))
             .style()
     }
 }

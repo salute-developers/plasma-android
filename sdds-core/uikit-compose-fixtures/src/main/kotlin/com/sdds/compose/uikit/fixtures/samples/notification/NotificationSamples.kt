@@ -73,10 +73,7 @@ fun Notification_Style() {
                 closeColor(Color.LightGray)
             }
             .notificationContentStyle(
-                placeholder(
-                    NotificationContentStyle.builder().style(),
-                    "",
-                ),
+                placeholder(NotificationContentStyle.builder().style(), "/** Стиль компонента */"),
             )
             .style()
     }

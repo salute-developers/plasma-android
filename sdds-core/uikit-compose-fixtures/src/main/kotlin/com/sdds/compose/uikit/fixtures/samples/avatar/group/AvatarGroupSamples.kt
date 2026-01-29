@@ -37,12 +37,7 @@ fun AvatarGroup_Simple() {
 fun AvatarGroup_Style() {
     composableCodeSnippet {
         AvatarGroupStyle.builder()
-            .avatarStyle(
-                placeholder(
-                    AvatarStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .avatarStyle(placeholder(AvatarStyle.builder().style(), "/** Стиль компонента */"))
             .dimensions {
                 itemSpacing(2.0.dp)
                 itemOffset(16.0.dp)

@@ -36,18 +36,8 @@ import com.sdds.docs.DocSample
 fun Autocomplete_Style() {
     composableCodeSnippet {
         AutocompleteStyle.builder()
-            .textFieldStyle(
-                placeholder(
-                    TextFieldStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
-            .dropdownStyle(
-                placeholder(
-                    DropdownMenuStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .textFieldStyle(placeholder(TextFieldStyle.builder().style(), "/** Стиль компонента */"))
+            .dropdownStyle(placeholder(DropdownMenuStyle.builder().style(), "/** Стиль компонента */"))
             .style()
     }
 }

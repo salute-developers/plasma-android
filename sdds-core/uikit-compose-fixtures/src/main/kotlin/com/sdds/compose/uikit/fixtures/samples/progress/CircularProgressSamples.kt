@@ -31,28 +31,13 @@ fun CircularProgress_Style() {
         CircularProgressBarStyle.builder()
             .colors {
                 indicatorColor(
-                    SolidColor(
-                        placeholder(
-                            Color.Red,
-                            "/** Токен цвета */",
-                        ),
-                    ).asStatefulValue(),
+                    SolidColor(placeholder(Color.Red, "/** Токен цвета */")).asStatefulValue(),
                 )
                 trackColor(
-                    SolidColor(
-                        placeholder(
-                            Color.Gray,
-                            "/** Токен цвета */",
-                        ),
-                    ).asStatefulValue(),
+                    SolidColor(placeholder(Color.Gray, "/** Токен цвета */")).asStatefulValue(),
                 )
                 valueColor(
-                    SolidColor(
-                        placeholder(
-                            Color.Black,
-                            "/** Токен цвета */",
-                        ),
-                    ).asStatefulValue(),
+                    SolidColor(placeholder(Color.Black, "/** Токен цвета */")).asStatefulValue(),
                 )
             }
             .valueStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))

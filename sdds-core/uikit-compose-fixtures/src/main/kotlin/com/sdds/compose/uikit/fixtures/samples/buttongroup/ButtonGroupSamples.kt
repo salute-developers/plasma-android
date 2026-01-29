@@ -67,10 +67,7 @@ fun ButtonGroup_Style() {
             .externalShape(CircleShape)
             .internalShape(RoundedCornerShape(5))
             .buttonStyle(
-                placeholder(
-                    ButtonStyle.basicButtonBuilder().style(),
-                    "/** Стиль компонента */",
-                ),
+                placeholder(ButtonStyle.basicButtonBuilder().style(), "/** Стиль компонента */"),
             )
             .dimensions {
                 spacing(2.dp)
@@ -87,10 +84,7 @@ fun IconButtonGroup_Style() {
             .externalShape(CircleShape)
             .internalShape(RoundedCornerShape(5))
             .buttonStyle(
-                placeholder(
-                    ButtonStyle.iconButtonBuilder().style(),
-                    "/** Стиль компонента */",
-                ),
+                placeholder(ButtonStyle.iconButtonBuilder().style(), "/** Стиль компонента */"),
             )
             .dimensions {
                 spacing(2.dp)

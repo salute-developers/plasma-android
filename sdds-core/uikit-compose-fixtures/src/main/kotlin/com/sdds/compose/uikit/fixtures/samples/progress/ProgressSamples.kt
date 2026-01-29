@@ -29,12 +29,8 @@ fun Progress_Style() {
     composableCodeSnippet {
         ProgressBarStyle.builder()
             .colorValues {
-                backgroundColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
-                indicatorColor(
-                    placeholder(Color.Green, "/** Токен цвета */").asInteractive(),
-                )
+                backgroundColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
+                indicatorColor(placeholder(Color.Green, "/** Токен цвета */").asInteractive())
             }
             .indicatorShape(CircleShape)
             .backgroundShape(CircleShape)

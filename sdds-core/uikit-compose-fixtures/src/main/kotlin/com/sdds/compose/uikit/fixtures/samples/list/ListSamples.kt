@@ -48,10 +48,7 @@ fun List_Style() {
     composableCodeSnippet {
         ListStyle.builder()
             .listItemStyle(
-                placeholder(
-                    ListItemStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
+                placeholder(ListItemStyle.builder().style(), "/** Стиль компонента */"),
             )
             .style()
     }

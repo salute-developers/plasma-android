@@ -76,7 +76,7 @@ fun ModalBottomSheet_Style() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun ModalBottomSheetHandleInner_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
@@ -92,7 +92,7 @@ fun ModalBottomSheetHandleInner_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun ModalBottomSheetFitContent_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(

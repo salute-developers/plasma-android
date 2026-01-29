@@ -50,12 +50,7 @@ fun ChipGroup_Style() {
                 gap(2.0.dp)
                 lineSpacing(2.0.dp)
             }
-            .chipStyle(
-                placeholder(
-                    ChipStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .chipStyle(placeholder(ChipStyle.builder().style(), "/** Стиль компонента */"))
             .style()
     }
 }

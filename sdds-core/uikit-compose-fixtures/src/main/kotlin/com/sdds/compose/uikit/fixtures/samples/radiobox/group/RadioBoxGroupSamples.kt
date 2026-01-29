@@ -51,12 +51,7 @@ fun RadioBoxGroup_Simple() {
 fun RadioBoxGroup_Style() {
     composableCodeSnippet {
         RadioBoxGroupStyle.builder()
-            .radioBoxStyle(
-                placeholder(
-                    RadioBoxStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .radioBoxStyle(placeholder(RadioBoxStyle.builder().style(), "/** Стиль компонента */"))
             .dimensions {
                 itemSpacing(12.0.dp)
             }

@@ -48,38 +48,25 @@ fun Wheel_Style() {
             .wheelCount(3)
             .visibleItemsCount(3)
             .colors {
-                itemTextColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                itemTextAfterColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
-                descriptionColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
+                itemTextColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                itemTextAfterColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
+                descriptionColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
                 controlIconUpColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Focused)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Токен цвета в состоянии focused */"),
                     ),
                 )
                 controlIconDownColor(
                     placeholder(Color.Gray, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Focused)
-                            to placeholder(Color.Black, "/** Токен цвета */"),
+                            to placeholder(Color.Black, "/** Токен цвета в состоянии focused */"),
                     ),
                 )
-                separatorColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
+                separatorColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
             }
             .itemTextStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
-            .itemTextAfterStyle(
-                placeholder(
-                    TextStyle.Default,
-                    "/** Токен типографики */",
-                ),
-            )
+            .itemTextAfterStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .descriptionStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .dimensions {
                 itemTextAfterPadding(2.0.dp)

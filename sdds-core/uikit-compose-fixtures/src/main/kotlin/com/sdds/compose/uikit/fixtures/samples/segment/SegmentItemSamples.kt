@@ -39,46 +39,35 @@ fun SegmentItem_Style() {
                 labelColor(
                     placeholder(Color.Black, "/** Цвет токена */").asInteractive(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Цвет токена */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                 valueColor(
                     placeholder(Color.Gray, "/** Токен типографики */").asInteractive(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(
-                                Color.LightGray,
-                                "/** Токен типографики */",
-                            ),
+                            to placeholder(Color.LightGray, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                 backgroundColor(
-                    placeholder(
-                        Color.Transparent,
-                        "/** Токен типографики */",
-                    ).asInteractive(
+                    placeholder(Color.Transparent, "/** Токен типографики */").asInteractive(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Gray, "/** Токен типографики */"),
+                            to placeholder(Color.Gray, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                 startContentColor(
                     placeholder(Color.Black, "/** Цвет токена */").asInteractive(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Цвет токена */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                     ),
                 )
                 endContentColor(
                     placeholder(Color.Black, "/** Цвет токена */").asInteractive(
                         setOf(InteractiveState.Hovered)
-                            to placeholder(Color.Black, "/** Цвет токена */"),
+                            to placeholder(Color.Black, "/** Цвет в состоянии hovered */"),
                     ),
                 )
             }
-            .shape(
-                placeholder(
-                    RoundedCornerShape(8.dp),
-                    "/** Токе формы(скругления) */",
-                ).adjustBy(all = 0.0.dp),
-            )
+            .shape(placeholder(RoundedCornerShape(8.dp), "/** Токе формы(скругления) */").adjustBy(all = 0.0.dp))
             .labelStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .valueStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .dimensions {
@@ -90,12 +79,7 @@ fun SegmentItem_Style() {
                 endContentSize(24.0.dp)
                 valueMargin(6.0.dp)
             }
-            .counterStyle(
-                placeholder(
-                    CounterStyle.builder().style(),
-                    "/** Стиль компонента */",
-                ),
-            )
+            .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
             .style()
     }
 }

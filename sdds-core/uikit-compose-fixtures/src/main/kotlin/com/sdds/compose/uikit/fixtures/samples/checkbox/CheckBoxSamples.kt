@@ -35,27 +35,21 @@ fun CheckBox_Style() {
     composableCodeSnippet {
         CheckBoxStyle.builder()
             .colorValues {
-                labelColor(
-                    placeholder(Color.Black, "/** Токен цвета */").asInteractive(),
-                )
-                descriptionColor(
-                    placeholder(Color.LightGray, "/** Токен цвета */").asInteractive(),
-                )
+                labelColor(placeholder(Color.Black, "/** Токен цвета */").asInteractive())
+                descriptionColor(placeholder(Color.LightGray, "/** Токен цвета */").asInteractive())
                 toggleColor(
                     placeholder(Color.Transparent, "/** Токен цвета */").asInteractive(
                         setOf(CheckBoxStates.Checked)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии Checked */"),
                         setOf(CheckBoxStates.Indeterminate)
-                            to placeholder(Color.Blue, "/** Токен цвета */"),
+                            to placeholder(Color.Blue, "/** Цвет в состоянии Indeterminate */"),
                     ),
                 )
-                toggleIconColor(
-                    placeholder(Color.DarkGray, "/** Токен цвета */").asInteractive(),
-                )
+                toggleIconColor(placeholder(Color.DarkGray, "/** Токен цвета */").asInteractive())
                 toggleBorderColor(
                     placeholder(Color.Red, "/** Токен цвета */").asInteractive(
                         setOf(InteractiveState.Focused, CheckBoxStates.Checked)
-                            to placeholder(Color.Red, "/** Токен цвета */"),
+                            to placeholder(Color.Red, "/** Цвет в состоянии Checked */"),
                     ),
                 )
             }
