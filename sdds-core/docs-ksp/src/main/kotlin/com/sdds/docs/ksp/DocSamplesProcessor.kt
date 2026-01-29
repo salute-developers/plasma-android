@@ -18,7 +18,7 @@ import java.io.OutputStreamWriter
  */
 class DocSamplesProcessorProvider : SymbolProcessorProvider {
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor =
-        DocSamplesProcessor(environment.codeGenerator, environment.logger)
+        DocSamplesProcessor(environment.codeGenerator, environment.logger, environment.options)
 }
 
 /**
@@ -32,12 +32,14 @@ class DocSamplesProcessorProvider : SymbolProcessorProvider {
 class DocSamplesProcessor(
     private val codeGenerator: CodeGenerator,
     private val logger: KSPLogger,
+    options: Map<String, String>,
 ) : SymbolProcessor {
 
     private val docSampleAnn = "com.sdds.docs.DocSample"
     private val contextType = "android.content.Context"
     private val viewType = "android.view.View"
     private val composableAnn = "androidx.compose.runtime.Composable"
+    private val packageName: String = options["packageName"] ?: "com.sdds.docs"
 
     private val kotlinEntries: LinkedHashMap<String, Entry> = linkedMapOf()
     private val viewEntries: LinkedHashMap<String, Entry> = linkedMapOf()
@@ -174,7 +176,7 @@ class DocSamplesProcessor(
         view: List<Entry>,
         composable: List<Entry>,
     ) {
-        val pkg = "com.sdds.docs"
+        val pkg = packageName
         val fileName = "DocSampleRegistry"
 
         if (regular.isEmpty() && composable.isEmpty() && view.isEmpty()) return

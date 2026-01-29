@@ -67,7 +67,13 @@ val docsSnippets by configurations.creating {
     }
 }
 
+afterEvaluate {
+    ksp {
+        arg("packageName", project.extensions.getByType(LibraryExtension::class.java).namespace.orEmpty())
+    }
+}
+
 dependencies {
     "implementation"("sdds-core:docs")
-    "ksp"(":sdds-core:docs-ksp")
+    ksp("sdds-core:docs-ksp")
 }
