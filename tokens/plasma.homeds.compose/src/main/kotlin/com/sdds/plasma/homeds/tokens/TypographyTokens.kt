@@ -327,6 +327,45 @@ public object TypographySmallTokens {
     )
 
     /**
+     * typography s header-h6
+     */
+    public val HeaderH6Normal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 10.0.sp,
+        lineHeight = 14.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography s header-h6-medium
+     */
+    public val HeaderH6Medium: TextStyle = TextStyle(
+        fontWeight = FontWeight(500),
+        fontSize = 10.0.sp,
+        lineHeight = 14.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography s header-h6-bold
+     */
+    public val HeaderH6Bold: TextStyle = TextStyle(
+        fontWeight = FontWeight(600),
+        fontSize = 10.0.sp,
+        lineHeight = 14.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
      * typography s body-l-bold
      */
     public val BodyLBold: TextStyle = TextStyle(
@@ -995,6 +1034,45 @@ public object TypographyMediumTokens {
     )
 
     /**
+     * typography m header-h6
+     */
+    public val HeaderH6Normal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 10.0.sp,
+        lineHeight = 14.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography m header-h6-medium
+     */
+    public val HeaderH6Medium: TextStyle = TextStyle(
+        fontWeight = FontWeight(500),
+        fontSize = 10.0.sp,
+        lineHeight = 14.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography m header-h6-bold
+     */
+    public val HeaderH6Bold: TextStyle = TextStyle(
+        fontWeight = FontWeight(600),
+        fontSize = 10.0.sp,
+        lineHeight = 14.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
      * typography m body-l-bold
      */
     public val BodyLBold: TextStyle = TextStyle(
@@ -1656,6 +1734,45 @@ public object TypographyLargeTokens {
         fontWeight = FontWeight(400),
         fontSize = 18.0.sp,
         lineHeight = 24.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l header-h6
+     */
+    public val HeaderH6Normal: TextStyle = TextStyle(
+        fontWeight = FontWeight(400),
+        fontSize = 12.0.sp,
+        lineHeight = 16.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l header-h6-medium
+     */
+    public val HeaderH6Medium: TextStyle = TextStyle(
+        fontWeight = FontWeight(500),
+        fontSize = 12.0.sp,
+        lineHeight = 16.0.sp,
+        letterSpacing = 0.0.sp,
+        fontFamily = FontTokens.header,
+        lineHeightStyle = TextStyleDefault.lineHeightStyle,
+        platformStyle = TextStyleDefault.platformStyle,
+    )
+
+    /**
+     * typography l header-h6-bold
+     */
+    public val HeaderH6Bold: TextStyle = TextStyle(
+        fontWeight = FontWeight(600),
+        fontSize = 12.0.sp,
+        lineHeight = 16.0.sp,
         letterSpacing = 0.0.sp,
         fontFamily = FontTokens.header,
         lineHeightStyle = TextStyleDefault.lineHeightStyle,

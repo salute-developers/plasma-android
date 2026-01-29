@@ -25,7 +25,24 @@ import kotlin.Unit
 public enum class TextSkeletonStyles(
     public val key: String,
 ) {
-    TextSkeletonDefault("TextSkeleton.Default"),
+    TextSkeletonBodyL("TextSkeletonBody.L"),
+    TextSkeletonBodyM("TextSkeletonBody.M"),
+    TextSkeletonBodyS("TextSkeletonBody.S"),
+    TextSkeletonBodyXs("TextSkeletonBody.Xs"),
+    TextSkeletonBodyXxs("TextSkeletonBody.Xxs"),
+    TextSkeletonDisplayL("TextSkeletonDisplay.L"),
+    TextSkeletonDisplayM("TextSkeletonDisplay.M"),
+    TextSkeletonDisplayS("TextSkeletonDisplay.S"),
+    TextSkeletonHeaderH1("TextSkeletonHeader.H1"),
+    TextSkeletonHeaderH2("TextSkeletonHeader.H2"),
+    TextSkeletonHeaderH3("TextSkeletonHeader.H3"),
+    TextSkeletonHeaderH4("TextSkeletonHeader.H4"),
+    TextSkeletonHeaderH5("TextSkeletonHeader.H5"),
+    TextSkeletonHeaderH6("TextSkeletonHeader.H6"),
+    TextSkeletonTextL("TextSkeletonText.L"),
+    TextSkeletonTextM("TextSkeletonText.M"),
+    TextSkeletonTextS("TextSkeletonText.S"),
+    TextSkeletonTextXs("TextSkeletonText.Xs"),
 }
 
 /**
@@ -37,7 +54,24 @@ public fun TextSkeletonStyles.style(
         {},
 ): TextSkeletonStyle {
     val builder = when (this) {
-        TextSkeletonStyles.TextSkeletonDefault -> TextSkeleton.Default
+        TextSkeletonStyles.TextSkeletonBodyL -> TextSkeletonBody.L
+        TextSkeletonStyles.TextSkeletonBodyM -> TextSkeletonBody.M
+        TextSkeletonStyles.TextSkeletonBodyS -> TextSkeletonBody.S
+        TextSkeletonStyles.TextSkeletonBodyXs -> TextSkeletonBody.Xs
+        TextSkeletonStyles.TextSkeletonBodyXxs -> TextSkeletonBody.Xxs
+        TextSkeletonStyles.TextSkeletonDisplayL -> TextSkeletonDisplay.L
+        TextSkeletonStyles.TextSkeletonDisplayM -> TextSkeletonDisplay.M
+        TextSkeletonStyles.TextSkeletonDisplayS -> TextSkeletonDisplay.S
+        TextSkeletonStyles.TextSkeletonHeaderH1 -> TextSkeletonHeader.H1
+        TextSkeletonStyles.TextSkeletonHeaderH2 -> TextSkeletonHeader.H2
+        TextSkeletonStyles.TextSkeletonHeaderH3 -> TextSkeletonHeader.H3
+        TextSkeletonStyles.TextSkeletonHeaderH4 -> TextSkeletonHeader.H4
+        TextSkeletonStyles.TextSkeletonHeaderH5 -> TextSkeletonHeader.H5
+        TextSkeletonStyles.TextSkeletonHeaderH6 -> TextSkeletonHeader.H6
+        TextSkeletonStyles.TextSkeletonTextL -> TextSkeletonText.L
+        TextSkeletonStyles.TextSkeletonTextM -> TextSkeletonText.M
+        TextSkeletonStyles.TextSkeletonTextS -> TextSkeletonText.S
+        TextSkeletonStyles.TextSkeletonTextXs -> TextSkeletonText.Xs
     }
     return builder.modify(modifyAction).style()
 }

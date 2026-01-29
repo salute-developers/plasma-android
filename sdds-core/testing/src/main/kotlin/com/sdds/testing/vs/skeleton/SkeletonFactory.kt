@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.StyleRes
+import androidx.core.content.withStyledAttributes
 import com.sdds.testing.R
 import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
@@ -43,11 +44,9 @@ fun textSkeleton(
     @StyleRes style: Int? = null,
     state: TextSkeletonUiState = TextSkeletonUiState(),
 ): ViewGroup {
-    val appearanceRes = TypedValue().run {
-        context.theme.resolveAttribute(R.attr.testTextAppearance, this, true)
-        this.data
-    }
-    val skeletonView = skeletonShimmer(context, style, state, appearanceRes)
+    val wrappedContext = context.styleWrapper(style)
+    val appearanceRes = resolveTextAppearance(wrappedContext)
+    val skeletonView = skeletonShimmer(wrappedContext, state, appearanceRes)
     val textView = text(context, state, appearanceRes)
     return FrameLayout(context).apply {
         layoutParams = ViewGroup.LayoutParams(
@@ -59,13 +58,32 @@ fun textSkeleton(
     }
 }
 
+private fun resolveTextAppearance(context: Context): Int {
+    var textAppearance = 0
+    val link = context.resolveStyle(com.sdds.uikit.R.attr.sd_textSkeletonStyle)
+    context.withStyledAttributes(link, com.sdds.uikit.R.styleable.TextSkeleton) {
+        textAppearance = getResourceId(com.sdds.uikit.R.styleable.TextSkeleton_android_textAppearance, 0)
+    }
+    return if (textAppearance != 0) {
+        textAppearance
+    } else {
+        context.resolveStyle(R.attr.testTextAppearance)
+    }
+}
+
+private fun Context.resolveStyle(attr: Int): Int {
+    return TypedValue().run {
+        theme.resolveAttribute(attr, this, true)
+        data
+    }
+}
+
 private fun skeletonShimmer(
     context: Context,
-    @StyleRes style: Int? = null,
     state: TextSkeletonUiState = TextSkeletonUiState(),
     @StyleRes textStyle: Int,
 ): TextSkeleton {
-    return TextSkeleton(context.styleWrapper(style))
+    return TextSkeleton(context)
         .applyState(state)
         .apply {
             id = R.id.text_skeleton

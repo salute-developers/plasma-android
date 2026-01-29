@@ -3765,11 +3765,100 @@
       {
          "key": "text-skeleton",
          "coreName": "TextSkeleton",
-         "styleName": "TextSkeleton",
+         "styleName": "TextSkeletonBody",
          "variations": [
             {
-               "name": "Default",
-               "composeReference": "TextSkeleton.Default"
+               "name": "l",
+               "composeReference": "TextSkeletonBody.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "TextSkeletonBody.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "TextSkeletonBody.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "TextSkeletonBody.Xs"
+            },
+            {
+               "name": "xxs",
+               "composeReference": "TextSkeletonBody.Xxs"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeletonDisplay",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "TextSkeletonDisplay.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "TextSkeletonDisplay.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "TextSkeletonDisplay.S"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeletonHeader",
+         "variations": [
+            {
+               "name": "h1",
+               "composeReference": "TextSkeletonHeader.H1"
+            },
+            {
+               "name": "h2",
+               "composeReference": "TextSkeletonHeader.H2"
+            },
+            {
+               "name": "h3",
+               "composeReference": "TextSkeletonHeader.H3"
+            },
+            {
+               "name": "h4",
+               "composeReference": "TextSkeletonHeader.H4"
+            },
+            {
+               "name": "h5",
+               "composeReference": "TextSkeletonHeader.H5"
+            },
+            {
+               "name": "h6",
+               "composeReference": "TextSkeletonHeader.H6"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeletonText",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "TextSkeletonText.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "TextSkeletonText.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "TextSkeletonText.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "TextSkeletonText.Xs"
             }
          ]
       }
