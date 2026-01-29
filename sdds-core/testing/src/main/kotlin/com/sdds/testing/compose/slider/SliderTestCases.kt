@@ -81,10 +81,9 @@ fun SliderReversedEndMinMaxLabel(style: SliderStyle) {
  * PLASMA-T2417
  */
 @Composable
-fun SliderAlignmentEnd(style: SliderStyle) {
+fun SliderLabelEnd(style: SliderStyle) {
     SliderCommonCase(
         style = style,
-        alignment = SliderAlignment.End,
         valueRange = 0f..100f,
     )
 }
@@ -97,7 +96,6 @@ fun SliderLimitLabelDisabled(style: SliderStyle) {
     SliderCommonCase(
         style = style,
         limitLabelEnabled = false,
-        alignment = SliderAlignment.End,
     )
 }
 
@@ -113,7 +111,6 @@ fun SliderDisabledThumbLimitLabelReversedEndNoLabel(style: SliderStyle) {
         limitLabelEnabled = false,
         labelEnabled = false,
         slideDirection = SlideDirection.Reversed,
-        alignment = SliderAlignment.End,
     )
 }
 
@@ -125,7 +122,6 @@ fun SliderLabelDisabled(style: SliderStyle) {
     SliderCommonCase(
         style = style,
         labelEnabled = false,
-        alignment = SliderAlignment.End,
         valueRange = 0f..100f,
     )
 }
@@ -138,7 +134,6 @@ fun SliderReversedEndThumbLimitLabelLabel(style: SliderStyle) {
     SliderCommonCase(
         style = style,
         slideDirection = SlideDirection.Reversed,
-        alignment = SliderAlignment.End,
     )
 }
 
@@ -150,7 +145,6 @@ fun SliderMinZeroMaxSixty(style: SliderStyle) {
     SliderCommonCase(
         style = style,
         thumbEnabled = false,
-        alignment = SliderAlignment.End,
         valueRange = 0f..60f,
     )
 }
@@ -186,8 +180,8 @@ private fun SliderCommonCase(
     thumbEnabled: Boolean = true,
     limitLabelEnabled: Boolean = true,
     labelEnabled: Boolean = true,
-    slideDirection: SlideDirection = SlideDirection.Normal,
-    alignment: SliderAlignment = SliderAlignment.Start,
+    slideDirection: SlideDirection = style.slideDirection,
+    alignment: SliderAlignment = style.alignment,
     valueRange: ClosedFloatingPointRange<Float> = 0f..100f,
 ) {
     Slider(
