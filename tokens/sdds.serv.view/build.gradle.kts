@@ -40,7 +40,7 @@ themeBuilder {
 }
 
 dependencies {
-    implementation(libs.sdds.icons)
+    implementation(icons.sdds.icons)
     implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
