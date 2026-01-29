@@ -43,6 +43,8 @@ open class DropdownMenu @JvmOverloads constructor(
     private var _scrollBarPaddingBottom: Int = 0
     private val _container: DropdownContent = DropdownContent(context).apply {
         id = View.generateViewId()
+        clipChildren = false
+        clipToPadding = false
     }
     private val _footer: FrameLayout = FrameLayout(context).apply {
         id = View.generateViewId()

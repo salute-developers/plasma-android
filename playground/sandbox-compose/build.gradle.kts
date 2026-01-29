@@ -197,3 +197,7 @@ dependencies {
     testImplementation(libs.test.roborazzi.rule)
     testImplementation(libs.base.test.unit.robolectric)
 }
+
+tasks.matching { it.name.matches(Regex("generate\\w+Resources")) }.configureEach {
+    dependsOn(tasks.withType<GenerateStarDimensTask>())
+}
