@@ -1,5 +1,6 @@
 package com.sdds.testing.compose.navigationbar
 
+import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Icon
@@ -102,8 +103,7 @@ fun NavigationBarTextHasActionEndInlineEndBottom(style: NavigationBarStyle) {
         contentPlacement = NavigationBarContentPlacement.Bottom,
         textContent = { Text(text = "Text") },
         content = {},
-        actionStart = {},
-        actionEnd = {
+        actionStart = {
             Icon(
                 painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
                 contentDescription = "",
@@ -124,17 +124,17 @@ fun NavigationBarLongTextBottomStartInline(style: NavigationBarStyle) {
         contentPlacement = NavigationBarContentPlacement.Inline,
         textContent = { Text(text = LONG_CONTENT) },
         content = { Text(text = "Content") },
-        actionStart = {
-            Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
-                contentDescription = "",
-            )
-        },
         actionEnd = {
-            Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
-                contentDescription = "",
-            )
+            Row {
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                    contentDescription = "",
+                )
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            }
         },
     )
 }

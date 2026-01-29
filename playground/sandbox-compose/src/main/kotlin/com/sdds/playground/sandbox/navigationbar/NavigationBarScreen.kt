@@ -37,7 +37,9 @@ internal fun NavigationBarScreen(componentKey: ComponentKey = ComponentKey.Navig
                 textPlacement = navigationBarUiState.textPlacement,
                 textAlign = navigationBarUiState.textAlign,
                 contentPlacement = navigationBarUiState.contentPlacement,
-                textContent = textContent(navigationBarUiState.text),
+                centerAlignmentStrategy = navigationBarUiState.centerAlignmentStrategy,
+                titleContent = textContent(navigationBarUiState.title),
+                descriptionContent = descriptionContent(navigationBarUiState.description),
                 content = content(navigationBarUiState.contentText),
                 actionStart = actionStart(navigationBarUiState.hasActionStart),
                 actionEnd = actionEnd(navigationBarUiState.hasActionEnd),
@@ -103,10 +105,21 @@ private fun textContent(text: String): (@Composable () -> Unit)? {
                 Text(text)
                 Spacer(Modifier.width(4.dp))
                 Icon(
+                    modifier = Modifier,
                     painter = painterResource(com.sdds.icons.R.drawable.ic_clip_24),
                     contentDescription = "",
                 )
             }
+        }
+    }
+}
+
+private fun descriptionContent(description: String): (@Composable () -> Unit)? {
+    return if (description.isEmpty()) {
+        null
+    } else {
+        @Composable {
+            Text(description)
         }
     }
 }

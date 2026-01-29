@@ -181,14 +181,6 @@ private class BaseCellMeasurePolicy(
     }
 }
 
-private fun CellGravity.toVerticalAlignment(): Alignment.Vertical {
-    return when (this) {
-        CellGravity.Top -> Alignment.Top
-        CellGravity.Center -> Alignment.CenterVertically
-        CellGravity.Bottom -> Alignment.Bottom
-    }
-}
-
 @Composable
 internal fun ColumnScope.CellCenterContent(
     title: AnnotatedString = AnnotatedString(""),
