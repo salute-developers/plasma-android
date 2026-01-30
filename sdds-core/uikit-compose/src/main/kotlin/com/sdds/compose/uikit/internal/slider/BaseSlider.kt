@@ -26,6 +26,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastFirst
@@ -63,7 +64,6 @@ internal fun BaseSlider(
     }
     val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
     state.onValueChange = onValueChange
-
     val maxSizeModifier = if (style.orientation == SliderOrientation.Horizontal) {
         Modifier.fillMaxWidth()
     } else {
@@ -71,7 +71,7 @@ internal fun BaseSlider(
     }
 
     SliderImpl(
-        modifier = modifier,
+        modifier = modifier.testTag("Slider"),
         state = state,
         style = style,
         slideDirection = slideDirection,

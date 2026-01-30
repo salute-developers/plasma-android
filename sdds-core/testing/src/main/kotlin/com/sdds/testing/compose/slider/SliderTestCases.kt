@@ -1,8 +1,6 @@
 package com.sdds.testing.compose.slider
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SlideDirection
@@ -185,7 +183,6 @@ private fun SliderCommonCase(
     valueRange: ClosedFloatingPointRange<Float> = 0f..100f,
 ) {
     Slider(
-        modifier = Modifier.testTag("Slider"),
         style = style,
         value = value,
         title = title,

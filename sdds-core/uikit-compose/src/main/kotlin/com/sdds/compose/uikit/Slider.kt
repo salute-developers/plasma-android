@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.slider.BaseSlider
@@ -455,37 +456,39 @@ private class SliderMeasurePolicy(
         val titlePlaceable = title?.measure(constraints)
         sizes.titleW = titlePlaceable.widthOrZero()
         sizes.titleH = titlePlaceable.heightOrZero()
-        var newConstraints = constraints.copy(
-            maxWidth = (constraints.maxWidth - sizes.titleW).coerceAtLeast(0),
-            maxHeight = (constraints.maxHeight - sizes.titleH).coerceAtLeast(0),
+        val crsAfterTitle = constraints.offset(
+            horizontal = -sizes.titleW,
+            vertical = -sizes.titleH,
         )
         titlePlaceable?.let { placeableList.add(Child(TITLE, it)) }
 
-        val contentPlaceable = content?.measure(newConstraints)
+        val contentPlaceable = content?.measure(crsAfterTitle)
         sizes.contentW = contentPlaceable.widthOrZero()
         sizes.contentH = contentPlaceable.heightOrZero()
-        newConstraints = constraintsAfterContent(newConstraints, sizes, alignment, style.orientation)
+        val crsAfterContent = constraintsAfterContent(crsAfterTitle, sizes, alignment, style.orientation)
         contentPlaceable?.let { placeableList.add(Child(CONTENT, it)) }
 
-        sizes.labelW = constraints.maxWidth - newConstraints.maxWidth
-        sizes.labelH = constraints.maxHeight - newConstraints.maxHeight
+        calculateLabelSize(sizes, style, alignment).let {
+            sizes.labelW = it.first
+            sizes.labelH = it.second
+        }
         if (sizes.labelH == 0 || sizes.labelW == 0) sizes.labelMargin = 0
-        newConstraints = constraintsAfterLabel(sizes, style, constraints, newConstraints)
+        val crsAfterLabel = constraintsAfterLabel(sizes, style, constraints, crsAfterContent)
 
-        val minLPlaceable = minLabel?.measure(newConstraints)
+        val minLPlaceable = minLabel?.measure(crsAfterLabel)
         sizes.minLabelW = minLPlaceable.widthOrZero()
         sizes.minLabelH = minLPlaceable.heightOrZero()
         minLPlaceable?.let { placeableList.add(Child(MIN_LABEL, it)) }
 
-        val maxLPlaceable = maxLabel?.measure(constraintsAfterMinLimit(sizes, style, newConstraints))
+        val maxLPlaceable = maxLabel?.measure(constraintsAfterMinLimit(sizes, style, crsAfterLabel))
         sizes.maxLabelW = maxLPlaceable.widthOrZero()
         sizes.maxLabelH = maxLPlaceable.heightOrZero()
-        newConstraints = constraintsAfterLimits(sizes, style, newConstraints)
+        val crsAfterLimits = constraintsAfterLimits(sizes, style, crsAfterLabel)
         maxLPlaceable?.let { placeableList.add(Child(MAX_LABEL, it)) }
 
         if (sizes.minLabelH == 0 || sizes.maxLabelH == 0) sizes.limitMargin = 0
 
-        val sliderPlaceable = slider?.measure(newConstraints)
+        val sliderPlaceable = slider?.measure(crsAfterLimits)
         sizes.sliderW = sliderPlaceable.widthOrZero()
         sizes.sliderH = sliderPlaceable.heightOrZero()
         sliderPlaceable?.let { placeableList.add(Child(SLIDER, it)) }
@@ -501,6 +504,26 @@ private class SliderMeasurePolicy(
     }
 }
 
+private fun calculateLabelSize(
+    sizes: MeasuredSizes,
+    style: SliderStyle,
+    alignment: SliderAlignment,
+) = with(sizes) {
+    val isHorizontal = style.orientation == SliderOrientation.Horizontal
+    val isLabelHorizontal = isHorizontal || (!isHorizontal && alignment != SliderAlignment.Center)
+    val labelW = if (isLabelHorizontal) {
+        titleW + contentW
+    } else {
+        maxOf(titleW, contentW)
+    }
+    val labelH = if (isLabelHorizontal) {
+        maxOf(titleH, contentH)
+    } else {
+        titleH + contentH
+    }
+    labelW to labelH
+}
+
 private fun constraintsAfterContent(
     constraints: Constraints,
     sizes: MeasuredSizes,
@@ -511,17 +534,17 @@ private fun constraintsAfterContent(
     val isLabelHorizontal = isHorizontal || (!isHorizontal && alignment != SliderAlignment.Center)
     val extraW = sizes.titleW - sizes.contentW
     val extraH = sizes.titleH - sizes.contentH
-    val maxWidth = if (isLabelHorizontal) {
-        constraints.maxWidth - sizes.contentW
+    val deltaWidth = if (isLabelHorizontal) {
+        sizes.contentW
     } else {
-        if (extraW < 0) constraints.maxWidth + extraW else constraints.maxWidth
+        if (extraW < 0) abs(extraW) else 0
     }
-    val maxHeight = if (isLabelHorizontal) {
-        if (extraH < 0) constraints.maxHeight + extraH else constraints.maxHeight
+    val deltaHeight = if (isLabelHorizontal) {
+        if (extraH < 0) abs(extraH) else 0
     } else {
-        constraints.maxHeight - sizes.contentH
+        sizes.contentH
     }
-    return constraints.copy(maxWidth = maxWidth.coerceAtLeast(0), maxHeight = maxHeight.coerceAtLeast(0))
+    return constraints.offset(horizontal = -deltaWidth, vertical = -deltaHeight)
 }
 
 private fun constraintsAfterLabel(
@@ -552,15 +575,15 @@ private fun constraintsAfterMinLimit(
     constraints: Constraints,
 ): Constraints {
     val orient = style.orientation
-    val maxWidth = when {
-        orient == SliderOrientation.Horizontal -> constraints.maxWidth - sizes.minLabelW - sizes.limitMargin
-        else -> constraints.maxWidth
+    val deltaWidth = when {
+        orient == SliderOrientation.Horizontal -> sizes.minLabelW + sizes.limitMargin
+        else -> 0
     }
-    val maxHeight = when {
-        style.orientation == SliderOrientation.Vertical -> constraints.maxHeight - sizes.minLabelH - sizes.limitMargin
-        else -> constraints.maxHeight
+    val deltaHeight = when {
+        style.orientation == SliderOrientation.Vertical -> sizes.minLabelH + sizes.limitMargin
+        else -> 0
     }
-    return constraints.copy(maxWidth = maxWidth.coerceAtLeast(0), maxHeight = maxHeight.coerceAtLeast(0))
+    return constraints.offset(horizontal = -deltaWidth, vertical = -deltaHeight)
 }
 
 private fun constraintsAfterLimits(
@@ -572,27 +595,27 @@ private fun constraintsAfterLimits(
     val limitsPlace = style.limitLabelAlignment
     val limitsWSum = sizes.minLabelW + sizes.maxLabelW + sizes.limitMargin * 2
     val limitsWMax = maxOf(sizes.minLabelW, sizes.maxLabelW)
-    val maxWidth = when {
+    val deltaWidth = when {
         orientation == SliderOrientation.Horizontal && limitsPlace == LimitLabelAlignment.Center ->
-            (constraints.maxWidth - limitsWSum).coerceAtLeast(0)
+            limitsWSum
 
         orientation == SliderOrientation.Vertical && limitsPlace != LimitLabelAlignment.Center ->
-            (constraints.maxWidth - limitsWMax - sizes.limitMargin).coerceAtLeast(0)
+            limitsWMax + sizes.limitMargin
 
-        else -> constraints.maxWidth
+        else -> 0
     }
     val limitsHSum = sizes.minLabelH + sizes.maxLabelH + sizes.limitMargin * 2
     val limitsHMax = maxOf(sizes.minLabelH, sizes.maxLabelH)
-    val maxHeight = when {
+    val deltaHeight = when {
         orientation == SliderOrientation.Vertical && limitsPlace == LimitLabelAlignment.Center ->
-            (constraints.maxHeight - limitsHSum).coerceAtLeast(0)
+            limitsHSum
 
         orientation == SliderOrientation.Horizontal && limitsPlace != LimitLabelAlignment.Center ->
-            (constraints.maxHeight - limitsHMax - sizes.limitMargin).coerceAtLeast(0)
+            limitsHMax + sizes.limitMargin
 
-        else -> constraints.maxHeight
+        else -> 0
     }
-    return constraints.copy(maxWidth = maxWidth.coerceAtLeast(0), maxHeight = maxHeight.coerceAtLeast(0))
+    return constraints.offset(horizontal = -deltaWidth, vertical = -deltaHeight)
 }
 
 private fun calculateTotalHeight(
