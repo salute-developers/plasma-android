@@ -32,6 +32,7 @@ public value class WrapperTextSkeletonDefault(
     public override val builder: TextSkeletonStyleBuilder,
 ) : WrapperTextSkeleton
 
+@Deprecated("Use new extensions with new objects of TextSkeleton")
 public val TextSkeleton.Default: WrapperTextSkeletonDefault
     @Composable
     @JvmName("WrapperTextSkeletonDefault")

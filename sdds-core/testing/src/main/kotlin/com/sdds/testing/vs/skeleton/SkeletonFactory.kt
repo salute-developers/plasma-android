@@ -44,9 +44,12 @@ fun textSkeleton(
     @StyleRes style: Int? = null,
     state: TextSkeletonUiState = TextSkeletonUiState(),
 ): ViewGroup {
-    val wrappedContext = context.styleWrapper(style)
-    val appearanceRes = resolveTextAppearance(wrappedContext)
-    val skeletonView = skeletonShimmer(wrappedContext, state, appearanceRes)
+    val appearanceOverlay = R.style.TestTheme_AppearanceOverlay
+    val contextWithAppearance = context.styleWrapper(appearanceOverlay)
+    val contextWithSkeleton = contextWithAppearance.styleWrapper(style)
+    val appearanceRes = resolveTextAppearance(contextWithSkeleton)
+
+    val skeletonView = skeletonShimmer(contextWithSkeleton, state, appearanceRes)
     val textView = text(context, state, appearanceRes)
     return FrameLayout(context).apply {
         layoutParams = ViewGroup.LayoutParams(
@@ -64,11 +67,7 @@ private fun resolveTextAppearance(context: Context): Int {
     context.withStyledAttributes(link, com.sdds.uikit.R.styleable.TextSkeleton) {
         textAppearance = getResourceId(com.sdds.uikit.R.styleable.TextSkeleton_android_textAppearance, 0)
     }
-    return if (textAppearance != 0) {
-        textAppearance
-    } else {
-        context.resolveStyle(R.attr.testTextAppearance)
-    }
+    return textAppearance
 }
 
 private fun Context.resolveStyle(attr: Int): Int {

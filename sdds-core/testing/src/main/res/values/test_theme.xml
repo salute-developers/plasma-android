@@ -18,4 +18,7 @@
         <item name="android:lineHeight" tools:targetApi="p">22sp</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
+    <style name="TestTheme.AppearanceOverlay">
+        <item name="android:textAppearance">@style/TestTextStyle</item>
+    </style>
 </resources>
