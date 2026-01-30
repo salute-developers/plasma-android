@@ -3803,6 +3803,17 @@
                "composeReference": "TextSkeleton.Default"
             }
          ]
+      },
+      {
+         "key": "modal",
+         "coreName": "Modal",
+         "styleName": "Modal",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Modal.Default"
+            }
+         ]
       }
    ]
 }

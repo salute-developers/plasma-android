@@ -66,7 +66,7 @@ internal class ModalStyleGeneratorView(
         props.overlayStyle?.let {
             componentOverlayAttribute(
                 "sd_overlayStyleOverlay",
-                it.value.techToCamelCase(),
+                "${it.value.techToCamelCase()}View",
             )
         }
     }
