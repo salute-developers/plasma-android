@@ -267,5 +267,11 @@ object PlasmaStardsComposeComponents : ComponentsProviderCompose() {
                     "TextSkeleton" to PlasmaStardsTextSkeletonVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Modal,
+                mapOf(
+                    "Modal" to PlasmaStardsModalVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

@@ -270,5 +270,11 @@ object PlasmaStardsViewComponents : ComponentsProviderView() {
                     "TextSkeleton" to PlasmaStardsTextSkeletonVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Modal,
+                mapOf(
+                    "Modal" to PlasmaStardsModalVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

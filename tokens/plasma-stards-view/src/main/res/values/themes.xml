@@ -39,6 +39,7 @@
         <item name="sd_dividerStyle">@style/Sdkit.StarDs.Components.Divider</item>
         <item name="sd_drawerStyle">@style/Sdkit.StarDs.Components.Drawer.NoBackground</item>
         <item name="sd_overlayViewStyle">@style/Sdkit.StarDs.Components.OverlayView</item>
+        <item name="sd_modalStyle">@style/Sdkit.StarDs.Components.Modal</item>
         <item name="sd_codeInputStyle">@style/Sdkit.StarDs.Components.CodeInput.M</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>

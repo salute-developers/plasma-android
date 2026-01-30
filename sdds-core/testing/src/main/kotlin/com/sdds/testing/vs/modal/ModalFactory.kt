@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentActivity
 import com.sdds.testing.R
 import com.sdds.testing.vs.button.basicButton
 import com.sdds.testing.vs.findActivity
+import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.uikit.TextView
 import com.sdds.uikit.dp
 import com.sdds.uikit.overlays.ModalFragment
@@ -92,6 +93,7 @@ internal class SimpleModalFragment : ModalFragment() {
 
     override fun getContentView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return TextView(requireContext()).apply {
+            setTextColor(context.getTextColorPrimary())
             text = "Modal"
         }
     }
