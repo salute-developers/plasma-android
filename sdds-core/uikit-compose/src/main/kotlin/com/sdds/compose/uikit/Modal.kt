@@ -186,7 +186,7 @@ fun Modal(
 }
 
 /**
- * Расположение контента в окне
+ * Расположение контента в модальном окне
  */
 enum class ModalGravity(internal val alignment: Alignment) {
     TopStart(Alignment.TopStart),
