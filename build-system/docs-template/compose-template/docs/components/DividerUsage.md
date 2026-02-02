@@ -1,13 +1,11 @@
 ---
 title: Divider
---- 
+---
 
 Компонент Divider используется для визуального разделения контента.
 
 ```kotlin
- Divider(
-    style = Divider.Default.style(),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/divider/Divider_Simple.kt
 ```
 
 ## Стиль Divider
@@ -17,15 +15,5 @@ title: Divider
 ### Создание стиля с помощью builder()
 
 ```kotlin
-DividerStyle.builder()
-    .shape(CircleShape)
-    .color {
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentTertiary.asInteractive(),
-        )
-    }
-    .dimensions {
-        thickness(1.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/divider/Divider_Style.kt
 ```

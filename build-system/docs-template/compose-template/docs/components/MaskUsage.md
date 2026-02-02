@@ -9,15 +9,7 @@ title: TextField — Маски ввода
 MaskedTextField является оберткой над [TextField](TextFieldUsage.md) и имеет единственное отличие в api - обязательный параметр `mask: TextFieldMask` вместо параметра `visualTransformation`.
 
 ```kotlin
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember { PhoneMask() }, // маска для телефонных номеров
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите номер телефона",
-    labelText = "Номер пользователя",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/Mask_Simple.kt
 ```
 
 ## Предустановленные маски
@@ -33,29 +25,10 @@ MaskedTextField(
 
 ```kotlin
 // Использование по-умолчанию
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember { PhoneMask() }, // Настройки по-умолчанию подходят под RU-формат
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите номер телефона",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskPhone_Simple.kt
 
 // Кастомизация
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember { 
-        PhoneMask(
-            mask = "+365 (###) ###_##_##", // используем кастомный код и разделители '_',
-            digitPlaceHolder = '1' // используем символ подсказки 1 вместо 0
-        )
-    },
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите номер телефона",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskPhone_Custom.kt
 ```
 
 ### Дата - `DateMask`
@@ -68,29 +41,10 @@ MaskedTextField(
 
 ```kotlin
 // Использование по-умолчанию
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember { DateMask() }, // Настройки по-умолчанию ДД:ММ:ГГ
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите дату рождения",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskDate_Simple.kt
 
 // Кастомизация
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember {
-        DateMask(
-            pattern = listOf("ММ", "ГГ"), // оставляем только месяц и год
-            separator = '_', // используем кастомный разделитель
-        )
-    },
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите дату рождения",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskDate_Custom.kt
 ```
 
 ### Время - `TimeMask`
@@ -103,29 +57,10 @@ MaskedTextField(
 
 ```kotlin
 // Использование по-умолчанию
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember { TimeMask() }, // Настройки по-умолчанию ЧЧ:ММ
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите дату рождения",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskTime_Simple.kt
 
 // Кастомизация
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember {
-        TimeMask(
-            pattern = listOf("ЧЧ", "ММ", "СС"), // добавляем секунды
-            separator = '_', // используем кастомный разделитель
-        ) 
-    },
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите время",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskTime_Custom.kt
 ```
 
 ### Число - `NumberMask`
@@ -140,34 +75,10 @@ MaskedTextField(
 
 ```kotlin
 // Использование по-умолчанию
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember { NumberMask() }, // Настройки по-умолчанию
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите сумму",
-    suffix = "млн. руб",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskNumber_Simple.kt
 
 // Кастомизация
-var text by remember { mutableStateOf("") }
-MaskedTextField(
-    value = text,
-    onValueChange = { text = it },
-    mask = remember {
-        NumberMask(
-            decimalScale = 3, // изменяем количество знаков после запятой
-            decimalSeparator = ".", // используем кастомный разделитель дробной части
-            decimalSeparatorAliases = listOf(".", ","), // изменяем спиок допустимых разделителей
-            thousandGroupSeparator = "_", // кастомный разделитель групп цифр
-            digitsPerGroup = 2 // изменяем количество цифр в группе
-        ) 
-    },
-    style = TextField.S.OuterLabel.RequiredStart.Default.style(),
-    placeholderText = "Введите сумму",
-    suffix = "млн. руб",
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskNumber_Custom.kt
 ```
 
 ### TextFieldMaskMode - режим отображения маски

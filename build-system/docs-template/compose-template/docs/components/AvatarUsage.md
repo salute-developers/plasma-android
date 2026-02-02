@@ -3,11 +3,7 @@ title: Avatar
 ---
 
 ```kotlin
-Avatar( 
-    style = Avatar.M.style(),
-    status = AvatarStatus.Active,
-    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_Simple.kt
 ```
 
 ## Стиль Avatar
@@ -17,37 +13,7 @@ Avatar(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-AvatarStyle.builder()
-    .shape(CircleShape)
-    .colors {  
-        backgroundColor(
-            {{ docs-theme-codeReference }}.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue(),
-        )  
-        textColor(
-            {{ docs-theme-codeReference }}.gradients.textDefaultAccentGradient.asLayered().asStatefulValue(),
-        )
-    }
-    .dimensions {
-            width(88.0.dp)
-            height(88.0.dp)
-    }
-    .textStyle({{ docs-theme-codeReference }}.typography.headerH2Bold)
-    .badgeStyle(BadgeSolid.L.Pilled.Accent.style())
-    .counterStyle(Counter.L.Negative.style())
-    .statusStyle(
-        Indicator.L.modify {
-            color {
-                backgroundColor(
-                    {{ docs-theme-codeReference }}.colors.surfaceOnLightSolidTertiary.asInteractive(
-                        setOf(AvatarStatus.Active) 
-                        to {{ docs-theme-codeReference }}.colors.surfaceDefaultPositive,
-                    ),
-                )
-            }
-        }
-        .style(),
-    )
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_Style.kt
 ```
 
 ## Статус Avatar
@@ -63,12 +29,7 @@ Avatar(status = AvatarStatus.Active)
 Если не задан ресурс изображения, инициалы можно задать с помощью свойства placeholder -> name. Желательный формат строки - "Имя Фамилия".
 
 ```kotlin
-Avatar(
-    style = Avatar.M.style(),
-    status = AvatarStatus.Active,
-    actionEnabled = false,
-    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_ActionDisabled.kt
 ```
 
 ## Дополнительный контент
@@ -79,13 +40,7 @@ Avatar(
 Положение extra контента задается через Modifier.align.
 
 ```kotlin
- Avatar (
-    style = Avatar.L.style(),
-    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-    extra = { Counter(modifier = Modifier.align(Alignment.TopEnd),
-            count = "1") },
-    content = { }
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_Extra.kt
 ```
 
 ## Avatar как extension к Modifier

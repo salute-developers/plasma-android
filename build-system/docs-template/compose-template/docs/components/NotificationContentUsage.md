@@ -6,16 +6,7 @@ title: NotificationContent
 В качестве кнопок ожидает [Button](ButtonUsage.md). Кнопки добавляются с помощью функции button() из NotificationContentButtonsScope.
 
 ```kotlin
-NotificationContent(
-    modifier = Modifier.fillMaxWidth(),
-    style = NotificationContent.ButtonStretch.IconStart.Positive.style(),
-    title = "Title",
-    text = "Notification Text",
-    buttons = {
-        button { Button(label = "Ok", onClick = {}) }
-        button { Button(label = "Cancel", onClick = {}) }
-    },
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/notificationcontent/NotificationContent_Simple.kt
 ```
 
 ## Стиль NotificationContent
@@ -25,21 +16,7 @@ NotificationContent(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-NotificationContentStyle.builder()
-    .buttonLayout(NotificationContentButtonLayout.Stretch)
-    .buttonGroupStyle(BasicButtonGroup.Xs.Dense.Default.style())
-    .icon(com.sdds.icons.R.drawable.ic_info_circle_outline_24)
-    .titleStyle({{ docs-theme-codeReference }}.typography.bodySBold)
-    .textStyle({{ docs-theme-codeReference }}.typography.textSNormal)
-    .dimensions {
-        iconSize(24.0.dp)
-        textPadding(4.0.dp)
-        contentStartPadding(4.0.dp)
-        contentTopPadding(2.0.dp)
-        textBoxBottomPadding(6.0.dp)
-        buttonGroupTopPadding(6.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/notificationcontent/NotificationContent_Style.kt
 ```
 
 ## NotificationContentButtonLayout
