@@ -44,13 +44,13 @@ fun textSkeleton(
     @StyleRes style: Int? = null,
     state: TextSkeletonUiState = TextSkeletonUiState(),
 ): ViewGroup {
-    val appearanceOverlay = R.style.TestTheme_AppearanceOverlay
+    val appearanceOverlay = R.style.TestThemeAppearanceOverlay
     val contextWithAppearance = context.styleWrapper(appearanceOverlay)
     val contextWithSkeleton = contextWithAppearance.styleWrapper(style)
     val appearanceRes = resolveTextAppearance(contextWithSkeleton)
 
     val skeletonView = skeletonShimmer(contextWithSkeleton, state, appearanceRes)
-    val textView = text(context, state, appearanceRes)
+    val textView = text(contextWithSkeleton, state, appearanceRes)
     return FrameLayout(context).apply {
         layoutParams = ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,

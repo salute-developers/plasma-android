@@ -36,7 +36,7 @@ internal fun TextSkeletonScreen(componentKey: ComponentKey = ComponentKey.TextSk
                 val defaultTextStyle = if (style.textStyle == TextStyle.Default) {
                     LocalTextStyle.current
                 } else {
-                    style.textStyle
+                    style.textStyle.copy(color = LocalTextStyle.current.color)
                 }
                 Text(
                     text = textSkeletonUiState.text,
