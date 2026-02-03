@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.navigationbar
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
@@ -44,6 +45,9 @@ internal fun NavigationBarScreen(componentKey: ComponentKey = ComponentKey.Navig
                 content = content(navigationBarUiState.contentText),
                 actionStart = actionStart(navigationBarUiState.hasActionStart),
                 actionEnd = actionEnd(navigationBarUiState.hasActionEnd),
+                onBackPressed = {
+                    println("Back button was pressed")
+                },
             )
         },
     )
@@ -56,14 +60,14 @@ internal fun NavigationBarPreview(style: NavigationBarStyle) {
         textPlacement = NavigationBarTextPlacement.Inline,
         contentPlacement = NavigationBarContentPlacement.Inline,
         textAlign = NavigationBarTextAlign.Start,
-        textContent = textContent("Text"),
+        titleContent = textContent("Text"),
         content = content("Content"),
         actionStart = actionStart(true),
         actionEnd = actionEnd(true),
     )
 }
 
-private fun actionStart(hasAction: Boolean): (@Composable () -> Unit)? {
+private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(
@@ -76,7 +80,7 @@ private fun actionStart(hasAction: Boolean): (@Composable () -> Unit)? {
     }
 }
 
-private fun actionEnd(hasAction: Boolean): (@Composable () -> Unit)? {
+private fun actionEnd(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(

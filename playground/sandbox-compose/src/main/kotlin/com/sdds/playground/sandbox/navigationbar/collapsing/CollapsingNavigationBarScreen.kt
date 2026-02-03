@@ -55,6 +55,9 @@ internal fun CollapsingNavigationBarScreen(componentKey: ComponentKey = Componen
                     actionStart = actionStart(collapsingNavigationBarUiState.hasActionStart),
                     actionEnd = actionEnd(collapsingNavigationBarUiState.hasActionEnd),
                     centerAlignmentStrategy = collapsingNavigationBarUiState.centerAlignmentStrategy,
+                    onBackPressed = {
+                        println("Back button was pressed")
+                    },
                 )
                 LazyColumn {
                     items(100) {
@@ -88,7 +91,7 @@ private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? 
                 contentDescription = "",
             )
             Icon(
-                painter = painterResource(R.drawable.ic_sb_24),
+                painter = painterResource(R.drawable.ic_plus_24),
                 contentDescription = "",
             )
         }

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -24,6 +25,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.navigationbar.NavigationBarLayout
@@ -53,8 +56,8 @@ fun NavigationBar(
     textPlacement: NavigationBarTextPlacement = NavigationBarTextPlacement.Bottom,
     textAlign: NavigationBarTextAlign = NavigationBarTextAlign.Center,
     contentPlacement: NavigationBarContentPlacement = NavigationBarContentPlacement.Bottom,
-    actionStart: (@Composable () -> Unit)? = null,
-    actionEnd: (@Composable () -> Unit)? = null,
+    actionStart: (@Composable RowScope.() -> Unit)? = null,
+    actionEnd: (@Composable RowScope.() -> Unit)? = null,
     titleContent: (@Composable () -> Unit)? = null,
     descriptionContent: (@Composable () -> Unit)? = null,
     content: (@Composable () -> Unit)? = null,
@@ -94,14 +97,26 @@ fun NavigationBar(
         }
     }
 
+    val startActions: (@Composable () -> Unit)? = if (actionStart != null) {
+        @Composable { ActionRowWrapper(actionStart, style.dimensions.horizontalSpacing) }
+    } else {
+        null
+    }
+
+    val endActions: (@Composable () -> Unit)? = if (actionEnd != null) {
+        @Composable { ActionRowWrapper(actionEnd, style.dimensions.horizontalSpacing) }
+    } else {
+        null
+    }
+
     NavigationBar(
         modifier = modifier,
         style = style,
         textPlacement = textPlacement,
         textAlign = textAlign,
         contentPlacement = contentPlacement,
-        actionStart = actionStart,
-        actionEnd = actionEnd,
+        actionStart = startActions,
+        actionEnd = endActions,
         textContent = textContent,
         content = content,
         interactionSource = interactionSource,
@@ -152,6 +167,8 @@ fun NavigationBar(
             modifier = Modifier,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            val hasBottomText =
+                textPlacement == NavigationBarTextPlacement.Bottom && textContent != null
             NavigationBarLayout(
                 modifier = Modifier.fillMaxWidth(),
                 startContent = startContent(
@@ -183,7 +200,7 @@ fun NavigationBar(
                     start = style.dimensions.paddingStart,
                     end = style.dimensions.paddingEnd,
                     top = style.dimensions.paddingTop,
-                    bottom = style.dimensions.paddingBottom,
+                    bottom = if (hasBottomText) 0.dp else style.dimensions.paddingBottom,
                 ),
             )
 
@@ -282,6 +299,19 @@ private fun NavigationBarTextAlign.toAlignment(): Alignment.Horizontal {
 }
 
 @Composable
+private fun ActionRowWrapper(
+    actions: @Composable RowScope.() -> Unit,
+    spacing: Dp,
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(spacing),
+    ) {
+        actions()
+    }
+}
+
+@Composable
 internal fun rememberNavBarShape(bottomShape: CornerBasedShape): RoundedCornerShape {
     return remember(bottomShape) {
         RoundedCornerShape(
@@ -315,7 +345,12 @@ private fun ColumnScope.OuterText(
         Box(
             modifier = Modifier
                 .align(textAlign.toAlignment())
-                .padding(top = style.dimensions.textBlockTopMargin),
+                .padding(
+                    top = style.dimensions.textBlockTopMargin,
+                    bottom = style.dimensions.paddingBottom,
+                    start = style.dimensions.paddingStart,
+                    end = style.dimensions.paddingEnd,
+                ),
         ) {
             TextContent(
                 textContent = textContent,
@@ -370,7 +405,7 @@ private fun StartContent(
             )
         }
         if (actionStart != null) {
-            Action(
+            Actions(
                 actionStart,
                 style.colors.actionStartColor,
                 interactionSource,
@@ -399,7 +434,7 @@ private fun EndContent(
     actionEnd: (@Composable () -> Unit)?,
 ) {
     if (actionEnd != null) {
-        Action(
+        Actions(
             actionEnd,
             style.colors.actionEndColor,
             interactionSource,
@@ -409,7 +444,7 @@ private fun EndContent(
 }
 
 @Composable
-private fun Action(
+private fun Actions(
     actionContent: (@Composable () -> Unit),
     tint: InteractiveColor,
     interactionSource: InteractionSource,

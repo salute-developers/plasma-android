@@ -52,7 +52,7 @@ fun NavigationBarContentBottomStart(style: NavigationBarStyle) {
         textPlacement = NavigationBarTextPlacement.Bottom,
         textAlign = NavigationBarTextAlign.Start,
         contentPlacement = NavigationBarContentPlacement.Bottom,
-        textContent = {},
+        textContent = null,
         content = { Text(text = "Content") },
         actionStart = {
             Icon(
@@ -87,7 +87,7 @@ fun NavigationBarLongTextContentInlineCenterBottom(style: NavigationBarStyle) {
                 contentDescription = "",
             )
         },
-        actionEnd = {},
+        actionEnd = null,
     )
 }
 
@@ -102,7 +102,7 @@ fun NavigationBarTextHasActionEndInlineEndBottom(style: NavigationBarStyle) {
         textAlign = NavigationBarTextAlign.End,
         contentPlacement = NavigationBarContentPlacement.Bottom,
         textContent = { Text(text = "Text") },
-        content = {},
+        content = null,
         actionStart = {
             Icon(
                 painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),

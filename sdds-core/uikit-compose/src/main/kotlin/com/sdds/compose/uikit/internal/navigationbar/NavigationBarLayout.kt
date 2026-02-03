@@ -23,6 +23,10 @@ import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.navigationbar.NavBarMeasurePolicy.Companion.BackgroundContentId
+import com.sdds.compose.uikit.internal.navigationbar.NavBarMeasurePolicy.Companion.CenterContentId
+import com.sdds.compose.uikit.internal.navigationbar.NavBarMeasurePolicy.Companion.EndContentId
+import com.sdds.compose.uikit.internal.navigationbar.NavBarMeasurePolicy.Companion.StartContentId
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.roundToInt
 
@@ -50,7 +54,7 @@ internal fun NavigationBarLayout(
             startContent?.let {
                 Box(
                     modifier = Modifier
-                        .layoutId("StartContent")
+                        .layoutId(StartContentId)
                         .padding(end = horizontalSpacing),
                     content = { startContent() },
                 )
@@ -59,14 +63,14 @@ internal fun NavigationBarLayout(
                 Box(
                     modifier = Modifier
                         .graphicsLayer { this.alpha = alpha() }
-                        .layoutId("CenterContent"),
+                        .layoutId(CenterContentId),
                     content = { centerContent() },
                 )
             }
             endContent?.let {
                 Box(
                     modifier = Modifier
-                        .layoutId("EndContent")
+                        .layoutId(EndContentId)
                         .padding(start = horizontalSpacing),
                     content = { endContent() },
                 )
@@ -77,7 +81,7 @@ internal fun NavigationBarLayout(
                         .graphicsLayer {
                             this.alpha = alpha()
                         }
-                        .layoutId("BackgroundContent"),
+                        .layoutId(BackgroundContentId),
                     content = { backgroundContent() },
                 )
             }
@@ -108,11 +112,11 @@ private class NavBarMeasurePolicy(
 
         val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
         val startContent = measurables
-            .firstOrNull { it.layoutId == "StartContent" }
-            ?.measure(looseConstraints.copy(minWidth = 0))
+            .firstOrNull { it.layoutId == StartContentId }
+            ?.measure(looseConstraints)
 
         val endContent = measurables
-            .firstOrNull { it.layoutId == "EndContent" }
+            .firstOrNull { it.layoutId == EndContentId }
             ?.measure(looseConstraints.offset(horizontal = -startContent.widthOrZero()))
 
         val centerConstraints = if (hasAbsoluteCenter) {
@@ -122,7 +126,7 @@ private class NavBarMeasurePolicy(
         } else {
             looseConstraints.offset(-startContent.widthOrZero() - endContent.widthOrZero())
         }
-        val centerContent = measurables.firstOrNull { it.layoutId == "CenterContent" }
+        val centerContent = measurables.firstOrNull { it.layoutId == CenterContentId }
             ?.measure(centerConstraints)
 
         val contentHeight = maxOf(
@@ -141,7 +145,7 @@ private class NavBarMeasurePolicy(
                 paddingEnd,
         )
 
-        val backgroundContent = measurables.firstOrNull { it.layoutId == "BackgroundContent" }
+        val backgroundContent = measurables.firstOrNull { it.layoutId == BackgroundContentId }
             ?.measure(
                 constraints.copy(
                     minHeight = height,
@@ -212,4 +216,11 @@ private class NavBarMeasurePolicy(
         containerWidth: Int,
         elementWidth: Int,
     ) = ((containerWidth - elementWidth) / 2f).roundToInt()
+
+    companion object {
+        const val StartContentId = "StartContent"
+        const val CenterContentId = "CenterContent"
+        const val EndContentId = "EndContent"
+        const val BackgroundContentId = "BackgroundContent"
+    }
 }
