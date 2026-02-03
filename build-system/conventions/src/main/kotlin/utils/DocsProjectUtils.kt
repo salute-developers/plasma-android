@@ -52,7 +52,7 @@ val Project.docsUikitComposeVersion: String
  * Возвращает "latest", если версия не указана.
  */
 val Project.docsIconsVersion: String
-    get() = getVersionCatalog()?.versions?.sdds?.icons?.get() ?: "latest"
+    get() = iconsCatalog()?.versions?.sdds?.icons?.get() ?: "latest"
 
 /**
  * Возвращает URL на API-документацию артефакта в зависимости от типа библиотеки (Compose или XML).
