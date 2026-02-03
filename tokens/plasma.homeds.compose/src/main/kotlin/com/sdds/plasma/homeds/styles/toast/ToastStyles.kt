@@ -40,7 +40,7 @@ public val Toast.Default: WrapperToastTerminate
         .invariantProps
         .colors {
             contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(),
             )
         }
         .wrap(::WrapperToastTerminate)
@@ -51,7 +51,7 @@ public val Toast.Positive: WrapperToastTerminate
         .invariantProps
         .colors {
             contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultPositive.asInteractive(),
+                PlasmaHomeDsTheme.colors.textInversePositive.asInteractive(),
             )
         }
         .wrap(::WrapperToastTerminate)
@@ -62,7 +62,7 @@ public val Toast.Negative: WrapperToastTerminate
         .invariantProps
         .colors {
             contentStartColor(
-                PlasmaHomeDsTheme.colors.textDefaultNegative.asInteractive(),
+                PlasmaHomeDsTheme.colors.textInverseNegative.asInteractive(),
             )
         }
         .wrap(::WrapperToastTerminate)
@@ -71,16 +71,16 @@ private val ToastStyleBuilder.invariantProps: ToastStyleBuilder
     @Composable
     get() = this
         .shape(CircleShape)
-        .textStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
+        .textStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .colors {
             backgroundColor(
-                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidTertiary).asStatefulValue(),
+                SolidColor(PlasmaHomeDsTheme.colors.surfaceDefaultSolidDefault).asStatefulValue(),
             )
             textColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asInteractive(),
+                PlasmaHomeDsTheme.colors.textInversePrimary.asInteractive(),
             )
             contentEndColor(
-                PlasmaHomeDsTheme.colors.textDefaultSecondary.asInteractive(),
+                PlasmaHomeDsTheme.colors.textInverseSecondary.asInteractive(),
             )
         }
         .dimensions {

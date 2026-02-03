@@ -13,6 +13,7 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
+import com.sdds.compose.uikit.overlay.OverlayManager
 import com.sdds.compose.uikit.overlay.showToast
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
@@ -41,6 +42,8 @@ internal fun ToastScreen(componentKey: ComponentKey = ComponentKey.Toast) {
                 onClick = {
                     overlayManager.showToast(
                         position = toastUiState.position,
+                        durationMillis = OverlayManager.OVERLAY_DURATION_SLOW_MILLIS
+                            .takeIf { toastUiState.autoDismiss },
                     ) {
                         Toast(
                             style = style,
