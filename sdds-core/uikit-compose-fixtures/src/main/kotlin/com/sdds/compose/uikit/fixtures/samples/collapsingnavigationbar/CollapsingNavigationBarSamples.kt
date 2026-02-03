@@ -30,7 +30,7 @@ fun CollapsingNavigationBar_Simple() {
     composableCodeSnippet {
         val scrollBehavior =
             CollapsingNavigationBarDefaults.exitUntilCollapsedScrollBehavior(
-                rememberCollapsingNavigationBarState()
+                rememberCollapsingNavigationBarState(),
             )
         Column(
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -95,8 +95,8 @@ fun CollapsingNavigationBar_Style() {
                 horizontalSpacing(16.0.dp)
                 descriptionPadding(
                     12.dp.asStatefulValue(
-                        setOf(CollapsingNavigationBarStates.Collapsed) to 4.dp
-                    )
+                        setOf(CollapsingNavigationBarStates.Collapsed) to 4.dp,
+                    ),
                 )
             }
             .style()
