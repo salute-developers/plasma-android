@@ -179,8 +179,8 @@ private class NavBarMeasurePolicy(
                             NavigationBarTextAlign.Center -> {
                                 val startPoint = paddingStart + startContent.widthOrZero()
                                 val endPoint = width - paddingEnd - endContent.widthOrZero()
-                                val centerPoint = endPoint - startPoint
-                                centerPoint
+                                val centerPoint = startPoint + ((endPoint - startPoint) / 2)
+                                centerPoint - it.widthOrZero() / 2
                             }
                             NavigationBarTextAlign.End ->
                                 width -

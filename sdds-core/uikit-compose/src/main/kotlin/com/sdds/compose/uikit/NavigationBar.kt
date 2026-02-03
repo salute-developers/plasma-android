@@ -499,27 +499,23 @@ private fun CenterContent(
         content != null && contentPlacement == NavigationBarContentPlacement.Inline
     val hasInlineText =
         textContent != null && textPlacement == NavigationBarTextPlacement.Inline
-    Box {
-        Row(
-            modifier = Modifier
-                .align(getCenterContentAlignment(hasInlineText, hasInlineContent, textAlign)),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
+    ) {
+        val textColor = style.colors.textColor.colorForInteraction(interactionSource)
+        CompositionLocalProvider(
+            LocalTint provides textColor,
+            LocalTextStyle provides style.textStyle.copy(
+                color = textColor,
+                textAlign = textAlign.toPlatformTextAlign(),
+            ),
         ) {
-            val textColor = style.colors.textColor.colorForInteraction(interactionSource)
-            CompositionLocalProvider(
-                LocalTint provides textColor,
-                LocalTextStyle provides style.textStyle.copy(
-                    color = textColor,
-                    textAlign = textAlign.toPlatformTextAlign(),
-                ),
-            ) {
-                if (hasInlineText) {
-                    textContent?.invoke()
-                }
-                if (hasInlineContent) {
-                    content?.invoke()
-                }
+            if (hasInlineText) {
+                textContent?.invoke()
+            }
+            if (hasInlineContent) {
+                content?.invoke()
             }
         }
     }
