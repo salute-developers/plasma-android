@@ -10,6 +10,7 @@ internal data class ToastUiState(
     val hasContentStart: Boolean = true,
     val hasContentEnd: Boolean = true,
     val position: OverlayPosition = OverlayPosition.BottomCenter,
+    val autoDismiss: Boolean = true,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
