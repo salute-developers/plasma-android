@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.TextSkeletonHeader" parent="Sdds.Components.TextSkeleton">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shimmerDuration">700</item>
+        <item name="sd_shimmer">?sdkit_surfaceDefaultTransparentSecondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonHeader.H1">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH1">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonHeader.H1</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonHeader.H2">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH2">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonHeader.H2</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonHeader.H3">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH3Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH3">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonHeader.H3</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonHeader.H4">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH4Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH4">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonHeader.H4</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextSkeletonHeader.H5">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH5">
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonHeader.H5</item>
+    </style>
+</resources>

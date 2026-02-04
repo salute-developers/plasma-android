@@ -37,7 +37,7 @@ open class TextSkeleton @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
 
     private val _shapeHelper = shapeHelper(attrs, defStyleAttr, defStyleRes)
-    private var _lineCount: Int = 0
+    private var _lineCount: Int = 1
     private var _textAppearanceRes: Int = 0
     private var _lineWidthProvider: SkeletonLineWidthProvider = SkeletonLineWidthProvider.RandomDeviation()
     private var _resolvedLineHeight: Int = 0
@@ -161,7 +161,7 @@ open class TextSkeleton @JvmOverloads constructor(
     init {
         orientation = VERTICAL
         context.withStyledAttributes(attrs, R.styleable.TextSkeleton, defStyleAttr, defStyleRes) {
-            _lineCount = getInt(R.styleable.TextSkeleton_sd_lineCount, 0)
+            _lineCount = getInt(R.styleable.TextSkeleton_sd_lineCount, 1)
             _autoStart = getBoolean(R.styleable.TextSkeleton_sd_autoStart, false)
             _shimmerDuration = (getInt(R.styleable.TextSkeleton_sd_shimmerDuration, DEFAULT_DURATION).toLong())
             _shimmerList = getColorValueStateList(context, R.styleable.TextSkeleton_sd_shimmer)

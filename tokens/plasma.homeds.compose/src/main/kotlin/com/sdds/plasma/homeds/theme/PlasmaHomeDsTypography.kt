@@ -114,6 +114,18 @@ public data class PlasmaHomeDsTypography internal constructor(
      */
     public val headerH5Normal: TextStyle = TextStyle.Default,
     /**
+     * typography l header-h6
+     */
+    public val headerH6Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h6-medium
+     */
+    public val headerH6Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h6-bold
+     */
+    public val headerH6Bold: TextStyle = TextStyle.Default,
+    /**
      * typography l body-l-bold
      */
     public val bodyLBold: TextStyle = TextStyle.Default,
@@ -256,6 +268,9 @@ public fun smallPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     headerH5Bold = TypographySmallTokens.HeaderH5Bold,
     headerH5Medium = TypographySmallTokens.HeaderH5Medium,
     headerH5Normal = TypographySmallTokens.HeaderH5Normal,
+    headerH6Normal = TypographySmallTokens.HeaderH6Normal,
+    headerH6Medium = TypographySmallTokens.HeaderH6Medium,
+    headerH6Bold = TypographySmallTokens.HeaderH6Bold,
     bodyLBold = TypographySmallTokens.BodyLBold,
     bodyLMedium = TypographySmallTokens.BodyLMedium,
     bodyLNormal = TypographySmallTokens.BodyLNormal,
@@ -313,6 +328,9 @@ public fun mediumPlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDs
     headerH5Bold = TypographyMediumTokens.HeaderH5Bold,
     headerH5Medium = TypographyMediumTokens.HeaderH5Medium,
     headerH5Normal = TypographyMediumTokens.HeaderH5Normal,
+    headerH6Normal = TypographyMediumTokens.HeaderH6Normal,
+    headerH6Medium = TypographyMediumTokens.HeaderH6Medium,
+    headerH6Bold = TypographyMediumTokens.HeaderH6Bold,
     bodyLBold = TypographyMediumTokens.BodyLBold,
     bodyLMedium = TypographyMediumTokens.BodyLMedium,
     bodyLNormal = TypographyMediumTokens.BodyLNormal,
@@ -370,6 +388,9 @@ public fun largePlasmaHomeDsTypography(): PlasmaHomeDsTypography = PlasmaHomeDsT
     headerH5Bold = TypographyLargeTokens.HeaderH5Bold,
     headerH5Medium = TypographyLargeTokens.HeaderH5Medium,
     headerH5Normal = TypographyLargeTokens.HeaderH5Normal,
+    headerH6Normal = TypographyLargeTokens.HeaderH6Normal,
+    headerH6Medium = TypographyLargeTokens.HeaderH6Medium,
+    headerH6Bold = TypographyLargeTokens.HeaderH6Bold,
     bodyLBold = TypographyLargeTokens.BodyLBold,
     bodyLMedium = TypographyLargeTokens.BodyLMedium,
     bodyLNormal = TypographyLargeTokens.BodyLNormal,

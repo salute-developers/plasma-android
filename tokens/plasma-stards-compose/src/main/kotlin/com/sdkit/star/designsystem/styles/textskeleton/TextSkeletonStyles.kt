@@ -1,4 +1,4 @@
-// AUTO-GENERATED. DO NOT MODIFY this file.
+// Deprecated. Replace with TextSkeletonBody or TextSkeletonDisplay or TextSkeletonHeader or TextSkeletonText
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
@@ -32,6 +32,7 @@ public value class WrapperTextSkeletonDefault(
     public override val builder: TextSkeletonStyleBuilder,
 ) : WrapperTextSkeleton
 
+@Deprecated("Use new extensions with new objects of TextSkeleton")
 public val TextSkeleton.Default: WrapperTextSkeletonDefault
     @Composable
     @JvmName("WrapperTextSkeletonDefault")

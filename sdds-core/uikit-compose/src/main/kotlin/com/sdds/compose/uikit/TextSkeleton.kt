@@ -38,7 +38,7 @@ fun TextSkeleton(
     modifier: Modifier = Modifier,
     style: TextSkeletonStyle = LocalTextSkeletonStyle.current,
     lineCount: Int = 3,
-    textStyle: TextStyle = LocalTextStyle.current,
+    textStyle: TextStyle = style.textStyle,
     lineWidthProvider: SkeletonLineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
     duration: Int = style.duration,
     brush: Brush = style.gradient.getDefaultValue(),

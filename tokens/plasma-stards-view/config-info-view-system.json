@@ -5191,12 +5191,113 @@
       {
          "key": "text-skeleton",
          "coreName": "TextSkeleton",
-         "styleName": "TextSkeleton",
+         "styleName": "TextSkeletonBody",
          "variations": [
             {
-               "name": "default",
-               "viewReference": "Sdkit.StarDs.Components.TextSkeleton",
-               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeleton"
+               "name": "l",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonBody.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonBodyL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonBody.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonBodyM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonBody.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonBodyS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonBody.Xs",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonBodyXs"
+            },
+            {
+               "name": "xxs",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonBody.Xxs",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonBodyXxs"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeletonDisplay",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonDisplay.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonDisplayL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonDisplay.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonDisplayM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonDisplay.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonDisplayS"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeletonHeader",
+         "variations": [
+            {
+               "name": "h1",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonHeader.H1",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH1"
+            },
+            {
+               "name": "h2",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonHeader.H2",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH2"
+            },
+            {
+               "name": "h3",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonHeader.H3",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH3"
+            },
+            {
+               "name": "h4",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonHeader.H4",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH4"
+            },
+            {
+               "name": "h5",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonHeader.H5",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonHeaderH5"
+            }
+         ]
+      },
+      {
+         "key": "text-skeleton",
+         "coreName": "TextSkeleton",
+         "styleName": "TextSkeletonText",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonText.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonTextL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonText.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonTextM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonText.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonTextS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Sdkit.StarDs.Components.TextSkeletonText.Xs",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.TextSkeletonTextXs"
             }
          ]
       },

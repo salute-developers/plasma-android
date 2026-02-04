@@ -246,7 +246,10 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
             ComposeComponent(
                 ComponentKey.TextSkeleton,
                 mapOf(
-                    "TextSkeleton" to PlasmaHomedsTextSkeletonVariationsCompose,
+                    "TextSkeletonBody" to PlasmaHomedsTextSkeletonBodyVariationsCompose,
+                    "TextSkeletonDisplay" to PlasmaHomedsTextSkeletonDisplayVariationsCompose,
+                    "TextSkeletonHeader" to PlasmaHomedsTextSkeletonHeaderVariationsCompose,
+                    "TextSkeletonText" to PlasmaHomedsTextSkeletonTextVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }
