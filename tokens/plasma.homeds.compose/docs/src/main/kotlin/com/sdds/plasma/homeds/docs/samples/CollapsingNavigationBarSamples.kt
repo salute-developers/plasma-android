@@ -22,6 +22,8 @@ import com.sdds.compose.uikit.floatPx
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.plasma.homeds.styles.collapsingnavigationbar.CollapsingNavigationBarMainPage
+import com.sdds.plasma.homeds.styles.collapsingnavigationbar.Default
 import com.sdds.plasma.homeds.styles.overlay.DirectionTop
 import com.sdds.plasma.homeds.styles.overlay.Overlay
 
@@ -54,6 +56,7 @@ fun CollapsingNavigationBar_WithOverlayAndScrollThreshold() {
                 alpha = { overlayAlpha },
             ) {
                 CollapsingNavigationBar(
+                    style = CollapsingNavigationBarMainPage.Default.style(),
                     scrollBehavior = scrollBehavior,
                     collapsedTitle = { Text("Title") },
                     expandedTitle = { Text("Title") },
@@ -105,6 +108,7 @@ fun CollapsingNavigationBar_WithOverlayAndAlphaByScrollBehavior() {
                 alpha = { scrollBehavior.state.collapsedFraction },
             ) {
                 CollapsingNavigationBar(
+                    style = CollapsingNavigationBarMainPage.Default.style(),
                     scrollBehavior = scrollBehavior,
                     collapsedTitle = { Text("Title") },
                     expandedTitle = { Text("Title") },

@@ -12,6 +12,8 @@ import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.floatPx
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.plasma.homeds.styles.navigationbar.Default
+import com.sdds.plasma.homeds.styles.navigationbar.NavigationBarMainPage
 import com.sdds.plasma.homeds.styles.overlay.DirectionTop
 import com.sdds.plasma.homeds.styles.overlay.Overlay
 
@@ -35,7 +37,9 @@ fun NavigationBar_WithOverlay() {
             style = Overlay.DirectionTop.style(),
             alpha = { overlayAlpha },
         ) {
-            NavigationBar()
+            NavigationBar(
+                style = NavigationBarMainPage.Default.style(),
+            )
         }
     }
 }
