@@ -41,11 +41,17 @@ enum class OverlayPosition {
 internal fun OverlayPosition.isTop(): Boolean =
     this == OverlayPosition.TopStart || this == OverlayPosition.TopEnd || this == OverlayPosition.TopCenter
 
+internal fun OverlayPosition.isBottom(): Boolean =
+    this == OverlayPosition.BottomStart || this == OverlayPosition.BottomEnd || this == OverlayPosition.BottomCenter
+
 internal fun OverlayPosition.isStart(): Boolean =
     this == OverlayPosition.TopStart || this == OverlayPosition.CenterStart || this == OverlayPosition.BottomStart
 
-internal fun OverlayPosition.isCenter(): Boolean =
+internal fun OverlayPosition.isCenterVertical(): Boolean =
     this == OverlayPosition.Center || this == OverlayPosition.TopCenter || this == OverlayPosition.BottomCenter
+
+internal fun OverlayPosition.isCenterHorizontal(): Boolean =
+    this == OverlayPosition.Center || this == OverlayPosition.CenterStart || this == OverlayPosition.CenterEnd
 
 internal fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec? {
     return when (this) {
@@ -56,14 +62,17 @@ internal fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec? {
             enter = OverlayAnimationSpec.SlideInStart,
             exit = OverlayAnimationSpec.SlideOutStart,
         )
+
         OverlayPosition.TopCenter -> OverlayAnimationSpec(
             enter = OverlayAnimationSpec.SlideInTop,
             exit = OverlayAnimationSpec.DefaultExitTransition,
         )
+
         OverlayPosition.BottomCenter -> OverlayAnimationSpec(
             enter = OverlayAnimationSpec.SlideInBottom,
             exit = OverlayAnimationSpec.DefaultExitTransition,
         )
+
         OverlayPosition.TopEnd,
         OverlayPosition.CenterEnd,
         OverlayPosition.BottomEnd,
@@ -71,6 +80,7 @@ internal fun OverlayPosition.getAnimationSpec(): OverlayAnimationSpec? {
             enter = OverlayAnimationSpec.SlideInEnd,
             exit = OverlayAnimationSpec.SlideOutEnd,
         )
+
         else -> null
     }
 }
@@ -160,6 +170,33 @@ interface OverlayManager {
      */
     fun clear()
 
+    /**
+     * Добавляет слушатель события dismiss
+     */
+    fun addOnDismissListener(listener: OnDismissListener)
+
+    /**
+     * Удаляет слушатель события dismiss
+     */
+    fun removeOnDismissListener(listener: OnDismissListener)
+
+    /**
+     * Показывает элемент [entry]
+     * @return возвращает идентификатор [entry]
+     */
+    fun show(entry: OverlayEntry): Long
+
+    /**
+     * Слушатель события отмены/закрытия [OverlayEntry]
+     */
+    interface OnDismissListener {
+
+        /**
+         * Колбэк срабатывания события отмены/закрытия [entry]
+         */
+        fun onDismiss(entry: OverlayEntry)
+    }
+
     companion object {
         /**
          * Время жизни 3 сек.
@@ -171,6 +208,42 @@ interface OverlayManager {
          */
         const val OVERLAY_DURATION_FAST_MILLIS = 1000L
     }
+}
+
+/**
+ * Показывает toast
+ *
+ * @param position размещение toast
+ * @param durationMillis время жизни toast
+ * @param animationSpec настройки анимации
+ * @param content контент toast
+ */
+fun OverlayManager.showToast(
+    onDismiss: (Long) -> Unit,
+    position: OverlayPosition = OverlayPosition.BottomCenter,
+    durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
+    animationSpec: OverlayAnimationSpec? = null,
+    content: @Composable (Long) -> Unit,
+): Long {
+    val animation = animationSpec ?: position.getAnimationSpec()
+    val entryToShow = OverlayEntry(
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animation,
+        isFocusable = false,
+        content = content,
+    )
+    addOnDismissListener(
+        object : OverlayManager.OnDismissListener {
+            override fun onDismiss(entry: OverlayEntry) {
+                if (entryToShow.id == entry.id) {
+                    onDismiss(entry.id)
+                    removeOnDismissListener(this)
+                }
+            }
+        },
+    )
+    return show(entryToShow)
 }
 
 /**
@@ -195,6 +268,43 @@ fun OverlayManager.showToast(
         isFocusable = false,
         content = content,
     )
+}
+
+/**
+ * Показывает notification
+ *
+ * @param position размещение notification
+ * @param durationMillis время жизни notification
+ * @param animationSpec настройки анимации
+ * @param content контент notification
+ */
+fun OverlayManager.showNotification(
+    onDismiss: (Long) -> Unit,
+    position: OverlayPosition = OverlayPosition.BottomEnd,
+    durationMillis: Long? = OVERLAY_DURATION_SLOW_MILLIS,
+    animationSpec: OverlayAnimationSpec? = null,
+    isFocusable: Boolean = false,
+    content: @Composable (Long) -> Unit,
+): Long {
+    val animation = animationSpec ?: position.getAnimationSpec()
+    val entryToShow = OverlayEntry(
+        position = position,
+        durationMillis = durationMillis,
+        animationSpec = animation,
+        isFocusable = isFocusable,
+        content = content,
+    )
+    addOnDismissListener(
+        object : OverlayManager.OnDismissListener {
+            override fun onDismiss(entry: OverlayEntry) {
+                if (entryToShow.id == entry.id) {
+                    onDismiss(entry.id)
+                    removeOnDismissListener(this)
+                }
+            }
+        },
+    )
+    return show(entryToShow)
 }
 
 /**
@@ -232,6 +342,7 @@ fun overlayManager(lifecycle: OverlayManagerLifecycle = OverlayManagerLifecycle.
             val scope = rememberCoroutineScope()
             remember { DefaultOverlayManager(scope) }
         }
+
         OverlayManagerLifecycle.ViewModelScoped -> {
             viewModel { ViewModelBasedOverlayManager() }
         }
