@@ -3055,6 +3055,25 @@
          ]
       },
       {
+         "key": "overlay",
+         "coreName": "Overlay",
+         "styleName": "Overlay",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "Overlay.Default"
+            },
+            {
+               "name": "direction-top",
+               "composeReference": "Overlay.DirectionTop"
+            },
+            {
+               "name": "direction-bottom",
+               "composeReference": "Overlay.DirectionBottom"
+            }
+         ]
+      },
+      {
          "key": "spinner",
          "coreName": "Spinner",
          "styleName": "Spinner",

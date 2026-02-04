@@ -13,6 +13,7 @@ import com.squareup.kotlinpoet.ClassName
  * Генератор вариаций BottomSheet на Compose
  */
 internal class BottomSheetComposeVariationGenerator(
+    private val overlayStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -43,6 +44,7 @@ internal class BottomSheetComposeVariationGenerator(
         variationId: String,
     ): List<String> {
         return listOfNotNull(
+            overlayStyleCall(props, ktFileBuilder),
             shapeCall(props, variationId),
             shadowCall(props),
             dimensionsCall(props, variationId),
@@ -53,6 +55,17 @@ internal class BottomSheetComposeVariationGenerator(
 
     override fun KtFileBuilder.onAddImports() {
         addImport(ClassName("com.sdds.compose.uikit", "BottomSheetHandlePlacement"))
+    }
+
+    private fun overlayStyleCall(props: BottomSheetProperties, ktFileBuilder: KtFileBuilder): String? {
+        return props.overlay?.let {
+            ".overlayStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    overlayStylesPackage,
+                )
+            }.style())"
+        }
     }
 
     private fun shapeCall(props: BottomSheetProperties, variationId: String): String? {

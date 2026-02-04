@@ -191,6 +191,12 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.Overlay,
+                mapOf(
+                    "Overlay" to PlasmaHomedsOverlayVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Spinner,
                 mapOf(
                     "Spinner" to PlasmaHomedsSpinnerVariationsCompose,

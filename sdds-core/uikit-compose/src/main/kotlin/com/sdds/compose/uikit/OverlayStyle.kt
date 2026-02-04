@@ -136,7 +136,7 @@ private class DefaultOverlayColors(
         }
 
         override fun build(): OverlayColors = DefaultOverlayColors(
-            backgroundColor = backgroundColor ?: SolidColor(Color.LightGray).asStatefulValue(),
+            backgroundColor = backgroundColor ?: SolidColor(Color.LightGray.copy(alpha = 0.4f)).asStatefulValue(),
         )
     }
 }

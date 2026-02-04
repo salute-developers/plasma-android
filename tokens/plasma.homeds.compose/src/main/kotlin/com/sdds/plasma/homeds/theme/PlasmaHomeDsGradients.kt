@@ -751,6 +751,46 @@ public class PlasmaHomeDsGradients(
     public val surfaceInverseSkeletonDeepGradientActive: List<ShaderBrush> by gradients
 
     /**
+     * light overlay default overlayGradientUp
+     */
+    public val overlayDefaultGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay default overlayGradientDown
+     */
+    public val overlayDefaultGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay onDark overlayGradientUp
+     */
+    public val overlayOnDarkGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay onDark overlayGradientDown
+     */
+    public val overlayOnDarkGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay onLight overlayGradientUp
+     */
+    public val overlayOnLightGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay onLight overlayGradientDown
+     */
+    public val overlayOnLightGradientDown: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay inverse overlayGradientUp
+     */
+    public val overlayInverseGradientUp: List<ShaderBrush> by gradients
+
+    /**
+     * light overlay inverse overlayGradientDown
+     */
+    public val overlayInverseGradientDown: List<ShaderBrush> by gradients
+
+    /**
      * Акцентный цвет обводки с градиентом
      */
     public val outlineDefaultAccentGradientHover: List<ShaderBrush> by gradients
@@ -1836,6 +1876,46 @@ public class GradientOverrideScope {
      */
     public val surfaceInverseSkeletonDeepGradientActive: String =
         "surfaceInverseSkeletonDeepGradientActive"
+
+    /**
+     * light overlay default overlayGradientUp
+     */
+    public val overlayDefaultGradientUp: String = "overlayDefaultGradientUp"
+
+    /**
+     * light overlay default overlayGradientDown
+     */
+    public val overlayDefaultGradientDown: String = "overlayDefaultGradientDown"
+
+    /**
+     * light overlay onDark overlayGradientUp
+     */
+    public val overlayOnDarkGradientUp: String = "overlayOnDarkGradientUp"
+
+    /**
+     * light overlay onDark overlayGradientDown
+     */
+    public val overlayOnDarkGradientDown: String = "overlayOnDarkGradientDown"
+
+    /**
+     * light overlay onLight overlayGradientUp
+     */
+    public val overlayOnLightGradientUp: String = "overlayOnLightGradientUp"
+
+    /**
+     * light overlay onLight overlayGradientDown
+     */
+    public val overlayOnLightGradientDown: String = "overlayOnLightGradientDown"
+
+    /**
+     * light overlay inverse overlayGradientUp
+     */
+    public val overlayInverseGradientUp: String = "overlayInverseGradientUp"
+
+    /**
+     * light overlay inverse overlayGradientDown
+     */
+    public val overlayInverseGradientDown: String = "overlayInverseGradientDown"
 
     /**
      * Акцентный цвет обводки с градиентом
@@ -3774,6 +3854,94 @@ public fun lightPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.(
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
                 LightGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayDefaultGradientUp",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayDefaultGradientUp.colors,
+                LightGradientTokens.OverlayDefaultGradientUp.positions,
+                LightGradientTokens.OverlayDefaultGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayDefaultGradientDown",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayDefaultGradientDown.colors,
+                LightGradientTokens.OverlayDefaultGradientDown.positions,
+                LightGradientTokens.OverlayDefaultGradientDown.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnDarkGradientUp",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayOnDarkGradientUp.colors,
+                LightGradientTokens.OverlayOnDarkGradientUp.positions,
+                LightGradientTokens.OverlayOnDarkGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnDarkGradientDown",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayOnDarkGradientDown.colors,
+                LightGradientTokens.OverlayOnDarkGradientDown.positions,
+                LightGradientTokens.OverlayOnDarkGradientDown.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnLightGradientUp",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayOnLightGradientUp.colors,
+                LightGradientTokens.OverlayOnLightGradientUp.positions,
+                LightGradientTokens.OverlayOnLightGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnLightGradientDown",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayOnLightGradientDown.colors,
+                LightGradientTokens.OverlayOnLightGradientDown.positions,
+                LightGradientTokens.OverlayOnLightGradientDown.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayInverseGradientUp",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayInverseGradientUp.colors,
+                LightGradientTokens.OverlayInverseGradientUp.positions,
+                LightGradientTokens.OverlayInverseGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayInverseGradientDown",
+        listOf(
+            linearGradient(
+                LightGradientTokens.OverlayInverseGradientDown.colors,
+                LightGradientTokens.OverlayInverseGradientDown.positions,
+                LightGradientTokens.OverlayInverseGradientDown.angle,
             ),
         ),
         overwrite,
@@ -6030,6 +6198,94 @@ public fun darkPlasmaHomeDsGradients(overrideGradients: GradientOverrideScope.()
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.colors,
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.positions,
                 DarkGradientTokens.SurfaceInverseSkeletonDeepGradientActive.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayDefaultGradientUp",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayDefaultGradientUp.colors,
+                DarkGradientTokens.OverlayDefaultGradientUp.positions,
+                DarkGradientTokens.OverlayDefaultGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayDefaultGradientDown",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayDefaultGradientDown.colors,
+                DarkGradientTokens.OverlayDefaultGradientDown.positions,
+                DarkGradientTokens.OverlayDefaultGradientDown.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnDarkGradientUp",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayOnDarkGradientUp.colors,
+                DarkGradientTokens.OverlayOnDarkGradientUp.positions,
+                DarkGradientTokens.OverlayOnDarkGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnDarkGradientDown",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayOnDarkGradientDown.colors,
+                DarkGradientTokens.OverlayOnDarkGradientDown.positions,
+                DarkGradientTokens.OverlayOnDarkGradientDown.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnLightGradientUp",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayOnLightGradientUp.colors,
+                DarkGradientTokens.OverlayOnLightGradientUp.positions,
+                DarkGradientTokens.OverlayOnLightGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayOnLightGradientDown",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayOnLightGradientDown.colors,
+                DarkGradientTokens.OverlayOnLightGradientDown.positions,
+                DarkGradientTokens.OverlayOnLightGradientDown.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayInverseGradientUp",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayInverseGradientUp.colors,
+                DarkGradientTokens.OverlayInverseGradientUp.positions,
+                DarkGradientTokens.OverlayInverseGradientUp.angle,
+            ),
+        ),
+        overwrite,
+    )
+    initial.add(
+        "overlayInverseGradientDown",
+        listOf(
+            linearGradient(
+                DarkGradientTokens.OverlayInverseGradientDown.colors,
+                DarkGradientTokens.OverlayInverseGradientDown.positions,
+                DarkGradientTokens.OverlayInverseGradientDown.angle,
             ),
         ),
         overwrite,
