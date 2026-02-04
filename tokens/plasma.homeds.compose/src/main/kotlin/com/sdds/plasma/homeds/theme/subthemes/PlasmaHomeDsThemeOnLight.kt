@@ -1246,6 +1246,24 @@ private val darkOnLightGradients: PlasmaHomeDsGradients by lazy {
                 ),
             ),
         )
+        overlayInverseGradientUp.overrideBy(
+            listOf(
+                linearGradient(
+                    DarkGradientTokens.OverlayOnDarkGradientUp.colors,
+                    DarkGradientTokens.OverlayOnDarkGradientUp.positions,
+                    DarkGradientTokens.OverlayOnDarkGradientUp.angle,
+                ),
+            ),
+        )
+        overlayInverseGradientDown.overrideBy(
+            listOf(
+                linearGradient(
+                    DarkGradientTokens.OverlayOnDarkGradientDown.colors,
+                    DarkGradientTokens.OverlayOnDarkGradientDown.positions,
+                    DarkGradientTokens.OverlayOnDarkGradientDown.angle,
+                ),
+            ),
+        )
         outlineInverseAccentGradientHover.overrideBy(
             listOf(
                 linearGradient(
@@ -1702,6 +1720,24 @@ private val darkOnLightGradients: PlasmaHomeDsGradients by lazy {
                     DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
                     DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
                     DarkGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
+                ),
+            ),
+        )
+        overlayDefaultGradientUp.overrideBy(
+            listOf(
+                linearGradient(
+                    DarkGradientTokens.OverlayOnLightGradientUp.colors,
+                    DarkGradientTokens.OverlayOnLightGradientUp.positions,
+                    DarkGradientTokens.OverlayOnLightGradientUp.angle,
+                ),
+            ),
+        )
+        overlayDefaultGradientDown.overrideBy(
+            listOf(
+                linearGradient(
+                    DarkGradientTokens.OverlayOnLightGradientDown.colors,
+                    DarkGradientTokens.OverlayOnLightGradientDown.positions,
+                    DarkGradientTokens.OverlayOnLightGradientDown.angle,
                 ),
             ),
         )
@@ -2169,6 +2205,24 @@ private val lightOnLightGradients: PlasmaHomeDsGradients by lazy {
                 ),
             ),
         )
+        overlayInverseGradientUp.overrideBy(
+            listOf(
+                linearGradient(
+                    LightGradientTokens.OverlayOnDarkGradientUp.colors,
+                    LightGradientTokens.OverlayOnDarkGradientUp.positions,
+                    LightGradientTokens.OverlayOnDarkGradientUp.angle,
+                ),
+            ),
+        )
+        overlayInverseGradientDown.overrideBy(
+            listOf(
+                linearGradient(
+                    LightGradientTokens.OverlayOnDarkGradientDown.colors,
+                    LightGradientTokens.OverlayOnDarkGradientDown.positions,
+                    LightGradientTokens.OverlayOnDarkGradientDown.angle,
+                ),
+            ),
+        )
         outlineInverseAccentGradientHover.overrideBy(
             listOf(
                 linearGradient(
@@ -2625,6 +2679,24 @@ private val lightOnLightGradients: PlasmaHomeDsGradients by lazy {
                     LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.colors,
                     LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.positions,
                     LightGradientTokens.SurfaceOnLightSkeletonDeepGradientActive.angle,
+                ),
+            ),
+        )
+        overlayDefaultGradientUp.overrideBy(
+            listOf(
+                linearGradient(
+                    LightGradientTokens.OverlayOnLightGradientUp.colors,
+                    LightGradientTokens.OverlayOnLightGradientUp.positions,
+                    LightGradientTokens.OverlayOnLightGradientUp.angle,
+                ),
+            ),
+        )
+        overlayDefaultGradientDown.overrideBy(
+            listOf(
+                linearGradient(
+                    LightGradientTokens.OverlayOnLightGradientDown.colors,
+                    LightGradientTokens.OverlayOnLightGradientDown.positions,
+                    LightGradientTokens.OverlayOnLightGradientDown.angle,
                 ),
             ),
         )
