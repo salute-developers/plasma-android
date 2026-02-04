@@ -11,5 +11,6 @@ android {
 dependencies {
     implementation(project(":plasma.homeds.compose"))
     implementation(libs.sdds.uikit.compose)
+    implementation(icons.sdds.icons)
     implementation(libs.base.androidX.compose.foundation)
 }
