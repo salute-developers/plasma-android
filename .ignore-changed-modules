@@ -2,3 +2,9 @@
 :tokens:plasma.giga.compose
 :tokens:stylessalute.compose
 :tokens:stylessalute.view
+:sdds-core:docs
+:sdds-core:docs-compose
+:sdds-core:docs-ksp
+:sdds-core:docs-views
+:sdds-core:uikit-compose-fixtures
+:sdds-core:uikit-fixtures
