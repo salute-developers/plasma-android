@@ -22,9 +22,14 @@ internal class NavigationBarViewModel(
     override fun NavigationBarUiState.toProps(): List<Property<*>> {
         return listOf(
             Property.StringProperty(
-                name = "text",
-                value = text,
-                onApply = { internalUiState.value = internalUiState.value.copy(text = it) },
+                name = "title",
+                value = title,
+                onApply = { internalUiState.value = internalUiState.value.copy(title = it) },
+            ),
+            Property.StringProperty(
+                name = "description",
+                value = description,
+                onApply = { internalUiState.value = internalUiState.value.copy(description = it) },
             ),
             Property.StringProperty(
                 name = "content text",
@@ -34,16 +39,12 @@ internal class NavigationBarViewModel(
             Property.BooleanProperty(
                 name = "hasActionStart",
                 value = hasActionStart,
-                onApply = {
-                    internalUiState.value = internalUiState.value.copy(hasActionStart = it)
-                },
+                onApply = { internalUiState.value = internalUiState.value.copy(hasActionStart = it) },
             ),
             Property.BooleanProperty(
                 name = "hasActionEnd",
                 value = hasActionEnd,
-                onApply = {
-                    internalUiState.value = internalUiState.value.copy(hasActionEnd = it)
-                },
+                onApply = { internalUiState.value = internalUiState.value.copy(hasActionEnd = it) },
             ),
             enumProperty(
                 name = "textPlacement",
@@ -64,6 +65,13 @@ internal class NavigationBarViewModel(
                 value = contentPlacement,
                 onApply = {
                     internalUiState.value = internalUiState.value.copy(contentPlacement = it)
+                },
+            ),
+            enumProperty(
+                name = "centerAlignmentStrategy",
+                value = centerAlignmentStrategy,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(centerAlignmentStrategy = it)
                 },
             ),
         )

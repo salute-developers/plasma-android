@@ -18,6 +18,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class NavigationBarProperties(
     val textStyle: Typography? = null,
+    val titleStyle: Typography? = null,
+    val descriptionStyle: Typography? = null,
     val backIcon: Icon? = null,
     val bottomShape: Shape? = null,
     val shadow: Shadow? = null,
@@ -26,6 +28,8 @@ internal data class NavigationBarProperties(
     val actionStartColor: Color? = null,
     val actionEndColor: Color? = null,
     val textColor: Color? = null,
+    val titleColor: Color? = null,
+    val descriptionColor: Color? = null,
     val paddingStart: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
@@ -33,6 +37,7 @@ internal data class NavigationBarProperties(
     val backIconMargin: Dimension? = null,
     val textBlockTopMargin: Dimension? = null,
     val horizontalSpacing: Dimension? = null,
+    val descriptionPadding: Dimension? = null,
     val actionButtonStyle: ComponentStyle<ButtonProperties>? = null,
 ) : PropertyOwner {
 
@@ -41,6 +46,8 @@ internal data class NavigationBarProperties(
         val otherProps = parent as? NavigationBarProperties ?: return this
         return copy(
             textStyle = textStyle ?: otherProps.textStyle,
+            titleStyle = titleStyle ?: otherProps.titleStyle,
+            descriptionStyle = descriptionStyle ?: otherProps.descriptionStyle,
             bottomShape = bottomShape ?: otherProps.bottomShape,
             shadow = shadow ?: otherProps.shadow,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
@@ -48,6 +55,8 @@ internal data class NavigationBarProperties(
             actionStartColor = actionStartColor ?: otherProps.actionStartColor,
             actionEndColor = actionEndColor ?: otherProps.actionEndColor,
             textColor = textColor ?: otherProps.textColor,
+            titleColor = titleColor ?: otherProps.titleColor,
+            descriptionColor = descriptionColor ?: otherProps.descriptionColor,
             paddingStart = paddingStart ?: otherProps.paddingStart,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
@@ -55,6 +64,7 @@ internal data class NavigationBarProperties(
             backIconMargin = backIconMargin ?: otherProps.backIconMargin,
             textBlockTopMargin = textBlockTopMargin ?: otherProps.textBlockTopMargin,
             horizontalSpacing = horizontalSpacing ?: otherProps.horizontalSpacing,
+            descriptionPadding = descriptionPadding ?: otherProps.descriptionPadding,
             actionButtonStyle = actionButtonStyle ?: otherProps.actionButtonStyle,
         )
     }
