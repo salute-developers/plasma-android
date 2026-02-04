@@ -111,6 +111,7 @@ private class NavBarMeasurePolicy(
         val paddingBottom = paddings.calculateBottomPadding().roundToPx()
 
         val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
+            .offset(-(paddingStart + paddingEnd))
         val startContent = measurables
             .firstOrNull { it.layoutId == StartContentId }
             ?.measure(looseConstraints)
