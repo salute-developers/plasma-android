@@ -4,7 +4,7 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.OutputFile
+import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.TaskAction
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonObject
@@ -28,7 +28,7 @@ abstract class BuildTokenChangelogTask : DefaultTask() {
     @get:Input
     abstract val libraryChangelogJsonPath: Property<String>
 
-    @get:OutputFile
+    @get:InputFile
     abstract val outputChangelogMdFile: RegularFileProperty
 
     @TaskAction

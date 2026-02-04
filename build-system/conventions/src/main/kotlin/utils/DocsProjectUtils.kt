@@ -52,7 +52,7 @@ val Project.docsUikitComposeVersion: String
  * Возвращает "latest", если версия не указана.
  */
 val Project.docsIconsVersion: String
-    get() = getVersionCatalog()?.versions?.sdds?.icons?.get() ?: "latest"
+    get() = iconsCatalog()?.versions?.sdds?.icons?.get() ?: "latest"
 
 /**
  * Возвращает URL на API-документацию артефакта в зависимости от типа библиотеки (Compose или XML).
@@ -127,7 +127,7 @@ fun Project.changelogUrl(deploy: Boolean = true): String {
  * Преобразует шаблоны документации, подставляя значения из проекта в плейсхолдеры.
  * Изменяет все `.md` файлы и файл `docusaurus.config.ts` внутри указанной директории.
  */
-fun Project.transformTemplate(templateDir: File) {
+fun Project.transformTemplate(templateDir: File, snippetsDir: File) {
     val versionInfo = versionInfo()
     templateDir
         .walkTopDown()
@@ -147,6 +147,9 @@ fun Project.transformTemplate(templateDir: File) {
                 .replace("{{ docs-theme-prefix }}", docsThemeStylePrefix.orEmpty())
                 .replace("{{ docs-theme-resPrefix }}", docsThemeResPrefix ?: themeResPrefix)
                 .replace("{{ docs-api-href }}", docsApiHref)
+                .replaceKotlinSnippets(snippetsDir)
+                .replaceXmlSnippets(snippetsDir)
+                .replaceScreenshots()
 
 
             val destFile = File(
@@ -182,8 +185,28 @@ private fun Project.getArtifactDocsBaseUrl(artifactId: String, version: String, 
     return "$branchSuffix/$docsTarget/$artifactId/$versionSuffix"
 }
 
-fun Project.filterComponents(docsDir: File) {
-    val components = resolveComponents()
+private fun String.replaceKotlinSnippets(snippetsDir: File): String {
+    return this.replace("//\\s*@sample:\\s*(.+)".toRegex()) { m ->
+        val path = m.groupValues[1].trim()
+        snippetsDir.resolve(path).readText().trim()
+    }
+}
+
+private fun String.replaceXmlSnippets(snippetsDir: File): String {
+    return this.replace("<!--\\s*@sample:\\s*(.+)\\s*-->".toRegex()) { m ->
+        val path = m.groupValues[1].trim()
+        snippetsDir.resolve(path).readText().trim()
+    }
+}
+
+private fun String.replaceScreenshots(): String {
+    return this.replace(
+        "<!--\\s*@screenshot:\\s*(.+)\\s*-->".toRegex(), "\n"
+    ).trimStart()
+}
+
+fun Project.filterComponents(docsDir: File, componentsConfig: File) {
+    val components = resolveComponents(componentsConfig)
 
     fileTree(docsDir.resolve("components"))
         .filter {
@@ -195,14 +218,9 @@ fun Project.filterComponents(docsDir: File) {
         }
 }
 
-fun Project.resolveComponents(): Set<String> {
-    val file = if (isComposeLib()) {
-        projectDir.resolve("config-info-compose.json")
-    } else {
-        projectDir.resolve("config-info-view-system.json")
-    }
+fun Project.resolveComponents(componentsConfig: File): Set<String> {
     val gson = GsonBuilder().setPrettyPrinting().create()
-    val info = gson.fromJson(file.readText(), JsonObject::class.java)
+    val info = gson.fromJson(componentsConfig.readText(), JsonObject::class.java)
     val components = info.getAsJsonArray("components")
     return components.map { it.asJsonObject.get("coreName").asString }.toSet()
 }

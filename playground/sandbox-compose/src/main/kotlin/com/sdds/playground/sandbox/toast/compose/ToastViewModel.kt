@@ -38,6 +38,11 @@ internal class ToastViewModel(
                 value = hasContentEnd,
                 onApply = { internalUiState.value = internalUiState.value.copy(hasContentEnd = it) },
             ),
+            Property.BooleanProperty(
+                name = "autoDismiss",
+                value = autoDismiss,
+                onApply = { internalUiState.value = internalUiState.value.copy(autoDismiss = it) },
+            ),
         )
     }
 }

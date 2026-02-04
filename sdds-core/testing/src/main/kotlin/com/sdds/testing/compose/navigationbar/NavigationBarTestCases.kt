@@ -1,5 +1,6 @@
 package com.sdds.testing.compose.navigationbar
 
+import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Icon
@@ -51,7 +52,7 @@ fun NavigationBarContentBottomStart(style: NavigationBarStyle) {
         textPlacement = NavigationBarTextPlacement.Bottom,
         textAlign = NavigationBarTextAlign.Start,
         contentPlacement = NavigationBarContentPlacement.Bottom,
-        textContent = {},
+        textContent = null,
         content = { Text(text = "Content") },
         actionStart = {
             Icon(
@@ -86,7 +87,7 @@ fun NavigationBarLongTextContentInlineCenterBottom(style: NavigationBarStyle) {
                 contentDescription = "",
             )
         },
-        actionEnd = {},
+        actionEnd = null,
     )
 }
 
@@ -101,9 +102,8 @@ fun NavigationBarTextHasActionEndInlineEndBottom(style: NavigationBarStyle) {
         textAlign = NavigationBarTextAlign.End,
         contentPlacement = NavigationBarContentPlacement.Bottom,
         textContent = { Text(text = "Text") },
-        content = {},
-        actionStart = {},
-        actionEnd = {
+        content = null,
+        actionStart = {
             Icon(
                 painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
                 contentDescription = "",
@@ -124,17 +124,17 @@ fun NavigationBarLongTextBottomStartInline(style: NavigationBarStyle) {
         contentPlacement = NavigationBarContentPlacement.Inline,
         textContent = { Text(text = LONG_CONTENT) },
         content = { Text(text = "Content") },
-        actionStart = {
-            Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
-                contentDescription = "",
-            )
-        },
         actionEnd = {
-            Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
-                contentDescription = "",
-            )
+            Row {
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                    contentDescription = "",
+                )
+                Icon(
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            }
         },
     )
 }

@@ -1,9 +1,11 @@
 package com.sdds.playground.sandbox.navigationbar
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,10 +39,15 @@ internal fun NavigationBarScreen(componentKey: ComponentKey = ComponentKey.Navig
                 textPlacement = navigationBarUiState.textPlacement,
                 textAlign = navigationBarUiState.textAlign,
                 contentPlacement = navigationBarUiState.contentPlacement,
-                textContent = textContent(navigationBarUiState.text),
+                centerAlignmentStrategy = navigationBarUiState.centerAlignmentStrategy,
+                titleContent = textContent(navigationBarUiState.title),
+                descriptionContent = descriptionContent(navigationBarUiState.description),
                 content = content(navigationBarUiState.contentText),
                 actionStart = actionStart(navigationBarUiState.hasActionStart),
                 actionEnd = actionEnd(navigationBarUiState.hasActionEnd),
+                onBackPressed = {
+                    println("Back button was pressed")
+                },
             )
         },
     )
@@ -53,14 +60,14 @@ internal fun NavigationBarPreview(style: NavigationBarStyle) {
         textPlacement = NavigationBarTextPlacement.Inline,
         contentPlacement = NavigationBarContentPlacement.Inline,
         textAlign = NavigationBarTextAlign.Start,
-        textContent = textContent("Text"),
+        titleContent = textContent("Text"),
         content = content("Content"),
         actionStart = actionStart(true),
         actionEnd = actionEnd(true),
     )
 }
 
-private fun actionStart(hasAction: Boolean): (@Composable () -> Unit)? {
+private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(
@@ -73,7 +80,7 @@ private fun actionStart(hasAction: Boolean): (@Composable () -> Unit)? {
     }
 }
 
-private fun actionEnd(hasAction: Boolean): (@Composable () -> Unit)? {
+private fun actionEnd(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(
@@ -99,14 +106,25 @@ private fun textContent(text: String): (@Composable () -> Unit)? {
         null
     } else {
         @Composable {
-            Row {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(text)
                 Spacer(Modifier.width(4.dp))
                 Icon(
+                    modifier = Modifier,
                     painter = painterResource(com.sdds.icons.R.drawable.ic_clip_24),
                     contentDescription = "",
                 )
             }
+        }
+    }
+}
+
+private fun descriptionContent(description: String): (@Composable () -> Unit)? {
+    return if (description.isEmpty()) {
+        null
+    } else {
+        @Composable {
+            Text(description)
         }
     }
 }

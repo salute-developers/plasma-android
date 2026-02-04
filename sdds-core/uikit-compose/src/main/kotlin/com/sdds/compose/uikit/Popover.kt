@@ -168,7 +168,7 @@ enum class PopoverPlacementMode {
 fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
     return composed {
         val currentScaleFactor = LocalFocusSelectorSettings.current.scale.scaleFactor
-        this then layout { measurable, constraints ->
+        layout { measurable, constraints ->
             val placeable = measurable.measure(constraints)
             triggerInfo.value = triggerInfo.value.copy(
                 topAlignmentLine = placeable[topAlignmentLine],
@@ -179,12 +179,12 @@ fun Modifier.popoverTrigger(triggerInfo: MutableState<TriggerInfo>): Modifier {
             return@layout layout(placeable.width, placeable.height) {
                 placeable.placeRelative(IntOffset.Zero)
             }
-        } then onGloballyPositioned {
+        }.onGloballyPositioned {
             triggerInfo.value = triggerInfo.value.copy(
                 size = it.size,
                 positionInRoot = it.positionInWindow().round(),
             )
-        } then onFocusChanged {
+        }.onFocusChanged {
             val scaleFactor = if (it.isFocused) {
                 currentScaleFactor
             } else {

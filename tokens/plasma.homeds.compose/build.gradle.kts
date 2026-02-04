@@ -17,7 +17,6 @@ plugins {
     id("convention.testing-compose")
     id(libs.plugins.themebuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
-    id("convention.docusaurus")
 }
 
 android {
@@ -40,6 +39,6 @@ themeBuilder {
 
 dependencies {
     implementation(libs.sdds.uikit.compose)
-    implementation(libs.sdds.icons)
+    implementation(icons.sdds.icons)
     implementation(libs.base.androidX.compose.foundation)
 }

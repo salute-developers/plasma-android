@@ -928,4 +928,14 @@
     <dimen name="sdkit_cmp_pagination_dots_vertical_dot_height_s">16.0dp</dimen>
     <dimen name="sdkit_cmp_pagination_dots_vertical_dot_height_s_active_type_line_0">64.0dp</dimen>
     <dimen name="sdkit_cmp_pagination_dots_vertical_dot_height_s_active_type_line">16.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_start">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_end">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_top">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_bottom">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_close_size">48.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_start_Default">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_end_Default">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_top_Default">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_padding_bottom_Default">64.0dp</dimen>
+    <dimen name="sdkit_cmp_modal_close_size_Default">48.0dp</dimen>
 </resources>

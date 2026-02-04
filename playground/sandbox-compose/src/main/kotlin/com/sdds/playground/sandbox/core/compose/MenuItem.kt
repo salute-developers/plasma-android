@@ -17,6 +17,7 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.CircularProgressBarStyle
 import com.sdds.compose.uikit.CodeFieldStyle
 import com.sdds.compose.uikit.CodeInputStyle
+import com.sdds.compose.uikit.CollapsingNavigationBarStyle
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DrawerStyle
@@ -98,6 +99,8 @@ import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
 import com.sdds.playground.sandbox.navigationbar.NavigationBarPreview
 import com.sdds.playground.sandbox.navigationbar.NavigationBarScreen
+import com.sdds.playground.sandbox.navigationbar.collapsing.CollapsingNavigationBarPreview
+import com.sdds.playground.sandbox.navigationbar.collapsing.CollapsingNavigationBarScreen
 import com.sdds.playground.sandbox.note.compose.NoteCompactPreview
 import com.sdds.playground.sandbox.note.compose.NoteCompactScreen
 import com.sdds.playground.sandbox.note.compose.NotePreview
@@ -315,7 +318,7 @@ internal sealed class ComponentScreen(
     )
     object ButtonGroup : ComponentScreen(
         { ButtonGroupScreen(it) },
-        { style, key -> ButtonGroupPreview(style as ButtonGroupStyle, key) },
+        { style, _ -> ButtonGroupPreview(style as ButtonGroupStyle) },
     )
     object TabBar : ComponentScreen(
         { TabBarScreen(it) },
@@ -356,6 +359,11 @@ internal sealed class ComponentScreen(
     object NavigationBar : ComponentScreen(
         { NavigationBarScreen(it) },
         { style, _ -> NavigationBarPreview(style as NavigationBarStyle) },
+    )
+
+    object CollapsingNavigationBar : ComponentScreen(
+        { CollapsingNavigationBarScreen(it) },
+        { style, _ -> CollapsingNavigationBarPreview(style as CollapsingNavigationBarStyle) },
     )
 
     object Tabs : ComponentScreen(
@@ -437,6 +445,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.DRAWER -> ComponentScreen.Drawer
         CoreComponent.WHEEL -> ComponentScreen.Wheel
         CoreComponent.NAVIGATION_BAR -> ComponentScreen.NavigationBar
+        CoreComponent.COLLAPSING_NAVIGATION_BAR -> ComponentScreen.CollapsingNavigationBar
         CoreComponent.NOTE -> ComponentScreen.Note
         CoreComponent.NOTE_COMPACT -> ComponentScreen.NoteCompact
         CoreComponent.TABS -> ComponentScreen.Tabs

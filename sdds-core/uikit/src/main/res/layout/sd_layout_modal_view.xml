@@ -8,10 +8,18 @@
     android:clipToPadding="false"
     app:sd_clipToOutline="false">
 
-    <com.sdds.uikit.internal.overlays.ModalView
-        android:id="@+id/modal_view"
+    <com.sdds.uikit.FrameLayout
+        android:id="@+id/modal_view_container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:sd_clipToOutline="false">
 
+        <com.sdds.uikit.internal.overlays.ModalView
+            android:id="@+id/modal_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.sdds.uikit.FrameLayout>
 </com.sdds.uikit.FrameLayout>
 

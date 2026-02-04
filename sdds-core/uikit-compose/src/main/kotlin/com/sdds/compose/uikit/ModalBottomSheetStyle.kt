@@ -59,6 +59,11 @@ interface ModalBottomSheetStyle : Style {
      */
     val shadow: ShadowAppearance?
 
+    /**
+     * Стиль overlay
+     */
+    val overlayStyle: OverlayStyle
+
     companion object {
         /**
          * Возвращает экземпляр [ModalBottomSheetStyleBuilder]
@@ -107,6 +112,11 @@ interface ModalBottomSheetStyleBuilder : StyleBuilder<ModalBottomSheetStyle> {
      * Устанавливает тень [ModalBottomSheet]
      */
     fun shadow(shadow: ShadowAppearance): ModalBottomSheetStyleBuilder
+
+    /**
+     * Устанавливает стиль компонента Overlay
+     */
+    fun overlayStyle(overlayStyle: OverlayStyle): ModalBottomSheetStyleBuilder
 }
 
 /**
@@ -367,6 +377,7 @@ private class DefaultModalBottomSheetStyle(
     override val handleShape: CornerBasedShape,
     override val handlePlacement: BottomSheetHandlePlacement,
     override val shadow: ShadowAppearance?,
+    override val overlayStyle: OverlayStyle,
 ) : ModalBottomSheetStyle
 
 private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomSheetStyleBuilder {
@@ -376,6 +387,7 @@ private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomShee
     private var handlePlacement: BottomSheetHandlePlacement? = null
     private var dimensionsBuilder: ModalBottomSheetDimensionsBuilder = ModalBottomSheetDimensionsBuilder.builder()
     private var shadow: ShadowAppearance? = null
+    private var overlayStyle: OverlayStyle? = null
 
     @Composable
     override fun colors(
@@ -411,6 +423,10 @@ private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomShee
         this.shadow = shadow
     }
 
+    override fun overlayStyle(overlayStyle: OverlayStyle): ModalBottomSheetStyleBuilder = apply {
+        this.overlayStyle = overlayStyle
+    }
+
     override fun style(): ModalBottomSheetStyle {
         return DefaultModalBottomSheetStyle(
             colors = colorsBuilder.build(),
@@ -419,6 +435,7 @@ private class ModalBottomSheetStyleBuilderImpl(receiver: Any?) : ModalBottomShee
             dimensions = dimensionsBuilder.build(),
             handlePlacement = handlePlacement ?: BottomSheetHandlePlacement.Auto,
             shadow = shadow,
+            overlayStyle = overlayStyle ?: OverlayStyle.builder().style(),
         )
     }
 }

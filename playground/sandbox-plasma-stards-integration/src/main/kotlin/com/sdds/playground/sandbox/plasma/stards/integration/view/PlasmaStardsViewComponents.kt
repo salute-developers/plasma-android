@@ -267,7 +267,16 @@ object PlasmaStardsViewComponents : ComponentsProviderView() {
             ViewComponent(
                 ComponentKey.TextSkeleton,
                 mapOf(
-                    "TextSkeleton" to PlasmaStardsTextSkeletonVariationsView,
+                    "TextSkeletonBody" to PlasmaStardsTextSkeletonBodyVariationsView,
+                    "TextSkeletonDisplay" to PlasmaStardsTextSkeletonDisplayVariationsView,
+                    "TextSkeletonHeader" to PlasmaStardsTextSkeletonHeaderVariationsView,
+                    "TextSkeletonText" to PlasmaStardsTextSkeletonTextVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Modal,
+                mapOf(
+                    "Modal" to PlasmaStardsModalVariationsView,
                 ),
             ),
         ).associateBy { it.key }

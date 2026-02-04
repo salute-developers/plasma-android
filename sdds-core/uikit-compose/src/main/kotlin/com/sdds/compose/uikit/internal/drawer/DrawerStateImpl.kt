@@ -57,7 +57,7 @@ internal class DrawerStateImpl(
 
     override val currentValue: DrawerValue
         get() {
-            return anchoredDraggableState.currentValue
+            return anchoredDraggableState.settledValue
         }
 
     override val isAnimationRunning: Boolean
@@ -92,8 +92,8 @@ internal class DrawerStateImpl(
                 save = { it.currentValue.ordinal to it.alignment.ordinal },
                 restore = {
                     DrawerStateImpl(
-                        initialValue = DrawerValue.values()[it.first],
-                        alignment = DrawerAlignment.values()[it.second],
+                        initialValue = DrawerValue.entries[it.first],
+                        alignment = DrawerAlignment.entries[it.second],
                         density = density,
                         confirmStateChange = confirmStateChange,
                     )
@@ -108,7 +108,7 @@ internal fun DrawerState.confirmStateChange(value: DrawerValue): Boolean {
 
 @OptIn(ExperimentalFoundationApi::class)
 internal fun DrawerState.requireOffset(): Float = with(anchoredDraggableState) {
-    requireOffset().coerceIn(anchors.minAnchor(), anchors.maxAnchor())
+    requireOffset().coerceIn(anchors.minPosition(), anchors.maxPosition())
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -145,7 +145,7 @@ private fun consumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
             Start -> delta > 0f
             End -> delta < 0f
         }
-        return if (shouldConsume && source == NestedScrollSource.Drag) {
+        return if (shouldConsume && source == NestedScrollSource.UserInput) {
             state.dispatchRawDelta(delta).toOffset()
         } else {
             Offset.Zero
@@ -157,7 +157,7 @@ private fun consumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
         available: Offset,
         source: NestedScrollSource,
     ): Offset {
-        return if (source == NestedScrollSource.Drag) {
+        return if (source == NestedScrollSource.UserInput) {
             state.dispatchRawDelta(available.toFloat()).toOffset()
         } else {
             Offset.Zero
@@ -167,8 +167,8 @@ private fun consumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
     override suspend fun onPreFling(available: Velocity): Velocity {
         val toFling = available.toFloat()
         val currentOffset = state.requireOffset()
-        val min = state.anchors.minAnchor()
-        val max = state.anchors.maxAnchor()
+        val min = state.anchors.minPosition()
+        val max = state.anchors.maxPosition()
         val shouldConsume = when (drawerAlignment) {
             Top -> toFling > 0f && currentOffset < max
             Bottom -> toFling < 0f && currentOffset > min
@@ -185,8 +185,8 @@ private fun consumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
 
     override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
         val offset = state.requireOffset()
-        val min = state.anchors.minAnchor()
-        val max = state.anchors.maxAnchor()
+        val min = state.anchors.minPosition()
+        val max = state.anchors.maxPosition()
         val epsilon = 0.5f
 
         val nearMin = abs(offset - min) < epsilon

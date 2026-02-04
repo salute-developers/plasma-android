@@ -20,6 +20,7 @@ internal class TextSkeletonStyleGeneratorView(
     dimensAggregator: DimensAggregator,
     outputResDir: File,
     resourcePrefix: String,
+    styleComponentName: String,
     coreComponentName: String = CORE_COMPONENT_NAME,
     componentParent: String = COMPONENT_PARENT,
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
@@ -31,6 +32,7 @@ internal class TextSkeletonStyleGeneratorView(
     dimensAggregator = dimensAggregator,
     outputResDir = outputResDir,
     resourcePrefix = resourcePrefix,
+    styleComponentName = styleComponentName,
     coreComponentName = coreComponentName,
     componentParent = componentParent,
     viewColorStateGeneratorFactory = viewColorStateGeneratorFactory,
@@ -51,6 +53,7 @@ internal class TextSkeletonStyleGeneratorView(
 
     private fun Element.addProps(variation: String, variationNode: VariationNode<TextSkeletonProperties>) {
         val props = variationNode.value.props
+        props.textStyle?.let { typographyAttribute("android:textAppearance", it.value) }
         props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
         props.duration?.let { valueAttribute("sd_shimmerDuration", it.value.toInt().toString()) }
     }

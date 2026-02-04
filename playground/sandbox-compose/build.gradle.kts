@@ -126,7 +126,7 @@ tasks.register("generateVersionDescription") {
 }
 
 dependencies {
-    implementation(libs.sdds.icons)
+    implementation(icons.sdds.icons)
     implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")
     implementation(project(":sandbox-sdds-serv-integration"))
@@ -196,4 +196,8 @@ dependencies {
     testImplementation(libs.test.roborazzi.compose)
     testImplementation(libs.test.roborazzi.rule)
     testImplementation(libs.base.test.unit.robolectric)
+}
+
+tasks.matching { it.name.matches(Regex("generate\\w+Resources")) }.configureEach {
+    dependsOn(tasks.withType<GenerateStarDimensTask>())
 }

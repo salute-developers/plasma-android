@@ -10,20 +10,7 @@ title: CodeField
 Заполнение полей возможно только по порядку. Если требуется вернуться назад к одному из символов - необходимо удалить все впереди стоящие символы тоже.
 
 ```kotlin
-val focusRequester = remember { FocusRequester() }
-val validCode = "123456"
-val invalidChar = "q"
-LaunchedEffect(Unit) { focusRequester.requestFocus() }
-CodeField(
-    modifier = Modifier.focusRequester(focusRequester),
-    style = CodeField.L.Segmented.style(),
-    codeLength = 6,
-    hidden = true,
-    onCodeComplete = { it == validCode },
-    isItemValid = { it != invalidChar },
-    caption = "Caption",
-    captionAlignment = Alignment.CenterHorizontally,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/codefield/CodeField_Simple.kt
 ```
 
 ## Стиль CodeField
@@ -34,49 +21,5 @@ CodeField(
 ### Создание стиля CodeFieldStyle с помощью builder()
 
 ```kotlin
-CodeFieldItemStyle.builder()
-    .itemShape({{ docs-theme-codeReference }}.shapes.roundM)
-    .groupShape({{ docs-theme-codeReference }}.shapes.roundL)
-    .valueStyle({{ docs-theme-codeReference }}.typography.displayMBold)
-    .captionStyle({{ docs-theme-codeReference }}.typography.headerH4Normal)
-    .colors {
-        valueColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asStatefulValue(
-                setOf(CodeFieldStates.Error)
-                        to {{ docs-theme-codeReference }}.colors.textDefaultNegative,
-            ),
-        )
-        captionColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asStatefulValue(
-                setOf(CodeFieldStates.Error)
-                        to {{ docs-theme-codeReference }}.colors.textDefaultNegative,
-            ),
-        )
-        dotColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidDefault.asStatefulValue(
-                setOf(CodeFieldStates.Error)
-                        to {{ docs-theme-codeReference }}.colors.surfaceDefaultNegative,
-            ),
-        )
-        backgroundColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultSolidPrimary.asStatefulValue(
-                setOf(CodeInputStates.Error)
-                        to {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentNegative,
-                setOf(InteractiveState.Activated)
-                        to {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentSecondary,
-            ),
-        )
-        cursorColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultAccent,
-        )
-    }
-    .dimensions {
-        dotSize(16.0.dp)
-        height(36.0.dp)
-        width(60.0.dp)
-        itemSpacing(8.0.dp)
-        groupSpacing(28.0.dp)
-        captionSpacing(28.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/codefield/CodeField_Style.kt
 ```

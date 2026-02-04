@@ -65,6 +65,64 @@ fun ModalBottomSheet(
     edgeToEdge: Boolean = true,
     body: (@Composable () -> Unit),
 ) {
+    ModalBottomSheet(
+        modifier = modifier,
+        dimBackground = true,
+        style = style,
+        sheetState = sheetState,
+        sheetGesturesEnabled = sheetGesturesEnabled,
+        onDismiss = onDismiss,
+        handlePlacement = handlePlacement,
+        interactionSource = interactionSource,
+        useNativeBlackout = true,
+        fitContent = fitContent,
+        header = header,
+        footer = footer,
+        edgeToEdge = edgeToEdge,
+        body = body,
+    )
+}
+
+/**
+ * Компонент ModalBottomSheet
+ *
+ * @param modifier модификатор
+ * @param dimBackground нужно ли затемнять фон
+ * @param style стиль компонента [ModalBottomSheetStyle]
+ * @param sheetState состояние ModalBottomSheet
+ * @see [BottomSheetState]
+ * @param sheetGesturesEnabled обработка жестов
+ * @param onDismiss действие при закрытиии ModalBottomSheet
+ * @param handlePlacement расположение ручки (handle)
+ * @see BottomSheetHandlePlacement
+ * @param interactionSource источник взаимодействий
+ * @param useNativeBlackout использовать нативное затемнение фона вокруг [ModalBottomSheet]
+ * @param fitContent ModalBottomSheet открывается по высоте контента
+ * @param header заголовок
+ * @param footer нижний колонтитул
+ * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
+ * (компонент рисуется под navBar и под statusBar)
+ * @param body основной контент
+ */
+@OptIn(ExperimentalFoundationApi::class)
+@Suppress("LongMethod")
+@Composable
+fun ModalBottomSheet(
+    dimBackground: Boolean,
+    fitContent: Boolean,
+    modifier: Modifier = Modifier,
+    style: ModalBottomSheetStyle = LocalModalBottomSheetStyle.current,
+    sheetState: BottomSheetState = rememberModalBottomSheetState(Hidden),
+    sheetGesturesEnabled: Boolean = true,
+    onDismiss: () -> Unit = {},
+    handlePlacement: BottomSheetHandlePlacement = BottomSheetHandlePlacement.Auto,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    useNativeBlackout: Boolean = true,
+    header: (@Composable () -> Unit)? = null,
+    footer: (@Composable () -> Unit)? = null,
+    edgeToEdge: Boolean = true,
+    body: (@Composable () -> Unit),
+) {
     val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
     val handleColor = style.colors.handleColor.colorForInteraction(interactionSource)
     val newShape = style.shape.copy(
@@ -73,9 +131,10 @@ fun ModalBottomSheet(
     )
     val draggableAreaHeight = style.dimensions.handleHeight + style.dimensions.handleOffset
     val measurePolicy = BottomSheetMeasurePolicy(fitContent)
-    val shadowModifier = style.shadow?.let {
+    val shadow = style.shadow?.let {
         Modifier.shadow(it, newShape)
     } ?: Modifier
+    val shadowModifier = if (useNativeBlackout) Modifier else shadow
     BaseModalBottomSheet(
         modifier = modifier
             .statusBarsPadding()
@@ -106,6 +165,9 @@ fun ModalBottomSheet(
         hasHandle = handlePlacement != BottomSheetHandlePlacement.None,
         draggableAreaHeight = draggableAreaHeight,
         edgeToEdge = edgeToEdge,
+        dimBackground = dimBackground,
+        useNativeBlackout = useNativeBlackout,
+        overlayStyle = style.overlayStyle,
     ) {
         Layout(
             measurePolicy = measurePolicy,

@@ -1,0 +1,17 @@
+## CollapsingNavigationBar + Overlay
+
+CollpasingNavigationBar можно использовать вместе с Overlay в тех случаях, когда у CollpasingNavigationBar нет фона и он может накладываться
+на другие элементы интерфейса. При этом у компонента Overlay можно динамически менять прозрачность.
+[Пример рассчета прозрачности в зависимости от скролла](./OverlayUsage.md#Пример_изменения_alpha_в_зависимости_от_скролла)
+
+### Наложение Overlay и изменение альфы синхронно с переходом из состояния expanded в состояние collapsed
+
+```kotlin
+// @sample: com/sdds/plasma/homeds/docs/samples/CollapsingNavigationBar_WithOverlayAndAlphaByScrollBehavior.kt
+```
+
+### Наложение Overlay и изменение альфы начиная с порогового значения скролла
+
+```kotlin
+// @sample: com/sdds/plasma/homeds/docs/samples/CollapsingNavigationBar_WithOverlayAndScrollThreshold.kt
+```

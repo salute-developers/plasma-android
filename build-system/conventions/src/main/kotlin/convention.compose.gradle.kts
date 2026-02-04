@@ -6,10 +6,10 @@ import utils.withVersionCatalogs
 val extension = app() ?: lib() ?: throwApplyException()
 extension.configureCompose()
 
-fun app(): CommonExtension<*, *, *, *, *>? =
+fun app(): CommonExtension<*, *, *, *, *, *>? =
     extensions.findByType<ApplicationExtension>()
 
-fun lib(): CommonExtension<*, *, *, *, *>? =
+fun lib(): CommonExtension<*, *, *, *, *, *>? =
     extensions.findByType<LibraryExtension>()
 
 fun throwApplyException(): Nothing =
@@ -18,7 +18,7 @@ fun throwApplyException(): Nothing =
             "The plugin can be applied for android application or android library."
     )
 
-fun CommonExtension<*, *, *, *, *>.configureCompose() = withVersionCatalogs {
+fun CommonExtension<*, *, *, *, *, *>.configureCompose() = withVersionCatalogs {
     buildFeatures.compose = true
     composeOptions.kotlinCompilerExtensionVersion = versions.androidX.compose.compiler.get()
 

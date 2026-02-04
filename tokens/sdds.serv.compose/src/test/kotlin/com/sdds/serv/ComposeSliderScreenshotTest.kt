@@ -23,9 +23,9 @@ import com.sdds.serv.styles.slider.SliderVerticalLabelInner
 import com.sdds.serv.styles.slider.SliderVerticalLabelOuter
 import com.sdds.serv.styles.slider.ThumbS
 import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.slider.SliderAlignmentEnd
 import com.sdds.testing.compose.slider.SliderDisabledThumbLimitLabelReversedEndNoLabel
 import com.sdds.testing.compose.slider.SliderLabelDisabled
+import com.sdds.testing.compose.slider.SliderLabelEnd
 import com.sdds.testing.compose.slider.SliderLimitLabelDisabled
 import com.sdds.testing.compose.slider.SliderLimitLabelDisabledReversed
 import com.sdds.testing.compose.slider.SliderLongLabel
@@ -103,7 +103,7 @@ class ComposeSliderScreenshotTest(
     @Test
     fun testSliderVerticalLabelInnerSGradientLabelEndThumbS() {
         composeTestRule.content {
-            SliderAlignmentEnd(SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient.style())
+            SliderLabelEnd(SliderVerticalLabelInner.S.LabelEnd.ThumbS.Gradient.style())
         }
     }
 

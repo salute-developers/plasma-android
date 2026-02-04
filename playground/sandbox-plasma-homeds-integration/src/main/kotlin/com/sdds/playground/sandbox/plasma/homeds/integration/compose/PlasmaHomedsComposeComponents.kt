@@ -83,6 +83,20 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to PlasmaHomedsNavigationBarMainPageVariationsCompose,
+                    "NavigationBarInternalPage" to PlasmaHomedsNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.CollapsingNavigationBar,
+                mapOf(
+                    "CollapsingNavigationBarMainPage" to PlasmaHomedsCollapsingNavigationBarMainPageVariationsCompose,
+                    "CollapsingNavigationBarInternalPage" to PlasmaHomedsCollapsingNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.BasicButton,
                 mapOf(
                     "BasicButton" to PlasmaHomedsBasicButtonVariationsCompose,
@@ -177,6 +191,12 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.Overlay,
+                mapOf(
+                    "Overlay" to PlasmaHomedsOverlayVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Spinner,
                 mapOf(
                     "Spinner" to PlasmaHomedsSpinnerVariationsCompose,
@@ -239,7 +259,10 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
             ComposeComponent(
                 ComponentKey.TextSkeleton,
                 mapOf(
-                    "TextSkeleton" to PlasmaHomedsTextSkeletonVariationsCompose,
+                    "TextSkeletonBody" to PlasmaHomedsTextSkeletonBodyVariationsCompose,
+                    "TextSkeletonDisplay" to PlasmaHomedsTextSkeletonDisplayVariationsCompose,
+                    "TextSkeletonHeader" to PlasmaHomedsTextSkeletonHeaderVariationsCompose,
+                    "TextSkeletonText" to PlasmaHomedsTextSkeletonTextVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

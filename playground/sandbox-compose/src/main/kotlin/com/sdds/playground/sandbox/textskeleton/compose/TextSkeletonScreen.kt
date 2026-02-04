@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.SkeletonLineWidthProvider
@@ -32,7 +33,11 @@ internal fun TextSkeletonScreen(componentKey: ComponentKey = ComponentKey.TextSk
         ),
         component = { textSkeletonUiState, style ->
             Box(contentAlignment = Alignment.TopStart) {
-                val defaultTextStyle = LocalTextStyle.current
+                val defaultTextStyle = if (style.textStyle == TextStyle.Default) {
+                    LocalTextStyle.current
+                } else {
+                    style.textStyle.copy(color = LocalTextStyle.current.color)
+                }
                 Text(
                     text = textSkeletonUiState.text,
                     style = defaultTextStyle,

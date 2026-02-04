@@ -11,10 +11,9 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
             from(files("../gradle/libs.versions.toml"))
-            // Костыль. Версия иконок лежит в отдельном toml файле, чтобы избежать конфликтов из-за
-            // раздельных релизных процессов иконок и остальных библиотек
-            org.gradle.api.internal.catalog.parser.TomlCatalogFileParser
-                .parse(file("../gradle/icons.version.toml").toPath(), this)
+        }
+        create("icons") {
+            from(files("../gradle/icons.version.toml"))
         }
     }
 }
@@ -26,5 +25,11 @@ include(
     ":plugin_theme_builder",
     ":uikit",
     ":uikit-compose",
-    ":testing"
+    ":testing",
+    ":uikit-fixtures",
+    ":uikit-compose-fixtures",
+    ":docs",
+    ":docs-views",
+    ":docs-compose",
+    ":docs-ksp",
 )

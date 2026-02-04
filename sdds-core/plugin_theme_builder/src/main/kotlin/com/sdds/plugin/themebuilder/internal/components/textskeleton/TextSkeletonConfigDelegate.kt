@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.textskeleton.compose.Tex
 import com.sdds.plugin.themebuilder.internal.components.textskeleton.view.TextSkeletonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
@@ -28,6 +29,7 @@ internal class TextSkeletonConfigDelegate : ComponentConfigDelegate<TextSkeleton
         resourcePrefix = deps.resourcePrefixConfig.resourcePrefix,
         viewColorStateGeneratorFactory = deps.viewColorStateGeneratorFactory,
         colorStateListGeneratorFactory = deps.colorStateListGeneratorFactory,
+        styleComponentName = component.styleName.techToCamelCase(),
     )
 
     override fun createComposeGenerator(
@@ -43,6 +45,7 @@ internal class TextSkeletonConfigDelegate : ComponentConfigDelegate<TextSkeleton
         ktFileBuilderFactory = deps.ktFileBuilderFactory,
         componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
         componentName = component.styleName.techToSnakeCase(),
+        styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
     )
 }

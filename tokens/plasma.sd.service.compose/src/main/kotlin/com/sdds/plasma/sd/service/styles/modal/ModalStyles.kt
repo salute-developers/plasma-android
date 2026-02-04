@@ -15,7 +15,10 @@ import com.sdds.compose.uikit.ModalStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.sd.service.styles.overlay.Default
+import com.sdds.plasma.sd.service.styles.overlay.Overlay
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -55,4 +58,5 @@ public val Modal.Default: WrapperModalDefault
             paddingBottom(32.0.dp)
             closeSize(24.0.dp)
         }
+        .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperModalDefault)

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- sample-start: id=BasicButton_Simple -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_arrow_down_16" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.Button
+        android:id="@+id/button_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        app:sd_icon="@drawable/ic_plasma_24"
+        />
+    <!-- sample-end: id=BasicButton_Simple -->
+
+    <!-- sample-start: id=BasicButton_LabelValue_Packed -->
+    <com.sdds.uikit.Button
+        android:id="@+id/button_label_value_packed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        app:sd_spacing="packed"
+        app:sd_value="Value"
+        />
+    <!-- sample-end: id=BasicButton_LabelValue_Packed -->
+
+    <!-- sample-start: id=BasicButton_LabelValue_SpaceBetween -->
+    <com.sdds.uikit.Button
+        android:id="@+id/button_label_value_space_between"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        app:sd_spacing="spaceBetween"
+        app:sd_value="Value"
+        />
+    <!-- sample-end: id=BasicButton_LabelValue_SpaceBetween -->
+
+    <!-- sample-start: id=IconButton_Simple -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_arrow_down_16" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.IconButton
+        android:id="@+id/icon_button_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:sd_icon="@drawable/ic_plasma_24"
+        />
+    <!-- sample-end: id=IconButton_Simple -->
+
+    <!-- sample-start: id=LinkButton_Simple -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_arrow_down_16" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.LinkButton
+        android:id="@+id/link_button_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        app:sd_icon="@drawable/ic_plasma_24"
+        />
+    <!-- sample-end: id=LinkButton_Simple -->
+
+    <!-- sample-start: id=LinkButton_LabelValue_Packed -->
+    <com.sdds.uikit.LinkButton
+        android:id="@+id/link_button_label_value_packed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        app:sd_spacing="packed"
+        app:sd_value="Value"
+        />
+    <!-- sample-end: id=LinkButton_LabelValue_Packed -->
+
+    <!-- sample-start: id=LinkButton_LabelValue_SpaceBetween -->
+    <com.sdds.uikit.LinkButton
+        android:id="@+id/link_button_label_value_space_between"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Label"
+        app:sd_spacing="spaceBetween"
+        app:sd_value="Value"
+        />
+    <!-- sample-end: id=LinkButton_LabelValue_SpaceBetween -->
+
+</LinearLayout>

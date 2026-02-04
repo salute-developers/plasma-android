@@ -1,17 +1,11 @@
 ---
 title: Switch
---- 
+---
 
 Компонент Switch может содержать лейбл и описание.
 
 ```kotlin
-Switch(
-    style = Switch.L.style(),
-    active = true,
-    label = "Label",
-    description = "Description",
-    enabled = true,
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/switcher/Switch_Simple.kt
 ```
 
 ## Стиль Switch
@@ -21,41 +15,7 @@ Switch(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-SwitchStyle.builder()
-    .toggleTrackShape(CircleShape)
-    .toggleThumbShape(CircleShape)
-    .colorValues {
-        labelColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultPrimary.asInteractive(),
-        )
-        descriptionColor(
-            {{ docs-theme-codeReference }}.colors.textDefaultSecondary.asInteractive(),
-        )
-        toggleTrackColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultTransparentTertiary.asInteractive(
-                setOf(SwitchStates.Checked)
-                    to {{ docs-theme-codeReference }}.colors.surfaceDefaultAccent,
-            ),
-        )
-        toggleTrackBorderColor(
-            {{ docs-theme-codeReference }}.colors.surfaceDefaultClear.asInteractive(),
-        )
-        toggleThumbColor(
-            {{ docs-theme-codeReference }}.colors.surfaceOnDarkSolidDefault.asInteractive(),
-        )
-    }
-    .invariantProps
-    .labelStyle({{ docs-theme-codeReference }}.typography.bodyLNormal)
-    .descriptionStyle({{ docs-theme-codeReference }}.typography.bodyMNormal)
-    .dimensionValues {
-        toggleTrackWidth(44.0.dp)
-        toggleTrackHeight(28.0.dp)
-        toggleThumbWidth(24.0.dp)
-        toggleThumbHeight(24.0.dp)
-        textPadding(12.0.dp)
-        descriptionPadding(4.0.dp)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/switcher/Switch_Style.kt
 ```
 
 ## Label и Description

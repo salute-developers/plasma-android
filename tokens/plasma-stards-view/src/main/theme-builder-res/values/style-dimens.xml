@@ -855,4 +855,9 @@
     <dimen name="sdkit_pagination_dots_vertical_s_dot_height">16.0dp</dimen>
     <dimen name="sdkit_pagination_dots_vertical_s_active_type_line_dot_height_value_0">64.0dp</dimen>
     <dimen name="sdkit_pagination_dots_vertical_s_active_type_line_dot_height_value_1">16.0dp</dimen>
+    <dimen name="sdkit_modal_padding_start">64.0dp</dimen>
+    <dimen name="sdkit_modal_padding_end">64.0dp</dimen>
+    <dimen name="sdkit_modal_padding_top">64.0dp</dimen>
+    <dimen name="sdkit_modal_padding_bottom">64.0dp</dimen>
+    <dimen name="sdkit_modal_close_icon_size">48.0dp</dimen>
 </resources>

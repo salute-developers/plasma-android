@@ -8,54 +8,7 @@ title: Autocomplete
 ## Пример использования
 
 ```kotlin
-val componentKeyboardOffset by getComponentOffset()
-var text by remember { mutableStateOf("") }
-var showDropdown by remember { mutableStateOf(false) }
-val filteredList = AutocompleteSuggestions.filterSuggestions(text)
-val showEmptyState = autocompleteUiState.withEmptyState && filteredList.isEmpty()
-Autocomplete(
-    showDropdown = showDropdown,
-    onDismissRequest = { showDropdown = false },
-    style = style,
-    field = {
-        TextField(
-            modifier = Modifier.width(240.dp),
-            value = text,
-            placeholderText = "Сотрудник",
-            captionText = "Введите имя",
-            onValueChange = {
-                text = it
-                showDropdown = true
-            },
-            focusSelectorSettings = FocusSelectorSettings.None,
-        )
-    },
-    showEmptyState = showEmptyState,
-    emptyState = {
-        EmptyState(
-            iconRes = com.sdds.icons.R.drawable.ic_plasma_36,
-            description = "Empty State",
-            buttonLabel = "Action",
-        )
-    },
-    footer = { LoadingContent() },
-    listContent = {
-        items(filteredList.size) { index ->
-            ListItem(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable(
-                        indication = null,
-                        interactionSource = remember { MutableInteractionSource() },
-                    ) {
-                        text = filteredList[index]
-                        showDropdown = false
-                    },
-                text = filteredList[index],
-            )
-        }
-    },
-)
+// @sample: com/sdds/compose/uikit/fixtures/samples/autocomplete/Autocomplete_Simple.kt
 ```
 
 Чтобы показать раскрывающийся список необходимо установить `showDropdown = true` и передать данные для раскрывающегося списка в `listContent`.
@@ -73,8 +26,5 @@ Autocomplete(
 ### Создание стиля с помощью builder()
 
 ```kotlin
-AutocompleteStyle.builder()
-    .textFieldStyle(TextField.Xl.Default.style())
-    .dropdownStyle(DropdownMenuNormal.Xl.style())
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/autocomplete/Autocomplete_Style.kt
 ```

@@ -35,5 +35,6 @@ internal class BottomSheetConfigDelegate : ComponentConfigDelegate<BottomSheetCo
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
             componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+            overlayStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.overlay",
         )
 }

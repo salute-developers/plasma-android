@@ -2955,6 +2955,238 @@ public object DarkGradientTokens {
     }
 
     /**
+     * dark overlay default overlayGradientUp
+     */
+    public object OverlayDefaultGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * dark overlay default overlayGradientDown
+     */
+    public object OverlayDefaultGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
+     * dark overlay onDark overlayGradientUp
+     */
+    public object OverlayOnDarkGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * dark overlay onDark overlayGradientDown
+     */
+    public object OverlayOnDarkGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
+     * dark overlay onLight overlayGradientUp
+     */
+    public object OverlayOnLightGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * dark overlay onLight overlayGradientDown
+     */
+    public object OverlayOnLightGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
+     * dark overlay inverse overlayGradientUp
+     */
+    public object OverlayInverseGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * dark overlay inverse overlayGradientDown
+     */
+    public object OverlayInverseGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
      * Акцентный цвет обводки с градиентом
      */
     public object OutlineDefaultAccentGradientHover {
@@ -7101,6 +7333,238 @@ public object LightGradientTokens {
          * Угол градиента
          */
         public const val angle: Float = 90.0f
+    }
+
+    /**
+     * light overlay default overlayGradientUp
+     */
+    public object OverlayDefaultGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * light overlay default overlayGradientDown
+     */
+    public object OverlayDefaultGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
+     * light overlay onDark overlayGradientUp
+     */
+    public object OverlayOnDarkGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * light overlay onDark overlayGradientDown
+     */
+    public object OverlayOnDarkGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
+     * light overlay onLight overlayGradientUp
+     */
+    public object OverlayOnLightGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * light overlay onLight overlayGradientDown
+     */
+    public object OverlayOnLightGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00FFFFFF), Color(0x03FFFFFF),
+            Color(0x0AFFFFFF), Color(0x14FFFFFF), Color(0x26FFFFFF), Color(0x3BFFFFFF),
+            Color(0x54FFFFFF), Color(0x70FFFFFF), Color(0x8FFFFFFF), Color(0xABFFFFFF),
+            Color(0xC4FFFFFF), Color(0xD9FFFFFF), Color(0xEBFFFFFF), Color(0xF5FFFFFF),
+            Color(0xFCFFFFFF), Color(0xFFFFFFFF),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
+    }
+
+    /**
+     * light overlay inverse overlayGradientUp
+     */
+    public object OverlayInverseGradientUp {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.02f, 0.03f, 0.04f,
+            0.05f, 0.05f, 0.06f, 0.07f, 0.08f, 0.08f, 0.09f, 0.1f, 0.11f, 0.12f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 0.0f
+    }
+
+    /**
+     * light overlay inverse overlayGradientDown
+     */
+    public object OverlayInverseGradientDown {
+        /**
+         * Цвета градиента
+         */
+        public val colors: List<Color> = listOf(
+            Color(0x00000000), Color(0x03000000),
+            Color(0x0A000000), Color(0x14000000), Color(0x26000000), Color(0x3B000000),
+            Color(0x54000000), Color(0x70000000), Color(0x8F000000), Color(0xAB000000),
+            Color(0xC4000000), Color(0xD9000000), Color(0xEB000000), Color(0xF5000000),
+            Color(0xFC000000), Color(0xFF000000),
+        )
+
+        /**
+         * Точки остановки цветов градиента
+         */
+        public val positions: FloatArray = floatArrayOf(
+            0.0f, 0.01f, 0.02f, 0.03f, 0.04f, 0.05f,
+            0.06f, 0.07f, 0.08f, 0.09f, 0.1f, 0.1f, 0.11f, 0.12f, 0.13f, 0.14f,
+        )
+
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 180.0f
     }
 
     /**

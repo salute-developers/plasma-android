@@ -16,12 +16,15 @@ dependencies {
     implementation(libs.base.gradle.detekt)
     implementation(libs.base.gradle.spotless)
     implementation(libs.base.gradle.nexusPublish)
+    implementation(libs.base.gradle.ksp)
     implementation(libs.base.dokka.graddle)
     implementation(libs.base.dokka)
     implementation(libs.base.kotlin.serialization.json)
+    implementation(libs.base.kotlin.compiler.embeddable)
     implementation("org.commonmark:commonmark:0.21.0")
 
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+    implementation(files(icons.javaClass.superclass.protectionDomain.codeSource.location))
     testImplementation(libs.base.test.unit.jUnit)
     testImplementation(libs.base.test.unit.mockk)
 }

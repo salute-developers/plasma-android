@@ -1,11 +1,11 @@
 ---
 title: Spinner
---- 
+---
 
 Индикатор бесконечной загрузки.
 
 ```kotlin
-Spinner(style = Spinner.L.Positive.style())
+// @sample: com/sdds/compose/uikit/fixtures/samples/spinner/Spinner_Simple.kt
 ```
 
 ## Стиль Spinner
@@ -15,20 +15,7 @@ Spinner(style = Spinner.L.Positive.style())
 ### Создание стиля с помощью builder()
 
 ```kotlin
-SpinnerStyle.builder()
-    .angle(360)
-    .strokeCap(SpinnerStrokeCap.Round)
-    .dimensions {
-        size(16.0.dp)
-        strokeWidth(2.dp)
-        padding(1.dp)
-    }
-    .colors {
-        backgroundColor(Color.LightGray)
-        startColor(Color.LightGray)
-        endColor(Color.Black)
-    }
-    .style()
+// @sample: com/sdds/compose/uikit/fixtures/samples/spinner/Spinner_Style.kt
 ```
 
 ## SpinnerStrokeCap
