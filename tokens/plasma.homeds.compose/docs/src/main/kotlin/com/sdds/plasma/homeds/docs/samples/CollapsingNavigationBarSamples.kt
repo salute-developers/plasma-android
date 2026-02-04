@@ -20,7 +20,10 @@ import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.floatPx
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
+import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.plasma.homeds.styles.overlay.DirectionTop
+import com.sdds.plasma.homeds.styles.overlay.Overlay
 
 @Composable
 @DocSample(needScreenshot = false)
@@ -46,7 +49,10 @@ fun CollapsingNavigationBar_WithOverlayAndScrollThreshold() {
         Column(
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         ) {
-            Overlay(alpha = { overlayAlpha }) {
+            Overlay(
+                style = Overlay.DirectionTop.style(),
+                alpha = { overlayAlpha },
+            ) {
                 CollapsingNavigationBar(
                     scrollBehavior = scrollBehavior,
                     collapsedTitle = { Text("Title") },
@@ -88,13 +94,16 @@ fun CollapsingNavigationBar_WithOverlayAndAlphaByScrollBehavior() {
     composableCodeSnippet {
         val scrollBehavior =
             CollapsingNavigationBarDefaults.exitUntilCollapsedScrollBehavior(
-                rememberCollapsingNavigationBarState()
+                rememberCollapsingNavigationBarState(),
             )
 
         Column(
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         ) {
-            Overlay(alpha = { scrollBehavior.state.collapsedFraction }) {
+            Overlay(
+                style = Overlay.DirectionTop.style(),
+                alpha = { scrollBehavior.state.collapsedFraction },
+            ) {
                 CollapsingNavigationBar(
                     scrollBehavior = scrollBehavior,
                     collapsedTitle = { Text("Title") },
@@ -127,4 +136,3 @@ fun CollapsingNavigationBar_WithOverlayAndAlphaByScrollBehavior() {
         }
     }
 }
-
