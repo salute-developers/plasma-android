@@ -20,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConf
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.codefield.CodeFieldConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.codeinput.CodeInputConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.collapsingnavigationbar.CollapsingNavigationBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
@@ -128,6 +129,7 @@ internal val componentDelegates by unsafeLazy {
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
         "toolbar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
+        "collapsing-navigation-bar" to CollapsingNavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),
         "carousel" to CarouselConfigDelegate(),
         "dropdown-empty-state" to EmptyStateConfigDelegate(),

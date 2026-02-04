@@ -1,13 +1,16 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -22,6 +25,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.navigationbar.NavigationBarLayout
@@ -41,6 +46,8 @@ import com.sdds.compose.uikit.shadow.shadow
  * @param descriptionContent дополнительный текст NavigationBar
  * @param content контент NavigationBar
  * @param interactionSource источник взаимодействий
+ * @param onBackPressed обработчик кнопки назад
+ * @param centerAlignmentStrategy режим центрирования текстового блока
  */
 @Composable
 fun NavigationBar(
@@ -49,12 +56,13 @@ fun NavigationBar(
     textPlacement: NavigationBarTextPlacement = NavigationBarTextPlacement.Bottom,
     textAlign: NavigationBarTextAlign = NavigationBarTextAlign.Center,
     contentPlacement: NavigationBarContentPlacement = NavigationBarContentPlacement.Bottom,
-    actionStart: (@Composable () -> Unit)? = null,
-    actionEnd: (@Composable () -> Unit)? = null,
-    titleContent: (@Composable () -> Unit)?,
+    actionStart: (@Composable RowScope.() -> Unit)? = null,
+    actionEnd: (@Composable RowScope.() -> Unit)? = null,
+    titleContent: (@Composable () -> Unit)? = null,
     descriptionContent: (@Composable () -> Unit)? = null,
     content: (@Composable () -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    onBackPressed: () -> Unit = {},
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
 ) {
     val stateSet = remember(textPlacement) { setOf(textPlacement) }
@@ -89,18 +97,31 @@ fun NavigationBar(
         }
     }
 
+    val startActions: (@Composable () -> Unit)? = if (actionStart != null) {
+        @Composable { ActionRowWrapper(actionStart, style.dimensions.horizontalSpacing) }
+    } else {
+        null
+    }
+
+    val endActions: (@Composable () -> Unit)? = if (actionEnd != null) {
+        @Composable { ActionRowWrapper(actionEnd, style.dimensions.horizontalSpacing) }
+    } else {
+        null
+    }
+
     NavigationBar(
         modifier = modifier,
         style = style,
         textPlacement = textPlacement,
         textAlign = textAlign,
         contentPlacement = contentPlacement,
-        actionStart = actionStart,
-        actionEnd = actionEnd,
+        actionStart = startActions,
+        actionEnd = endActions,
         textContent = textContent,
         content = content,
         interactionSource = interactionSource,
         centerAlignmentStrategy = centerAlignmentStrategy,
+        onBackPressed = onBackPressed,
     )
 }
 
@@ -117,6 +138,8 @@ fun NavigationBar(
  * @param textContent текст NavigationBar
  * @param content контент NavigationBar
  * @param interactionSource источник взаимодействий
+ * @param onBackPressed обработчик кнопки назад
+ * @param centerAlignmentStrategy режим центрирования текстового блока
  */
 @Composable
 fun NavigationBar(
@@ -130,31 +153,29 @@ fun NavigationBar(
     textContent: (@Composable () -> Unit)? = null,
     content: (@Composable () -> Unit)? = null,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    onBackPressed: () -> Unit = {},
     centerAlignmentStrategy: NavBarCenterAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
 ) {
     Column(
         modifier = modifier
             .shadow(style.shadow)
-            .clip(rememberBarShape(style.bottomShape))
+            .clip(rememberNavBarShape(style.bottomShape))
             .background(style.colors.backgroundColor.colorForInteraction(interactionSource)),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Column(
-            modifier = Modifier
-                .padding(
-                    start = style.dimensions.paddingStart,
-                    end = style.dimensions.paddingEnd,
-                    top = style.dimensions.paddingTop,
-                    bottom = style.dimensions.paddingBottom,
-                ),
+            modifier = Modifier,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            val hasBottomText =
+                textPlacement == NavigationBarTextPlacement.Bottom && textContent != null
             NavigationBarLayout(
                 modifier = Modifier.fillMaxWidth(),
                 startContent = startContent(
                     style = style,
                     interactionSource = interactionSource,
                     actionStart = actionStart,
+                    onBackPressed = onBackPressed,
                 ),
                 centerContent = {
                     CenterContent(
@@ -172,9 +193,15 @@ fun NavigationBar(
                     interactionSource = interactionSource,
                     actionEnd = actionEnd,
                 ),
-                contentPadding = style.dimensions.horizontalSpacing,
+                horizontalSpacing = style.dimensions.horizontalSpacing,
                 centerAlignmentStrategy = centerAlignmentStrategy,
                 textAlign = textAlign,
+                paddings = PaddingValues(
+                    start = style.dimensions.paddingStart,
+                    end = style.dimensions.paddingEnd,
+                    top = style.dimensions.paddingTop,
+                    bottom = if (hasBottomText) 0.dp else style.dimensions.paddingBottom,
+                ),
             )
 
             OuterText(
@@ -191,7 +218,7 @@ fun NavigationBar(
 }
 
 /**
- * Режим центрирования текстового блока при [NavigationBarContentPlacement.Inline]
+ * Режим центрирования текстового блока
  */
 enum class NavBarCenterAlignmentStrategy {
     /**
@@ -255,7 +282,7 @@ enum class NavigationBarContentPlacement {
     Bottom,
 }
 
-private fun NavigationBarTextAlign.toPlatformTextAlign(): TextAlign {
+internal fun NavigationBarTextAlign.toPlatformTextAlign(): TextAlign {
     return when (this) {
         NavigationBarTextAlign.Start -> TextAlign.Start
         NavigationBarTextAlign.Center -> TextAlign.Center
@@ -272,7 +299,20 @@ private fun NavigationBarTextAlign.toAlignment(): Alignment.Horizontal {
 }
 
 @Composable
-private fun rememberBarShape(bottomShape: CornerBasedShape): RoundedCornerShape {
+private fun ActionRowWrapper(
+    actions: @Composable RowScope.() -> Unit,
+    spacing: Dp,
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(spacing),
+    ) {
+        actions()
+    }
+}
+
+@Composable
+internal fun rememberNavBarShape(bottomShape: CornerBasedShape): RoundedCornerShape {
     return remember(bottomShape) {
         RoundedCornerShape(
             topStart = ZeroCornerSize,
@@ -305,7 +345,12 @@ private fun ColumnScope.OuterText(
         Box(
             modifier = Modifier
                 .align(textAlign.toAlignment())
-                .padding(top = style.dimensions.textBlockTopMargin),
+                .padding(
+                    top = style.dimensions.textBlockTopMargin,
+                    bottom = style.dimensions.paddingBottom,
+                    start = style.dimensions.paddingStart,
+                    end = style.dimensions.paddingEnd,
+                ),
         ) {
             TextContent(
                 textContent = textContent,
@@ -322,9 +367,10 @@ private fun startContent(
     style: NavigationBarStyle,
     interactionSource: InteractionSource,
     actionStart: (@Composable () -> Unit)?,
+    onBackPressed: () -> Unit,
 ): (@Composable () -> Unit)? {
     return if (style.backIcon != null || actionStart != null) {
-        @Composable { StartContent(style, interactionSource, actionStart) }
+        @Composable { StartContent(style, interactionSource, actionStart, onBackPressed) }
     } else {
         null
     }
@@ -335,23 +381,31 @@ private fun StartContent(
     style: NavigationBarStyle,
     interactionSource: InteractionSource,
     actionStart: (@Composable () -> Unit)?,
+    onBackPressed: () -> Unit,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         style.backIcon?.let {
+            val iconInteraction = remember { MutableInteractionSource() }
             val backIconColor =
-                style.colors.backIconColor.colorForInteraction(interactionSource)
+                style.colors.backIconColor.colorForInteraction(iconInteraction)
             val padding = style.dimensions.backIconMargin
             Icon(
-                modifier = Modifier.padding(end = padding),
+                modifier = Modifier
+                    .padding(end = padding)
+                    .clickable(
+                        interactionSource = iconInteraction,
+                        indication = null,
+                        onClick = onBackPressed,
+                    ),
                 painter = painterResource(it),
                 contentDescription = "",
                 tint = backIconColor,
             )
         }
         if (actionStart != null) {
-            Action(
+            Actions(
                 actionStart,
                 style.colors.actionStartColor,
                 interactionSource,
@@ -380,7 +434,7 @@ private fun EndContent(
     actionEnd: (@Composable () -> Unit)?,
 ) {
     if (actionEnd != null) {
-        Action(
+        Actions(
             actionEnd,
             style.colors.actionEndColor,
             interactionSource,
@@ -390,7 +444,7 @@ private fun EndContent(
 }
 
 @Composable
-private fun Action(
+private fun Actions(
     actionContent: (@Composable () -> Unit),
     tint: InteractiveColor,
     interactionSource: InteractionSource,
@@ -445,33 +499,29 @@ private fun CenterContent(
         content != null && contentPlacement == NavigationBarContentPlacement.Inline
     val hasInlineText =
         textContent != null && textPlacement == NavigationBarTextPlacement.Inline
-    Box(modifier = Modifier.fillMaxWidth()) {
-        Row(
-            modifier = Modifier
-                .align(getCenterContentAlignment(hasInlineText, hasInlineContent, textAlign)),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(style.dimensions.horizontalSpacing),
+    ) {
+        val textColor = style.colors.textColor.colorForInteraction(interactionSource)
+        CompositionLocalProvider(
+            LocalTint provides textColor,
+            LocalTextStyle provides style.textStyle.copy(
+                color = textColor,
+                textAlign = textAlign.toPlatformTextAlign(),
+            ),
         ) {
-            val textColor = style.colors.textColor.colorForInteraction(interactionSource)
-            CompositionLocalProvider(
-                LocalTint provides textColor,
-                LocalTextStyle provides style.textStyle.copy(
-                    color = textColor,
-                    textAlign = textAlign.toPlatformTextAlign(),
-                ),
-            ) {
-                if (hasInlineText) {
-                    textContent?.invoke()
-                }
-                if (hasInlineContent) {
-                    content?.invoke()
-                }
+            if (hasInlineText) {
+                textContent?.invoke()
+            }
+            if (hasInlineContent) {
+                content?.invoke()
             }
         }
     }
 }
 
-private fun getCenterContentAlignment(
+internal fun getCenterContentAlignment(
     hasInlineText: Boolean,
     hasInlineContent: Boolean,
     textAlign: NavigationBarTextAlign,

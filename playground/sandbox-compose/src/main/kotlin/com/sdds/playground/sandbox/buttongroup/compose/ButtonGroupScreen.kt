@@ -46,7 +46,7 @@ internal fun ButtonGroupScreen(componentKey: ComponentKey = ComponentKey.ButtonG
                     orientation = btnGroupUiState.orientation,
                 ) {
                     repeat(btnGroupUiState.amount) {
-                        buttonContent(componentKey)
+                        buttonContent(btnGroupUiState.appearance)
                     }
                 }
             }
@@ -55,19 +55,19 @@ internal fun ButtonGroupScreen(componentKey: ComponentKey = ComponentKey.ButtonG
 }
 
 @Composable
-internal fun ButtonGroupPreview(style: ButtonGroupStyle, key: ComponentKey) {
+internal fun ButtonGroupPreview(style: ButtonGroupStyle) {
     ButtonGroup(
         style = style,
         orientation = ButtonGroupOrientation.Horizontal,
     ) {
         repeat(3) {
-            buttonContent(key)
+            buttonContent()
         }
     }
 }
 
-private fun ButtonGroupScope.buttonContent(key: ComponentKey) {
-    if (key.value.contains("Icon")) {
+private fun ButtonGroupScope.buttonContent(appearance: String = "") {
+    if (appearance.contains("Icon")) {
         button { IconButton(painterResource(R.drawable.ic_plasma_24), {}) }
     } else {
         button {

@@ -1598,6 +1598,28 @@
          ]
       },
       {
+         "key": "collapsing-navigation-bar",
+         "coreName": "CollapsingNavigationBar",
+         "styleName": "CollapsingNavigationBarMainPage",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "CollapsingNavigationBarMainPage.Default"
+            }
+         ]
+      },
+      {
+         "key": "collapsing-navigation-bar",
+         "coreName": "CollapsingNavigationBar",
+         "styleName": "CollapsingNavigationBarInternalPage",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "CollapsingNavigationBarInternalPage.Default"
+            }
+         ]
+      },
+      {
          "key": "basic-button",
          "coreName": "BasicButton",
          "styleName": "BasicButton",

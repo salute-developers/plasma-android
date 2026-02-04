@@ -255,6 +255,7 @@ data class ComponentKey(
         val IconTabs = ComponentKey("IconTabs", CoreComponent.ICON_TABS)
         val Toolbar = ComponentKey("Toolbar", CoreComponent.TOOL_BAR)
         val NavigationBar = ComponentKey("NavigationBar", CoreComponent.NAVIGATION_BAR)
+        val CollapsingNavigationBar = ComponentKey("CollapsingNavigationBar", CoreComponent.COLLAPSING_NAVIGATION_BAR)
         val PaginationDots = ComponentKey("PaginationDots", CoreComponent.PAGINATION_DOTS)
         val Mask = ComponentKey("Mask", CoreComponent.MASK)
         val Carousel = ComponentKey("Carousel", CoreComponent.CAROUSEL)
@@ -346,6 +347,7 @@ enum class CoreComponent {
     ICON_TAB_ITEM,
     ICON_TABS,
     NAVIGATION_BAR,
+    COLLAPSING_NAVIGATION_BAR,
     PAGINATION_DOTS,
     TOOL_BAR,
     MASK,
@@ -444,7 +446,9 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.TOOL_BAR,
         -> CoreComponentGroup.OVERLAY
 
-        CoreComponent.NAVIGATION_BAR -> CoreComponentGroup.NAVIGATION
+        CoreComponent.NAVIGATION_BAR,
+        CoreComponent.COLLAPSING_NAVIGATION_BAR,
+        -> CoreComponentGroup.NAVIGATION
 
         CoreComponent.FLOW -> CoreComponentGroup.LAYOUT
     }

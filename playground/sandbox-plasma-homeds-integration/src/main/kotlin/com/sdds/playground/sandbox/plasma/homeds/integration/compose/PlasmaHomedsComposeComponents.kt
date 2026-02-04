@@ -90,6 +90,13 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.CollapsingNavigationBar,
+                mapOf(
+                    "CollapsingNavigationBarMainPage" to PlasmaHomedsCollapsingNavigationBarMainPageVariationsCompose,
+                    "CollapsingNavigationBarInternalPage" to PlasmaHomedsCollapsingNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.BasicButton,
                 mapOf(
                     "BasicButton" to PlasmaHomedsBasicButtonVariationsCompose,
