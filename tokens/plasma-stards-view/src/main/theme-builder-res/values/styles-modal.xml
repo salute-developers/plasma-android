@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Modal" parent="Sdds.Components.Modal">
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundXl</item>
+        <item name="sd_shadowAppearance">?sdkit_shadowDownSoftL</item>
+        <item name="sd_overlayStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.OverlayView</item>
+        <item name="android:paddingStart">@dimen/sdkit_modal_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_modal_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_modal_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_modal_padding_bottom</item>
+        <item name="sd_closeIconSize">@dimen/sdkit_modal_close_icon_size</item>
+        <item name="sd_background">?sdkit_surfaceDefaultSolidCard</item>
+        <item name="sd_closeIconTint">?sdkit_textDefaultSecondary</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.Modal">
+        <item name="sd_modalStyle">@style/Sdkit.StarDs.Components.Modal</item>
+    </style>
+</resources>

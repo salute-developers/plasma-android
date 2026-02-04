@@ -5,11 +5,11 @@
     "ktlint:standard:max-line-length",
 )
 
-package com.sdds.plasma.sd.service.styles.modal
+package com.sdkit.star.designsystem.styles.modal
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ModalStyle
 import com.sdds.compose.uikit.ModalStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -17,9 +17,10 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.plasma.sd.service.styles.overlay.Default
-import com.sdds.plasma.sd.service.styles.overlay.Overlay
-import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
+import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.overlay.Default
+import com.sdkit.star.designsystem.styles.overlay.Overlay
+import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -41,22 +42,22 @@ public val Modal.Default: WrapperModalDefault
     @Composable
     @JvmName("WrapperModalDefault")
     get() = ModalStyle.builder(this)
-        .shape(PlasmaSdServiceTheme.shapes.roundXl)
-        .shadow(PlasmaSdServiceTheme.shadows.downSoftL)
+        .shape(StarDsTheme.shapes.roundXl)
+        .shadow(StarDsTheme.shadows.downSoftL)
         .colors {
             backgroundColor(
-                SolidColor(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
+                SolidColor(StarDsTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
             )
             closeColor(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
         }
         .dimensions {
-            paddingStart(32.0.dp)
-            paddingEnd(32.0.dp)
-            paddingTop(32.0.dp)
-            paddingBottom(32.0.dp)
-            closeSize(24.0.dp)
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_modal_padding_start_Default))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_modal_padding_end_Default))
+            paddingTop(dimensionResource(R.dimen.sdkit_cmp_modal_padding_top_Default))
+            paddingBottom(dimensionResource(R.dimen.sdkit_cmp_modal_padding_bottom_Default))
+            closeSize(dimensionResource(R.dimen.sdkit_cmp_modal_close_size_Default))
         }
         .overlayStyle(Overlay.Default.style())
         .wrap(::WrapperModalDefault)

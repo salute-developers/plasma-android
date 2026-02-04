@@ -8,5 +8,9 @@
         <item name="sd_clipToOutline">false</item>
         <item name="android:clipToPadding">false</item>
         <item name="android:clipChildren">false</item>
+        <item name="sd_enterAnimation">@anim/sd_modal_appear</item>
+        <item name="sd_exitAnimation">@anim/sd_modal_disappear</item>
+        <item name="sd_overlayEnterAnimationDuration">300</item>
+        <item name="sd_overlayExitAnimationDuration">0</item>
     </style>
 </resources>

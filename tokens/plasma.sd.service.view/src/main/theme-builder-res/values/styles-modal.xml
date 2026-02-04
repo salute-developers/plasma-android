@@ -5,6 +5,7 @@
     <style name="Plasma.SdService.Components.Modal" parent="Sdds.Components.Modal">
         <item name="sd_shapeAppearance">?plasma_shapeRoundXl</item>
         <item name="sd_shadowAppearance">?plasma_shadowDownSoftL</item>
+        <item name="sd_overlayStyleOverlay">@style/Plasma.SdService.ComponentOverlays.OverlayView</item>
         <item name="android:paddingStart">@dimen/plasma_modal_padding_start</item>
         <item name="android:paddingEnd">@dimen/plasma_modal_padding_end</item>
         <item name="android:paddingTop">@dimen/plasma_modal_padding_top</item>

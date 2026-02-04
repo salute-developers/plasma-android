@@ -30,7 +30,7 @@ internal class ModalFragment : ComponentFragment<ModalUiState, View, ModalViewMo
         )
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): View {
-        return modalTrigger(contextWrapper, state = state)
+        return modalTrigger(contextWrapper, state = state, style = currentStyleRes)
     }
 
     override fun shouldRecreateComponentOnStateUpdate(state: ModalUiState): Boolean {

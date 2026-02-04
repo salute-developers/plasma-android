@@ -19,6 +19,7 @@ internal class ModalComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    private val overlayStylesPackage: String,
 ) : ComposeVariationGenerator<ModalProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -45,7 +46,22 @@ internal class ModalComposeVariationGenerator(
         shadowCall(props),
         colorsCall(props),
         dimensionsCall(props, variationId),
+        overlayStyleCall(props, ktFileBuilder),
     )
+
+    private fun overlayStyleCall(
+        props: ModalProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.overlayStyle?.let {
+            ".overlayStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    overlayStylesPackage,
+                )
+            }.style())"
+        }
+    }
 
     private fun shapeCall(props: ModalProperties, variationId: String): String? {
         return props.shape?.let {
