@@ -58,4 +58,18 @@ abstract class TextSkeletonTestCases(mode: String) : RoborazziConfig(mode) {
                 ),
             )
         }
+
+    fun ComponentScope.textSkeletonLineCountThreeTextRandom(style: Int): View =
+        fillSize {
+            textSkeleton(
+                context = context,
+                style = style,
+                state = TextSkeletonUiState(
+                    variant = "",
+                    lineCount = 3,
+                    text = "Lorem Ipsum is simply dummy text",
+                    width = TextSkeletonWidth.Random,
+                ),
+            )
+        }
 }

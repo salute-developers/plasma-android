@@ -7,6 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.LocalTextStyle
 import com.sdds.compose.uikit.SkeletonLineWidthProvider
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextSkeleton
 import com.sdds.compose.uikit.TextSkeletonStyle
 
@@ -29,6 +30,38 @@ fun TextSkeletonDefaultNoTextRandom(style: TextSkeletonStyle) {
             lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
         )
     }
+}
+
+/**
+ * TextSkeleton с текстом
+ */
+@Composable
+fun TextSkeletonDefaultTextRandom(style: TextSkeletonStyle) {
+    Text(
+        style = style.textStyle.copy(color = LocalTextStyle.current.color),
+        text = "Lorem Ipsum is simply dummy text",
+    )
+    TextSkeleton(
+        style = style,
+        lineCount = 3,
+        textStyle = style.textStyle,
+        duration = 5000,
+        lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
+    )
+}
+
+/**
+ * TextSkeleton без текста
+ */
+@Composable
+fun TextSkeletonDefaultNoText(style: TextSkeletonStyle) {
+    TextSkeleton(
+        style = style,
+        lineCount = 3,
+        textStyle = style.textStyle,
+        duration = 5000,
+        lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
+    )
 }
 
 /**
