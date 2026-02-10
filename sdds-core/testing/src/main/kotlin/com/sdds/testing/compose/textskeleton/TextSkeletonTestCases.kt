@@ -37,14 +37,15 @@ fun TextSkeletonDefaultNoTextRandom(style: TextSkeletonStyle) {
  */
 @Composable
 fun TextSkeletonDefaultTextRandom(style: TextSkeletonStyle) {
+    val defaultTextStyle = style.textStyle.copy(LocalTextStyle.current.color)
     Text(
-        style = style.textStyle.copy(color = LocalTextStyle.current.color),
+        style = defaultTextStyle,
         text = "Lorem Ipsum is simply dummy text",
     )
     TextSkeleton(
         style = style,
         lineCount = 3,
-        textStyle = style.textStyle,
+        textStyle = defaultTextStyle,
         duration = 5000,
         lineWidthProvider = SkeletonLineWidthProvider.RandomDeviation(),
     )

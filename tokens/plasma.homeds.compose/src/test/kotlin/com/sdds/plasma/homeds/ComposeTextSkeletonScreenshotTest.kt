@@ -30,7 +30,7 @@ import org.robolectric.annotation.GraphicsMode
 @RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ComposeSkeletonScreenshotTest(
+class ComposeTextSkeletonScreenshotTest(
     theme: String,
 ) : RoborazziConfigCompose(theme) {
 
