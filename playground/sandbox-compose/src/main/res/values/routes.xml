@@ -61,4 +61,5 @@
     <item type="id" name="nav_carousel"/>
     <item type="id" name="nav_autocomplete"/>
     <item type="id" name="nav_file"/>
+    <item type="id" name="nav_navigation_bar"/>
 </resources>

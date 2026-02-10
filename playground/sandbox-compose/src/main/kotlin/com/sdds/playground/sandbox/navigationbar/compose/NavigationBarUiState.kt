@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.navigationbar
+package com.sdds.playground.sandbox.navigationbar.compose
 
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarContentPlacement

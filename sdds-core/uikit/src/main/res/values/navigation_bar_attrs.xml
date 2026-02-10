@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_navigationBarStyle" format="reference" />
+
+    <declare-styleable name="NavigationBar" tools:ignore="ResourceName">
+        <!-- Оверлэй стиль компонента IconButton -->
+        <attr name="sd_iconButtonStyleOverlay" />
+
+        <!-- Стиль тени -->
+        <attr name="sd_shadowAppearance" />
+        <!-- Форма компонента -->
+        <attr name="sd_shapeAppearance" />
+        <!-- Отступ вначале блока, содержащего actions -->
+        <attr name="sd_contentPaddingStart" />
+        <!-- Отступ вконце блока, содержащего actions -->
+        <attr name="sd_contentPaddingEnd" />
+        <!-- Верхний отступ блока, содержащего actions -->
+        <attr name="sd_contentPaddingTop" />
+        <!-- Нижний отступ блока, содержащего actions -->
+        <attr name="sd_contentPaddingBottom" />
+        <!-- Отступ между Title и Description -->
+        <attr name="sd_descriptionMargin" format="dimension|reference" />
+        <!-- Ссылка на ресурс иконки "назад" -->
+        <attr name="sd_backIcon" format="reference" />
+        <!-- Отступ от иконки "назад" и actionStart  -->
+        <attr name="sd_backIconMargin" format="dimension" />
+        <!-- Верхний отступ от текстового блока если он находится ниже actions  -->
+        <attr name="sd_textBlockTopMargin" format="dimension" />
+        <!-- Отступ от actions  -->
+        <attr name="sd_horizontalSpacing" format="dimension" />
+        <!-- Цвет action вначале  -->
+        <attr name="sd_actionStartColor" format="reference|color" />
+        <!-- Цвет action вконце  -->
+        <attr name="sd_actionEndColor" format="reference|color" />
+
+        <!-- Стиль текста Title  -->
+        <attr name="sd_titleAppearance" />
+        <!-- Цвет текста Title  -->
+        <attr name="sd_titleColor" />
+
+        <!-- Окрас иконки "назад"  -->
+        <attr name="sd_backIconTint" format="reference|color"/>
+
+        <!-- Стиль текста Description  -->
+        <attr name="sd_descriptionAppearance" />
+        <!-- Цвет текста Description  -->
+        <attr name="sd_descriptionColor" />
+        <!-- Цвет фона  -->
+        <attr name="sd_background" />
+        <!-- Расположение компонента с ролью контент -->
+        <attr name="sd_navbarContentPlacement"
+            format="enum">
+            <!-- Размещает контент в одну линию с actionStart и  actionEnd -->
+            <enum name="inline" value="0" />
+            <!-- Размещает контент снизу NavigationBar, под компонентом с ролью Text -->
+            <enum name="bottom" value="1" />
+        </attr>
+
+        <!-- Расположение компонента с ролью Text -->
+        <attr name="sd_navbarTextPlacement" format="enum">
+            <!-- Размещает компонент с ролью Text в одну линию с ActionStart и ActionEnd  -->
+            <enum name="inline" value="0" />
+            <!-- Размещает компонент с ролью Text под основным блоком с компонентами ActionStart и ActionEnd -->
+            <enum name="bottom" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+    <declare-styleable name="NavigationBar_Layout" tools:ignore="ResourceName">
+        <!-- Роли компонентов, размещаемых внутри NavigationBar -->
+        <attr name="layout_navigationBarContent" format="enum">
+            <!-- Заголовок -->
+            <enum name="title" value="0" />
+            <!-- Описание -->
+            <enum name="description" value="1" />
+            <!-- Компонент, расположенный вначале, предусматривающий взаимодействие (например нажатие) -->
+            <enum name="action_start" value="2" />
+            <!-- Компонент, расположенный вконце, предусматривающий взаимодействие (например нажатие) -->
+            <enum name="action_end" value="3"/>
+            <!-- Контент -->
+            <enum name="content" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>

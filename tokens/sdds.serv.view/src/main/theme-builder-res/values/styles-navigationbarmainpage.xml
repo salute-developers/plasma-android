@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage" parent="Sdds.Components.NavigationBar">
+        <item name="android:paddingStart">@dimen/serv_navigation_bar_main_page_start_padding</item>
+        <item name="android:paddingEnd">@dimen/serv_navigation_bar_main_page_end_padding</item>
+        <item name="android:paddingTop">@dimen/serv_navigation_bar_main_page_top_padding</item>
+        <item name="android:paddingBottom">@dimen/serv_navigation_bar_main_page_bottom_padding</item>
+        <item name="sd_descriptionMargin">@xml/serv_navigation_bar_main_page_description_margin</item>
+        <item name="sd_textBlockTopMargin">@dimen/serv_navigation_bar_main_page_text_block_top_margin</item>
+        <item name="sd_horizontalSpacing">@dimen/serv_navigation_bar_main_page_horizontal_spacing</item>
+        <item name="sd_descriptionColor">?serv_textDefaultSecondary</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_actionStartColor">?serv_textDefaultPrimary</item>
+        <item name="sd_actionEndColor">?serv_textDefaultPrimary</item>
+        <item name="sd_titleAppearance">@xml/serv_navigation_bar_main_page_title_appearance</item>
+        <item name="sd_descriptionAppearance">@xml/serv_navigation_bar_main_page_description_appearance</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage.NoBackground">
+        <item name="sd_background">?serv_surfaceDefaultClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarMainPageNoBackground">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarMainPage.NoBackground</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage.NoBackground.Rounded">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarMainPageNoBackgroundRounded">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarMainPage.NoBackground.Rounded</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage.HasBackground">
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackground">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarMainPage.HasBackground</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Rounded">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackgroundRounded">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Rounded</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Shadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackgroundShadow">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Shadow</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Shadow.Rounded">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackgroundShadowRounded">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Shadow.Rounded</item>
+    </style>
+</resources>

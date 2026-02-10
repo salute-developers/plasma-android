@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage" parent="Sdds.Components.NavigationBar">
+        <item name="android:paddingStart">@dimen/serv_navigation_bar_internal_page_start_padding</item>
+        <item name="android:paddingEnd">@dimen/serv_navigation_bar_internal_page_end_padding</item>
+        <item name="android:paddingTop">@dimen/serv_navigation_bar_internal_page_top_padding</item>
+        <item name="android:paddingBottom">@dimen/serv_navigation_bar_internal_page_bottom_padding</item>
+        <item name="sd_descriptionMargin">@xml/serv_navigation_bar_internal_page_description_margin</item>
+        <item name="sd_backIconMargin">@dimen/serv_navigation_bar_internal_page_back_icon_margin</item>
+        <item name="sd_textBlockTopMargin">@dimen/serv_navigation_bar_internal_page_text_block_top_margin</item>
+        <item name="sd_horizontalSpacing">@dimen/serv_navigation_bar_internal_page_horizontal_spacing</item>
+        <item name="sd_backIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="sd_backIconTint">?serv_textDefaultPrimary</item>
+        <item name="sd_descriptionColor">?serv_textDefaultSecondary</item>
+        <item name="sd_titleColor">?serv_textDefaultPrimary</item>
+        <item name="sd_actionStartColor">?serv_textDefaultPrimary</item>
+        <item name="sd_actionEndColor">?serv_textDefaultPrimary</item>
+        <item name="sd_titleAppearance">@xml/serv_navigation_bar_internal_page_title_appearance</item>
+        <item name="sd_descriptionAppearance">@xml/serv_navigation_bar_internal_page_description_appearance</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage.NoBackground">
+        <item name="sd_background">?serv_surfaceDefaultClear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarInternalPageNoBackground">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.NoBackground</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage.NoBackground.Rounded">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarInternalPageNoBackgroundRounded">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.NoBackground.Rounded</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage.HasBackground">
+        <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackground">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.HasBackground</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Rounded">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackgroundRounded">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Rounded</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Shadow">
+        <item name="sd_shadowAppearance">?serv_shadowDownSoftM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadow">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Shadow</item>
+    </style>
+    <style name="Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Shadow.Rounded">
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadowRounded">
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Shadow.Rounded</item>
+    </style>
+</resources>

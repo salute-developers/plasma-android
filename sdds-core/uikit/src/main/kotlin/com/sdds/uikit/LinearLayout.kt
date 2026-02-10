@@ -58,4 +58,8 @@ open class LinearLayout @JvmOverloads constructor(
         }
         super.setPressed(pressed)
     }
+
+    fun setShape(shape: ShapeModel) {
+        _shapeable.setShape(shape)
+    }
 }

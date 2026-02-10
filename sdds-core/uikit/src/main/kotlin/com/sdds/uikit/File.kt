@@ -189,6 +189,17 @@ open class File @JvmOverloads constructor(
         }
 
     /**
+     * @see ColorStateHolder.colorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
      * Устанавливает Label, при этом ранее установленный Label будет удален
      * @param textView - [TextView] вью с текстом
      * @param params - [FileLayoutParams] лэйаут параметры для textview, если не заданы,
@@ -416,73 +427,15 @@ open class File @JvmOverloads constructor(
             .forEach(::removeView)
     }
 
-    private fun clearRoleLink(view: View?) {
-        when (view) {
-            actionView -> actionView = null
-            imageView -> imageView = null
-            iconView -> iconView = null
-            progressView -> progressView = null
-            labelView -> labelView = null
-            descriptionView -> descriptionView = null
-            else -> {}
-        }
-    }
-
-    private fun setRoleLink(view: View?, fileParams: FileLayoutParams) {
-        when (fileParams.fileContent) {
-            FileContent.ACTION -> {
-                removeAction()
-                actionView = view
-            }
-
-            FileContent.IMAGE -> {
-                removeImage()
-                imageView = view
-            }
-
-            FileContent.ICON -> {
-                removeIcon()
-                iconView = view
-            }
-
-            FileContent.PROGRESS -> {
-                removeProgress()
-                progressView = view
-            }
-
-            FileContent.LABEL -> {
-                removeLabel()
-                labelView = view
-            }
-
-            FileContent.DESCRIPTION -> {
-                removeDescription()
-                descriptionView = view
-            }
-
-            null -> {}
-        }
-    }
-
-    private fun clearAllRoleLinks() {
-        actionView = null
-        imageView = null
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
         iconView = null
-        progressView = null
-        labelView = null
+        imageView= null
+        actionView = null
+        labelView= null
         descriptionView = null
+        progressView = null
     }
-
-    /**
-     * @see ColorStateHolder.colorState
-     */
-    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
-        set(value) {
-            if (field != value) {
-                field = value
-                refreshDrawableState()
-            }
-        }
 
     override fun generateDefaultLayoutParams(): FileLayoutParams {
         return FileLayoutParams(
@@ -581,12 +534,69 @@ open class File @JvmOverloads constructor(
         LABEL,
 
         /**
-         * Назначает этой [View] роль Label, позиционирует по центру [File] между
+         * Назначает этой [View] роль Description, позиционирует по центру [File] между
          * контентом в начале (если есть Image или Icon) и контентом  в конце (Action),
          * если есть [LABEL], то будет следовать за ним, по вертикали.
          * Дополнительно применяет стили текста и цвета для элемента с этой ролью.
          */
         DESCRIPTION,
+    }
+
+    private fun clearRoleLink(view: View?) {
+        when (view) {
+            actionView -> actionView = null
+            imageView -> imageView = null
+            iconView -> iconView = null
+            progressView -> progressView = null
+            labelView -> labelView = null
+            descriptionView -> descriptionView = null
+            else -> {}
+        }
+    }
+
+    private fun setRoleLink(view: View?, fileParams: FileLayoutParams) {
+        when (fileParams.fileContent) {
+            FileContent.ACTION -> {
+                removeAction()
+                actionView = view
+            }
+
+            FileContent.IMAGE -> {
+                removeImage()
+                imageView = view
+            }
+
+            FileContent.ICON -> {
+                removeIcon()
+                iconView = view
+            }
+
+            FileContent.PROGRESS -> {
+                removeProgress()
+                progressView = view
+            }
+
+            FileContent.LABEL -> {
+                removeLabel()
+                labelView = view
+            }
+
+            FileContent.DESCRIPTION -> {
+                removeDescription()
+                descriptionView = view
+            }
+
+            null -> {}
+        }
+    }
+
+    private fun clearAllRoleLinks() {
+        actionView = null
+        imageView = null
+        iconView = null
+        progressView = null
+        labelView = null
+        descriptionView = null
     }
 
     private fun View.applyContentRole(fileParams: FileLayoutParams) {

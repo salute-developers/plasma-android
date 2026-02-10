@@ -374,6 +374,13 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to SddsServNavigationBarMainPageVariationsView,
+                    "NavigationBarInternalPage" to SddsServNavigationBarInternalPageVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.PaginationDots,
                 mapOf(
                     "PaginationDotsHorizontal" to SddsServPaginationDotsHorizontalVariationsView,
