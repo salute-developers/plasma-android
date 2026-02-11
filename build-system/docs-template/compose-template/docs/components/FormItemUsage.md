@@ -24,7 +24,7 @@ title: FormItem
 ### Создание стиля с помощью builder()
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/file/FormItem_Style.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/formitem/FormItem_Style.kt
 ```
 
 ## FormVertical
