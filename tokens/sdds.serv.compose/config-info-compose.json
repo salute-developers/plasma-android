@@ -11214,6 +11214,589 @@
                "composeReference": "FileLinearProgress.L.Negative"
             }
          ]
+      },
+      {
+         "key": "form-item",
+         "coreName": "FormItem",
+         "styleName": "FormItem",
+         "variations": [
+            {
+               "name": "xs.default",
+               "composeReference": "FormItem.Xs.Default"
+            },
+            {
+               "name": "xs.positive",
+               "composeReference": "FormItem.Xs.Positive"
+            },
+            {
+               "name": "xs.negative",
+               "composeReference": "FormItem.Xs.Negative"
+            },
+            {
+               "name": "xs.warning",
+               "composeReference": "FormItem.Xs.Warning"
+            },
+            {
+               "name": "xs.required-start.default",
+               "composeReference": "FormItem.Xs.RequiredStart.Default"
+            },
+            {
+               "name": "xs.required-start.positive",
+               "composeReference": "FormItem.Xs.RequiredStart.Positive"
+            },
+            {
+               "name": "xs.required-start.negative",
+               "composeReference": "FormItem.Xs.RequiredStart.Negative"
+            },
+            {
+               "name": "xs.required-start.warning",
+               "composeReference": "FormItem.Xs.RequiredStart.Warning"
+            },
+            {
+               "name": "xs.required-end.default",
+               "composeReference": "FormItem.Xs.RequiredEnd.Default"
+            },
+            {
+               "name": "xs.required-end.positive",
+               "composeReference": "FormItem.Xs.RequiredEnd.Positive"
+            },
+            {
+               "name": "xs.required-end.negative",
+               "composeReference": "FormItem.Xs.RequiredEnd.Negative"
+            },
+            {
+               "name": "xs.required-end.warning",
+               "composeReference": "FormItem.Xs.RequiredEnd.Warning"
+            },
+            {
+               "name": "xs.title-top.default",
+               "composeReference": "FormItem.Xs.TitleTop.Default"
+            },
+            {
+               "name": "xs.title-top.positive",
+               "composeReference": "FormItem.Xs.TitleTop.Positive"
+            },
+            {
+               "name": "xs.title-top.negative",
+               "composeReference": "FormItem.Xs.TitleTop.Negative"
+            },
+            {
+               "name": "xs.title-top.warning",
+               "composeReference": "FormItem.Xs.TitleTop.Warning"
+            },
+            {
+               "name": "xs.title-top.required-start.default",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredStart.Default"
+            },
+            {
+               "name": "xs.title-top.required-start.positive",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredStart.Positive"
+            },
+            {
+               "name": "xs.title-top.required-start.negative",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredStart.Negative"
+            },
+            {
+               "name": "xs.title-top.required-start.warning",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredStart.Warning"
+            },
+            {
+               "name": "xs.title-top.required-end.default",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredEnd.Default"
+            },
+            {
+               "name": "xs.title-top.required-end.positive",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredEnd.Positive"
+            },
+            {
+               "name": "xs.title-top.required-end.negative",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredEnd.Negative"
+            },
+            {
+               "name": "xs.title-top.required-end.warning",
+               "composeReference": "FormItem.Xs.TitleTop.RequiredEnd.Warning"
+            },
+            {
+               "name": "xs.title-start.default",
+               "composeReference": "FormItem.Xs.TitleStart.Default"
+            },
+            {
+               "name": "xs.title-start.positive",
+               "composeReference": "FormItem.Xs.TitleStart.Positive"
+            },
+            {
+               "name": "xs.title-start.negative",
+               "composeReference": "FormItem.Xs.TitleStart.Negative"
+            },
+            {
+               "name": "xs.title-start.warning",
+               "composeReference": "FormItem.Xs.TitleStart.Warning"
+            },
+            {
+               "name": "xs.title-start.required-start.default",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredStart.Default"
+            },
+            {
+               "name": "xs.title-start.required-start.positive",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredStart.Positive"
+            },
+            {
+               "name": "xs.title-start.required-start.negative",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredStart.Negative"
+            },
+            {
+               "name": "xs.title-start.required-start.warning",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredStart.Warning"
+            },
+            {
+               "name": "xs.title-start.required-end.default",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredEnd.Default"
+            },
+            {
+               "name": "xs.title-start.required-end.positive",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredEnd.Positive"
+            },
+            {
+               "name": "xs.title-start.required-end.negative",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredEnd.Negative"
+            },
+            {
+               "name": "xs.title-start.required-end.warning",
+               "composeReference": "FormItem.Xs.TitleStart.RequiredEnd.Warning"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "FormItem.S.Default"
+            },
+            {
+               "name": "s.positive",
+               "composeReference": "FormItem.S.Positive"
+            },
+            {
+               "name": "s.negative",
+               "composeReference": "FormItem.S.Negative"
+            },
+            {
+               "name": "s.warning",
+               "composeReference": "FormItem.S.Warning"
+            },
+            {
+               "name": "s.required-start.default",
+               "composeReference": "FormItem.S.RequiredStart.Default"
+            },
+            {
+               "name": "s.required-start.positive",
+               "composeReference": "FormItem.S.RequiredStart.Positive"
+            },
+            {
+               "name": "s.required-start.negative",
+               "composeReference": "FormItem.S.RequiredStart.Negative"
+            },
+            {
+               "name": "s.required-start.warning",
+               "composeReference": "FormItem.S.RequiredStart.Warning"
+            },
+            {
+               "name": "s.required-end.default",
+               "composeReference": "FormItem.S.RequiredEnd.Default"
+            },
+            {
+               "name": "s.required-end.positive",
+               "composeReference": "FormItem.S.RequiredEnd.Positive"
+            },
+            {
+               "name": "s.required-end.negative",
+               "composeReference": "FormItem.S.RequiredEnd.Negative"
+            },
+            {
+               "name": "s.required-end.warning",
+               "composeReference": "FormItem.S.RequiredEnd.Warning"
+            },
+            {
+               "name": "s.title-top.default",
+               "composeReference": "FormItem.S.TitleTop.Default"
+            },
+            {
+               "name": "s.title-top.positive",
+               "composeReference": "FormItem.S.TitleTop.Positive"
+            },
+            {
+               "name": "s.title-top.negative",
+               "composeReference": "FormItem.S.TitleTop.Negative"
+            },
+            {
+               "name": "s.title-top.warning",
+               "composeReference": "FormItem.S.TitleTop.Warning"
+            },
+            {
+               "name": "s.title-top.required-start.default",
+               "composeReference": "FormItem.S.TitleTop.RequiredStart.Default"
+            },
+            {
+               "name": "s.title-top.required-start.positive",
+               "composeReference": "FormItem.S.TitleTop.RequiredStart.Positive"
+            },
+            {
+               "name": "s.title-top.required-start.negative",
+               "composeReference": "FormItem.S.TitleTop.RequiredStart.Negative"
+            },
+            {
+               "name": "s.title-top.required-start.warning",
+               "composeReference": "FormItem.S.TitleTop.RequiredStart.Warning"
+            },
+            {
+               "name": "s.title-top.required-end.default",
+               "composeReference": "FormItem.S.TitleTop.RequiredEnd.Default"
+            },
+            {
+               "name": "s.title-top.required-end.positive",
+               "composeReference": "FormItem.S.TitleTop.RequiredEnd.Positive"
+            },
+            {
+               "name": "s.title-top.required-end.negative",
+               "composeReference": "FormItem.S.TitleTop.RequiredEnd.Negative"
+            },
+            {
+               "name": "s.title-top.required-end.warning",
+               "composeReference": "FormItem.S.TitleTop.RequiredEnd.Warning"
+            },
+            {
+               "name": "s.title-start.default",
+               "composeReference": "FormItem.S.TitleStart.Default"
+            },
+            {
+               "name": "s.title-start.positive",
+               "composeReference": "FormItem.S.TitleStart.Positive"
+            },
+            {
+               "name": "s.title-start.negative",
+               "composeReference": "FormItem.S.TitleStart.Negative"
+            },
+            {
+               "name": "s.title-start.warning",
+               "composeReference": "FormItem.S.TitleStart.Warning"
+            },
+            {
+               "name": "s.title-start.required-start.default",
+               "composeReference": "FormItem.S.TitleStart.RequiredStart.Default"
+            },
+            {
+               "name": "s.title-start.required-start.positive",
+               "composeReference": "FormItem.S.TitleStart.RequiredStart.Positive"
+            },
+            {
+               "name": "s.title-start.required-start.negative",
+               "composeReference": "FormItem.S.TitleStart.RequiredStart.Negative"
+            },
+            {
+               "name": "s.title-start.required-start.warning",
+               "composeReference": "FormItem.S.TitleStart.RequiredStart.Warning"
+            },
+            {
+               "name": "s.title-start.required-end.default",
+               "composeReference": "FormItem.S.TitleStart.RequiredEnd.Default"
+            },
+            {
+               "name": "s.title-start.required-end.positive",
+               "composeReference": "FormItem.S.TitleStart.RequiredEnd.Positive"
+            },
+            {
+               "name": "s.title-start.required-end.negative",
+               "composeReference": "FormItem.S.TitleStart.RequiredEnd.Negative"
+            },
+            {
+               "name": "s.title-start.required-end.warning",
+               "composeReference": "FormItem.S.TitleStart.RequiredEnd.Warning"
+            },
+            {
+               "name": "m.default",
+               "composeReference": "FormItem.M.Default"
+            },
+            {
+               "name": "m.positive",
+               "composeReference": "FormItem.M.Positive"
+            },
+            {
+               "name": "m.negative",
+               "composeReference": "FormItem.M.Negative"
+            },
+            {
+               "name": "m.warning",
+               "composeReference": "FormItem.M.Warning"
+            },
+            {
+               "name": "m.required-start.default",
+               "composeReference": "FormItem.M.RequiredStart.Default"
+            },
+            {
+               "name": "m.required-start.positive",
+               "composeReference": "FormItem.M.RequiredStart.Positive"
+            },
+            {
+               "name": "m.required-start.negative",
+               "composeReference": "FormItem.M.RequiredStart.Negative"
+            },
+            {
+               "name": "m.required-start.warning",
+               "composeReference": "FormItem.M.RequiredStart.Warning"
+            },
+            {
+               "name": "m.required-end.default",
+               "composeReference": "FormItem.M.RequiredEnd.Default"
+            },
+            {
+               "name": "m.required-end.positive",
+               "composeReference": "FormItem.M.RequiredEnd.Positive"
+            },
+            {
+               "name": "m.required-end.negative",
+               "composeReference": "FormItem.M.RequiredEnd.Negative"
+            },
+            {
+               "name": "m.required-end.warning",
+               "composeReference": "FormItem.M.RequiredEnd.Warning"
+            },
+            {
+               "name": "m.title-top.default",
+               "composeReference": "FormItem.M.TitleTop.Default"
+            },
+            {
+               "name": "m.title-top.positive",
+               "composeReference": "FormItem.M.TitleTop.Positive"
+            },
+            {
+               "name": "m.title-top.negative",
+               "composeReference": "FormItem.M.TitleTop.Negative"
+            },
+            {
+               "name": "m.title-top.warning",
+               "composeReference": "FormItem.M.TitleTop.Warning"
+            },
+            {
+               "name": "m.title-top.required-start.default",
+               "composeReference": "FormItem.M.TitleTop.RequiredStart.Default"
+            },
+            {
+               "name": "m.title-top.required-start.positive",
+               "composeReference": "FormItem.M.TitleTop.RequiredStart.Positive"
+            },
+            {
+               "name": "m.title-top.required-start.negative",
+               "composeReference": "FormItem.M.TitleTop.RequiredStart.Negative"
+            },
+            {
+               "name": "m.title-top.required-start.warning",
+               "composeReference": "FormItem.M.TitleTop.RequiredStart.Warning"
+            },
+            {
+               "name": "m.title-top.required-end.default",
+               "composeReference": "FormItem.M.TitleTop.RequiredEnd.Default"
+            },
+            {
+               "name": "m.title-top.required-end.positive",
+               "composeReference": "FormItem.M.TitleTop.RequiredEnd.Positive"
+            },
+            {
+               "name": "m.title-top.required-end.negative",
+               "composeReference": "FormItem.M.TitleTop.RequiredEnd.Negative"
+            },
+            {
+               "name": "m.title-top.required-end.warning",
+               "composeReference": "FormItem.M.TitleTop.RequiredEnd.Warning"
+            },
+            {
+               "name": "m.title-start.default",
+               "composeReference": "FormItem.M.TitleStart.Default"
+            },
+            {
+               "name": "m.title-start.positive",
+               "composeReference": "FormItem.M.TitleStart.Positive"
+            },
+            {
+               "name": "m.title-start.negative",
+               "composeReference": "FormItem.M.TitleStart.Negative"
+            },
+            {
+               "name": "m.title-start.warning",
+               "composeReference": "FormItem.M.TitleStart.Warning"
+            },
+            {
+               "name": "m.title-start.required-start.default",
+               "composeReference": "FormItem.M.TitleStart.RequiredStart.Default"
+            },
+            {
+               "name": "m.title-start.required-start.positive",
+               "composeReference": "FormItem.M.TitleStart.RequiredStart.Positive"
+            },
+            {
+               "name": "m.title-start.required-start.negative",
+               "composeReference": "FormItem.M.TitleStart.RequiredStart.Negative"
+            },
+            {
+               "name": "m.title-start.required-start.warning",
+               "composeReference": "FormItem.M.TitleStart.RequiredStart.Warning"
+            },
+            {
+               "name": "m.title-start.required-end.default",
+               "composeReference": "FormItem.M.TitleStart.RequiredEnd.Default"
+            },
+            {
+               "name": "m.title-start.required-end.positive",
+               "composeReference": "FormItem.M.TitleStart.RequiredEnd.Positive"
+            },
+            {
+               "name": "m.title-start.required-end.negative",
+               "composeReference": "FormItem.M.TitleStart.RequiredEnd.Negative"
+            },
+            {
+               "name": "m.title-start.required-end.warning",
+               "composeReference": "FormItem.M.TitleStart.RequiredEnd.Warning"
+            },
+            {
+               "name": "l.default",
+               "composeReference": "FormItem.L.Default"
+            },
+            {
+               "name": "l.positive",
+               "composeReference": "FormItem.L.Positive"
+            },
+            {
+               "name": "l.negative",
+               "composeReference": "FormItem.L.Negative"
+            },
+            {
+               "name": "l.warning",
+               "composeReference": "FormItem.L.Warning"
+            },
+            {
+               "name": "l.required-start.default",
+               "composeReference": "FormItem.L.RequiredStart.Default"
+            },
+            {
+               "name": "l.required-start.positive",
+               "composeReference": "FormItem.L.RequiredStart.Positive"
+            },
+            {
+               "name": "l.required-start.negative",
+               "composeReference": "FormItem.L.RequiredStart.Negative"
+            },
+            {
+               "name": "l.required-start.warning",
+               "composeReference": "FormItem.L.RequiredStart.Warning"
+            },
+            {
+               "name": "l.required-end.default",
+               "composeReference": "FormItem.L.RequiredEnd.Default"
+            },
+            {
+               "name": "l.required-end.positive",
+               "composeReference": "FormItem.L.RequiredEnd.Positive"
+            },
+            {
+               "name": "l.required-end.negative",
+               "composeReference": "FormItem.L.RequiredEnd.Negative"
+            },
+            {
+               "name": "l.required-end.warning",
+               "composeReference": "FormItem.L.RequiredEnd.Warning"
+            },
+            {
+               "name": "l.title-top.default",
+               "composeReference": "FormItem.L.TitleTop.Default"
+            },
+            {
+               "name": "l.title-top.positive",
+               "composeReference": "FormItem.L.TitleTop.Positive"
+            },
+            {
+               "name": "l.title-top.negative",
+               "composeReference": "FormItem.L.TitleTop.Negative"
+            },
+            {
+               "name": "l.title-top.warning",
+               "composeReference": "FormItem.L.TitleTop.Warning"
+            },
+            {
+               "name": "l.title-top.required-start.default",
+               "composeReference": "FormItem.L.TitleTop.RequiredStart.Default"
+            },
+            {
+               "name": "l.title-top.required-start.positive",
+               "composeReference": "FormItem.L.TitleTop.RequiredStart.Positive"
+            },
+            {
+               "name": "l.title-top.required-start.negative",
+               "composeReference": "FormItem.L.TitleTop.RequiredStart.Negative"
+            },
+            {
+               "name": "l.title-top.required-start.warning",
+               "composeReference": "FormItem.L.TitleTop.RequiredStart.Warning"
+            },
+            {
+               "name": "l.title-top.required-end.default",
+               "composeReference": "FormItem.L.TitleTop.RequiredEnd.Default"
+            },
+            {
+               "name": "l.title-top.required-end.positive",
+               "composeReference": "FormItem.L.TitleTop.RequiredEnd.Positive"
+            },
+            {
+               "name": "l.title-top.required-end.negative",
+               "composeReference": "FormItem.L.TitleTop.RequiredEnd.Negative"
+            },
+            {
+               "name": "l.title-top.required-end.warning",
+               "composeReference": "FormItem.L.TitleTop.RequiredEnd.Warning"
+            },
+            {
+               "name": "l.title-start.default",
+               "composeReference": "FormItem.L.TitleStart.Default"
+            },
+            {
+               "name": "l.title-start.positive",
+               "composeReference": "FormItem.L.TitleStart.Positive"
+            },
+            {
+               "name": "l.title-start.negative",
+               "composeReference": "FormItem.L.TitleStart.Negative"
+            },
+            {
+               "name": "l.title-start.warning",
+               "composeReference": "FormItem.L.TitleStart.Warning"
+            },
+            {
+               "name": "l.title-start.required-start.default",
+               "composeReference": "FormItem.L.TitleStart.RequiredStart.Default"
+            },
+            {
+               "name": "l.title-start.required-start.positive",
+               "composeReference": "FormItem.L.TitleStart.RequiredStart.Positive"
+            },
+            {
+               "name": "l.title-start.required-start.negative",
+               "composeReference": "FormItem.L.TitleStart.RequiredStart.Negative"
+            },
+            {
+               "name": "l.title-start.required-start.warning",
+               "composeReference": "FormItem.L.TitleStart.RequiredStart.Warning"
+            },
+            {
+               "name": "l.title-start.required-end.default",
+               "composeReference": "FormItem.L.TitleStart.RequiredEnd.Default"
+            },
+            {
+               "name": "l.title-start.required-end.positive",
+               "composeReference": "FormItem.L.TitleStart.RequiredEnd.Positive"
+            },
+            {
+               "name": "l.title-start.required-end.negative",
+               "composeReference": "FormItem.L.TitleStart.RequiredEnd.Negative"
+            },
+            {
+               "name": "l.title-start.required-end.warning",
+               "composeReference": "FormItem.L.TitleStart.RequiredEnd.Warning"
+            }
+         ]
       }
    ]
 }

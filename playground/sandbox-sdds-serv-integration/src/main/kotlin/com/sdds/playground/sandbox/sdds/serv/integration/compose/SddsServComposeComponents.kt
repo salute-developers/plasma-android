@@ -429,5 +429,11 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                     "FileLinearProgress" to SddsServFileLinearProgressVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.FormItem,
+                mapOf(
+                    "FormItem" to SddsServFormItemVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }
