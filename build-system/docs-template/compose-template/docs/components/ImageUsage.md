@@ -10,6 +10,8 @@ title: Image
 // @sample: com/sdds/compose/uikit/fixtures/samples/image/Image_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.image.Image_Simple -->
+
 ## Стиль Image
 
 Стиль Image можно настроить с помощью ImageStyle.builder(). Так же существует набор сгенерированных стилей.

@@ -2,6 +2,7 @@
 plugins {
     id("convention.documentation-compose")
     id("convention.testing-compose")
+    alias(libs.plugins.roborazzi)
 }
 
 android {

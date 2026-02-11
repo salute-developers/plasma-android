@@ -16,6 +16,8 @@ Overlay можно использовать, например, для:
 // @sample: com/sdds/compose/uikit/fixtures/samples/overlay/Overlay_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.overlay.Overlay_Simple -->
+
 ## Параметр `alpha`
 
 Параметр `alpha` в `Overlay` задаётся как лямбда `() -> Float`, а не как простое значение. Это позволяет:

@@ -6,6 +6,8 @@ title: TextField
 // @sample: com/sdds/compose/uikit/fixtures/samples/textfield/TextField_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.textfield.TextField_Simple -->
+
 ## Стиль TextField
 
 Стиль TextField можно настроить с помощью TextFieldStyle.builder(). Так же существует набор сгенерированных стилей.

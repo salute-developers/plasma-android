@@ -11,10 +11,14 @@ title: RectSkeleton
 // @sample: com/sdds/compose/uikit/fixtures/samples/rectskeleton/RectSkeleton_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.rectskeleton.RectSkeleton_Simple -->
+
 ### Пример использования с кастомизацией параметров
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/rectskeleton/RectSkeleton_Custom.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.rectskeleton.RectSkeleton_Custom -->
 
 > Параметр `brush` влияет на тип анимации. Если в brush установлен градиент, то скелетон будет выглядеть как перемещающийся в пространстве градиент.
 > Если в brush передан SolidColor(), будет анимация мерцания - изменение альфы исходного цвета.

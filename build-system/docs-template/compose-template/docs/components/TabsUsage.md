@@ -10,6 +10,8 @@ title: Tabs
 // @sample: com/sdds/compose/uikit/fixtures/samples/tabs/Tabs_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.tabs.Tabs_Simple -->
+
 ## TabsClip
 
 Способ расположения табов. Возможные значения: 

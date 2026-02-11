@@ -25,7 +25,7 @@ import com.sdds.docs.DocSample
 @DocSample(needScreenshot = true)
 fun Tooltip_Simple() {
     composableCodeSnippet {
-        val showTooltip = remember { mutableStateOf(false) }
+        val showTooltip = remember { mutableStateOf(placeholder(true, "false")) }
         val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
         Button(
             modifier = Modifier

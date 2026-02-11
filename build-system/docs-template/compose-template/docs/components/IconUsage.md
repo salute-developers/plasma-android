@@ -9,6 +9,8 @@ title: Icon
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.Icon_Simple -->
+
 ## Варианты использования
 
 `Icon` поддерживает несколько типов входных данных:  
@@ -27,6 +29,8 @@ title: Icon
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Image.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.Icon_Image -->
+
 ### ImageBitmap
 
 Используется для отображения растровых изображений (например, аватаров):  
@@ -44,12 +48,16 @@ title: Icon
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconTint_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.Icon_Simple -->
+
 Так же цвет окрашивания можно задать по умолчанию, глобально, через CompositionLocal. Для этого существует  
 специальный CompositionLocal - `LocalTint`.  
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconCompositionLocal_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.IconCompositionLocal_Simple -->
 
 ## Настройка размера
 
@@ -62,6 +70,8 @@ title: Icon
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconCompositionLocalSize_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.IconCompositionLocalSize_Simple -->
 
 ## Semantics
 

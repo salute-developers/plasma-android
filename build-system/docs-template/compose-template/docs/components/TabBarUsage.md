@@ -13,6 +13,8 @@ TabBarItem в качестве extra ожидает [Counter](CounterUsage.md), 
 // @sample: com/sdds/compose/uikit/fixtures/samples/tabbar/TabBar_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.tabbar.TabBar_Simple -->
+
 ## Стиль TabBar
 
 Для TabBar существует набор сгенерированных стилей. Также стиль можно настроить с помощью TabBarStyle.builder().

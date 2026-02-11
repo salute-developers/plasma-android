@@ -63,7 +63,7 @@ fun Tabs_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Tabs_Style() {
     composableCodeSnippet {
         TabsStyle.builder()

@@ -9,6 +9,8 @@ title: List
 // @sample: com/sdds/compose/uikit/fixtures/samples/list/List_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.list.List_Simple -->
+
 ## Стиль List
 
 Для List существует набор сгенерированных стилей. Также стиль можно настроить с помощью ListStyle.builder().

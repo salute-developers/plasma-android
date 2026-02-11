@@ -9,6 +9,8 @@ title: Popover
 // @sample: com/sdds/compose/uikit/fixtures/samples/popover/Popover_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.popover.Popover_Simple -->
+
 ## Стиль Popover
 
 Для Popover существует набор сгенерированных стилей. Также стиль можно настроить с помощью PopoverStyle.builder().
