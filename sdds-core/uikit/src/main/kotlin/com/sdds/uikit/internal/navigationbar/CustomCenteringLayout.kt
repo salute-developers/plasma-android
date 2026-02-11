@@ -2,15 +2,14 @@ package com.sdds.uikit.internal.navigationbar
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.LinearLayout.HORIZONTAL
-import androidx.core.content.withStyledAttributes
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import com.sdds.uikit.R
 
 internal class CustomCenteringLayout @JvmOverloads constructor(
     context: Context,
@@ -32,8 +31,9 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
     }
     private val centerContent = LinearLayout(context).apply {
         orientation = HORIZONTAL
+        gravity = Gravity.CENTER_HORIZONTAL
         layoutParams = MarginLayoutParams(
-            LayoutParams.WRAP_CONTENT,
+            LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
     }
@@ -91,7 +91,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
         measureActions(actionStart)
         measureActions(actionEnd)
         val maxActionWidth = maxOf(actionStart.measuredWidth, actionEnd.measuredWidth)
-        if (centering == CenteringStrategy.RELATIVE) widthUsed = 2 * maxActionWidth
+        if (centering == CenteringStrategy.ABSOLUTE) widthUsed = 2 * maxActionWidth
         measureChildWithMargins(
             centerContent,
             widthMeasureSpec,
@@ -119,7 +119,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
         val contentW = centerContent.measuredWidth
         val contentH = centerContent.measuredHeight
 
-        fun viewTop(viewHeight: Int) = (centerY - viewHeight) / 2
+        fun viewTop(viewHeight: Int) = centerY - viewHeight / 2
         var left = paddingStart
 
         if (centering == CenteringStrategy.RELATIVE) {
@@ -140,7 +140,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
             left = (r - l) - paddingEnd - actionEndW
             if (actionEnd.isVisible) actionEnd.layout(left, top, left + actionEndW, top + actionEndH)
             top = viewTop(contentH)
-            left = (r - l) / 2 - contentW
+            left = (r - l) / 2 - contentW / 2
             centerContent.layout(left, top, left + contentW, top + contentH)
         }
     }

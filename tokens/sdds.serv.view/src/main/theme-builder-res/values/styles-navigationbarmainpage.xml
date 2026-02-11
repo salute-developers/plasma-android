@@ -3,10 +3,10 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.NavigationBarMainPage" parent="Sdds.Components.NavigationBar">
-        <item name="android:paddingStart">@dimen/serv_navigation_bar_main_page_start_padding</item>
-        <item name="android:paddingEnd">@dimen/serv_navigation_bar_main_page_end_padding</item>
-        <item name="android:paddingTop">@dimen/serv_navigation_bar_main_page_top_padding</item>
-        <item name="android:paddingBottom">@dimen/serv_navigation_bar_main_page_bottom_padding</item>
+        <item name="sd_contentPaddingStart">@dimen/serv_navigation_bar_main_page_content_padding_start</item>
+        <item name="sd_contentPaddingEnd">@dimen/serv_navigation_bar_main_page_content_padding_end</item>
+        <item name="sd_contentPaddingTop">@dimen/serv_navigation_bar_main_page_content_padding_top</item>
+        <item name="sd_contentPaddingBottom">@dimen/serv_navigation_bar_main_page_content_padding_bottom</item>
         <item name="sd_descriptionMargin">@xml/serv_navigation_bar_main_page_description_margin</item>
         <item name="sd_textBlockTopMargin">@dimen/serv_navigation_bar_main_page_text_block_top_margin</item>
         <item name="sd_horizontalSpacing">@dimen/serv_navigation_bar_main_page_horizontal_spacing</item>

@@ -1,6 +1,11 @@
 package com.sdds.playground.sandbox.navigationbar.vs
 
 import android.view.ContextThemeWrapper
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.FrameLayout
+import android.widget.FrameLayout.LayoutParams
+import androidx.core.view.setMargins
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.testing.vs.navigationbar.NavigationBarUiState
@@ -19,6 +24,9 @@ internal class NavigationBarFragment : ComponentFragment<NavigationBarUiState, N
             componentKey = componentKey,
         )
     }
+
+    override val defaultLayoutParams: FrameLayout.LayoutParams
+        get() = LayoutParams(MATCH_PARENT, WRAP_CONTENT).apply { setMargins(50) }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): NavigationBar {
         return navigationBar(contextWrapper)

@@ -3,7 +3,7 @@ package com.sdds.testing.vs.navigationbar
 import android.content.Context
 import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
-import com.sdds.uikit.IconButton
+import com.sdds.uikit.ImageView
 import com.sdds.uikit.NavigationBar
 import com.sdds.uikit.TextView
 
@@ -26,21 +26,23 @@ fun NavigationBar.applyState(state: NavigationBarUiState) = apply {
     setDescription(description(context, state.description))
     setContent(contentText(context, state.contentText))
     if (state.hasActionStart) {
-        setActionStart(IconButton(context).apply {
-            setIconResource(com.sdds.icons.R.drawable.ic_search_24)
+        setActionStart(ImageView(context).apply {
+            setImageResource(com.sdds.icons.R.drawable.ic_search_24)
         }
         )
     } else {
         removeActionStart()
     }
     if (state.hasActionEnd) {
-        setActionStart(IconButton(context).apply {
-            setIconResource(com.sdds.icons.R.drawable.ic_menu_24)
+        setActionEnd(ImageView(context).apply {
+            setImageResource(com.sdds.icons.R.drawable.ic_menu_24)
         }
         )
     } else {
-        removeActionStart()
+        removeActionEnd()
     }
+    textPlacement = state.textPlacement.toNavBarTextPlacement()
+    contentPlacement = state.contentPlacement.toNavBarContentPlacement()
 }
 
 private fun title(context: Context, title: String) =

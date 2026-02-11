@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
+import android.util.Log
 import android.view.ContextThemeWrapper
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.withStyledAttributes
@@ -39,6 +41,8 @@ open class NavigationBar @JvmOverloads constructor(
     defStyleRes
 ), ColorStateHolder {
 
+    private var actionStartColor: ColorStateList? = null
+    private var actionEndColor: ColorStateList? = null
     private var titleAppearance: StyleStateList? = null
     private var titleColor: ColorStateList? = null
     private var descriptionAppearance: StyleStateList? = null
@@ -72,6 +76,10 @@ open class NavigationBar @JvmOverloads constructor(
 
     private val textBlock: android.widget.LinearLayout = android.widget.LinearLayout(context).apply {
         orientation = VERTICAL
+        layoutParams = LayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT
+        )
     }
 
     /**
@@ -113,9 +121,9 @@ open class NavigationBar @JvmOverloads constructor(
     init {
         orientation = VERTICAL
         obtainAttributes(attrs, defStyleAttr, defStyleRes)
-        super<LinearLayout>.addView(actionsBlock)
+        addView(actionsBlock)
+        addView(textBlock)
         applyPaddingsToActionsBlock()
-        applyPaddingsToTextBlock()
         changeTextPlacementGlobally()
     }
 
@@ -291,6 +299,10 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
+        if (checkViewToInternalAdd(child)) {
+            super.addView(child, index, params)
+            return
+        }
         val params = params as? NavigationBarLayoutParams ?: return
         setRoleLink(child, params)
         child?.applyContentRole(params)
@@ -301,11 +313,11 @@ open class NavigationBar @JvmOverloads constructor(
                 if (contentPlacement == CONTENT_PLACEMENT_INNER) {
                     actionsBlock.addCenterContent(contentView)
                 } else {
-                    super.addView(contentView)
+                    super.addView(child, index, params)
                 }
             }
 
-            NavigationBarContent.TITLE -> placeTitleInternal()
+            NavigationBarContent.TITLE -> placeTextInternal()
             NavigationBarContent.DESCRIPTION -> {
                 textBlock.addView(child)
                 resolveDescriptionMargin()
@@ -384,6 +396,9 @@ open class NavigationBar @JvmOverloads constructor(
             descriptionColor = getColorStateList(R.styleable.NavigationBar_sd_descriptionColor)
             backIconTint = getColorStateList(R.styleable.NavigationBar_sd_backIconTint)
 
+            actionStartColor = getColorStateList(R.styleable.NavigationBar_sd_actionStartColor)
+            actionEndColor = getColorStateList(R.styleable.NavigationBar_sd_actionEndColor)
+
             _textBlockTopMargin = getDimensionPixelSize(R.styleable.NavigationBar_sd_textBlockTopMargin, 0)
             _horizontalSpacing = getDimensionPixelSize(R.styleable.NavigationBar_sd_horizontalSpacing, 0)
             _backIconMargin = getDimensionPixelSize(R.styleable.NavigationBar_sd_backIconMargin, 0)
@@ -451,11 +466,27 @@ open class NavigationBar @JvmOverloads constructor(
                 navigationBarParams.topMargin = _descriptionMargin?.getIntForState(drawableState) ?: 0
             }
 
-            NavigationBarContent.ACTION_START ->
+            NavigationBarContent.ACTION_START -> {
+                if (group) {
+                    (this as ViewGroup).children.forEach {
+                        (it as? ImageView)?.applyTint(actionStartColor)
+                    }
+                } else {
+                    (this as? ImageView)?.applyTint(actionStartColor)
+                }
                 actionStartView?.setPaddingRelative(0, 0, _horizontalSpacing, 0)
+            }
 
-            NavigationBarContent.ACTION_END ->
-                actionStartView?.setPaddingRelative(_horizontalSpacing, 0, 0, 0)
+            NavigationBarContent.ACTION_END -> {
+                if (group) {
+                    (this as ViewGroup).children.forEach {
+                        (it as? ImageView)?.applyTint(actionEndColor)
+                    }
+                } else {
+                    (this as? ImageView)?.applyTint(actionEndColor)
+                }
+                actionEndView?.setPaddingRelative(_horizontalSpacing, 0, 0, 0)
+            }
 
             else -> {}
         }
@@ -474,6 +505,10 @@ open class NavigationBar @JvmOverloads constructor(
         colorState = this@NavigationBar.colorState
         descriptionColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, descriptionColor)
+    }
+
+    private fun ImageView.applyTint(tint: ColorStateList?) {
+        if (imageTintList == null) imageTintList = tint
     }
 
     private fun resolveDescriptionMargin() {
@@ -497,19 +532,20 @@ open class NavigationBar @JvmOverloads constructor(
         }
     }
 
-    private fun placeTitleInternal() {
+    private fun placeTextInternal() {
         if (descriptionView != null) {
             textBlock.removeView(descriptionView)
             textBlock.addView(titleView)
             textBlock.addView(descriptionView)
-            resolveDescriptionMargin()
         } else {
             textBlock.addView(titleView)
         }
+        resolveDescriptionMargin()
     }
 
     private fun applyPaddingsToActionsBlock() {
         if (textPlacement == TEXT_PLACEMENT_INNER) {
+            Log.d("applyPaddings","textPlacement == TEXT_PLACEMENT_INNER")
             actionsBlock.setPaddingRelative(
                 contentPaddingStart,
                 contentPaddingTop,
@@ -517,6 +553,7 @@ open class NavigationBar @JvmOverloads constructor(
                 contentPaddingBottom,
             )
         } else {
+            Log.d("applyPaddings","textPlacement == TEXT_PLACEMENT_BOTTOM")
             actionsBlock.setPaddingRelative(
                 contentPaddingStart,
                 contentPaddingTop,
@@ -548,10 +585,10 @@ open class NavigationBar @JvmOverloads constructor(
         if (textPlacement == TEXT_PLACEMENT_BOTTOM) {
             if (contentView != null && contentPlacement == CONTENT_PLACEMENT_BOTTOM) {
                 removeView(contentView)
-                super<LinearLayout>.addView(textBlock)
-                super<LinearLayout>.addView(contentView)
+                addView(textBlock)
+                addView(contentView)
             } else {
-                super<LinearLayout>.addView(textBlock)
+                addView(textBlock)
             }
         } else {
             if (contentView != null && contentPlacement == CONTENT_PLACEMENT_INNER) {
@@ -570,8 +607,11 @@ open class NavigationBar @JvmOverloads constructor(
         if (contentPlacement == CONTENT_PLACEMENT_INNER) {
             actionsBlock.addCenterContent(contentView)
         } else {
-            super<LinearLayout>.addView(contentView)
+            addView(contentView)
         }
+        val lp = contentView?.layoutParams
+        (lp as? LayoutParams)?.gravity = Gravity.CENTER
+        contentView?.layoutParams = lp
     }
 
     private fun universalAddView(
@@ -589,6 +629,12 @@ open class NavigationBar @JvmOverloads constructor(
                 role,
             ),
         )
+    }
+
+    private fun checkViewToInternalAdd(view: View?): Boolean {
+        return view == actionsBlock ||
+                view == textBlock ||
+                view == contentView && contentPlacement == CONTENT_PLACEMENT_BOTTOM
     }
 
     companion object {

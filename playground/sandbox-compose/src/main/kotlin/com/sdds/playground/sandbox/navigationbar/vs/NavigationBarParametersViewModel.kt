@@ -5,7 +5,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.navigationbar.ContentPlacement
 import com.sdds.testing.vs.navigationbar.NavigationBarUiState
+import com.sdds.testing.vs.navigationbar.TextPlacement
 
 /**
  * ViewModel для экранов с компонентом NavigationBar
@@ -23,6 +26,8 @@ internal class NavigationBarParametersViewModel(
             NavigationBarPropertyName.Description -> updateDescription(value?.toString().orEmpty())
             NavigationBarPropertyName.HasActionStart -> updateHasActionStart((value as? Boolean) == true)
             NavigationBarPropertyName.HasActionEnd -> updateHasActionEnd((value as? Boolean) == true)
+            NavigationBarPropertyName.TextPlacement -> updateTextPlacement(TextPlacement.valueOf(value.toString()))
+            NavigationBarPropertyName.ContentPlacement -> updateContentPlacement(ContentPlacement.valueOf(value.toString()))
             else -> Unit
         }
     }
@@ -41,6 +46,13 @@ internal class NavigationBarParametersViewModel(
 
     private fun updateHasActionEnd(hasActionEnd: Boolean) {
         internalUiState.value = internalUiState.value.copy(hasActionEnd = hasActionEnd)
+    }
+
+    private fun updateTextPlacement(textPlacement: TextPlacement) {
+        internalUiState.value = internalUiState.value.copy(textPlacement = textPlacement)
+    }
+    private fun updateContentPlacement(contentPlacement: ContentPlacement) {
+        internalUiState.value = internalUiState.value.copy(contentPlacement = contentPlacement)
     }
 
     override fun NavigationBarUiState.toProps(): List<Property<*>> {
@@ -64,6 +76,14 @@ internal class NavigationBarParametersViewModel(
                 name = NavigationBarPropertyName.HasActionEnd.value,
                 value = hasActionEnd,
             ),
+            enumProperty(
+                name = NavigationBarPropertyName.TextPlacement.value,
+                value = textPlacement
+            ),
+            enumProperty(
+                name = NavigationBarPropertyName.ContentPlacement.value,
+                value = contentPlacement
+            )
         )
     }
 
@@ -72,6 +92,8 @@ internal class NavigationBarParametersViewModel(
         Description("description"),
         HasActionStart("hasActionStart"),
         HasActionEnd("hasActionEnd"),
+        TextPlacement("textPlacement"),
+        ContentPlacement("contentPlacement"),
     }
 }
 
