@@ -265,5 +265,11 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                     "TextSkeletonText" to PlasmaHomedsTextSkeletonTextVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.FormItem,
+                mapOf(
+                    "FormItem" to PlasmaHomedsFormItemVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

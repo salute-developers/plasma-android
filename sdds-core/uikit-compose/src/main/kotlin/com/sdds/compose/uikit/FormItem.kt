@@ -109,7 +109,6 @@ fun FormHorizontal(
  * @param titleCaption контент дополнительного заголовока
  * @param caption контент надписи
  * @param counter контент счетчика
- * @param bottomTextAlignment режим выравнивания нижнего текста ([caption] и [counter]) [FormBottomTextAlignment]
  * @param hasHint включает кнопку подсказки
  * @param onHintPressed обработчик нажатий на кнопку подсказки
  * @param hintTriggerInfo информация о расположении кнопки подсказки
@@ -126,7 +125,6 @@ fun FormItem(
     caption: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
     content: @Composable () -> Unit,
-    bottomTextAlignment: FormBottomTextAlignment = style.bottomTextAlignment,
     hasHint: Boolean = false,
     onHintPressed: (() -> Unit)? = null,
     hintTriggerInfo: MutableState<TriggerInfo> = remember { mutableStateOf(TriggerInfo()) },
@@ -152,7 +150,8 @@ fun FormItem(
         caption = caption,
         counter = counter,
         content = content,
-        bottomTextAlignment = bottomTextAlignment,
+        topTextAlignment = style.topTextAlignment,
+        bottomTextAlignment = style.bottomTextAlignment,
     )
 }
 
@@ -177,9 +176,9 @@ enum class FormTitlePlacement {
 }
 
 /**
- * Режим выранивания нижнего текста формы [FormItem] (caption / counter)
+ * Режим выранивания вспомогательного текста текста формы [FormItem] (title / titleCaption / caption / counter)
  */
-enum class FormBottomTextAlignment {
+enum class FormTextAlignment {
     /**
      * Caption и Counter центрированы по горизонтали относительно формы,
      * расположены друг под другом
@@ -430,7 +429,8 @@ private fun FormItemLayout(
     caption: (@Composable () -> Unit)?,
     counter: (@Composable () -> Unit)?,
     content: @Composable () -> Unit,
-    bottomTextAlignment: FormBottomTextAlignment,
+    topTextAlignment: FormTextAlignment,
+    bottomTextAlignment: FormTextAlignment,
 ) {
     Layout(
         modifier = modifier,
@@ -443,8 +443,8 @@ private fun FormItemLayout(
             LayoutItem(counter, COUNTER_ID)
             LayoutItem(content, CONTENT_ID)
         },
-        measurePolicy = remember(bottomTextAlignment) {
-            FormItemMeasurePolicy(bottomTextAlignment)
+        measurePolicy = remember(topTextAlignment, bottomTextAlignment) {
+            FormItemMeasurePolicy(topTextAlignment, bottomTextAlignment)
         },
     )
 }
@@ -461,7 +461,8 @@ private fun LayoutItem(content: (@Composable () -> Unit)?, id: String) {
 }
 
 private class FormItemMeasurePolicy(
-    private val bottomTextAlignment: FormBottomTextAlignment,
+    private val topTextAlignment: FormTextAlignment,
+    private val bottomTextAlignment: FormTextAlignment,
 ) : MeasurePolicy {
 
     override fun MeasureScope.measure(
@@ -484,7 +485,7 @@ private class FormItemMeasurePolicy(
         val captionPlaceable = measureItem(CAPTION_ID)
         val counterPlaceable = measureItem(COUNTER_ID)
 
-        val topContentWidth = titleCaptionPlaceable.widthOrZero() + topTitlePlaceable.widthOrZero()
+        val topContentWidth = calculateTopContentWidth(topTitlePlaceable, titleCaptionPlaceable)
         val bottomContentWidth = calculateBottomContentWidth(captionPlaceable, counterPlaceable)
         val centerBlockWidth = maxOf(topContentWidth, contentPlaceable.widthOrZero(), bottomContentWidth)
         val desiredWidth = calculateDesiredWidth(
@@ -493,7 +494,7 @@ private class FormItemMeasurePolicy(
             centerBlockWidth = centerBlockWidth,
         )
 
-        val topContentHeight = maxOf(titleCaptionPlaceable.heightOrZero(), topTitlePlaceable.heightOrZero())
+        val topContentHeight = calculateTopContentHeight(topTitlePlaceable, titleCaptionPlaceable)
         val bottomContentHeight = calculateBottomContentHeight(captionPlaceable, counterPlaceable)
         val desiredHeight = maxOf(
             contentPlaceable.heightOrZero() + topContentHeight + bottomContentHeight,
@@ -506,13 +507,13 @@ private class FormItemMeasurePolicy(
 
         return layout(constrainedWidth, constrainedHeight) {
             startTitlePlaceable?.placeRelative(0, topContentHeight)
-            topTitlePlaceable?.placeRelative(
-                startTitlePlaceable.widthOrZero(),
-                topContentHeight - topTitlePlaceable.heightOrZero(),
-            )
-            titleCaptionPlaceable?.placeRelative(
-                constrainedWidth - titleCaptionPlaceable.widthOrZero() - endTitlePlaceable.widthOrZero(),
-                topContentHeight - titleCaptionPlaceable.heightOrZero(),
+            placeTopText(
+                topTitlePlaceable = topTitlePlaceable,
+                titleCaptionPlaceable = titleCaptionPlaceable,
+                startTitlePlaceable = startTitlePlaceable,
+                endTitlePlaceable = endTitlePlaceable,
+                constrainedWidth = constrainedWidth,
+                topContentHeight = topContentHeight,
             )
             contentPlaceable?.placeRelative(startTitlePlaceable.widthOrZero(), topContentHeight)
             endTitlePlaceable?.placeRelative(
@@ -521,10 +522,10 @@ private class FormItemMeasurePolicy(
             )
             placeBottomText(
                 captionPlaceable = captionPlaceable,
+                counterPlaceable = counterPlaceable,
                 startTitlePlaceable = startTitlePlaceable,
                 endTitlePlaceable = endTitlePlaceable,
                 contentPlaceable = contentPlaceable,
-                counterPlaceable = counterPlaceable,
                 constrainedWidth = constrainedWidth,
                 topContentHeight = topContentHeight,
             )
@@ -533,15 +534,15 @@ private class FormItemMeasurePolicy(
 
     private fun Placeable.PlacementScope.placeBottomText(
         captionPlaceable: Placeable?,
+        counterPlaceable: Placeable?,
         startTitlePlaceable: Placeable?,
         endTitlePlaceable: Placeable?,
         contentPlaceable: Placeable?,
-        counterPlaceable: Placeable?,
         constrainedWidth: Int,
         topContentHeight: Int,
     ) {
         when (bottomTextAlignment) {
-            FormBottomTextAlignment.Center -> {
+            FormTextAlignment.Center -> {
                 captionPlaceable?.placeRelative(
                     (
                         startTitlePlaceable.widthOrZero() + constrainedWidth -
@@ -558,7 +559,7 @@ private class FormItemMeasurePolicy(
                 )
             }
 
-            FormBottomTextAlignment.Edge -> {
+            FormTextAlignment.Edge -> {
                 captionPlaceable?.placeRelative(
                     startTitlePlaceable.widthOrZero(),
                     topContentHeight + contentPlaceable.heightOrZero(),
@@ -571,16 +572,67 @@ private class FormItemMeasurePolicy(
         }
     }
 
+    private fun Placeable.PlacementScope.placeTopText(
+        topTitlePlaceable: Placeable?,
+        titleCaptionPlaceable: Placeable?,
+        startTitlePlaceable: Placeable?,
+        endTitlePlaceable: Placeable?,
+        constrainedWidth: Int,
+        topContentHeight: Int,
+    ) {
+        when (topTextAlignment) {
+            FormTextAlignment.Center -> {
+                topTitlePlaceable?.placeRelative(
+                    (
+                        startTitlePlaceable.widthOrZero() + constrainedWidth -
+                            topTitlePlaceable.widthOrZero() - endTitlePlaceable.widthOrZero()
+                        ) / 2,
+                    0,
+                )
+                titleCaptionPlaceable?.placeRelative(
+                    (
+                        startTitlePlaceable.widthOrZero() + constrainedWidth -
+                            titleCaptionPlaceable.widthOrZero() - endTitlePlaceable.widthOrZero()
+                        ) / 2,
+                    topTitlePlaceable.heightOrZero(),
+                )
+            }
+
+            FormTextAlignment.Edge -> {
+                topTitlePlaceable?.placeRelative(
+                    startTitlePlaceable.widthOrZero(),
+                    topContentHeight - topTitlePlaceable.heightOrZero(),
+                )
+                titleCaptionPlaceable?.placeRelative(
+                    constrainedWidth - titleCaptionPlaceable.widthOrZero() - endTitlePlaceable.widthOrZero(),
+                    topContentHeight - titleCaptionPlaceable.heightOrZero(),
+                )
+            }
+        }
+    }
+
+    private fun calculateTopContentWidth(
+        titlePlaceable: Placeable?,
+        titleCaptionPlaceable: Placeable?,
+    ) = when (topTextAlignment) {
+        FormTextAlignment.Center -> maxOf(
+            titlePlaceable.widthOrZero(),
+            titleCaptionPlaceable.widthOrZero(),
+        )
+
+        FormTextAlignment.Edge -> titlePlaceable.widthOrZero() + titleCaptionPlaceable.widthOrZero()
+    }
+
     private fun calculateBottomContentWidth(
         captionPlaceable: Placeable?,
         counterPlaceable: Placeable?,
     ) = when (bottomTextAlignment) {
-        FormBottomTextAlignment.Center -> maxOf(
+        FormTextAlignment.Center -> maxOf(
             captionPlaceable.widthOrZero(),
             counterPlaceable.widthOrZero(),
         )
 
-        FormBottomTextAlignment.Edge -> captionPlaceable.widthOrZero() + counterPlaceable.widthOrZero()
+        FormTextAlignment.Edge -> captionPlaceable.widthOrZero() + counterPlaceable.widthOrZero()
     }
 
     private fun calculateDesiredWidth(
@@ -595,10 +647,21 @@ private class FormItemMeasurePolicy(
         captionPlaceable: Placeable?,
         counterPlaceable: Placeable?,
     ) = when (bottomTextAlignment) {
-        FormBottomTextAlignment.Center -> captionPlaceable.heightOrZero() + counterPlaceable.heightOrZero()
-        FormBottomTextAlignment.Edge -> maxOf(
+        FormTextAlignment.Center -> captionPlaceable.heightOrZero() + counterPlaceable.heightOrZero()
+        FormTextAlignment.Edge -> maxOf(
             captionPlaceable.heightOrZero(),
             counterPlaceable.heightOrZero(),
+        )
+    }
+
+    private fun calculateTopContentHeight(
+        titlePlaceable: Placeable?,
+        titleCaptionPlaceable: Placeable?,
+    ) = when (bottomTextAlignment) {
+        FormTextAlignment.Center -> titlePlaceable.heightOrZero() + titleCaptionPlaceable.heightOrZero()
+        FormTextAlignment.Edge -> maxOf(
+            titlePlaceable.heightOrZero(),
+            titleCaptionPlaceable.heightOrZero(),
         )
     }
 }

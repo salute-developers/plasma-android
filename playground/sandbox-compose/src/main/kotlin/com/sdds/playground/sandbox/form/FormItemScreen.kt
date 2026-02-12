@@ -76,7 +76,6 @@ internal fun FormItemScreen(componentKey: ComponentKey = ComponentKey.FormItem) 
                     onHintPressed = { showTooltip = true },
                     hintTriggerInfo = hintTriggerInfo,
                     enabled = formItemUiState.enabled,
-                    bottomTextAlignment = formItemUiState.bottomTextAlignment,
                 )
 
                 Tooltip(

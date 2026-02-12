@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.FormItemStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.compose.enumProperty
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
@@ -62,13 +61,6 @@ internal class FormItemViewModel(
                 name = "optional",
                 value = optional,
                 onApply = { internalUiState.value = internalUiState.value.copy(counter = it) },
-            ),
-            enumProperty(
-                name = "bottomTextAlignment",
-                value = bottomTextAlignment,
-                onApply = {
-                    internalUiState.value = internalUiState.value.copy(bottomTextAlignment = it)
-                },
             ),
         )
     }

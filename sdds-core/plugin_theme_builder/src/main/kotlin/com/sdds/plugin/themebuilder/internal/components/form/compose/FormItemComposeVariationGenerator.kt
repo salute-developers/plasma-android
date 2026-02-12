@@ -43,7 +43,7 @@ internal class FormItemComposeVariationGenerator(
             "com.sdds.compose.uikit",
             listOf(
                 "FormTitlePlacement",
-                "FormBottomTextAlignment",
+                "FormTextAlignment",
                 "FormIndicatorAlignment",
                 "IndicatorMode",
                 "FormType",
@@ -64,6 +64,7 @@ internal class FormItemComposeVariationGenerator(
         counterStyleCall(props),
         optionalStyleCall(props),
         titlePlacementCall(props),
+        topTextAlignmentCall(props),
         bottomTextAlignmentCall(props),
         indicatorAlignmentCall(props),
         indicatorModeCall(props),
@@ -243,7 +244,18 @@ internal class FormItemComposeVariationGenerator(
                 it.value.equals("edge", ignoreCase = true) -> "Edge"
                 else -> throw ThemeBuilderException("Unknown bottomTextAlignment ${it.value} for FormItem")
             }
-            ".bottomTextAlignment(FormBottomTextAlignment.$enumValue)"
+            ".bottomTextAlignment(FormTextAlignment.$enumValue)"
+        }
+    }
+
+    private fun topTextAlignmentCall(props: FormItemProperties): String? {
+        return props.topTextAlignment?.let {
+            val enumValue = when {
+                it.value.equals("center", ignoreCase = true) -> "Center"
+                it.value.equals("edge", ignoreCase = true) -> "Edge"
+                else -> throw ThemeBuilderException("Unknown topTextAlignment ${it.value} for FormItem")
+            }
+            ".topTextAlignment(FormTextAlignment.$enumValue)"
         }
     }
 
