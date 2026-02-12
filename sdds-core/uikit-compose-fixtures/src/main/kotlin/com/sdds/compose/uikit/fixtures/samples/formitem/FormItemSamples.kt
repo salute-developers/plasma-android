@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.FormHorizontal
 import com.sdds.compose.uikit.FormIndicatorAlignment
 import com.sdds.compose.uikit.FormItem
 import com.sdds.compose.uikit.FormItemStyle
+import com.sdds.compose.uikit.FormTextAlignment
 import com.sdds.compose.uikit.FormTitlePlacement
 import com.sdds.compose.uikit.FormType
 import com.sdds.compose.uikit.FormVertical
@@ -114,6 +115,8 @@ fun FormItem_Style() {
             .titleStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .optionalStyle(placeholder(TextStyle.Default, "/** Токен типографики */"))
             .titlePlacement(FormTitlePlacement.Top)
+            .topTextAlignment(FormTextAlignment.Edge)
+            .bottomTextAlignment(FormTextAlignment.Edge)
             .indicatorAlignment(FormIndicatorAlignment.TopStart)
             .indicatorAlignmentMode(IndicatorMode.Inner)
             .formItemType(FormType.Required)
