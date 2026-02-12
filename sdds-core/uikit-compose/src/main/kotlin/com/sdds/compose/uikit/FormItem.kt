@@ -132,17 +132,16 @@ fun FormItem(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val hint = getHint(hasHint, style, hintTriggerInfo, enabled, onHintPressed)
-    val startTitle = getStartTitle(style, title, hint, optional, interactionSource)
-    val endTitle = getEndTitle(style, hint, interactionSource)
-    val topTitle = getTopTitle(style, title, hint, optional, interactionSource)
-    val titleCaption = getTitleCaption(style, titleCaption, interactionSource)
-    val counter = getCounter(style, counter, interactionSource)
-    val caption = getCaption(style, caption, interactionSource)
-    val content = getContent(style, content)
+    val startTitle = getStartTitle(style, title, hint, optional, interactionSource, enabled)
+    val endTitle = getEndTitle(style, hint, interactionSource, enabled)
+    val topTitle = getTopTitle(style, title, hint, optional, interactionSource, enabled)
+    val titleCaption = getTitleCaption(style, titleCaption, interactionSource, enabled)
+    val counter = getCounter(style, counter, interactionSource, enabled)
+    val caption = getCaption(style, caption, interactionSource, enabled)
+    val content = getContent(style, content, enabled)
 
     FormItemLayout(
-        modifier = modifier
-            .enable(enabled = enabled, disabledAlpha = style.disableAlpha),
+        modifier = modifier,
         startTitle = startTitle,
         endTitle = endTitle,
         topTitle = topTitle,
@@ -245,7 +244,8 @@ private fun getHint(
                         enabled = enabled,
                         indication = null,
                         interactionSource = remember { MutableInteractionSource() },
-                    ) { onHintPressed?.invoke() },
+                    ) { onHintPressed?.invoke() }
+                    .enable(enabled, disabledAlpha = style.disableAlpha),
             )
         }
     } else {
@@ -259,11 +259,14 @@ private fun getStartTitle(
     hint: (@Composable () -> Unit)?,
     optional: (@Composable () -> Unit)?,
     interactionSource: InteractionSource,
+    enabled: Boolean,
 ): (@Composable () -> Unit)? {
     return if (style.titlePlacement == FormTitlePlacement.Start && (title != null || hint != null)) {
         {
             TitleHintOptional(
-                modifier = Modifier.padding(end = style.dimensions.titleBlockPadding),
+                modifier = Modifier
+                    .padding(end = style.dimensions.titleBlockPadding),
+                enabled = enabled,
                 style = style,
                 title = title,
                 hint = hint,
@@ -280,14 +283,17 @@ private fun getEndTitle(
     style: FormItemStyle,
     hint: (@Composable () -> Unit)?,
     interactionSource: InteractionSource,
+    enabled: Boolean,
 ): (@Composable () -> Unit)? {
     return if (style.titlePlacement == FormTitlePlacement.None && hint != null) {
         {
             TitleHintOptional(
-                modifier = Modifier.padding(start = style.dimensions.titleBlockPadding),
+                modifier = Modifier
+                    .padding(start = style.dimensions.titleBlockPadding),
                 style = style,
                 hint = hint,
                 interactionSource = interactionSource,
+                enabled = enabled,
             )
         }
     } else {
@@ -301,16 +307,19 @@ private fun getTopTitle(
     hint: (@Composable () -> Unit)?,
     optional: (@Composable () -> Unit)?,
     interactionSource: InteractionSource,
+    enabled: Boolean,
 ): (@Composable () -> Unit)? {
     return if (style.titlePlacement == FormTitlePlacement.Top && (title != null || hint != null)) {
         {
             TitleHintOptional(
-                modifier = Modifier.padding(bottom = style.dimensions.titleBlockPadding),
+                modifier = Modifier
+                    .padding(bottom = style.dimensions.titleBlockPadding),
                 style = style,
                 title = title,
                 hint = hint,
                 optional = optional,
                 interactionSource = interactionSource,
+                enabled = enabled,
             )
         }
     } else {
@@ -322,11 +331,14 @@ private fun getTitleCaption(
     style: FormItemStyle,
     titleCaption: (@Composable () -> Unit)?,
     interactionSource: InteractionSource,
+    enabled: Boolean,
 ): (@Composable () -> Unit)? {
     return if (titleCaption != null) {
         {
             Box(
-                modifier = Modifier.padding(bottom = style.dimensions.titleCaptionPadding),
+                modifier = Modifier
+                    .enable(enabled, disabledAlpha = style.disableAlpha)
+                    .padding(bottom = style.dimensions.titleCaptionPadding),
             ) {
                 val titleCaptionColor =
                     style.colors.titleCaptionColor.colorForInteractionAsState(interactionSource)
@@ -346,11 +358,14 @@ private fun getCounter(
     style: FormItemStyle,
     counter: (@Composable () -> Unit)?,
     interactionSource: InteractionSource,
+    enabled: Boolean,
 ): (@Composable () -> Unit)? {
     return if (counter != null) {
         {
             Box(
-                modifier = Modifier.padding(top = style.dimensions.counterPadding),
+                modifier = Modifier
+                    .enable(enabled, disabledAlpha = style.disableAlpha)
+                    .padding(top = style.dimensions.counterPadding),
             ) {
                 val counterColor =
                     style.colors.counterColor.colorForInteractionAsState(interactionSource)
@@ -370,11 +385,14 @@ private fun getCaption(
     style: FormItemStyle,
     caption: (@Composable () -> Unit)?,
     interactionSource: InteractionSource,
+    enabled: Boolean,
 ): (@Composable () -> Unit)? {
     return if (caption != null) {
         {
             Box(
-                modifier = Modifier.padding(top = style.dimensions.captionPadding),
+                modifier = Modifier
+                    .enable(enabled, disabledAlpha = style.disableAlpha)
+                    .padding(top = style.dimensions.captionPadding),
             ) {
                 val captionColor =
                     style.colors.captionColor.colorForInteraction(interactionSource)
@@ -397,6 +415,7 @@ private fun getCaption(
 private fun getContent(
     style: FormItemStyle,
     content: (@Composable () -> Unit),
+    enabled: Boolean,
 ): (@Composable () -> Unit) {
     return {
         val shouldShowIndicator = style.formItemType == FormType.Required &&
@@ -413,7 +432,7 @@ private fun getContent(
         } else {
             Modifier
         }
-        Box(modifier = indicatorModifier) {
+        Box(modifier = indicatorModifier.enable(enabled, disabledAlpha = style.disableAlpha)) {
             content()
         }
     }
@@ -669,6 +688,7 @@ private class FormItemMeasurePolicy(
 @Composable
 private fun TitleHintOptional(
     modifier: Modifier = Modifier,
+    enabled: Boolean,
     style: FormItemStyle,
     title: (@Composable () -> Unit)? = null,
     hint: (@Composable () -> Unit)?,
@@ -687,6 +707,7 @@ private fun TitleHintOptional(
             verticalPadding = style.dimensions.indicatorOffsetY,
             horizontalMode = style.indicatorAlignmentMode,
             verticalMode = IndicatorMode.Inner,
+            alpha = if (enabled) 1f else style.disableAlpha,
         )
     } else {
         Modifier
@@ -700,7 +721,7 @@ private fun TitleHintOptional(
 
     Box(modifier.then(widthModifier)) {
         Row(
-            modifier = indicatorModifier,
+            modifier = indicatorModifier.enable(enabled, disabledAlpha = style.disableAlpha),
             horizontalArrangement = Arrangement.spacedBy(style.dimensions.titleBlockSpacing),
             verticalAlignment = Alignment.CenterVertically,
         ) {

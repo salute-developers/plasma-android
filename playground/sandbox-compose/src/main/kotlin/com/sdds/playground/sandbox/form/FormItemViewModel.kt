@@ -60,7 +60,7 @@ internal class FormItemViewModel(
             Property.StringProperty(
                 name = "optional",
                 value = optional,
-                onApply = { internalUiState.value = internalUiState.value.copy(counter = it) },
+                onApply = { internalUiState.value = internalUiState.value.copy(optional = it) },
             ),
         )
     }
