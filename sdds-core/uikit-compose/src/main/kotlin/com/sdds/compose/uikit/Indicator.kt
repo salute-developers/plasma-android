@@ -86,6 +86,7 @@ fun Modifier.indicator(
     verticalMode: IndicatorMode = IndicatorMode.Inner,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     stateSet: Set<ValueState> = emptySet(),
+    alpha: Float = 1f,
 ): Modifier = composed {
     val brush = style.color.backgroundBrush?.getValue(interactionSource, stateSet)
     val color = style.color.backgroundColor.takeIf { brush == null }?.colorForInteraction(interactionSource, stateSet)
@@ -128,7 +129,7 @@ fun Modifier.indicator(
             onDrawWithContent {
                 drawContent()
                 translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
-                    drawOutline(outline, brush, color)
+                    drawOutline(outline, brush, color, alpha)
                 }
             }
         }
