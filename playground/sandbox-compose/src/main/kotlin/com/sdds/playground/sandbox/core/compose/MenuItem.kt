@@ -22,6 +22,7 @@ import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.EditableStyle
 import com.sdds.compose.uikit.FileStyle
 import com.sdds.compose.uikit.FormItemStyle
 import com.sdds.compose.uikit.ImageStyle
@@ -90,6 +91,8 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
+import com.sdds.playground.sandbox.editable.EditablePreview
+import com.sdds.playground.sandbox.editable.EditableScreen
 import com.sdds.playground.sandbox.file.compose.FilePreview
 import com.sdds.playground.sandbox.file.compose.FileScreen
 import com.sdds.playground.sandbox.form.FormItemPreview
@@ -397,6 +400,10 @@ internal sealed class ComponentScreen(
         { FormItemScreen(it) },
         { style, _ -> FormItemPreview(style as FormItemStyle) },
     )
+    object Editable : ComponentScreen(
+        { EditableScreen(it) },
+        { style, _ -> EditablePreview(style as EditableStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -463,6 +470,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.FILE -> ComponentScreen.File
         CoreComponent.SLIDER -> ComponentScreen.Slider
         CoreComponent.FORM_ITEM -> ComponentScreen.FormItem
+        CoreComponent.EDITABLE -> ComponentScreen.Editable
         else -> ComponentScreen.Empty
     }
 }

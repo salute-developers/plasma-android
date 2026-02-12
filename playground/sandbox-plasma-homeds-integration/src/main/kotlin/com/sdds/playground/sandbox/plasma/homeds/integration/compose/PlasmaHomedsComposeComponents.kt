@@ -271,5 +271,11 @@ object PlasmaHomedsComposeComponents : ComponentsProviderCompose() {
                     "FormItem" to PlasmaHomedsFormItemVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Editable,
+                mapOf(
+                    "Editable" to PlasmaHomedsEditableVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }
