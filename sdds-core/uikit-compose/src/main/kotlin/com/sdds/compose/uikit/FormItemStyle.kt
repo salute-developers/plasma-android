@@ -83,9 +83,14 @@ interface FormItemStyle : Style {
     val formItemType: FormType
 
     /**
-     * Выравнивание нижнего текста [FormBottomTextAlignment]
+     * Выравнивание верхнего текста [FormTextAlignment]
      */
-    val bottomTextAlignment: FormBottomTextAlignment
+    val topTextAlignment: FormTextAlignment
+
+    /**
+     * Выравнивание нижнего текста [FormTextAlignment]
+     */
+    val bottomTextAlignment: FormTextAlignment
 
     /**
      * Режим выравнивания индикатора [IndicatorMode]
@@ -145,11 +150,18 @@ interface FormItemStyleBuilder : StyleBuilder<FormItemStyle> {
     fun formItemType(formItemType: FormType): FormItemStyleBuilder
 
     /**
+     * Устанавливает выравнивание верхнего текста
+     *
+     * @param topTextAlignment выравнивание верхнего текста [FormTextAlignment]
+     */
+    fun topTextAlignment(topTextAlignment: FormTextAlignment): FormItemStyleBuilder
+
+    /**
      * Устанавливает выравнивание нижнего текста
      *
-     * @param bottomTextAlignment выравнивание нижнего текста [FormBottomTextAlignment]
+     * @param bottomTextAlignment выравнивание нижнего текста [FormTextAlignment]
      */
-    fun bottomTextAlignment(bottomTextAlignment: FormBottomTextAlignment): FormItemStyleBuilder
+    fun bottomTextAlignment(bottomTextAlignment: FormTextAlignment): FormItemStyleBuilder
 
     /**
      * Устанавливает режим выравнивания индикатора
@@ -235,11 +247,12 @@ private data class DefaultFormItemStyle(
     override val dimensions: FormItemDimensions,
     override val titlePlacement: FormTitlePlacement,
     override val formItemType: FormType,
-    override val bottomTextAlignment: FormBottomTextAlignment,
     override val indicatorAlignmentMode: IndicatorMode,
     override val indicatorAlignment: FormIndicatorAlignment,
     override val hintIcon: Int?,
     override val indicatorStyle: IndicatorStyle,
+    override val topTextAlignment: FormTextAlignment,
+    override val bottomTextAlignment: FormTextAlignment,
 ) : FormItemStyle {
     class Builder : FormItemStyleBuilder {
         private var indicatorStyle: IndicatorStyle? = null
@@ -247,7 +260,8 @@ private data class DefaultFormItemStyle(
         private var formItemType: FormType? = null
         private var indicatorAlignmentMode: IndicatorMode? = null
         private var indicatorAlignment: FormIndicatorAlignment? = null
-        private var bottomTextAlignment: FormBottomTextAlignment? = null
+        private var topTextAlignment: FormTextAlignment? = null
+        private var bottomTextAlignment: FormTextAlignment? = null
         private var titleStyle: TextStyle? = null
         private var optionalStyle: TextStyle? = null
         private var titleCaptionStyle: TextStyle? = null
@@ -275,7 +289,11 @@ private data class DefaultFormItemStyle(
             this.formItemType = formItemType
         }
 
-        override fun bottomTextAlignment(bottomTextAlignment: FormBottomTextAlignment) = apply {
+        override fun topTextAlignment(topTextAlignment: FormTextAlignment) = apply {
+            this.topTextAlignment = topTextAlignment
+        }
+
+        override fun bottomTextAlignment(bottomTextAlignment: FormTextAlignment) = apply {
             this.bottomTextAlignment = bottomTextAlignment
         }
 
@@ -329,7 +347,8 @@ private data class DefaultFormItemStyle(
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
             titlePlacement = titlePlacement ?: FormTitlePlacement.Top,
-            bottomTextAlignment = bottomTextAlignment ?: FormBottomTextAlignment.Edge,
+            topTextAlignment = topTextAlignment ?: FormTextAlignment.Edge,
+            bottomTextAlignment = bottomTextAlignment ?: FormTextAlignment.Edge,
             formItemType = formItemType ?: FormType.Optional,
             indicatorAlignmentMode = indicatorAlignmentMode ?: IndicatorMode.Inner,
             indicatorAlignment = indicatorAlignment ?: FormIndicatorAlignment.CenterEnd,

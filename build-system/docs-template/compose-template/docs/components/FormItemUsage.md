@@ -49,11 +49,11 @@ title: FormItem
 
 Расположение Title в элементе формы FormItem. Возможные значения: `Start`, `Top`, `None`.
 
-## FormBottomTextAlignment
+## FormTextAlignment
 
-Режим выранивания нижнего текста FormItem (caption и counter).
-Возможные значения: `Center` (caption и counter центрированы по горизонтали относительно формы,
-расположены друг под другом), `Edge` (Caption расположен в начале, Counter расположен в конце).
+Режим выранивания вспомогательного текста FormItem (title, titleCaption, caption, counter).
+Возможные значения: `Center` (тексты центрированы по горизонтали относительно формы,
+расположены друг под другом), `Edge` (тексты расположены в начале и в конце компонента).
 
 ## FormIndicatorAlignment
 

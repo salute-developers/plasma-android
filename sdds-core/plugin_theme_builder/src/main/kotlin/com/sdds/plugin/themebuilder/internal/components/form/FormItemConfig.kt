@@ -47,6 +47,7 @@ internal data class FormItemProperties(
     val counterColor: Color? = null,
     val counterPadding: Dimension? = null,
 
+    val topTextAlignment: Value? = null,
     val bottomTextAlignment: Value? = null,
 
     val indicatorOffsetX: Dimension? = null,
@@ -82,6 +83,7 @@ internal data class FormItemProperties(
             captionColor = captionColor ?: otherProps.captionColor,
             counterStyle = counterStyle ?: otherProps.counterStyle,
             counterColor = counterColor ?: otherProps.counterColor,
+            topTextAlignment = topTextAlignment ?: otherProps.topTextAlignment,
             bottomTextAlignment = bottomTextAlignment ?: otherProps.bottomTextAlignment,
             indicatorOffsetX = indicatorOffsetX ?: otherProps.indicatorOffsetX,
             indicatorOffsetY = indicatorOffsetY ?: otherProps.indicatorOffsetY,
