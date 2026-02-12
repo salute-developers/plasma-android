@@ -430,9 +430,9 @@ open class File @JvmOverloads constructor(
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         iconView = null
-        imageView= null
+        imageView = null
         actionView = null
-        labelView= null
+        labelView = null
         descriptionView = null
         progressView = null
     }

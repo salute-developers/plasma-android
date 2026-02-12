@@ -97,10 +97,10 @@ import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
-import com.sdds.playground.sandbox.navigationbar.compose.NavigationBarPreview
-import com.sdds.playground.sandbox.navigationbar.compose.NavigationBarScreen
 import com.sdds.playground.sandbox.navigationbar.collapsing.CollapsingNavigationBarPreview
 import com.sdds.playground.sandbox.navigationbar.collapsing.CollapsingNavigationBarScreen
+import com.sdds.playground.sandbox.navigationbar.compose.NavigationBarPreview
+import com.sdds.playground.sandbox.navigationbar.compose.NavigationBarScreen
 import com.sdds.playground.sandbox.note.compose.NoteCompactPreview
 import com.sdds.playground.sandbox.note.compose.NoteCompactScreen
 import com.sdds.playground.sandbox.note.compose.NotePreview

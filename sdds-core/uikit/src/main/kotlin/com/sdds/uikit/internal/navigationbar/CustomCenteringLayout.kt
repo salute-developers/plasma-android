@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.LinearLayout.HORIZONTAL
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 
@@ -17,16 +18,17 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : ViewGroup(context, attrs) {
 
-    private val actionStart = FrameLayout(context).apply {
+    private val actionStart = LinearLayout(context).apply {
+        gravity = Gravity.CENTER_VERTICAL
         layoutParams = MarginLayoutParams(
             LayoutParams.WRAP_CONTENT,
-            LayoutParams.WRAP_CONTENT
+            LayoutParams.WRAP_CONTENT,
         )
     }
     private val actionEnd = FrameLayout(context).apply {
         layoutParams = MarginLayoutParams(
             LayoutParams.WRAP_CONTENT,
-            LayoutParams.WRAP_CONTENT
+            LayoutParams.WRAP_CONTENT,
         )
     }
     private val centerContent = LinearLayout(context).apply {
@@ -34,20 +36,37 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
         gravity = Gravity.CENTER_HORIZONTAL
         layoutParams = MarginLayoutParams(
             LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
+            LayoutParams.WRAP_CONTENT,
         )
     }
 
-    var centering: CenteringStrategy = CenteringStrategy.RELATIVE
+    private val placeForBackIcon: FrameLayout = FrameLayout(context).apply {
+        layoutParams = LayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT,
+        )
+    }
+
+    var centeringStrategy: CenteringStrategy = CenteringStrategy.RELATIVE
         set(value) {
             if (field != value) {
                 field = value
                 requestLayout()
+                invalidate()
+            }
+        }
+
+    var alignmentInCenterContent: Int = Gravity.CENTER
+        set(value) {
+            if (field != value) {
+                field = value
+                centerContent.gravity = value
             }
         }
 
     init {
         addView(actionStart)
+        actionStart.addView(placeForBackIcon)
         addView(centerContent)
         addView(actionEnd)
     }
@@ -63,7 +82,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
     override fun generateDefaultLayoutParams(): LayoutParams? {
         return MarginLayoutParams(
             LayoutParams.WRAP_CONTENT,
-            LayoutParams.WRAP_CONTENT
+            LayoutParams.WRAP_CONTENT,
         )
     }
 
@@ -77,34 +96,34 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
         var widthUsed = 0
 
         fun measureActions(child: View) {
-            if (child.isGone && centering == CenteringStrategy.RELATIVE) return
+            if (child.isGone && centeringStrategy == CenteringStrategy.RELATIVE) return
             (this.layoutParams as MarginLayoutParams)
             measureChildWithMargins(
                 child,
                 widthMeasureSpec,
                 widthUsed,
                 heightMeasureSpec,
-                0
+                0,
             )
             widthUsed += child.measuredWidth
         }
         measureActions(actionStart)
         measureActions(actionEnd)
         val maxActionWidth = maxOf(actionStart.measuredWidth, actionEnd.measuredWidth)
-        if (centering == CenteringStrategy.ABSOLUTE) widthUsed = 2 * maxActionWidth
+        if (centeringStrategy == CenteringStrategy.ABSOLUTE) widthUsed = 2 * maxActionWidth
         measureChildWithMargins(
             centerContent,
             widthMeasureSpec,
             widthUsed,
             heightMeasureSpec,
-            0
+            0,
         )
         widthUsed += centerContent.measuredWidth + verPaddings
         val heightUsed = horPaddings +
-                maxOf(actionStart.measuredHeight, actionEnd.measuredHeight, centerContent.measuredHeight)
+            maxOf(actionStart.measuredHeight, actionEnd.measuredHeight, centerContent.measuredHeight)
         setMeasuredDimension(
             resolveSize(widthUsed, widthMeasureSpec),
-            resolveSize(heightUsed, heightMeasureSpec)
+            resolveSize(heightUsed, heightMeasureSpec),
         )
     }
 
@@ -122,7 +141,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
         fun viewTop(viewHeight: Int) = centerY - viewHeight / 2
         var left = paddingStart
 
-        if (centering == CenteringStrategy.RELATIVE) {
+        if (centeringStrategy == CenteringStrategy.RELATIVE) {
             var top = viewTop(actionStartH)
             if (actionStart.isVisible) {
                 actionStart.layout(left, top, left + actionStartW, top + actionStartH)
@@ -146,7 +165,15 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
     }
 
     fun removeActionStart() {
-        actionStart.removeAllViews()
+        actionStart.children.forEach {
+            if (it != placeForBackIcon) {
+                actionStart.removeView(it)
+            }
+        }
+    }
+
+    fun removeBackIcon() {
+        placeForBackIcon.removeAllViews()
     }
 
     fun removeActionEnd() {
@@ -167,6 +194,10 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
         if (view != actionStart && view != actionEnd && view != centerContent) {
             super.removeView(view)
         }
+    }
+
+    fun setBackIcon(view: View) {
+        placeForBackIcon.addView(view)
     }
 
     fun setActionStart(view: View?) {

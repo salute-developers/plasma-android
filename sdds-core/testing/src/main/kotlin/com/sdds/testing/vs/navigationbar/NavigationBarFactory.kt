@@ -1,6 +1,8 @@
 package com.sdds.testing.vs.navigationbar
 
 import android.content.Context
+import android.view.Gravity
+import android.widget.LinearLayout
 import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.ImageView
@@ -15,7 +17,13 @@ fun navigationBar(
     style: Int? = null,
     state: NavigationBarUiState = NavigationBarUiState(),
 ): NavigationBar {
-    return NavigationBar(context.styleWrapper(style)).applyState(state)
+    return NavigationBar(context.styleWrapper(style)).apply {
+        gravity = Gravity.CENTER
+        layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+        )
+    }.applyState(state)
 }
 
 /**
@@ -26,23 +34,28 @@ fun NavigationBar.applyState(state: NavigationBarUiState) = apply {
     setDescription(description(context, state.description))
     setContent(contentText(context, state.contentText))
     if (state.hasActionStart) {
-        setActionStart(ImageView(context).apply {
-            setImageResource(com.sdds.icons.R.drawable.ic_search_24)
-        }
+        setActionStart(
+            ImageView(context).apply {
+                setImageResource(com.sdds.icons.R.drawable.ic_search_24)
+            },
         )
     } else {
         removeActionStart()
     }
     if (state.hasActionEnd) {
-        setActionEnd(ImageView(context).apply {
-            setImageResource(com.sdds.icons.R.drawable.ic_menu_24)
-        }
+        setActionEnd(
+            ImageView(context).apply {
+                setImageResource(com.sdds.icons.R.drawable.ic_menu_24)
+            },
         )
     } else {
         removeActionEnd()
     }
+    textBlockAlignment = state.textAlign.toNavBarTextAlignment()
     textPlacement = state.textPlacement.toNavBarTextPlacement()
     contentPlacement = state.contentPlacement.toNavBarContentPlacement()
+    centerAlignmentStrategy = state.centerAlignmentStrategy.toNavBarAlignmentStrategy()
+    contentAlignmentBetweenActions = state.contentBetweenActionsAlignment.toNavBarContentAlignmentBetweenActions()
 }
 
 private fun title(context: Context, title: String) =

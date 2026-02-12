@@ -16,7 +16,8 @@ import com.sdds.uikit.NavigationBar
 /**
  * Фрагмент с компонентом NoteCompact
  */
-internal class NavigationBarFragment : ComponentFragment<NavigationBarUiState, NavigationBar, NavigationBarParametersViewModel>() {
+internal class NavigationBarFragment :
+    ComponentFragment<NavigationBarUiState, NavigationBar, NavigationBarParametersViewModel>() {
 
     override val viewModelFactory: ViewModelProvider.Factory by lazy {
         NavigationBarParametersViewModelFactory(

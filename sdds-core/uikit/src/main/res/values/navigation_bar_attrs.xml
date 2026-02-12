@@ -48,21 +48,31 @@
         <attr name="sd_descriptionColor" />
         <!-- Цвет фона  -->
         <attr name="sd_background" />
+
         <!-- Расположение компонента с ролью контент -->
         <attr name="sd_navbarContentPlacement"
             format="enum">
-            <!-- Размещает контент в одну линию с actionStart и  actionEnd -->
+            <!-- Размещает контент в одном блоке с ActionStart и  ActionEnd -->
             <enum name="inline" value="0" />
-            <!-- Размещает контент снизу NavigationBar, под компонентом с ролью Text -->
+            <!-- Размещает контент снизу NavigationBar, под компонентами с ролью Title и Description -->
             <enum name="bottom" value="1" />
         </attr>
 
-        <!-- Расположение компонента с ролью Text -->
+        <!-- Расположение компонентов с ролью Title и Description -->
         <attr name="sd_navbarTextPlacement" format="enum">
-            <!-- Размещает компонент с ролью Text в одну линию с ActionStart и ActionEnd  -->
+            <!-- Размещает компоненты с ролью Title и Description в одном блоке с ActionStart и ActionEnd по горизонтали  -->
             <enum name="inline" value="0" />
-            <!-- Размещает компонент с ролью Text под основным блоком с компонентами ActionStart и ActionEnd -->
+            <!-- Размещает компоненты с ролью Title и Description под основным блоком с компонентами ActionStart и ActionEnd -->
             <enum name="bottom" value="1" />
+        </attr>
+
+        <!-- Центрирование контента, находящегося в одном блоке с ActionStart и ActionEnd по горизонтали -->
+        <attr name="sd_centerAlignmentStrategy"
+            format="enum">
+            <!-- Контент будет центрирован относительно ширины NavigationBar -->
+            <enum name="absolute" value="0" />
+            <!-- Контент будет центрирован относительно ширины блока, находящегося между ActionStart и ActionEnd -->
+            <enum name="relative" value="1" />
         </attr>
 
     </declare-styleable>

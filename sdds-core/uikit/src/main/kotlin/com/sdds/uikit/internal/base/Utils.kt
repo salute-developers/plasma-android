@@ -222,3 +222,21 @@ internal fun ViewGroup.isParentOf(v: View?): Boolean {
     }
     return false
 }
+
+/**
+ * Для дебага состояний при смене drawableState
+ */
+internal fun Context.dumpDrawableState(state: IntArray): String {
+    return state.joinToString(
+        prefix = "[",
+        postfix = "]",
+    ) { id ->
+        if (id == 0) return@joinToString "0"
+        try {
+            val name = resources.getResourceEntryName(kotlin.math.abs(id))
+            if (id < 0) "!$name" else name
+        } catch (e: Exception) {
+            id.toString()
+        }
+    }
+}

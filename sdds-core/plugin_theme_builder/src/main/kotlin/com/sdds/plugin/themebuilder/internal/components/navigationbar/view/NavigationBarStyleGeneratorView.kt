@@ -96,7 +96,7 @@ internal class NavigationBarStyleGeneratorView(
         DESCRIPTION_MARGIN("sd_descriptionMargin", "description_margin"),
         BACK_ICON_MARGIN("sd_backIconMargin", "back_icon_margin"),
         TEXT_BLOCK_TOP_MARGIN("sd_textBlockTopMargin", "text_block_top_margin"),
-        HORIZONTAL_SPACING("sd_horizontalSpacing", "horizontal_spacing")
+        HORIZONTAL_SPACING("sd_horizontalSpacing", "horizontal_spacing"),
         ;
         override fun provide(owner: NavigationBarProperties): Dimension? {
             return when (this) {

@@ -31,6 +31,7 @@ data class NavigationBarUiState(
     val textPlacement: TextPlacement = TextPlacement.Bottom,
     val contentPlacement: ContentPlacement = ContentPlacement.Bottom,
     val textAlign: TextAlignment = TextAlignment.Center,
+    val contentBetweenActionsAlignment: ContentBetweenActionsAlignment = ContentBetweenActionsAlignment.Center,
     val centerAlignmentStrategy: AlignmentStrategy = AlignmentStrategy.Absolute,
 ) : UiState, Parcelable {
     override fun updateVariant(appearance: String, variant: String): UiState {
@@ -92,12 +93,12 @@ fun TextAlignment.toNavBarTextAlignment(): Int = when (this) {
 }
 
 /**
- * Выравнивание контента, находящегося в блоке с actions
+ * Стратегия выравнивания контента, находящегося в блоке с actions
  */
 @Parcelize
 enum class AlignmentStrategy : Parcelable {
     Absolute,
-    Relative
+    Relative,
 }
 
 /**
@@ -106,4 +107,23 @@ enum class AlignmentStrategy : Parcelable {
 fun AlignmentStrategy.toNavBarAlignmentStrategy(): Int = when (this) {
     AlignmentStrategy.Absolute -> NavigationBar.ALIGNMENT_STRATEGY_ABSOLUTE
     AlignmentStrategy.Relative -> NavigationBar.ALIGNMENT_STRATEGY_RELATIVE
+}
+
+/**
+ * Выравнивание контента, находящегося в блоке с actions
+ */
+@Parcelize
+enum class ContentBetweenActionsAlignment : Parcelable {
+    Start,
+    Center,
+    End,
+}
+
+/**
+ * Преобразует [AlignmentStrategy] в [NavigationBar] AlignmentStrategy
+ */
+fun ContentBetweenActionsAlignment.toNavBarContentAlignmentBetweenActions(): Int = when (this) {
+    ContentBetweenActionsAlignment.Start -> NavigationBar.CONTENT_ALIGNMENT_BETWEEN_ACTIONS_START
+    ContentBetweenActionsAlignment.Center -> NavigationBar.CONTENT_ALIGNMENT_BETWEEN_ACTIONS_CENTER
+    ContentBetweenActionsAlignment.End -> NavigationBar.CONTENT_ALIGNMENT_BETWEEN_ACTIONS_END
 }

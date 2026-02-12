@@ -4,13 +4,15 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
+import androidx.core.view.isNotEmpty
 import androidx.core.widget.TextViewCompat
 import com.sdds.uikit.File.FileContent.LABEL
 import com.sdds.uikit.NavigationBar.Companion.CONTENT_PLACEMENT_BOTTOM
@@ -26,6 +28,7 @@ import com.sdds.uikit.statelist.StyleStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.getIntForState
 import com.sdds.uikit.statelist.getNumberStateList
+import com.sdds.uikit.statelist.getStyleForState
 import com.sdds.uikit.statelist.getStyleStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
 
@@ -38,21 +41,25 @@ open class NavigationBar @JvmOverloads constructor(
     wrapper(context, attrs, defStyleAttr, defStyleRes),
     attrs,
     defStyleAttr,
-    defStyleRes
-), ColorStateHolder {
+    defStyleRes,
+),
+    ColorStateHolder {
 
     private var actionStartColor: ColorStateList? = null
     private var actionEndColor: ColorStateList? = null
-    private var titleAppearance: StyleStateList? = null
+    private var titleAppearances: StyleStateList? = null
+    private var currentTitleAppearance: Int = 0
+    private var currentDescriptionAppearance: Int = 0
     private var titleColor: ColorStateList? = null
-    private var descriptionAppearance: StyleStateList? = null
+    private var descriptionAppearances: StyleStateList? = null
     private var descriptionColor: ColorStateList? = null
     private var backIconTint: ColorStateList? = null
     private var backgroundList: ColorValueStateList? = null
     private var _textBlockTopMargin: Int = 0
     private var _horizontalSpacing: Int = 0
     private var _backIconMargin: Int = 0
-    private var _descriptionMargin: NumberStateList? = null
+    private var _descriptionMargins: NumberStateList? = null
+    private var currentDescriptionMargin: Int = 0
 
     private var contentPaddingStart: Int = 0
     private var contentPaddingTop: Int = 0
@@ -64,23 +71,36 @@ open class NavigationBar @JvmOverloads constructor(
     private var descriptionView: View? = null
     private var actionStartView: View? = null
     private var actionEndView: View? = null
-
+    private var _textAlignment: Int = TEXT_ALIGNMENT_CENTER
     private var _contentPlacement: Int = CONTENT_PLACEMENT_BOTTOM
     private var _textPlacement: Int = TEXT_PLACEMENT_BOTTOM
+    private var _centerAlignmentStrategy: Int = ALIGNMENT_STRATEGY_ABSOLUTE
     private val backIconView: ImageView = ImageView(context).apply {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             defaultFocusHighlightEnabled = false
         }
     }
+
+    private val containerWithPaddings: android.widget.LinearLayout =
+        android.widget.LinearLayout(context).apply {
+            orientation = VERTICAL
+            layoutParams = LayoutParams(
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.WRAP_CONTENT,
+            )
+        }
     private val actionsBlock: CustomCenteringLayout = CustomCenteringLayout(context, attrs)
 
     private val textBlock: android.widget.LinearLayout = android.widget.LinearLayout(context).apply {
         orientation = VERTICAL
         layoutParams = LayoutParams(
             LayoutParams.WRAP_CONTENT,
-            LayoutParams.WRAP_CONTENT
+            LayoutParams.WRAP_CONTENT,
         )
     }
+
+    private val titlePlace: FrameLayout = FrameLayout(context)
+    private val descriptionPlace: FrameLayout = FrameLayout(context)
 
     /**
      * @see ColorStateHolder.colorState
@@ -90,6 +110,20 @@ open class NavigationBar @JvmOverloads constructor(
             if (field != value) {
                 field = value
                 refreshDrawableState()
+            }
+        }
+
+    var onBackPressed: (() -> Unit)? = null
+
+    /**
+     * Выравнивание Title и Description внутри [NavigationBar]
+     */
+    open var textBlockAlignment: Int
+        get() = _textAlignment
+        set(value) {
+            if (_textAlignment != value) {
+                _textAlignment = value
+                resolveTextAlignment()
             }
         }
 
@@ -114,17 +148,56 @@ open class NavigationBar @JvmOverloads constructor(
         set(value) {
             if (_textPlacement != value) {
                 _textPlacement = value
+                refreshDrawableState()
                 changeTextPlacementGlobally()
+            }
+        }
+
+    /**
+     * Стратегия центрирования контента, находящегося в одном блоке
+     * с [NavigationBarContent.ACTION_START] и [NavigationBarContent.ACTION_END] по горизонтали.
+     */
+    open var centerAlignmentStrategy: Int
+        get() = _centerAlignmentStrategy
+        set(value) {
+            if (_centerAlignmentStrategy != value) {
+                _centerAlignmentStrategy = value
+                if (_centerAlignmentStrategy == ALIGNMENT_STRATEGY_ABSOLUTE) {
+                    actionsBlock.centeringStrategy = CustomCenteringLayout.CenteringStrategy.ABSOLUTE
+                } else {
+                    actionsBlock.centeringStrategy = CustomCenteringLayout.CenteringStrategy.RELATIVE
+                }
+            }
+        }
+
+    /**
+     * Выравнивание контента, находящегося между [NavigationBarContent.ACTION_START]
+     * и [NavigationBarContent.ACTION_END] по горизонтали.
+     */
+    open var contentAlignmentBetweenActions: Int
+        get() = actionsBlock.alignmentInCenterContent
+        set(value) {
+            if (actionsBlock.alignmentInCenterContent != value) {
+                actionsBlock.alignmentInCenterContent = value
+                resolveTextAlignment()
+                resolveContentAlignment()
             }
         }
 
     init {
         orientation = VERTICAL
         obtainAttributes(attrs, defStyleAttr, defStyleRes)
-        addView(actionsBlock)
-        addView(textBlock)
-        applyPaddingsToActionsBlock()
+        addView(containerWithPaddings)
+        actionsBlock.setBackIcon(backIconView)
+        containerWithPaddings.addView(actionsBlock)
+        resolveTitleAndIconPlace()
+        containerWithPaddings.addView(textBlock)
+        applyPaddingsToContainer()
         changeTextPlacementGlobally()
+        resolveTextAlignment()
+        backIconView.setOnClickListener {
+            onBackPressed?.invoke()
+        }
     }
 
     /**
@@ -217,7 +290,7 @@ open class NavigationBar @JvmOverloads constructor(
      */
     open fun removeTitle() {
         titleView?.let {
-            textBlock.removeView(it)
+            titlePlace.removeView(it)
             titleView = null
         }
     }
@@ -227,7 +300,7 @@ open class NavigationBar @JvmOverloads constructor(
      */
     open fun removeDescription() {
         descriptionView?.let {
-            textBlock.removeView(it)
+            descriptionPlace.removeView(it)
             descriptionView = null
         }
     }
@@ -247,11 +320,12 @@ open class NavigationBar @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         setBackgroundValueList(backgroundList)
+        refreshTextBlockAppearancesAndMargin()
     }
 
     override fun generateDefaultLayoutParams(): NavigationBarLayoutParams {
         return NavigationBarLayoutParams(
-            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT,
         )
     }
@@ -282,7 +356,7 @@ open class NavigationBar @JvmOverloads constructor(
             c.withStyledAttributes(attrs, R.styleable.NavigationBar_Layout) {
                 this@NavigationBarLayoutParams.navigationBarContent =
                     getInt(R.styleable.NavigationBar_Layout_layout_navigationBarContent, 0)
-                        .let { NavigationBarContent.entries.toTypedArray().getOrElse(it) { null } }
+                        .let { NavigationBarContent.values().getOrElse(it) { null } }
             }
         }
 
@@ -315,12 +389,17 @@ open class NavigationBar @JvmOverloads constructor(
                 } else {
                     super.addView(child, index, params)
                 }
+                resolveContentAlignment()
             }
 
-            NavigationBarContent.TITLE -> placeTextInternal()
+            NavigationBarContent.TITLE -> {
+                resolveTitlePlacement()
+                applyPaddingsToTextBlock()
+            }
             NavigationBarContent.DESCRIPTION -> {
-                textBlock.addView(child)
+                descriptionPlace.addView(child)
                 resolveDescriptionMargin()
+                applyPaddingsToTextBlock()
             }
 
             else -> {}
@@ -386,13 +465,16 @@ open class NavigationBar @JvmOverloads constructor(
                 val correctShape = it.copy(cornerSizeTopLeft = SimpleRect, cornerSizeTopRight = SimpleRect)
                 setShape(correctShape)
             }
-            backIconView.imageTintList = getColorStateList(R.styleable.NavigationBar_sd_backIconTint)
-            val icon = getDrawable(R.styleable.NavigationBar_sd_backIcon)
-            backIconView.setImageDrawable(icon)
             backgroundList = getColorValueStateList(context, R.styleable.NavigationBar_sd_background)
-            titleAppearance = getStyleStateList(context, R.styleable.NavigationBar_sd_titleAppearance)
+            titleAppearances = getStyleStateList(context, R.styleable.NavigationBar_sd_titleAppearance)
+            titleAppearances?.let {
+                currentTitleAppearance = it.getStyleForState(drawableState)
+            }
             titleColor = getColorStateList(R.styleable.NavigationBar_sd_titleColor)
-            descriptionAppearance = getStyleStateList(context, R.styleable.NavigationBar_sd_descriptionAppearance)
+            descriptionAppearances = getStyleStateList(context, R.styleable.NavigationBar_sd_descriptionAppearance)
+            descriptionAppearances?.let {
+                currentDescriptionAppearance = it.getStyleForState(drawableState)
+            }
             descriptionColor = getColorStateList(R.styleable.NavigationBar_sd_descriptionColor)
             backIconTint = getColorStateList(R.styleable.NavigationBar_sd_backIconTint)
 
@@ -402,12 +484,21 @@ open class NavigationBar @JvmOverloads constructor(
             _textBlockTopMargin = getDimensionPixelSize(R.styleable.NavigationBar_sd_textBlockTopMargin, 0)
             _horizontalSpacing = getDimensionPixelSize(R.styleable.NavigationBar_sd_horizontalSpacing, 0)
             _backIconMargin = getDimensionPixelSize(R.styleable.NavigationBar_sd_backIconMargin, 0)
-            _descriptionMargin = getNumberStateList(context,R.styleable.NavigationBar_sd_descriptionMargin)
-
+            _descriptionMargins = getNumberStateList(context, R.styleable.NavigationBar_sd_descriptionMargin)
+            _descriptionMargins?.let {
+                currentDescriptionMargin = it.getIntForState(drawableState)
+            }
             contentPaddingStart = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingStart, 0)
             contentPaddingTop = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingTop, 0)
             contentPaddingEnd = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingEnd, 0)
             contentPaddingBottom = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingBottom, 0)
+            backIconView.imageTintList = getColorStateList(R.styleable.NavigationBar_sd_backIconTint)
+
+            val icon = getDrawable(R.styleable.NavigationBar_sd_backIcon)
+            icon?.let {
+                backIconView.setImageDrawable(icon)
+                backIconView.setPaddingRelative(0, 0, _backIconMargin, 0)
+            }
         }
     }
 
@@ -463,7 +554,7 @@ open class NavigationBar @JvmOverloads constructor(
                 } else {
                     (this as? TextView)?.applyDescriptionRole()
                 }
-                navigationBarParams.topMargin = _descriptionMargin?.getIntForState(drawableState) ?: 0
+                navigationBarParams.topMargin = currentDescriptionMargin
             }
 
             NavigationBarContent.ACTION_START -> {
@@ -492,16 +583,15 @@ open class NavigationBar @JvmOverloads constructor(
         }
     }
 
-
     private fun TextView.applyTitleRole() {
-        titleAppearance?.let { setTextAppearancesList(it) }
+        if (currentTitleAppearance != 0) applyTextAppearance(titleView, currentTitleAppearance)
         colorState = this@NavigationBar.colorState
         titleColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, titleColor)
     }
 
     private fun TextView.applyDescriptionRole() {
-        descriptionAppearance?.let { setTextAppearancesList(it) }
+        if (currentDescriptionAppearance != 0) applyTextAppearance(descriptionView, currentDescriptionAppearance)
         colorState = this@NavigationBar.colorState
         descriptionColor?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, descriptionColor)
@@ -512,70 +602,47 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     private fun resolveDescriptionMargin() {
-        if (titleIsNotBlank()) setDescriptionMargin()
+        if (titleIsNotBlank()) {
+            val lp = descriptionPlace.layoutParams as? LayoutParams
+            lp?.let {
+                it.topMargin = currentDescriptionMargin
+                requestLayout()
+                invalidate()
+            }
+        }
     }
 
     private fun titleIsNotBlank(): Boolean {
-        var blank = false
-        titleView?.let {
-            blank = it.measuredWidth > 0 && it.measuredHeight > 0
-        }
-        return blank
-    }
-
-    private fun setDescriptionMargin() {
-        val lp = descriptionView?.layoutParams as? LayoutParams
-        lp?.let {
-            it.topMargin = _descriptionMargin?.getIntForState(drawableState) ?: 0
-            requestLayout()
-            invalidate()
+        return when (titleView) {
+            is TextView -> (titleView as TextView).text.isNotBlank()
+            is ViewGroup -> (titleView as ViewGroup).isNotEmpty()
+            else -> false
         }
     }
 
-    private fun placeTextInternal() {
-        if (descriptionView != null) {
-            textBlock.removeView(descriptionView)
-            textBlock.addView(titleView)
-            textBlock.addView(descriptionView)
-        } else {
-            textBlock.addView(titleView)
-        }
+    private fun resolveTitlePlacement() {
+        titlePlace.addView(titleView)
         resolveDescriptionMargin()
     }
 
-    private fun applyPaddingsToActionsBlock() {
-        if (textPlacement == TEXT_PLACEMENT_INNER) {
-            Log.d("applyPaddings","textPlacement == TEXT_PLACEMENT_INNER")
-            actionsBlock.setPaddingRelative(
-                contentPaddingStart,
-                contentPaddingTop,
-                contentPaddingEnd,
-                contentPaddingBottom,
-            )
-        } else {
-            Log.d("applyPaddings","textPlacement == TEXT_PLACEMENT_BOTTOM")
-            actionsBlock.setPaddingRelative(
-                contentPaddingStart,
-                contentPaddingTop,
-                contentPaddingEnd,
-                0,
-            )
-        }
+    private fun applyPaddingsToContainer() {
+        containerWithPaddings.setPaddingRelative(
+            contentPaddingStart,
+            contentPaddingTop,
+            contentPaddingEnd,
+            contentPaddingBottom,
+        )
     }
 
     private fun applyPaddingsToTextBlock() {
+        if (titleView == null && descriptionView == null) return
         if (textPlacement == TEXT_PLACEMENT_BOTTOM) {
-            textBlock.setPaddingRelative(
-                contentPaddingStart,
-                contentPaddingTop,
-                contentPaddingEnd,
-                contentPaddingBottom,
-            )
+            textBlock.setPadding(0, _textBlockTopMargin, 0, 0)
         } else {
             if (contentView != null && contentPlacement == CONTENT_PLACEMENT_INNER) {
                 textBlock.setPaddingRelative(0, 0, _horizontalSpacing, 0)
             } else {
-                textBlock.setPaddingRelative(0, 0, 0, 0)
+                textBlock.setPadding(0, 0, 0, 0)
             }
         }
     }
@@ -583,13 +650,7 @@ open class NavigationBar @JvmOverloads constructor(
     private fun changeTextPlacementGlobally() {
         (textBlock.parent as? ViewGroup)?.removeView(textBlock)
         if (textPlacement == TEXT_PLACEMENT_BOTTOM) {
-            if (contentView != null && contentPlacement == CONTENT_PLACEMENT_BOTTOM) {
-                removeView(contentView)
-                addView(textBlock)
-                addView(contentView)
-            } else {
-                addView(textBlock)
-            }
+            containerWithPaddings.addView(textBlock)
         } else {
             if (contentView != null && contentPlacement == CONTENT_PLACEMENT_INNER) {
                 actionsBlock.removeCenterContent()
@@ -606,12 +667,37 @@ open class NavigationBar @JvmOverloads constructor(
         (contentView?.parent as? ViewGroup)?.removeView(contentView)
         if (contentPlacement == CONTENT_PLACEMENT_INNER) {
             actionsBlock.addCenterContent(contentView)
+            if (textPlacement == TEXT_PLACEMENT_INNER) applyPaddingsToTextBlock()
         } else {
             addView(contentView)
         }
-        val lp = contentView?.layoutParams
-        (lp as? LayoutParams)?.gravity = Gravity.CENTER
+        resolveContentAlignment()
+    }
+
+    private fun resolveContentAlignment() {
+        val lp = contentView?.layoutParams ?: return
+        (lp as? LayoutParams)?.gravity =
+            if (contentPlacement == CONTENT_PLACEMENT_INNER) {
+                Gravity.CENTER_VERTICAL
+            } else {
+                this@NavigationBar.gravity
+            }
         contentView?.layoutParams = lp
+    }
+
+    private fun resolveTextAlignment() {
+        if (textPlacement == TEXT_PLACEMENT_BOTTOM) containerWithPaddings.gravity = textBlockAlignment
+        textBlock.children.forEach { child ->
+            val lp = child.layoutParams as? LayoutParams
+            lp?.let {
+                it.gravity = if (textPlacement == TEXT_PLACEMENT_BOTTOM) {
+                    textBlockAlignment
+                } else {
+                    contentAlignmentBetweenActions
+                }
+                child.layoutParams = lp
+            }
+        }
     }
 
     private fun universalAddView(
@@ -632,9 +718,58 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     private fun checkViewToInternalAdd(view: View?): Boolean {
-        return view == actionsBlock ||
-                view == textBlock ||
-                view == contentView && contentPlacement == CONTENT_PLACEMENT_BOTTOM
+        return view == containerWithPaddings ||
+            view == contentView && contentPlacement == CONTENT_PLACEMENT_BOTTOM
+    }
+
+    private fun refreshTextBlockAppearancesAndMargin() {
+        if (titleView != null) refreshTitleAppearance()
+        if (descriptionView != null) refreshDescriptionAppearance()
+        refreshDescriptionMargin()
+    }
+
+    private fun refreshDescriptionMargin() {
+        val stateList = _descriptionMargins ?: return
+        val old = currentDescriptionMargin
+        currentDescriptionMargin = stateList.getIntForState(drawableState)
+        if (old != currentDescriptionMargin) {
+            resolveDescriptionMargin()
+        }
+    }
+
+    private fun refreshTitleAppearance() {
+        val stateList = titleAppearances ?: return
+        val old = currentTitleAppearance
+        currentTitleAppearance = stateList.getStyleForState(drawableState)
+        if (old != currentTitleAppearance) {
+            applyTextAppearance(titleView, currentTitleAppearance)
+        }
+    }
+
+    private fun refreshDescriptionAppearance() {
+        val stateList = descriptionAppearances ?: return
+        val old = currentDescriptionAppearance
+        currentDescriptionAppearance = stateList.getStyleForState(drawableState)
+        if (old != currentDescriptionAppearance) {
+            applyTextAppearance(descriptionView, currentDescriptionAppearance)
+        }
+    }
+
+    private fun applyTextAppearance(view: View?, @StyleRes resId: Int) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? TextView)?.setTextAppearance(resId)
+            }
+        } else {
+            (view as? TextView)?.setTextAppearance(context, resId)
+        }
+    }
+
+    private fun resolveTitleAndIconPlace() {
+        textBlock.addView(titlePlace, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        textBlock.addView(descriptionPlace, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
     }
 
     companion object {
@@ -662,12 +797,53 @@ open class NavigationBar @JvmOverloads constructor(
          */
         const val TEXT_PLACEMENT_BOTTOM = 1
 
-        const val TEXT_ALIGNMENT_START = 0
-        const val TEXT_ALIGNMENT_CENTER = 1
-        const val TEXT_ALIGNMENT_END = 2
+        /**
+         * Выравнивание текстового блока, содержащего view с ролями [NavigationBarContent.TITLE]
+         * и [NavigationBarContent.DESCRIPTION], а так же самих этих view по краю в начале.
+         */
+        const val TEXT_ALIGNMENT_START = Gravity.START
 
+        /**
+         * Выравнивание текстового блока, содержащего view с ролями [NavigationBarContent.TITLE]
+         * и [NavigationBarContent.DESCRIPTION], а так же самих этих view по центру.
+         */
+        const val TEXT_ALIGNMENT_CENTER = Gravity.CENTER
+
+        /**
+         * Выравнивание текстового блока, содержащего view с ролями [NavigationBarContent.TITLE]
+         * и [NavigationBarContent.DESCRIPTION], а так же самих этих view по краю в конце.
+         */
+        const val TEXT_ALIGNMENT_END = Gravity.END
+
+        /**
+         * Центрирование контента, находящегося в одном блоке с [NavigationBarContent.ACTION_START]
+         * и [NavigationBarContent.ACTION_END], относительно ширины [NavigationBar].
+         */
         const val ALIGNMENT_STRATEGY_ABSOLUTE = 0
+
+        /**
+         * Центрирование контента, находящегося в одном блоке с [NavigationBarContent.ACTION_START]
+         * и [NavigationBarContent.ACTION_END], относительно ширины этого блока .
+         */
         const val ALIGNMENT_STRATEGY_RELATIVE = 1
+
+        /**
+         * Выравнивание контента, находящегося между [NavigationBarContent.ACTION_START]
+         * и [NavigationBarContent.ACTION_END] по краю в начале.
+         */
+        const val CONTENT_ALIGNMENT_BETWEEN_ACTIONS_START = Gravity.START or Gravity.CENTER_VERTICAL
+
+        /**
+         * Выравнивание контента, находящегося между [NavigationBarContent.ACTION_START]
+         * и [NavigationBarContent.ACTION_END] по центру.
+         */
+        const val CONTENT_ALIGNMENT_BETWEEN_ACTIONS_CENTER = Gravity.CENTER or Gravity.CENTER_VERTICAL
+
+        /**
+         * Выравнивание контента, находящегося между [NavigationBarContent.ACTION_START]
+         * и [NavigationBarContent.ACTION_END] по краю в конце.
+         */
+        const val CONTENT_ALIGNMENT_BETWEEN_ACTIONS_END = Gravity.END or Gravity.CENTER_VERTICAL
 
         private val InlinedState = intArrayOf(R.attr.sd_state_collapsed)
 
