@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.DpSize
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
  * @param tint цвет иконки
+ * @param contentScale правило скейлинга
  */
 @Composable
 fun Icon(
@@ -38,6 +39,7 @@ fun Icon(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     tint: Color = LocalTint.current,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     val colorFilter = if (tint == Color.Unspecified) null else ColorFilter.tint(tint)
     val semantics = if (contentDescription != null) {
@@ -55,7 +57,7 @@ fun Icon(
             .paint(
                 painter = painter,
                 colorFilter = colorFilter,
-                contentScale = ContentScale.Fit,
+                contentScale = contentScale,
             )
             .then(semantics),
     )
@@ -68,6 +70,7 @@ fun Icon(
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
  * @param tint цвет иконки
+ * @param contentScale правило скейлинга
  */
 @Composable
 @NonRestartableComposable
@@ -76,12 +79,14 @@ fun Icon(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     tint: Color = LocalTint.current,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     Icon(
         painter = rememberVectorPainter(imageVector),
         contentDescription = contentDescription,
         modifier = modifier,
         tint = tint,
+        contentScale = contentScale,
     )
 }
 
@@ -92,6 +97,7 @@ fun Icon(
  * @param contentDescription описание содержимого контента
  * @param modifier модификатор
  * @param tint цвет иконки
+ * @param contentScale правило скейлинга
  */
 @Composable
 @NonRestartableComposable
@@ -100,6 +106,7 @@ fun Icon(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     tint: Color = LocalTint.current,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     val painter = remember(bitmap) { BitmapPainter(bitmap) }
     Icon(
@@ -107,6 +114,7 @@ fun Icon(
         contentDescription = contentDescription,
         modifier = modifier,
         tint = tint,
+        contentScale = contentScale,
     )
 }
 
