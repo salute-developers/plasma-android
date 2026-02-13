@@ -103,17 +103,17 @@ internal class DecoratedFieldBox(
     }
     private val _iconView: TextFieldImageView by unsafeLazy {
         TextFieldImageView(context).apply {
-            id = R.id.sd_textFieldIcon
+            id = generateViewId()
         }
     }
     private val _actionView: TextFieldImageView by unsafeLazy {
         TextFieldImageView(context).apply {
-            id = R.id.sd_textFieldAction
+            id = generateViewId()
         }
     }
     private val _captionView: TextFieldTextView by unsafeLazy {
         TextFieldTextView(context).apply {
-            id = R.id.sd_textFieldCaption
+            id = generateViewId()
             includeFontPadding = false
             isClickable = false
         }
@@ -121,13 +121,13 @@ internal class DecoratedFieldBox(
 
     private val _counterView: TextFieldTextView by unsafeLazy {
         TextFieldTextView(context).apply {
-            id = R.id.sd_textFieldCounter
+            id = generateViewId()
             includeFontPadding = false
             isClickable = false
         }
     }
     private val _field = MaskedEditText(context).apply {
-        id = R.id.sd_textFieldEditText
+        id = generateViewId()
         hint = null
         background = null
         clipToPadding = true
