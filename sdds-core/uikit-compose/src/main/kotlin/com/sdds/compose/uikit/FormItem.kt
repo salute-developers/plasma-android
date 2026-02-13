@@ -117,15 +117,15 @@ fun FormHorizontal(
 fun FormItem(
     modifier: Modifier = Modifier,
     style: FormItemStyle = LocalFormItemStyle.current,
-    content: @Composable () -> Unit,
+    hint: (@Composable () -> Unit)?,
     title: (@Composable () -> Unit)? = null,
     optional: (@Composable () -> Unit)? = null,
     titleCaption: (@Composable () -> Unit)? = null,
     caption: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
-    hint: (@Composable () -> Unit)? = null,
     enabled: Boolean = true,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
 ) {
     val hint = getHint(hint, style, enabled, interactionSource)
     val startTitle = getStartTitle(style, title, hint, optional, interactionSource, enabled)
@@ -175,12 +175,12 @@ fun FormItem(
     titleCaption: (@Composable () -> Unit)? = null,
     caption: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
-    content: @Composable () -> Unit,
     hasHint: Boolean = false,
     onHintPressed: (() -> Unit)? = null,
     hintTriggerInfo: MutableState<TriggerInfo> = remember { mutableStateOf(TriggerInfo()) },
     enabled: Boolean = true,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
 ) {
     val hintContent = getHintIcon(hasHint, style, hintTriggerInfo, enabled, onHintPressed)
 

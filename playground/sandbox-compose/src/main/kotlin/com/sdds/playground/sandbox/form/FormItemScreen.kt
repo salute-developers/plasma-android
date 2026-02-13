@@ -99,7 +99,6 @@ internal fun FormItemPreview(style: FormItemStyle) {
         titleCaption = getContentOrNull("TitleCaption"),
         caption = getIconTextOrNull("Caption", true),
         counter = getContentOrNull("Counter"),
-        hasHint = false,
     )
 }
 
