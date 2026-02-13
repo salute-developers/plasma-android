@@ -16,6 +16,8 @@ internal data class BottomSheetUiState(
     val handlePlacement: BottomSheetHandlePlacement = BottomSheetHandlePlacement.Auto,
     val fitContent: Boolean = false,
     val littleContent: Boolean = false,
+    val dimBackground: Boolean = true,
+    val useNativeBlackout: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

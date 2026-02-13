@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import android.view.WindowManager
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
@@ -26,7 +25,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NonRestartableComposable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -36,14 +34,12 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.window.DialogProperties
-import androidx.compose.ui.window.DialogWindowProvider
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.clickableWithoutIndication
 import com.sdds.compose.uikit.internal.heightOrZero
@@ -140,8 +136,9 @@ fun Modal(
         onDismissRequest = onDismissRequest,
         dialogProperties = dialogProperties,
         edgeToEdge = edgeToEdge,
+        useNativeBlackout = dimBackground && useNativeBlackout,
+        blurRadius = style.dimensions.backgroundBlurRadius,
     ) {
-        ConfigureWindow(useNativeBlackout, dimBackground)
         val transition = rememberTransition(visibleState, null)
         OverlayOrBox(
             hasOverlay = dimBackground && !useNativeBlackout,
@@ -215,21 +212,6 @@ data class ModalAnimations(
     val overlayEnterSpec: FiniteAnimationSpec<Float> = tween(),
     val overlayExitSpec: FiniteAnimationSpec<Float> = tween(0),
 )
-
-@Composable
-private fun ConfigureWindow(useNativeBlackout: Boolean, dimBackground: Boolean) {
-    val dialogWindowProvider = LocalView.current.parent as? DialogWindowProvider
-    SideEffect {
-        dialogWindowProvider?.window ?: return@SideEffect
-        dialogWindowProvider.apply {
-            window.setWindowAnimations(-1)
-            if (!useNativeBlackout || !dimBackground) {
-                window.setDimAmount(0f)
-                window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            }
-        }
-    }
-}
 
 private fun Modifier.alignModal(gravity: ModalGravity, shadowOffset: () -> IntOffset): Modifier {
     return this.layout { measurable, constraints ->

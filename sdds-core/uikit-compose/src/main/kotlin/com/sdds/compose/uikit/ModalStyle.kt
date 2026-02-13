@@ -263,6 +263,11 @@ interface ModalDimensions {
      */
     val paddingBottom: Dp
 
+    /**
+     * Радиус эффекта размытия для фона окна
+     */
+    val backgroundBlurRadius: Dp
+
     companion object {
         /**
          * Создает экземпляр [ModalDimensionsBuilder]
@@ -301,6 +306,11 @@ interface ModalDimensionsBuilder {
     fun paddingBottom(paddingBottom: Dp): ModalDimensionsBuilder
 
     /**
+     * Устанавливает радиус эффекта размытия для фона окна [radius]
+     */
+    fun backgroundBlurRadius(radius: Dp): ModalDimensionsBuilder
+
+    /**
      * Создает экземпляр [ModalDimensions]
      */
     fun build(): ModalDimensions
@@ -312,6 +322,7 @@ private class DefaultModalDimensions(
     override val paddingTop: Dp,
     override val paddingBottom: Dp,
     override val closeSize: Dp,
+    override val backgroundBlurRadius: Dp,
 ) : ModalDimensions {
 
     class Builder : ModalDimensionsBuilder {
@@ -321,6 +332,7 @@ private class DefaultModalDimensions(
         private var paddingEnd: Dp? = null
         private var paddingTop: Dp? = null
         private var paddingBottom: Dp? = null
+        private var backgroundBlurRadius: Dp? = null
 
         override fun closeSize(closeSize: Dp) = apply {
             this.closeSize = closeSize
@@ -342,6 +354,10 @@ private class DefaultModalDimensions(
             this.paddingBottom = paddingBottom
         }
 
+        override fun backgroundBlurRadius(radius: Dp): ModalDimensionsBuilder = apply {
+            this.backgroundBlurRadius = radius
+        }
+
         override fun build(): ModalDimensions {
             return DefaultModalDimensions(
                 paddingStart = paddingStart ?: 32.dp,
@@ -349,6 +365,7 @@ private class DefaultModalDimensions(
                 paddingTop = paddingTop ?: 32.dp,
                 paddingBottom = paddingBottom ?: 32.dp,
                 closeSize = closeSize ?: 24.dp,
+                backgroundBlurRadius = backgroundBlurRadius ?: Dp.Unspecified,
             )
         }
     }

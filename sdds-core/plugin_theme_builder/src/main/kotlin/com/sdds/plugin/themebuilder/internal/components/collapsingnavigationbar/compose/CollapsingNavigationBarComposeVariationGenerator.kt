@@ -41,13 +41,13 @@ internal class CollapsingNavigationBarComposeVariationGenerator(
 
     override fun KtFileBuilder.onAddImports() {
         addImport("androidx.compose.ui.graphics", listOf("SolidColor"))
-        addImport("com.sdds.compose.uikit", listOf("CollapsingNavBarState"))
+        addImport("com.sdds.compose.uikit", listOf("CollapsingNavigationBarStates"))
     }
 
     override fun getCustomState(state: String): String {
         return when (state) {
-            "collapsed" -> "CollapsingNavBarState.Collapsed"
-            "expanded" -> "CollapsingNavBarState.Expanded"
+            "collapsed" -> "CollapsingNavigationBarStates.Collapsed"
+            "expanded" -> "CollapsingNavigationBarStates.Expanded"
             else -> throw IllegalStateException("Unknown state $state for CollapsingNavigationBar")
         }
     }

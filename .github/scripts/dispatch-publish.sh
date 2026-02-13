@@ -36,6 +36,10 @@ for MODULE in "${MODULES[@]}"; do
       EVENT_TYPE="publish-sandbox"
       PAYLOAD="{\"tag\": \"$TAG\"}"
       ;;
+    ":sdds-haze:haze")
+      EVENT_TYPE="publish-haze"
+      PAYLOAD="{\"tag\": \"$TAG\"}"
+      ;;
     :tokens:*)
       TOKENS_MODULES+=("$MODULE")
       continue  # пропускаем прямую отправку — обработаем потом все вместе

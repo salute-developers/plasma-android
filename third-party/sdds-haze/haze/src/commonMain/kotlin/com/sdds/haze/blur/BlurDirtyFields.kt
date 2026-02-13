@@ -1,0 +1,59 @@
+// Copyright 2025, Christopher Banes and the Haze project contributors
+// SPDX-License-Identifier: Apache-2.0
+
+package com.sdds.haze.blur
+
+import com.sdds.haze.Bitmask
+import com.sdds.haze.InternalHazeApi
+
+@Suppress("ConstPropertyName", "ktlint:standard:property-naming")
+@OptIn(InternalHazeApi::class)
+internal object BlurDirtyFields {
+    const val BlurEnabled: Int = 0b1
+    const val BlurRadius: Int = BlurEnabled shl 1
+    const val NoiseFactor: Int = BlurRadius shl 1
+    const val Mask: Int = NoiseFactor shl 1
+    const val BackgroundColor: Int = Mask shl 1
+    const val ColorEffects: Int = BackgroundColor shl 1
+    const val FallbackColorEffect: Int = ColorEffects shl 1
+    const val Alpha: Int = FallbackColorEffect shl 1
+    const val Progressive: Int = Alpha shl 1
+    const val BlurredEdgeTreatment: Int = Progressive shl 1
+    const val Shape: Int = BlurredEdgeTreatment shl 1
+
+    const val RenderEffectAffectingFlags: Int =
+        BlurEnabled or
+            BlurRadius or
+            NoiseFactor or
+            Mask or
+            ColorEffects or
+            FallbackColorEffect or
+            Progressive or
+            BlurredEdgeTreatment
+
+    const val InvalidateFlags: Int =
+        RenderEffectAffectingFlags or
+            BlurEnabled or
+            BackgroundColor or
+            Progressive or
+            Alpha or
+            BlurredEdgeTreatment or
+            Shape
+
+    fun stringify(dirtyTracker: Bitmask): String {
+        val params = buildList {
+            if (BlurEnabled in dirtyTracker) add("BlurEnabled")
+            if (BlurRadius in dirtyTracker) add("BlurRadius")
+            if (NoiseFactor in dirtyTracker) add("NoiseFactor")
+            if (Mask in dirtyTracker) add("Mask")
+            if (BackgroundColor in dirtyTracker) add("BackgroundColor")
+            if (ColorEffects in dirtyTracker) add("Tints")
+            if (FallbackColorEffect in dirtyTracker) add("FallbackTint")
+            if (Alpha in dirtyTracker) add("Alpha")
+            if (Progressive in dirtyTracker) add("Progressive")
+            if (BlurredEdgeTreatment in dirtyTracker) add("BlurredEdgeTreatment")
+            if (Shape in dirtyTracker) add("Shape")
+        }
+        return params.joinToString(separator = ", ", prefix = "[", postfix = "]")
+    }
+}

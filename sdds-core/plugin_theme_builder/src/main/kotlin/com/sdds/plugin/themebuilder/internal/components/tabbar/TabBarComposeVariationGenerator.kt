@@ -93,6 +93,9 @@ internal class TabBarComposeVariationGenerator(
                 props.backgroundColor?.let {
                     appendLine(getColor("backgroundColor", it))
                 }
+                props.backgroundBlurColor?.let {
+                    appendLine(getColor("backgroundBlurTint", it))
+                }
                 props.dividerColor?.let {
                     appendLine(getColor("dividerColor", it))
                 }
@@ -139,6 +142,9 @@ internal class TabBarComposeVariationGenerator(
                 }
                 props.dividerThickness?.let {
                     appendDimension("divider_thickness", it, variationId)
+                }
+                props.backgroundBlurRadius?.let {
+                    appendDimension("background_blur_radius", it, variationId)
                 }
                 append("}")
             }

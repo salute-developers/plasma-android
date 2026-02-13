@@ -89,7 +89,7 @@ internal fun NavigationViewMobile(
     var currentIndex by remember { mutableIntStateOf(0) }
     val style = LocalNavigationViewStyle.current
     LazyColumn(
-        Modifier
+        modifier
             .fillMaxWidth()
             .padding(6.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),

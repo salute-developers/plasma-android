@@ -46,7 +46,7 @@ val docsElements by configurations.creating {
 afterEvaluate {
     extensions.configure<PublishingExtension>("publishing") {
         publications {
-            publications.named<MavenPublication>("release") {
+            publications.withType<MavenPublication> {
                 artifact(tasks.named("docsJar"))
             }
         }

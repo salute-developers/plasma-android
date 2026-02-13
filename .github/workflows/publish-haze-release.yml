@@ -1,0 +1,63 @@
+name: 'Publish SDDS Haze Release'
+
+on:
+  repository_dispatch:
+    types: [publish-haze]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тэг для релиза"
+        required: true
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish-haze:
+    name: Generate haze distribution zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Determine tag
+        id: inputs
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            TAG="${{ github.event.client_payload.tag }}"
+          else
+            TAG="${{ github.event.inputs.tag }}"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT   
+
+      - name: Generate distribution zip
+        env:
+          OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
+          OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
+          OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
+          PP_AUTH_TOKEN: ${{ secrets.PP_AUTH_TOKEN }}
+        run: ./gradlew :sdds-haze:haze:mavenPublish --info -PbranchName=main
+
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribution
+          path: third-party/sdds-haze/haze/build/distributions/*.zip
+
+      - name: Create or Update Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.inputs.outputs.tag }}
+          draft: true
+          allowUpdates: true
+          omitBody: true
+          generateReleaseNotes: true
+          artifacts: third-party/sdds-haze/haze/build/distributions/*.zip

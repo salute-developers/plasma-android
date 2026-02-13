@@ -1,7 +1,12 @@
 package com.sdds.compose.uikit.internal.common
 
 import androidx.compose.foundation.background
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.draw.DrawModifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
@@ -11,11 +16,15 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.platform.InspectorValueInfo
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.unit.LayoutDirection
+import com.sdds.compose.uikit.graphics.BlurState
+import com.sdds.compose.uikit.graphics.BlurStyle
 import com.sdds.compose.uikit.graphics.LayeredShaderBrush
+import com.sdds.compose.uikit.graphics.blurStyle
 
 /**
  * Рисует [brushes] в пределах формы [shape], учитывая прозрачность [alpha]
@@ -74,6 +83,31 @@ internal fun Modifier.background(
     brush != null -> this.background(brush, shape, alpha)
     color != null -> this.background(color, shape)
     else -> this
+}
+
+/**
+ * Применяет [blurStyle] в качестве фона, если включено размытие фона,
+ * иначе будет использован [BlurStyle.fallbackBackground]
+ */
+internal fun Modifier.background(blurStyle: BlurStyle): Modifier {
+    return Modifier
+        .blurStyle(blurStyle)
+        .then(this)
+        .fallbackBlurBackground(blurStyle.fallbackBackground, blurStyle.shape)
+}
+
+private fun Modifier.fallbackBlurBackground(color: Brush, shape: Shape): Modifier {
+    return composed {
+        var modifierLocalBlurState by remember { mutableStateOf<BlurState>(NoBlur) }
+        val consumer = this.modifierLocalConsumer {
+            modifierLocalBlurState = ModifierLocalBlurState.current
+        }
+        if (modifierLocalBlurState == NoBlur) {
+            consumer.background(color, shape)
+        } else {
+            consumer
+        }
+    }
 }
 
 private class Background(
