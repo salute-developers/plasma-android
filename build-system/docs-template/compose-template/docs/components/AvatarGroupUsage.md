@@ -9,6 +9,8 @@ Counter - счетчик Avatar's, которые не отображаются 
 // @sample: com/sdds/compose/uikit/fixtures/samples/avatar/group/AvatarGroup_Simple.kt  
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.avatar.group.AvatarGroup_Simple -->
+
 ## Стиль AvatarGroup
 
 Стиль AvatarGroup можно настроить с помощью AvatarGroupStyle.builder(). Так же существует набор сгенерированных стилей.

@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.fixtures.samples.notification
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -15,6 +16,7 @@ import com.sdds.compose.uikit.NotificationContent
 import com.sdds.compose.uikit.NotificationContentStyle
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
+import com.sdds.compose.uikit.overlay.OverlayHost
 import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showNotification
 import com.sdds.compose.uikit.shadow.ShadowAppearance
@@ -23,16 +25,15 @@ import com.sdds.docs.DocSample
 @Composable
 @DocSample(needScreenshot = true)
 fun Notification_Simple() {
-    composableCodeSnippet {
+    OverlayHost {
         val overlayManager = LocalOverlayManager.current
-        Button(
-            label = "show notification",
-            onClick = {
-                overlayManager.showNotification(
-                    durationMillis = 3000,
-                    position = OverlayPosition.BottomEnd,
-                    isFocusable = false,
-                ) {
+        LaunchedEffect(Unit) {
+            overlayManager.showNotification(
+                durationMillis = 3000,
+                position = OverlayPosition.Center,
+                isFocusable = false,
+            ) {
+                composableCodeSnippet {
                     Notification(
                         hasClose = true,
                         closeIcon = painterResource(com.sdds.icons.R.drawable.ic_close_24),
@@ -49,8 +50,8 @@ fun Notification_Simple() {
                         )
                     }
                 }
-            },
-        )
+            }
+        }
     }
 }
 

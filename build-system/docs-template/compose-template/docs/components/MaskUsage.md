@@ -12,6 +12,9 @@ MaskedTextField является оберткой над [TextField](TextFieldUs
 // @sample: com/sdds/compose/uikit/fixtures/samples/mask/Mask_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.Mask_Simple -->
+
+
 ## Предустановленные маски
 В `MaskedTextField` доступны следующие типы масок (имплементации интерфейса `TextFieldMask`):
 
@@ -31,6 +34,10 @@ MaskedTextField является оберткой над [TextField](TextFieldUs
 // @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskPhone_Custom.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskPhone_Simple -->
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskPhone_Custom -->
+
 ### Дата - `DateMask`
 
 Параметры:
@@ -47,6 +54,10 @@ MaskedTextField является оберткой над [TextField](TextFieldUs
 // @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskDate_Custom.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskDate_Simple -->
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskDate_Custom -->
+
 ### Время - `TimeMask`
 
 Параметры:
@@ -62,6 +73,10 @@ MaskedTextField является оберткой над [TextField](TextFieldUs
 // Кастомизация
 // @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskTime_Custom.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskTime_Simple -->
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskTime_Custom -->
 
 ### Число - `NumberMask`
 
@@ -80,6 +95,10 @@ MaskedTextField является оберткой над [TextField](TextFieldUs
 // Кастомизация
 // @sample: com/sdds/compose/uikit/fixtures/samples/mask/MaskNumber_Custom.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskNumber_Simple -->
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.mask.MaskNumber_Custom -->
 
 ### TextFieldMaskMode - режим отображения маски
 

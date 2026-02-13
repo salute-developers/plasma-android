@@ -20,6 +20,8 @@ title: PaginationDots
 // @sample: com/sdds/compose/uikit/fixtures/samples/paginationdots/PaginationDots_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.paginationdots.PaginationDots_Simple -->
+
 > Для корректной работы необходимо следить, чтобы selectedIndex не выходил за пределы общего количества точек totalCount
 
 ## Стиль PaginationDots

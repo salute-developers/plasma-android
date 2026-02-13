@@ -42,7 +42,7 @@ fun LoaderSpinner_Simple() {
                     contentDescription = "",
                 )
             },
-            loaderType = LoaderType.Progress,
+            loaderType = LoaderType.Spinner,
         )
     }
 }

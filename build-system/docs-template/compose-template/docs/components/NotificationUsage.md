@@ -11,6 +11,8 @@ title: Notification
 // @sample: com/sdds/compose/uikit/fixtures/samples/notification/Notification_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.notification.Notification_Simple -->
+
 ## Стиль Notification
 
 Для Notification существует набор сгенерированных стилей. Также стиль можно настроить с помощью NotificationStyle.builder().

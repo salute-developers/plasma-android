@@ -12,6 +12,8 @@ title: ModalBottomSheet
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheet_Simple -->
+
 ## Стиль ModalBottomSheet
 
 Стиль ModalBottomSheet можно настроить с помощью ModalBottomSheet.builder(). Так же существует набор сгенерированных стилей.
@@ -31,6 +33,8 @@ title: ModalBottomSheet
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetHandleInner_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheetHandleInner_Simple -->
+
 ## FitContent
 
 С помощью параметра fitContent возможно ограничить высоту bottomSheet в развернутом виде, но только в том случае, если высота контента меньше высоты экрана.
@@ -38,3 +42,5 @@ title: ModalBottomSheet
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetFitContent_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheetFitContent_Simple -->

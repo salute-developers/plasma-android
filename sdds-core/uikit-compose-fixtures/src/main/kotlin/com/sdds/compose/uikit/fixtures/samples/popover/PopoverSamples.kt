@@ -29,7 +29,7 @@ import com.sdds.docs.DocSample
 @DocSample(needScreenshot = true)
 fun Popover_Simple() {
     composableCodeSnippet {
-        val showPopover = remember { mutableStateOf(false) }
+        val showPopover = remember { mutableStateOf(placeholder(true, "false")) }
         val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
         Button(
             modifier = Modifier

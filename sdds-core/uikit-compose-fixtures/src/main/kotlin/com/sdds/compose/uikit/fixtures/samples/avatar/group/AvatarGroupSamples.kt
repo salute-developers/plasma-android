@@ -19,14 +19,16 @@ fun AvatarGroup_Simple() {
         AvatarGroup(
             threshold = 1,
         ) {
-            avatar {
-                Avatar(
-                    status = AvatarStatus.Active,
-                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
-                )
-            }
-            counter {
-                AvatarCounter(3)
+            repeat(3) {
+                avatar {
+                    Avatar(
+                        status = AvatarStatus.Active,
+                        placeholder = AvatarPlaceholder.Name("Michael Scott"),
+                    )
+                }
+                counter {
+                    AvatarCounter(3)
+                }
             }
         }
     }

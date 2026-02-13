@@ -3,12 +3,14 @@ title: ButtonGroup
 ---
 Группа кнопок.
 
-В качестве контента ожидает [Button](ButtonUsage.md) либо [IconButton](ButtonUsage.md). Кнопки стилизуются автоматически.
+В качестве контента ожидает [Button](BasicButtonUsage) либо [IconButton](BasicButtonUsage). Кнопки стилизуются автоматически.
 
 ### Группа кнопок BasicButton
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/buttongroup/ButtonGroup_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.buttongroup.ButtonGroup_Simple -->
 
 ### Группа кнопок IconButton
 ```kotlin
@@ -31,6 +33,8 @@ title: ButtonGroup
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/buttongroup/IconButtonGroup_Style.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.buttongroup.IconButtonGroup_Simple -->
 
 ## ButtonGroupOrientation
 

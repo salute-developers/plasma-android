@@ -8,6 +8,8 @@ title: ProgressBar
 // @sample: com/sdds/compose/uikit/fixtures/samples/progress/Progress_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.progress.Progress_Simple -->
+
 ## Стиль ProgressBar
 
 Стиль ProgressBar можно настроить с помощью ProgressBarStyle.builder(). Так же существует набор сгенерированных стилей.

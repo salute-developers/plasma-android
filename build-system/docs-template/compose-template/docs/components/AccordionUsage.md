@@ -9,7 +9,7 @@ title: Accordion
 // @sample: com/sdds/compose/uikit/fixtures/samples/accordion/Accordion_Simple.kt
 ```
 
-<!--@screenshot: -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.accordion.Accordion_Simple -->
 
 ## Стиль Accordion и AccordionItem
 

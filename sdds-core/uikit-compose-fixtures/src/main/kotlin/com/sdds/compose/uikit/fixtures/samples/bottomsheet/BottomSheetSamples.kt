@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
 fun ModalBottomSheet_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
-            initialValue = BottomSheetValue.Hidden,
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
         )
         val scope = rememberCoroutineScope()
         Button(
@@ -80,7 +80,7 @@ fun ModalBottomSheet_Style() {
 fun ModalBottomSheetHandleInner_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
-            initialValue = BottomSheetValue.Hidden,
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
         )
         ModalBottomSheet(
             sheetState = sheetState,
@@ -96,7 +96,7 @@ fun ModalBottomSheetHandleInner_Simple() {
 fun ModalBottomSheetFitContent_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
-            initialValue = BottomSheetValue.Hidden,
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
         )
         ModalBottomSheet(
             sheetState = sheetState,

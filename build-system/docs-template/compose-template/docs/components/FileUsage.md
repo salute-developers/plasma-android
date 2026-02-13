@@ -6,7 +6,7 @@ title: File
 В качестве `progress` ожидает [CircularProgressBar](CircularProgressBarUsage.md) для варианта с внутренним расположением прогресса 
 и [ProgressBar](ProgressBarUsage.md) для варианта с нижним расположением прогресса (см. [FileProgressPlacement](#fileactionplacement)). Либо произвольный контент.
 
-В качестве `action` ожидает [IconButton](ButtonUsage.md) либо произвольный контент.
+В качестве `action` ожидает [IconButton](BasicButtonUsage) либо произвольный контент.
 
 В качестве `image` ожидает иконку / изображение / произвольный контент.
 
@@ -15,10 +15,14 @@ title: File
 // @sample: com/sdds/compose/uikit/fixtures/samples/file/FileCircular_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.file.FileCircular_Simple -->
+
 ### Пример с внешним линейным прогрессом снизу
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/file/FileLinear_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.file.FileLinear_Simple -->
 
 ## Стиль File
 

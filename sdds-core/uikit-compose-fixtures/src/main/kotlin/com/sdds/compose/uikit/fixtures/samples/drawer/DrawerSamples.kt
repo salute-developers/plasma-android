@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,7 +34,7 @@ import com.sdds.icons.R
 import kotlinx.coroutines.launch
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_Simple() {
     composableCodeSnippet {
         val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -43,19 +44,27 @@ fun Drawer_Simple() {
             drawerContent = { Text("Содержимое Drawer") },
         ) {
             Button(
-                label = "Открыть Drawer",
+                label = "Открыть",
                 modifier = Modifier.align(Alignment.Center),
                 onClick = { scope.launch { drawerState.open() } },
             )
+        }
+        LaunchedEffect(Unit) {
+            drawerState.open()
         }
     }
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_WithHeaderFooter() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val drawerState = rememberDrawerState(
+            initialValue = placeholder(
+                DrawerValue.Opened,
+                replace = "DrawerValue.Closed",
+            ),
+        )
         val scope = rememberCoroutineScope()
 
         Drawer(
@@ -85,7 +94,12 @@ fun Drawer_WithHeaderFooter() {
 @DocSample(needScreenshot = true)
 fun Drawer_PeekAndOverlay() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val drawerState = rememberDrawerState(
+            initialValue = placeholder(
+                DrawerValue.Opened,
+                "DrawerValue.Closed",
+            ),
+        )
         val scope = rememberCoroutineScope()
 
         Drawer(
@@ -104,7 +118,7 @@ fun Drawer_PeekAndOverlay() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_Alignments() {
     composableCodeSnippet {
         val start = rememberDrawerState(
@@ -141,7 +155,12 @@ fun Drawer_Alignments() {
 @DocSample(needScreenshot = true)
 fun Drawer_CustomCloseIcon() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val drawerState = rememberDrawerState(
+            initialValue = placeholder(
+                DrawerValue.Opened,
+                "DrawerValue.Closed",
+            ),
+        )
         val scope = rememberCoroutineScope()
         Drawer(
             drawerState = drawerState,
@@ -173,7 +192,12 @@ fun Drawer_CustomCloseIcon() {
 @DocSample(needScreenshot = true)
 fun Drawer_NoGestures() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val drawerState = rememberDrawerState(
+            initialValue = placeholder(
+                DrawerValue.Opened,
+                "DrawerValue.Closed",
+            ),
+        )
         val scope = rememberCoroutineScope()
 
         Drawer(
@@ -194,7 +218,12 @@ fun Drawer_NoGestures() {
 @DocSample(needScreenshot = true)
 fun Drawer_MoveContent() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val drawerState = rememberDrawerState(
+            initialValue = placeholder(
+                DrawerValue.Opened,
+                "DrawerValue.Closed",
+            ),
+        )
         val scope = rememberCoroutineScope()
 
         Drawer(
@@ -212,10 +241,15 @@ fun Drawer_MoveContent() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_NoAutoOpenOnFocus() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+        val drawerState = rememberDrawerState(
+            initialValue = placeholder(
+                DrawerValue.Opened,
+                "DrawerValue.Closed",
+            ),
+        )
         Drawer(
             drawerState = drawerState,
             openOnFocus = false,
@@ -281,7 +315,7 @@ fun Drawer_ProgrammaticControl() {
                 Button(label = "close()", onClick = { scope.launch { drawerState.close() } })
                 Spacer(Modifier.width(8.dp))
                 Button(
-                    label = "snapTo(Open)",
+                    label = "Открыть",
                     onClick = { scope.launch { drawerState.snapTo(DrawerValue.Opened) } },
                 )
             }

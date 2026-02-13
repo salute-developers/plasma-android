@@ -8,6 +8,8 @@ title: Cell
 // @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.cell.Cell_Simple -->
+
 ## Стиль Cell
 
 Стиль Cell можно настроить с помощью CellStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -42,3 +44,5 @@ Avatar(),  Switch(), CheckBox(), RadioBox(), IconButton() или иконка, �
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/cell/Cell_AvatarSwitch.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.cell.Cell_AvatarSwitch -->

@@ -30,7 +30,7 @@ import com.sdds.docs.DocSample
 @DocSample(needScreenshot = true)
 fun DropdownMenu_Simple() {
     composableCodeSnippet {
-        val showDropdownMenu = remember { mutableStateOf(false) }
+        val showDropdownMenu = remember { mutableStateOf(placeholder(true, "false")) }
         val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
         Button(
             modifier = Modifier.popoverTrigger(triggerInfo),

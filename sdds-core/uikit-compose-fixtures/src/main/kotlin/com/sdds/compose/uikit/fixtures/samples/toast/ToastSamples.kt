@@ -1,21 +1,19 @@
 package com.sdds.compose.uikit.fixtures.samples.toast
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
-import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.ToastStyle
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
+import com.sdds.compose.uikit.overlay.OverlayHost
 import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showToast
 import com.sdds.docs.DocSample
@@ -23,34 +21,31 @@ import com.sdds.docs.DocSample
 @Composable
 @DocSample(needScreenshot = true)
 fun Toast_Simple() {
-    composableCodeSnippet {
-        Box {
-            val overlayManager = LocalOverlayManager.current
-            Button(
-                modifier = Modifier.align(Alignment.Center),
-                label = "Show toast",
-                onClick = {
-                    overlayManager.showToast(
-                        position = OverlayPosition.BottomEnd,
-                    ) {
-                        Toast(
-                            text = "Toast text",
-                            contentStart = {
-                                Icon(
-                                    painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
-                                    contentDescription = "",
-                                )
-                            },
-                            contentEnd = {
-                                Icon(
-                                    painter = painterResource(com.sdds.icons.R.drawable.ic_close_16),
-                                    contentDescription = "",
-                                )
-                            },
-                        )
-                    }
-                },
-            )
+    OverlayHost {
+        val overlayManager = LocalOverlayManager.current
+
+        LaunchedEffect(Unit) {
+            overlayManager.showToast(
+                position = OverlayPosition.Center,
+            ) {
+                composableCodeSnippet {
+                    Toast(
+                        text = "Toast text",
+                        contentStart = {
+                            Icon(
+                                painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
+                                contentDescription = null,
+                            )
+                        },
+                        contentEnd = {
+                            Icon(
+                                painter = painterResource(com.sdds.icons.R.drawable.ic_close_16),
+                                contentDescription = null,
+                            )
+                        },
+                    )
+                }
+            }
         }
     }
 }

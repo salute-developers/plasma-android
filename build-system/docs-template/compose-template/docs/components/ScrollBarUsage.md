@@ -12,11 +12,15 @@ title: ScrollBar
 // @sample: com/sdds/compose/uikit/fixtures/samples/scrollbar/ScrollBar_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.scrollbar.ScrollBar_Simple -->
+
 ### ScrollBar для ленивого списка
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/scrollbar/ScrollBarLazy_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.scrollbar.ScrollBarLazy_Simple -->
 
 ## Стиль ScrollBar
 

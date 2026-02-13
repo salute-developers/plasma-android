@@ -9,6 +9,8 @@ title: Counter
 // @sample: com/sdds/compose/uikit/fixtures/samples/counter/Counter_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.counter.Counter_Simple -->
+
 ## Стиль Counter
 
 Стиль Counter можно настроить с помощью CounterStyle.builder(). Так же существует набор сгенерированных стилей.

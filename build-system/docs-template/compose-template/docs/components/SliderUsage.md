@@ -13,6 +13,8 @@ title: Slider
 // @sample: com/sdds/compose/uikit/fixtures/samples/slider/Slider_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.slider.Slider_Simple -->
+
 ## Стиль Slider
 
 Стиль Slider можно настроить с помощью SliderStyle.builder(). Так же существует набор сгенерированных стилей.

@@ -1,5 +1,6 @@
 package utils
 
+import org.gradle.api.GradleException
 import org.gradle.api.Project
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
 import org.jetbrains.kotlin.com.google.gson.JsonObject
@@ -127,8 +128,9 @@ fun Project.changelogUrl(deploy: Boolean = true): String {
  * Преобразует шаблоны документации, подставляя значения из проекта в плейсхолдеры.
  * Изменяет все `.md` файлы и файл `docusaurus.config.ts` внутри указанной директории.
  */
-fun Project.transformTemplate(templateDir: File, snippetsDir: File) {
+fun Project.transformTemplate(templateDir: File, snippetsDir: File, componentsConfig: File) {
     val versionInfo = versionInfo()
+    val components = resolveComponents(componentsConfig)
     templateDir
         .walkTopDown()
         .filter { file -> file.isFile && (file.extension == "md" || file.name == "docusaurus.config.ts") }
@@ -149,8 +151,7 @@ fun Project.transformTemplate(templateDir: File, snippetsDir: File) {
                 .replace("{{ docs-api-href }}", docsApiHref)
                 .replaceKotlinSnippets(snippetsDir)
                 .replaceXmlSnippets(snippetsDir)
-                .replaceScreenshots()
-
+                .replaceScreenshots(templateDir,templateFile.needScreenshots(components))
 
             val destFile = File(
                 templateDir,
@@ -199,10 +200,28 @@ private fun String.replaceXmlSnippets(snippetsDir: File): String {
     }
 }
 
-private fun String.replaceScreenshots(): String {
-    return this.replace(
-        "<!--\\s*@screenshot:\\s*(.+)\\s*-->".toRegex(), "\n"
-    ).trimStart()
+private fun String.replaceScreenshots(templateDir: File, needScreenshots: Boolean): String {
+    val SCREENSHOT_REGEX =
+        "<!--\\s*@screenshot:\\s*(.+?)\\s*-->".toRegex()
+
+    return this.replace(SCREENSHOT_REGEX) { match ->
+        val id = match.groupValues[1].trim()
+        if (!needScreenshots) return@replace ""
+        val fileName = id.replace(".", "_") + ".png"
+        val imagePath = File(templateDir, "static/screenshots-docusaurus/$fileName")
+
+        if (!imagePath.exists()) {
+            throw GradleException(
+                """
+                Скриншот не найден:
+                  $id
+                Файл должен быть здесь:
+                  ${imagePath.absolutePath}
+                """.trimIndent()
+            )
+        }
+        "![${id.substringAfterLast(".")}](/screenshots-docusaurus/$fileName)"
+    }
 }
 
 fun Project.filterComponents(docsDir: File, componentsConfig: File) {
@@ -216,6 +235,10 @@ fun Project.filterComponents(docsDir: File, componentsConfig: File) {
         .forEach {
             it.delete()
         }
+}
+
+fun File.needScreenshots(components: Set<String>): Boolean {
+    return name.removeSuffix("Usage.md") in components
 }
 
 fun Project.resolveComponents(componentsConfig: File): Set<String> {

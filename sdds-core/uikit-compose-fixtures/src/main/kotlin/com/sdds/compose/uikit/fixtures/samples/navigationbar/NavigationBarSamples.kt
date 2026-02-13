@@ -45,7 +45,7 @@ fun NavigationBar_Simple() {
 }
 
 @Composable
-@DocSample
+@DocSample(needScreenshot = false)
 fun NavigationBar_Style() {
     composableCodeSnippet {
         NavigationBarStyle.builder()

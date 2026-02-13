@@ -10,6 +10,8 @@ RootCheckBox() функция для главного чекбокса, кото
 // @sample: com/sdds/compose/uikit/fixtures/samples/checkbox/group/CheckBoxGroup_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.checkbox.group.CheckBoxGroup_Simple -->
+
 ## Стиль CheckBoxGroup
 
 Стиль CheckBoxGroup можно настроить с помощью CheckBoxGroupStyle.builder(). Так же существует набор сгенерированных стилей.
