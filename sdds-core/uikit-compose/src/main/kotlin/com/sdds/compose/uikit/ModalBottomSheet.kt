@@ -168,6 +168,7 @@ fun ModalBottomSheet(
         dimBackground = dimBackground,
         useNativeBlackout = useNativeBlackout,
         overlayStyle = style.overlayStyle,
+        blurRadius = style.dimensions.backgroundBlurRadius,
     ) {
         Layout(
             measurePolicy = measurePolicy,

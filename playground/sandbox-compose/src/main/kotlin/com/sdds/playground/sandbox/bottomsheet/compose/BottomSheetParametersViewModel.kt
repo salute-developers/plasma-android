@@ -54,6 +54,16 @@ internal class BottomSheetParametersViewModel(
                 value = littleContent,
                 onApply = { updateLittleContent(it) },
             ),
+            Property.BooleanProperty(
+                name = "dimBackground",
+                value = dimBackground,
+                onApply = { updateDimBackground(it) },
+            ),
+            Property.BooleanProperty(
+                name = "useNativeBlackout",
+                value = useNativeBlackout,
+                onApply = { updateUseNativeBlackout(it) },
+            ),
         )
     }
 
@@ -94,6 +104,18 @@ internal class BottomSheetParametersViewModel(
     private fun updateLittleContent(littleContent: Boolean) {
         internalUiState.value = internalUiState.value.copy(
             littleContent = littleContent,
+        )
+    }
+
+    private fun updateDimBackground(dimBackground: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            dimBackground = dimBackground,
+        )
+    }
+
+    private fun updateUseNativeBlackout(useNativeBlackout: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            useNativeBlackout = useNativeBlackout,
         )
     }
 }

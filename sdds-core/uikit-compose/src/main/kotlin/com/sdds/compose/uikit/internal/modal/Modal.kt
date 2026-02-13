@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.internal.modal
 
-import android.view.WindowManager
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -11,17 +10,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.DialogWindowProvider
 import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.OverlayStyle
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue.Hidden
@@ -45,14 +41,15 @@ import kotlin.math.roundToInt
 internal fun BaseModalBottomSheet(
     modifier: Modifier = Modifier,
     bottomSheetState: BottomSheetState,
+    dimBackground: Boolean,
+    useNativeBlackout: Boolean,
+    overlayStyle: OverlayStyle,
     sheetGesturesEnabled: Boolean = true,
     onDismiss: () -> Unit = {},
     hasHandle: Boolean = false,
     draggableAreaHeight: Dp = 10.dp,
     edgeToEdge: Boolean = true,
-    dimBackground: Boolean,
-    useNativeBlackout: Boolean,
-    overlayStyle: OverlayStyle,
+    blurRadius: Dp = Dp.Unspecified,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val scope = rememberCoroutineScope()
@@ -63,6 +60,8 @@ internal fun BaseModalBottomSheet(
     if (dialogState == DialogState.Show) {
         EdgeToEdgeDialog(
             edgeToEdge = edgeToEdge,
+            useNativeBlackout = dimBackground && useNativeBlackout,
+            blurRadius = blurRadius,
             onDismissRequest = {
                 if (bottomSheetState.confirmValueChange(Hidden)) {
                     scope.launch { bottomSheetState.hide() }
@@ -70,7 +69,6 @@ internal fun BaseModalBottomSheet(
                 }
             },
         ) {
-            ConfigureWindow(useNativeBlackout, dimBackground)
             OverlayOrBox(
                 hasOverlay = dimBackground && !useNativeBlackout,
                 overlayStyle = overlayStyle,
@@ -132,21 +130,6 @@ private fun OverlayOrBox(
             modifier = Modifier.fillMaxSize(),
             content = sheetContent,
         )
-    }
-}
-
-@Composable
-private fun ConfigureWindow(useNativeBlackout: Boolean, dimBackground: Boolean) {
-    val dialogWindowProvider = LocalView.current.parent as? DialogWindowProvider
-    SideEffect {
-        dialogWindowProvider?.window ?: return@SideEffect
-        dialogWindowProvider.apply {
-            window.setWindowAnimations(-1)
-            if (!useNativeBlackout || !dimBackground) {
-                window.setDimAmount(0f)
-                window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-            }
-        }
     }
 }
 

@@ -24,6 +24,17 @@ while IFS= read -r FILE; do
     INCLUDE_SANDBOX=true
   fi
 
+  # sdds-haze
+  if [[ "$FILE" == third-party/sdds-haze/*/* ]]; then
+    FIRST=$(echo "$FILE" | cut -d '/' -f3)
+    if [[ "$FIRST" == "haze" ]]; then
+      MODULE=":sdds-haze:haze"
+      MODULES_SET+=("$MODULE")
+      echo "✅ Matched: $MODULE"
+    fi
+  fi
+
+
   # sdds-core (excluding icons/ and testing/)
   if [[ "$FILE" == sdds-core/*/* ]]; then
     FIRST=$(echo "$FILE" | cut -d '/' -f2)

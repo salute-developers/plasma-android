@@ -22,6 +22,9 @@ androidX-navigation="2.7.2"
 androidX-constraintLayout = "2.1.4"
 androidX-lifecycle = "2.4.1"
 androidX-activityKtx = "1.3.1"
+androidX-activity = "1.3.1"
+androidX-tracing = "1.0.0"
+androidX-collection = "1.5.0"
 
 test-espresso = "3.4.0"
 test-jUnit = "4.13.2"
@@ -32,6 +35,7 @@ test-robolectric = "4.10"
 test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
 test-roborazzi = "1.44.0"
+test-assertk = "0.28.1"
 
 kotlinSerialization = "1.4.0"
 kotlinKsp = "1.9.25-1.0.20"
@@ -43,6 +47,7 @@ koilVersion-compose = "2.2.0"
 sdds-uikit = "0.35.0"
 sdds-uikit-compose = "0.37.0"
 sdds-theme-builder = "0.34.0"
+sdds-haze = "0.1.0"
 
 uikit-input-masks-version = "7.2.6"
 
@@ -50,8 +55,12 @@ plugin-androidCacheFix = "3.0.1"
 plugin-gradleNexusPublish = "1.3.0"
 plugin-gradlePluginPublish = "1.2.1"
 plugin-binary-compatibility-validator = "0.14.0"
+plugin-compose-multiplatform = "1.7.3"
+plugin-poko = "0.15.3"
+plugin-metalava = "0.3.5"
 
 plugin-dokka = "1.8.20"
+plugin-mavenpublish = "0.29.0"
 
 [libraries]
 base-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
@@ -63,6 +72,9 @@ base-androidX-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx"
 base-androidX-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidX-navigation" }
 base-androidX-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidX-activityKtx" }
 base-androidX-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidX-lifecycle" }
+base-androidX-activity = { module = "androidx.activity:activity", version.ref = "androidX-activity" }
+base-androidX-tracing = { module = "androidx.tracing:tracing-ktx", version.ref = "androidX-tracing" }
+base-androidX-collection = { module = "androidx.collection:collection", version.ref = "androidX-collection" }
 
 base-androidX-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidX-compose-bom"}
 base-androidX-compose-runtime = { module = "androidx.compose.runtime:runtime" }
@@ -96,6 +108,7 @@ base-test-unit-robolectric = { module = "org.robolectric:robolectric", version.r
 base-test-integration-jUnit = { module = "androidx.test.ext:junit", version.ref = "test-jUnitIntegration" }
 base-test-integration-rules = { module = "androidx.test:rules", version.ref = "test-androidX-rules" }
 base-test-integration-runner = { module = "androidx.test:runner", version.ref = "test-androidX-runner" }
+base-test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "test-assertk" }
 
 base-test-ui-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "test-espresso" }
 base-test-ui-compose-jUnit4 = { module = "androidx.compose.ui:ui-test-junit4" }
@@ -109,6 +122,8 @@ base-gradle-spotless= { module = "com.diffplug.spotless:spotless-plugin-gradle",
 base-gradle-cacheFix= { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version.ref = "plugin-androidCacheFix" }
 base-gradle-nexusPublish= { module = "io.github.gradle-nexus:publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 base-gradle-ksp= { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "kotlinKsp" }
+base-gradle-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "plugin-compose-multiplatform" }
+base-gradle-mavenpublish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "plugin-mavenpublish" }
 
 base-koil-compose = { module = "io.coil-kt:coil-compose", version.ref = "koilVersion-compose"}
 
@@ -125,6 +140,7 @@ test-roborazzi-rule = { module = "io.github.takahirom.roborazzi:roborazzi-junit-
 sdds-uikit = { module = "io.github.salute-developers:sdds-uikit", version.ref = "sdds-uikit" }
 sdds-uikit-compose = { module = "io.github.salute-developers:sdds-uikit-compose", version.ref = "sdds-uikit-compose" }
 
+sdds-haze = { module = "io.github.salute-developers:sdds-haze", version.ref = "sdds-haze" }
 uikit-input-masks = { module = "com.redmadrobot:input-mask-android", version.ref = "uikit-input-masks-version" }
 
 [plugins]
@@ -132,6 +148,7 @@ android-lib = { id = "com.android.library", version.ref = "global-gradle" }
 android-app = { id = "com.android.application", version.ref = "global-gradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "global-kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "global-kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "global-kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "global-kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinKsp" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "test-paparazzi" }
@@ -143,3 +160,7 @@ themebuilder = { id = "io.github.salute-developers.theme-builder-plugin", versio
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref="plugin-binary-compatibility-validator" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "test-roborazzi" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "plugin-dokka"}
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "plugin-compose-multiplatform" }
+metalava = { id = "me.tylerbwong.gradle.metalava", version.ref = "plugin-metalava" }
+poko = { id = "dev.drewhamilton.poko", version.ref = "plugin-poko" }
+mavenpublish = { id = "com.vanniktech.maven.publish", version = "plugin-mavenpublish" }
