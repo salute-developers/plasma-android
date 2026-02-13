@@ -11,7 +11,7 @@ internal data class CardUiState(
     override val appearance: String = "",
     val orientation: Orientation = Orientation.VERTICAL,
     val label: String = "Title",
-
+    val hasExtra: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

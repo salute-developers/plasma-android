@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.card.compose
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -39,18 +40,12 @@ internal fun CardScreen(
         component = { cardUiState, style ->
             Card(
                 style = style,
-                orientation =
-                when (cardUiState.orientation) {
+                orientation = when (cardUiState.orientation) {
                     Orientation.VERTICAL -> CardOrientation.Vertical
                     else -> CardOrientation.Horizontal
                 },
                 label = { Text(cardUiState.label) },
-                extra = {
-                    IconButton(
-                        Icons.ic_plasma_24,
-                        modifier = Modifier.align(Alignment.BottomEnd),
-                    ) { }
-                },
+                extra = if (cardUiState.hasExtra) getExtra() else null,
             ) {
                 Box(
                     modifier = Modifier
@@ -59,13 +54,21 @@ internal fun CardScreen(
                 ) {
                     Image(
                         modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.FillBounds,
+                        contentScale = ContentScale.Crop,
                         painter = painterResource(id = R.drawable.il_avatar_test),
                         contentDescription = "Android",
                     )
                 }
             }
         },
+    )
+}
+
+private fun getExtra(): (@Composable BoxScope.() -> Unit) = {
+    IconButton(
+        iconRes = Icons.ic_plasma_24,
+        modifier = Modifier.align(Alignment.BottomEnd),
+        onClick = {},
     )
 }
 

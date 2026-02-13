@@ -28,6 +28,11 @@ internal class CardParametersViewModel(
                 value = label,
                 onApply = { updateLabel(it) },
             ),
+            Property.BooleanProperty(
+                name = "hasExtra",
+                value = hasExtra,
+                onApply = { updateHasExtra(it) },
+            ),
         )
     }
 
@@ -40,6 +45,12 @@ internal class CardParametersViewModel(
     private fun updateLabel(label: String) {
         internalUiState.value = internalUiState.value.copy(
             label = label,
+        )
+    }
+
+    private fun updateHasExtra(hasExtra: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            hasExtra = hasExtra,
         )
     }
 }
