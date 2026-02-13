@@ -226,6 +226,11 @@ interface ModalBottomSheetDimensions {
      *  Высота handle
      */
     val handleHeight: Dp
+
+    /**
+     * Радиус эффекта размытия для фона окна
+     */
+    val backgroundBlurRadius: Dp
 }
 
 /**
@@ -269,6 +274,11 @@ interface ModalBottomSheetDimensionsBuilder {
     fun handleHeight(hHeight: Dp): ModalBottomSheetDimensionsBuilder
 
     /**
+     * Устанавливает радиус эффекта размытия для фона окна [radius]
+     */
+    fun backgroundBlurRadius(radius: Dp): ModalBottomSheetDimensionsBuilder
+
+    /**
      * Возвращает готовый экземпляр [ModalBottomSheetDimensions]
      */
     fun build(): ModalBottomSheetDimensions
@@ -290,6 +300,7 @@ private class DefaultModalBottomSheetDimensions(
     override val handleOffset: Dp,
     override val handleWidth: Dp,
     override val handleHeight: Dp,
+    override val backgroundBlurRadius: Dp,
 ) : ModalBottomSheetDimensions {
     class Builder : ModalBottomSheetDimensionsBuilder {
 
@@ -300,6 +311,7 @@ private class DefaultModalBottomSheetDimensions(
         private var handleOffset: Dp? = null
         private var handleWidth: Dp? = null
         private var handleHeight: Dp? = null
+        private var backgroundBlurRadius: Dp? = null
 
         override fun paddingStart(pStart: Dp): ModalBottomSheetDimensionsBuilder = apply {
             this.pStart = pStart
@@ -329,6 +341,10 @@ private class DefaultModalBottomSheetDimensions(
             this.handleHeight = hHeight
         }
 
+        override fun backgroundBlurRadius(radius: Dp): ModalBottomSheetDimensionsBuilder = apply {
+            this.backgroundBlurRadius = radius
+        }
+
         override fun build(): ModalBottomSheetDimensions {
             return DefaultModalBottomSheetDimensions(
                 paddingStart = pStart ?: 16.dp,
@@ -338,6 +354,7 @@ private class DefaultModalBottomSheetDimensions(
                 handleOffset = handleOffset ?: 6.dp,
                 handleWidth = handleWidth ?: 48.dp,
                 handleHeight = handleHeight ?: 4.dp,
+                backgroundBlurRadius = backgroundBlurRadius ?: Dp.Unspecified,
             )
         }
     }

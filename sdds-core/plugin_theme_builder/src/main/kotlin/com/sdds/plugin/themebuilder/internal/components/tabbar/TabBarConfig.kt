@@ -20,6 +20,7 @@ internal data class TabBarProperties(
     val shadow: Shadow? = null,
     val backgroundColor: Color? = null,
     val dividerColor: Color? = null,
+    val backgroundBlurColor: Color? = null,
     val paddingStart: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
@@ -30,6 +31,7 @@ internal data class TabBarProperties(
     val contentPaddingBottom: Dimension? = null,
     val itemSpacing: Dimension? = null,
     val dividerThickness: Dimension? = null,
+    val backgroundBlurRadius: Dimension? = null,
     val tabBarItemStyle: ComponentStyle<TabBarItemProperties>? = null,
 ) : PropertyOwner {
 
@@ -42,6 +44,7 @@ internal data class TabBarProperties(
             shadow = shadow ?: otherProps.shadow,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             dividerColor = dividerColor ?: otherProps.dividerColor,
+            backgroundBlurColor = backgroundBlurColor ?: otherProps.backgroundBlurColor,
             paddingStart = paddingStart ?: otherProps.paddingStart,
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingTop = paddingTop ?: otherProps.paddingTop,
@@ -52,6 +55,7 @@ internal data class TabBarProperties(
             contentPaddingBottom = contentPaddingBottom ?: otherProps.contentPaddingBottom,
             itemSpacing = itemSpacing ?: otherProps.itemSpacing,
             dividerThickness = dividerThickness ?: otherProps.dividerThickness,
+            backgroundBlurRadius = backgroundBlurRadius ?: otherProps.backgroundBlurRadius,
             tabBarItemStyle = tabBarItemStyle ?: otherProps.tabBarItemStyle,
         )
     }

@@ -1,6 +1,7 @@
 @file:Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.root-project")
+    id("convention.core-dependencies")
     alias(libs.plugins.android.app) apply false
     alias(libs.plugins.android.lib) apply false
     alias(libs.plugins.kotlin.android) apply false
@@ -18,6 +19,7 @@ buildscript {
         maven {
             url = uri("https://plugins.gradle.org/m2/")
         }
+        mavenLocal()
     }
 
     dependencies {

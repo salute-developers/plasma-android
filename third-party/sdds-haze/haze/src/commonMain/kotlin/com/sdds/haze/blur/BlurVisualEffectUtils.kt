@@ -1,0 +1,98 @@
+// Copyright 2025, Christopher Banes and the Haze project contributors
+// SPDX-License-Identifier: Apache-2.0
+
+@file:OptIn(InternalHazeApi::class)
+
+package com.sdds.haze.blur
+
+import androidx.collection.LruCache
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.RenderEffect
+import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.takeOrElse
+import com.sdds.haze.ExperimentalHazeApi
+import com.sdds.haze.HazeLogger
+import com.sdds.haze.InternalHazeApi
+import com.sdds.haze.Poko
+import com.sdds.haze.VisualEffectContext
+import com.sdds.haze.trace
+
+/**
+ * Calculates the blur tile mode for a blur visual effect.
+ */
+internal fun BlurVisualEffect.calculateBlurTileMode(): TileMode = when (blurredEdgeTreatment) {
+    androidx.compose.ui.draw.BlurredEdgeTreatment.Unbounded -> TileMode.Decal
+    else -> TileMode.Clamp
+}
+
+@OptIn(ExperimentalHazeApi::class)
+internal fun BlurVisualEffect.getOrCreateRenderEffect(
+    context: VisualEffectContext,
+    inputScale: Float = calculateInputScaleFactor(context.inputScale),
+    blurRadius: Dp = this.blurRadius.takeOrElse { 0.dp },
+    noiseFactor: Float = this.noiseFactor,
+    colorEffects: List<HazeColorEffect> = this.colorEffects,
+    colorEffectsAlphaModulate: Float = 1f,
+    contentSize: Size = context.size,
+    contentOffset: Offset = context.layerOffset,
+    mask: Brush? = this.mask,
+    progressive: HazeProgressive? = null,
+    blurTileMode: TileMode = calculateBlurTileMode(),
+): RenderEffect? = trace("HazeEffectNode-getOrCreateRenderEffect") {
+    getOrCreateRenderEffect(
+        context = context,
+        params = RenderEffectParams(
+            blurRadius = blurRadius,
+            noiseFactor = noiseFactor,
+            scale = inputScale,
+            colorEffects = colorEffects,
+            colorEffectsAlphaModulate = colorEffectsAlphaModulate,
+            contentSize = contentSize,
+            contentOffset = contentOffset,
+            mask = mask,
+            progressive = progressive,
+            blurTileMode = blurTileMode,
+        ),
+    )
+}
+
+private val renderEffectCache by lazy(mode = LazyThreadSafetyMode.NONE) {
+    LruCache<RenderEffectParams, RenderEffect>(maxSize = 50)
+}
+
+@Poko
+internal class RenderEffectParams(
+    val blurRadius: Dp,
+    val noiseFactor: Float,
+    val scale: Float,
+    val contentSize: Size,
+    val contentOffset: Offset,
+    val colorEffects: List<HazeColorEffect> = emptyList(),
+    val colorEffectsAlphaModulate: Float = 1f,
+    val mask: Brush? = null,
+    val progressive: HazeProgressive? = null,
+    val blurTileMode: TileMode,
+)
+
+@OptIn(ExperimentalHazeApi::class)
+private fun getOrCreateRenderEffect(context: VisualEffectContext, params: RenderEffectParams): RenderEffect? {
+    HazeLogger.d(BlurVisualEffect.TAG) { "getOrCreateRenderEffect: $params" }
+    val cached = renderEffectCache[params]
+    if (cached != null) {
+        HazeLogger.d(BlurVisualEffect.TAG) { "getOrCreateRenderEffect. Returning cached: $params" }
+        return cached
+    }
+
+    HazeLogger.d(BlurVisualEffect.TAG) { "getOrCreateRenderEffect. Creating: $params" }
+    return createRenderEffect(
+        context = context.requirePlatformContext(),
+        density = context.requireDensity(),
+        params = params,
+    )?.also { effect ->
+        renderEffectCache.put(params, effect)
+    }
+}

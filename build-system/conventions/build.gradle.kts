@@ -22,6 +22,8 @@ dependencies {
     implementation(libs.base.kotlin.serialization.json)
     implementation(libs.base.kotlin.compiler.embeddable)
     implementation("org.commonmark:commonmark:0.21.0")
+    implementation(libs.base.gradle.compose)
+    implementation(libs.base.gradle.mavenpublish)
 
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
     implementation(files(icons.javaClass.superclass.protectionDomain.codeSource.location))

@@ -168,6 +168,11 @@ interface TabBarColors {
      */
     val dividerColor: InteractiveColor
 
+    /**
+     * Цвет эффекта размытия
+     */
+    val backgroundBlurTint: InteractiveColor
+
     companion object {
         /**
          * Возвращает экземпляр [TabBarColorsBuilder]
@@ -203,6 +208,19 @@ interface TabBarColorsBuilder {
         dividerColor(dividerColor.asInteractive())
 
     /**
+     * Устанавливает цвет [blurTint] для эффекта размытия.
+     * Если эффект размытия не поддерживается на устройстве, то будет использован цвет [backgroundColor]
+     */
+    fun backgroundBlurTint(blurTint: InteractiveColor): TabBarColorsBuilder
+
+    /**
+     * Устанавливает цвет [blurTint] для эффекта размытия.
+     * Если эффект размытия не поддерживается на устройстве, то будет использован цвет [backgroundColor]
+     */
+    fun backgroundBlurTint(blurTint: Color): TabBarColorsBuilder =
+        backgroundBlurTint(blurTint.asInteractive())
+
+    /**
      * Вернёт [TabBarColors]
      */
     fun build(): TabBarColors
@@ -211,9 +229,11 @@ interface TabBarColorsBuilder {
 private data class DefaultTabBarColors(
     override val backgroundColor: InteractiveColor,
     override val dividerColor: InteractiveColor,
+    override val backgroundBlurTint: InteractiveColor,
 ) : TabBarColors {
     class Builder : TabBarColorsBuilder {
         private var backgroundColor: InteractiveColor? = null
+        private var backgroundBlurTint: InteractiveColor? = null
 
         private var dividerColor: InteractiveColor? = null
 
@@ -225,9 +245,15 @@ private data class DefaultTabBarColors(
                 this.dividerColor = dividerColor
             }
 
+        override fun backgroundBlurTint(blurTint: InteractiveColor): TabBarColorsBuilder =
+            apply {
+                this.backgroundBlurTint = blurTint
+            }
+
         override fun build(): TabBarColors = DefaultTabBarColors(
             backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
             dividerColor = dividerColor ?: Color.Unspecified.asInteractive(),
+            backgroundBlurTint = backgroundBlurTint ?: Color.Unspecified.asInteractive(),
         )
     }
 }
@@ -286,6 +312,11 @@ interface TabBarDimensions {
      * Толщина разделителя
      */
     val dividerThickness: Dp
+
+    /**
+     * Радиус эффекта размытия для фона
+     */
+    val backgroundBlurRadius: Dp
 
     companion object {
         /**
@@ -350,6 +381,11 @@ interface TabBarDimensionsBuilder {
     fun dividerThickness(dividerThickness: Dp): TabBarDimensionsBuilder
 
     /**
+     * Устанавливает радиус эффекта размытия для фона окна [radius]
+     */
+    fun backgroundBlurRadius(radius: Dp): TabBarDimensionsBuilder
+
+    /**
      * Вернёт [TabBarDimensions]
      */
     fun build(): TabBarDimensions
@@ -366,6 +402,7 @@ private data class DefaultTabBarDimensions(
     override val contentPaddingBottom: Dp,
     override val itemSpacing: Dp,
     override val dividerThickness: Dp,
+    override val backgroundBlurRadius: Dp,
 ) : TabBarDimensions {
     class Builder : TabBarDimensionsBuilder {
         private var paddingStart: Dp? = null
@@ -378,6 +415,7 @@ private data class DefaultTabBarDimensions(
         private var contentPaddingBottom: Dp? = null
         private var itemSpacing: Dp? = null
         private var dividerThickness: Dp? = null
+        private var backgroundBlurRadius: Dp? = null
 
         override fun paddingStart(paddingStart: Dp): TabBarDimensionsBuilder = apply {
             this.paddingStart = paddingStart
@@ -420,6 +458,10 @@ private data class DefaultTabBarDimensions(
                 this.dividerThickness = dividerThickness
             }
 
+        override fun backgroundBlurRadius(radius: Dp): TabBarDimensionsBuilder = apply {
+            this.backgroundBlurRadius = radius
+        }
+
         override fun build(): TabBarDimensions = DefaultTabBarDimensions(
             paddingStart = paddingStart ?: 0.dp,
             paddingEnd = paddingEnd ?: 0.dp,
@@ -431,6 +473,7 @@ private data class DefaultTabBarDimensions(
             contentPaddingBottom = contentPaddingBottom ?: 2.dp,
             itemSpacing = itemSpacing ?: 2.dp,
             dividerThickness = dividerThickness ?: 2.dp,
+            backgroundBlurRadius = backgroundBlurRadius ?: Dp.Unspecified,
         )
     }
 }

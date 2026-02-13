@@ -1,11 +1,11 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -27,7 +27,10 @@ import androidx.compose.ui.graphics.isUnspecified
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.rememberBlurStyle
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.internal.common.asBrush
+import com.sdds.compose.uikit.internal.common.background
 import com.sdds.compose.uikit.shadow.shadow
 
 /**
@@ -47,6 +50,7 @@ fun TabBar(
     content: TabBarScope.() -> Unit,
 ) {
     val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
+    val backgroundBlurTint = style.colors.backgroundBlurTint.colorForInteraction(interactionSource)
     val shape = remember(style.topShape, style.bottomShape) {
         if (style.topShape == style.bottomShape) {
             style.topShape
@@ -59,6 +63,12 @@ fun TabBar(
             )
         }
     }
+    val blurStyle = rememberBlurStyle(
+        shape = shape,
+        blurRadius = style.dimensions.backgroundBlurRadius,
+        tint = backgroundBlurTint,
+        fallbackBackground = backgroundColor.asBrush(),
+    )
     Row(
         modifier = Modifier
             .padding(
@@ -69,7 +79,7 @@ fun TabBar(
             )
             .shadow(style.shadow)
             .then(modifier)
-            .background(backgroundColor, shape)
+            .background(blurStyle)
             .drawDivider(
                 shape = shape,
                 dividerColor = style.colors.dividerColor.colorForInteraction(interactionSource),
@@ -87,20 +97,31 @@ fun TabBar(
         val scope = remember { TabBarScopeImpl() }
         scope.content()
         scope.tabs.forEach { item ->
-            Box(
-                modifier = Modifier
-                    .run {
-                        item.weight?.let {
-                            Modifier.weight(item.weight)
-                        } ?: Modifier
-                    },
-            ) {
-                CompositionLocalProvider(LocalTabBarItemStyle provides style.tabBarItemStyle) {
-                    item.content.invoke()
-                }
-            }
+            TabBarItemContainer(
+                item = item,
+                style = style.tabBarItemStyle,
+            )
         }
         scope.reset()
+    }
+}
+
+@Composable
+private fun RowScope.TabBarItemContainer(
+    item: TabBarScopeImpl.TabItem,
+    style: TabBarItemStyle,
+) {
+    Box(
+        modifier = Modifier
+            .run {
+                item.weight?.let {
+                    Modifier.weight(item.weight)
+                } ?: Modifier
+            },
+    ) {
+        CompositionLocalProvider(LocalTabBarItemStyle provides style) {
+            item.content.invoke()
+        }
     }
 }
 
