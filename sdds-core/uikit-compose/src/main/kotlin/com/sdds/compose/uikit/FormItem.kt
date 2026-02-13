@@ -109,6 +109,57 @@ fun FormHorizontal(
  * @param titleCaption контент дополнительного заголовока
  * @param caption контент надписи
  * @param counter контент счетчика
+ * @param hint контент подсказки
+ * @param enabled включен ли компонент
+ * @param interactionSource источник взаимодействий [InteractionSource]
+ */
+@Composable
+fun FormItem(
+    modifier: Modifier = Modifier,
+    style: FormItemStyle = LocalFormItemStyle.current,
+    content: @Composable () -> Unit,
+    title: (@Composable () -> Unit)? = null,
+    optional: (@Composable () -> Unit)? = null,
+    titleCaption: (@Composable () -> Unit)? = null,
+    caption: (@Composable () -> Unit)? = null,
+    counter: (@Composable () -> Unit)? = null,
+    hint: (@Composable () -> Unit)? = null,
+    enabled: Boolean = true,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+) {
+    val hint = getHint(hint, style, enabled, interactionSource)
+    val startTitle = getStartTitle(style, title, hint, optional, interactionSource, enabled)
+    val endTitle = getEndTitle(style, hint, interactionSource, enabled)
+    val topTitle = getTopTitle(style, title, hint, optional, interactionSource, enabled)
+    val titleCaption = getTitleCaption(style, titleCaption, interactionSource, enabled)
+    val counter = getCounter(style, counter, interactionSource, enabled)
+    val caption = getCaption(style, caption, interactionSource, enabled)
+    val content = getContent(style, content, enabled)
+
+    FormItemLayout(
+        modifier = modifier,
+        startTitle = startTitle,
+        endTitle = endTitle,
+        topTitle = topTitle,
+        titleCaption = titleCaption,
+        caption = caption,
+        counter = counter,
+        content = content,
+        topTextAlignment = style.topTextAlignment,
+        bottomTextAlignment = style.bottomTextAlignment,
+    )
+}
+
+/**
+ * Компонент-оболочка с набором вариаций и элементами управления формой.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param title контент заголовка
+ * @param optional контент текста для опциональной формы [FormType.Optional]
+ * @param titleCaption контент дополнительного заголовока
+ * @param caption контент надписи
+ * @param counter контент счетчика
  * @param hasHint включает кнопку подсказки
  * @param onHintPressed обработчик нажатий на кнопку подсказки
  * @param hintTriggerInfo информация о расположении кнопки подсказки
@@ -131,26 +182,20 @@ fun FormItem(
     enabled: Boolean = true,
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
-    val hint = getHint(hasHint, style, hintTriggerInfo, enabled, onHintPressed)
-    val startTitle = getStartTitle(style, title, hint, optional, interactionSource, enabled)
-    val endTitle = getEndTitle(style, hint, interactionSource, enabled)
-    val topTitle = getTopTitle(style, title, hint, optional, interactionSource, enabled)
-    val titleCaption = getTitleCaption(style, titleCaption, interactionSource, enabled)
-    val counter = getCounter(style, counter, interactionSource, enabled)
-    val caption = getCaption(style, caption, interactionSource, enabled)
-    val content = getContent(style, content, enabled)
+    val hintContent = getHintIcon(hasHint, style, hintTriggerInfo, enabled, onHintPressed)
 
-    FormItemLayout(
+    FormItem(
         modifier = modifier,
-        startTitle = startTitle,
-        endTitle = endTitle,
-        topTitle = topTitle,
+        style = style,
+        title = title,
+        optional = optional,
         titleCaption = titleCaption,
         caption = caption,
         counter = counter,
         content = content,
-        topTextAlignment = style.topTextAlignment,
-        bottomTextAlignment = style.bottomTextAlignment,
+        hint = hintContent,
+        enabled = enabled,
+        interactionSource = interactionSource,
     )
 }
 
@@ -223,6 +268,31 @@ enum class FormType {
 }
 
 private fun getHint(
+    hint: (@Composable () -> Unit)?,
+    style: FormItemStyle,
+    enabled: Boolean,
+    interactionSource: InteractionSource,
+): (@Composable () -> Unit)? {
+    return if (hint != null) {
+        {
+            val hintColor = style.colors.hintColor.colorForInteraction(interactionSource)
+            CompositionLocalProvider(LocalTint provides hintColor) {
+                Box(
+                    modifier = Modifier
+                        .width(style.dimensions.hintWidth)
+                        .height(style.dimensions.hintHeight)
+                        .enable(enabled, disabledAlpha = style.disableAlpha),
+                ) {
+                    hint()
+                }
+            }
+        }
+    } else {
+        null
+    }
+}
+
+private fun getHintIcon(
     hasHint: Boolean,
     style: FormItemStyle,
     hintTriggerInfo: MutableState<TriggerInfo>,
@@ -506,7 +576,8 @@ private class FormItemMeasurePolicy(
 
         val topContentWidth = calculateTopContentWidth(topTitlePlaceable, titleCaptionPlaceable)
         val bottomContentWidth = calculateBottomContentWidth(captionPlaceable, counterPlaceable)
-        val centerBlockWidth = maxOf(topContentWidth, contentPlaceable.widthOrZero(), bottomContentWidth)
+        val centerBlockWidth =
+            maxOf(topContentWidth, contentPlaceable.widthOrZero(), bottomContentWidth)
         val desiredWidth = calculateDesiredWidth(
             startTitlePlaceable = startTitlePlaceable,
             endTitlePlaceable = endTitlePlaceable,
@@ -687,13 +758,13 @@ private class FormItemMeasurePolicy(
 
 @Composable
 private fun TitleHintOptional(
-    modifier: Modifier = Modifier,
     enabled: Boolean,
     style: FormItemStyle,
-    title: (@Composable () -> Unit)? = null,
+    modifier: Modifier = Modifier,
     hint: (@Composable () -> Unit)?,
+    title: (@Composable () -> Unit)? = null,
     optional: (@Composable () -> Unit)? = null,
-    interactionSource: InteractionSource,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val titlePlacement = style.titlePlacement
     val formItemType = style.formItemType
@@ -707,7 +778,7 @@ private fun TitleHintOptional(
             verticalPadding = style.dimensions.indicatorOffsetY,
             horizontalMode = style.indicatorAlignmentMode,
             verticalMode = IndicatorMode.Inner,
-            alpha = if (enabled) 1f else style.disableAlpha,
+            alpha = { if (enabled) 1f else style.disableAlpha },
         )
     } else {
         Modifier
@@ -726,7 +797,8 @@ private fun TitleHintOptional(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             title?.let {
-                val titleColor = style.colors.titleColor.colorForInteractionAsState(interactionSource)
+                val titleColor =
+                    style.colors.titleColor.colorForInteractionAsState(interactionSource)
                 ProvideTextStyle(
                     value = style.titleStyle,
                     color = { titleColor.value },
