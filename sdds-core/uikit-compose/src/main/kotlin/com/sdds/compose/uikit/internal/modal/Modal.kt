@@ -55,7 +55,10 @@ internal fun BaseModalBottomSheet(
     val scope = rememberCoroutineScope()
     val dialogState by bottomSheetState.dialogState.collectAsState()
     LaunchedEffect(bottomSheetState.currentValue) {
-        if (bottomSheetState.currentValue == Hidden) bottomSheetState.hideDialog()
+        if (bottomSheetState.currentValue == Hidden) {
+            bottomSheetState.hideDialog()
+            onDismiss()
+        }
     }
     if (dialogState == DialogState.Show) {
         EdgeToEdgeDialog(
@@ -65,7 +68,6 @@ internal fun BaseModalBottomSheet(
             onDismissRequest = {
                 if (bottomSheetState.confirmValueChange(Hidden)) {
                     scope.launch { bottomSheetState.hide() }
-                    onDismiss()
                 }
             },
         ) {
@@ -81,7 +83,6 @@ internal fun BaseModalBottomSheet(
                             onClick = {
                                 if (bottomSheetState.confirmValueChange(Hidden)) {
                                     scope.launch { bottomSheetState.hide() }
-                                    onDismiss()
                                 }
                             },
                             interactionSource = remember { MutableInteractionSource() },
