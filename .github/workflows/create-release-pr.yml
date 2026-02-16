@@ -85,7 +85,7 @@ jobs:
         uses: ./.github/actions/release-changelog
         with:
           fromTag: ${{ env.FROM_TAG }}
-          toTag: HEAD
+          toTag: develop
 
       - name: List pull request
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
