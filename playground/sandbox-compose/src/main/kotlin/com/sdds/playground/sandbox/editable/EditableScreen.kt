@@ -75,6 +75,7 @@ internal fun EditablePreview(style: EditableStyle) {
     Editable(
         style = style,
         value = TextFieldValue("Value"),
+        onValueChange = {},
         icon = {
             Icon(
                 painter = painterResource(R.drawable.ic_edit_fill_36),

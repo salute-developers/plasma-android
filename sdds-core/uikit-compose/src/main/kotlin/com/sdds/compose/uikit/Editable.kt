@@ -58,11 +58,10 @@ import com.sdds.compose.uikit.internal.widthOrZero
  */
 @Composable
 fun Editable(
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     style: EditableStyle = LocalEditableStyle.current,
-    value: TextFieldValue = TextFieldValue(""),
-    onValueChange: (TextFieldValue) -> Unit = {},
-    icon: @Composable (() -> Unit)? = null,
     singleLine: Boolean = false,
     readOnly: Boolean = false,
     enabled: Boolean = true,
@@ -73,8 +72,9 @@ fun Editable(
     textAlign: TextAlign = TextAlign.Start,
     iconPlacement: EditableIconPlacement = EditableIconPlacement.Absolute,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    icon: @Composable (() -> Unit)? = null,
 ) {
     Layout(
         modifier = modifier,
