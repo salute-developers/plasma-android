@@ -10069,6 +10069,80 @@
          ]
       },
       {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarMainPage",
+         "variations": [
+            {
+               "name": "no-background",
+               "viewReference": "Plasma.SdService.Components.NavigationBarMainPage.NoBackground",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarMainPageNoBackground"
+            },
+            {
+               "name": "no-background.rounded",
+               "viewReference": "Plasma.SdService.Components.NavigationBarMainPage.NoBackground.Rounded",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarMainPageNoBackgroundRounded"
+            },
+            {
+               "name": "has-background",
+               "viewReference": "Plasma.SdService.Components.NavigationBarMainPage.HasBackground",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarMainPageHasBackground"
+            },
+            {
+               "name": "has-background.rounded",
+               "viewReference": "Plasma.SdService.Components.NavigationBarMainPage.HasBackground.Rounded",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarMainPageHasBackgroundRounded"
+            },
+            {
+               "name": "has-background.shadow",
+               "viewReference": "Plasma.SdService.Components.NavigationBarMainPage.HasBackground.Shadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarMainPageHasBackgroundShadow"
+            },
+            {
+               "name": "has-background.shadow.rounded",
+               "viewReference": "Plasma.SdService.Components.NavigationBarMainPage.HasBackground.Shadow.Rounded",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarMainPageHasBackgroundShadowRounded"
+            }
+         ]
+      },
+      {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarInternalPage",
+         "variations": [
+            {
+               "name": "no-background",
+               "viewReference": "Plasma.SdService.Components.NavigationBarInternalPage.NoBackground",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarInternalPageNoBackground"
+            },
+            {
+               "name": "no-background.rounded",
+               "viewReference": "Plasma.SdService.Components.NavigationBarInternalPage.NoBackground.Rounded",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarInternalPageNoBackgroundRounded"
+            },
+            {
+               "name": "has-background",
+               "viewReference": "Plasma.SdService.Components.NavigationBarInternalPage.HasBackground",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackground"
+            },
+            {
+               "name": "has-background.rounded",
+               "viewReference": "Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Rounded",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackgroundRounded"
+            },
+            {
+               "name": "has-background.shadow",
+               "viewReference": "Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Shadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadow"
+            },
+            {
+               "name": "has-background.shadow.rounded",
+               "viewReference": "Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Shadow.Rounded",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadowRounded"
+            }
+         ]
+      },
+      {
          "key": "autocomplete",
          "coreName": "Autocomplete",
          "styleName": "AutocompleteTight",
@@ -10257,6 +10331,140 @@
                "name": "s.active-type-line",
                "viewReference": "Plasma.SdService.Components.PaginationDotsVertical.S.ActiveTypeLine",
                "viewOverlayReference": "Plasma.SdService.ComponentOverlays.PaginationDotsVerticalSActiveTypeLine"
+            }
+         ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "FileCircularProgress",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.Xs.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressXsDefault"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.Xs.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressXsNegative"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.S.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressSDefault"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.S.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressSNegative"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.M.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressMDefault"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.M.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressMNegative"
+            },
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.L.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressLDefault"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Plasma.SdService.Components.FileCircularProgress.L.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileCircularProgressLNegative"
+            }
+         ]
+      },
+      {
+         "key": "file",
+         "coreName": "File",
+         "styleName": "FileLinearProgress",
+         "variations": [
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressXs"
+            },
+            {
+               "name": "xs.default",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.Xs.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressXsDefault"
+            },
+            {
+               "name": "xs.negative",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.Xs.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressXsNegative"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressS"
+            },
+            {
+               "name": "s.default",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.S.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressSDefault"
+            },
+            {
+               "name": "s.negative",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.S.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressSNegative"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressM"
+            },
+            {
+               "name": "m.default",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.M.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressMDefault"
+            },
+            {
+               "name": "m.negative",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.M.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressMNegative"
+            },
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressL"
+            },
+            {
+               "name": "l.default",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.L.Default",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressLDefault"
+            },
+            {
+               "name": "l.negative",
+               "viewReference": "Plasma.SdService.Components.FileLinearProgress.L.Negative",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.FileLinearProgressLNegative"
             }
          ]
       }

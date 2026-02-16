@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.navigationbar
+package com.sdds.playground.sandbox.navigationbar.compose
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -18,6 +18,7 @@ import com.sdds.compose.uikit.NavigationBarStyle
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.Text
+import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -71,7 +72,7 @@ private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? 
     return if (hasAction) {
         @Composable {
             Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                painter = painterResource(R.drawable.ic_search_24),
                 contentDescription = "",
             )
         }
@@ -84,7 +85,7 @@ private fun actionEnd(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {
     return if (hasAction) {
         @Composable {
             Icon(
-                painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                painter = painterResource(R.drawable.ic_menu_24),
                 contentDescription = "",
             )
         }
@@ -111,7 +112,7 @@ private fun textContent(text: String): (@Composable () -> Unit)? {
                 Spacer(Modifier.width(4.dp))
                 Icon(
                     modifier = Modifier,
-                    painter = painterResource(com.sdds.icons.R.drawable.ic_clip_24),
+                    painter = painterResource(R.drawable.ic_clip_24),
                     contentDescription = "",
                 )
             }

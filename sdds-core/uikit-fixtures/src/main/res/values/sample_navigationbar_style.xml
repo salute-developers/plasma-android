@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- sample-start: id=NavigationBarStyle -->
+    <!-- placeholder: <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item> -> <item name="sd_shapeAppearance">Стиль/атрибут формы</item>  -->
+    <!-- placeholder: <item name="sd_shadowAppearance">?sd_shadowAppearance</item> -> <item name="sd_shadowAppearance">Стиль/атрибут тени</item>  -->
+    <!-- placeholder: <item name="sd_backIcon">@drawable/ic_disclosure_left_outline_24</item> -> <item name="sd_backIcon">Ссылка/атрибут ресурса</item>  -->
+    <!-- placeholder: <item name="sd_titleAppearance">@style/TextAppearance.AppCompat.Body1</item> -> <item name="sd_titleAppearance">Стиль/атрибут типографики</item>  -->
+    <!-- placeholder: <item name="sd_descriptionAppearance">@style/TextAppearance.AppCompat.Body1</item> -> <item name="sd_descriptionAppearance">Стиль/атрибут типографики</item>  -->
+    <style name="NavigationBarStyle" parent="Sdds.Components.NavigationBar">
+        <item name="sd_background">#fff</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item>
+        <item name="sd_shapeAppearanceAdjustment">2dp</item>
+        <item name="sd_shadowAppearance">?sd_shadowAppearance</item>
+        <item name="sd_contentPaddingStart">10dp</item>
+        <item name="sd_contentPaddingEnd">10dp</item>
+        <item name="sd_contentPaddingTop">10dp</item>
+        <item name="sd_contentPaddingBottom">10dp</item>
+        <item name="sd_descriptionMargin">8dp</item>
+        <item name="sd_backIconMargin">6dp</item>
+        <item name="sd_textBlockTopMargin">10dp</item>
+        <item name="sd_horizontalSpacing">10dp</item>
+        <item name="sd_backIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="sd_backIconTint">#000</item>
+        <item name="sd_descriptionColor">#aaa</item>
+        <item name="sd_titleColor">#000</item>
+        <item name="sd_actionStartColor">#000</item>
+        <item name="sd_actionEndColor">#000</item>
+        <item name="sd_titleAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_descriptionAppearance">@style/TextAppearance.AppCompat.Body1</item>
+    </style>
+    <!-- sample-end: id=NavigationBarStyle -->
+</resources>
+

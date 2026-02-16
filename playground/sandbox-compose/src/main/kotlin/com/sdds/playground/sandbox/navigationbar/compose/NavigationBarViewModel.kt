@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.navigationbar
+package com.sdds.playground.sandbox.navigationbar.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

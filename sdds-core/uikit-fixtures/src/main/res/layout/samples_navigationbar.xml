@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=NavigationBar_Simple -->
+    <!-- placeholder: android:src="@drawable/sd_ic_close_24" -> android:src="Your icon"  -->
+    <com.sdds.uikit.NavigationBar
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <com.sdds.uikit.ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="#111"
+            android:src="@drawable/sd_ic_close_24"
+            app:layout_navigationBarContent="action_end"
+            />
+
+        <com.sdds.uikit.ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_smile_outline_24"
+            android:tint="#111"
+            app:layout_navigationBarContent="action_start"
+            />
+
+        <com.sdds.uikit.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            app:layout_navigationBarContent="title"
+            />
+
+        <com.sdds.uikit.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            app:layout_navigationBarContent="description"
+            />
+
+        <com.sdds.uikit.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Content"
+            app:layout_navigationBarContent="content"
+            />
+
+    </com.sdds.uikit.NavigationBar>
+    <!-- sample-end: id=NavigationBar_Simple -->
+
+</LinearLayout>

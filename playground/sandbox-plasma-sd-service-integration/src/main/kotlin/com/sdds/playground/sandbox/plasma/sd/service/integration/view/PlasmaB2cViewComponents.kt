@@ -320,6 +320,13 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.NavigationBar,
+                mapOf(
+                    "NavigationBarMainPage" to PlasmaB2cNavigationBarMainPageVariationsView,
+                    "NavigationBarInternalPage" to PlasmaB2cNavigationBarInternalPageVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Autocomplete,
                 mapOf(
                     "AutocompleteTight" to PlasmaB2cAutocompleteTightVariationsView,
@@ -343,6 +350,13 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                 mapOf(
                     "PaginationDotsHorizontal" to PlasmaB2cPaginationDotsHorizontalVariationsView,
                     "PaginationDotsVertical" to PlasmaB2cPaginationDotsVerticalVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.File,
+                mapOf(
+                    "FileCircularProgress" to PlasmaB2cFileCircularProgressVariationsView,
+                    "FileLinearProgress" to PlasmaB2cFileLinearProgressVariationsView,
                 ),
             ),
         ).associateBy { it.key }
