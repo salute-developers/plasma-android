@@ -9,8 +9,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.interactions.InteractiveColor
-import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.StatefulValue
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -25,8 +25,14 @@ val LocalEditableStyle: ProvidableCompositionLocal<EditableStyle> =
  */
 @Immutable
 interface EditableStyle : Style {
+
     /**
-     * Стиль
+     * Значения прозрачности в неактивном состоянии
+     */
+    val disableAlpha: Float
+
+    /**
+     * Стиль текста
      */
     val textStyle: TextStyle
 
@@ -54,18 +60,23 @@ interface EditableStyle : Style {
  */
 interface EditableStyleBuilder : StyleBuilder<EditableStyle> {
     /**
+     * Устанавливает значение прозрачности в неактивном состоянии
+     */
+    fun disableAlpha(disableAlpha: Float): EditableStyleBuilder
+
+    /**
      * Устанавливает стиль текста
      */
     fun textStyle(textStyle: TextStyle): EditableStyleBuilder
 
     /**
-     * Устанавливает цвет
+     * Устанавливает цвета с помощью [builder]
      */
     @Composable
     fun colors(builder: @Composable EditableColorsBuilder.() -> Unit): EditableStyleBuilder
 
     /**
-     * Устанавливает
+     * Устанавливает размеры и отступы с помощью [builder]
      */
     @Composable
     fun dimensions(builder: @Composable EditableDimensionsBuilder.() -> Unit): EditableStyleBuilder
@@ -75,13 +86,17 @@ private data class DefaultEditableStyle(
     override val textStyle: TextStyle,
     override val colors: EditableColors,
     override val dimensions: EditableDimensions,
+    override val disableAlpha: Float,
 ) : EditableStyle {
     class Builder : EditableStyleBuilder {
+        private var disableAlpha: Float? = null
         private var textStyle: TextStyle? = null
-
         private val colorsBuilder: EditableColorsBuilder = EditableColors.builder()
-
         private val dimensionsBuilder: EditableDimensionsBuilder = EditableDimensions.builder()
+
+        override fun disableAlpha(disableAlpha: Float) = apply {
+            this.disableAlpha = disableAlpha
+        }
 
         override fun textStyle(textStyle: TextStyle): EditableStyleBuilder = apply {
             this.textStyle = textStyle
@@ -99,6 +114,7 @@ private data class DefaultEditableStyle(
             textStyle = textStyle ?: TextStyle.Default,
             colors = colorsBuilder.build(),
             dimensions = dimensionsBuilder.build(),
+            disableAlpha = disableAlpha ?: 0.4f,
         )
     }
 }
@@ -109,19 +125,19 @@ private data class DefaultEditableStyle(
 @Immutable
 interface EditableColors {
     /**
-     * Цвет
+     * Цвет текста
      */
-    val textColor: InteractiveColor
+    val textColor: StatefulValue<Color>
 
     /**
-     * Цвет
+     * Цвет иконки
      */
-    val iconColor: InteractiveColor
+    val iconColor: StatefulValue<Color>
 
     /**
-     * Цвет
+     * Цвет курсора
      */
-    val cursorColor: InteractiveColor
+    val cursorColor: StatefulValue<Color>
 
     companion object {
         /**
@@ -138,35 +154,35 @@ interface EditableColorsBuilder {
     /**
      * Устанавливает цвет [textColor]
      */
-    fun textColor(textColor: InteractiveColor): EditableColorsBuilder
+    fun textColor(textColor: StatefulValue<Color>): EditableColorsBuilder
 
     /**
      * Устанавливает цвет [textColor]
      */
     fun textColor(textColor: Color): EditableColorsBuilder =
-        textColor(textColor.asInteractive())
+        textColor(textColor.asStatefulValue())
 
     /**
      * Устанавливает цвет [iconColor]
      */
-    fun iconColor(iconColor: InteractiveColor): EditableColorsBuilder
+    fun iconColor(iconColor: StatefulValue<Color>): EditableColorsBuilder
 
     /**
      * Устанавливает цвет [iconColor]
      */
     fun iconColor(iconColor: Color): EditableColorsBuilder =
-        iconColor(iconColor.asInteractive())
+        iconColor(iconColor.asStatefulValue())
 
     /**
      * Устанавливает цвет [cursorColor]
      */
-    fun cursorColor(cursorColor: InteractiveColor): EditableColorsBuilder
+    fun cursorColor(cursorColor: StatefulValue<Color>): EditableColorsBuilder
 
     /**
      * Устанавливает цвет [cursorColor]
      */
     fun cursorColor(cursorColor: Color): EditableColorsBuilder =
-        cursorColor(cursorColor.asInteractive())
+        cursorColor(cursorColor.asStatefulValue())
 
     /**
      * Вернёт [EditableColors]
@@ -175,31 +191,31 @@ interface EditableColorsBuilder {
 }
 
 private data class DefaultEditableColors(
-    override val textColor: InteractiveColor,
-    override val iconColor: InteractiveColor,
-    override val cursorColor: InteractiveColor,
+    override val textColor: StatefulValue<Color>,
+    override val iconColor: StatefulValue<Color>,
+    override val cursorColor: StatefulValue<Color>,
 ) : EditableColors {
     class Builder : EditableColorsBuilder {
-        private var textColor: InteractiveColor? = null
-        private var iconColor: InteractiveColor? = null
-        private var cursorColor: InteractiveColor? = null
+        private var textColor: StatefulValue<Color>? = null
+        private var iconColor: StatefulValue<Color>? = null
+        private var cursorColor: StatefulValue<Color>? = null
 
-        override fun textColor(textColor: InteractiveColor): EditableColorsBuilder = apply {
+        override fun textColor(textColor: StatefulValue<Color>): EditableColorsBuilder = apply {
             this.textColor = textColor
         }
 
-        override fun iconColor(iconColor: InteractiveColor): EditableColorsBuilder = apply {
+        override fun iconColor(iconColor: StatefulValue<Color>): EditableColorsBuilder = apply {
             this.iconColor = iconColor
         }
 
-        override fun cursorColor(cursorColor: InteractiveColor) = apply {
+        override fun cursorColor(cursorColor: StatefulValue<Color>) = apply {
             this.cursorColor = cursorColor
         }
 
         override fun build(): EditableColors = DefaultEditableColors(
-            textColor = textColor ?: Color.Black.asInteractive(),
-            iconColor = iconColor ?: Color.DarkGray.asInteractive(),
-            cursorColor = cursorColor ?: Color.DarkGray.asInteractive(),
+            textColor = textColor ?: Color.Black.asStatefulValue(),
+            iconColor = iconColor ?: Color.DarkGray.asStatefulValue(),
+            cursorColor = cursorColor ?: Color.DarkGray.asStatefulValue(),
         )
     }
 }

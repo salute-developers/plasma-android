@@ -435,5 +435,11 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                     "FormItem" to SddsServFormItemVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Editable,
+                mapOf(
+                    "Editable" to SddsServEditableVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }

@@ -5,7 +5,7 @@
     "ktlint:standard:max-line-length",
 )
 
-package com.sdds.plasma.homeds.styles.editable
+package com.sdds.serv.styles.editable
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
@@ -16,7 +16,7 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.plasma.homeds.theme.PlasmaHomeDsTheme
+import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -67,14 +67,6 @@ public value class WrapperEditableH5(
 ) : WrapperEditable
 
 /**
- * Обертка для вариации H6
- */
-@JvmInline
-public value class WrapperEditableH6(
-    public override val builder: EditableStyleBuilder,
-) : WrapperEditable
-
-/**
  * Обертка для вариации BodyL
  */
 @JvmInline
@@ -120,19 +112,19 @@ private val EditableStyleBuilder.invariantProps: EditableStyleBuilder
         .disableAlpha(0.4f)
         .colors {
             iconColor(
-                PlasmaHomeDsTheme.colors.textDefaultTertiary.asStatefulValue(
+                SddsServTheme.colors.textDefaultTertiary.asStatefulValue(
                     setOf(EditableStates.ReadOnly)
-                        to PlasmaHomeDsTheme.colors.textDefaultTertiary.multiplyAlpha(0.4f),
+                        to SddsServTheme.colors.textDefaultTertiary.multiplyAlpha(0.4f),
                 ),
             )
             textColor(
-                PlasmaHomeDsTheme.colors.textDefaultPrimary.asStatefulValue(
+                SddsServTheme.colors.textDefaultPrimary.asStatefulValue(
                     setOf(EditableStates.ReadOnly)
-                        to PlasmaHomeDsTheme.colors.textDefaultPrimary.multiplyAlpha(0.4f),
+                        to SddsServTheme.colors.textDefaultPrimary.multiplyAlpha(0.4f),
                 ),
             )
             cursorColor(
-                PlasmaHomeDsTheme.colors.textDefaultAccent.asStatefulValue(),
+                SddsServTheme.colors.textDefaultAccent.asStatefulValue(),
             )
         }
 
@@ -141,7 +133,7 @@ public val Editable.H1: WrapperEditableH1
     @JvmName("WrapperEditableH1")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.headerH1Bold)
+        .textStyle(SddsServTheme.typography.headerH1Bold)
         .dimensions {
             iconSize(52.0.dp)
             iconMargin(8.0.dp)
@@ -153,7 +145,7 @@ public val Editable.H2: WrapperEditableH2
     @JvmName("WrapperEditableH2")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.headerH2Bold)
+        .textStyle(SddsServTheme.typography.headerH2Bold)
         .dimensions {
             iconSize(36.0.dp)
             iconMargin(8.0.dp)
@@ -165,7 +157,7 @@ public val Editable.H3: WrapperEditableH3
     @JvmName("WrapperEditableH3")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.headerH3Bold)
+        .textStyle(SddsServTheme.typography.headerH3Bold)
         .dimensions {
             iconSize(30.0.dp)
             iconMargin(6.0.dp)
@@ -177,7 +169,7 @@ public val Editable.H4: WrapperEditableH4
     @JvmName("WrapperEditableH4")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
+        .textStyle(SddsServTheme.typography.headerH4Bold)
         .dimensions {
             iconSize(26.0.dp)
             iconMargin(6.0.dp)
@@ -189,31 +181,19 @@ public val Editable.H5: WrapperEditableH5
     @JvmName("WrapperEditableH5")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.headerH5Bold)
+        .textStyle(SddsServTheme.typography.headerH5Bold)
         .dimensions {
             iconSize(24.0.dp)
             iconMargin(6.0.dp)
         }
         .wrap(::WrapperEditableH5)
 
-public val Editable.H6: WrapperEditableH6
-    @Composable
-    @JvmName("WrapperEditableH6")
-    get() = EditableStyle.builder(this)
-        .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.headerH6Bold)
-        .dimensions {
-            iconSize(16.0.dp)
-            iconMargin(2.0.dp)
-        }
-        .wrap(::WrapperEditableH6)
-
 public val Editable.BodyL: WrapperEditableBodyL
     @Composable
     @JvmName("WrapperEditableBodyL")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.bodyLBold)
+        .textStyle(SddsServTheme.typography.bodyLBold)
         .dimensions {
             iconSize(22.0.dp)
             iconMargin(6.0.dp)
@@ -225,7 +205,7 @@ public val Editable.BodyM: WrapperEditableBodyM
     @JvmName("WrapperEditableBodyM")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.bodyMBold)
+        .textStyle(SddsServTheme.typography.bodyMBold)
         .dimensions {
             iconSize(20.0.dp)
             iconMargin(6.0.dp)
@@ -237,7 +217,7 @@ public val Editable.BodyS: WrapperEditableBodyS
     @JvmName("WrapperEditableBodyS")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.bodySBold)
+        .textStyle(SddsServTheme.typography.bodySBold)
         .dimensions {
             iconSize(18.0.dp)
             iconMargin(2.0.dp)
@@ -249,7 +229,7 @@ public val Editable.BodyXs: WrapperEditableBodyXs
     @JvmName("WrapperEditableBodyXs")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.bodyXsBold)
+        .textStyle(SddsServTheme.typography.bodyXsBold)
         .dimensions {
             iconSize(14.0.dp)
             iconMargin(2.0.dp)
@@ -261,7 +241,7 @@ public val Editable.BodyXxs: WrapperEditableBodyXxs
     @JvmName("WrapperEditableBodyXxs")
     get() = EditableStyle.builder(this)
         .invariantProps
-        .textStyle(PlasmaHomeDsTheme.typography.bodyXxsBold)
+        .textStyle(SddsServTheme.typography.bodyXxsBold)
         .dimensions {
             iconSize(12.0.dp)
             iconMargin(2.0.dp)

@@ -33,15 +33,34 @@ internal class EditableComposeVariationGenerator(
     componentName = componentName,
     styleBuilderName = styleBuilderName,
 ) {
+
+    override fun KtFileBuilder.onAddImports() {
+        addImport("com.sdds.compose.uikit", listOf("EditableStates"))
+    }
+
+    override fun getCustomState(state: String): String {
+        return when (state) {
+            "readonly" -> "EditableStates.ReadOnly"
+            else -> throw IllegalStateException("Unknown state $state for Editable")
+        }
+    }
+
     override fun propsToBuilderCalls(
         props: EditableProperties,
         ktFileBuilder: KtFileBuilder,
         variationId: String,
     ) = listOfNotNull(
+        disableAlphaCall(props),
         colorsCall(props),
         textStyleCall(props),
         dimensionsCall(props, variationId),
     )
+
+    private fun disableAlphaCall(props: EditableProperties): String? {
+        return props.disableAlpha?.let {
+            ".disableAlpha(${it.value}f)"
+        }
+    }
 
     private fun textStyleCall(props: EditableProperties): String? {
         return props.textStyle?.let {
@@ -54,13 +73,13 @@ internal class EditableComposeVariationGenerator(
             buildString {
                 appendLine(".colors {")
                 props.iconColor?.let {
-                    appendLine(getColor("iconColor", it))
+                    appendLine(getColor("iconColor", it, true))
                 }
                 props.textColor?.let {
-                    appendLine(getColor("textColor", it))
+                    appendLine(getColor("textColor", it, true))
                 }
                 props.cursorColor?.let {
-                    appendLine(getColor("cursorColor", it))
+                    appendLine(getColor("cursorColor", it, true))
                 }
                 append("}")
             }

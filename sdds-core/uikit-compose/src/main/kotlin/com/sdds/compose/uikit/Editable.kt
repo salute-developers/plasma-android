@@ -32,6 +32,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.FIELD_ID
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.ICON_ID
+import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 
@@ -39,9 +42,9 @@ import com.sdds.compose.uikit.internal.widthOrZero
  * Редактируемое текстовое поле
  *
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
- * @param style стиль компонента
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
+ * @param style стиль компонента
  * @param icon иконка справа
  * @param singleLine если false, поле может быть многострочным
  * @param readOnly если false - доступно только для чтения, запись отключена
@@ -62,6 +65,7 @@ fun Editable(
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     style: EditableStyle = LocalEditableStyle.current,
+    icon: @Composable (() -> Unit)? = null,
     singleLine: Boolean = false,
     readOnly: Boolean = false,
     enabled: Boolean = true,
@@ -72,17 +76,21 @@ fun Editable(
     textAlign: TextAlign = TextAlign.Start,
     iconPlacement: EditableIconPlacement = EditableIconPlacement.Absolute,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    icon: @Composable (() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val stateSet = remember(readOnly) {
+        if (readOnly) setOf(EditableStates.ReadOnly) else emptySet()
+    }
+
     Layout(
-        modifier = modifier,
+        modifier = modifier.enable(enabled = enabled, disabledAlpha = style.disableAlpha),
         measurePolicy = remember(iconPlacement) {
             EditableMeasurePolicy(iconPlacement)
         },
         content = {
-            val textColor = style.colors.textColor.colorForInteraction(interactionSource)
+            val textColor = style.colors.textColor.getValue(interactionSource, stateSet)
+            val cursorColor = style.colors.cursorColor.getValue(interactionSource, stateSet)
             val textStyle = style.textStyle.copy(color = textColor, textAlign = textAlign)
             BasicTextField(
                 modifier = Modifier
@@ -102,9 +110,7 @@ fun Editable(
                 visualTransformation = visualTransformation,
                 onTextLayout = onTextLayout,
                 interactionSource = interactionSource,
-                cursorBrush = SolidColor(
-                    value = style.colors.cursorColor.colorForInteraction(interactionSource),
-                ),
+                cursorBrush = SolidColor(value = cursorColor),
             )
 
             icon?.let {
@@ -114,7 +120,7 @@ fun Editable(
                         .layoutId(ICON_ID),
                 ) {
                     val iconSize = DpSize(style.dimensions.iconSize, style.dimensions.iconSize)
-                    val iconColor = style.colors.iconColor.colorForInteraction(interactionSource)
+                    val iconColor = style.colors.iconColor.getValue(interactionSource, stateSet)
                     CompositionLocalProvider(
                         LocalIconDefaultSize provides iconSize,
                         LocalTint provides iconColor,
@@ -140,6 +146,13 @@ enum class EditableIconPlacement {
      * Иконка расположена внутри компонента
      */
     Relative,
+}
+
+/**
+ * Состояния комопнента [Editable]
+ */
+enum class EditableStates : ValueState {
+    ReadOnly,
 }
 
 private class EditableMeasurePolicy(

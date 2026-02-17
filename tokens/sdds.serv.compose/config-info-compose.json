@@ -11797,6 +11797,53 @@
                "composeReference": "FormItem.L.TitleStart.RequiredEnd.Warning"
             }
          ]
+      },
+      {
+         "key": "editable",
+         "coreName": "Editable",
+         "styleName": "Editable",
+         "variations": [
+            {
+               "name": "h1",
+               "composeReference": "Editable.H1"
+            },
+            {
+               "name": "h2",
+               "composeReference": "Editable.H2"
+            },
+            {
+               "name": "h3",
+               "composeReference": "Editable.H3"
+            },
+            {
+               "name": "h4",
+               "composeReference": "Editable.H4"
+            },
+            {
+               "name": "h5",
+               "composeReference": "Editable.H5"
+            },
+            {
+               "name": "body-l",
+               "composeReference": "Editable.BodyL"
+            },
+            {
+               "name": "body-m",
+               "composeReference": "Editable.BodyM"
+            },
+            {
+               "name": "body-s",
+               "composeReference": "Editable.BodyS"
+            },
+            {
+               "name": "body-xs",
+               "composeReference": "Editable.BodyXs"
+            },
+            {
+               "name": "body-xxs",
+               "composeReference": "Editable.BodyXxs"
+            }
+         ]
       }
    ]
 }

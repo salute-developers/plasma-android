@@ -3926,6 +3926,29 @@
          ]
       },
       {
+         "key": "form-item",
+         "coreName": "FormItem",
+         "styleName": "FormItem",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "FormItem.Default"
+            },
+            {
+               "name": "positive",
+               "composeReference": "FormItem.Positive"
+            },
+            {
+               "name": "negative",
+               "composeReference": "FormItem.Negative"
+            },
+            {
+               "name": "warning",
+               "composeReference": "FormItem.Warning"
+            }
+         ]
+      },
+      {
          "key": "editable",
          "coreName": "Editable",
          "styleName": "Editable",

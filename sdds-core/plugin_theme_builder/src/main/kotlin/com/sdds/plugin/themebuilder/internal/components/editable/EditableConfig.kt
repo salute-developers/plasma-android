@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
@@ -18,6 +19,7 @@ internal data class EditableProperties(
     val cursorColor: Color? = null,
     val iconMargin: Dimension? = null,
     val iconSize: Dimension? = null,
+    val disableAlpha: FloatValue? = null,
 ) : PropertyOwner {
 
     override fun merge(parent: PropertyOwner): PropertyOwner {
@@ -29,6 +31,7 @@ internal data class EditableProperties(
             cursorColor = cursorColor ?: otherProps.cursorColor,
             iconMargin = iconMargin ?: otherProps.iconMargin,
             iconSize = iconSize ?: otherProps.iconSize,
+            disableAlpha = disableAlpha ?: otherProps.disableAlpha,
         )
     }
 }
