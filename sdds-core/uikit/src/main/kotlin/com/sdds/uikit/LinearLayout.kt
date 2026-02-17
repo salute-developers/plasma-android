@@ -58,4 +58,12 @@ open class LinearLayout @JvmOverloads constructor(
         }
         super.setPressed(pressed)
     }
+
+    /**
+     *  Устанавливает новую форму
+     *  @param shape форма скруглений
+     */
+    fun setShape(shape: ShapeModel) {
+        _shapeable.setShape(shape)
+    }
 }

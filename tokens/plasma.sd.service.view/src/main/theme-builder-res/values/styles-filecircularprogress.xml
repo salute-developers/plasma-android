@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.FileCircularProgress" parent="Sdds.Components.File">
+        <item name="sd_descriptionPadding">@dimen/plasma_file_circular_progress_description_padding</item>
+        <item name="sd_actionPlacement">end</item>
+        <item name="sd_progressPlacement">inner</item>
+        <item name="sd_iconTint">@color/plasma_file_circular_progress_icon_tint</item>
+        <item name="sd_descriptionColor">@color/plasma_file_circular_progress_description_color</item>
+        <item name="sd_labelColor">@color/plasma_file_circular_progress_label_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.FileColorStateProvider</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.Xs">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_xs_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonXsClear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressXs">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.Xs.Default">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_xs_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarXsDefault</item>
+        <item name="plasma_fileColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressXsDefault">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.Xs.Negative">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_xs_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_xs_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarXsNegative</item>
+        <item name="plasma_fileColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressXsNegative">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.S">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_s_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressS">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.S.Default">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_s_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarSDefault</item>
+        <item name="plasma_fileColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressSDefault">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.S.Negative">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_s_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_s_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarSNegative</item>
+        <item name="plasma_fileColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressSNegative">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.M">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_m_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressM">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.M.Default">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_m_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarSDefault</item>
+        <item name="plasma_fileColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressMDefault">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.M.Negative">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_m_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_m_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarSNegative</item>
+        <item name="plasma_fileColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressMNegative">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.L">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_l_content_end_padding</item>
+        <item name="sd_descriptionAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_iconButtonStyleOverlay">@style/Plasma.SdService.ComponentOverlays.IconButtonSClear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressL">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.L.Default">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_l_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarSDefault</item>
+        <item name="plasma_fileColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressLDefault">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.FileCircularProgress.L.Negative">
+        <item name="sd_contentStartPadding">@dimen/plasma_file_circular_progress_l_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/plasma_file_circular_progress_l_content_end_padding</item>
+        <item name="sd_circularProgressBarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.CircularProgressBarSNegative</item>
+        <item name="plasma_fileColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.FileCircularProgressLNegative">
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.L.Negative</item>
+    </style>
+</resources>

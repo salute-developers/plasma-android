@@ -16,6 +16,7 @@ import androidx.annotation.IdRes
 import androidx.annotation.XmlRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.ColorUtils
+import androidx.core.widget.TextViewCompat
 import com.sdds.uikit.R
 import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.colorForState
@@ -309,12 +310,19 @@ fun TextView.setTextColorValue(
         colorValueStateList.getDefaultValue()
     }
     when (textColorValue) {
-        is ColorValueHolder.ColorValue -> setTextColor(textColorValue.value)
+        is ColorValueHolder.ColorValue -> {
+            setTextColor(textColorValue.value)
+            TextViewCompat.setCompoundDrawableTintList(this, ColorStateList.valueOf(textColorValue.value))
+        }
         is ColorValueHolder.DrawableValue -> {}
-        is ColorValueHolder.ColorListValue -> setTextColor(textColorValue.value)
+        is ColorValueHolder.ColorListValue -> {
+            setTextColor(textColorValue.value)
+            TextViewCompat.setCompoundDrawableTintList(this, textColorValue.value)
+        }
         is ColorValueHolder.ShaderValue -> {
             paint.color = -1
             paint.shader = cachedShaderFactory.getShader(textColorValue.value, textBounds)
+            TextViewCompat.setCompoundDrawableTintList(this, null)
         }
     }
 }

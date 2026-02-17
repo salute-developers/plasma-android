@@ -46,16 +46,19 @@ fun fileLayoutBinding(
 ): LayoutComponentFileBinding {
     return LayoutComponentFileBinding.inflate(LayoutInflater.from(context)).apply {
         var hasCircularProgress = false
-        val link = context.resolveStyle(R.attr.sd_fileStyle)
-        context.withStyledAttributes(link, R.styleable.File) {
+        var hasHorizontalProgress = false
+        val circularLink = context.resolveStyle(R.attr.sd_fileStyle)
+        context.withStyledAttributes(circularLink, R.styleable.File) {
             val res = getResourceId(R.styleable.File_sd_circularProgressBarStyleOverlay, 0)
             if (res != 0) hasCircularProgress = true
         }
-        if (hasCircularProgress) {
-            root.setProgress(circularProgress(root.context))
-        } else {
-            root.setProgress(horizontalProgress(root.context))
+        val horizontalLink = context.resolveStyle(R.attr.sd_fileStyle)
+        context.withStyledAttributes(horizontalLink, R.styleable.File) {
+            val res = getResourceId(R.styleable.File_sd_progressBarStyleOverlay, 0)
+            if (res != 0) hasHorizontalProgress = true
         }
+        if (hasCircularProgress) root.setProgress(circularProgress(root.context))
+        if (hasHorizontalProgress)root.setProgress(horizontalProgress(root.context))
     }
 }
 
