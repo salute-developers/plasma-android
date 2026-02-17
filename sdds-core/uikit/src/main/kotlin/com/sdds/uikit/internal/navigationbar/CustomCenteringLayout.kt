@@ -10,7 +10,6 @@ import android.widget.LinearLayout
 import android.widget.LinearLayout.HORIZONTAL
 import androidx.core.view.children
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 
 internal class CustomCenteringLayout @JvmOverloads constructor(
     context: Context,
@@ -33,6 +32,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
     }
     private val centerContent = LinearLayout(context).apply {
         orientation = HORIZONTAL
+        isDuplicateParentStateEnabled = true
         gravity = Gravity.CENTER_HORIZONTAL
         layoutParams = MarginLayoutParams(
             LayoutParams.MATCH_PARENT,
@@ -118,8 +118,8 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
             heightMeasureSpec,
             0,
         )
-        widthUsed += centerContent.measuredWidth + verPaddings
-        val heightUsed = horPaddings +
+        widthUsed += centerContent.measuredWidth + horPaddings
+        val heightUsed = verPaddings +
             maxOf(actionStart.measuredHeight, actionEnd.measuredHeight, centerContent.measuredHeight)
         setMeasuredDimension(
             resolveSize(widthUsed, widthMeasureSpec),
@@ -129,11 +129,11 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
 
     override fun onLayout(chaged: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val centerY = (b - t) / 2
-        val actionStartW = if (actionStart.isVisible) actionStart.measuredWidth else 0
-        val actionStartH = if (actionStart.isVisible) actionStart.measuredHeight else 0
+        val actionStartW = if (!actionStart.isGone) actionStart.measuredWidth else 0
+        val actionStartH = if (!actionStart.isGone) actionStart.measuredHeight else 0
 
-        val actionEndW = if (actionEnd.isVisible) actionEnd.measuredWidth else 0
-        val actionEndH = if (actionEnd.isVisible) actionEnd.measuredHeight else 0
+        val actionEndW = if (!actionEnd.isGone) actionEnd.measuredWidth else 0
+        val actionEndH = if (!actionEnd.isGone) actionEnd.measuredHeight else 0
 
         val contentW = centerContent.measuredWidth
         val contentH = centerContent.measuredHeight
@@ -143,7 +143,7 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
 
         if (centeringStrategy == CenteringStrategy.RELATIVE) {
             var top = viewTop(actionStartH)
-            if (actionStart.isVisible) {
+            if (!actionStart.isGone) {
                 actionStart.layout(left, top, left + actionStartW, top + actionStartH)
                 left += actionStartW
             }
@@ -151,13 +151,13 @@ internal class CustomCenteringLayout @JvmOverloads constructor(
             centerContent.layout(left, top, left + contentW, top + contentH)
             left += contentW
             top = viewTop(actionEndH)
-            if (actionEnd.isVisible) actionEnd.layout(left, top, left + actionEndW, top + actionEndH)
+            if (!actionEnd.isGone) actionEnd.layout(left, top, left + actionEndW, top + actionEndH)
         } else {
             var top = viewTop(actionStartH)
-            if (actionStart.isVisible) actionStart.layout(left, top, left + actionStartW, top + actionStartH)
+            if (!actionStart.isGone) actionStart.layout(left, top, left + actionStartW, top + actionStartH)
             top = viewTop(actionEndH)
             left = (r - l) - paddingEnd - actionEndW
-            if (actionEnd.isVisible) actionEnd.layout(left, top, left + actionEndW, top + actionEndH)
+            if (!actionEnd.isGone) actionEnd.layout(left, top, left + actionEndW, top + actionEndH)
             top = viewTop(contentH)
             left = (r - l) / 2 - contentW / 2
             centerContent.layout(left, top, left + contentW, top + contentH)

@@ -8,6 +8,8 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.annotation.ColorInt
+import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
 import androidx.core.view.isVisible
@@ -18,6 +20,7 @@ import com.sdds.uikit.File.Companion.ACTION_PLACEMENT_START
 import com.sdds.uikit.File.Companion.PROGRESS_PLACEMENT_INNER
 import com.sdds.uikit.File.Companion.PROGRESS_PLACEMENT_OUTER
 import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.statelist.StyleStateList
 import com.sdds.uikit.statelist.getStyleStateList
@@ -44,7 +47,9 @@ open class File @JvmOverloads constructor(
 ),
     ColorStateHolder {
 
-    private val cell: CellLayout = CellLayout(context, null, 0, 0)
+    private val cell: CellLayout = CellLayout(context, null, 0, 0).apply {
+        isDuplicateParentStateEnabled = true
+    }
     private var _contentStartPadding: Int = 0
     private var _contentEndPadding: Int = 0
     private var _contentBottomPadding: Int = 0
@@ -198,6 +203,103 @@ open class File @JvmOverloads constructor(
                 refreshDrawableState()
             }
         }
+
+    /**
+     * Устанавливает список стилей [StyleStateList] для view с ролью [FileContent.LABEL],
+     * которые соответствуют drawableState
+     * @param newLabelAppearances список стилей
+     */
+    open fun setLabelAppearancesList(newLabelAppearances: StyleStateList?) {
+        if (labelAppearance != newLabelAppearances) {
+            labelAppearance = newLabelAppearances
+            applyTextAppearances(labelView, labelAppearance)
+        }
+    }
+
+    /**
+     * Устанавливает стиль для view с ролью [FileContent.LABEL]
+     * @param labelAppearanceId идентификатор стиля текста в ресурсах
+     */
+    open fun setLabelAppearance(@StyleRes labelAppearanceId: Int) {
+        setLabelAppearancesList(StyleStateList.valueOf(labelAppearanceId))
+    }
+
+    /**
+     * Устанавливает список стилей [StyleStateList] для view с ролью [FileContent.DESCRIPTION],
+     * которые соответствуют drawableState
+     * @param newDescriptionAppearances список стилей
+     */
+    open fun setDescriptionAppearancesList(newDescriptionAppearances: StyleStateList?) {
+        if (descriptionAppearance != newDescriptionAppearances) {
+            descriptionAppearance = newDescriptionAppearances
+            applyTextAppearances(labelView, labelAppearance)
+        }
+    }
+
+    /**
+     * Устанавливает стиль для view с ролью [FileContent.DESCRIPTION]
+     * @param descriptionAppearanceId идентификатор стиля текста в ресурсах
+     */
+    open fun setDescriptionAppearance(@StyleRes descriptionAppearanceId: Int) {
+        setDescriptionAppearancesList(StyleStateList.valueOf(descriptionAppearanceId))
+    }
+
+    /**
+     * Устанавливает цвета текста для view с ролью [FileContent.LABEL]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setLabelTextColors(colors: ColorStateList?) {
+        if (labelColor != colors) {
+            labelColor = colors
+            labelColor?.let { applyTextColors(labelView, it) }
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста для view с ролью [FileContent.LABEL]
+     * @param color цвет текста
+     */
+    fun setLabelTextColor(@ColorInt color: Int) {
+        setLabelTextColors(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета текста для view с ролью [FileContent.DESCRIPTION]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setDescriptionTextColors(colors: ColorStateList?) {
+        if (descriptionColor != colors) {
+            descriptionColor = colors
+            descriptionColor?.let { applyTextColors(descriptionView, it) }
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста для view с ролью [FileContent.DESCRIPTION]
+     * @param color цвет текста
+     */
+    fun setDescriptionTextColor(@ColorInt color: Int) {
+        setDescriptionTextColors(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета текста для view с ролью [FileContent.ICON]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setIconColors(colors: ColorStateList?) {
+        if (iconTint != colors) {
+            iconTint = colors
+            iconTint?.let { applyTextColors(descriptionView, it) }
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста для view с ролью [FileContent.ICON]
+     * @param color цвет текста
+     */
+    fun setIconColor(@ColorInt color: Int) {
+        setIconColors(ColorStateList.valueOf(color))
+    }
 
     /**
      * Устанавливает Label, при этом ранее установленный Label будет удален
@@ -476,6 +578,15 @@ open class File @JvmOverloads constructor(
         }
     }
 
+    @Suppress("UNNECESSARY_SAFE_CALL")
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        return drawableState
+    }
+
     /**
      * Роли для дочерних элементов [View] в [File]
      */
@@ -617,28 +728,15 @@ open class File @JvmOverloads constructor(
             }
 
             FileContent.ICON -> {
-                if (group) {
-                    (this as ViewGroup).children.forEach {
-                        checkForImageToApplyTintList(it)
-                    }
-                } else {
-                    checkForImageToApplyTintList(this)
-                }
+                applyImageColors(this, iconTint)
             }
 
             else -> {}
         }
     }
 
-    private fun checkForImageToApplyTintList(view: View) {
-        if (view is ImageView) {
-            if (view.imageTintList == null) {
-                iconTint?.let { view.imageTintList = it }
-            }
-        }
-    }
-
     private fun TextView.applyLabelRole() {
+        isDuplicateParentStateEnabled = true
         labelAppearance?.let { setTextAppearancesList(it) }
         colorState = this@File.colorState
         labelColor?.let(::setTextColor)
@@ -646,6 +744,7 @@ open class File @JvmOverloads constructor(
     }
 
     private fun TextView.applyDescriptionRole() {
+        isDuplicateParentStateEnabled = true
         descriptionAppearance?.let { setTextAppearancesList(it) }
         colorState = this@File.colorState
         descriptionColor?.let(::setTextColor)
@@ -667,6 +766,8 @@ open class File @JvmOverloads constructor(
                 FileContent.IMAGE, FileContent.ICON -> CellContent.START
                 else -> CellContent.END
             }
+            forceDuplicateParentState =
+                params.fileContent == FileContent.LABEL || params.fileContent == FileContent.DESCRIPTION
             if (cellContent == CellContent.SUBTITLE) {
                 topMargin = _descriptionPadding
             }
@@ -745,6 +846,53 @@ open class File @JvmOverloads constructor(
     private fun changeProgressPlacementGlobally() {
         progressView?.let {
             addView(it)
+        }
+    }
+
+    private fun applyTextColors(view: View?, colors: ColorStateList) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? TextView)?.let { tv ->
+                    tv.setTextColor(colors)
+                    TextViewCompat.setCompoundDrawableTintList(tv, colors)
+                }
+            }
+        } else {
+            (view as? TextView)?.let { tv ->
+                tv.setTextColor(colors)
+                TextViewCompat.setCompoundDrawableTintList(tv, colors)
+            }
+        }
+    }
+
+    private fun applyImageColors(view: View?, colors: ColorStateList?) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? ImageView)?.applyTint(colors)
+            }
+        } else {
+            (view as? ImageView)?.applyTint(colors)
+        }
+    }
+
+    private fun ImageView.applyTint(tint: ColorStateList?) {
+        colorState = this@File.colorState
+        if (imageTintList == null) imageTintList = tint
+    }
+
+    private fun applyTextAppearances(view: View?, appearances: StyleStateList?) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? TextView)?.setTextAppearancesList(appearances)
+            }
+        } else {
+            (view as? TextView)?.setTextAppearancesList(appearances)
         }
     }
 

@@ -2,5 +2,6 @@
 <resources>
 
     <style name="Sdds.Components.NavigationBar">
+        <item name="sd_shapeAppearance">@style/Sdds.Shape.Round</item>
     </style>
 </resources>

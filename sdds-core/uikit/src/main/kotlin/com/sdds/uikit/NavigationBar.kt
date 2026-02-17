@@ -10,12 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
-import androidx.core.view.isNotEmpty
 import androidx.core.view.isVisible
-import androidx.core.widget.TextViewCompat
 import com.sdds.uikit.File.FileContent.LABEL
 import com.sdds.uikit.NavigationBar.Companion.CONTENT_PLACEMENT_BOTTOM
 import com.sdds.uikit.NavigationBar.Companion.CONTENT_PLACEMENT_INNER
@@ -60,15 +60,15 @@ open class NavigationBar @JvmOverloads constructor(
 ),
     ColorStateHolder {
 
-    private var actionStartColors: ColorStateList? = null
-    private var actionEndColors: ColorStateList? = null
+    private var actionStartColors: ColorValueStateList? = null
+    private var actionEndColors: ColorValueStateList? = null
     private var titleAppearances: StyleStateList? = null
     private var currentTitleAppearance: Int = 0
     private var currentDescriptionAppearance: Int = 0
-    private var titleColors: ColorStateList? = null
+    private var titleColors: ColorValueStateList? = null
     private var descriptionAppearances: StyleStateList? = null
-    private var descriptionColors: ColorStateList? = null
-    private var backIconTint: ColorStateList? = null
+    private var descriptionColors: ColorValueStateList? = null
+    private var backIconTint: ColorValueStateList? = null
     private var backgroundList: ColorValueStateList? = null
     private var textBlockTopMargin: Int = 0
     private var horizontalSpacing: Int = 0
@@ -90,6 +90,9 @@ open class NavigationBar @JvmOverloads constructor(
     private var _contentPlacement: Int = CONTENT_PLACEMENT_BOTTOM
     private var _textPlacement: Int = TEXT_PLACEMENT_BOTTOM
     private var _centerAlignmentStrategy: Int = ALIGNMENT_STRATEGY_ABSOLUTE
+
+    @DrawableRes
+    private var icon: Int = 0
     private val backIconView: ImageView = ImageView(context).apply {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             defaultFocusHighlightEnabled = false
@@ -98,24 +101,32 @@ open class NavigationBar @JvmOverloads constructor(
 
     private val containerWithPaddings: android.widget.LinearLayout =
         android.widget.LinearLayout(context).apply {
+            isDuplicateParentStateEnabled = true
             orientation = VERTICAL
             layoutParams = LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT,
             )
         }
-    private val actionsBlock: CustomCenteringLayout = CustomCenteringLayout(context)
+    private val actionsBlock: CustomCenteringLayout = CustomCenteringLayout(context).apply {
+        isDuplicateParentStateEnabled = true
+    }
 
     private val textBlock: android.widget.LinearLayout = android.widget.LinearLayout(context).apply {
         orientation = VERTICAL
+        isDuplicateParentStateEnabled = true
         layoutParams = LayoutParams(
             LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT,
         )
     }
 
-    private val titlePlace: FrameLayout = FrameLayout(context)
-    private val descriptionPlace: FrameLayout = FrameLayout(context)
+    private val titlePlace: FrameLayout = FrameLayout(context).apply {
+        isDuplicateParentStateEnabled = true
+    }
+    private val descriptionPlace: FrameLayout = FrameLayout(context).apply {
+        isDuplicateParentStateEnabled = true
+    }
 
     /**
      * @see ColorStateHolder.colorState
@@ -127,11 +138,6 @@ open class NavigationBar @JvmOverloads constructor(
                 refreshDrawableState()
             }
         }
-
-    /**
-     * Callback нажатия иконки "назад"
-     */
-    var onBackPressed: (() -> Unit)? = null
 
     /**
      * Выравнивание Title и Description внутри [NavigationBar]
@@ -168,6 +174,7 @@ open class NavigationBar @JvmOverloads constructor(
                 _textPlacement = value
                 refreshDrawableState()
                 changeTextPlacementGlobally()
+                resolveTextAlignment()
             }
         }
 
@@ -206,14 +213,12 @@ open class NavigationBar @JvmOverloads constructor(
         orientation = VERTICAL
         placeServiceChildren()
         obtainAttributes(attrs, defStyleAttr, defStyleRes)
+        installIconIfNeed()
         actionsBlock.setBackIcon(backIconView)
         resolveTitleAndDescriptionPlace()
         applyPaddingsToContainer()
         changeTextPlacementGlobally()
         resolveTextAlignment()
-        backIconView.setOnClickListener {
-            onBackPressed?.invoke()
-        }
     }
 
     /**
@@ -322,6 +327,24 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Слушатель нажатия иконки "назад"
+     */
+    open fun setOnBackIconClickListener(listener: () -> Unit) {
+        backIconView.setOnClickListener { listener() }
+    }
+
+    /**
+     * Устанавливает иконку из ресурсов по идентификатору
+     * @param iconRes идентификатор ресурса иконки
+     */
+    open fun setBackIconResource(@DrawableRes iconRes: Int) {
+        if (icon != iconRes) {
+            icon = iconRes
+            installIconIfNeed()
+        }
+    }
+
+    /**
      * Устанавливает отступ текстового блока, содержащего
      * [NavigationBarContent.TITLE], [NavigationBarContent.DESCRIPTION], от блока с
      * [NavigationBarContent.ACTION_START] и [NavigationBarContent.ACTION_END]
@@ -330,7 +353,7 @@ open class NavigationBar @JvmOverloads constructor(
     open fun setTextBlockTopMargin(margin: Int) {
         if (textBlockTopMargin != margin) {
             textBlockTopMargin = margin
-            applyPaddingsToTextBlock()
+            resolveTextBlockPaddings()
         }
     }
 
@@ -363,7 +386,7 @@ open class NavigationBar @JvmOverloads constructor(
             horizontalSpacing = spacing
             actionStartView?.setPaddingRelative(0, 0, horizontalSpacing, 0)
             actionEndView?.setPaddingRelative(horizontalSpacing, 0, 0, 0)
-            applyPaddingsToTextBlock()
+            resolveTextBlockPaddings()
         }
     }
 
@@ -404,6 +427,7 @@ open class NavigationBar @JvmOverloads constructor(
     open fun setTitleAppearancesList(newTitleAppearances: StyleStateList?) {
         if (titleAppearances != newTitleAppearances) {
             titleAppearances = newTitleAppearances
+            applyTextAppearances(titleView, titleAppearances)
             refreshDrawableState()
         }
     }
@@ -412,7 +436,7 @@ open class NavigationBar @JvmOverloads constructor(
      * Устанавливает стиль для view с ролью [NavigationBarContent.TITLE]
      * @param titleAppearanceId идентификатор стиля текста в ресурсах
      */
-    open fun setTitleAppearance(@StyleRes titleAppearanceId: Int) {
+    fun setTitleAppearance(@StyleRes titleAppearanceId: Int) {
         setTitleAppearancesList(StyleStateList.valueOf(titleAppearanceId))
     }
 
@@ -424,6 +448,7 @@ open class NavigationBar @JvmOverloads constructor(
     open fun setDescriptionAppearancesList(newDescriptionAppearances: StyleStateList?) {
         if (descriptionAppearances != newDescriptionAppearances) {
             descriptionAppearances = newDescriptionAppearances
+            applyTextAppearances(titleView, titleAppearances)
             refreshDrawableState()
         }
     }
@@ -432,7 +457,7 @@ open class NavigationBar @JvmOverloads constructor(
      * Устанавливает стиль для view с ролью [NavigationBarContent.DESCRIPTION]
      * @param descriptionAppearanceId идентификатор стиля текста в ресурсах
      */
-    open fun setDescriptionAppearance(@StyleRes descriptionAppearanceId: Int) {
+    fun setDescriptionAppearance(@StyleRes descriptionAppearanceId: Int) {
         setDescriptionAppearancesList(StyleStateList.valueOf(descriptionAppearanceId))
     }
 
@@ -444,7 +469,7 @@ open class NavigationBar @JvmOverloads constructor(
     open fun setDescriptionMarginsList(newDescriptionMargins: NumberStateList?) {
         if (descriptionMargins != newDescriptionMargins) {
             descriptionMargins = newDescriptionMargins
-            refreshDrawableState()
+            refreshDescriptionMargin()
         }
     }
 
@@ -452,15 +477,15 @@ open class NavigationBar @JvmOverloads constructor(
      * Устанавливает отступ для view с ролью [NavigationBarContent.DESCRIPTION]
      * @param margin отступ
      */
-    open fun setDescriptionMargin(margin: Int) {
+    fun setDescriptionMargin(margin: Int) {
         setDescriptionMarginsList(NumberStateList.valueOf(margin))
     }
 
     /**
      * Устанавливает цвета текста для view с ролью [NavigationBarContent.TITLE]
-     * @param colors [ColorStateList] цвета
+     * @param colors [ColorValueStateList] цвета
      */
-    open fun setTitleTextColors(colors: ColorStateList?) {
+    open fun setTitleTextColors(colors: ColorValueStateList?) {
         if (titleColors != colors) {
             titleColors = colors
             titleColors?.let { applyTextColors(titleView, it) }
@@ -468,18 +493,26 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает цвета текста для view с ролью [NavigationBarContent.TITLE]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setTitleTextColors(colors: ColorStateList?) {
+        setTitleTextColors(ColorValueStateList.valueOf(colors))
+    }
+
+    /**
      * Устанавливает цвет текста для view с ролью [NavigationBarContent.TITLE]
      * @param color цвет текста
      */
     fun setTitleTextColor(@ColorInt color: Int) {
-        setTitleTextColors(ColorStateList.valueOf(color))
+        setTitleTextColors(ColorValueStateList.valueOf(color))
     }
 
     /**
      * Устанавливает цвета текста для view с ролью [NavigationBarContent.DESCRIPTION]
-     * @param colors [ColorStateList] цвета
+     * @param colors [ColorValueStateList] цвета
      */
-    open fun setDescriptionTextColors(colors: ColorStateList?) {
+    open fun setDescriptionTextColors(colors: ColorValueStateList?) {
         if (descriptionColors != colors) {
             descriptionColors = colors
             descriptionColors?.let { applyTextColors(descriptionView, it) }
@@ -487,18 +520,26 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает цвета текста для view с ролью [NavigationBarContent.DESCRIPTION]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setDescriptionTextColors(colors: ColorStateList?) {
+        setDescriptionTextColors(ColorValueStateList.valueOf(colors))
+    }
+
+    /**
      * Устанавливает цвет текста для view с ролью [NavigationBarContent.DESCRIPTION]
      * @param color цвет текста
      */
     fun setDescriptionTextColor(@ColorInt color: Int) {
-        setDescriptionTextColors(ColorStateList.valueOf(color))
+        setDescriptionTextColors(ColorValueStateList.valueOf(color))
     }
 
     /**
      * Устанавливает цвета для view с ролью [NavigationBarContent.ACTION_START]
-     * @param colors [ColorStateList] цвета
+     * @param colors [ColorValueStateList] цвета
      */
-    open fun setActionStartColors(colors: ColorStateList?) {
+    open fun setActionStartColors(colors: ColorValueStateList?) {
         if (actionStartColors != colors) {
             actionStartColors = colors
             applyImageColors(actionStartView, actionStartColors)
@@ -506,18 +547,26 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает цвета для view с ролью [NavigationBarContent.ACTION_START]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setActionStartColors(colors: ColorStateList?) {
+        setActionStartColors(ColorValueStateList.valueOf(colors))
+    }
+
+    /**
      * Устанавливает цвет для view с ролью [NavigationBarContent.ACTION_START]
      * @param color цвет
      */
     fun setActionStartColor(@ColorInt color: Int) {
-        setActionStartColors(ColorStateList.valueOf(color))
+        setActionStartColors(ColorValueStateList.valueOf(color))
     }
 
     /**
      * Устанавливает цвета для view с ролью [NavigationBarContent.ACTION_END]
-     * @param colors [ColorStateList] цвета
+     * @param colors [ColorValueStateList] цвета
      */
-    open fun setActionEndColors(colors: ColorStateList?) {
+    open fun setActionEndColors(colors: ColorValueStateList?) {
         if (actionEndColors != colors) {
             actionEndColors = colors
             applyImageColors(actionEndView, actionEndColors)
@@ -525,11 +574,30 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Устанавливает цвета для view с ролью [NavigationBarContent.ACTION_END]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setActionEndColors(colors: ColorStateList?) {
+        setActionEndColors(ColorValueStateList.valueOf(colors))
+    }
+
+    /**
      * Устанавливает цвет для view с ролью [NavigationBarContent.ACTION_END]
      * @param color цвет
      */
     fun setActionEndColor(@ColorInt color: Int) {
-        setActionEndColors(ColorStateList.valueOf(color))
+        setActionEndColors(ColorValueStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета для иконки "назад"
+     * @param colors [ColorValueStateList] цвета
+     */
+    open fun setBackIconColors(colors: ColorValueStateList?) {
+        if (backIconTint != colors) {
+            backIconTint = colors
+            backIconView.setImageTintValueList(backIconTint)
+        }
     }
 
     /**
@@ -537,10 +605,7 @@ open class NavigationBar @JvmOverloads constructor(
      * @param colors [ColorStateList] цвета
      */
     open fun setBackIconColors(colors: ColorStateList?) {
-        if (backIconTint != colors) {
-            backIconTint = colors
-            backIconView.imageTintList = backIconTint
-        }
+        setBackIconColors(ColorValueStateList.valueOf(colors))
     }
 
     /**
@@ -548,7 +613,7 @@ open class NavigationBar @JvmOverloads constructor(
      * @param color цвет
      */
     fun setBackIconColor(@ColorInt color: Int) {
-        setBackIconColors(ColorStateList.valueOf(color))
+        setBackIconColors(ColorValueStateList.valueOf(color))
     }
 
     @Suppress("UNNECESSARY_SAFE_CALL")
@@ -566,7 +631,7 @@ open class NavigationBar @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         setBackgroundValueList(backgroundList)
-        refreshTextBlockAppearancesAndMargin()
+        refreshDescriptionMargin()
     }
 
     override fun generateDefaultLayoutParams(): NavigationBarLayoutParams {
@@ -621,6 +686,14 @@ open class NavigationBar @JvmOverloads constructor(
         }
     }
 
+    override fun removeAllViews() {
+        removeActionStart()
+        removeActionEnd()
+        removeTitle()
+        removeDescription()
+        removeContent()
+    }
+
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         if (checkViewToInternalAdd(child)) {
             super.addView(child, index, params)
@@ -648,13 +721,13 @@ open class NavigationBar @JvmOverloads constructor(
             NavigationBarContent.TITLE -> {
                 titlePlace.addView(child, convertToFrameParams(params))
                 resolveDescriptionMargin()
-                applyPaddingsToTextBlock()
+                resolveTextBlockPaddings()
             }
 
             NavigationBarContent.DESCRIPTION -> {
                 descriptionPlace.addView(child, convertToFrameParams(params))
                 resolveDescriptionMargin()
-                applyPaddingsToTextBlock()
+                resolveTextBlockPaddings()
             }
 
             else -> {}
@@ -716,15 +789,15 @@ open class NavigationBar @JvmOverloads constructor(
             titleAppearances?.let {
                 currentTitleAppearance = it.getStyleForState(drawableState)
             }
-            titleColors = getColorStateList(R.styleable.NavigationBar_sd_titleColor)
+            titleColors = getColorValueStateList(context, R.styleable.NavigationBar_sd_titleColor)
             descriptionAppearances = getStyleStateList(context, R.styleable.NavigationBar_sd_descriptionAppearance)
             descriptionAppearances?.let {
                 currentDescriptionAppearance = it.getStyleForState(drawableState)
             }
-            descriptionColors = getColorStateList(R.styleable.NavigationBar_sd_descriptionColor)
+            descriptionColors = getColorValueStateList(context, R.styleable.NavigationBar_sd_descriptionColor)
 
-            actionStartColors = getColorStateList(R.styleable.NavigationBar_sd_actionStartColor)
-            actionEndColors = getColorStateList(R.styleable.NavigationBar_sd_actionEndColor)
+            actionStartColors = getColorValueStateList(context, R.styleable.NavigationBar_sd_actionStartColor)
+            actionEndColors = getColorValueStateList(context, R.styleable.NavigationBar_sd_actionEndColor)
 
             textBlockTopMargin = getDimensionPixelSize(R.styleable.NavigationBar_sd_textBlockTopMargin, 0)
             horizontalSpacing = getDimensionPixelSize(R.styleable.NavigationBar_sd_horizontalSpacing, 0)
@@ -737,14 +810,9 @@ open class NavigationBar @JvmOverloads constructor(
             contentPaddingTop = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingTop, 0)
             contentPaddingEnd = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingEnd, 0)
             contentPaddingBottom = getDimensionPixelSize(R.styleable.NavigationBar_sd_contentPaddingBottom, 0)
-            backIconTint = getColorStateList(R.styleable.NavigationBar_sd_backIconTint)
-            backIconView.imageTintList = backIconTint
-            val icon = getDrawable(R.styleable.NavigationBar_sd_backIcon)
-            icon?.let {
-                backIconView.setImageDrawable(icon)
-                backIconView.setPaddingRelative(0, 0, backIconMargin, 0)
-            }
-
+            backIconTint = getColorValueStateList(context, R.styleable.NavigationBar_sd_backIconTint)
+            backIconView.setImageTintValueList(backIconTint)
+            icon = getResourceId(R.styleable.NavigationBar_sd_backIcon, 0)
             _textPlacement = getInt(R.styleable.NavigationBar_sd_navbarTextPlacement, TEXT_PLACEMENT_BOTTOM)
             textAlignment = getInt(R.styleable.NavigationBar_sd_navbarTextAlignment, TEXT_ALIGNMENT_CENTER)
             _contentPlacement =
@@ -756,6 +824,18 @@ open class NavigationBar @JvmOverloads constructor(
                     R.styleable.NavigationBar_sd_contentAlignmentBetweenActions,
                     CONTENT_ALIGNMENT_BETWEEN_ACTIONS_CENTER,
                 )
+        }
+    }
+
+    private fun installIconIfNeed() {
+        if (icon != 0) {
+            backIconView.setImageDrawable(
+                AppCompatResources.getDrawable(context, icon),
+            )
+            backIconView.setPaddingRelative(0, 0, backIconMargin, 0)
+        } else {
+            backIconView.setImageDrawable(null)
+            backIconView.setPaddingRelative(0, 0, 0, 0)
         }
     }
 
@@ -809,7 +889,6 @@ open class NavigationBar @JvmOverloads constructor(
                 } else {
                     (this as? TextView)?.applyDescriptionRole()
                 }
-                resolveDescriptionMargin()
             }
 
             NavigationBarContent.ACTION_START -> {
@@ -827,35 +906,25 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     private fun TextView.applyTitleRole() {
-        if (currentTitleAppearance != 0) applyTextAppearance(titleView, currentTitleAppearance)
+        isDuplicateParentStateEnabled = true
+        titleAppearances?.let { setTextAppearancesList(it) }
         colorState = this@NavigationBar.colorState
         titleColors?.let(::setTextColor)
-        TextViewCompat.setCompoundDrawableTintList(this, titleColors)
     }
 
     private fun TextView.applyDescriptionRole() {
-        if (currentDescriptionAppearance != 0) applyTextAppearance(descriptionView, currentDescriptionAppearance)
+        isDuplicateParentStateEnabled = true
+        descriptionAppearances?.let { setTextAppearancesList(it) }
         colorState = this@NavigationBar.colorState
         descriptionColors?.let(::setTextColor)
-        TextViewCompat.setCompoundDrawableTintList(this, descriptionColors)
     }
 
     private fun resolveDescriptionMargin() {
-        if (titleIsNotBlank()) {
-            val lp = descriptionPlace.layoutParams as? LayoutParams
-            lp?.let {
-                it.topMargin = currentDescriptionMargin
-                requestLayout()
-                invalidate()
-            }
-        }
-    }
-
-    private fun titleIsNotBlank(): Boolean {
-        return when (titleView) {
-            is TextView -> (titleView as TextView).text.isNotBlank()
-            is ViewGroup -> (titleView as ViewGroup).isNotEmpty()
-            else -> false
+        val lp = descriptionView?.layoutParams as? FrameLayout.LayoutParams
+        lp?.let {
+            it.topMargin = currentDescriptionMargin
+            requestLayout()
+            invalidate()
         }
     }
 
@@ -868,11 +937,20 @@ open class NavigationBar @JvmOverloads constructor(
         )
     }
 
-    private fun applyPaddingsToTextBlock() {
-        if (titleView == null && descriptionView == null) return
+    private fun resolveTextBlockPaddings() {
+        val lp = titleView?.layoutParams as? FrameLayout.LayoutParams
         if (textPlacement == TEXT_PLACEMENT_BOTTOM) {
-            textBlock.setPadding(0, textBlockTopMargin, 0, 0)
+            lp?.let {
+                it.topMargin = textBlockTopMargin
+                requestLayout()
+                invalidate()
+            }
         } else {
+            lp?.let {
+                it.topMargin = 0
+                requestLayout()
+                invalidate()
+            }
             if (contentView != null && contentPlacement == CONTENT_PLACEMENT_INNER) {
                 textBlock.setPaddingRelative(0, 0, horizontalSpacing, 0)
             } else {
@@ -894,14 +972,14 @@ open class NavigationBar @JvmOverloads constructor(
                 actionsBlock.setCenterContent(textBlock)
             }
         }
-        applyPaddingsToTextBlock()
+        resolveTextBlockPaddings()
     }
 
     private fun changeContentPlacementGlobally() {
         (contentView?.parent as? ViewGroup)?.removeView(contentView)
         if (contentPlacement == CONTENT_PLACEMENT_INNER) {
             actionsBlock.addCenterContent(contentView)
-            if (textPlacement == TEXT_PLACEMENT_INNER) applyPaddingsToTextBlock()
+            if (textPlacement == TEXT_PLACEMENT_INNER) resolveTextBlockPaddings()
         } else {
             addView(contentView)
         }
@@ -956,12 +1034,6 @@ open class NavigationBar @JvmOverloads constructor(
             (view == contentView && contentPlacement == CONTENT_PLACEMENT_BOTTOM)
     }
 
-    private fun refreshTextBlockAppearancesAndMargin() {
-        if (titleView != null) refreshTitleAppearance()
-        if (descriptionView != null) refreshDescriptionAppearance()
-        refreshDescriptionMargin()
-    }
-
     private fun refreshDescriptionMargin() {
         val stateList = descriptionMargins ?: return
         val old = currentDescriptionMargin
@@ -971,55 +1043,31 @@ open class NavigationBar @JvmOverloads constructor(
         }
     }
 
-    private fun refreshTitleAppearance() {
-        val stateList = titleAppearances ?: return
-        val old = currentTitleAppearance
-        currentTitleAppearance = stateList.getStyleForState(drawableState)
-        if (old != currentTitleAppearance) {
-            applyTextAppearance(titleView, currentTitleAppearance)
-        }
-    }
-
-    private fun refreshDescriptionAppearance() {
-        val stateList = descriptionAppearances ?: return
-        val old = currentDescriptionAppearance
-        currentDescriptionAppearance = stateList.getStyleForState(drawableState)
-        if (old != currentDescriptionAppearance) {
-            applyTextAppearance(descriptionView, currentDescriptionAppearance)
-        }
-    }
-
-    private fun applyTextAppearance(view: View?, @StyleRes resId: Int) {
+    private fun applyTextAppearances(view: View?, appearances: StyleStateList?) {
         view ?: return
         val group = view is ViewGroup
         if (group) {
             (view as ViewGroup).children.forEach {
-                (it as? TextView)?.setTextAppearance(context, resId)
+                (it as? TextView)?.setTextAppearancesList(appearances)
             }
         } else {
-            (view as? TextView)?.setTextAppearance(context, resId)
+            (view as? TextView)?.setTextAppearancesList(appearances)
         }
     }
 
-    private fun applyTextColors(view: View?, colors: ColorStateList) {
+    private fun applyTextColors(view: View?, colors: ColorValueStateList) {
         view ?: return
         val group = view is ViewGroup
         if (group) {
             (view as ViewGroup).children.forEach {
-                (it as? TextView)?.let { tv ->
-                    tv.setTextColor(colors)
-                    TextViewCompat.setCompoundDrawableTintList(tv, colors)
-                }
+                (it as? TextView)?.setTextColor(colors)
             }
         } else {
-            (view as? TextView)?.let { tv ->
-                tv.setTextColor(colors)
-                TextViewCompat.setCompoundDrawableTintList(tv, colors)
-            }
+            (view as? TextView)?.setTextColor(colors)
         }
     }
 
-    private fun applyImageColors(view: View?, colors: ColorStateList?) {
+    private fun applyImageColors(view: View?, colors: ColorValueStateList?) {
         view ?: return
         val group = view is ViewGroup
         if (group) {
@@ -1031,9 +1079,9 @@ open class NavigationBar @JvmOverloads constructor(
         }
     }
 
-    private fun ImageView.applyTint(tint: ColorStateList?) {
+    private fun ImageView.applyTint(tint: ColorValueStateList?) {
         colorState = this@NavigationBar.colorState
-        if (imageTintList == null) imageTintList = tint
+        if (imageTintList == null) setImageTintValueList(tint)
     }
 
     private fun resolveTitleAndDescriptionPlace() {

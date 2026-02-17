@@ -3,6 +3,7 @@ package com.sdds.testing.vs.navigationbar
 import android.content.Context
 import android.view.Gravity
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import com.sdds.testing.vs.getTextColorPrimary
 import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.ImageView
@@ -30,8 +31,12 @@ fun navigationBar(
  * Применяет [NavigationBarUiState] к [NavigationBar]
  */
 fun NavigationBar.applyState(state: NavigationBarUiState) = apply {
-    setTitle(title(context, state.title))
-    setDescription(description(context, state.description))
+    val title = title(context, state.title)
+    val description = description(context, state.description)
+    if (title.text.isNullOrBlank()) title.isVisible = false
+    if (description.text.isNullOrBlank()) description.isVisible = false
+    setTitle(title)
+    setDescription(description)
     setContent(contentText(context, state.contentText))
     if (state.hasActionStart) {
         setActionStart(
