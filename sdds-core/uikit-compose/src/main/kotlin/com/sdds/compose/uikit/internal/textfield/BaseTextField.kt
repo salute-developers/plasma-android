@@ -899,7 +899,7 @@ private class BaseTextFieldMeasurePolicy : MeasurePolicy {
     }
 }
 
-private fun KeyboardOptions.updateKeyboardOptions(singleLine: Boolean): KeyboardOptions {
+internal fun KeyboardOptions.updateKeyboardOptions(singleLine: Boolean): KeyboardOptions {
     return if (singleLine) {
         KeyboardOptions(
             capitalization = capitalization,
@@ -915,7 +915,7 @@ private fun KeyboardOptions.updateKeyboardOptions(singleLine: Boolean): Keyboard
     }
 }
 
-private fun KeyboardActions.updateKeyboardActions(singleLine: Boolean): KeyboardActions {
+internal fun KeyboardActions.updateKeyboardActions(singleLine: Boolean): KeyboardActions {
     return if (singleLine) {
         KeyboardActions(
             onDone = if (onDone == null) {
