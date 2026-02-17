@@ -22,7 +22,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.docs.DocSample
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun Text_Simple() {
     composableCodeSnippet {
         Text(
@@ -32,7 +32,7 @@ fun Text_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun TextStyle_Simple() {
     composableCodeSnippet {
         Text(
@@ -43,7 +43,7 @@ fun TextStyle_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun Text_Custom() {
     composableCodeSnippet {
         val text = buildAnnotatedString {
@@ -60,7 +60,7 @@ fun Text_Custom() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun Text_Style() {
     composableCodeSnippet {
         ProvideTextStyle(TextStyle(color = Color.Gray, fontSize = 20.sp)) {
@@ -73,7 +73,7 @@ fun Text_Style() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun TextInlineContent_Simple() {
     composableCodeSnippet {
         val inlineContent = mapOf(
@@ -109,7 +109,7 @@ fun TextInlineContent_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun TextFormat_Simple() {
     composableCodeSnippet {
         Text(

@@ -6,6 +6,8 @@ title: Badge
 // @sample: com/sdds/compose/uikit/fixtures/samples/badge/Badge_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.badge.Badge_Simple -->
+
 ## Стиль Badge
 
 Стиль Badge можно настроить с помощью BadgeStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -24,6 +26,8 @@ title: Badge
 // @sample: com/sdds/compose/uikit/fixtures/samples/badge/Badge_WithoutLabel.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.badge.Badge_WithoutLabel -->
+
 ## IconBadge
 
 То же, что и Badge, но предназначен для отображения только иконки, поэтому не имеет параметра "label".
@@ -31,3 +35,5 @@ title: Badge
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/badge/IconBadge_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.badge.IconBadge_Simple -->

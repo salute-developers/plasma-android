@@ -9,6 +9,8 @@ title: NavigationBar
 // @sample: com/sdds/compose/uikit/fixtures/samples/navigationbar/NavigationBar_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.navigationbar.NavigationBar_Simple -->
+
 ## Стиль NavigationBar
 
 Стиль NavigationBar можно настроить с помощью NavigationBarStyle.builder(). Так же существует набор сгенерированных стилей.

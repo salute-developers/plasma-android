@@ -38,7 +38,7 @@ fun Icon_Image() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Icon_Bitmap() {
     composableCodeSnippet {
         val bitmap = ImageBitmap.imageResource(com.sdds.icons.R.drawable.ic_accessibility_36)

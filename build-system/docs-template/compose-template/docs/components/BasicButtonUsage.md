@@ -6,6 +6,8 @@ title: Button
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.button.BasicButton_Simple -->
+
 ## Стиль Button
 
 Стиль Button можно настроить с помощью ButtonStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -25,10 +27,14 @@ title: Button
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_LabelValue_Packed.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.button.BasicButton_LabelValue_Packed -->
+
 или SpaceBetween (Контент отобразится по всей ширине, отступы будут добавлены между элементами контента): 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_LabelValue_SpaceBetween.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.button.BasicButton_LabelValue_SpaceBetween -->
 
 ## Button Loading
 
@@ -37,3 +43,5 @@ title: Button
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_isLoading.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.button.BasicButton_isLoading -->

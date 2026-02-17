@@ -68,7 +68,7 @@ fun Accordion_ItemStyle() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Accordion_Style() {
     composableCodeSnippet {
         AccordionStyle.builder()
@@ -87,7 +87,7 @@ fun Accordion_Simple() {
     composableCodeSnippet {
         Accordion {
             repeat(4) {
-                var opened by remember { mutableStateOf(false) }
+                var opened by remember { mutableStateOf(placeholder(true, "false")) }
                 AccordionItem(
                     opened = opened,
                     onClick = { opened = !opened },

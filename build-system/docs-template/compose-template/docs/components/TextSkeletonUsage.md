@@ -17,10 +17,14 @@ title: TextSkeleton
 // @sample: com/sdds/compose/uikit/fixtures/samples/textskeleton/TextSkeleton_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.textskeleton.TextSkeleton_Simple -->
+
 ### Пример использования с кастомизацией
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/textskeleton/TextSkeleton_Custom.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.textskeleton.TextSkeleton_Custom -->
 
 > Параметр `brush` влияет на тип анимации. Если в brush установлен градиент, то скелетон будет выглядеть как перемещающийся в пространстве градиент.
 > Если в brush передан SolidColor(), будет анимация мерцания - изменение альфы исходного цвета.

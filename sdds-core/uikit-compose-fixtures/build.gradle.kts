@@ -28,4 +28,9 @@ dependencies {
     implementation(project(":docs-compose"))
     ksp(project(":docs-ksp"))
     implementation(libs.base.androidX.compose.foundation)
+    implementation(libs.test.roborazzi)
+    implementation(libs.test.roborazzi.rule)
+    implementation(libs.base.test.unit.robolectric)
+    implementation(libs.base.test.ui.compose.jUnit4)
+    implementation(libs.test.roborazzi.compose)
 }

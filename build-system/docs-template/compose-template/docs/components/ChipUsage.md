@@ -9,6 +9,8 @@ label можно использовать вместе с startContent и endCon
 // @sample: com/sdds/compose/uikit/fixtures/samples/chip/Chip_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.chip.Chip_Simple -->
+
 ## Стиль Chip
 
 Стиль Chip можно настроить с помощью ChipStyle.builder(). Так же существует набор сгенерированных стилей.

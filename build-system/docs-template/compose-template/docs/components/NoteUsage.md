@@ -10,9 +10,13 @@ title: Note
 // @sample: com/sdds/compose/uikit/fixtures/samples/note/NoteCompact_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.note.NoteCompact_Simple -->
+
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/note/Note_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.note.Note_Simple -->
 
 ## Стиль Note
 

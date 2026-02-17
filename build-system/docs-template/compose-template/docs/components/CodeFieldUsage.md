@@ -13,6 +13,8 @@ title: CodeField
 // @sample: com/sdds/compose/uikit/fixtures/samples/codefield/CodeField_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.codefield.CodeField_Simple -->
+
 ## Стиль CodeField
 
 Для CodeField существует набор сгенерированных стилей. 

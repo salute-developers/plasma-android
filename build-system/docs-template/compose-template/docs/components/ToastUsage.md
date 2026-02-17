@@ -10,6 +10,8 @@ title: Toast
 // @sample: com/sdds/compose/uikit/fixtures/samples/toast/Toast_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.toast.Toast_Simple -->
+
 ## Стиль Toast
 
 Для Toast существует набор сгенерированных стилей. Также стиль можно настроить с помощью ToastStyle.builder().

@@ -8,6 +8,8 @@ title: Spinner
 // @sample: com/sdds/compose/uikit/fixtures/samples/spinner/Spinner_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.spinner.Spinner_Simple -->
+
 ## Стиль Spinner
 
 Для Modal существует набор сгенерированных стилей. Также стиль можно настроить с помощью SpinnerStyle.builder().

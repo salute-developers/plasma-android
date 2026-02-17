@@ -9,6 +9,8 @@ title: Text
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Simple -->
+
 ## Варианты использования
 
 Компонент использует два типа входных данных:  
@@ -25,6 +27,8 @@ title: Text
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/TextStyle_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.TextStyle_Simple -->
+
 ### AnnotatedString
 
 Поддерживает различные стили внутри одного текста и возможность вставки встроенных composable-элементов.
@@ -32,6 +36,8 @@ title: Text
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Custom.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Custom -->
 
 ## Настройка стиля текста
 
@@ -43,6 +49,8 @@ title: Text
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Style.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Style -->
+
 ## Inline Content
 
 Текст с типом `AnnotatedString` поддерживает отображение встроенных composable через параметр `inlineContent`.  
@@ -51,6 +59,8 @@ title: Text
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/TextInlineContent_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.TextInlineContent_Simple -->
+
 ## Параметры отображения
 
 Компонент поддерживает стандартные параметры форматирования текста:  
@@ -58,3 +68,5 @@ title: Text
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/TextFormat_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.TextFormat_Simple -->

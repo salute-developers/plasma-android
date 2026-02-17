@@ -8,6 +8,8 @@ title: Switch
 // @sample: com/sdds/compose/uikit/fixtures/samples/switcher/Switch_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.switcher.Switch_Simple -->
+
 ## Стиль Switch
 
 Стиль Switch можно настроить с помощью SwitchStyle.builder(). Так же существует набор сгенерированных стилей.

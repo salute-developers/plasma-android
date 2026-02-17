@@ -9,6 +9,8 @@ title: Indicator
 // @sample: com/sdds/compose/uikit/fixtures/samples/indicator/Indicator_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.indicator.Indicator_Simple -->
+
 ## Стиль Indicator
 
 Стиль Indicator можно настроить с помощью IndicatorStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -28,3 +30,5 @@ title: Indicator
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/indicator/AvatarIndicator_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.indicator.AvatarIndicator_Simple -->

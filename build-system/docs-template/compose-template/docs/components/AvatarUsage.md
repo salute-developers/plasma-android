@@ -6,6 +6,8 @@ title: Avatar
 // @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.avatar.Avatar_Simple -->
+
 ## Стиль Avatar
 
 Стиль Avatar можно настроить с помощью AvatarStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -32,6 +34,8 @@ Avatar(status = AvatarStatus.Active)
 // @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_ActionDisabled.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.avatar.Avatar_ActionDisabled -->
+
 ## Дополнительный контент
 
 Дополнительный контент ("обвесы") устанавливается с помощью свойства extra.
@@ -42,6 +46,8 @@ Avatar(status = AvatarStatus.Active)
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/avatar/Avatar_Extra.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.avatar.Avatar_Extra -->
 
 ## Avatar как extension к Modifier
 
