@@ -151,7 +151,7 @@ fun Project.transformTemplate(templateDir: File, snippetsDir: File, componentsCo
                 .replace("{{ docs-api-href }}", docsApiHref)
                 .replaceKotlinSnippets(snippetsDir)
                 .replaceXmlSnippets(snippetsDir)
-                .replaceScreenshots(templateDir,templateFile.needScreenshots(components))
+                .replaceScreenshots(templateDir,false)
 
             val destFile = File(
                 templateDir,
