@@ -2,10 +2,7 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -21,14 +18,16 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.TextMeasurer
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.FIELD_ID
 import com.sdds.compose.uikit.EditableMeasurePolicy.Companion.ICON_ID
@@ -82,11 +81,17 @@ fun Editable(
     val stateSet = remember(readOnly) {
         if (readOnly) setOf(EditableStates.ReadOnly) else emptySet()
     }
-
+    val textMeasurer = rememberTextMeasurer()
     Layout(
         modifier = modifier.enable(enabled = enabled, disabledAlpha = style.disableAlpha),
-        measurePolicy = remember(iconPlacement) {
-            EditableMeasurePolicy(iconPlacement)
+        measurePolicy = remember(iconPlacement, value, style.textStyle, singleLine) {
+            EditableMeasurePolicy(
+                iconModePlacement = iconPlacement,
+                textMeasurer = textMeasurer,
+                value = value,
+                textStyle = style.textStyle,
+                singleLine = singleLine,
+            )
         },
         content = {
             val textColor = style.colors.textColor.getValue(interactionSource, stateSet)
@@ -94,9 +99,7 @@ fun Editable(
             val textStyle = style.textStyle.copy(color = textColor, textAlign = textAlign)
             BasicTextField(
                 modifier = Modifier
-                    .layoutId(FIELD_ID)
-                    .width(IntrinsicSize.Min)
-                    .defaultMinSize(minWidth = 20.dp),
+                    .layoutId(FIELD_ID),
                 value = value,
                 onValueChange = onValueChange,
                 textStyle = textStyle,
@@ -157,6 +160,10 @@ enum class EditableStates : ValueState {
 
 private class EditableMeasurePolicy(
     private val iconModePlacement: EditableIconPlacement,
+    private val textMeasurer: TextMeasurer,
+    private val value: TextFieldValue,
+    private val textStyle: TextStyle,
+    private val singleLine: Boolean,
 ) : MeasurePolicy {
 
     override fun MeasureScope.measure(
@@ -168,13 +175,22 @@ private class EditableMeasurePolicy(
         val iconPlaceable = measurables.firstOrNull { it.layoutId == ICON_ID }
             ?.measure(looseConstraints)
 
-        val fieldConstraints = when (iconModePlacement) {
+        val originalFieldConstraints = when (iconModePlacement) {
             EditableIconPlacement.Absolute -> constraints
             EditableIconPlacement.Relative -> constraints.offset(-iconPlaceable.widthOrZero())
         }
+        val finalConstraints = if (!singleLine || originalFieldConstraints.hasFixedWidth) {
+            originalFieldConstraints
+        } else {
+            val fieldExactWidth = originalFieldConstraints.constrainWidth(getSingleLineTextWidth())
+            originalFieldConstraints.copy(
+                minWidth = DEFAULT_MIN_WIDTH,
+                maxWidth = fieldExactWidth.coerceAtLeast(DEFAULT_MIN_WIDTH),
+            )
+        }
 
         val fieldPlaceable = measurables.firstOrNull { it.layoutId == FIELD_ID }
-            ?.measure(fieldConstraints)
+            ?.measure(finalConstraints)
 
         val desiredWidth = when (iconModePlacement) {
             EditableIconPlacement.Absolute -> fieldPlaceable.widthOrZero()
@@ -197,8 +213,21 @@ private class EditableMeasurePolicy(
         }
     }
 
+    private fun getSingleLineTextWidth(): Int {
+        val textLayoutResult = textMeasurer.measure(
+            text = value.text,
+            style = textStyle,
+            maxLines = 1,
+        )
+        val textWidth = textLayoutResult.size.width
+        return textWidth + DEFAULT_CURSOR_WIDTH
+    }
+
     companion object {
         const val FIELD_ID = "field_id"
         const val ICON_ID = "icon_id"
+
+        const val DEFAULT_MIN_WIDTH = 10
+        const val DEFAULT_CURSOR_WIDTH = 4
     }
 }

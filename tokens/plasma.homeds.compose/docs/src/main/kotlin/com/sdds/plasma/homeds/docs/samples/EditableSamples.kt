@@ -2,12 +2,14 @@ package com.sdds.plasma.homeds.docs.samples
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -37,14 +39,18 @@ fun Editable_WithFormItem() {
             style = FormItem.Default.style(),
             caption = { Text("Caption is long enough") },
         ) {
-            var text by remember { mutableStateOf(TextFieldValue("Value")) }
-            Editable(
+            Box(
                 modifier = Modifier.fillMaxWidth(),
-                style = Editable.H2.style(),
-                value = text,
-                onValueChange = { text = it },
-                textAlign = TextAlign.Center,
-            )
+                contentAlignment = Alignment.Center,
+            ) {
+                var text by remember { mutableStateOf(TextFieldValue("Value")) }
+                Editable(
+                    style = Editable.H2.style(),
+                    value = text,
+                    onValueChange = { text = it },
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
     }
 }
@@ -57,32 +63,35 @@ fun Editable_WithFormItemAndIcon() {
             style = FormItem.Default.style(),
             caption = { Text("Caption is long enough") },
         ) {
-            var text by remember { mutableStateOf(TextFieldValue("Value")) }
-            val focusRequester = remember { FocusRequester() }
-            Editable(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .focusRequester(focusRequester),
-                style = Editable.H2.style(),
-                value = text,
-                onValueChange = { text = it },
-                icon = {
-                    Icon(
-                        modifier = Modifier
-                            .clickable(
-                                indication = null,
-                                interactionSource = remember { MutableInteractionSource() },
-                            ) {
-                                focusRequester.requestFocus()
-                                text = text.copy(selection = TextRange(text.text.length))
-                            },
-                        painter = painterResource(R.drawable.ic_edit_fill_36),
-                        contentDescription = null,
-                    )
-                },
-                iconPlacement = EditableIconPlacement.Absolute,
-                textAlign = TextAlign.Center,
-            )
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center,
+            ) {
+                var text by remember { mutableStateOf(TextFieldValue("Value")) }
+                val focusRequester = remember { FocusRequester() }
+                Editable(
+                    modifier = Modifier.focusRequester(focusRequester),
+                    style = Editable.H2.style(),
+                    value = text,
+                    onValueChange = { text = it },
+                    icon = {
+                        Icon(
+                            modifier = Modifier
+                                .clickable(
+                                    indication = null,
+                                    interactionSource = remember { MutableInteractionSource() },
+                                ) {
+                                    focusRequester.requestFocus()
+                                    text = text.copy(selection = TextRange(text.text.length))
+                                },
+                            painter = painterResource(R.drawable.ic_edit_fill_36),
+                            contentDescription = null,
+                        )
+                    },
+                    iconPlacement = EditableIconPlacement.Absolute,
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
     }
 }
