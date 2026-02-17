@@ -23,6 +23,7 @@ import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
 import com.sdds.compose.uikit.FileStyle
+import com.sdds.compose.uikit.FormItemStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
@@ -91,6 +92,8 @@ import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
 import com.sdds.playground.sandbox.file.compose.FilePreview
 import com.sdds.playground.sandbox.file.compose.FileScreen
+import com.sdds.playground.sandbox.form.FormItemPreview
+import com.sdds.playground.sandbox.form.FormItemScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
@@ -390,6 +393,10 @@ internal sealed class ComponentScreen(
         { SliderScreen(it) },
         { style, _ -> SliderPreview(style as SliderStyle) },
     )
+    object FormItem : ComponentScreen(
+        { FormItemScreen(it) },
+        { style, _ -> FormItemPreview(style as FormItemStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -455,6 +462,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         CoreComponent.FILE -> ComponentScreen.File
         CoreComponent.SLIDER -> ComponentScreen.Slider
+        CoreComponent.FORM_ITEM -> ComponentScreen.FormItem
         else -> ComponentScreen.Empty
     }
 }
