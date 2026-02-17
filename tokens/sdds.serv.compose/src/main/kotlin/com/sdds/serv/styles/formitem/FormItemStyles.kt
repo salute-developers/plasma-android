@@ -480,6 +480,7 @@ public val WrapperFormItemXsTitleTop.RequiredEnd: WrapperFormItemXsTitleTopRequi
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(2.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemXsTitleTopRequiredEnd)
@@ -522,6 +523,7 @@ public val WrapperFormItemXsTitleStart.RequiredEnd: WrapperFormItemXsTitleStartR
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(2.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemXsTitleStartRequiredEnd)
@@ -599,6 +601,7 @@ public val WrapperFormItemSTitleTop.RequiredEnd: WrapperFormItemSTitleTopRequire
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(4.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemSTitleTopRequiredEnd)
@@ -641,6 +644,7 @@ public val WrapperFormItemSTitleStart.RequiredEnd: WrapperFormItemSTitleStartReq
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(4.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemSTitleStartRequiredEnd)
@@ -718,6 +722,7 @@ public val WrapperFormItemMTitleTop.RequiredEnd: WrapperFormItemMTitleTopRequire
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(4.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemMTitleTopRequiredEnd)
@@ -760,6 +765,7 @@ public val WrapperFormItemMTitleStart.RequiredEnd: WrapperFormItemMTitleStartReq
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(4.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemMTitleStartRequiredEnd)
@@ -837,6 +843,7 @@ public val WrapperFormItemLTitleTop.RequiredEnd: WrapperFormItemLTitleTopRequire
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(4.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemLTitleTopRequiredEnd)
@@ -879,6 +886,7 @@ public val WrapperFormItemLTitleStart.RequiredEnd: WrapperFormItemLTitleStartReq
         .formItemType(FormType.Required)
         .dimensions {
             indicatorOffsetX(4.0.dp)
+            indicatorOffsetY(4.0.dp)
         }
         .indicatorStyle(Indicator.S.Negative.style())
         .wrap(::WrapperFormItemLTitleStartRequiredEnd)

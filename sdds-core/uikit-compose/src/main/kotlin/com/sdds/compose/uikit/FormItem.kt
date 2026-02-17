@@ -127,7 +127,7 @@ fun FormItem(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
 ) {
-    val hint = getHint(hint, style, enabled, interactionSource)
+    val hint = getHint(hint, style, interactionSource)
     val startTitle = getStartTitle(style, title, hint, optional, interactionSource, enabled)
     val endTitle = getEndTitle(style, hint, interactionSource, enabled)
     val topTitle = getTopTitle(style, title, hint, optional, interactionSource, enabled)
@@ -182,7 +182,7 @@ fun FormItem(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
 ) {
-    val hintContent = getHintIcon(hasHint, style, hintTriggerInfo, enabled, onHintPressed)
+    val hintContent = getHintIcon(hasHint, style, hintTriggerInfo, onHintPressed)
 
     FormItem(
         modifier = modifier,
@@ -270,7 +270,6 @@ enum class FormType {
 private fun getHint(
     hint: (@Composable () -> Unit)?,
     style: FormItemStyle,
-    enabled: Boolean,
     interactionSource: InteractionSource,
 ): (@Composable () -> Unit)? {
     return if (hint != null) {
@@ -280,8 +279,7 @@ private fun getHint(
                 Box(
                     modifier = Modifier
                         .width(style.dimensions.hintWidth)
-                        .height(style.dimensions.hintHeight)
-                        .enable(enabled, disabledAlpha = style.disableAlpha),
+                        .height(style.dimensions.hintHeight),
                 ) {
                     hint()
                 }
@@ -296,7 +294,6 @@ private fun getHintIcon(
     hasHint: Boolean,
     style: FormItemStyle,
     hintTriggerInfo: MutableState<TriggerInfo>,
-    enabled: Boolean,
     onHintPressed: (() -> Unit)?,
 ): (@Composable () -> Unit)? {
     val hintIcon = style.hintIcon
@@ -311,11 +308,9 @@ private fun getHintIcon(
                     .height(style.dimensions.hintHeight)
                     .popoverTrigger(hintTriggerInfo)
                     .clickable(
-                        enabled = enabled,
                         indication = null,
                         interactionSource = remember { MutableInteractionSource() },
-                    ) { onHintPressed?.invoke() }
-                    .enable(enabled, disabledAlpha = style.disableAlpha),
+                    ) { onHintPressed?.invoke() },
             )
         }
     } else {
@@ -757,6 +752,7 @@ private class FormItemMeasurePolicy(
 }
 
 @Composable
+@Suppress("LongMethod")
 private fun TitleHintOptional(
     enabled: Boolean,
     style: FormItemStyle,
@@ -778,7 +774,6 @@ private fun TitleHintOptional(
             verticalPadding = style.dimensions.indicatorOffsetY,
             horizontalMode = style.indicatorAlignmentMode,
             verticalMode = IndicatorMode.Inner,
-            alpha = { if (enabled) 1f else style.disableAlpha },
         )
     } else {
         Modifier
@@ -792,7 +787,7 @@ private fun TitleHintOptional(
 
     Box(modifier.then(widthModifier)) {
         Row(
-            modifier = indicatorModifier.enable(enabled, disabledAlpha = style.disableAlpha),
+            modifier = indicatorModifier,
             horizontalArrangement = Arrangement.spacedBy(style.dimensions.titleBlockSpacing),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -802,7 +797,14 @@ private fun TitleHintOptional(
                 ProvideTextStyle(
                     value = style.titleStyle,
                     color = { titleColor.value },
-                    content = title,
+                    content = {
+                        Box(
+                            modifier = Modifier.enable(
+                                enabled = enabled,
+                                disabledAlpha = style.disableAlpha,
+                            ),
+                        ) { title() }
+                    },
                 )
             }
             hint?.let {
@@ -815,7 +817,16 @@ private fun TitleHintOptional(
                 ProvideTextStyle(
                     value = style.titleStyle,
                     color = { optionalColor.value },
-                    content = optional,
+                    content = {
+                        Box(
+                            modifier = Modifier.enable(
+                                enabled = enabled,
+                                disabledAlpha = style.disableAlpha,
+                            ),
+                        ) {
+                            optional()
+                        }
+                    },
                 )
             }
         }
