@@ -309,16 +309,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.LABEL]
      */
     open fun setLabel(textView: TextView, params: FileLayoutParams? = null) {
-        val viewParams = textView.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            textView,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.LABEL,
-            ),
-        )
+        universalAddView(textView, params, FileContent.LABEL)
     }
 
     /**
@@ -329,16 +320,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.DESCRIPTION]
      */
     open fun setDescription(textView: TextView, params: FileLayoutParams? = null) {
-        val viewParams = textView.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            textView,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.DESCRIPTION,
-            ),
-        )
+        universalAddView(textView, params, FileContent.DESCRIPTION)
     }
 
     /**
@@ -350,16 +332,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.ACTION]
      */
     open fun setAction(view: View, params: FileLayoutParams? = null) {
-        val viewParams = view.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            view,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.ACTION,
-            ),
-        )
+        universalAddView(view, params, FileContent.ACTION)
     }
 
     /**
@@ -372,16 +345,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.PROGRESS]
      */
     open fun setProgress(progress: View, params: FileLayoutParams? = null) {
-        val viewParams = progress.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            progress,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.PROGRESS,
-            ),
-        )
+        universalAddView(progress, params, FileContent.PROGRESS)
     }
 
     /**
@@ -395,16 +359,7 @@ open class File @JvmOverloads constructor(
      * заданный в стиле, через атрибут [R.styleable.File_sd_iconTint]
      */
     open fun setIcon(image: ImageView, params: FileLayoutParams? = null) {
-        val viewParams = image.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            image,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.ICON,
-            ),
-        )
+        universalAddView(image, params, FileContent.ICON)
     }
 
     /**
@@ -416,16 +371,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.IMAGE]
      */
     open fun setImage(image: ImageView, params: FileLayoutParams? = null) {
-        val viewParams = image.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            image,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.IMAGE,
-            ),
-        )
+        universalAddView(image, params, FileContent.IMAGE)
     }
 
     /**
@@ -894,6 +840,22 @@ open class File @JvmOverloads constructor(
         } else {
             (view as? TextView)?.setTextAppearancesList(appearances)
         }
+    }
+
+    private fun universalAddView(
+        view: View,
+        params: FileLayoutParams?,
+        role: FileContent,
+    ) {
+        val viewParams = view.layoutParams as? FileLayoutParams
+        val finalParams = (params ?: viewParams) ?: FileLayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT,
+        ).also { it.fileContent = role }
+        addView(
+            view,
+            finalParams,
+        )
     }
 
     companion object {

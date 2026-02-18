@@ -327,6 +327,17 @@ open class NavigationBar @JvmOverloads constructor(
     }
 
     /**
+     * Удаляет все установленные пользователем view
+     */
+    open fun removeAllContent() {
+        removeActionStart()
+        removeActionEnd()
+        removeTitle()
+        removeDescription()
+        removeContent()
+    }
+
+    /**
      * Слушатель нажатия иконки "назад"
      */
     open fun setOnBackIconClickListener(listener: () -> Unit) {
@@ -448,7 +459,7 @@ open class NavigationBar @JvmOverloads constructor(
     open fun setDescriptionAppearancesList(newDescriptionAppearances: StyleStateList?) {
         if (descriptionAppearances != newDescriptionAppearances) {
             descriptionAppearances = newDescriptionAppearances
-            applyTextAppearances(titleView, titleAppearances)
+            applyTextAppearances(descriptionView, descriptionAppearances)
             refreshDrawableState()
         }
     }
@@ -686,22 +697,15 @@ open class NavigationBar @JvmOverloads constructor(
         }
     }
 
-    override fun removeAllViews() {
-        removeActionStart()
-        removeActionEnd()
-        removeTitle()
-        removeDescription()
-        removeContent()
-    }
-
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
+        child ?: return
         if (checkViewToInternalAdd(child)) {
             super.addView(child, index, params)
             return
         }
         val params = params as? NavigationBarLayoutParams ?: generateDefaultLayoutParams()
         setRoleLink(child, params)
-        child?.applyContentRole(params)
+        child.applyContentRole(params)
         when (params.navigationBarContent) {
             NavigationBarContent.ACTION_START ->
                 actionsBlock.setActionStart(child, convertToLinearParams(params))
@@ -943,20 +947,30 @@ open class NavigationBar @JvmOverloads constructor(
             lp?.let {
                 it.topMargin = textBlockTopMargin
                 requestLayout()
-                invalidate()
             }
+            textBlock.setPadding(0, 0, 0, 0)
         } else {
             lp?.let {
                 it.topMargin = 0
                 requestLayout()
-                invalidate()
             }
-            if (contentView != null && contentPlacement == CONTENT_PLACEMENT_INNER) {
+            if (checkContentForExistence() && checkTextBlockForExistence()) {
                 textBlock.setPaddingRelative(0, 0, horizontalSpacing, 0)
             } else {
                 textBlock.setPadding(0, 0, 0, 0)
             }
         }
+    }
+
+    private fun checkContentForExistence(): Boolean {
+        return contentView != null &&
+            contentView?.isVisible == true &&
+            contentPlacement == CONTENT_PLACEMENT_INNER
+    }
+
+    private fun checkTextBlockForExistence(): Boolean {
+        return (titleView != null && titleView?.isVisible == true) ||
+            (descriptionView != null && descriptionView?.isVisible == true)
     }
 
     private fun changeTextPlacementGlobally() {
@@ -979,10 +993,10 @@ open class NavigationBar @JvmOverloads constructor(
         (contentView?.parent as? ViewGroup)?.removeView(contentView)
         if (contentPlacement == CONTENT_PLACEMENT_INNER) {
             actionsBlock.addCenterContent(contentView)
-            if (textPlacement == TEXT_PLACEMENT_INNER) resolveTextBlockPaddings()
         } else {
             addView(contentView)
         }
+        resolveTextBlockPaddings()
         resolveContentAlignment()
     }
 
@@ -1014,18 +1028,17 @@ open class NavigationBar @JvmOverloads constructor(
 
     private fun universalAddView(
         view: View,
-        params: NavigationBarLayoutParams? = null,
+        params: NavigationBarLayoutParams?,
         role: NavigationBarContent,
     ) {
         val viewParams = view.layoutParams as? NavigationBarLayoutParams
-        val finalParams = params ?: viewParams
+        val finalParams = (params ?: viewParams) ?: NavigationBarLayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT,
+        ).also { it.navigationBarContent = role }
         addView(
             view,
-            finalParams ?: NavigationBarLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                role,
-            ),
+            finalParams,
         )
     }
 
