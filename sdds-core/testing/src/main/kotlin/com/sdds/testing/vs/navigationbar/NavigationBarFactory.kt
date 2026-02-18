@@ -33,11 +33,13 @@ fun navigationBar(
 fun NavigationBar.applyState(state: NavigationBarUiState) = apply {
     val title = title(context, state.title)
     val description = description(context, state.description)
+    val content = contentText(context, state.contentText)
     if (title.text.isNullOrBlank()) title.isVisible = false
     if (description.text.isNullOrBlank()) description.isVisible = false
+    if (content.text.isNullOrBlank()) content.isVisible = false
     setTitle(title)
     setDescription(description)
-    setContent(contentText(context, state.contentText))
+    setContent(content)
     if (state.hasActionStart) {
         setActionStart(
             ImageView(context).apply {

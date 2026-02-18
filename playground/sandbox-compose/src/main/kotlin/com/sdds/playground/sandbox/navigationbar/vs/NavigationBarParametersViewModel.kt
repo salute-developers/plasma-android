@@ -27,6 +27,7 @@ internal class NavigationBarParametersViewModel(
         when (NavigationBarPropertyName.entries.find { it.value == name }) {
             NavigationBarPropertyName.Title -> updateTitle(value?.toString().orEmpty())
             NavigationBarPropertyName.Description -> updateDescription(value?.toString().orEmpty())
+            NavigationBarPropertyName.Content -> updateContent(value?.toString().orEmpty())
             NavigationBarPropertyName.HasActionStart -> updateHasActionStart((value as? Boolean) == true)
             NavigationBarPropertyName.HasActionEnd -> updateHasActionEnd((value as? Boolean) == true)
             NavigationBarPropertyName.TextPlacement -> updateTextPlacement(TextPlacement.valueOf(value.toString()))
@@ -50,6 +51,10 @@ internal class NavigationBarParametersViewModel(
 
     private fun updateDescription(description: String) {
         internalUiState.value = internalUiState.value.copy(description = description)
+    }
+
+    private fun updateContent(contentText: String) {
+        internalUiState.value = internalUiState.value.copy(contentText = contentText)
     }
 
     private fun updateHasActionStart(hasActionStart: Boolean) {
@@ -92,6 +97,11 @@ internal class NavigationBarParametersViewModel(
                 value = description,
             ),
 
+            Property.StringProperty(
+                name = NavigationBarPropertyName.Content.value,
+                value = contentText,
+            ),
+
             Property.BooleanProperty(
                 name = NavigationBarPropertyName.HasActionStart.value,
                 value = hasActionStart,
@@ -127,6 +137,7 @@ internal class NavigationBarParametersViewModel(
     private enum class NavigationBarPropertyName(val value: String) {
         Title("title"),
         Description("description"),
+        Content("contentText"),
         HasActionStart("hasActionStart"),
         HasActionEnd("hasActionEnd"),
         TextPlacement("textPlacement"),
