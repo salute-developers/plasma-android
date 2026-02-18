@@ -55,6 +55,8 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
             ModalBottomSheet(
                 style = style,
                 sheetState = sheetState,
+                dimBackground = uiState.dimBackground,
+                useNativeBlackout = uiState.useNativeBlackout,
                 handlePlacement = uiState.handlePlacement,
                 fitContent = uiState.fitContent,
                 header = { if (uiState.header && uiState.fixedHeader) Header() },

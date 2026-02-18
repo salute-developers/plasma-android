@@ -20,6 +20,7 @@ dependencyResolutionManagement {
 rootProject.name = "sdds-core"
 
 includeBuild("../build-system")
+includeBuild("../third-party/sdds-haze")
 include(
     ":icons",
     ":plugin_theme_builder",

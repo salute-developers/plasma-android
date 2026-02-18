@@ -9,6 +9,8 @@ title: Modal
 // @sample: com/sdds/compose/uikit/fixtures/samples/modal/Modal_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.modal.Modal_Simple -->
+
 ## Стиль Modal
 
 Для Modal существует набор сгенерированных стилей. Также стиль можно настроить с помощью ModalStyle.builder().

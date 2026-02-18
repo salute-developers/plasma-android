@@ -6,6 +6,8 @@ title: CircularProgressBar
 // @sample: com/sdds/compose/uikit/fixtures/samples/progress/CircularProgress_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.progress.CircularProgress_Simple -->
+
 ## Стиль CircularProgressBar
 
 Стиль CircularProgressBar можно настроить с помощью CircularProgressBarStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -24,3 +26,5 @@ valueSuffix - параметр для отображения единиц изм
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/progress/CircularProgressSuffix_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.progress.CircularProgressSuffix_Simple -->

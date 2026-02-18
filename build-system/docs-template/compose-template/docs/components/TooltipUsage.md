@@ -8,6 +8,8 @@ title: Tooltip
 // @sample: com/sdds/compose/uikit/fixtures/samples/tooltip/Tooltip_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.tooltip.Tooltip_Simple -->
+
 ## Стиль Tooltip
 
 Для Tooltip существует набор сгенерированных стилей. Также стиль можно настроить с помощью TooltipStyle.builder().

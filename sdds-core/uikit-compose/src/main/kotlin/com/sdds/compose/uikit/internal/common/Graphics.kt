@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.DrawStyle
@@ -25,3 +26,5 @@ internal fun DrawScope.drawOutline(
     color != null -> drawOutline(outline, color, alpha, style, colorFilter, blendMode)
     else -> {}
 }
+
+internal fun Color.asBrush(): Brush = SolidColor(this)

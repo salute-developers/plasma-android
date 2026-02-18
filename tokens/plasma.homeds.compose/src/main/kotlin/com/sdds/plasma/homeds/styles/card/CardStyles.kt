@@ -93,7 +93,7 @@ private val CardStyleBuilder.invariantProps: CardStyleBuilder
     @Composable
     get() = this
         .orientation(CardOrientation.Vertical)
-        .labelStyle(PlasmaHomeDsTheme.typography.bodyXsBold)
+        .labelStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .colors {
             backgroundColor(
                 PlasmaHomeDsTheme.colors.surfaceDefaultClear.asInteractive(),
@@ -132,8 +132,8 @@ public val WrapperCardXl.HasInnerPaddings: WrapperCardXlHasInnerPaddings
     @JvmName("WrapperCardXlHasInnerPaddings")
     get() = builder
         .dimensions {
-            contentPaddingStart(8.0.dp)
-            contentPaddingEnd(8.0.dp)
+            contentPaddingStart(12.0.dp)
+            contentPaddingEnd(12.0.dp)
         }
         .wrap(::WrapperCardXlHasInnerPaddings)
 
@@ -148,9 +148,9 @@ public val Card.L: WrapperCardL
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
             contentMinWidth(104.0.dp)
-            contentMinHeight(128.0.dp)
+            contentMinHeight(104.0.dp)
             contentMaxWidth(104.0.dp)
-            contentMaxHeight(128.0.dp)
+            contentMaxHeight(104.0.dp)
         }
         .wrap(::WrapperCardL)
 
@@ -159,8 +159,8 @@ public val WrapperCardL.HasInnerPaddings: WrapperCardLHasInnerPaddings
     @JvmName("WrapperCardLHasInnerPaddings")
     get() = builder
         .dimensions {
-            contentPaddingStart(8.0.dp)
-            contentPaddingEnd(8.0.dp)
+            contentPaddingStart(12.0.dp)
+            contentPaddingEnd(12.0.dp)
         }
         .wrap(::WrapperCardLHasInnerPaddings)
 
@@ -175,9 +175,9 @@ public val Card.M: WrapperCardM
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
             contentMinWidth(104.0.dp)
-            contentMinHeight(88.0.dp)
+            contentMinHeight(80.0.dp)
             contentMaxWidth(104.0.dp)
-            contentMaxHeight(88.0.dp)
+            contentMaxHeight(80.0.dp)
         }
         .wrap(::WrapperCardM)
 
@@ -186,8 +186,8 @@ public val WrapperCardM.HasInnerPaddings: WrapperCardMHasInnerPaddings
     @JvmName("WrapperCardMHasInnerPaddings")
     get() = builder
         .dimensions {
-            contentPaddingStart(8.0.dp)
-            contentPaddingEnd(8.0.dp)
+            contentPaddingStart(12.0.dp)
+            contentPaddingEnd(12.0.dp)
         }
         .wrap(::WrapperCardMHasInnerPaddings)
 
@@ -202,9 +202,9 @@ public val Card.S: WrapperCardS
             contentPaddingStart(0.0.dp)
             contentPaddingEnd(0.0.dp)
             contentMinWidth(104.0.dp)
-            contentMinHeight(60.0.dp)
+            contentMinHeight(56.0.dp)
             contentMaxWidth(104.0.dp)
-            contentMaxHeight(60.0.dp)
+            contentMaxHeight(56.0.dp)
         }
         .wrap(::WrapperCardS)
 
@@ -213,7 +213,7 @@ public val WrapperCardS.HasInnerPaddings: WrapperCardSHasInnerPaddings
     @JvmName("WrapperCardSHasInnerPaddings")
     get() = builder
         .dimensions {
-            contentPaddingStart(8.0.dp)
-            contentPaddingEnd(8.0.dp)
+            contentPaddingStart(12.0.dp)
+            contentPaddingEnd(12.0.dp)
         }
         .wrap(::WrapperCardSHasInnerPaddings)

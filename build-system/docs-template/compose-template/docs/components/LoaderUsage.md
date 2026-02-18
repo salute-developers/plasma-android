@@ -12,11 +12,15 @@ title: Loader
 // @sample: com/sdds/compose/uikit/fixtures/samples/loader/Loader_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.loader.Loader_Simple -->
+
 Пример использования через стили [Spinner] и [CircularProgressBar]:
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/loader/LoaderSpinner_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.loader.LoaderSpinner_Simple -->
 
 ## Стиль Loader
 

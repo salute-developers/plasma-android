@@ -11,6 +11,8 @@ title: Autocomplete
 // @sample: com/sdds/compose/uikit/fixtures/samples/autocomplete/Autocomplete_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.autocomplete.Autocomplete_Simple -->
+
 Чтобы показать раскрывающийся список необходимо установить `showDropdown = true` и передать данные для раскрывающегося списка в `listContent`.
 
 Чтобы показать пустое состояние, необходимо передать контент пустого состояния в `emptyContent` и установить `showEmptyState`. 

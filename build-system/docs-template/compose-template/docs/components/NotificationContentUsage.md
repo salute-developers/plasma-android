@@ -3,11 +3,13 @@ title: NotificationContent
 ---
 Компонент, предназначенный для использования в [Notification](NotificationUsage.md) в качестве контента.
 
-В качестве кнопок ожидает [Button](ButtonUsage.md). Кнопки добавляются с помощью функции button() из NotificationContentButtonsScope.
+В качестве кнопок ожидает [Button](BasicButtonUsage). Кнопки добавляются с помощью функции button() из NotificationContentButtonsScope.
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/notificationcontent/NotificationContent_Simple.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.notificationcontent.NotificationContent_Simple -->
 
 ## Стиль NotificationContent
 

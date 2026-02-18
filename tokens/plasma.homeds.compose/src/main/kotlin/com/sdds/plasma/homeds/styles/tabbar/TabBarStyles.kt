@@ -43,6 +43,9 @@ public val TabBar.Default: WrapperTabBarDefault
         .bottomShape(PlasmaHomeDsTheme.shapes.roundXxl)
         .colors {
             backgroundColor(
+                PlasmaHomeDsTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
+            )
+            backgroundBlurTint(
                 PlasmaHomeDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
             )
         }
@@ -54,6 +57,7 @@ public val TabBar.Default: WrapperTabBarDefault
             contentPaddingTop(2.0.dp)
             contentPaddingBottom(2.0.dp)
             itemSpacing(8.0.dp)
+            backgroundBlurRadius(50.0.dp)
         }
         .tabBarItemStyle(TabBarItem.Default.style())
         .wrap(::WrapperTabBarDefault)

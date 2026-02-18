@@ -47,7 +47,7 @@ fun Autocomplete_Style() {
 fun Autocomplete_Simple() {
     composableCodeSnippet {
         var text by remember { mutableStateOf(TextFieldValue()) }
-        var showDropdown by remember { mutableStateOf(false) }
+        var showDropdown by remember { mutableStateOf(placeholder(true, "false")) }
         val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
         val showEmptyState = filteredList.isEmpty()
         Autocomplete(

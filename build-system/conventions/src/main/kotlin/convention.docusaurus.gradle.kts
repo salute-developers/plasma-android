@@ -63,10 +63,24 @@ val generateInstanceTask by tasks.register("docusaurusGenerate") {
             into(destinationDir)
         }
 
+        copy {
+            from(
+                File(
+                    rootProject.projectDir,
+                    "docs/override-docs/static/screenshots-docusarus"
+                )
+            ) {
+                include("**/*.png")
+            }
+            into(destinationDir.resolve("static/img"))
+        }
+
         val docsDir = destinationDir.resolve("docs")
         mergePlusPrefixedDocs(docsDir)
-
-        transformTemplate(destinationDir, extension.snippetsDir.asFile.get())
+        val componentConfig = if (isComposeLib())
+            project.projectDir.resolve("../config-info-compose.json")
+        else project.projectDir.resolve("../config-info-view-system.json")
+        transformTemplate(destinationDir, extension.snippetsDir.asFile.get(), componentConfig)
     }
 }
 
@@ -194,5 +208,15 @@ tasks.register<S3UploadTask>("docusaurusDeploy") {
         val json = JsonObject()
         json.addProperty("deployUrl", "$docsUrl$docsBaseUrl")
         jsonFile.writeText(gson.toJson(json))
+    }
+}
+
+tasks.register("recordScreenshots") {
+    group = "documentation"
+    description = "Запускает Roborazzi для записи скриншотов"
+
+    val roborazziTask = tasks.findByName("recordRoborazzi")
+    if (roborazziTask != null) {
+        dependsOn(roborazziTask)
     }
 }

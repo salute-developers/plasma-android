@@ -30,15 +30,14 @@ fun RectSkeleton_Simple() {
 @Composable
 @DocSample(needScreenshot = true)
 fun RectSkeleton_Custom() {
+    val colors = listOf(Color(0xFFE0E0E0), Color(0xFFF5F5F5))
     composableCodeSnippet {
         RectSkeleton(
             modifier = Modifier.size(64.dp),
             shape = CircleShape, // кастомная форма
             duration = 1200, // кастомная длительность анимации
-            brush = placeholder(
-                Brush.sweepGradient(),
-                "/** Токен градиента */",
-            ).asStatefulValue(), // кастомный градиент
+            brush = placeholder(Brush.sweepGradient(colors = colors), "/** Токен градиента */")
+                .asStatefulValue(), // кастомный градиент
         )
     }
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage" parent="Sdds.Components.NavigationBar">
+        <item name="sd_contentPaddingStart">@dimen/plasma_navigation_bar_internal_page_content_padding_start</item>
+        <item name="sd_contentPaddingEnd">@dimen/plasma_navigation_bar_internal_page_content_padding_end</item>
+        <item name="sd_contentPaddingTop">@dimen/plasma_navigation_bar_internal_page_content_padding_top</item>
+        <item name="sd_contentPaddingBottom">@dimen/plasma_navigation_bar_internal_page_content_padding_bottom</item>
+        <item name="sd_descriptionMargin">@xml/plasma_navigation_bar_internal_page_description_margin</item>
+        <item name="sd_backIconMargin">@dimen/plasma_navigation_bar_internal_page_back_icon_margin</item>
+        <item name="sd_textBlockTopMargin">@dimen/plasma_navigation_bar_internal_page_text_block_top_margin</item>
+        <item name="sd_horizontalSpacing">@dimen/plasma_navigation_bar_internal_page_horizontal_spacing</item>
+        <item name="sd_backIcon">@drawable/ic_disclosure_left_outline_24</item>
+        <item name="sd_backIconTint">?plasma_textDefaultPrimary</item>
+        <item name="sd_descriptionColor">?plasma_textDefaultSecondary</item>
+        <item name="sd_titleColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_actionStartColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_actionEndColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_titleAppearance">@xml/plasma_navigation_bar_internal_page_title_appearance</item>
+        <item name="sd_descriptionAppearance">@xml/plasma_navigation_bar_internal_page_description_appearance</item>
+    </style>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage.NoBackground">
+        <item name="sd_background">?plasma_surfaceDefaultClear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NavigationBarInternalPageNoBackground">
+        <item name="sd_navigationBarStyle">@style/Plasma.SdService.Components.NavigationBarInternalPage.NoBackground</item>
+    </style>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage.NoBackground.Rounded">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NavigationBarInternalPageNoBackgroundRounded">
+        <item name="sd_navigationBarStyle">@style/Plasma.SdService.Components.NavigationBarInternalPage.NoBackground.Rounded</item>
+    </style>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage.HasBackground">
+        <item name="sd_background">?plasma_surfaceDefaultSolidCard</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackground">
+        <item name="sd_navigationBarStyle">@style/Plasma.SdService.Components.NavigationBarInternalPage.HasBackground</item>
+    </style>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Rounded">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackgroundRounded">
+        <item name="sd_navigationBarStyle">@style/Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Rounded</item>
+    </style>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Shadow">
+        <item name="sd_shadowAppearance">?plasma_shadowDownSoftM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadow">
+        <item name="sd_navigationBarStyle">@style/Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Shadow</item>
+    </style>
+    <style name="Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Shadow.Rounded">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadowRounded">
+        <item name="sd_navigationBarStyle">@style/Plasma.SdService.Components.NavigationBarInternalPage.HasBackground.Shadow.Rounded</item>
+    </style>
+</resources>

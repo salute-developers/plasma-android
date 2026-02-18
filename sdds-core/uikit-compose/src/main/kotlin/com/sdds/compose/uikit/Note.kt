@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.StyledText
 import com.sdds.compose.uikit.internal.heightOrZero
@@ -218,19 +219,18 @@ private class NoteMeasurePolicy(
         val contentBeforeHeight = contentBeforePlaceable.heightOrZero()
         val contentBeforeWidth = contentBeforePlaceable.widthOrZero()
 
-        var newConstraints = constraints.copy(maxWidth = (constraints.maxWidth - contentBeforeWidth).coerceAtLeast(0))
-
+        var newConstraints = constraints.offset(horizontal = -contentBeforeWidth)
         val titlePlaceable = title?.measure(newConstraints)
         val titleWidth = titlePlaceable.widthOrZero()
         val titleHeight = titlePlaceable.heightOrZero()
 
-        newConstraints = newConstraints.copy(maxHeight = (newConstraints.maxHeight - titleHeight))
+        newConstraints = newConstraints.offset(vertical = -titleHeight)
 
         val textPlaceable = text?.measure(newConstraints)
         val textWidth = textPlaceable.widthOrZero()
         val textHeight = textPlaceable.heightOrZero()
 
-        newConstraints = newConstraints.copy(maxHeight = (newConstraints.maxHeight - textHeight))
+        newConstraints = newConstraints.offset(vertical = -textHeight)
 
         val actionPlaceable = action?.measure(newConstraints)
         val actionWidth = actionPlaceable.widthOrZero()

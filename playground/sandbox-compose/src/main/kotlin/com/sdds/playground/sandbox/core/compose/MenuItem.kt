@@ -22,7 +22,9 @@ import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DrawerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
+import com.sdds.compose.uikit.EditableStyle
 import com.sdds.compose.uikit.FileStyle
+import com.sdds.compose.uikit.FormItemStyle
 import com.sdds.compose.uikit.ImageStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ListStyle
@@ -89,18 +91,22 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
+import com.sdds.playground.sandbox.editable.EditablePreview
+import com.sdds.playground.sandbox.editable.EditableScreen
 import com.sdds.playground.sandbox.file.compose.FilePreview
 import com.sdds.playground.sandbox.file.compose.FileScreen
+import com.sdds.playground.sandbox.form.FormItemPreview
+import com.sdds.playground.sandbox.form.FormItemScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreen
 import com.sdds.playground.sandbox.image.compose.ImageScreenPreview
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.list.compose.ListScreen
 import com.sdds.playground.sandbox.loader.compose.LoaderScreen
 import com.sdds.playground.sandbox.modal.compose.ModalScreen
-import com.sdds.playground.sandbox.navigationbar.NavigationBarPreview
-import com.sdds.playground.sandbox.navigationbar.NavigationBarScreen
 import com.sdds.playground.sandbox.navigationbar.collapsing.CollapsingNavigationBarPreview
 import com.sdds.playground.sandbox.navigationbar.collapsing.CollapsingNavigationBarScreen
+import com.sdds.playground.sandbox.navigationbar.compose.NavigationBarPreview
+import com.sdds.playground.sandbox.navigationbar.compose.NavigationBarScreen
 import com.sdds.playground.sandbox.note.compose.NoteCompactPreview
 import com.sdds.playground.sandbox.note.compose.NoteCompactScreen
 import com.sdds.playground.sandbox.note.compose.NotePreview
@@ -390,6 +396,14 @@ internal sealed class ComponentScreen(
         { SliderScreen(it) },
         { style, _ -> SliderPreview(style as SliderStyle) },
     )
+    object FormItem : ComponentScreen(
+        { FormItemScreen(it) },
+        { style, _ -> FormItemPreview(style as FormItemStyle) },
+    )
+    object Editable : ComponentScreen(
+        { EditableScreen(it) },
+        { style, _ -> EditablePreview(style as EditableStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -455,6 +469,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         CoreComponent.FILE -> ComponentScreen.File
         CoreComponent.SLIDER -> ComponentScreen.Slider
+        CoreComponent.FORM_ITEM -> ComponentScreen.FormItem
+        CoreComponent.EDITABLE -> ComponentScreen.Editable
         else -> ComponentScreen.Empty
     }
 }

@@ -9,6 +9,8 @@ title: Segment
 // @sample: com/sdds/compose/uikit/fixtures/samples/segment/Segment_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.segment.Segment_Simple -->
+
 ## Стиль Segment
 
 Стиль Segment можно настроить с помощью SegmentStyle.builder(). Так же существует набор сгенерированных стилей.

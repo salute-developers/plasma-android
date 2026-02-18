@@ -12687,6 +12687,80 @@
          ]
       },
       {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarMainPage",
+         "variations": [
+            {
+               "name": "no-background",
+               "viewReference": "Serv.Sdds.Components.NavigationBarMainPage.NoBackground",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarMainPageNoBackground"
+            },
+            {
+               "name": "no-background.rounded",
+               "viewReference": "Serv.Sdds.Components.NavigationBarMainPage.NoBackground.Rounded",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarMainPageNoBackgroundRounded"
+            },
+            {
+               "name": "has-background",
+               "viewReference": "Serv.Sdds.Components.NavigationBarMainPage.HasBackground",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackground"
+            },
+            {
+               "name": "has-background.rounded",
+               "viewReference": "Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Rounded",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackgroundRounded"
+            },
+            {
+               "name": "has-background.shadow",
+               "viewReference": "Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Shadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackgroundShadow"
+            },
+            {
+               "name": "has-background.shadow.rounded",
+               "viewReference": "Serv.Sdds.Components.NavigationBarMainPage.HasBackground.Shadow.Rounded",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarMainPageHasBackgroundShadowRounded"
+            }
+         ]
+      },
+      {
+         "key": "navigation-bar",
+         "coreName": "NavigationBar",
+         "styleName": "NavigationBarInternalPage",
+         "variations": [
+            {
+               "name": "no-background",
+               "viewReference": "Serv.Sdds.Components.NavigationBarInternalPage.NoBackground",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarInternalPageNoBackground"
+            },
+            {
+               "name": "no-background.rounded",
+               "viewReference": "Serv.Sdds.Components.NavigationBarInternalPage.NoBackground.Rounded",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarInternalPageNoBackgroundRounded"
+            },
+            {
+               "name": "has-background",
+               "viewReference": "Serv.Sdds.Components.NavigationBarInternalPage.HasBackground",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackground"
+            },
+            {
+               "name": "has-background.rounded",
+               "viewReference": "Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Rounded",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackgroundRounded"
+            },
+            {
+               "name": "has-background.shadow",
+               "viewReference": "Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Shadow",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadow"
+            },
+            {
+               "name": "has-background.shadow.rounded",
+               "viewReference": "Serv.Sdds.Components.NavigationBarInternalPage.HasBackground.Shadow.Rounded",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.NavigationBarInternalPageHasBackgroundShadowRounded"
+            }
+         ]
+      },
+      {
          "key": "pagination-dots",
          "coreName": "PaginationDots",
          "styleName": "PaginationDotsHorizontal",

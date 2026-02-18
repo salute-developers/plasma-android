@@ -13,6 +13,8 @@ title: CodeInput
 // @sample: com/sdds/compose/uikit/fixtures/samples/codeinput/CodeInput_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.codeinput.CodeInput_Simple -->
+
 ## Стиль CodeInput
 
 Для CodeInput существует набор сгенерированных стилей. 

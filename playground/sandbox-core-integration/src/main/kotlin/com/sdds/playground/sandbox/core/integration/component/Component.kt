@@ -262,6 +262,8 @@ data class ComponentKey(
         val Autocomplete = ComponentKey("Autocomplete", CoreComponent.AUTOCOMPLETE)
         val DropdownEmptyState = ComponentKey("DropdownEmptyState", CoreComponent.DROPDOWN_EMPTY_STATE)
         val File = ComponentKey("File", CoreComponent.FILE)
+        val FormItem = ComponentKey("FormItem", CoreComponent.FORM_ITEM)
+        val Editable = ComponentKey("Editable", CoreComponent.EDITABLE)
     }
 }
 
@@ -355,6 +357,8 @@ enum class CoreComponent {
     AUTOCOMPLETE,
     DROPDOWN_EMPTY_STATE,
     FILE,
+    FORM_ITEM,
+    EDITABLE,
 }
 
 /**
@@ -386,6 +390,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.DIVIDER,
         CoreComponent.IMAGE,
         CoreComponent.INDICATOR,
+        CoreComponent.FORM_ITEM,
         CoreComponent.LIST,
         CoreComponent.LIST_ITEM,
         CoreComponent.RECT_SKELETON,
@@ -420,6 +425,7 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.AUTOCOMPLETE,
         CoreComponent.SLIDER,
         CoreComponent.FILE,
+        CoreComponent.EDITABLE,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,

@@ -8,6 +8,8 @@ title: CheckBox
 // @sample: com/sdds/compose/uikit/fixtures/samples/checkbox/CheckBox_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.checkbox.CheckBox_Simple -->
+
 ## Стиль CheckBox
 
 Стиль CheckBox можно настроить с помощью CheckBoxStyle.builder(). Так же существует набор сгенерированных стилей.

@@ -10,6 +10,8 @@ title: CollapsingNavigationBar
 // @sample: com/sdds/compose/uikit/fixtures/samples/collapsingnavigationbar/CollapsingNavigationBar_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.collapsingnavigationbar.CollapsingNavigationBar_Simple -->
+
 ## Стиль CollapsingNavigationBar
 
 Стиль CollapsingNavigationBar можно настроить с помощью CollapsingNavigationBarStyle.builder(). Так же существует набор сгенерированных стилей.

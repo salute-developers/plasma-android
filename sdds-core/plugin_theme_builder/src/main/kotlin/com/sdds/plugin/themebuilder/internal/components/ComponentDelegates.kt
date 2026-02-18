@@ -25,8 +25,10 @@ import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDel
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.drawer.DrawerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.dropdownmenu.DropdownMenuConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.editable.EditableConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.emptystate.EmptyStateConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.file.FileConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.form.FormItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.image.ImageConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.list.ListConfigDelegate
@@ -135,5 +137,7 @@ internal val componentDelegates by unsafeLazy {
         "dropdown-empty-state" to EmptyStateConfigDelegate(),
         "autocomplete" to AutoCompleteConfigDelegate(),
         "file" to FileConfigDelegate(),
+        "form-item" to FormItemConfigDelegate(),
+        "editable" to EditableConfigDelegate(),
     )
 }

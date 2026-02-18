@@ -5,6 +5,8 @@ import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.os.Parcel
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
@@ -177,14 +179,14 @@ open class TextField @JvmOverloads constructor(
 
     private val _outerLabelView: TextFieldTextView by unsafeLazy {
         TextFieldTextView(context).apply {
-            id = R.id.sd_textFieldOuterLabel
+            id = generateViewId()
             isFocusable = false
             isFocusableInTouchMode = false
         }
     }
     private val _captionView: TextFieldTextView by unsafeLazy {
         TextFieldTextView(context).apply {
-            id = R.id.sd_textFieldCaption
+            id = generateViewId()
             isFocusable = false
             isClickable = false
             isFocusableInTouchMode = false
@@ -193,7 +195,7 @@ open class TextField @JvmOverloads constructor(
 
     private val _counterView: TextFieldTextView by unsafeLazy {
         TextFieldTextView(context).apply {
-            id = R.id.sd_textFieldCounter
+            id = generateViewId()
             isFocusable = false
             isClickable = false
             isFocusableInTouchMode = false
@@ -207,7 +209,7 @@ open class TextField @JvmOverloads constructor(
 
     private val _helperTextContainer: CellLayout by unsafeLazy {
         CellLayout(context).apply {
-            id = R.id.sd_textFieldHelperTextContainer
+            id = View.generateViewId()
             isFocusable = false
             isClickable = false
             isFocusableInTouchMode = false
@@ -823,6 +825,32 @@ open class TextField @JvmOverloads constructor(
         return MarginLayoutParams(p)
     }
 
+    override fun onSaveInstanceState(): Parcelable {
+        val superState = super.onSaveInstanceState()
+        return SavedState(superState).apply {
+            text = editText.text?.toString()
+            selectionStart = editText.selectionStart
+            selectionEnd = editText.selectionEnd
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state !is SavedState) {
+            super.onRestoreInstanceState(state)
+            return
+        }
+        super.onRestoreInstanceState(state.superState)
+
+        state.text?.let { restored ->
+            if (editText.text?.toString() != restored) {
+                editText.setText(restored)
+                val start = state.selectionStart.coerceIn(0, restored.length)
+                val end = state.selectionEnd.coerceIn(0, restored.length)
+                editText.setSelection(start, end)
+            }
+        }
+    }
+
     private fun isRequired(): Boolean = requirementMode != RequirementMode.Optional
 
     private fun updateLabel() {
@@ -978,6 +1006,32 @@ open class TextField @JvmOverloads constructor(
         updateLabel()
         updateCounter()
         updateCaption()
+    }
+
+    private class SavedState : BaseSavedState {
+        var text: String? = null
+        var selectionStart: Int = 0
+        var selectionEnd: Int = 0
+
+        constructor(superState: Parcelable?) : super(superState)
+
+        private constructor(source: Parcel) : super(source) {
+            text = source.readString()
+            selectionStart = source.readInt()
+            selectionEnd = source.readInt()
+        }
+
+        override fun writeToParcel(out: Parcel, flags: Int) {
+            super.writeToParcel(out, flags)
+            out.writeString(text)
+            out.writeInt(selectionStart)
+            out.writeInt(selectionEnd)
+        }
+
+        companion object CREATOR : Parcelable.Creator<SavedState> {
+            override fun createFromParcel(source: Parcel) = SavedState(source)
+            override fun newArray(size: Int) = arrayOfNulls<SavedState?>(size)
+        }
     }
 
     companion object {

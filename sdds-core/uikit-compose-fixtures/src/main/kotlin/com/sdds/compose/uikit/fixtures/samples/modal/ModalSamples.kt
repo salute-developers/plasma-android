@@ -23,7 +23,7 @@ import com.sdds.docs.DocSample
 @DocSample(needScreenshot = true)
 fun Modal_Simple() {
     composableCodeSnippet {
-        val showModal = remember { mutableStateOf(false) }
+        val showModal = remember { mutableStateOf(placeholder(true, "false")) }
         Button(
             label = "Show modal",
             onClick = { showModal.value = true },

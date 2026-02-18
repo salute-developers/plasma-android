@@ -10,12 +10,16 @@ title: Card
 // @sample: com/sdds/compose/uikit/fixtures/samples/card/Card_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.card.Card_Simple -->
+
 Еще один вариант функции Card, в компановку которой добавлены слоты для Label и Extra, возможность указать  
 ориентацию (вид компановки контента внутри карточки) и отступы внутри слота Content.
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/card/Card_Extra.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.card.Card_Extra -->
 
 ## Стиль Card
 

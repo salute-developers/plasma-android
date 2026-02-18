@@ -187,6 +187,7 @@
         <attr name="sd_state_loading" format="boolean" />
         <attr name="sd_state_indeterminate" format="boolean" />
         <attr name="sd_state_error" format="boolean" />
+        <attr name="sd_state_collapsed" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="SdTextAppearance" tools:ignore="ResourceName" >

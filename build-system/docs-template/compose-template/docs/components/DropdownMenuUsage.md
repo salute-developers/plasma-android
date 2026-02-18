@@ -10,6 +10,8 @@ title: DropdownMenu
 // @sample: com/sdds/compose/uikit/fixtures/samples/dropdownmenu/DropdownMenu_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.dropdownmenu.DropdownMenu_Simple -->
+
 ## Стиль DropdownMenu
 
 Для DropdownMenu существует набор сгенерированных стилей. Также стиль можно настроить с помощью DropdownMenuStyle.builder().

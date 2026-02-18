@@ -8,6 +8,8 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.annotation.ColorInt
+import androidx.annotation.StyleRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.children
 import androidx.core.view.isVisible
@@ -18,6 +20,7 @@ import com.sdds.uikit.File.Companion.ACTION_PLACEMENT_START
 import com.sdds.uikit.File.Companion.PROGRESS_PLACEMENT_INNER
 import com.sdds.uikit.File.Companion.PROGRESS_PLACEMENT_OUTER
 import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.statelist.StyleStateList
 import com.sdds.uikit.statelist.getStyleStateList
@@ -44,7 +47,9 @@ open class File @JvmOverloads constructor(
 ),
     ColorStateHolder {
 
-    private val cell: CellLayout = CellLayout(context, null, 0, 0)
+    private val cell: CellLayout = CellLayout(context, null, 0, 0).apply {
+        isDuplicateParentStateEnabled = true
+    }
     private var _contentStartPadding: Int = 0
     private var _contentEndPadding: Int = 0
     private var _contentBottomPadding: Int = 0
@@ -189,6 +194,114 @@ open class File @JvmOverloads constructor(
         }
 
     /**
+     * @see ColorStateHolder.colorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * Устанавливает список стилей [StyleStateList] для view с ролью [FileContent.LABEL],
+     * которые соответствуют drawableState
+     * @param newLabelAppearances список стилей
+     */
+    open fun setLabelAppearancesList(newLabelAppearances: StyleStateList?) {
+        if (labelAppearance != newLabelAppearances) {
+            labelAppearance = newLabelAppearances
+            applyTextAppearances(labelView, labelAppearance)
+        }
+    }
+
+    /**
+     * Устанавливает стиль для view с ролью [FileContent.LABEL]
+     * @param labelAppearanceId идентификатор стиля текста в ресурсах
+     */
+    open fun setLabelAppearance(@StyleRes labelAppearanceId: Int) {
+        setLabelAppearancesList(StyleStateList.valueOf(labelAppearanceId))
+    }
+
+    /**
+     * Устанавливает список стилей [StyleStateList] для view с ролью [FileContent.DESCRIPTION],
+     * которые соответствуют drawableState
+     * @param newDescriptionAppearances список стилей
+     */
+    open fun setDescriptionAppearancesList(newDescriptionAppearances: StyleStateList?) {
+        if (descriptionAppearance != newDescriptionAppearances) {
+            descriptionAppearance = newDescriptionAppearances
+            applyTextAppearances(labelView, labelAppearance)
+        }
+    }
+
+    /**
+     * Устанавливает стиль для view с ролью [FileContent.DESCRIPTION]
+     * @param descriptionAppearanceId идентификатор стиля текста в ресурсах
+     */
+    open fun setDescriptionAppearance(@StyleRes descriptionAppearanceId: Int) {
+        setDescriptionAppearancesList(StyleStateList.valueOf(descriptionAppearanceId))
+    }
+
+    /**
+     * Устанавливает цвета текста для view с ролью [FileContent.LABEL]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setLabelTextColors(colors: ColorStateList?) {
+        if (labelColor != colors) {
+            labelColor = colors
+            labelColor?.let { applyTextColors(labelView, it) }
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста для view с ролью [FileContent.LABEL]
+     * @param color цвет текста
+     */
+    fun setLabelTextColor(@ColorInt color: Int) {
+        setLabelTextColors(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета текста для view с ролью [FileContent.DESCRIPTION]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setDescriptionTextColors(colors: ColorStateList?) {
+        if (descriptionColor != colors) {
+            descriptionColor = colors
+            descriptionColor?.let { applyTextColors(descriptionView, it) }
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста для view с ролью [FileContent.DESCRIPTION]
+     * @param color цвет текста
+     */
+    fun setDescriptionTextColor(@ColorInt color: Int) {
+        setDescriptionTextColors(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета текста для view с ролью [FileContent.ICON]
+     * @param colors [ColorStateList] цвета
+     */
+    open fun setIconColors(colors: ColorStateList?) {
+        if (iconTint != colors) {
+            iconTint = colors
+            iconTint?.let { applyTextColors(descriptionView, it) }
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста для view с ролью [FileContent.ICON]
+     * @param color цвет текста
+     */
+    fun setIconColor(@ColorInt color: Int) {
+        setIconColors(ColorStateList.valueOf(color))
+    }
+
+    /**
      * Устанавливает Label, при этом ранее установленный Label будет удален
      * @param textView - [TextView] вью с текстом
      * @param params - [FileLayoutParams] лэйаут параметры для textview, если не заданы,
@@ -196,16 +309,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.LABEL]
      */
     open fun setLabel(textView: TextView, params: FileLayoutParams? = null) {
-        val viewParams = textView.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            textView,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.LABEL,
-            ),
-        )
+        universalAddView(textView, params, FileContent.LABEL)
     }
 
     /**
@@ -216,16 +320,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.DESCRIPTION]
      */
     open fun setDescription(textView: TextView, params: FileLayoutParams? = null) {
-        val viewParams = textView.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            textView,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.DESCRIPTION,
-            ),
-        )
+        universalAddView(textView, params, FileContent.DESCRIPTION)
     }
 
     /**
@@ -237,16 +332,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.ACTION]
      */
     open fun setAction(view: View, params: FileLayoutParams? = null) {
-        val viewParams = view.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            view,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.ACTION,
-            ),
-        )
+        universalAddView(view, params, FileContent.ACTION)
     }
 
     /**
@@ -259,16 +345,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.PROGRESS]
      */
     open fun setProgress(progress: View, params: FileLayoutParams? = null) {
-        val viewParams = progress.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            progress,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.PROGRESS,
-            ),
-        )
+        universalAddView(progress, params, FileContent.PROGRESS)
     }
 
     /**
@@ -282,16 +359,7 @@ open class File @JvmOverloads constructor(
      * заданный в стиле, через атрибут [R.styleable.File_sd_iconTint]
      */
     open fun setIcon(image: ImageView, params: FileLayoutParams? = null) {
-        val viewParams = image.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            image,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.ICON,
-            ),
-        )
+        universalAddView(image, params, FileContent.ICON)
     }
 
     /**
@@ -303,16 +371,7 @@ open class File @JvmOverloads constructor(
      * Роль назначается автоматически как [FileContent.IMAGE]
      */
     open fun setImage(image: ImageView, params: FileLayoutParams? = null) {
-        val viewParams = image.layoutParams as? FileLayoutParams
-        val finalParams = params ?: viewParams
-        addView(
-            image,
-            finalParams ?: FileLayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-                FileContent.IMAGE,
-            ),
-        )
+        universalAddView(image, params, FileContent.IMAGE)
     }
 
     /**
@@ -416,6 +475,120 @@ open class File @JvmOverloads constructor(
             .forEach(::removeView)
     }
 
+    override fun generateDefaultLayoutParams(): FileLayoutParams {
+        return FileLayoutParams(
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT,
+        )
+    }
+
+    override fun checkLayoutParams(p: ViewGroup.LayoutParams?): Boolean {
+        return p is FileLayoutParams
+    }
+
+    override fun generateLayoutParams(attrs: AttributeSet?): FileLayoutParams {
+        return FileLayoutParams(context, attrs)
+    }
+
+    override fun generateLayoutParams(p: ViewGroup.LayoutParams?): FileLayoutParams {
+        return FileLayoutParams(p)
+    }
+
+    /**
+     * Параметры расположения дочерних [View] в [File]
+     */
+    class FileLayoutParams : LayoutParams {
+
+        /**
+         * Роль [View] внутри [File]
+         */
+        var fileContent: FileContent? = null
+
+        constructor(c: Context, attrs: AttributeSet?) : super(c, attrs) {
+            c.withStyledAttributes(attrs, R.styleable.File_Layout) {
+                this@FileLayoutParams.fileContent =
+                    getInt(R.styleable.File_Layout_layout_fileContent, 0)
+                        .let { FileContent.values().getOrElse(it) { null } }
+            }
+        }
+
+        constructor(width: Int, height: Int) : super(width, height)
+        constructor(width: Int, height: Int, fileContent: FileContent) : super(width, height) {
+            this.fileContent = fileContent
+        }
+
+        constructor(source: ViewGroup.LayoutParams?) : super(source) {
+            if (source is FileLayoutParams) {
+                this.fileContent = source.fileContent
+            }
+        }
+    }
+
+    @Suppress("UNNECESSARY_SAFE_CALL")
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        return drawableState
+    }
+
+    /**
+     * Роли для дочерних элементов [View] в [File]
+     */
+    enum class FileContent {
+        /**
+         * Назначает этой [View] роль Изображения.
+         * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
+         * порядке, в котором они добавлялись в [File], в начало компонента.
+         */
+        IMAGE,
+
+        /**
+         * Назначает этой [View] роль Иконки.
+         * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
+         * порядке, в котором они добавлялись в [File], в начало компонента.
+         */
+        ICON,
+
+        /**
+         * Назначает этой [View] роль Активного элемента (с которым предполагается какое-
+         * то взаимодейстивие, например нажатие).
+         * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
+         * порядке, в котором они добавлялись в [File], позиционирование зависит от
+         * actionPlacement ([ACTION_PLACEMENT_START] - в начале компонента,
+         * [ACTION_PLACEMENT_END] - в конце компонента).
+         */
+        ACTION,
+
+        /**
+         * Назначает этой [View] роль элемента отображающего Прогресс (обычно процесс загрузки).
+         * Позиционирование зависит от progressPlacement, [PROGRESS_PLACEMENT_INNER] -
+         * будет располагаться с той же стороны, что и Action, будет показан, когда isLoading = true,
+         * предпочтительно использование компоннета [CircularProgressBar], если добавлено несколько компонентов -
+         * они будут следовать друг за другом по горизонтали.
+         * [PROGRESS_PLACEMENT_OUTER] - будет располагаться снизу, под всем остальным контентом (только
+         * если это горизонтальный [ProgressBar]), если добавлено несколько компонентов [ProgressBar]
+         * они будут следовать друг за другом по вертикали.
+         */
+        PROGRESS,
+
+        /**
+         * Назначает этой [View] роль Label, позиционирует по центру [File] между
+         * контентом в начале (если есть Image или Icon) и контентом  в конце (Action).
+         * Дополнительно применяет стили текста и цвета для элемента с этой ролью.
+         */
+        LABEL,
+
+        /**
+         * Назначает этой [View] роль Description, позиционирует по центру [File] между
+         * контентом в начале (если есть Image или Icon) и контентом  в конце (Action),
+         * если есть [LABEL], то будет следовать за ним, по вертикали.
+         * Дополнительно применяет стили текста и цвета для элемента с этой ролью.
+         */
+        DESCRIPTION,
+    }
+
     private fun clearRoleLink(view: View?) {
         when (view) {
             actionView -> actionView = null
@@ -473,122 +646,6 @@ open class File @JvmOverloads constructor(
         descriptionView = null
     }
 
-    /**
-     * @see ColorStateHolder.colorState
-     */
-    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
-        set(value) {
-            if (field != value) {
-                field = value
-                refreshDrawableState()
-            }
-        }
-
-    override fun generateDefaultLayoutParams(): FileLayoutParams {
-        return FileLayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT,
-        )
-    }
-
-    override fun checkLayoutParams(p: ViewGroup.LayoutParams?): Boolean {
-        return p is FileLayoutParams
-    }
-
-    override fun generateLayoutParams(attrs: AttributeSet?): FileLayoutParams {
-        return FileLayoutParams(context, attrs)
-    }
-
-    override fun generateLayoutParams(p: ViewGroup.LayoutParams?): FileLayoutParams {
-        return FileLayoutParams(p)
-    }
-
-    /**
-     * Параметры расположения дочерних [View] в [File]
-     */
-    class FileLayoutParams : LayoutParams {
-
-        /**
-         * Роль [View] внутри [File]
-         */
-        var fileContent: FileContent? = null
-
-        constructor(c: Context, attrs: AttributeSet?) : super(c, attrs) {
-            c.withStyledAttributes(attrs, R.styleable.File_Layout) {
-                this@FileLayoutParams.fileContent =
-                    getInt(R.styleable.File_Layout_layout_fileContent, 0)
-                        .let { FileContent.values().getOrElse(it) { null } }
-            }
-        }
-
-        constructor(width: Int, height: Int) : super(width, height)
-        constructor(width: Int, height: Int, fileContent: FileContent) : super(width, height) {
-            this.fileContent = fileContent
-        }
-
-        constructor(source: ViewGroup.LayoutParams?) : super(source) {
-            if (source is FileLayoutParams) {
-                this.fileContent = source.fileContent
-            }
-        }
-    }
-
-    /**
-     * Роли для дочерних элементов [View] в [File]
-     */
-    enum class FileContent {
-        /**
-         * Назначает этой [View] роль Изображения.
-         * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
-         * порядке, в котором они добавлялись в [File], в начало компонента.
-         */
-        IMAGE,
-
-        /**
-         * Назначает этой [View] роль Иконки.
-         * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
-         * порядке, в котором они добавлялись в [File], в начало компонента.
-         */
-        ICON,
-
-        /**
-         * Назначает этой [View] роль Активного элемента (с которым предполагается какое-
-         * то взаимодейстивие, например нажатие).
-         * Несколько [View] с этой ролью будут следовать друг за другом по горизонтали в том
-         * порядке, в котором они добавлялись в [File], позиционирование зависит от
-         * actionPlacement ([ACTION_PLACEMENT_START] - в начале компонента,
-         * [ACTION_PLACEMENT_END] - в конце компонента).
-         */
-        ACTION,
-
-        /**
-         * Назначает этой [View] роль элемента отображающего Прогресс (обычно процесс загрузки).
-         * Позиционирование зависит от progressPlacement, [PROGRESS_PLACEMENT_INNER] -
-         * будет располагаться с той же стороны, что и Action, будет показан, когда isLoading = true,
-         * предпочтительно использование компоннета [CircularProgressBar], если добавлено несколько компонентов -
-         * они будут следовать друг за другом по горизонтали.
-         * [PROGRESS_PLACEMENT_OUTER] - будет располагаться снизу, под всем остальным контентом (только
-         * если это горизонтальный [ProgressBar]), если добавлено несколько компонентов [ProgressBar]
-         * они будут следовать друг за другом по вертикали.
-         */
-        PROGRESS,
-
-        /**
-         * Назначает этой [View] роль Label, позиционирует по центру [File] между
-         * контентом в начале (если есть Image или Icon) и контентом  в конце (Action).
-         * Дополнительно применяет стили текста и цвета для элемента с этой ролью.
-         */
-        LABEL,
-
-        /**
-         * Назначает этой [View] роль Label, позиционирует по центру [File] между
-         * контентом в начале (если есть Image или Icon) и контентом  в конце (Action),
-         * если есть [LABEL], то будет следовать за ним, по вертикали.
-         * Дополнительно применяет стили текста и цвета для элемента с этой ролью.
-         */
-        DESCRIPTION,
-    }
-
     private fun View.applyContentRole(fileParams: FileLayoutParams) {
         val group = this is ViewGroup
         when (fileParams.fileContent) {
@@ -617,28 +674,15 @@ open class File @JvmOverloads constructor(
             }
 
             FileContent.ICON -> {
-                if (group) {
-                    (this as ViewGroup).children.forEach {
-                        checkForImageToApplyTintList(it)
-                    }
-                } else {
-                    checkForImageToApplyTintList(this)
-                }
+                applyImageColors(this, iconTint)
             }
 
             else -> {}
         }
     }
 
-    private fun checkForImageToApplyTintList(view: View) {
-        if (view is ImageView) {
-            if (view.imageTintList == null) {
-                iconTint?.let { view.imageTintList = it }
-            }
-        }
-    }
-
     private fun TextView.applyLabelRole() {
+        isDuplicateParentStateEnabled = true
         labelAppearance?.let { setTextAppearancesList(it) }
         colorState = this@File.colorState
         labelColor?.let(::setTextColor)
@@ -646,6 +690,7 @@ open class File @JvmOverloads constructor(
     }
 
     private fun TextView.applyDescriptionRole() {
+        isDuplicateParentStateEnabled = true
         descriptionAppearance?.let { setTextAppearancesList(it) }
         colorState = this@File.colorState
         descriptionColor?.let(::setTextColor)
@@ -667,6 +712,8 @@ open class File @JvmOverloads constructor(
                 FileContent.IMAGE, FileContent.ICON -> CellContent.START
                 else -> CellContent.END
             }
+            forceDuplicateParentState =
+                params.fileContent == FileContent.LABEL || params.fileContent == FileContent.DESCRIPTION
             if (cellContent == CellContent.SUBTITLE) {
                 topMargin = _descriptionPadding
             }
@@ -746,6 +793,69 @@ open class File @JvmOverloads constructor(
         progressView?.let {
             addView(it)
         }
+    }
+
+    private fun applyTextColors(view: View?, colors: ColorStateList) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? TextView)?.let { tv ->
+                    tv.setTextColor(colors)
+                    TextViewCompat.setCompoundDrawableTintList(tv, colors)
+                }
+            }
+        } else {
+            (view as? TextView)?.let { tv ->
+                tv.setTextColor(colors)
+                TextViewCompat.setCompoundDrawableTintList(tv, colors)
+            }
+        }
+    }
+
+    private fun applyImageColors(view: View?, colors: ColorStateList?) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? ImageView)?.applyTint(colors)
+            }
+        } else {
+            (view as? ImageView)?.applyTint(colors)
+        }
+    }
+
+    private fun ImageView.applyTint(tint: ColorStateList?) {
+        colorState = this@File.colorState
+        if (imageTintList == null) imageTintList = tint
+    }
+
+    private fun applyTextAppearances(view: View?, appearances: StyleStateList?) {
+        view ?: return
+        val group = view is ViewGroup
+        if (group) {
+            (view as ViewGroup).children.forEach {
+                (it as? TextView)?.setTextAppearancesList(appearances)
+            }
+        } else {
+            (view as? TextView)?.setTextAppearancesList(appearances)
+        }
+    }
+
+    private fun universalAddView(
+        view: View,
+        params: FileLayoutParams?,
+        role: FileContent,
+    ) {
+        val viewParams = view.layoutParams as? FileLayoutParams
+        val finalParams = (params ?: viewParams) ?: FileLayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT,
+        ).also { it.fileContent = role }
+        addView(
+            view,
+            finalParams,
+        )
     }
 
     companion object {

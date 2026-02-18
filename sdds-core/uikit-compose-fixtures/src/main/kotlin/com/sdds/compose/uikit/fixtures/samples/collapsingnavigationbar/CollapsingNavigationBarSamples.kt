@@ -68,7 +68,7 @@ fun CollapsingNavigationBar_Simple() {
 }
 
 @Composable
-@DocSample
+@DocSample(needScreenshot = false)
 fun CollapsingNavigationBar_Style() {
     composableCodeSnippet {
         CollapsingNavigationBarStyle.builder()
