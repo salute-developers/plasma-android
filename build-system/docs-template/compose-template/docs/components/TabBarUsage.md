@@ -9,11 +9,25 @@ TabBarItem в качестве extra ожидает [Counter](CounterUsage.md), 
 По умолчанию элементы добавляются с weight = 1 и равномерно занимают доступную ширину TabBar.
 Если необходимо добавить элемент произвольной ширины, необходимо при использовании функции tabItem() установить параметр weight = null.
 
+### Простой пример TabBar
+
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/tabbar/TabBar_Simple.kt
 ```
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.tabbar.TabBar_Simple -->
+
+### Пример TabBar с Counter
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/tabbar/TabBar_WithCounter.kt
+```
+
+### Пример TabBar с кастомным центральным элементом с фиксированной шириной
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/tabbar/TabBar_CustomItem.kt
+```
 
 ## Стиль TabBar
 

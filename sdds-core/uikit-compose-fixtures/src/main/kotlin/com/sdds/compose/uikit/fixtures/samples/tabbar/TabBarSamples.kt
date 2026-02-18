@@ -1,5 +1,7 @@
 package com.sdds.compose.uikit.fixtures.samples.tabbar
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -7,13 +9,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.TabBar
 import com.sdds.compose.uikit.TabBarItem
@@ -34,13 +39,12 @@ fun TabBar_Simple() {
 
         TabBar {
             repeat(3) { index ->
-                tabItem(weight = 1f) {
+                tabItem {
                     TabBarItem(
                         isSelected = index == selectedIndex,
                         defaultIcon = com.sdds.icons.R.drawable.ic_smile_outline_36,
                         selectedIcon = com.sdds.icons.R.drawable.ic_smile_fill_36,
                         label = "Label",
-                        extra = { Counter(count = "123") },
                         onClick = {
                             selectedIndex = index
                         },
@@ -52,11 +56,79 @@ fun TabBar_Simple() {
 }
 
 @Composable
+@DocSample(needScreenshot = true)
+fun TabBar_WithCounter() {
+    composableCodeSnippet {
+        var selectedIndex by remember { mutableStateOf(0) }
+
+        TabBar {
+            repeat(3) { index ->
+                tabItem {
+                    TabBarItem(
+                        isSelected = index == selectedIndex,
+                        defaultIcon = com.sdds.icons.R.drawable.ic_smile_outline_36,
+                        selectedIcon = com.sdds.icons.R.drawable.ic_smile_fill_36,
+                        label = "Label",
+                        extra = { Counter(count = "3") },
+                        onClick = {
+                            selectedIndex = index
+                        },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun TabBar_CustomItem() {
+    composableCodeSnippet {
+        var selectedIndex by remember { mutableStateOf(0) }
+
+        TabBar {
+            tabItem {
+                TabBarItem(
+                    isSelected = selectedIndex == 0,
+                    defaultIcon = com.sdds.icons.R.drawable.ic_home_alt_outline_36,
+                    selectedIcon = com.sdds.icons.R.drawable.ic_home_alt_fill_36,
+                    label = "Tab 0",
+                    onClick = { selectedIndex = 0 },
+                )
+            }
+            tabItem(weight = null) {
+                Icon(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clickable { selectedIndex = 1 },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_sb_36),
+                    contentDescription = null,
+                )
+            }
+            tabItem {
+                TabBarItem(
+                    isSelected = selectedIndex == 2,
+                    defaultIcon = com.sdds.icons.R.drawable.ic_profile_outline_36,
+                    selectedIcon = com.sdds.icons.R.drawable.ic_profile_fill_36,
+                    label = "Tab 2",
+                    onClick = { selectedIndex = 2 },
+                )
+            }
+        }
+    }
+}
+
+@Composable
 @DocSample(needScreenshot = false)
 fun TabBar_Style() {
     composableCodeSnippet {
         TabBarStyle.builder()
-            .tabBarItemStyle(placeholder(TabBarItemStyle.builder().style(), "/** Стиль компонента */"))
+            .tabBarItemStyle(
+                placeholder(
+                    TabBarItemStyle.builder().style(),
+                    "/** Стиль компонента */",
+                ),
+            )
             .topShape(CircleShape)
             .shadow(placeholder(ShadowAppearance(), "/** Токен тени */"))
             .colors {
@@ -112,7 +184,12 @@ fun TabBarItem_Style() {
             }
             .counterStyle(placeholder(CounterStyle.builder().style(), "/** Стиль компонента */"))
             .badgeStyle(placeholder(BadgeStyle.badgeBuilder().style(), "/** Стиль компонента */"))
-            .indicatorStyle(placeholder(IndicatorStyle.builder().style(), "/** Стиль компонента */"))
+            .indicatorStyle(
+                placeholder(
+                    IndicatorStyle.builder().style(),
+                    "/** Стиль компонента */",
+                ),
+            )
             .style()
     }
 }

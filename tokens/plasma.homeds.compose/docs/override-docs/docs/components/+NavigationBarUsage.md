@@ -1,3 +1,19 @@
+## NavigationBar для корневой страницы или вложенной странницы
+
+У NavigationBar есть 2 конфигурации для корневой и вложенной страницы, отличающиеся наличием кнопки назад.
+
+### Пример NavigationBar для корневой страницы
+
+```kotlin
+// @sample: com/sdds/plasma/homeds/docs/samples/NavigationBar_MainPage.kt
+```
+
+### Пример NavigationBar для вложенной страницы
+
+```kotlin
+// @sample: com/sdds/plasma/homeds/docs/samples/NavigationBar_InternalPage.kt
+```
+
 ## NavigationBar + Overlay
 
 NavigationBar можно использовать вместе с Overlay в тех случаях, когда у NavigationBar нет фона и он может накладываться
