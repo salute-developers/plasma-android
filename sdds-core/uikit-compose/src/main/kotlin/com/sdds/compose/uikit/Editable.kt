@@ -17,6 +17,7 @@ import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
@@ -99,6 +100,7 @@ fun Editable(
             val textStyle = style.textStyle.copy(color = textColor, textAlign = textAlign)
             BasicTextField(
                 modifier = Modifier
+                    .testTag("EditableField")
                     .layoutId(FIELD_ID),
                 value = value,
                 onValueChange = onValueChange,

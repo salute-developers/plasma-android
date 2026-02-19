@@ -146,7 +146,7 @@ fun FormItemTapHasHint(style: FormItemStyle) {
             modifier = Modifier.align(Alignment.Center),
             style = style,
             hintTriggerInfo = hintTriggerInfo,
-            onHintPressed = { showTooltip = true }
+            onHintPressed = { showTooltip = true },
         )
         Tooltip(
             show = showTooltip,
@@ -171,7 +171,7 @@ private fun FormItemCommon(
     hasHint: Boolean = true,
     enabled: Boolean = true,
     hintTriggerInfo: MutableState<TriggerInfo> = remember { mutableStateOf(TriggerInfo()) },
-    onHintPressed: (() -> Unit)? = null
+    onHintPressed: (() -> Unit)? = null,
 ) {
     FormItem(
         modifier = modifier,
