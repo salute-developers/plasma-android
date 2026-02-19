@@ -1,13 +1,16 @@
 package com.sdds.compose.uikit.fixtures.samples.navigationbar
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBar
 import com.sdds.compose.uikit.NavigationBarContentPlacement
 import com.sdds.compose.uikit.NavigationBarStyle
@@ -24,18 +27,139 @@ fun NavigationBar_Simple() {
     composableCodeSnippet {
         NavigationBar(
             textPlacement = NavigationBarTextPlacement.Inline,
-            contentPlacement = NavigationBarContentPlacement.Inline,
-            textAlign = NavigationBarTextAlign.Start,
             textContent = { Text("Text") },
-            content = { Text("Content") },
             actionStart = {
                 Icon(
+                    modifier = Modifier.clickable { /* действие */ },
                     painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
                     contentDescription = "",
                 )
             },
             actionEnd = {
                 Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun NavigationBar_TitleDescription() {
+    composableCodeSnippet {
+        NavigationBar(
+            textPlacement = NavigationBarTextPlacement.Inline,
+            titleContent = { Text("Title") },
+            descriptionContent = { Text("Description") },
+            actionStart = {
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                    contentDescription = "",
+                )
+            },
+            actionEnd = {
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun NavigationBar_CenterAbsolute() {
+    composableCodeSnippet {
+        NavigationBar(
+            centerAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
+            textPlacement = NavigationBarTextPlacement.Inline,
+            titleContent = { Text("Title") },
+            descriptionContent = { Text("Description") },
+            actionEnd = {
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                    contentDescription = "",
+                )
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun NavigationBar_CenterRelative() {
+    composableCodeSnippet {
+        NavigationBar(
+            centerAlignmentStrategy = NavBarCenterAlignmentStrategy.Relative,
+            textPlacement = NavigationBarTextPlacement.Inline,
+            titleContent = { Text("Title") },
+            descriptionContent = { Text("Description") },
+            actionEnd = {
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                    contentDescription = "",
+                )
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun NavigationBar_BottomContentInlineText() {
+    composableCodeSnippet {
+        NavigationBar(
+            textPlacement = NavigationBarTextPlacement.Inline,
+            contentPlacement = NavigationBarContentPlacement.Bottom,
+            textAlign = NavigationBarTextAlign.Start,
+            textContent = { Text("Text") },
+            content = { Text("Content") },
+            actionEnd = {
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun NavigationBar_BottomTextAndContentMultiplyActions() {
+    composableCodeSnippet {
+        NavigationBar(
+            textPlacement = NavigationBarTextPlacement.Bottom,
+            contentPlacement = NavigationBarContentPlacement.Bottom,
+            textAlign = NavigationBarTextAlign.Center,
+            textContent = { Text("Text") },
+            actionEnd = {
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
+                    painter = painterResource(com.sdds.icons.R.drawable.ic_search_24),
+                    contentDescription = "",
+                )
+                Icon(
+                    modifier = Modifier.clickable { /* действие */ },
                     painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
                     contentDescription = "",
                 )

@@ -22,10 +22,84 @@ import com.sdds.compose.uikit.floatPx
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
+import com.sdds.plasma.homeds.styles.collapsingnavigationbar.CollapsingNavigationBarInternalPage
 import com.sdds.plasma.homeds.styles.collapsingnavigationbar.CollapsingNavigationBarMainPage
 import com.sdds.plasma.homeds.styles.collapsingnavigationbar.Default
 import com.sdds.plasma.homeds.styles.overlay.DirectionTop
 import com.sdds.plasma.homeds.styles.overlay.Overlay
+
+@Composable
+@DocSample(needScreenshot = false)
+fun CollapsingNavigationBar_MainPage() {
+    composableCodeSnippet {
+        val scrollBehavior =
+            CollapsingNavigationBarDefaults.exitUntilCollapsedScrollBehavior(
+                rememberCollapsingNavigationBarState(),
+            )
+        Column(
+            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        ) {
+            CollapsingNavigationBar(
+                style = CollapsingNavigationBarMainPage.Default.style(),
+                scrollBehavior = scrollBehavior,
+                collapsedTitle = { Text("Title") },
+                expandedTitle = { Text("Title") },
+                collapsedDescription = { Text("Description") },
+                expandedDescription = { Text("Description") },
+                content = { Text("Content") },
+                actionEnd = {
+                    Icon(
+                        painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+            LazyColumn {
+                items(100) {
+                    Text(modifier = Modifier.padding(32.dp), text = "Label text $it")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun CollapsingNavigationBar_InternalPage() {
+    composableCodeSnippet {
+        val scrollBehavior =
+            CollapsingNavigationBarDefaults.exitUntilCollapsedScrollBehavior(
+                rememberCollapsingNavigationBarState(),
+            )
+        Column(
+            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        ) {
+            CollapsingNavigationBar(
+                style = CollapsingNavigationBarInternalPage.Default.style(),
+                scrollBehavior = scrollBehavior,
+                collapsedTitle = { Text("Title") },
+                expandedTitle = { Text("Title") },
+                collapsedDescription = { Text("Description") },
+                expandedDescription = { Text("Description") },
+                content = { Text("Content") },
+                actionEnd = {
+                    Icon(
+                        painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                        contentDescription = "",
+                    )
+                },
+                onBackPressed = {
+                    println("Back button was pressed")
+                },
+            )
+            LazyColumn {
+                items(100) {
+                    Text(modifier = Modifier.padding(32.dp), text = "Label text $it")
+                }
+            }
+        }
+    }
+}
 
 @Composable
 @DocSample(needScreenshot = false)
