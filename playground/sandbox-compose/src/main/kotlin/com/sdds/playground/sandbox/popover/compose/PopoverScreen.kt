@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.popover.compose
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -39,12 +40,12 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
             ),
             key = componentKey.toString(),
         ),
-        componentAlignment = { popoverUiState -> popoverUiState.triggerPlacement.toAlignment() },
         component = { popoverUiState, style ->
             val showPopover = remember { mutableStateOf(false) }
             val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
             Button(
                 modifier = Modifier
+                    .align(popoverUiState.triggerPlacement.toAlignment())
                     .popoverTrigger(triggerInfo),
                 label = "show",
                 onClick = { showPopover.value = true },
@@ -75,7 +76,7 @@ internal fun PopoverScreen(componentKey: ComponentKey = ComponentKey.Popover) {
                         modifier = Modifier.width(166.dp),
                         style = BasicButton.S.Default.style(),
                         label = "Ok",
-                        onClick = {},
+                        onClick = { Log.d("Popover", "Popover button was pressed") },
                     )
                 }
             }

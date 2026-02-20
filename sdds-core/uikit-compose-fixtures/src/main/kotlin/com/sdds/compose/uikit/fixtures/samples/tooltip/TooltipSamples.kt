@@ -1,5 +1,8 @@
 package com.sdds.compose.uikit.fixtures.samples.tooltip
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +17,7 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TriggerInfo
@@ -46,6 +50,41 @@ fun Tooltip_Simple() {
             duration = 3000,
             text = AnnotatedString("Tooltip Text"),
         )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = false)
+fun Tooltip_ColumnScopeWithBox() {
+    composableCodeSnippet {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text(text = "Text")
+            Box {
+                val showTooltip = remember { mutableStateOf(placeholder(true, "false")) }
+                val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+                Button(
+                    modifier = Modifier
+                        .popoverTrigger(triggerInfo),
+                    label = "show",
+                    onClick = { showTooltip.value = true },
+                )
+                Tooltip(
+                    show = showTooltip.value,
+                    triggerInfo = { triggerInfo.value },
+                    placement = PopoverPlacement.Top,
+                    placementMode = PopoverPlacementMode.Loose,
+                    triggerCentered = false,
+                    alignment = PopoverAlignment.Start,
+                    onDismissRequest = {
+                        showTooltip.value = false
+                    },
+                    duration = 3000,
+                    text = AnnotatedString("Tooltip Text"),
+                )
+            }
+        }
     }
 }
 
