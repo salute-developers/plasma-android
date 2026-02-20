@@ -169,7 +169,7 @@ val updateArchivedVersions by tasks.register("docusaurusBump") {
     }
 }
 
-tasks.withType<AutoBumpTask> {
+project.parent?.tasks?.withType<AutoBumpTask> {
     dependsOn(updateArchivedVersions)
 }
 

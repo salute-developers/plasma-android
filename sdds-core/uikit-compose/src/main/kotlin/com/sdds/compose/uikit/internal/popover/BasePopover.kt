@@ -5,6 +5,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,6 +36,7 @@ import androidx.compose.ui.graphics.Matrix
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathOperation
 import androidx.compose.ui.graphics.addOutline
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
@@ -148,12 +150,25 @@ internal fun BasePopover(
         } else {
             Modifier
         }
+        val clickableForShadowZoneModifier = Modifier
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = { onDismissRequest.invoke() },
+                )
+            }
+        val ignoreContentTapModifier = Modifier
+            .pointerInput(Unit) {
+                detectTapGestures(
+                    onTap = {},
+                )
+            }
         Popup(
             popupPositionProvider = positionProvider,
             properties = popupProperties,
             onDismissRequest = onDismissRequest,
         ) {
             AnimatedVisibility(
+                modifier = clickableForShadowZoneModifier,
                 visibleState = visibleState,
                 enter = enterTransition,
                 exit = exitTransition,
@@ -163,6 +178,7 @@ internal fun BasePopover(
                         modifier = Modifier
                             .onGloballyPositioned { popoverContentSize = it.size }
                             .padding(shadowPaddingValues + tailPaddings)
+                            .then(ignoreContentTapModifier)
                             .then(resizeModifier)
                             .defaultMinSize(minWidth = dimensions.width)
                             .shadow(shadow, shape)
@@ -426,9 +442,11 @@ private class PopoverPositionProvider(
         val triggerWidth = triggerInfo.size.width
         val triggerHeight = triggerInfo.size.height
         val startCompensation = triggerInfo.startAlignmentLine.zeroIfUnspecified()
-        val endCompensation = (triggerWidth - triggerInfo.endAlignmentLine.ifUnspecified(triggerWidth))
+        val endCompensation =
+            (triggerWidth - triggerInfo.endAlignmentLine.ifUnspecified(triggerWidth))
         val topCompensation = triggerInfo.topAlignmentLine.zeroIfUnspecified()
-        val bottomCompensation = (triggerHeight - triggerInfo.bottomAlignmentLine.ifUnspecified(triggerHeight))
+        val bottomCompensation =
+            (triggerHeight - triggerInfo.bottomAlignmentLine.ifUnspecified(triggerHeight))
 
         return when (innerPlacement) {
             PopoverPlacement.Start -> +startCompensation
