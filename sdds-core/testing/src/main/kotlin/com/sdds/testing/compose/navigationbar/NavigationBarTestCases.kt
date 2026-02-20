@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBar
 import com.sdds.compose.uikit.NavigationBarContentPlacement
 import com.sdds.compose.uikit.NavigationBarStyle
@@ -157,6 +158,29 @@ fun NavigationBarTextContentBottomCenterBottom(style: NavigationBarStyle) {
                 contentDescription = "",
             )
         },
+        actionEnd = {
+            Icon(
+                painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
+/**
+ * PLASMA-T2470
+ */
+@Composable
+fun NavigationBarInlineRelative(style: NavigationBarStyle) {
+    NavigationBar(
+        style = style,
+        textPlacement = NavigationBarTextPlacement.Inline,
+        textAlign = NavigationBarTextAlign.Center,
+        contentPlacement = NavigationBarContentPlacement.Inline,
+        textContent = { Text(text = "Title") },
+        content = { Text(text = "Content") },
+        centerAlignmentStrategy = NavBarCenterAlignmentStrategy.Relative,
+        actionStart = {},
         actionEnd = {
             Icon(
                 painter = painterResource(com.sdds.icons.R.drawable.ic_menu_24),

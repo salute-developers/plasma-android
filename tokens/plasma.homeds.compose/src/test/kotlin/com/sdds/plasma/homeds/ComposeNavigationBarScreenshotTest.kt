@@ -1,13 +1,10 @@
-package com.sdds.plasma.sd.service
+package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.navigationbar.HasBackground
-import com.sdds.plasma.sd.service.styles.navigationbar.NavigationBarInternalPage
-import com.sdds.plasma.sd.service.styles.navigationbar.NavigationBarMainPage
-import com.sdds.plasma.sd.service.styles.navigationbar.NoBackground
-import com.sdds.plasma.sd.service.styles.navigationbar.Rounded
-import com.sdds.plasma.sd.service.styles.navigationbar.Shadow
+import com.sdds.plasma.homeds.styles.navigationbar.Default
+import com.sdds.plasma.homeds.styles.navigationbar.NavigationBarInternalPage
+import com.sdds.plasma.homeds.styles.navigationbar.NavigationBarMainPage
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.navigationbar.NavigationBarContentBottomStart
 import com.sdds.testing.compose.navigationbar.NavigationBarInlineRelative
@@ -33,49 +30,49 @@ class ComposeNavigationBarScreenshotTest(
     @Test
     fun testNavBarMainPageNoBackGround() {
         composeTestRule.content {
-            NavigationBarTextContentInlineCenter(NavigationBarMainPage.NoBackground.style())
+            NavigationBarTextContentInlineCenter(NavigationBarMainPage.Default.style())
         }
     }
 
     @Test
     fun testNavBarNoBackgroundRounded() {
         composeTestRule.content {
-            NavigationBarContentBottomStart(NavigationBarInternalPage.NoBackground.Rounded.style())
+            NavigationBarContentBottomStart(NavigationBarInternalPage.Default.style())
         }
     }
 
     @Test
     fun testNavBarHasBackground() {
         composeTestRule.content {
-            NavigationBarLongTextContentInlineCenterBottom(NavigationBarInternalPage.HasBackground.style())
+            NavigationBarLongTextContentInlineCenterBottom(NavigationBarInternalPage.Default.style())
         }
     }
 
     @Test
     fun testNavBarHasBackgroundRounded() {
         composeTestRule.content {
-            NavigationBarTextHasActionEndInlineEndBottom(NavigationBarInternalPage.HasBackground.Rounded.style())
+            NavigationBarTextHasActionEndInlineEndBottom(NavigationBarInternalPage.Default.style())
         }
     }
 
     @Test
     fun testNavBarHasBackgroundShadow() {
         composeTestRule.content {
-            NavigationBarLongTextBottomStartInline(NavigationBarInternalPage.HasBackground.Shadow.style())
+            NavigationBarLongTextBottomStartInline(NavigationBarInternalPage.Default.style())
         }
     }
 
     @Test
     fun testNavBarHasBackgroundShadowRounded() {
         composeTestRule.content {
-            NavigationBarTextContentBottomCenterBottom(NavigationBarInternalPage.HasBackground.Shadow.Rounded.style())
+            NavigationBarTextContentBottomCenterBottom(NavigationBarInternalPage.Default.style())
         }
     }
 
     @Test
     fun testNavigationBarInlineRelative() {
         composeTestRule.content {
-            NavigationBarInlineRelative(NavigationBarMainPage.NoBackground.style())
+            NavigationBarInlineRelative(NavigationBarMainPage.Default.style())
         }
     }
 }
