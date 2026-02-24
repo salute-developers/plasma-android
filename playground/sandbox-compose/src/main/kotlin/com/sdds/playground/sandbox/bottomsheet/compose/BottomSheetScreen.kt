@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.bottomsheet.compose
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -55,6 +56,7 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
             ModalBottomSheet(
                 style = style,
                 sheetState = sheetState,
+                onDismiss = { Log.d("BottomSheetScreen", "OnDismiss") },
                 dimBackground = uiState.dimBackground,
                 useNativeBlackout = uiState.useNativeBlackout,
                 handlePlacement = uiState.handlePlacement,

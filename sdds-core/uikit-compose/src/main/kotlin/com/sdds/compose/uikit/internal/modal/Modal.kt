@@ -12,8 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
@@ -54,10 +56,14 @@ internal fun BaseModalBottomSheet(
 ) {
     val scope = rememberCoroutineScope()
     val dialogState by bottomSheetState.dialogState.collectAsState()
+    var wasVisible by remember { mutableStateOf(bottomSheetState.currentValue != Hidden) }
     LaunchedEffect(bottomSheetState.currentValue) {
-        if (bottomSheetState.currentValue == Hidden) {
+        if (bottomSheetState.currentValue != Hidden) {
+            wasVisible = true
+        } else if (wasVisible) {
             bottomSheetState.hideDialog()
             onDismiss()
+            wasVisible = false
         }
     }
     if (dialogState == DialogState.Show) {
@@ -75,19 +81,20 @@ internal fun BaseModalBottomSheet(
                 hasOverlay = dimBackground && !useNativeBlackout,
                 overlayStyle = overlayStyle,
             ) {
-                BoxWithConstraints(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .clickable(
-                            indication = null,
-                            onClick = {
-                                if (bottomSheetState.confirmValueChange(Hidden)) {
-                                    scope.launch { bottomSheetState.hide() }
-                                }
-                            },
-                            interactionSource = remember { MutableInteractionSource() },
-                        ),
-                ) {
+                BoxWithConstraints(Modifier.fillMaxSize()) {
+                    Box(
+                        Modifier
+                            .fillMaxSize()
+                            .clickable(
+                                indication = null,
+                                onClick = {
+                                    if (bottomSheetState.confirmValueChange(Hidden)) {
+                                        scope.launch { bottomSheetState.hide() }
+                                    }
+                                },
+                                interactionSource = remember { MutableInteractionSource() },
+                            ),
+                    )
                     if (hasHandle) {
                         DraggableHandleArea(
                             sheetState = bottomSheetState,
