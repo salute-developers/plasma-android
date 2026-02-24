@@ -47,6 +47,12 @@ android {
         }
     }
 
+    withVersionCatalogs {
+        composeOptions {
+            kotlinCompilerExtensionVersion = versions.androidX.compose.compiler.get()
+        }
+    }
+
     signingConfigs {
         create("release") {
             if (System.getenv("KEY_STORE_FILE") != null) {
@@ -78,5 +84,17 @@ android {
         textReport = false
         sarifReport = false
         htmlReport = true
+    }
+}
+
+withVersionCatalogs {
+    configurations.configureEach {
+        if (name.startsWith("kotlinCompilerPluginClasspath")) {
+            resolutionStrategy.dependencySubstitution {
+                val compilerVersion = versions.androidX.compose.compiler.get()
+                substitute(module("org.jetbrains.compose.compiler:compiler"))
+                    .using(module("androidx.compose.compiler:compiler:$compilerVersion"))
+            }
+        }
     }
 }

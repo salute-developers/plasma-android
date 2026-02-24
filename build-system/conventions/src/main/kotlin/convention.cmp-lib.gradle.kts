@@ -19,6 +19,14 @@ android {
             minSdk = versions.global.minSdk.get().toInt()
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
+
+        buildFeatures {
+            compose = true
+        }
+
+        composeOptions {
+            kotlinCompilerExtensionVersion = versions.androidX.compose.compiler.get()
+        }
     }
 
     buildTypes {
@@ -38,5 +46,17 @@ android {
         textReport = false
         sarifReport = false
         htmlReport = true
+    }
+}
+
+withVersionCatalogs {
+    configurations.configureEach {
+        if (name.startsWith("kotlinCompilerPluginClasspath")) {
+            resolutionStrategy.dependencySubstitution {
+                val compilerVersion = versions.androidX.compose.compiler.get()
+                substitute(module("org.jetbrains.compose.compiler:compiler"))
+                    .using(module("androidx.compose.compiler:compiler:$compilerVersion"))
+            }
+        }
     }
 }
