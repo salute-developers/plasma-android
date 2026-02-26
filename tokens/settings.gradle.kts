@@ -30,6 +30,7 @@ include(
     ":plasma.sd.service.compose:docs",
     ":plasma.homeds.compose",
     ":plasma.homeds.compose:docs",
+    ":plasma.homeds.compose:app",
     ":plasma.sd.service.view",
     ":plasma.sd.service.view:docs",
     ":sdds.serv.compose",
