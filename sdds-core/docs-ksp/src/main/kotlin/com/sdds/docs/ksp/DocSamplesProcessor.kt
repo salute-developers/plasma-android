@@ -41,9 +41,9 @@ class DocSamplesProcessor(
     private val composableAnn = "androidx.compose.runtime.Composable"
     private val packageName: String = options["packageName"] ?: "com.sdds.docs"
 
-    private val kotlinEntries: LinkedHashMap<String, Entry> = linkedMapOf()
-    private val viewEntries: LinkedHashMap<String, Entry> = linkedMapOf()
-    private val composableEntries: LinkedHashMap<String, Entry> = linkedMapOf()
+    private val kotlinEntries: HashMap<String, Entry> = linkedMapOf()
+    private val viewEntries: HashMap<String, Entry> = linkedMapOf()
+    private val composableEntries: HashMap<String, Entry> = linkedMapOf()
     private var registryGenerated: Boolean = false
 
     /**
@@ -121,7 +121,7 @@ class DocSamplesProcessor(
         }
     }
 
-    private fun ReferenceType.getReferenceTarget(): LinkedHashMap<String, Entry> {
+    private fun ReferenceType.getReferenceTarget(): HashMap<String, Entry> {
         return when (this) {
             ReferenceType.Composable -> composableEntries
             ReferenceType.View -> viewEntries
