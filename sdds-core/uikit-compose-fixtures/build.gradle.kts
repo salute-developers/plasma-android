@@ -21,12 +21,19 @@ android {
     }
 }
 
+ksp {
+    arg("sandbox.packageName", "com.sdds.compose.uikit.fixtures.stories")
+}
+
 dependencies {
     implementation(project(":uikit-compose"))
     implementation(project(":icons"))
     implementation(project(":docs"))
     implementation(project(":docs-compose"))
+    implementation(project(":sandbox-core"))
+    implementation(project(":sandbox-compose"))
     ksp(project(":docs-ksp"))
+    ksp(project(":sandbox-ksp"))
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.test.roborazzi)
     implementation(libs.test.roborazzi.rule)
