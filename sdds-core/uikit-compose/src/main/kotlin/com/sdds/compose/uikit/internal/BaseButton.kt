@@ -35,7 +35,10 @@ import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.ButtonDimensions
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.ProvideTextBehaviour
+import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextBehaviour
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.internal.common.surface
@@ -283,6 +286,53 @@ internal fun ButtonText(
                 width - valuePlaceable.widthOrZero(),
                 height - valuePlaceable.heightOrZero(),
             )
+        }
+    }
+}
+
+/**
+ * Composable для отображение текстов в кнопке
+ */
+@Composable
+internal fun RowScope.ButtonText(
+    labelContent: @Composable () -> Unit,
+    labelTextStyle: TextStyle,
+    labelColor: () -> Color,
+    spacing: ButtonSpacing,
+    modifier: Modifier = Modifier,
+    valueContent: (@Composable () -> Unit)?,
+    valueTextStyle: TextStyle,
+    valueColor: () -> Color,
+    valueMargin: Dp = Dp.Unspecified,
+) {
+    ProvideTextBehaviour(TextBehaviour(overflow = TextOverflow.Ellipsis, maxLines = 1)) {
+        if (valueContent != null) {
+            val widthModifier = if (spacing == ButtonSpacing.SpaceBetween) {
+                modifier.fillMaxWidth().weight(1f, false)
+            } else {
+                modifier
+            }
+            Row(
+                horizontalArrangement = when (spacing) {
+                    ButtonSpacing.Packed -> Arrangement.Center
+                    ButtonSpacing.SpaceBetween -> Arrangement.SpaceBetween
+                },
+                modifier = widthModifier,
+            ) {
+                ProvideTextStyle(labelTextStyle, color = labelColor) {
+                    labelContent()
+                }
+
+                Spacer(modifier = Modifier.width(valueMargin))
+
+                ProvideTextStyle(valueTextStyle, color = valueColor) {
+                    valueContent()
+                }
+            }
+        } else {
+            ProvideTextStyle(labelTextStyle, color = labelColor) {
+                labelContent()
+            }
         }
     }
 }

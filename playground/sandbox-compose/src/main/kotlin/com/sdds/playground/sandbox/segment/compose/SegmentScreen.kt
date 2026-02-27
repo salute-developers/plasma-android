@@ -5,14 +5,17 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.Counter
+import com.sdds.compose.uikit.Divider
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SegmentHorizontal
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentScope
 import com.sdds.compose.uikit.SegmentVertical
+import com.sdds.compose.uikit.Text
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
@@ -66,6 +69,7 @@ private fun SegmentScope.SegmentItems(
         segmentItem {
             val interactionSource = remember { MutableInteractionSource() }
             SegmentItem(
+                labelContent = { Text(uiState.label) },
                 modifier = Modifier
                     .clickable(
                         enabled = uiState.enabled,
@@ -75,39 +79,47 @@ private fun SegmentScope.SegmentItems(
                         onClick(id)
                     },
                 isSelected = isChecked(id),
-                label = uiState.label,
-                value = uiState.value,
-                startIcon = startIcon(uiState.startIcon),
-                endIcon = endIcon(uiState.endContent),
-                counter = counter(uiState.count, uiState.endContent),
+                valueContent = { Text(uiState.value) },
+                startContent = startIcon(uiState.startIcon),
+                endContent = endContent(uiState),
                 enabled = uiState.enabled,
                 interactionSource = interactionSource,
             )
+        }
+
+        if (uiState.hasDivider && id < uiState.amount - 1) {
+            divider { Divider() }
         }
     }
 }
 
 @Composable
-private fun startIcon(hasStartIcon: Boolean): Painter? {
+private fun startIcon(hasStartIcon: Boolean): (@Composable () -> Unit)? {
     return if (hasStartIcon) {
-        painterResource(id = R.drawable.ic_scribble_diagonal_24)
+        {
+            Icon(painterResource(id = R.drawable.ic_scribble_diagonal_24), "")
+        }
     } else {
         null
     }
 }
 
 @Composable
-private fun endIcon(contentType: SegmentItemContent): Painter? {
-    return if (contentType == SegmentItemContent.ICON) {
-        painterResource(id = R.drawable.ic_scribble_diagonal_36)
-    } else {
-        null
-    }
-}
+private fun endContent(state: SegmentUiState): (@Composable () -> Unit)? {
+    return when (state.endContent) {
+        SegmentItemContent.NONE -> null
+        SegmentItemContent.ICON -> {
+            {
+                Icon(painterResource(id = R.drawable.ic_scribble_diagonal_36), "")
+            }
+        }
 
-@Composable
-private fun counter(count: String, contentType: SegmentItemContent): String? {
-    return if (contentType == SegmentItemContent.COUNTER) count else null
+        SegmentItemContent.COUNTER -> {
+            {
+                Counter(count = state.count)
+            }
+        }
+    }
 }
 
 @Preview

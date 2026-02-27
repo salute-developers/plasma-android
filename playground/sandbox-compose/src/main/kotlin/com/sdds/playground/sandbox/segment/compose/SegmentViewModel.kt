@@ -82,6 +82,13 @@ internal class SegmentViewModel(
                     internalUiState.value = internalUiState.value.copy(startIcon = it)
                 },
             ),
+            Property.BooleanProperty(
+                name = "hasDivider",
+                value = hasDivider,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(hasDivider = it)
+                },
+            ),
             enumProperty(
                 name = "endContent",
                 value = endContent,

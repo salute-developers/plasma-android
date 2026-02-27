@@ -8,11 +8,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+
+/**
+ * CompositionLocal для [DividerOrientation]
+ */
+val LocalDividerOrientation = compositionLocalOf { DividerOrientation.Horizontal }
 
 /**
  * Компонент Divider - разделитель
@@ -26,7 +32,7 @@ fun Divider(
     modifier: Modifier = Modifier,
     style: DividerStyle = LocalDividerStyle.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    orientation: DividerOrientation = DividerOrientation.Horizontal,
+    orientation: DividerOrientation = LocalDividerOrientation.current,
 ) {
     val thickness = style.dimensions.thickness
     val targetThickness = if (thickness == Dp.Hairline) {
@@ -45,8 +51,8 @@ fun Divider(
                 .width(targetThickness)
     }
     Box(
-        modifier
-            .then(orientationBasedModifier)
+        orientationBasedModifier
+            .then(modifier)
             .background(
                 color = style.color.backgroundColor.colorForInteraction(interactionSource),
                 shape = style.shape,

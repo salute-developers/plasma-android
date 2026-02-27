@@ -49,6 +49,7 @@ internal class SegmentConfigDelegate : ComponentConfigDelegate<SegmentConfig>() 
             componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             segmentItemStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.segmentitem",
+            dividerStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.divider",
         )
     }
 }

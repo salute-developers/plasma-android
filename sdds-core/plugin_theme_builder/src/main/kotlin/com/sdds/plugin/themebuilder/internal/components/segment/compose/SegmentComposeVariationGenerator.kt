@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class SegmentComposeVariationGenerator(
     private val segmentItemStylesPackage: String,
+    private val dividerStylesPackage: String,
     themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
@@ -42,6 +43,7 @@ internal class SegmentComposeVariationGenerator(
             colorsCall(props),
             dimensionsCall(props, variationId),
             segmentItemStyleCall(props, ktFileBuilder),
+            dividerStyleCall(props, ktFileBuilder),
         )
     }
 
@@ -60,6 +62,20 @@ internal class SegmentComposeVariationGenerator(
                 it.value.getComponentStyle(
                     ktFileBuilder,
                     segmentItemStylesPackage,
+                )
+            }.style())"
+        }
+    }
+
+    private fun dividerStyleCall(
+        props: SegmentProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.dividerStyle?.let {
+            ".dividerStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    dividerStylesPackage,
                 )
             }.style())"
         }
@@ -98,6 +114,15 @@ internal class SegmentComposeVariationGenerator(
                 props.paddingBottom?.let {
                     appendDimension("padding_bottom", it, variationId)
                 }
+                props.gap?.let {
+                    appendDimension("gap", it, variationId)
+                }
+                props.dividerPaddingStart?.let {
+                    appendDimension("divider_padding_start", it, variationId)
+                }
+                props.dividerPaddingEnd?.let {
+                    appendDimension("divider_padding_end", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -113,6 +138,9 @@ internal class SegmentComposeVariationGenerator(
         return paddingStart != null ||
             paddingEnd != null ||
             paddingTop != null ||
-            paddingBottom != null
+            paddingBottom != null ||
+            dividerPaddingStart != null ||
+            dividerPaddingEnd != null ||
+            gap != null
     }
 }

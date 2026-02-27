@@ -16,6 +16,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 
 /**
+ * CompositionLocal для [TextBehaviour]
+ */
+val LocalTextBehaviour = compositionLocalOf { TextBehaviour() }
+
+/**
  * Текст
  *
  * @param text текст
@@ -34,9 +39,9 @@ fun Text(
     modifier: Modifier = Modifier,
     style: TextStyle = LocalTextStyle.current,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    overflow: TextOverflow = TextOverflow.Clip,
-    softWrap: Boolean = true,
-    maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
     color: ColorProducer? = LocalTextColorProducer.current,
 ) {
     BasicText(
@@ -71,9 +76,9 @@ fun Text(
     modifier: Modifier = Modifier,
     style: TextStyle = LocalTextStyle.current,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    overflow: TextOverflow = TextOverflow.Clip,
-    softWrap: Boolean = true,
-    maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
     inlineContent: Map<String, InlineTextContent> = mapOf(),
     color: ColorProducer? = LocalTextColorProducer.current,
 ) {
@@ -142,3 +147,26 @@ fun ProvideTextStyle(value: TextStyle, color: ColorProducer, content: @Composabl
         content = content,
     )
 }
+
+/**
+ * Функция используется для установки текущего значения [LocalTextBehaviour]
+ */
+@Composable
+fun ProvideTextBehaviour(behaviour: TextBehaviour, content: @Composable () -> Unit) {
+    CompositionLocalProvider(
+        LocalTextBehaviour provides behaviour,
+        content = content,
+    )
+}
+
+/**
+ * Поведение компонента [Text]
+ * @property overflow режим переполнения текста
+ * @property softWrap должен ли текст разрываться при мягких разрывах строк
+ * @property maxLines максимальное количество строк
+ */
+data class TextBehaviour(
+    val overflow: TextOverflow = TextOverflow.Clip,
+    val softWrap: Boolean = true,
+    val maxLines: Int = Int.MAX_VALUE,
+)

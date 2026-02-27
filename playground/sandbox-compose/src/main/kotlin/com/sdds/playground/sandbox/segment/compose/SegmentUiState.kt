@@ -16,6 +16,7 @@ internal data class SegmentUiState(
     val startIcon: Boolean = false,
     val endContent: SegmentItemContent = SegmentItemContent.COUNTER,
     val count: String = "1",
+    val hasDivider: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {

@@ -46,6 +46,11 @@ interface SegmentStyle : Style {
      */
     val segmentItemStyle: SegmentItemStyle
 
+    /**
+     * Стиль [Divider]
+     */
+    val dividerStyle: DividerStyle
+
     companion object {
         /**
          * Возвращает экземпляр [SegmentStyleBuilder]
@@ -77,9 +82,14 @@ interface SegmentStyleBuilder : StyleBuilder<SegmentStyle> {
     fun dimensions(builder: @Composable SegmentDimensionsBuilder.() -> Unit): SegmentStyleBuilder
 
     /**
-     * Устанавливает стиль [Counter]
+     * Устанавливает стиль [SegmentItemStyle]
      */
     fun segmentItemStyle(segmentItemStyle: SegmentItemStyle): SegmentStyleBuilder
+
+    /**
+     * Устанавливает стиль [Divider]
+     */
+    fun dividerStyle(dividerStyle: DividerStyle): SegmentStyleBuilder
 }
 
 @Immutable
@@ -88,6 +98,7 @@ private class DefaultSegmentStyle(
     override val colors: SegmentColors,
     override val dimensions: SegmentDimensions,
     override val segmentItemStyle: SegmentItemStyle,
+    override val dividerStyle: DividerStyle,
 ) : SegmentStyle {
 
     class Builder : SegmentStyleBuilder {
@@ -96,6 +107,7 @@ private class DefaultSegmentStyle(
         private var dimensionsBuilder: SegmentDimensionsBuilder =
             SegmentDimensions.builder()
         private var segmentItemStyle: SegmentItemStyle? = null
+        private var dividerStyle: DividerStyle? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -116,6 +128,10 @@ private class DefaultSegmentStyle(
             this.segmentItemStyle = segmentItemStyle
         }
 
+        override fun dividerStyle(dividerStyle: DividerStyle) = apply {
+            this.dividerStyle = dividerStyle
+        }
+
         override fun style(): SegmentStyle {
             return DefaultSegmentStyle(
                 shape = shape ?: CircleShape,
@@ -123,6 +139,7 @@ private class DefaultSegmentStyle(
                 dimensions = dimensionsBuilder.build(),
                 segmentItemStyle = segmentItemStyle ?: SegmentItemStyle.builder()
                     .style(),
+                dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
             )
         }
     }
@@ -216,6 +233,21 @@ interface SegmentDimensions {
      */
     val paddingBottom: Dp
 
+    /**
+     * Отступ между элементами
+     */
+    val gap: Dp
+
+    /**
+     * Отступ разделителя вначале
+     */
+    val dividerPaddingStart: Dp
+
+    /**
+     * Отступ разделителя вконце
+     */
+    val dividerPaddingEnd: Dp
+
     companion object {
 
         /**
@@ -251,6 +283,21 @@ interface SegmentDimensionsBuilder {
     fun paddingBottom(paddingBottom: Dp): SegmentDimensionsBuilder
 
     /**
+     * Устанавливает отступ разделителя вначале
+     */
+    fun dividerPaddingStart(paddingStart: Dp): SegmentDimensionsBuilder
+
+    /**
+     * Устанавливает отступ разделителя вконце
+     */
+    fun dividerPaddingEnd(paddingEnd: Dp): SegmentDimensionsBuilder
+
+    /**
+     * Устанавливает отступ между элементами
+     */
+    fun gap(gap: Dp): SegmentDimensionsBuilder
+
+    /**
      * Вернет [SegmentDimensions]
      */
     fun build(): SegmentDimensions
@@ -262,6 +309,9 @@ private class DefaultSegmentDimensions(
     override val paddingEnd: Dp,
     override val paddingTop: Dp,
     override val paddingBottom: Dp,
+    override val gap: Dp,
+    override val dividerPaddingStart: Dp,
+    override val dividerPaddingEnd: Dp,
 ) : SegmentDimensions {
 
     class Builder : SegmentDimensionsBuilder {
@@ -269,6 +319,9 @@ private class DefaultSegmentDimensions(
         private var paddingEnd: Dp? = null
         private var paddingTop: Dp? = null
         private var paddingBottom: Dp? = null
+        private var gap: Dp? = null
+        private var dividerPaddingStart: Dp? = null
+        private var dividerPaddingEnd: Dp? = null
 
         override fun paddingStart(paddingStart: Dp) = apply {
             this.paddingStart = paddingStart
@@ -286,12 +339,27 @@ private class DefaultSegmentDimensions(
             this.paddingBottom = paddingBottom
         }
 
+        override fun dividerPaddingStart(paddingStart: Dp) = apply {
+            this.dividerPaddingStart = paddingStart
+        }
+
+        override fun dividerPaddingEnd(paddingEnd: Dp) = apply {
+            this.dividerPaddingEnd = paddingEnd
+        }
+
+        override fun gap(gap: Dp) = apply {
+            this.gap = gap
+        }
+
         override fun build(): SegmentDimensions {
             return DefaultSegmentDimensions(
                 paddingStart = paddingStart ?: 4.dp,
                 paddingEnd = paddingEnd ?: 4.dp,
                 paddingTop = paddingTop ?: 4.dp,
                 paddingBottom = paddingBottom ?: 4.dp,
+                gap = gap ?: Dp.Unspecified,
+                dividerPaddingStart = dividerPaddingStart ?: Dp.Unspecified,
+                dividerPaddingEnd = dividerPaddingEnd ?: Dp.Unspecified,
             )
         }
     }
