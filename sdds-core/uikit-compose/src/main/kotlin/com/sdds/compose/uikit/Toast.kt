@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
@@ -30,7 +31,34 @@ fun Toast(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     if (text.isEmpty() && contentStart == null && contentEnd == null) return
-    val textStyle = style.textStyle
+    Toast(
+        modifier = modifier,
+        style = style,
+        textContent = { Text(text, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+        contentStart = contentStart,
+        contentEnd = contentEnd,
+        interactionSource = interactionSource,
+    )
+}
+
+/**
+ * Компонент Toast
+ * @param textContent слот для основного контента (текста)
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param contentStart контент в начале
+ * @param contentEnd контент в конце
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun Toast(
+    textContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: ToastStyle = LocalToastStyle.current,
+    contentStart: (@Composable () -> Unit)? = null,
+    contentEnd: (@Composable () -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
     val shape = style.shape
     val dimensions = style.dimensions
     val colors = style.colors
@@ -42,8 +70,7 @@ fun Toast(
                 shape = shape,
             )
             .padding(top = dimensions.paddingTop, bottom = dimensions.paddingBottom),
-        labelContent = text,
-        labelStyle = textStyle,
+        labelContent = textContent,
         dimensionsSet = BaseIconText.Dimensions(
             startContentSize = dimensions.contentStartSize,
             endContentSize = dimensions.contentEndSize,
@@ -52,6 +79,7 @@ fun Toast(
             startPadding = dimensions.paddingStart,
             endPadding = dimensions.paddingEnd,
         ),
+        labelStyle = style.textStyle,
         colorsSet = BaseIconText.Colors(
             labelColor = colors.textColor,
             startContentColor = colors.contentStartColor,

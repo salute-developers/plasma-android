@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -85,6 +86,7 @@ internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
     colorsSet: BaseIconText.Colors,
+    labelStyle: TextStyle = TextStyle.Default,
     labelContent: (@Composable () -> Unit)? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
@@ -107,6 +109,7 @@ internal fun BaseIconText(
             IconTextContent(
                 dimensions = dimensionsSet,
                 startContent = startContent,
+                labelStyle = labelStyle,
                 endContent = endContent,
                 startContentColor = startContentColor,
                 endContentColor = endContentColor,
@@ -240,6 +243,7 @@ private fun IconTextContent(
     startContentColor: Color,
     endContentColor: Color,
     labelColor: Color,
+    labelStyle: TextStyle,
     labelContent: (@Composable () -> Unit)?,
     dimensions: BaseIconText.Dimensions,
 ) {
@@ -258,7 +262,7 @@ private fun IconTextContent(
         }
     }
     labelContent?.let {
-        CompositionLocalProvider(LocalTint provides labelColor) {
+        ProvideTextStyle(labelStyle, color = { labelColor }) {
             Box(
                 modifier = Modifier
                     .layoutId(TEXT_CONTENT),
