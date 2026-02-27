@@ -46,6 +46,7 @@ import com.sdds.compose.uikit.RectSkeletonStyle
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.SelectStyle
 import com.sdds.compose.uikit.SliderStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
@@ -128,6 +129,8 @@ import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
+import com.sdds.playground.sandbox.select.SelectPreview
+import com.sdds.playground.sandbox.select.SelectScreen
 import com.sdds.playground.sandbox.slider.compose.SliderPreview
 import com.sdds.playground.sandbox.slider.compose.SliderScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
@@ -407,10 +410,13 @@ internal sealed class ComponentScreen(
         { EditableScreen(it) },
         { style, _ -> EditablePreview(style as EditableStyle) },
     )
-
     object ToolBar : ComponentScreen(
         { ToolBarScreen(it) },
         { style, _ -> ToolBarPreview(style as ToolBarStyle) },
+    )
+    object Select : ComponentScreen(
+        { SelectScreen(it) },
+        { style, _ -> SelectPreview(style as SelectStyle) },
     )
     object Empty : ComponentScreen({})
 }
@@ -480,6 +486,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.FORM_ITEM -> ComponentScreen.FormItem
         CoreComponent.EDITABLE -> ComponentScreen.Editable
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
+        CoreComponent.SELECT -> ComponentScreen.Select
         else -> ComponentScreen.Empty
     }
 }

@@ -264,8 +264,9 @@ data class ComponentKey(
         val File = ComponentKey("File", CoreComponent.FILE)
         val FormItem = ComponentKey("FormItem", CoreComponent.FORM_ITEM)
         val Editable = ComponentKey("Editable", CoreComponent.EDITABLE)
-
         val ToolBar = ComponentKey("ToolBar", CoreComponent.TOOL_BAR)
+        val Select = ComponentKey("Select", CoreComponent.SELECT)
+        val SelectItem = ComponentKey("Editable", CoreComponent.SELECT_ITEM)
     }
 }
 
@@ -361,6 +362,8 @@ enum class CoreComponent {
     FILE,
     FORM_ITEM,
     EDITABLE,
+    SELECT,
+    SELECT_ITEM,
 }
 
 /**
@@ -428,6 +431,8 @@ private fun CoreComponent.group(): CoreComponentGroup {
         CoreComponent.SLIDER,
         CoreComponent.FILE,
         CoreComponent.EDITABLE,
+        CoreComponent.SELECT,
+        CoreComponent.SELECT_ITEM,
         -> CoreComponentGroup.DATA_ENTRY
 
         CoreComponent.DROPDOWN_MENU,

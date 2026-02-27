@@ -448,5 +448,23 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                     "Editable" to SddsServEditableVariationsCompose,
                 ),
             ),
+            ComposeComponent(
+                ComponentKey.Select,
+                mapOf(
+                    "SelectSingleNormal" to SddsServSelectSingleNormalVariationsCompose,
+                    "SelectSingleTight" to SddsServSelectSingleTightVariationsCompose,
+                    "SelectMultipleNormal" to SddsServSelectMultipleNormalVariationsCompose,
+                    "SelectMultipleTight" to SddsServSelectMultipleTightVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.SelectItem,
+                mapOf(
+                    "SelectItemSingleNormal" to SddsServSelectItemSingleNormalVariationsCompose,
+                    "SelectItemSingleTight" to SddsServSelectItemSingleTightVariationsCompose,
+                    "SelectItemMultipleNormal" to SddsServSelectItemMultipleNormalVariationsCompose,
+                    "SelectItemMultipleTight" to SddsServSelectItemMultipleTightVariationsCompose,
+                ),
+            ),
         ).associateBy { it.key }
 }
