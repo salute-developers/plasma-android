@@ -6954,12 +6954,12 @@ public object LightGradientTokens {
         /**
          * Цвета градиента
          */
-        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
+        public val colors: List<Color> = listOf(Color(0xFFffffff), Color(0xFF000000))
 
         /**
          * Точки остановки цветов градиента
          */
-        public val positions: FloatArray = floatArrayOf(0.06f, 0.94f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
         /**
          * Угол градиента

@@ -82,6 +82,14 @@ public data class PlasmaGigaTypography internal constructor(
      */
     public val headerH5Bold: TextStyle = TextStyle.Default,
     /**
+     * typography l header-h6
+     */
+    public val headerH6Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h6-bold
+     */
+    public val headerH6Bold: TextStyle = TextStyle.Default,
+    /**
      * typography l body-l
      */
     public val bodyLNormal: TextStyle = TextStyle.Default,
@@ -186,6 +194,10 @@ public data class PlasmaGigaTypography internal constructor(
      */
     public val headerH5Medium: TextStyle = TextStyle.Default,
     /**
+     * typography l header-h6-medium
+     */
+    public val headerH6Medium: TextStyle = TextStyle.Default,
+    /**
      * typography l body-l-medium
      */
     public val bodyLMedium: TextStyle = TextStyle.Default,
@@ -248,6 +260,8 @@ public fun smallPlasmaGigaTypography(): PlasmaGigaTypography = PlasmaGigaTypogra
     headerH4Bold = TypographySmallTokens.HeaderH4Bold,
     headerH5Normal = TypographySmallTokens.HeaderH5Normal,
     headerH5Bold = TypographySmallTokens.HeaderH5Bold,
+    headerH6Normal = TypographySmallTokens.HeaderH6Normal,
+    headerH6Bold = TypographySmallTokens.HeaderH6Bold,
     bodyLNormal = TypographySmallTokens.BodyLNormal,
     bodyLBold = TypographySmallTokens.BodyLBold,
     bodyMNormal = TypographySmallTokens.BodyMNormal,
@@ -274,6 +288,7 @@ public fun smallPlasmaGigaTypography(): PlasmaGigaTypography = PlasmaGigaTypogra
     headerH3Medium = TypographySmallTokens.HeaderH3Medium,
     headerH4Medium = TypographySmallTokens.HeaderH4Medium,
     headerH5Medium = TypographySmallTokens.HeaderH5Medium,
+    headerH6Medium = TypographySmallTokens.HeaderH6Medium,
     bodyLMedium = TypographySmallTokens.BodyLMedium,
     bodyMMedium = TypographySmallTokens.BodyMMedium,
     bodySMedium = TypographySmallTokens.BodySMedium,
@@ -305,6 +320,8 @@ public fun mediumPlasmaGigaTypography(): PlasmaGigaTypography = PlasmaGigaTypogr
     headerH4Bold = TypographyMediumTokens.HeaderH4Bold,
     headerH5Normal = TypographyMediumTokens.HeaderH5Normal,
     headerH5Bold = TypographyMediumTokens.HeaderH5Bold,
+    headerH6Normal = TypographyMediumTokens.HeaderH6Normal,
+    headerH6Bold = TypographyMediumTokens.HeaderH6Bold,
     bodyLNormal = TypographyMediumTokens.BodyLNormal,
     bodyLBold = TypographyMediumTokens.BodyLBold,
     bodyMNormal = TypographyMediumTokens.BodyMNormal,
@@ -331,6 +348,7 @@ public fun mediumPlasmaGigaTypography(): PlasmaGigaTypography = PlasmaGigaTypogr
     headerH3Medium = TypographyMediumTokens.HeaderH3Medium,
     headerH4Medium = TypographyMediumTokens.HeaderH4Medium,
     headerH5Medium = TypographyMediumTokens.HeaderH5Medium,
+    headerH6Medium = TypographyMediumTokens.HeaderH6Medium,
     bodyLMedium = TypographyMediumTokens.BodyLMedium,
     bodyMMedium = TypographyMediumTokens.BodyMMedium,
     bodySMedium = TypographyMediumTokens.BodySMedium,
@@ -362,6 +380,8 @@ public fun largePlasmaGigaTypography(): PlasmaGigaTypography = PlasmaGigaTypogra
     headerH4Bold = TypographyLargeTokens.HeaderH4Bold,
     headerH5Normal = TypographyLargeTokens.HeaderH5Normal,
     headerH5Bold = TypographyLargeTokens.HeaderH5Bold,
+    headerH6Normal = TypographyLargeTokens.HeaderH6Normal,
+    headerH6Bold = TypographyLargeTokens.HeaderH6Bold,
     bodyLNormal = TypographyLargeTokens.BodyLNormal,
     bodyLBold = TypographyLargeTokens.BodyLBold,
     bodyMNormal = TypographyLargeTokens.BodyMNormal,
@@ -388,6 +408,7 @@ public fun largePlasmaGigaTypography(): PlasmaGigaTypography = PlasmaGigaTypogra
     headerH3Medium = TypographyLargeTokens.HeaderH3Medium,
     headerH4Medium = TypographyLargeTokens.HeaderH4Medium,
     headerH5Medium = TypographyLargeTokens.HeaderH5Medium,
+    headerH6Medium = TypographyLargeTokens.HeaderH6Medium,
     bodyLMedium = TypographyLargeTokens.BodyLMedium,
     bodyMMedium = TypographyLargeTokens.BodyMMedium,
     bodySMedium = TypographyLargeTokens.BodySMedium,

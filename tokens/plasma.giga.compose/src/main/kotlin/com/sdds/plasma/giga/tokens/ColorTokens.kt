@@ -1090,17 +1090,17 @@ public object DarkColorTokens {
     /**
      * Прозрачный фон для карточек
      */
-    public val SurfaceDefaultTransparentCardHover: Color = Color(0x1CEBFFFD)
+    public val SurfaceDefaultTransparentCardHover: Color = Color(0x3DFFFFFF)
 
     /**
      * Прозрачный фон для карточек
      */
-    public val SurfaceDefaultTransparentCardActive: Color = Color(0x08EBFFFD)
+    public val SurfaceDefaultTransparentCardActive: Color = Color(0x0FFFFFFF)
 
     /**
      * Прозрачный фон для карточек
      */
-    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0x0DEBFFFD)
+    public val SurfaceDefaultTransparentCardBrightness: Color = Color(0x1FFFFFFF)
 
     /**
      * Фон поверхности/контрола без заливки
@@ -1348,6 +1348,11 @@ public object DarkColorTokens {
     public val SurfaceDefaultSolidDefault: Color = Color(0xFFFFFFFF)
 
     /**
+     * Прозрачный фон для карточек
+     */
+    public val SurfaceDefaultTransparentCard: Color = Color(0x1FFFFFFF)
+
+    /**
      * Основной прозрачный фон поверхности/контрола
      */
     public val SurfaceDefaultTransparentPrimary: Color = Color(0x0DFFFFFF)
@@ -1431,11 +1436,6 @@ public object DarkColorTokens {
      * Прозрачный акцентный фон поверхности/контрола
      */
     public val SurfaceDefaultTransparentAccent: Color = Color(0x3352F2C5)
-
-    /**
-     * Прозрачный фон для карточек
-     */
-    public val SurfaceDefaultTransparentCard: Color = Color(0x0DEDFFFD)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -1540,17 +1540,17 @@ public object DarkColorTokens {
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x1CEBFFFD)
+    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x3DFFFFFF)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x08EBFFFD)
+    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x0FFFFFFF)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0DEBFFFD)
+    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x1FFFFFFF)
 
     /**
      * Фон поверхности/контрола без заливки на темном фоне
@@ -1803,6 +1803,11 @@ public object DarkColorTokens {
     public val SurfaceOnDarkSolidDefault: Color = Color(0xFFFFFFFF)
 
     /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCard: Color = Color(0x1FFFFFFF)
+
+    /**
      * Основной прозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkTransparentPrimary: Color = Color(0x0DFFFFFF)
@@ -1883,11 +1888,6 @@ public object DarkColorTokens {
     public val SurfaceOnDarkTransparentAccent: Color = Color(0x3352F2FF)
 
     /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCard: Color = Color(0x0DEDFFFD)
-
-    /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightSolidPrimaryHover: Color = Color(0xFFF7F7F7)
@@ -1940,12 +1940,12 @@ public object DarkColorTokens {
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF3D2E4D)
+    public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF152D65)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF2E2239)
+    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF0E1E43)
 
     /**
      * Основной прозрачный фон поверхности/контрола на светлом фоне
@@ -2318,11 +2318,6 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefault: Color = Color(0xFF332640)
-
-    /**
      * Акцентный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightAccent: Color = Color(0xFF00AC7B)
@@ -2336,6 +2331,11 @@ public object DarkColorTokens {
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightTransparentAccent: Color = Color(0x1F00AC7B)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefault: Color = Color(0xFF122654)
 
     /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
@@ -2390,12 +2390,12 @@ public object DarkColorTokens {
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
      */
-    public val SurfaceInverseSolidDefaultHover: Color = Color(0xFF3D2E4D)
+    public val SurfaceInverseSolidDefaultHover: Color = Color(0xFF152D65)
 
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
      */
-    public val SurfaceInverseSolidDefaultActive: Color = Color(0xFF2E2239)
+    public val SurfaceInverseSolidDefaultActive: Color = Color(0xFF0E1E43)
 
     /**
      * Инвертированный основной прозрачный фон поверхности/контрола
@@ -2768,11 +2768,6 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefault: Color = Color(0xFF332640)
-
-    /**
      * Инвертированный акцентный фон поверхности/контрола
      */
     public val SurfaceInverseAccent: Color = Color(0xFF00AC7B)
@@ -2788,6 +2783,11 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentAccent: Color = Color(0x1F00AC7B)
 
     /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefault: Color = Color(0xFF122654)
+
+    /**
      * Вторичный фон
      */
     public val BackgroundDefaultSecondary: Color = Color(0xFFFFFFFF)
@@ -2800,7 +2800,7 @@ public object DarkColorTokens {
     /**
      * Основной фон
      */
-    public val BackgroundDefaultPrimary: Color = Color(0xFF242326)
+    public val BackgroundDefaultPrimary: Color = Color(0xFF171717)
 
     /**
      * Вторичный фон на темном фоне
@@ -2815,7 +2815,7 @@ public object DarkColorTokens {
     /**
      * Основной фон на темном фоне
      */
-    public val BackgroundDarkPrimary: Color = Color(0xFF242326)
+    public val BackgroundDarkPrimary: Color = Color(0xFF171717)
 
     /**
      * Вторичный фон на светлом фоне
@@ -2830,7 +2830,7 @@ public object DarkColorTokens {
     /**
      * Основной фон на светлом фоне
      */
-    public val BackgroundLightPrimary: Color = Color(0xFFEFF0F2)
+    public val BackgroundLightPrimary: Color = Color(0xFFFAFCFF)
 
     /**
      * Инвертированный вторичный фон
@@ -2845,7 +2845,7 @@ public object DarkColorTokens {
     /**
      * Инвертированный основной фон
      */
-    public val BackgroundInversePrimary: Color = Color(0xFFEFF0F2)
+    public val BackgroundInversePrimary: Color = Color(0xFFFAFCFF)
 
     /**
      * Цвет фона паранжи светлый
@@ -5625,12 +5625,12 @@ public object LightColorTokens {
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
      */
-    public val SurfaceDefaultSolidDefaultHover: Color = Color(0xFF3D2E4D)
+    public val SurfaceDefaultSolidDefaultHover: Color = Color(0xFF152D65)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
      */
-    public val SurfaceDefaultSolidDefaultActive: Color = Color(0xFF291F33)
+    public val SurfaceDefaultSolidDefaultActive: Color = Color(0xFF0E1E43)
 
     /**
      * Основной прозрачный фон поверхности/контрола
@@ -6003,11 +6003,6 @@ public object LightColorTokens {
     public val SurfaceDefaultTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceDefaultSolidDefault: Color = Color(0xFF332640)
-
-    /**
      * Акцентный фон поверхности/контрола
      */
     public val SurfaceDefaultAccent: Color = Color(0xFF00AC7B)
@@ -6021,6 +6016,11 @@ public object LightColorTokens {
      * Прозрачный акцентный фон поверхности/контрола
      */
     public val SurfaceDefaultTransparentAccent: Color = Color(0x1F00AC7B)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceDefaultSolidDefault: Color = Color(0xFF122654)
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -6125,17 +6125,17 @@ public object LightColorTokens {
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x03EBFFFD)
+    public val SurfaceOnDarkTransparentCardHover: Color = Color(0x0AFFFFFF)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x17EBFFFD)
+    public val SurfaceOnDarkTransparentCardActive: Color = Color(0x29FFFFFF)
 
     /**
      * Прозрачный фон для карточек на темном фоне
      */
-    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x0DEBFFFD)
+    public val SurfaceOnDarkTransparentCardBrightness: Color = Color(0x1FFFFFFF)
 
     /**
      * Фон поверхности/контрола без заливки на темном фоне
@@ -6388,6 +6388,11 @@ public object LightColorTokens {
     public val SurfaceOnDarkSolidDefault: Color = Color(0xFFFFFFFF)
 
     /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val SurfaceOnDarkTransparentCard: Color = Color(0x1FFFFFFF)
+
+    /**
      * Основной прозрачный фон поверхности/контрола на темном фоне
      */
     public val SurfaceOnDarkTransparentPrimary: Color = Color(0x0DFFFFFF)
@@ -6468,11 +6473,6 @@ public object LightColorTokens {
     public val SurfaceOnDarkAccentMinor: Color = Color(0xFF0E5944)
 
     /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val SurfaceOnDarkTransparentCard: Color = Color(0x0DEDFFFD)
-
-    /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightSolidPrimaryHover: Color = Color(0xFFF7F7F7)
@@ -6525,12 +6525,12 @@ public object LightColorTokens {
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF3D2E4D)
+    public val SurfaceOnLightSolidDefaultHover: Color = Color(0xFF152D65)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
      */
-    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF291F33)
+    public val SurfaceOnLightSolidDefaultActive: Color = Color(0xFF0E1E43)
 
     /**
      * Основной прозрачный фон поверхности/контрола на светлом фоне
@@ -6903,11 +6903,6 @@ public object LightColorTokens {
     public val SurfaceOnLightTransparentInfo: Color = Color(0x1F2A72F8)
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val SurfaceOnLightSolidDefault: Color = Color(0xFF332640)
-
-    /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightTransparentAccent: Color = Color(0x1F00AC7B)
@@ -6921,6 +6916,11 @@ public object LightColorTokens {
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val SurfaceOnLightAccentMinor: Color = Color(0xFFDBFFF5)
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val SurfaceOnLightSolidDefault: Color = Color(0xFF122654)
 
     /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
@@ -7025,17 +7025,17 @@ public object LightColorTokens {
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardHover: Color = Color(0x03EBFFFD)
+    public val SurfaceInverseTransparentCardHover: Color = Color(0x0AFFFFFF)
 
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardActive: Color = Color(0x17EBFFFD)
+    public val SurfaceInverseTransparentCardActive: Color = Color(0x29FFFFFF)
 
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardBrightness: Color = Color(0x0DEBFFFD)
+    public val SurfaceInverseTransparentCardBrightness: Color = Color(0x1FFFFFFF)
 
     /**
      * Инвертированный фон поверхности/контрола без заливки
@@ -7288,6 +7288,11 @@ public object LightColorTokens {
     public val SurfaceInverseSolidDefault: Color = Color(0xFFFFFFFF)
 
     /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCard: Color = Color(0x1FFFFFFF)
+
+    /**
      * Инвертированный основной прозрачный фон поверхности/контрола
      */
     public val SurfaceInverseTransparentPrimary: Color = Color(0x0FFFFFFF)
@@ -7368,11 +7373,6 @@ public object LightColorTokens {
     public val SurfaceInverseTransparentAccent: Color = Color(0x3352F2C5)
 
     /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCard: Color = Color(0x0DEDFFFD)
-
-    /**
      * Вторичный фон
      */
     public val BackgroundDefaultSecondary: Color = Color(0xFFFFFFFF)
@@ -7385,7 +7385,7 @@ public object LightColorTokens {
     /**
      * Основной фон
      */
-    public val BackgroundDefaultPrimary: Color = Color(0xFFEFF0F2)
+    public val BackgroundDefaultPrimary: Color = Color(0xFFFAFCFF)
 
     /**
      * Вторичный фон на темном фоне
@@ -7400,7 +7400,7 @@ public object LightColorTokens {
     /**
      * Основной фон на темном фоне
      */
-    public val BackgroundDarkPrimary: Color = Color(0xFF242326)
+    public val BackgroundDarkPrimary: Color = Color(0xFF171717)
 
     /**
      * Вторичный фон на светлом фоне
@@ -7415,7 +7415,7 @@ public object LightColorTokens {
     /**
      * Основной фон на светлом фоне
      */
-    public val BackgroundLightPrimary: Color = Color(0xFFEFF0F2)
+    public val BackgroundLightPrimary: Color = Color(0xFFFAFCFF)
 
     /**
      * Инвертированный вторичный фон
@@ -7430,7 +7430,7 @@ public object LightColorTokens {
     /**
      * Инвертированный основной фон
      */
-    public val BackgroundInversePrimary: Color = Color(0xFF242326)
+    public val BackgroundInversePrimary: Color = Color(0xFF171717)
 
     /**
      * Цвет фона паранжи светлый
