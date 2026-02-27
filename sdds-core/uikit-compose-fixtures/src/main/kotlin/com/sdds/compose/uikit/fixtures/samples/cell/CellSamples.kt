@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.fixtures.samples.cell
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -44,9 +45,9 @@ fun Cell_Simple() {
                 .focusSelector(
                     settings = LocalFocusSelectorSettings.current,
                 ) { isFocused.value },
-            title = AnnotatedString("Title"),
-            subtitle = AnnotatedString("Subtitle"),
-            label = AnnotatedString("Label"),
+            title = AnnotatedString("Заголовок"),
+            subtitle = AnnotatedString("Подзаголовок"),
+            label = AnnotatedString("Лейбл"),
             disclosureContentEnabled = true,
             startContent = {
                 Icon(
@@ -127,16 +128,17 @@ fun Cell_AvatarSwitch() {
     composableCodeSnippet {
         Cell(
             modifier = Modifier
+                .fillMaxWidth()
                 .focusable(interactionSource = interactionSource)
                 .focusSelector(
                     settings = LocalFocusSelectorSettings.current,
                 ) { isFocused.value },
-            title = AnnotatedString("Title"),
-            subtitle = AnnotatedString(""),
-            label = AnnotatedString(""),
+            title = AnnotatedString("Заголовок"),
+            subtitle = AnnotatedString("Подзаголовок"),
+            label = AnnotatedString("Лейбл"),
             disclosureContentEnabled = false,
             startContent = {
-                Avatar(painter = painterResource(id = R.drawable.ic_add_smile_fill_36))
+                Avatar(painter = painterResource(id = R.drawable.ic_profile_square_fill_36))
             },
             endContent = {
                 var active by remember { mutableStateOf(false) }

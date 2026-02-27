@@ -155,6 +155,7 @@ import com.sdds.plasma.giga.styles.tabbar.M
 import com.sdds.plasma.giga.styles.tabbar.TabBarSolid
 import com.sdds.plasma.giga.styles.textfield.Default
 import com.sdds.plasma.giga.styles.textfield.M
+import com.sdds.plasma.giga.styles.textfield.OuterLabel
 import com.sdds.plasma.giga.styles.textfield.TextField
 import com.sdds.plasma.giga.styles.textskeleton.Default
 import com.sdds.plasma.giga.styles.textskeleton.TextSkeleton
@@ -248,7 +249,7 @@ fun ThemeSetup(
             LocalSpinnerStyle provides Spinner.M.Default.style(),
             LocalSwitchStyle provides Switch.M.style(),
             LocalTabBarStyle provides TabBarSolid.M.Default.style(),
-            LocalTextFieldStyle provides TextField.M.Default.style(),
+            LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.Default.style(),
             LocalTooltipStyle provides Tooltip.M.style(),

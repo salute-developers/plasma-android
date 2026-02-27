@@ -26,25 +26,29 @@ fun Toast_Simple() {
         composableCodeSnippet {
             val overlayManager = LocalOverlayManager.current
 
-            LaunchedEffect(Unit) {
-                overlayManager.showToast(
-                    position = OverlayPosition.Center,
-                ) {
-                    Toast(
-                        text = "Toast text",
-                        contentStart = {
-                            Icon(
-                                painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
-                                contentDescription = null,
+            repeat(5) {
+                LaunchedEffect(Unit) {
+                    overlayManager.showToast(
+                        position = OverlayPosition.BottomCenter
+                    ) {
+                        composableCodeSnippet {
+                            Toast(
+                                text = "Текст уведомления",
+                                contentStart = {
+                                    Icon(
+                                        painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
+                                        contentDescription = null,
+                                    )
+                                },
+                                contentEnd = {
+                                    Icon(
+                                        painter = painterResource(com.sdds.icons.R.drawable.ic_close_16),
+                                        contentDescription = null,
+                                    )
+                                },
                             )
-                        },
-                        contentEnd = {
-                            Icon(
-                                painter = painterResource(com.sdds.icons.R.drawable.ic_close_16),
-                                contentDescription = null,
-                            )
-                        },
-                    )
+                        }
+                    }
                 }
             }
         }

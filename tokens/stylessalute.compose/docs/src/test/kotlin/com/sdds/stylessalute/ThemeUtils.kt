@@ -128,6 +128,7 @@ import com.sdds.stylessalute.styles.switcher.M
 import com.sdds.stylessalute.styles.switcher.Switch
 import com.sdds.stylessalute.styles.textfield.Default
 import com.sdds.stylessalute.styles.textfield.M
+import com.sdds.stylessalute.styles.textfield.OuterLabel
 import com.sdds.stylessalute.styles.textfield.TextField
 import com.sdds.stylessalute.styles.textskeleton.Default
 import com.sdds.stylessalute.styles.textskeleton.TextSkeleton
@@ -212,7 +213,7 @@ fun ThemeSetup(
             LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
             LocalSegmentStyle provides Segment.M.Primary.style(),
             LocalSwitchStyle provides Switch.M.style(),
-            LocalTextFieldStyle provides TextField.M.Default.style(),
+            LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.style(),
             LocalTooltipStyle provides Tooltip.M.style(),

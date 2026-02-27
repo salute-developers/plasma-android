@@ -30,21 +30,21 @@ import com.sdds.docs.DocSample
 @DocSample(needScreenshot = true)
 fun TextField_Simple() {
     composableCodeSnippet {
-        var value by remember { mutableStateOf(TextFieldValue("value")) }
+        var value by remember { mutableStateOf(TextFieldValue("")) }
         TextField(
             value = value,
-            captionText = "Caption",
-            labelText = "Label",
-            placeholderText = "Placeholder",
+            captionText = "Надпись",
+            labelText = "Заголовок",
+            placeholderText = "Введите текст",
             onValueChange = { value = it },
             startContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_add_fill_24),
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
                     tint = Color.Black,
                 )
             },
-            chipsContent = { Chip(label = "Chip") },
+            chipsContent = { repeat(3) { Chip(label = "Чип") } },
             focusSelectorSettings = FocusSelectorSettings.None,
         )
     }

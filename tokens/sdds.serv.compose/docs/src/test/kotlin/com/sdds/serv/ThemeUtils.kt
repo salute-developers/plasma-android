@@ -31,7 +31,9 @@ import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
+import com.sdds.compose.uikit.LocalEditableStyle
 import com.sdds.compose.uikit.LocalFileStyle
+import com.sdds.compose.uikit.LocalFormItemStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
@@ -115,10 +117,14 @@ import com.sdds.serv.styles.drawer.DrawerCloseOuter
 import com.sdds.serv.styles.drawer.M
 import com.sdds.serv.styles.dropdownmenu.DropdownMenuNormal
 import com.sdds.serv.styles.dropdownmenu.M
+import com.sdds.serv.styles.editable.BodyM
+import com.sdds.serv.styles.editable.Editable
 import com.sdds.serv.styles.file.Default
 import com.sdds.serv.styles.file.FileCircularProgress
 import com.sdds.serv.styles.file.FileLinearProgress
 import com.sdds.serv.styles.file.M
+import com.sdds.serv.styles.formitem.FormItem
+import com.sdds.serv.styles.formitem.M
 import com.sdds.serv.styles.iconbadge.Default
 import com.sdds.serv.styles.iconbadge.IconBadgeSolid
 import com.sdds.serv.styles.iconbadge.M
@@ -184,6 +190,7 @@ import com.sdds.serv.styles.tabs.M
 import com.sdds.serv.styles.tabs.TabsDefault
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
+import com.sdds.serv.styles.textfield.OuterLabel
 import com.sdds.serv.styles.textfield.TextField
 import com.sdds.serv.styles.textskeleton.Default
 import com.sdds.serv.styles.textskeleton.TextSkeleton
@@ -258,6 +265,8 @@ fun ThemeSetup(
             LocalDividerStyle provides Divider.Default.style(),
             LocalDrawerStyle provides DrawerCloseOuter.M.style(),
             LocalDropdownMenuStyle provides DropdownMenuNormal.M.style(),
+            LocalEditableStyle provides Editable.BodyM.style(),
+            LocalFormItemStyle provides FormItem.M.style(),
             LocalFileStyle provides FileCircularProgress.M.Default.style(),
             LocalFileStyle provides FileLinearProgress.M.Default.style(),
             LocalImageStyle provides Image.Ratio3x4.style(),
@@ -286,7 +295,7 @@ fun ThemeSetup(
             LocalSwitchStyle provides Switch.M.style(),
             LocalTabBarStyle provides TabBarSolid.M.Default.style(),
             LocalTabsStyle provides TabsDefault.M.style(),
-            LocalTextFieldStyle provides TextField.M.Default.style(),
+            LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.Default.style(),
             LocalTooltipStyle provides Tooltip.M.style(),

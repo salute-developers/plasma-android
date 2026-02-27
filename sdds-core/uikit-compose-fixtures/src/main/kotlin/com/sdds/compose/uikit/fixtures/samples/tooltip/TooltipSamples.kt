@@ -48,7 +48,7 @@ fun Tooltip_Simple() {
                 showTooltip.value = false
             },
             duration = 3000,
-            text = AnnotatedString("Tooltip Text"),
+            text = AnnotatedString("Текст подсказки"),
         )
     }
 }
