@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -30,6 +29,7 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
+import androidx.compose.ui.util.fastRoundToInt
 import androidx.compose.ui.zIndex
 import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.ButtonDimensions
@@ -67,7 +67,7 @@ internal fun BaseButton(
     val spinnerColor = colors.spinnerColor.colorForInteraction(interactionSource)
     val isFocused = interactionSource.collectIsFocusedAsState()
     Box(
-        modifier = Modifier
+        modifier = modifier
             .focusSelector(LocalFocusSelectorSettings.current, shape) { isFocused.value }
             .defaultMinSize(dimensions.minWidth, dimensions.height)
             .height(dimensions.height)
@@ -82,13 +82,14 @@ internal fun BaseButton(
                 role = Role.Button,
                 interactionSource = interactionSource,
             )
-            .zIndex(if (isFocused.value) 1f else 0f),
+            .zIndex(if (isFocused.value) 1f else 0f)
+            .padding(dimensions.paddingStart, 0.dp, dimensions.paddingEnd, 0.dp),
         contentAlignment = Alignment.Center,
+        propagateMinConstraints = true,
     ) {
         Layout(
-            modifier = modifier
-                .alpha(if (loading) loadingAlpha else ENABLED_BUTTON_ALPHA)
-                .padding(dimensions.paddingStart, 0.dp, dimensions.paddingEnd, 0.dp),
+            modifier = Modifier
+                .alpha(if (loading) loadingAlpha else ENABLED_BUTTON_ALPHA),
             content = {
                 Box(Modifier.layoutId(START_CONTENT_ID)) { startContent() }
                 Box(Modifier.layoutId(END_CONTENT_ID)) { endContent() }
@@ -132,33 +133,33 @@ internal fun BaseButton(
             layout(width, height) {
                 when (spacing) {
                     ButtonSpacing.Packed -> {
-                        val startX = (width - desiredWidth) / 2
+                        val startX = ((width - desiredWidth) / 2f).fastRoundToInt()
                         startPlaceable?.placeRelative(
                             startX,
-                            (height - startPlaceable.heightOrZero()) / 2,
+                            ((height - startPlaceable.heightOrZero()) / 2f).fastRoundToInt(),
                         )
                         textPlaceable?.placeRelative(
                             startX + startPlaceable.widthOrZero(),
-                            (height - textPlaceable.heightOrZero()) / 2,
+                            ((height - textPlaceable.heightOrZero()) / 2f).fastRoundToInt(),
                         )
                         endPlaceable?.placeRelative(
                             startX + desiredWidth - endPlaceable.widthOrZero(),
-                            (height - endPlaceable.heightOrZero()) / 2,
+                            ((height - endPlaceable.heightOrZero()) / 2f).fastRoundToInt(),
                         )
                     }
 
                     ButtonSpacing.SpaceBetween -> {
                         startPlaceable?.placeRelative(
                             0,
-                            (height - startPlaceable.heightOrZero()) / 2,
+                            ((height - startPlaceable.heightOrZero()) / 2f).fastRoundToInt(),
                         )
                         textPlaceable?.placeRelative(
                             startPlaceable.widthOrZero(),
-                            (height - textPlaceable.heightOrZero()) / 2,
+                            ((height - textPlaceable.heightOrZero()) / 2f).fastRoundToInt(),
                         )
                         endPlaceable?.placeRelative(
                             width - endPlaceable.widthOrZero(),
-                            (height - endPlaceable.heightOrZero()) / 2,
+                            ((height - endPlaceable.heightOrZero()) / 2f).fastRoundToInt(),
                         )
                     }
                 }
@@ -166,8 +167,8 @@ internal fun BaseButton(
         }
         if (loading) {
             BaseSpinner(
+                modifier = Modifier.requiredSize(dimensions.spinnerSize),
                 tint = spinnerColor,
-                modifier = Modifier.size(dimensions.spinnerSize),
                 strokeWidth = dimensions.spinnerStrokeWidth,
             )
         }
