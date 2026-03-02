@@ -24,6 +24,7 @@ import com.sdds.plasma.giga.styles.chip.Positive
 import com.sdds.plasma.giga.styles.chip.S
 import com.sdds.plasma.giga.styles.chip.Secondary
 import com.sdds.plasma.giga.styles.chip.Warning
+import com.sdds.plasma.giga.styles.chip.Xl
 import com.sdds.plasma.giga.styles.chip.Xs
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -36,12 +37,12 @@ public interface WrapperEmbeddedChipGroupWide :
     BuilderWrapper<ChipGroupStyle, ChipGroupStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все обертки вариации l
+ * Интерфейс, который реализуют все обертки вариации xl
  * и обертки ее подвариаций.
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperEmbeddedChipGroupWideLView : WrapperEmbeddedChipGroupWide
+public interface WrapperEmbeddedChipGroupWideXlView : WrapperEmbeddedChipGroupWide
 
 /**
  * Терминальная обертка
@@ -50,6 +51,22 @@ public interface WrapperEmbeddedChipGroupWideLView : WrapperEmbeddedChipGroupWid
 public value class WrapperEmbeddedChipGroupWideTerminate(
     public override val builder: ChipGroupStyleBuilder,
 ) : WrapperEmbeddedChipGroupWide
+
+/**
+ * Обертка для вариации Xl
+ */
+@JvmInline
+public value class WrapperEmbeddedChipGroupWideXl(
+    public override val builder: ChipGroupStyleBuilder,
+) : WrapperEmbeddedChipGroupWideXlView
+
+/**
+ * Интерфейс, который реализуют все обертки вариации l
+ * и обертки ее подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
+public interface WrapperEmbeddedChipGroupWideLView : WrapperEmbeddedChipGroupWide
 
 /**
  * Обертка для вариации L
@@ -115,6 +132,55 @@ private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
             lineSpacing(8.0.dp)
         }
         .disableAlpha(0.4f)
+
+public val WrapperEmbeddedChipGroupWideXlView.Default: WrapperEmbeddedChipGroupWideTerminate
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXlViewDefault")
+    get() = builder
+        .chipStyle(EmbeddedChip.Xl.Default.style())
+        .wrap(::WrapperEmbeddedChipGroupWideTerminate)
+
+public val WrapperEmbeddedChipGroupWideXlView.Accent: WrapperEmbeddedChipGroupWideTerminate
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXlViewAccent")
+    get() = builder
+        .chipStyle(EmbeddedChip.Xl.Accent.style())
+        .wrap(::WrapperEmbeddedChipGroupWideTerminate)
+
+public val WrapperEmbeddedChipGroupWideXlView.Negative: WrapperEmbeddedChipGroupWideTerminate
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXlViewNegative")
+    get() = builder
+        .chipStyle(EmbeddedChip.Xl.Negative.style())
+        .wrap(::WrapperEmbeddedChipGroupWideTerminate)
+
+public val WrapperEmbeddedChipGroupWideXlView.Positive: WrapperEmbeddedChipGroupWideTerminate
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXlViewPositive")
+    get() = builder
+        .chipStyle(EmbeddedChip.Xl.Positive.style())
+        .wrap(::WrapperEmbeddedChipGroupWideTerminate)
+
+public val WrapperEmbeddedChipGroupWideXlView.Secondary: WrapperEmbeddedChipGroupWideTerminate
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXlViewSecondary")
+    get() = builder
+        .chipStyle(EmbeddedChip.Xl.Secondary.style())
+        .wrap(::WrapperEmbeddedChipGroupWideTerminate)
+
+public val WrapperEmbeddedChipGroupWideXlView.Warning: WrapperEmbeddedChipGroupWideTerminate
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXlViewWarning")
+    get() = builder
+        .chipStyle(EmbeddedChip.Xl.Warning.style())
+        .wrap(::WrapperEmbeddedChipGroupWideTerminate)
+
+public val EmbeddedChipGroupWide.Xl: WrapperEmbeddedChipGroupWideXl
+    @Composable
+    @JvmName("WrapperEmbeddedChipGroupWideXl")
+    get() = ChipGroupStyle.builder(this)
+        .invariantProps
+        .wrap(::WrapperEmbeddedChipGroupWideXl)
 
 public val WrapperEmbeddedChipGroupWideLView.Default: WrapperEmbeddedChipGroupWideTerminate
     @Composable

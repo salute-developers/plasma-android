@@ -14,11 +14,18 @@ import com.sdds.serv.styles.chip.Positive
 import com.sdds.serv.styles.chip.S
 import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Warning
+import com.sdds.serv.styles.chip.Xl
 import com.sdds.serv.styles.chip.Xs
 
 internal object SddsServEmbeddedChipVariationsCompose : ComposeStyleProvider<String, ChipStyle>() {
     override val variations: Map<String, @Composable () -> ChipStyle> =
         mapOf(
+            "Xl.Default" to { EmbeddedChip.Xl.Default.style() },
+            "Xl.Accent" to { EmbeddedChip.Xl.Accent.style() },
+            "Xl.Negative" to { EmbeddedChip.Xl.Negative.style() },
+            "Xl.Positive" to { EmbeddedChip.Xl.Positive.style() },
+            "Xl.Secondary" to { EmbeddedChip.Xl.Secondary.style() },
+            "Xl.Warning" to { EmbeddedChip.Xl.Warning.style() },
             "L.Default" to { EmbeddedChip.L.Default.style() },
             "L.Accent" to { EmbeddedChip.L.Accent.style() },
             "L.Negative" to { EmbeddedChip.L.Negative.style() },

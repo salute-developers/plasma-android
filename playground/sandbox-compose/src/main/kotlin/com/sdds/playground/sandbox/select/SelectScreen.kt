@@ -73,12 +73,13 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                     trigger = {
                         when (selectUiState.triggerType) {
                             TriggerType.TextField -> {
+                                val value = getTextFieldValue(itemType, stateManager.selectedItems)
                                 SelectTextField(
                                     modifier = Modifier.width(260.dp),
-                                    value = getTextFieldValue(itemType, stateManager.selectedItems),
+                                    value = value,
                                     readOnly = selectUiState.readOnly,
                                     enabled = selectUiState.enabled,
-                                    placeholderText = "Сотрудник",
+                                    placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                                     captionText = "Выберите имя",
                                     iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
                                     iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
@@ -92,9 +93,10 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                                 )
                             }
                             TriggerType.Button -> {
+                                val value = getButtonValue(itemType, stateManager.selectedItems)
                                 SelectButton(
                                     modifier = Modifier.width(260.dp),
-                                    label = getButtonValue(itemType, stateManager.selectedItems),
+                                    label = value,
                                     readonly = selectUiState.readOnly,
                                     enabled = selectUiState.enabled,
                                     iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,

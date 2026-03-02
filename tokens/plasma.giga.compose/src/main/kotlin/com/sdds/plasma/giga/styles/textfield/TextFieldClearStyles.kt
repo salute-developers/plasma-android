@@ -26,6 +26,7 @@ import com.sdds.plasma.giga.styles.chipgroup.L
 import com.sdds.plasma.giga.styles.chipgroup.M
 import com.sdds.plasma.giga.styles.chipgroup.S
 import com.sdds.plasma.giga.styles.chipgroup.Secondary
+import com.sdds.plasma.giga.styles.chipgroup.Xl
 import com.sdds.plasma.giga.styles.chipgroup.Xs
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
 import kotlin.Suppress
@@ -1147,7 +1148,7 @@ public val TextFieldClear.Xl: WrapperTextFieldClearXl
         .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXl)
 

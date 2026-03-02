@@ -26,6 +26,7 @@ import com.sdds.serv.styles.chipgroup.L
 import com.sdds.serv.styles.chipgroup.M
 import com.sdds.serv.styles.chipgroup.S
 import com.sdds.serv.styles.chipgroup.Secondary
+import com.sdds.serv.styles.chipgroup.Xl
 import com.sdds.serv.styles.chipgroup.Xs
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
@@ -1147,7 +1148,7 @@ public val TextFieldClear.Xl: WrapperTextFieldClearXl
         .prefixStyle(SddsServTheme.typography.bodyLNormal)
         .suffixStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXl)
 

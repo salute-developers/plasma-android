@@ -43,6 +43,14 @@ public value class WrapperEmbeddedChipTerminate(
 ) : WrapperEmbeddedChip
 
 /**
+ * Обертка для вариации Xl
+ */
+@JvmInline
+public value class WrapperEmbeddedChipXl(
+    public override val builder: ChipStyleBuilder,
+) : WrapperEmbeddedChipView
+
+/**
  * Обертка для вариации L
  */
 @JvmInline
@@ -312,6 +320,24 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
     @Composable
     get() = this
         .disableAlpha(0.4f)
+
+public val EmbeddedChip.Xl: WrapperEmbeddedChipXl
+    @Composable
+    @JvmName("WrapperEmbeddedChipXl")
+    get() = ChipStyle.builder(this)
+        .invariantProps
+        .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .dimensions {
+            height(52.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(12.0.dp)
+            contentStartPadding(6.0.dp)
+            contentEndPadding(6.0.dp)
+            contentStartSize(24.0.dp)
+            contentEndSize(24.0.dp)
+        }
+        .wrap(::WrapperEmbeddedChipXl)
 
 public val EmbeddedChip.L: WrapperEmbeddedChipL
     @Composable
