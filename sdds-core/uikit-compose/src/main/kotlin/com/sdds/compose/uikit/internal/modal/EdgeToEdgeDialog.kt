@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.px
 
@@ -50,18 +51,25 @@ private fun ConfigureWindow(
     SideEffect {
         dialogWindowProvider?.window ?: return@SideEffect
         dialogWindowProvider.apply {
+            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             if (edgeToEdge) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
                 WindowCompat.getInsetsController(window, localView).apply {
                     isAppearanceLightNavigationBars = lightAppearance
                     isAppearanceLightStatusBars = lightAppearance
                 }
-                window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+                    window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+                    window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                     window.attributes.fitInsetsTypes = 0
                     window.attributes.fitInsetsSides = 0
+                } else {
+                    // Перехватываем инсеты на decoreview и просто отправляем их дальше
+                    ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { _, insets ->
+                        insets
+                    }
                 }
             }
             window.setWindowAnimations(-1)

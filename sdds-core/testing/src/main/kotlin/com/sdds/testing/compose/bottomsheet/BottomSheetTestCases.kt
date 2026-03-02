@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -323,6 +325,7 @@ fun BottomSheetForSandbox(style: ModalBottomSheetStyle) {
     )
     ModalBottomSheet(
         style = style,
+        modifier = Modifier.statusBarsPadding(),
         sheetState = sheetState,
         handlePlacement = BottomSheetHandlePlacement.Auto,
         fitContent = false,
@@ -330,7 +333,8 @@ fun BottomSheetForSandbox(style: ModalBottomSheetStyle) {
         footer = {},
     ) {
         Column(
-            Modifier.fillMaxWidth(),
+            Modifier.fillMaxWidth()
+                .navigationBarsPadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(Modifier.height(32.dp))

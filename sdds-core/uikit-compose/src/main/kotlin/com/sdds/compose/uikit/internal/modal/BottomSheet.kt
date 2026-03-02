@@ -245,7 +245,11 @@ class BottomSheetState(
     @get:FloatRange(from = 0.0, to = 1.0)
     val progressFromHalfExpandedToExpanded: Float by derivedStateOf(structuralEqualityPolicy()) {
         val a = anchoredDraggableState.anchors.positionOf(Expanded)
-        val b = anchoredDraggableState.anchors.positionOf(HalfExpanded)
+        val b = if (anchoredDraggableState.anchors.hasPositionFor(HalfExpanded)) {
+            anchoredDraggableState.anchors.positionOf(HalfExpanded)
+        } else {
+            anchoredDraggableState.anchors.positionOf(Hidden)
+        }
         val distance = abs(b - a)
         if (!distance.isNaN() && distance > 1e-6f) {
             val progress = (this.requireOffset() - a) / (b - a)

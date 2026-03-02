@@ -98,6 +98,7 @@ fun ModalForSandboxCompose(style: ModalStyle) {
         onDismissRequest = { showModal.value = false },
         modifier = Modifier.width(300.dp),
         hasClose = true,
+        dimBackground = true,
         useNativeBlackout = true,
         closeIcon = painterResource(R.drawable.ic_close_24),
     ) {

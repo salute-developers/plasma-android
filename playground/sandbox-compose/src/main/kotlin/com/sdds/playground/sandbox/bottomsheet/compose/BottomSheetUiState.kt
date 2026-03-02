@@ -15,6 +15,8 @@ internal data class BottomSheetUiState(
     val fixedFooter: Boolean = false,
     val handlePlacement: BottomSheetHandlePlacement = BottomSheetHandlePlacement.Auto,
     val fitContent: Boolean = false,
+    val skipHalfExpanded: Boolean = false,
+    val edgeToEdge: Boolean = true,
     val littleContent: Boolean = false,
     val dimBackground: Boolean = true,
     val useNativeBlackout: Boolean = true,

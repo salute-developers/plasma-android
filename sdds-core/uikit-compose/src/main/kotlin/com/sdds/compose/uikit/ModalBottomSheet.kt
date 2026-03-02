@@ -5,9 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.ZeroCornerSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -137,7 +135,6 @@ fun ModalBottomSheet(
     val shadowModifier = if (useNativeBlackout) Modifier else shadow
     BaseModalBottomSheet(
         modifier = modifier
-            .statusBarsPadding()
             .handle(
                 handleShape = style.handleShape,
                 handleColor = handleColor,
@@ -152,7 +149,6 @@ fun ModalBottomSheet(
                 newShape,
             )
             .then(shadowModifier)
-            .navigationBarsPadding()
             .padding(
                 start = style.dimensions.paddingStart,
                 end = style.dimensions.paddingEnd,

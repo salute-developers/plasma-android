@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -20,6 +23,8 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.ModalBottomSheet
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.playground.sandbox.SandboxTheme
@@ -42,6 +47,7 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
         component = { uiState, style ->
             val sheetState = rememberModalBottomSheetState(
                 initialValue = BottomSheetValue.Hidden,
+                skipHalfExpanded = uiState.skipHalfExpanded,
             )
             val scope = rememberCoroutineScope()
             val scrollState = rememberScrollState()
@@ -54,6 +60,7 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
                 },
             )
             ModalBottomSheet(
+                modifier = Modifier.statusBarsPadding(),
                 style = style,
                 sheetState = sheetState,
                 onDismiss = { Log.d("BottomSheetScreen", "OnDismiss") },
@@ -61,11 +68,14 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
                 useNativeBlackout = uiState.useNativeBlackout,
                 handlePlacement = uiState.handlePlacement,
                 fitContent = uiState.fitContent,
+                edgeToEdge = true,
                 header = { if (uiState.header && uiState.fixedHeader) Header() },
                 footer = { if (uiState.footer && uiState.fixedFooter) Footer() },
             ) {
                 Column(
                     modifier = Modifier
+                        .navigationBarsPadding()
+                        .imePadding()
                         .verticalScroll(scrollState),
                 ) {
                     if (uiState.header && !uiState.fixedHeader) {
@@ -109,16 +119,14 @@ private fun Header() {
 
 @Composable
 private fun Footer() {
-    Row(
-        Modifier
-            .fillMaxWidth()
-            .heightIn(min = 30.dp)
-            .background(SddsServTheme.colors.surfaceDefaultSolidSecondary),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
-    ) {
-        Text("The End")
-    }
+    TextField(
+        modifier = Modifier
+            .fillMaxWidth(),
+        value = "",
+        placeholderText = "Для проверки клавиатуры",
+        onValueChange = {},
+        focusSelectorSettings = FocusSelectorSettings.None,
+    )
 }
 
 @Composable
