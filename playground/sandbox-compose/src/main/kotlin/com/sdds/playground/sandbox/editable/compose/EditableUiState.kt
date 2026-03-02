@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.editable
+package com.sdds.playground.sandbox.editable.compose
 
 import androidx.compose.ui.text.style.TextAlign
 import com.sdds.compose.uikit.EditableIconPlacement

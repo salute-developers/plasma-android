@@ -35,6 +35,7 @@ import com.sdds.playground.sandbox.counter.vs.CounterFragment
 import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.drawer.vs.DrawerFragment
 import com.sdds.playground.sandbox.dropdownmenu.vs.DropdownMenuFragment
+import com.sdds.playground.sandbox.editable.vs.EditableFragment
 import com.sdds.playground.sandbox.file.vs.FileFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.image.vs.ImageFragment
@@ -103,6 +104,7 @@ import com.sdds.testing.vs.counter.counter
 import com.sdds.testing.vs.divider.divider
 import com.sdds.testing.vs.drawer.drawer
 import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
+import com.sdds.testing.vs.editable.editable
 import com.sdds.testing.vs.file.file
 import com.sdds.testing.vs.flow.FlowUiState
 import com.sdds.testing.vs.flow.flowLayout
@@ -435,6 +437,10 @@ internal sealed class ComponentScreen(
     object NavigationBar : ComponentScreen(
         { item -> fragment<NavigationBarFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Editable : ComponentScreen(
+        { item -> fragment<EditableFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -500,6 +506,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.AUTOCOMPLETE -> ComponentScreen.Autocomplete
         CoreComponent.FILE -> ComponentScreen.File
         CoreComponent.NAVIGATION_BAR -> ComponentScreen.NavigationBar
+        CoreComponent.EDITABLE -> ComponentScreen.Editable
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -567,6 +574,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.AUTOCOMPLETE -> R.id.nav_autocomplete
         CoreComponent.FILE -> R.id.nav_file
         CoreComponent.NAVIGATION_BAR -> R.id.nav_navigation_bar
+        CoreComponent.EDITABLE -> R.id.nav_editable
         else -> null
     }?.let { it + hashCode() }
 }
@@ -680,6 +688,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.AUTOCOMPLETE -> autocomplete(context, style)
         CoreComponent.FILE -> file(context, style)
         CoreComponent.NAVIGATION_BAR -> navigationBar(context, style)
+        CoreComponent.EDITABLE -> editable(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

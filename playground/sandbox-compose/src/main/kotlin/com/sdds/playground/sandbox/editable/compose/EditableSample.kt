@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.editable
+package com.sdds.playground.sandbox.editable.compose
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -23,6 +23,7 @@ import com.sdds.compose.uikit.Editable
 import com.sdds.compose.uikit.EditableIconPlacement
 import com.sdds.compose.uikit.EditableStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.theme.SddsServTheme
 
@@ -62,7 +63,7 @@ private fun EditablePreview() {
                             focusRequester.requestFocus()
                             text = text.copy(selection = TextRange(text.text.length))
                         },
-                        painter = painterResource(com.sdds.icons.R.drawable.ic_edit_fill_16),
+                        painter = painterResource(R.drawable.ic_edit_fill_16),
                         contentDescription = "",
                     )
                 },

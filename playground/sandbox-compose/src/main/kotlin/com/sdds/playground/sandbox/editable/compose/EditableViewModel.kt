@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.editable
+package com.sdds.playground.sandbox.editable.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
