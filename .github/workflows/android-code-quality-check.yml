@@ -34,6 +34,20 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
 
+      - name: Get module dir
+        id: module_dir
+        run: |
+          module="${{ matrix.module }}"
+          module="${module#:}"
+          safe_path="${module//:/\/}"
+          safe_path="$(echo "$safe_path" | tr '\\' '/')"
+          echo "dir=$safe_path" >> $GITHUB_OUTPUT
+
+          safe_name="${module//:/-}"
+          safe_name="${safe_name//\//-}"
+          safe_name="${safe_name//\\/-}"
+          echo "name=$safe_name" >> $GITHUB_OUTPUT  
+
       - name: Run lint
         run: ./.github/scripts/run_task.sh lint '${{ matrix.module }}' --continue --ignore-modules=:sdds-core:plugin_theme_builder,:build-system
 
@@ -41,10 +55,10 @@ jobs:
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
-          name: lint_analysis.zip
+          name: lint_analysis-${{ steps.module_dir.outputs.name }}
           path: |
-            **/build/reports/**
-            !**/build/reports/tests/**
+            ${{ steps.module_dir.outputs.dir }}/build/reports/**
+            !${{ steps.module_dir.outputs.dir }}/build/reports/tests/**
   detekt:
     name: Perform detekt analysis
     needs: detect_changes
