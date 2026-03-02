@@ -63,14 +63,15 @@ fun Toast_TextMultiline() {
                     position = OverlayPosition.Center,
                 ) {
                     Toast(
-                        textContent = { Text("First line\nSecond Line") },
                         contentStart = {
                             Icon(
                                 painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
                                 contentDescription = null,
                             )
                         },
-                    )
+                    ) {
+                        Text("First line\nSecond Line")
+                    }
                 }
             }
         }

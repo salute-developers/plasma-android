@@ -34,30 +34,31 @@ fun Toast(
     Toast(
         modifier = modifier,
         style = style,
-        textContent = { Text(text, maxLines = 1, overflow = TextOverflow.Ellipsis) },
         contentStart = contentStart,
         contentEnd = contentEnd,
         interactionSource = interactionSource,
-    )
+    ) {
+        Text(text, maxLines = 1, overflow = TextOverflow.Ellipsis)
+    }
 }
 
 /**
  * Компонент Toast
- * @param textContent слот для основного контента (текста)
  * @param modifier модификатор
  * @param style стиль компонента
  * @param contentStart контент в начале
  * @param contentEnd контент в конце
  * @param interactionSource источник взаимодействий
+ * @param content слот для основного контента (текста)
  */
 @Composable
 fun Toast(
-    textContent: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     style: ToastStyle = LocalToastStyle.current,
     contentStart: (@Composable () -> Unit)? = null,
     contentEnd: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
 ) {
     val shape = style.shape
     val dimensions = style.dimensions
@@ -70,7 +71,7 @@ fun Toast(
                 shape = shape,
             )
             .padding(top = dimensions.paddingTop, bottom = dimensions.paddingBottom),
-        labelContent = textContent,
+        labelContent = content,
         dimensionsSet = BaseIconText.Dimensions(
             startContentSize = dimensions.contentStartSize,
             endContentSize = dimensions.contentEndSize,

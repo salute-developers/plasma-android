@@ -48,12 +48,13 @@ internal fun ToastScreen(componentKey: ComponentKey = ComponentKey.Toast) {
                     ) {
                         Toast(
                             style = style,
-                            textContent = { Text(toastUiState.text) },
                             contentStart = getContentStart(toastUiState.hasContentStart),
                             contentEnd = getContentEnd(toastUiState.hasContentEnd) {
                                 overlayManager.remove(it)
                             },
-                        )
+                        ) {
+                            Text(toastUiState.text)
+                        }
                     }
                 },
             )
