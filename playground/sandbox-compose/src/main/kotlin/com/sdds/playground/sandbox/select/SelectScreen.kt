@@ -57,7 +57,7 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
             ) {
                 val state = remember(selectUiState) { SelectState() }
                 val itemType = style.selectItemStyle.itemType
-                val stateManager = if (itemType == SelectItemType.Multiple) {
+                val checkedStateManager = if (itemType == SelectItemType.Multiple) {
                     rememberSelectMultipleDataStateManager(SelectList)
                 } else {
                     rememberSelectSingleDataStateManager(SelectList)
@@ -73,7 +73,7 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                     trigger = {
                         when (selectUiState.triggerType) {
                             TriggerType.TextField -> {
-                                val value = getTextFieldValue(itemType, stateManager.selectedItems)
+                                val value = getTextFieldValue(itemType, checkedStateManager.selectedItems)
                                 SelectTextField(
                                     modifier = Modifier.width(260.dp),
                                     value = value,
@@ -83,7 +83,7 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                                     captionText = "Выберите имя",
                                     iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
                                     iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
-                                    chipsContent = getChipsContent(itemType, stateManager.selectedItems),
+                                    chipsContent = getChipsContent(itemType, checkedStateManager.selectedItems),
                                     startContent = {
                                         Icon(
                                             painterResource(R.drawable.ic_search_24),
@@ -93,7 +93,7 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                                 )
                             }
                             TriggerType.Button -> {
-                                val value = getButtonValue(itemType, stateManager.selectedItems)
+                                val value = getButtonValue(itemType, checkedStateManager.selectedItems)
                                 SelectButton(
                                     modifier = Modifier.width(260.dp),
                                     label = value,
@@ -122,10 +122,10 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                         items(SelectList.size) {
                             SelectItem(
                                 modifier = Modifier.fillMaxWidth(),
-                                checked = stateManager.isSelected(SelectList[it]),
+                                checked = checkedStateManager.isSelected(SelectList[it]),
                                 onClick = {
                                     Log.d("Select", "Item $it was selected")
-                                    stateManager.onItemPressed(SelectList[it])
+                                    checkedStateManager.onItemPressed(SelectList[it])
                                 },
                             ) {
                                 Cell(
@@ -196,7 +196,7 @@ private fun getTextFieldValue(
     return if (selectItemType == SelectItemType.Multiple) {
         ""
     } else {
-        selectedItems.firstOrNull() ?: ""
+        selectedItems.firstOrNull().orEmpty()
     }
 }
 
