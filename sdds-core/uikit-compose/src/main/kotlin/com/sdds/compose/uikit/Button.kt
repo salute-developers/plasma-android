@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -67,14 +66,15 @@ fun IconButton(
         indication = indication,
         interactionSource = interactionSource,
         onClickLabel = onClickLabel,
-    ) {
-        ButtonIcon(
-            iconRes = iconRes,
-            contentDescription = iconContentDescription,
-            size = dimensions.iconSize,
-            iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
-        )
-    }
+        startContent = {
+            ButtonIcon(
+                iconRes = iconRes,
+                contentDescription = iconContentDescription,
+                size = dimensions.iconSize,
+                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+            )
+        },
+    )
 }
 
 /**
@@ -208,14 +208,15 @@ fun IconButton(
         disabledAlpha = style.disableAlpha,
         indication = indication,
         interactionSource = interactionSource,
-    ) {
-        ButtonIcon(
-            icon = icon,
-            contentDescription = iconContentDescription,
-            size = dimensions.iconSize,
-            iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
-        )
-    }
+        startContent = {
+            ButtonIcon(
+                icon = icon,
+                contentDescription = iconContentDescription,
+                size = dimensions.iconSize,
+                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+            )
+        },
+    )
 }
 
 /**
@@ -278,10 +279,20 @@ fun Button(
         loading = loading,
         dimensions = dimensions,
         indication = indication,
+        spacing = spacing,
         interactionSource = interactionSource,
+        startContent = {
+            StartButtonIcon(
+                icons = icons,
+                dimensions = dimensions,
+                colors = style.colors,
+                interactionSource = interactionSource,
+            )
+        },
+        endContent = {
+            EndButtonIcon(icons, dimensions, style.colors, interactionSource)
+        },
     ) {
-        StartButtonIcon(icons, dimensions, style.colors, interactionSource)
-
         val labelColor = colors.labelColor.colorForInteraction(interactionSource)
         val valueColor = colors.valueColor.colorForInteraction(interactionSource)
         ButtonText(
@@ -290,12 +301,9 @@ fun Button(
             labelColor = labelColor,
             valueTextStyle = style.valueStyle,
             valueColor = valueColor,
-            spacing = spacing,
             value = value,
             valueMargin = dimensions.valueMargin,
         )
-
-        EndButtonIcon(icons, dimensions, style.colors, interactionSource)
     }
 }
 
@@ -383,7 +391,7 @@ internal val LocalButtonForceShape: ProvidableCompositionLocal<Shape?> =
     compositionLocalOf(structuralEqualityPolicy()) { null }
 
 @Composable
-private fun RowScope.StartButtonIcon(
+private fun StartButtonIcon(
     icons: ButtonIcons?,
     dimensions: ButtonDimensions,
     colors: ButtonColors,
@@ -409,7 +417,7 @@ private fun RowScope.StartButtonIcon(
 }
 
 @Composable
-private fun RowScope.EndButtonIcon(
+private fun EndButtonIcon(
     icons: ButtonIcons?,
     dimensions: ButtonDimensions,
     colors: ButtonColors,

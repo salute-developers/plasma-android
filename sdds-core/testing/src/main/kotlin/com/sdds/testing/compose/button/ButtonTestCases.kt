@@ -1,6 +1,8 @@
 package com.sdds.testing.compose.button
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonIcons
@@ -123,6 +125,7 @@ fun ButtonSizeLSecondary(style: ButtonStyle) {
 @Composable
 fun ButtonSizeMSpaceBetween(style: ButtonStyle) {
     Button(
+        modifier = Modifier.fillMaxWidth(),
         style = style,
         icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_16)),
         spacing = ButtonSpacing.SpaceBetween,
