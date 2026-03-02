@@ -22,6 +22,11 @@ jobs:
     name: Perform lint analysis
     needs: detect_changes
     runs-on: ubuntu-latest
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed)) != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJson(needs.detect_changes.outputs.changed) }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -30,7 +35,7 @@ jobs:
         uses: ./.github/actions/prepare-android-env
 
       - name: Run lint
-        run: ./.github/scripts/run_task.sh lint '${{ needs.detect_changes.outputs.changed }}' --continue --ignore-modules=:sdds-core:plugin_theme_builder,:build-system
+        run: ./.github/scripts/run_task.sh lint '${{ matrix.module }}' --continue --ignore-modules=:sdds-core:plugin_theme_builder,:build-system
 
       - name: Upload static analysis reports
         if: success() || failure()
