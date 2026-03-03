@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" >
+    <attr name="sd_editableStyle" format="reference" />
+
+    <declare-styleable name="Editable" tools:ignore="ResourceName" >
+        <!--  Иконка (drawable ресурс) -->
+        <attr name="sd_icon" />
+        <!--  Цвет иконки (drawable) -->
+        <attr name="sd_iconTint" />
+        <!--  Размер иконки (drawable) -->
+        <attr name="sd_iconSize" />
+        <!--  Отступ иконки (drawable) от текстового поля -->
+        <attr name="sd_iconMargin" />
+        <!--  Цвет текста -->
+        <attr name="sd_valueColor" />
+        <!--  Стиль текста -->
+        <attr name="sd_valueAppearance" />
+        <!--  Цвет курсора -->
+        <attr name="sd_cursorColor" />
+        <!--  Расположение иконки (drawable) -->
+        <attr name="sd_editableIconPlacement" format="enum" >
+            <!--  Drawable не учавствует в размерах Editable, рисуется за границами -->
+            <enum name="absolute" value="0" />
+            <!--  Drawable учавствует в размерах Editable, рисуется в пределах границ -->
+            <enum name="relative" value="1" />
+        </attr>
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor" />
+    </declare-styleable>
+</resources>

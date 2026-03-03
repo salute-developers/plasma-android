@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- sample-start: id=EditableStyle -->
+    <!-- placeholder:  <item name="sd_icon">@drawable/ic_edit_fill_24</item> -> <item name="sd_icon">Ссылка/drawable ресурс</item>  -->
+    <!-- placeholder: <item name="sd_valueAppearance">@style/TextAppearance.AppCompat.Body1</item> -> <item name="sd_valueAppearance">Стиль/атрибут типографики</item>  -->
+    <style name="EditableStyle" parent="Sdds.Components.Editable">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_valueColor">#222</item>
+        <item name="sd_iconTint">#444</item>
+        <item name="sd_cursorColor">?sd_cursorColor</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_iconMargin">10dp</item>
+        <item name="sd_icon">@drawable/ic_edit_fill_24</item>
+        <item name="sd_editableIconPlacement">relative</item>
+        <item name="sd_valueAppearance">@style/TextAppearance.AppCompat.Body1</item>
+    </style>
+    <!-- sample-end: id=EditableStyle -->
+</resources>

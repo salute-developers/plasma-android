@@ -13085,6 +13085,63 @@
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.FileLinearProgressLNegative"
             }
          ]
+      },
+      {
+         "key": "editable",
+         "coreName": "Editable",
+         "styleName": "Editable",
+         "variations": [
+            {
+               "name": "h1",
+               "viewReference": "Serv.Sdds.Components.Editable.H1",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableH1"
+            },
+            {
+               "name": "h2",
+               "viewReference": "Serv.Sdds.Components.Editable.H2",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableH2"
+            },
+            {
+               "name": "h3",
+               "viewReference": "Serv.Sdds.Components.Editable.H3",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableH3"
+            },
+            {
+               "name": "h4",
+               "viewReference": "Serv.Sdds.Components.Editable.H4",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableH4"
+            },
+            {
+               "name": "h5",
+               "viewReference": "Serv.Sdds.Components.Editable.H5",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableH5"
+            },
+            {
+               "name": "body-l",
+               "viewReference": "Serv.Sdds.Components.Editable.BodyL",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableBodyL"
+            },
+            {
+               "name": "body-m",
+               "viewReference": "Serv.Sdds.Components.Editable.BodyM",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableBodyM"
+            },
+            {
+               "name": "body-s",
+               "viewReference": "Serv.Sdds.Components.Editable.BodyS",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableBodyS"
+            },
+            {
+               "name": "body-xs",
+               "viewReference": "Serv.Sdds.Components.Editable.BodyXs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableBodyXs"
+            },
+            {
+               "name": "body-xxs",
+               "viewReference": "Serv.Sdds.Components.Editable.BodyXxs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableBodyXxs"
+            }
+         ]
       }
    ]
 }

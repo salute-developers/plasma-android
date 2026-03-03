@@ -1282,6 +1282,8 @@
         <item name="sd_noteCompactStyle">@style/Serv.Sdds.Components.NoteCompact.L.Default</item>
         <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelInner.L</item>
         <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileLinearProgress.L</item>
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.HasBackground</item>
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyM</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2563,6 +2565,8 @@
         <item name="sd_noteCompactStyle">@style/Serv.Sdds.Components.NoteCompact.L.Default</item>
         <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelInner.L</item>
         <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileLinearProgress.L</item>
+        <item name="sd_navigationBarStyle">@style/Serv.Sdds.Components.NavigationBarInternalPage.HasBackground</item>
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyM</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

@@ -62,4 +62,5 @@
     <item type="id" name="nav_autocomplete"/>
     <item type="id" name="nav_file"/>
     <item type="id" name="nav_navigation_bar"/>
+    <item type="id" name="nav_editable"/>
 </resources>

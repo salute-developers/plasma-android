@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:clipChildren="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Editable_Simple -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_file_check_fill_16" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.Editable
+        android:id="@+id/editable_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First line \nSecond line"
+        app:sd_icon="@drawable/ic_file_check_fill_16"
+        app:sd_iconTint="#111"
+        app:sd_iconSize="16dp"
+        app:sd_iconMargin="8dp" />
+    <!-- sample-end: id=Editable_Simple -->
+
+    <!-- sample-start: id=Editable_SingleLine_Icon_Relative -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_file_check_fill_16" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.Editable
+        android:id="@+id/editable_single_line_icon_relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First line \nSecond line "
+        android:singleLine="true"
+        app:sd_editableIconPlacement="relative"
+        app:sd_icon="@drawable/ic_file_check_fill_16"
+        app:sd_iconTint="#111"
+        app:sd_iconSize="16dp"
+        app:sd_iconMargin="8dp" />
+    <!-- sample-end: id=Editable_SingleLine_Icon_Relative -->
+</LinearLayout>

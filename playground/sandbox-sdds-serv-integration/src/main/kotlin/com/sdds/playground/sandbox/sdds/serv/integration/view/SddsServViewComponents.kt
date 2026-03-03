@@ -413,5 +413,11 @@ object SddsServViewComponents : ComponentsProviderView() {
                     "FileLinearProgress" to SddsServFileLinearProgressVariationsView,
                 ),
             ),
+            ViewComponent(
+                ComponentKey.Editable,
+                mapOf(
+                    "Editable" to SddsServEditableVariationsView,
+                ),
+            ),
         ).associateBy { it.key }
 }

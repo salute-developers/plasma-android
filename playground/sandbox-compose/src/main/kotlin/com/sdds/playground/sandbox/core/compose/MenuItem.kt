@@ -91,8 +91,8 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
-import com.sdds.playground.sandbox.editable.EditablePreview
-import com.sdds.playground.sandbox.editable.EditableScreen
+import com.sdds.playground.sandbox.editable.compose.EditablePreview
+import com.sdds.playground.sandbox.editable.compose.EditableScreen
 import com.sdds.playground.sandbox.file.compose.FilePreview
 import com.sdds.playground.sandbox.file.compose.FileScreen
 import com.sdds.playground.sandbox.form.FormItemPreview
