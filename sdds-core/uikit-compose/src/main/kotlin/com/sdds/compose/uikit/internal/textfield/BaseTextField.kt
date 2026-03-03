@@ -78,7 +78,6 @@ import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.drawIndicator
-import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.scrollbar
@@ -258,7 +257,7 @@ internal fun BaseTextField(
     BasicTextField(
         modifier = modifier
             .then(activatableModifier)
-            .textFieldClickable(fakeTextField, onDecorationBoxClicked, interactionSource)
+            .textFieldClickable(enabled, fakeTextField, onDecorationBoxClicked, interactionSource)
             .testTag("textField"),
         value = value,
         onValueChange = onValueChange,
@@ -295,7 +294,7 @@ internal fun BaseTextField(
                                 ),
                                 dimensions = dimensions,
                             )
-                            .enable(enabled, enabledAlpha, disabledAlpha),
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha),
                         labelPlacement = labelPlacement,
                         fieldType = fieldType,
                         labelText = finalLabelText,
@@ -328,8 +327,8 @@ internal fun BaseTextField(
                                 dimensions,
                                 colors.indicatorColor(readOnly, enabled, interactionSource),
                             )
-                            .enable(enabled, enabledAlpha, disabledAlpha)
                             .clip(style.shape)
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha)
                             .drawFieldAppearance(
                                 backgroundColor = colors
                                     .backgroundColor(readOnly)
@@ -433,7 +432,7 @@ internal fun BaseTextField(
                             .layoutId(CAPTION_CONTENT_ID)
                             .focusProperties { canFocus = false }
                             .padding(top = dimensions.helperTextPadding)
-                            .enable(enabled, enabledAlpha, disabledAlpha),
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha),
                         text = captionText,
                         textStyle = captionStyle,
                         helperTextPlacement = captionPlacement,
@@ -443,7 +442,7 @@ internal fun BaseTextField(
                             .layoutId(COUNTER_CONTENT_ID)
                             .focusProperties { canFocus = false }
                             .padding(top = dimensions.helperTextPadding)
-                            .enable(enabled, enabledAlpha, disabledAlpha),
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha),
                         text = counterText,
                         textStyle = counterStyle,
                         helperTextPlacement = counterPlacement,
@@ -452,6 +451,10 @@ internal fun BaseTextField(
             )
         },
     )
+}
+
+private fun Modifier.enableAlpha(enabled: Boolean, enabledAlpha: Float, disabledAlpha: Float): Modifier {
+    return this.graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
 }
 
 private suspend fun scrollToCaret(
@@ -492,6 +495,7 @@ private suspend fun scrollToCaret(
 }
 
 private fun Modifier.textFieldClickable(
+    enabled: Boolean,
     fakeTextField: Boolean,
     onDecorationBoxClicked: (() -> Unit)?,
     interactionSource: MutableInteractionSource,
@@ -499,6 +503,7 @@ private fun Modifier.textFieldClickable(
     return if (fakeTextField && onDecorationBoxClicked != null) {
         this
             .clickable(
+                enabled = enabled,
                 indication = null,
                 interactionSource = interactionSource,
             ) { onDecorationBoxClicked() }
