@@ -83,7 +83,7 @@ fun SelectItem(
                 endContent = endContent,
                 disclosureContent = if (disclosureEnabled) disclosureContent else null,
             )
-        }
+        },
     )
 }
 

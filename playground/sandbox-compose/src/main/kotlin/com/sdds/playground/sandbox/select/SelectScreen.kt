@@ -55,7 +55,7 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
             Box(
                 modifier = Modifier.fillMaxSize(),
             ) {
-                val state = remember(selectUiState) { SelectState() }
+                val state = remember { SelectState() }
                 val itemType = style.selectItemStyle.itemType
                 val checkedStateManager = if (itemType == SelectItemType.Multiple) {
                     rememberSelectMultipleDataStateManager(SelectList)

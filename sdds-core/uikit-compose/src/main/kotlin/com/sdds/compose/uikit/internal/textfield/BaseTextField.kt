@@ -328,8 +328,8 @@ internal fun BaseTextField(
                                 dimensions,
                                 colors.indicatorColor(readOnly, enabled, interactionSource),
                             )
-                            .clip(style.shape)
                             .enable(enabled, enabledAlpha, disabledAlpha)
+                            .clip(style.shape)
                             .drawFieldAppearance(
                                 backgroundColor = colors
                                     .backgroundColor(readOnly)

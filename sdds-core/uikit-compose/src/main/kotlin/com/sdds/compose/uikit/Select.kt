@@ -14,7 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
@@ -23,8 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.DropdownProperties.Height
 import com.sdds.compose.uikit.DropdownProperties.Width
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 /**
  * Компонент выбора (Select) для Compose UI, предоставляющий функциональность выпадающего списка.
@@ -59,7 +56,6 @@ fun Select(
 ) {
     val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
     val scrollState = rememberLazyListState()
-    val coroutineScope = rememberCoroutineScope()
 
     Box(modifier = modifier.popoverTrigger(triggerInfo)) {
         CompositionLocalProvider(
@@ -88,10 +84,7 @@ fun Select(
         scrollState = scrollState,
         style = style.dropdownStyle,
         onDismissRequest = {
-            coroutineScope.launch {
-                delay(150)
-                state.close()
-            }
+            state.close()
         },
         triggerInfo = triggerInfo.value,
         clipWidth = false,
