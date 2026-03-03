@@ -188,8 +188,7 @@ private class EditableMeasurePolicy(
         } else {
             val fieldExactWidth = if (singleLine) {
                 originalFieldConstraints.constrainWidth(getSingleLineTextWidth())
-            }
-            else {
+            } else {
                 originalFieldConstraints.constrainWidth(getMultiLineTextWidth(maxLines))
             }
             originalFieldConstraints.copy(
