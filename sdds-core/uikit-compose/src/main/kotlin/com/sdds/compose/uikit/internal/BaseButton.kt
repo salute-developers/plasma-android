@@ -246,92 +246,77 @@ internal fun ButtonText(
     valueMargin: Dp,
     value: String?,
 ) {
-    Layout(
+    ButtonText(
         modifier = modifier,
-        content = {
-            Text(
-                modifier = Modifier.layoutId(LABEL_TEXT_ID),
-                text = label,
-                style = labelTextStyle.copy(color = labelColor),
-                softWrap = false,
-                overflow = TextOverflow.Ellipsis,
-            )
-            if (!value.isNullOrEmpty()) {
-                Text(
-                    modifier = Modifier
-                        .padding(start = valueMargin)
-                        .layoutId(VALUE_TEXT_ID),
-                    text = value,
-                    style = valueTextStyle.copy(color = valueColor),
-                    softWrap = false,
-                    overflow = TextOverflow.Ellipsis,
-                )
+        labelContent = { Text(label) },
+        labelTextStyle = labelTextStyle,
+        labelColor = { labelColor },
+        valueContent = if (!value.isNullOrEmpty()) {
+            {
+                Text(value)
             }
+        } else {
+            null
         },
-    ) { measurables, constraints ->
-        val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
-        val labelPlaceable = measurables.find { it.layoutId == LABEL_TEXT_ID }
-            ?.measure(looseConstraints)
-        val valuePlaceable = measurables.find { it.layoutId == VALUE_TEXT_ID }
-            ?.measure(looseConstraints.offset(-labelPlaceable.widthOrZero()))
-
-        val textWidth = labelPlaceable.widthOrZero() + valuePlaceable.widthOrZero()
-        val width = constraints.constrainWidth(textWidth)
-        val height = constraints.constrainHeight(
-            maxOf(labelPlaceable.heightOrZero(), valuePlaceable.heightOrZero()),
-        )
-        layout(width, height) {
-            labelPlaceable?.placeRelative(0, height - labelPlaceable.heightOrZero())
-            valuePlaceable?.placeRelative(
-                width - valuePlaceable.widthOrZero(),
-                height - valuePlaceable.heightOrZero(),
-            )
-        }
-    }
+        valueTextStyle = valueTextStyle,
+        valueColor = { valueColor },
+        valueMargin = valueMargin,
+    )
 }
 
 /**
  * Composable для отображение текстов в кнопке
  */
 @Composable
-internal fun RowScope.ButtonText(
+internal fun ButtonText(
     labelContent: @Composable () -> Unit,
     labelTextStyle: TextStyle,
     labelColor: () -> Color,
-    spacing: ButtonSpacing,
     modifier: Modifier = Modifier,
     valueContent: (@Composable () -> Unit)?,
     valueTextStyle: TextStyle,
     valueColor: () -> Color,
     valueMargin: Dp = Dp.Unspecified,
 ) {
-    ProvideTextBehaviour(TextBehaviour(overflow = TextOverflow.Ellipsis, maxLines = 1)) {
-        if (valueContent != null) {
-            val widthModifier = if (spacing == ButtonSpacing.SpaceBetween) {
-                modifier.fillMaxWidth().weight(1f, false)
-            } else {
-                modifier
-            }
-            Row(
-                horizontalArrangement = when (spacing) {
-                    ButtonSpacing.Packed -> Arrangement.Center
-                    ButtonSpacing.SpaceBetween -> Arrangement.SpaceBetween
-                },
-                modifier = widthModifier,
-            ) {
-                ProvideTextStyle(labelTextStyle, color = labelColor) {
-                    labelContent()
+    ProvideTextBehaviour(TextBehaviour(overflow = TextOverflow.Ellipsis, maxLines = 1, softWrap = false)) {
+        Layout(
+            modifier = modifier,
+            content = {
+                Box(Modifier.layoutId(LABEL_TEXT_ID)) {
+                    ProvideTextStyle(labelTextStyle, color = labelColor) {
+                        labelContent()
+                    }
                 }
-
-                Spacer(modifier = Modifier.width(valueMargin))
-
-                ProvideTextStyle(valueTextStyle, color = valueColor) {
-                    valueContent()
+                if (valueContent != null) {
+                    Box(
+                        Modifier
+                            .padding(start = valueMargin)
+                            .layoutId(VALUE_TEXT_ID),
+                    ) {
+                        ProvideTextStyle(valueTextStyle, color = valueColor) {
+                            valueContent()
+                        }
+                    }
                 }
-            }
-        } else {
-            ProvideTextStyle(labelTextStyle, color = labelColor) {
-                labelContent()
+            },
+        ) { measurables, constraints ->
+            val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
+            val labelPlaceable = measurables.find { it.layoutId == LABEL_TEXT_ID }
+                ?.measure(looseConstraints)
+            val valuePlaceable = measurables.find { it.layoutId == VALUE_TEXT_ID }
+                ?.measure(looseConstraints.offset(-labelPlaceable.widthOrZero()))
+
+            val textWidth = labelPlaceable.widthOrZero() + valuePlaceable.widthOrZero()
+            val width = constraints.constrainWidth(textWidth)
+            val height = constraints.constrainHeight(
+                maxOf(labelPlaceable.heightOrZero(), valuePlaceable.heightOrZero()),
+            )
+            layout(width, height) {
+                labelPlaceable?.placeRelative(0, height - labelPlaceable.heightOrZero())
+                valuePlaceable?.placeRelative(
+                    width - valuePlaceable.widthOrZero(),
+                    height - valuePlaceable.heightOrZero(),
+                )
             }
         }
     }
