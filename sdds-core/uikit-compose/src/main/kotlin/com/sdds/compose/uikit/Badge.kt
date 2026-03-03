@@ -78,6 +78,7 @@ fun Badge(
         dimensionsSet = dimens,
         colorsSet = colors,
         labelContent = label,
+        labelStyle = style.labelStyle,
         startContent = startContent,
         endContent = endContent,
         interactionSource = interactionSource,

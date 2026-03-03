@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.OverlayManager
@@ -47,12 +48,13 @@ internal fun ToastScreen(componentKey: ComponentKey = ComponentKey.Toast) {
                     ) {
                         Toast(
                             style = style,
-                            text = toastUiState.text,
                             contentStart = getContentStart(toastUiState.hasContentStart),
                             contentEnd = getContentEnd(toastUiState.hasContentEnd) {
                                 overlayManager.remove(it)
                             },
-                        )
+                        ) {
+                            Text(toastUiState.text)
+                        }
                     }
                 },
             )
