@@ -73,8 +73,8 @@ public val ListItem.S: WrapperListItemS
             height(48.0.dp)
             paddingStart(0.0.dp)
             paddingEnd(0.0.dp)
-            paddingTop(10.0.dp)
-            paddingBottom(10.0.dp)
+            paddingTop(12.0.dp)
+            paddingBottom(12.0.dp)
         }
         .wrap(::WrapperListItemS)
 
@@ -91,7 +91,7 @@ public val WrapperListItemS.HasBackground: WrapperListItemSHasBackground
         .dimensions {
             paddingStart(16.0.dp)
             paddingEnd(14.0.dp)
-            paddingTop(10.0.dp)
-            paddingBottom(10.0.dp)
+            paddingTop(12.0.dp)
+            paddingBottom(12.0.dp)
         }
         .wrap(::WrapperListItemSHasBackground)
