@@ -7877,6 +7877,100 @@
          ]
       },
       {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBarHorizontal",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalL"
+            },
+            {
+               "name": "l.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.L.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalLHasShadow"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalM"
+            },
+            {
+               "name": "m.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.M.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalMHasShadow"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalS"
+            },
+            {
+               "name": "s.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.S.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalSHasShadow"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalXs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarHorizontal.Xs.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarHorizontalXsHasShadow"
+            }
+         ]
+      },
+      {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBarVertical",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.L",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalL"
+            },
+            {
+               "name": "l.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.L.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalLHasShadow"
+            },
+            {
+               "name": "m",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.M",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalM"
+            },
+            {
+               "name": "m.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.M.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalMHasShadow"
+            },
+            {
+               "name": "s",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.S",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalS"
+            },
+            {
+               "name": "s.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.S.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalSHasShadow"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.Xs",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalXs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "viewReference": "Plasma.SdService.Components.ToolBarVertical.Xs.HasShadow",
+               "viewOverlayReference": "Plasma.SdService.ComponentOverlays.ToolBarVerticalXsHasShadow"
+            }
+         ]
+      },
+      {
          "key": "toast",
          "coreName": "Toast",
          "styleName": "Toast",

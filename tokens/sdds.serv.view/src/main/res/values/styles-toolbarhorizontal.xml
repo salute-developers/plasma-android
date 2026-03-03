@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- DEPRECATED! Component name Toolbar is deprecated, use styles and style overlays with component name ToolBar-->
+<resources>
+    <style name="Serv.Sdds.Components.ToolbarHorizontal" parent="Serv.Sdds.Components.ToolBarHorizontal" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.L" parent="Serv.Sdds.Components.ToolBarHorizontal.L" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.L.HasShadow" parent="Serv.Sdds.Components.ToolBarHorizontal.L.HasShadow" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.M" parent="Serv.Sdds.Components.ToolBarHorizontal.M" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.M.HasShadow" parent="Serv.Sdds.Components.ToolBarHorizontal.M.HasShadow" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.S" parent="Serv.Sdds.Components.ToolBarHorizontal.S" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.S.HasShadow" parent="Serv.Sdds.Components.ToolBarHorizontal.S.HasShadow" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.Xs" parent="Serv.Sdds.Components.ToolBarHorizontal.Xs" />
+
+    <style name="Serv.Sdds.Components.ToolbarHorizontal.Xs.HasShadow" parent="Serv.Sdds.Components.ToolBarHorizontal.Xs.HasShadow" />
+
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalL">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalLHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.L.HasShadow</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalM">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalMHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.M.HasShadow</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalS">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.S</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalSHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.S.HasShadow</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalXs">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.Xs</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ToolbarHorizontalXsHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.Xs.HasShadow</item>
+    </style>
+</resources>

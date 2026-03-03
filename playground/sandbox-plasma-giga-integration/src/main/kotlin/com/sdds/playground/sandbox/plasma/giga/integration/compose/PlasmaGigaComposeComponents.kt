@@ -198,6 +198,13 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.ToolBar,
+                mapOf(
+                    "ToolBarHorizontal" to PlasmaGigaToolBarHorizontalVariationsCompose,
+                    "ToolBarVertical" to PlasmaGigaToolBarVerticalVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to PlasmaGigaToastVariationsCompose,
@@ -347,6 +354,12 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose() {
                     "DrawerCloseNone" to PlasmaGigaDrawerCloseNoneVariationsCompose,
                     "DrawerCloseInner" to PlasmaGigaDrawerCloseInnerVariationsCompose,
                     "DrawerCloseOuter" to PlasmaGigaDrawerCloseOuterVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.DropdownEmptyState,
+                mapOf(
+                    "DropdownEmptyState" to PlasmaGigaDropdownEmptyStateVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

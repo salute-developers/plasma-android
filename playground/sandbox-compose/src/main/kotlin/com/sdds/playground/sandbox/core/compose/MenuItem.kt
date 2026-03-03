@@ -54,6 +54,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.ToastStyle
+import com.sdds.compose.uikit.ToolBarStyle
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.WheelStyle
 import com.sdds.compose.uikit.style.Style
@@ -143,6 +144,8 @@ import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
 import com.sdds.playground.sandbox.toast.compose.ToastScreen
+import com.sdds.playground.sandbox.toolbar.compose.ToolBarPreview
+import com.sdds.playground.sandbox.toolbar.compose.ToolBarScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
 import com.sdds.playground.sandbox.wheel.compose.WheelPreview
 import com.sdds.playground.sandbox.wheel.compose.WheelScreen
@@ -404,6 +407,11 @@ internal sealed class ComponentScreen(
         { EditableScreen(it) },
         { style, _ -> EditablePreview(style as EditableStyle) },
     )
+
+    object ToolBar : ComponentScreen(
+        { ToolBarScreen(it) },
+        { style, _ -> ToolBarPreview(style as ToolBarStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -471,6 +479,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SLIDER -> ComponentScreen.Slider
         CoreComponent.FORM_ITEM -> ComponentScreen.FormItem
         CoreComponent.EDITABLE -> ComponentScreen.Editable
+        CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         else -> ComponentScreen.Empty
     }
 }
