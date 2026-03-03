@@ -2,82 +2,82 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
-    <style name="Serv.Sdds.Components.ToolbarVertical" parent="Sdds.Components.ToolBar">
+    <style name="Serv.Sdds.Components.ToolBarVertical" parent="Sdds.Components.ToolBar">
         <item name="android:orientation">vertical</item>
         <item name="sd_dividerStyleOverlay">@style/Serv.Sdds.ComponentOverlays.Divider</item>
         <item name="sd_background">?serv_surfaceDefaultSolidCard</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.L">
+    <style name="Serv.Sdds.Components.ToolBarVertical.L">
         <item name="sd_shapeAppearance">?serv_shapeRoundXl</item>
-        <item name="android:paddingStart">@dimen/serv_toolbar_vertical_l_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_toolbar_vertical_l_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_toolbar_vertical_l_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_toolbar_vertical_l_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/serv_toolbar_vertical_l_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/serv_toolbar_vertical_l_divider_margin</item>
+        <item name="android:paddingStart">@dimen/serv_tool_bar_vertical_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_tool_bar_vertical_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_tool_bar_vertical_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_tool_bar_vertical_l_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_tool_bar_vertical_l_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_tool_bar_vertical_l_divider_margin</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalL">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.L</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalL">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.L</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.L.HasShadow">
+    <style name="Serv.Sdds.Components.ToolBarVertical.L.HasShadow">
         <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalLHasShadow">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.L.HasShadow</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalLHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.L.HasShadow</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.M">
+    <style name="Serv.Sdds.Components.ToolBarVertical.M">
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="android:paddingStart">@dimen/serv_toolbar_vertical_m_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_toolbar_vertical_m_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_toolbar_vertical_m_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_toolbar_vertical_m_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/serv_toolbar_vertical_m_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/serv_toolbar_vertical_m_divider_margin</item>
+        <item name="android:paddingStart">@dimen/serv_tool_bar_vertical_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_tool_bar_vertical_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_tool_bar_vertical_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_tool_bar_vertical_m_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_tool_bar_vertical_m_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_tool_bar_vertical_m_divider_margin</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalM">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.M</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalM">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.M</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.M.HasShadow">
+    <style name="Serv.Sdds.Components.ToolBarVertical.M.HasShadow">
         <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalMHasShadow">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.M.HasShadow</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalMHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.M.HasShadow</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.S">
+    <style name="Serv.Sdds.Components.ToolBarVertical.S">
         <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
-        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_toolbar_vertical_s_shape_adjustment</item>
-        <item name="android:paddingStart">@dimen/serv_toolbar_vertical_s_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_toolbar_vertical_s_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_toolbar_vertical_s_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_toolbar_vertical_s_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/serv_toolbar_vertical_s_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/serv_toolbar_vertical_s_divider_margin</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_tool_bar_vertical_s_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/serv_tool_bar_vertical_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_tool_bar_vertical_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_tool_bar_vertical_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_tool_bar_vertical_s_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_tool_bar_vertical_s_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_tool_bar_vertical_s_divider_margin</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalS">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.S</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalS">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.S</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.S.HasShadow">
+    <style name="Serv.Sdds.Components.ToolBarVertical.S.HasShadow">
         <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalSHasShadow">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.S.HasShadow</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalSHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.S.HasShadow</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.Xs">
+    <style name="Serv.Sdds.Components.ToolBarVertical.Xs">
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
-        <item name="android:paddingStart">@dimen/serv_toolbar_vertical_xs_padding_start</item>
-        <item name="android:paddingEnd">@dimen/serv_toolbar_vertical_xs_padding_end</item>
-        <item name="android:paddingTop">@dimen/serv_toolbar_vertical_xs_padding_top</item>
-        <item name="android:paddingBottom">@dimen/serv_toolbar_vertical_xs_padding_bottom</item>
-        <item name="sd_slotPadding">@dimen/serv_toolbar_vertical_xs_slot_padding</item>
-        <item name="sd_dividerMargin">@dimen/serv_toolbar_vertical_xs_divider_margin</item>
+        <item name="android:paddingStart">@dimen/serv_tool_bar_vertical_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_tool_bar_vertical_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_tool_bar_vertical_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_tool_bar_vertical_xs_padding_bottom</item>
+        <item name="sd_slotPadding">@dimen/serv_tool_bar_vertical_xs_slot_padding</item>
+        <item name="sd_dividerMargin">@dimen/serv_tool_bar_vertical_xs_divider_margin</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalXs">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.Xs</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalXs">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.Xs</item>
     </style>
-    <style name="Serv.Sdds.Components.ToolbarVertical.Xs.HasShadow">
+    <style name="Serv.Sdds.Components.ToolBarVertical.Xs.HasShadow">
         <item name="sd_shadowAppearance">?serv_shadowDownSoftS</item>
     </style>
-    <style name="Serv.Sdds.ComponentOverlays.ToolbarVerticalXsHasShadow">
-        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarVertical.Xs.HasShadow</item>
+    <style name="Serv.Sdds.ComponentOverlays.ToolBarVerticalXsHasShadow">
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolBarVertical.Xs.HasShadow</item>
     </style>
 </resources>

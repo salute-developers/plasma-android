@@ -195,10 +195,10 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
-                ComponentKey.Toolbar,
+                ComponentKey.ToolBar,
                 mapOf(
-                    "ToolbarHorizontal" to SddsServToolbarHorizontalVariationsView,
-                    "ToolbarVertical" to SddsServToolbarVerticalVariationsView,
+                    "ToolBarHorizontal" to SddsServToolBarHorizontalVariationsView,
+                    "ToolBarVertical" to SddsServToolBarVerticalVariationsView,
                 ),
             ),
             ViewComponent(

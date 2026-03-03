@@ -129,7 +129,7 @@ internal val componentDelegates by unsafeLazy {
         "tabs" to TabsConfigDelegate(),
         "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
-        "toolbar" to ToolBarConfigDelegate(),
+        "tool-bar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
         "collapsing-navigation-bar" to CollapsingNavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),

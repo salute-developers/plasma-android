@@ -189,6 +189,13 @@ object PlasmaB2cViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.ToolBar,
+                mapOf(
+                    "ToolBarHorizontal" to PlasmaB2cToolBarHorizontalVariationsView,
+                    "ToolBarVertical" to PlasmaB2cToolBarVerticalVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to PlasmaB2cToastVariationsView,

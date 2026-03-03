@@ -264,6 +264,8 @@ data class ComponentKey(
         val File = ComponentKey("File", CoreComponent.FILE)
         val FormItem = ComponentKey("FormItem", CoreComponent.FORM_ITEM)
         val Editable = ComponentKey("Editable", CoreComponent.EDITABLE)
+
+        val ToolBar = ComponentKey("ToolBar", CoreComponent.TOOL_BAR)
     }
 }
 
