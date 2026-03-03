@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
+import com.sdds.playground.sandbox.core.compose.enumProperty
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 internal class ListViewModel(
@@ -40,6 +41,13 @@ internal class ListViewModel(
                 value = amount,
                 onApply = {
                     if (it in 0..10) internalUiState.value = internalUiState.value.copy(amount = it)
+                },
+            ),
+            enumProperty(
+                name = "startContent",
+                value = startContent,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(startContent = it)
                 },
             ),
         )

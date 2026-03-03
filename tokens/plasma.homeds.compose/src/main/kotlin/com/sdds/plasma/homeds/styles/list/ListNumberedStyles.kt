@@ -14,6 +14,8 @@ import com.sdds.compose.uikit.ListStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.homeds.styles.divider.Default
+import com.sdds.plasma.homeds.styles.divider.Divider
 import com.sdds.plasma.homeds.styles.listitem.ListNumberedItem
 import com.sdds.plasma.homeds.styles.listitem.S
 import kotlin.Suppress
@@ -36,6 +38,7 @@ public value class WrapperListNumberedS(
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
 
 public val ListNumbered.S: WrapperListNumberedS
     @Composable

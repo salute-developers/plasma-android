@@ -16,6 +16,8 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.homeds.styles.divider.Default
+import com.sdds.plasma.homeds.styles.divider.Divider
 import com.sdds.plasma.homeds.styles.listitem.HasBackground
 import com.sdds.plasma.homeds.styles.listitem.ListItem
 import com.sdds.plasma.homeds.styles.listitem.S
@@ -64,6 +66,7 @@ public value class WrapperListSHasBackground(
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
 
 public val List.S: WrapperListS
     @Composable
