@@ -13,6 +13,7 @@ import com.sdds.plasma.homeds.styles.editable.BodyXxs
 import com.sdds.plasma.homeds.styles.editable.Editable
 import com.sdds.plasma.homeds.styles.editable.H1
 import com.sdds.plasma.homeds.styles.editable.H2
+import com.sdds.plasma.homeds.styles.editable.H3
 import com.sdds.plasma.homeds.styles.editable.H4
 import com.sdds.plasma.homeds.styles.editable.H5
 import com.sdds.plasma.homeds.styles.editable.H6
@@ -56,7 +57,7 @@ class ComposeEditableScreenshotTest(
     @Test
     fun testEditableH3LongText() {
         composeTestRule.content {
-            EditableMultipleLinesIconPlacementAbsoluteTextAlignEnd(Editable.H2.style())
+            EditableMultipleLinesIconPlacementAbsoluteTextAlignEnd(Editable.H3.style())
         }
         composeTestRule
             .onNodeWithTag("EditableField")
