@@ -50,6 +50,16 @@ internal class BottomSheetParametersViewModel(
                 onApply = { updateFitContent(it) },
             ),
             Property.BooleanProperty(
+                name = "skipHalfExpanded",
+                value = skipHalfExpanded,
+                onApply = { updateSkipHalfExpanded(it) },
+            ),
+            Property.BooleanProperty(
+                name = "edgeToEdge",
+                value = edgeToEdge,
+                onApply = { updateEdgeToEdge(it) },
+            ),
+            Property.BooleanProperty(
                 name = "littleContent",
                 value = littleContent,
                 onApply = { updateLittleContent(it) },
@@ -99,6 +109,16 @@ internal class BottomSheetParametersViewModel(
     private fun updateFitContent(fitContent: Boolean) {
         internalUiState.value = internalUiState.value.copy(
             fitContent = fitContent,
+        )
+    }
+    private fun updateSkipHalfExpanded(skipHalfExpanded: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            skipHalfExpanded = skipHalfExpanded,
+        )
+    }
+    private fun updateEdgeToEdge(edgeToEdge: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            edgeToEdge = edgeToEdge,
         )
     }
     private fun updateLittleContent(littleContent: Boolean) {

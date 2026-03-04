@@ -17,6 +17,8 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.giga.styles.divider.Default
+import com.sdds.plasma.giga.styles.divider.Divider
 import com.sdds.plasma.giga.styles.segmentitem.Accent
 import com.sdds.plasma.giga.styles.segmentitem.L
 import com.sdds.plasma.giga.styles.segmentitem.M
@@ -213,6 +215,12 @@ private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
                 PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(),
             )
         }
+        .dimensions {
+            gap(2.0.dp)
+            dividerPaddingStart(8.0.dp)
+            dividerPaddingEnd(8.0.dp)
+        }
+        .dividerStyle(Divider.Default.style())
 
 public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate
     @Composable

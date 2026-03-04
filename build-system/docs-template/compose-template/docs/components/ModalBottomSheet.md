@@ -35,7 +35,7 @@ title: ModalBottomSheet
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheetHandleInner_Simple -->
 
-## FitContent
+## Ограничение высоты ModalBottomSheet по контенту
 
 С помощью параметра fitContent возможно ограничить высоту bottomSheet в развернутом виде, но только в том случае, если высота контента меньше высоты экрана.
 
@@ -44,3 +44,38 @@ title: ModalBottomSheet
 ```
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheetFitContent_Simple -->
+
+
+## Обработка Window Insets
+
+Для корректной работы с системными отступами (status bar, navigation bar, IME) рекомендуется
+явно управлять модификаторами insets снаружи и внутри `ModalBottomSheet`.
+
+Общий принцип:
+
+- `statusBarsPadding()` добавляется к самому `ModalBottomSheet` через параметр `modifier`,
+  чтобы компонент открывался до границы status bar и корректно учитывал верхний системный отступ.
+- `navigationBarsPadding()` применяется внутри контента (например, к `Column`), чтобы
+  содержимое не перекрывалось navigation bar, при этом сам `ModalBottomSheet` продолжал
+  рисоваться под системной панелью.
+- `imePadding()` также применяется внутри контента, чтобы элементы (например, `TextField`)
+  корректно поднимались при появлении клавиатуры.
+
+
+Таким образом:
+- внешний модификатор отвечает за корректное позиционирование всего bottom sheet
+  относительно status bar;
+- внутренние модификаторы управляют безопасными отступами контента относительно
+  navigation bar и клавиатуры.
+
+:::warning
+⚠️ Расположение модификаторов (снаружи или внутри `ModalBottomSheet`) является рекомендацией. 
+В зависимости от архитектуры экрана и требований к дизайну разработчик может самостоятельно
+определить, на каком уровне обрабатывать системные insets.
+::: 
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_Insets.kt
+```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheet_Insets -->

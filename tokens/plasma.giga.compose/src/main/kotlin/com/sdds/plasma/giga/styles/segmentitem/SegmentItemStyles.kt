@@ -771,8 +771,8 @@ public val SegmentItem.Xl: WrapperSegmentItemXl
     get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = 0.0.dp))
-        .labelStyle(PlasmaGigaTheme.typography.bodyLBold)
-        .valueStyle(PlasmaGigaTheme.typography.bodyLBold)
+        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
             minWidth(110.0.dp)
             minHeight(64.0.dp)
@@ -1111,8 +1111,8 @@ public val SegmentItem.L: WrapperSegmentItemL
     get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundL.adjustBy(all = -2.0.dp))
-        .labelStyle(PlasmaGigaTheme.typography.bodyLBold)
-        .valueStyle(PlasmaGigaTheme.typography.bodyLBold)
+        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .valueStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .dimensions {
             minWidth(102.0.dp)
             minHeight(56.0.dp)
@@ -1451,8 +1451,8 @@ public val SegmentItem.M: WrapperSegmentItemM
     get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = 0.0.dp))
-        .labelStyle(PlasmaGigaTheme.typography.bodyMBold)
-        .valueStyle(PlasmaGigaTheme.typography.bodyMBold)
+        .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .valueStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .dimensions {
             minWidth(88.0.dp)
             minHeight(48.0.dp)
@@ -1791,8 +1791,8 @@ public val SegmentItem.S: WrapperSegmentItemS
     get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundM.adjustBy(all = -2.0.dp))
-        .labelStyle(PlasmaGigaTheme.typography.bodySBold)
-        .valueStyle(PlasmaGigaTheme.typography.bodySBold)
+        .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
+        .valueStyle(PlasmaGigaTheme.typography.bodySNormal)
         .dimensions {
             minWidth(75.0.dp)
             minHeight(40.0.dp)
@@ -2131,8 +2131,8 @@ public val SegmentItem.Xs: WrapperSegmentItemXs
     get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(PlasmaGigaTheme.shapes.roundS.adjustBy(all = 0.0.dp))
-        .labelStyle(PlasmaGigaTheme.typography.bodyXsBold)
-        .valueStyle(PlasmaGigaTheme.typography.bodyXsBold)
+        .labelStyle(PlasmaGigaTheme.typography.bodyXsNormal)
+        .valueStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .dimensions {
             minWidth(61.0.dp)
             minHeight(32.0.dp)

@@ -19,6 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.DpSize
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.interactions.selection
@@ -102,6 +104,44 @@ fun SegmentItem(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    SegmentItem(
+        labelContent = { Text(label, maxLines = 1, overflow = TextOverflow.Ellipsis) },
+        modifier = modifier,
+        isSelected = isSelected,
+        style = style,
+        valueContent = if (value != null) { { Text(value, maxLines = 1, overflow = TextOverflow.Ellipsis) } } else null,
+        startContent = startContent,
+        endContent = endContent,
+        enabled = enabled,
+        interactionSource = interactionSource,
+    )
+}
+
+/**
+ * Компонент SegmentItem
+ *
+ * @param labelContent контент основного текст
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param isSelected выбран ли компонент
+ * @param valueContent контент допольнительного текста
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param enabled включен ли компонент
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun SegmentItem(
+    labelContent: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    isSelected: Boolean = false,
+    style: SegmentItemStyle = LocalSegmentItemStyle.current,
+    valueContent: (@Composable () -> Unit)? = null,
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
     val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
     val labelColor = style.colors.labelColor.colorForInteraction(interactionSource)
     val valueColor = style.colors.valueColor.colorForInteraction(interactionSource)
@@ -135,12 +175,12 @@ fun SegmentItem(
             StartContent(style, startContentColor, content)
         }
         ButtonText(
-            label = label,
-            labelColor = labelColor,
+            labelContent = labelContent,
+            labelColor = { labelColor },
             labelTextStyle = style.labelStyle,
-            value = value,
+            valueContent = valueContent,
             valueTextStyle = style.valueStyle,
-            valueColor = valueColor,
+            valueColor = { valueColor },
             valueMargin = style.dimensions.valueMargin,
         )
         endContent?.let { content ->
@@ -196,6 +236,7 @@ private fun StartContent(
     CompositionLocalProvider(
         LocalTint provides startContentColor,
         LocalCounterStyle provides style.counterStyle,
+        LocalIconDefaultSize provides DpSize(style.dimensions.startContentSize, style.dimensions.startContentSize),
     ) {
         Box(
             modifier = Modifier
@@ -214,6 +255,7 @@ private fun EndContent(
     CompositionLocalProvider(
         LocalTint provides endContentColor,
         LocalCounterStyle provides style.counterStyle,
+        LocalIconDefaultSize provides DpSize(style.dimensions.startContentSize, style.dimensions.startContentSize),
     ) {
         Box(
             modifier = Modifier

@@ -1,9 +1,17 @@
 package com.sdds.compose.uikit.fixtures.samples.bottomsheet
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
@@ -12,6 +20,8 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ModalBottomSheet
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
@@ -103,5 +113,43 @@ fun ModalBottomSheetFitContent_Simple() {
             fitContent = true,
             body = { Text("Text") },
         )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_Insets() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+        )
+        val scrollState = rememberScrollState()
+        ModalBottomSheet(
+            // Обрабатываем отступы statusBar снаружи, чтобы ModalBottomSheet открывался до границ statusBar
+            modifier = Modifier.statusBarsPadding(),
+            sheetState = sheetState,
+            onDismiss = { /* Колбэк закрытия ModalBottomSheet */ },
+            fitContent = true,
+        ) {
+            Column(
+                modifier = Modifier
+                    // Отступы navigationBar обрабатываем внутри, чтобы ModalBottomSheet рисовался под navigationBar
+                    .navigationBarsPadding()
+                    // Аналогично поступаем с отступами IME
+                    .imePadding()
+                    .verticalScroll(scrollState),
+            ) {
+                Text("Заголовок ModalBottomSheet")
+
+                TextField(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    value = "",
+                    placeholderText = "Введите значение",
+                    onValueChange = {},
+                    focusSelectorSettings = FocusSelectorSettings.None,
+                )
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.internal.modal
 import android.os.Build
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.platform.LocalView
@@ -11,6 +12,7 @@ import androidx.compose.ui.unit.isSpecified
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.px
 
@@ -24,13 +26,14 @@ internal fun EdgeToEdgeDialog(
     ),
     useNativeBlackout: Boolean = true,
     blurRadius: Dp = Dp.Unspecified,
+    lightAppearance: Boolean = !isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
     Dialog(
         onDismissRequest = onDismissRequest,
         properties = dialogProperties.ensureCorrectProperties(edgeToEdge),
     ) {
-        ConfigureWindow(edgeToEdge, useNativeBlackout, blurRadius)
+        ConfigureWindow(edgeToEdge, useNativeBlackout, blurRadius, lightAppearance)
         content()
     }
 }
@@ -40,21 +43,33 @@ private fun ConfigureWindow(
     edgeToEdge: Boolean,
     useNativeBlackout: Boolean,
     blurRadius: Dp,
+    lightAppearance: Boolean,
 ) {
-    val dialogWindowProvider = LocalView.current.parent as? DialogWindowProvider
+    val localView = LocalView.current
+    val dialogWindowProvider = localView.parent as? DialogWindowProvider
     val blurRadiusPx = if (blurRadius.isSpecified) blurRadius.px else 0
     SideEffect {
         dialogWindowProvider?.window ?: return@SideEffect
         dialogWindowProvider.apply {
+            window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             if (edgeToEdge) {
                 WindowCompat.setDecorFitsSystemWindows(window, false)
-                window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                WindowCompat.getInsetsController(window, localView).apply {
+                    isAppearanceLightNavigationBars = lightAppearance
+                    isAppearanceLightStatusBars = lightAppearance
+                }
 
-                window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+                    window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+                    window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                     window.attributes.fitInsetsTypes = 0
                     window.attributes.fitInsetsSides = 0
+                } else {
+                    // Перехватываем инсеты на decoreview и просто отправляем их дальше
+                    ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { _, insets ->
+                        insets
+                    }
                 }
             }
             window.setWindowAnimations(-1)

@@ -1508,11 +1508,6 @@ public class PlasmaGigaColors(
         colors.obtain("surfaceDefaultTransparentInfo")
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public var surfaceDefaultSolidDefault: Color by colors.obtain("surfaceDefaultSolidDefault")
-
-    /**
      * Акцентный фон поверхности/контрола
      */
     public var surfaceDefaultAccent: Color by colors.obtain("surfaceDefaultAccent")
@@ -1527,6 +1522,11 @@ public class PlasmaGigaColors(
      */
     public var surfaceDefaultTransparentAccent: Color by
         colors.obtain("surfaceDefaultTransparentAccent")
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public var surfaceDefaultSolidDefault: Color by colors.obtain("surfaceDefaultSolidDefault")
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -1940,6 +1940,11 @@ public class PlasmaGigaColors(
     public var surfaceOnDarkSolidDefault: Color by colors.obtain("surfaceOnDarkSolidDefault")
 
     /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public var surfaceOnDarkTransparentCard: Color by colors.obtain("surfaceOnDarkTransparentCard")
+
+    /**
      * Основной прозрачный фон поверхности/контрола на темном фоне
      */
     public var surfaceOnDarkTransparentPrimary: Color by
@@ -2022,11 +2027,6 @@ public class PlasmaGigaColors(
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
     public var surfaceOnDarkAccentMinor: Color by colors.obtain("surfaceOnDarkAccentMinor")
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public var surfaceOnDarkTransparentCard: Color by colors.obtain("surfaceOnDarkTransparentCard")
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -2514,11 +2514,6 @@ public class PlasmaGigaColors(
         colors.obtain("surfaceOnLightTransparentInfo")
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public var surfaceOnLightSolidDefault: Color by colors.obtain("surfaceOnLightSolidDefault")
-
-    /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
     public var surfaceOnLightTransparentAccent: Color by
@@ -2533,6 +2528,11 @@ public class PlasmaGigaColors(
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public var surfaceOnLightAccentMinor: Color by colors.obtain("surfaceOnLightAccentMinor")
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public var surfaceOnLightSolidDefault: Color by colors.obtain("surfaceOnLightSolidDefault")
 
     /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
@@ -2949,6 +2949,12 @@ public class PlasmaGigaColors(
     public var surfaceInverseSolidDefault: Color by colors.obtain("surfaceInverseSolidDefault")
 
     /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public var surfaceInverseTransparentCard: Color by
+        colors.obtain("surfaceInverseTransparentCard")
+
+    /**
      * Инвертированный основной прозрачный фон поверхности/контрола
      */
     public var surfaceInverseTransparentPrimary: Color by
@@ -3033,12 +3039,6 @@ public class PlasmaGigaColors(
      */
     public var surfaceInverseTransparentAccent: Color by
         colors.obtain("surfaceInverseTransparentAccent")
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public var surfaceInverseTransparentCard: Color by
-        colors.obtain("surfaceInverseTransparentCard")
 
     /**
      * Вторичный фон
@@ -6462,11 +6462,6 @@ public class ColorOverrideScope {
     public val surfaceDefaultTransparentInfo: String = "surfaceDefaultTransparentInfo"
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val surfaceDefaultSolidDefault: String = "surfaceDefaultSolidDefault"
-
-    /**
      * Акцентный фон поверхности/контрола
      */
     public val surfaceDefaultAccent: String = "surfaceDefaultAccent"
@@ -6480,6 +6475,11 @@ public class ColorOverrideScope {
      * Прозрачный акцентный фон поверхности/контрола
      */
     public val surfaceDefaultTransparentAccent: String = "surfaceDefaultTransparentAccent"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val surfaceDefaultSolidDefault: String = "surfaceDefaultSolidDefault"
 
     /**
      * Основной непрозрачный фон поверхности/контрола на темном фоне
@@ -6858,6 +6858,11 @@ public class ColorOverrideScope {
     public val surfaceOnDarkSolidDefault: String = "surfaceOnDarkSolidDefault"
 
     /**
+     * Прозрачный фон для карточек на темном фоне
+     */
+    public val surfaceOnDarkTransparentCard: String = "surfaceOnDarkTransparentCard"
+
+    /**
      * Основной прозрачный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkTransparentPrimary: String = "surfaceOnDarkTransparentPrimary"
@@ -6936,11 +6941,6 @@ public class ColorOverrideScope {
      * Акцентный минорный непрозрачный фон поверхности/контрола на темном фоне
      */
     public val surfaceOnDarkAccentMinor: String = "surfaceOnDarkAccentMinor"
-
-    /**
-     * Прозрачный фон для карточек на темном фоне
-     */
-    public val surfaceOnDarkTransparentCard: String = "surfaceOnDarkTransparentCard"
 
     /**
      * Основной непрозрачный фон поверхности/контрола на светлом фоне
@@ -7387,11 +7387,6 @@ public class ColorOverrideScope {
     public val surfaceOnLightTransparentInfo: String = "surfaceOnLightTransparentInfo"
 
     /**
-     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
-     */
-    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
-
-    /**
      * Прозрачный акцентный фон поверхности/контрола на светлом фоне
      */
     public val surfaceOnLightTransparentAccent: String = "surfaceOnLightTransparentAccent"
@@ -7405,6 +7400,11 @@ public class ColorOverrideScope {
      * Акцентный минорный непрозрачный фон поверхности/контрола на светлом фоне
      */
     public val surfaceOnLightAccentMinor: String = "surfaceOnLightAccentMinor"
+
+    /**
+     * Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне
+     */
+    public val surfaceOnLightSolidDefault: String = "surfaceOnLightSolidDefault"
 
     /**
      * Инвертированный основной непрозрачный фон поверхности/контрола
@@ -7786,6 +7786,11 @@ public class ColorOverrideScope {
     public val surfaceInverseSolidDefault: String = "surfaceInverseSolidDefault"
 
     /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val surfaceInverseTransparentCard: String = "surfaceInverseTransparentCard"
+
+    /**
      * Инвертированный основной прозрачный фон поверхности/контрола
      */
     public val surfaceInverseTransparentPrimary: String = "surfaceInverseTransparentPrimary"
@@ -7864,11 +7869,6 @@ public class ColorOverrideScope {
      * Прозрачный инвертированный акцентный фон поверхности/контрола
      */
     public val surfaceInverseTransparentAccent: String = "surfaceInverseTransparentAccent"
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val surfaceInverseTransparentCard: String = "surfaceInverseTransparentCard"
 
     /**
      * Вторичный фон
@@ -10016,10 +10016,10 @@ internal fun PlasmaGigaColors.updateColorsFrom(other: PlasmaGigaColors) {
     surfaceDefaultNegativeMinor = other.surfaceDefaultNegativeMinor
     surfaceDefaultInfoMinor = other.surfaceDefaultInfoMinor
     surfaceDefaultTransparentInfo = other.surfaceDefaultTransparentInfo
-    surfaceDefaultSolidDefault = other.surfaceDefaultSolidDefault
     surfaceDefaultAccent = other.surfaceDefaultAccent
     surfaceDefaultAccentMinor = other.surfaceDefaultAccentMinor
     surfaceDefaultTransparentAccent = other.surfaceDefaultTransparentAccent
+    surfaceDefaultSolidDefault = other.surfaceDefaultSolidDefault
     surfaceOnDarkSolidPrimaryHover = other.surfaceOnDarkSolidPrimaryHover
     surfaceOnDarkSolidPrimaryActive = other.surfaceOnDarkSolidPrimaryActive
     surfaceOnDarkSolidPrimaryBrightness = other.surfaceOnDarkSolidPrimaryBrightness
@@ -10093,6 +10093,7 @@ internal fun PlasmaGigaColors.updateColorsFrom(other: PlasmaGigaColors) {
     surfaceOnDarkSolidSecondary = other.surfaceOnDarkSolidSecondary
     surfaceOnDarkSolidTertiary = other.surfaceOnDarkSolidTertiary
     surfaceOnDarkSolidDefault = other.surfaceOnDarkSolidDefault
+    surfaceOnDarkTransparentCard = other.surfaceOnDarkTransparentCard
     surfaceOnDarkTransparentPrimary = other.surfaceOnDarkTransparentPrimary
     surfaceOnDarkTransparentSecondary = other.surfaceOnDarkTransparentSecondary
     surfaceOnDarkTransparentTertiary = other.surfaceOnDarkTransparentTertiary
@@ -10109,7 +10110,6 @@ internal fun PlasmaGigaColors.updateColorsFrom(other: PlasmaGigaColors) {
     surfaceOnDarkTransparentAccent = other.surfaceOnDarkTransparentAccent
     surfaceOnDarkAccent = other.surfaceOnDarkAccent
     surfaceOnDarkAccentMinor = other.surfaceOnDarkAccentMinor
-    surfaceOnDarkTransparentCard = other.surfaceOnDarkTransparentCard
     surfaceOnLightSolidPrimaryHover = other.surfaceOnLightSolidPrimaryHover
     surfaceOnLightSolidPrimaryActive = other.surfaceOnLightSolidPrimaryActive
     surfaceOnLightSolidPrimaryBrightness = other.surfaceOnLightSolidPrimaryBrightness
@@ -10196,10 +10196,10 @@ internal fun PlasmaGigaColors.updateColorsFrom(other: PlasmaGigaColors) {
     surfaceOnLightNegativeMinor = other.surfaceOnLightNegativeMinor
     surfaceOnLightInfoMinor = other.surfaceOnLightInfoMinor
     surfaceOnLightTransparentInfo = other.surfaceOnLightTransparentInfo
-    surfaceOnLightSolidDefault = other.surfaceOnLightSolidDefault
     surfaceOnLightTransparentAccent = other.surfaceOnLightTransparentAccent
     surfaceOnLightAccent = other.surfaceOnLightAccent
     surfaceOnLightAccentMinor = other.surfaceOnLightAccentMinor
+    surfaceOnLightSolidDefault = other.surfaceOnLightSolidDefault
     surfaceInverseSolidPrimaryHover = other.surfaceInverseSolidPrimaryHover
     surfaceInverseSolidPrimaryActive = other.surfaceInverseSolidPrimaryActive
     surfaceInverseSolidPrimaryBrightness = other.surfaceInverseSolidPrimaryBrightness
@@ -10273,6 +10273,7 @@ internal fun PlasmaGigaColors.updateColorsFrom(other: PlasmaGigaColors) {
     surfaceInverseSolidSecondary = other.surfaceInverseSolidSecondary
     surfaceInverseSolidTertiary = other.surfaceInverseSolidTertiary
     surfaceInverseSolidDefault = other.surfaceInverseSolidDefault
+    surfaceInverseTransparentCard = other.surfaceInverseTransparentCard
     surfaceInverseTransparentPrimary = other.surfaceInverseTransparentPrimary
     surfaceInverseTransparentSecondary = other.surfaceInverseTransparentSecondary
     surfaceInverseTransparentTertiary = other.surfaceInverseTransparentTertiary
@@ -10289,7 +10290,6 @@ internal fun PlasmaGigaColors.updateColorsFrom(other: PlasmaGigaColors) {
     surfaceInverseAccent = other.surfaceInverseAccent
     surfaceInverseAccentMinor = other.surfaceInverseAccentMinor
     surfaceInverseTransparentAccent = other.surfaceInverseTransparentAccent
-    surfaceInverseTransparentCard = other.surfaceInverseTransparentCard
     backgroundDefaultSecondary = other.backgroundDefaultSecondary
     backgroundDefaultTertiary = other.backgroundDefaultTertiary
     backgroundDefaultPrimary = other.backgroundDefaultPrimary
@@ -11439,16 +11439,16 @@ public fun lightPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit =
         LightColorTokens.SurfaceDefaultTransparentInfo,
         overwrite,
     )
-    initial.add(
-        "surfaceDefaultSolidDefault",
-        LightColorTokens.SurfaceDefaultSolidDefault,
-        overwrite,
-    )
     initial.add("surfaceDefaultAccent", LightColorTokens.SurfaceDefaultAccent, overwrite)
     initial.add("surfaceDefaultAccentMinor", LightColorTokens.SurfaceDefaultAccentMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentAccent",
         LightColorTokens.SurfaceDefaultTransparentAccent,
+        overwrite,
+    )
+    initial.add(
+        "surfaceDefaultSolidDefault",
+        LightColorTokens.SurfaceDefaultSolidDefault,
         overwrite,
     )
     initial.add(
@@ -11757,6 +11757,11 @@ public fun lightPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit =
     )
     initial.add("surfaceOnDarkSolidDefault", LightColorTokens.SurfaceOnDarkSolidDefault, overwrite)
     initial.add(
+        "surfaceOnDarkTransparentCard",
+        LightColorTokens.SurfaceOnDarkTransparentCard,
+        overwrite,
+    )
+    initial.add(
         "surfaceOnDarkTransparentPrimary",
         LightColorTokens.SurfaceOnDarkTransparentPrimary,
         overwrite,
@@ -11804,11 +11809,6 @@ public fun lightPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit =
     )
     initial.add("surfaceOnDarkAccent", LightColorTokens.SurfaceOnDarkAccent, overwrite)
     initial.add("surfaceOnDarkAccentMinor", LightColorTokens.SurfaceOnDarkAccentMinor, overwrite)
-    initial.add(
-        "surfaceOnDarkTransparentCard",
-        LightColorTokens.SurfaceOnDarkTransparentCard,
-        overwrite,
-    )
     initial.add(
         "surfaceOnLightSolidPrimaryHover",
         LightColorTokens.SurfaceOnLightSolidPrimaryHover,
@@ -12176,17 +12176,17 @@ public fun lightPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit =
         overwrite,
     )
     initial.add(
-        "surfaceOnLightSolidDefault",
-        LightColorTokens.SurfaceOnLightSolidDefault,
-        overwrite,
-    )
-    initial.add(
         "surfaceOnLightTransparentAccent",
         LightColorTokens.SurfaceOnLightTransparentAccent,
         overwrite,
     )
     initial.add("surfaceOnLightAccent", LightColorTokens.SurfaceOnLightAccent, overwrite)
     initial.add("surfaceOnLightAccentMinor", LightColorTokens.SurfaceOnLightAccentMinor, overwrite)
+    initial.add(
+        "surfaceOnLightSolidDefault",
+        LightColorTokens.SurfaceOnLightSolidDefault,
+        overwrite,
+    )
     initial.add(
         "surfaceInverseSolidPrimaryHover",
         LightColorTokens.SurfaceInverseSolidPrimaryHover,
@@ -12509,6 +12509,11 @@ public fun lightPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit =
         overwrite,
     )
     initial.add(
+        "surfaceInverseTransparentCard",
+        LightColorTokens.SurfaceInverseTransparentCard,
+        overwrite,
+    )
+    initial.add(
         "surfaceInverseTransparentPrimary",
         LightColorTokens.SurfaceInverseTransparentPrimary,
         overwrite,
@@ -12558,11 +12563,6 @@ public fun lightPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit =
     initial.add(
         "surfaceInverseTransparentAccent",
         LightColorTokens.SurfaceInverseTransparentAccent,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentCard",
-        LightColorTokens.SurfaceInverseTransparentCard,
         overwrite,
     )
     initial.add(
@@ -14631,7 +14631,6 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
         DarkColorTokens.SurfaceDefaultTransparentInfo,
         overwrite,
     )
-    initial.add("surfaceDefaultSolidDefault", DarkColorTokens.SurfaceDefaultSolidDefault, overwrite)
     initial.add("surfaceDefaultAccent", DarkColorTokens.SurfaceDefaultAccent, overwrite)
     initial.add("surfaceDefaultAccentMinor", DarkColorTokens.SurfaceDefaultAccentMinor, overwrite)
     initial.add(
@@ -14639,6 +14638,7 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
         DarkColorTokens.SurfaceDefaultTransparentAccent,
         overwrite,
     )
+    initial.add("surfaceDefaultSolidDefault", DarkColorTokens.SurfaceDefaultSolidDefault, overwrite)
     initial.add(
         "surfaceOnDarkSolidPrimaryHover",
         DarkColorTokens.SurfaceOnDarkSolidPrimaryHover,
@@ -14929,6 +14929,11 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add("surfaceOnDarkSolidTertiary", DarkColorTokens.SurfaceOnDarkSolidTertiary, overwrite)
     initial.add("surfaceOnDarkSolidDefault", DarkColorTokens.SurfaceOnDarkSolidDefault, overwrite)
     initial.add(
+        "surfaceOnDarkTransparentCard",
+        DarkColorTokens.SurfaceOnDarkTransparentCard,
+        overwrite,
+    )
+    initial.add(
         "surfaceOnDarkTransparentPrimary",
         DarkColorTokens.SurfaceOnDarkTransparentPrimary,
         overwrite,
@@ -14968,11 +14973,6 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("surfaceOnDarkAccent", DarkColorTokens.SurfaceOnDarkAccent, overwrite)
     initial.add("surfaceOnDarkAccentMinor", DarkColorTokens.SurfaceOnDarkAccentMinor, overwrite)
-    initial.add(
-        "surfaceOnDarkTransparentCard",
-        DarkColorTokens.SurfaceOnDarkTransparentCard,
-        overwrite,
-    )
     initial.add(
         "surfaceOnLightSolidPrimaryHover",
         DarkColorTokens.SurfaceOnLightSolidPrimaryHover,
@@ -15323,7 +15323,6 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
         DarkColorTokens.SurfaceOnLightTransparentInfo,
         overwrite,
     )
-    initial.add("surfaceOnLightSolidDefault", DarkColorTokens.SurfaceOnLightSolidDefault, overwrite)
     initial.add(
         "surfaceOnLightTransparentAccent",
         DarkColorTokens.SurfaceOnLightTransparentAccent,
@@ -15331,6 +15330,7 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("surfaceOnLightAccent", DarkColorTokens.SurfaceOnLightAccent, overwrite)
     initial.add("surfaceOnLightAccentMinor", DarkColorTokens.SurfaceOnLightAccentMinor, overwrite)
+    initial.add("surfaceOnLightSolidDefault", DarkColorTokens.SurfaceOnLightSolidDefault, overwrite)
     initial.add(
         "surfaceInverseSolidPrimaryHover",
         DarkColorTokens.SurfaceInverseSolidPrimaryHover,
@@ -15637,6 +15637,11 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
     )
     initial.add("surfaceInverseSolidDefault", DarkColorTokens.SurfaceInverseSolidDefault, overwrite)
     initial.add(
+        "surfaceInverseTransparentCard",
+        DarkColorTokens.SurfaceInverseTransparentCard,
+        overwrite,
+    )
+    initial.add(
         "surfaceInverseTransparentPrimary",
         DarkColorTokens.SurfaceInverseTransparentPrimary,
         overwrite,
@@ -15682,11 +15687,6 @@ public fun darkPlasmaGigaColors(overrideColors: ColorOverrideScope.() -> Unit = 
     initial.add(
         "surfaceInverseTransparentAccent",
         DarkColorTokens.SurfaceInverseTransparentAccent,
-        overwrite,
-    )
-    initial.add(
-        "surfaceInverseTransparentCard",
-        DarkColorTokens.SurfaceInverseTransparentCard,
         overwrite,
     )
     initial.add("backgroundDefaultSecondary", DarkColorTokens.BackgroundDefaultSecondary, overwrite)

@@ -120,6 +120,8 @@ private val ListItemStyleBuilder.invariantProps: ListItemStyleBuilder
                 PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Focused)
                         to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary,
+                    setOf(InteractiveState.Pressed)
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondary,
                 ),
             )
             disclosureIconColor(

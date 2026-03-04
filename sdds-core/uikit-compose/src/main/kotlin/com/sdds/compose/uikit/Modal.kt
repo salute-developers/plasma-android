@@ -137,6 +137,7 @@ fun Modal(
         dialogProperties = dialogProperties,
         edgeToEdge = edgeToEdge,
         useNativeBlackout = dimBackground && useNativeBlackout,
+        lightAppearance = false,
         blurRadius = style.dimensions.backgroundBlurRadius,
     ) {
         val transition = rememberTransition(visibleState, null)

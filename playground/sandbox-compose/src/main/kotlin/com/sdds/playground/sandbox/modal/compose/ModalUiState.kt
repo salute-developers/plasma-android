@@ -6,11 +6,11 @@ import com.sdds.playground.sandbox.core.compose.UiState
 internal data class ModalUiState(
     override val variant: String = "",
     override val appearance: String = "",
-    val useNativeBlackout: Boolean = false,
+    val useNativeBlackout: Boolean = true,
     val hasClose: Boolean = false,
-    val hasDimBackground: Boolean = false,
+    val hasDimBackground: Boolean = true,
     val gravity: ModalGravity = ModalGravity.Center,
-    val edgeToEdge: Boolean = false,
+    val edgeToEdge: Boolean = true,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
