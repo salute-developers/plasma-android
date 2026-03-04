@@ -5,54 +5,13 @@ title: ButtonGroup
 Контент ButtonGroup формируется с помощью [Button](Button/ButtonUsage.md).
 
 ```xml
-<com.sdds.uikit.ButtonGroup
-    style="@style/{{ docs-theme-prefix }}.Components.BasicButtonGroup.L.Wide.Segmented"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-    <com.sdds.uikit.Button
-        app:sd_value="text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.Button
-        app:sd_value="text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.Button
-        app:sd_value="text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-</com.sdds.uikit.ButtonGroup>
+<!-- @sample: com/sdds/uikit/fixtures/ButtonGroup_Simple.xml -->
 ```
 
 Или с помощью [IconButton](Button/ButtonUsage.md).
 
 ```xml
-<com.sdds.uikit.ButtonGroup
-    style="@style/{{ docs-theme-prefix }}.Components.IconButtonGroup.L.Wide.Segmented"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-    <com.sdds.uikit.IconButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.IconButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.IconButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-</com.sdds.uikit.ButtonGroup>
+<!-- @sample: com/sdds/uikit/fixtures/IconButtonGroup_Simple.xml -->
 ```
 
 ## Стиль ButtonGroup

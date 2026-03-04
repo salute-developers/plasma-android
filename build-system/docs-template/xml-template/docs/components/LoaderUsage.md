@@ -1,6 +1,6 @@
 ---
 title: Loader
---- 
+---
 
 Компонент Loader используется для отображения статуса загрузки. Включает в себя компоненты [Spinner](SpinnerUsage.md),  
 в качестве бесконечного прогресса, и [CircularProgressBar](CircularProgressBarUsage.md) - как конечный прогресс загрузки.  
@@ -9,26 +9,14 @@ title: Loader
 Пример использования с помощью стиля самого Loader:
 
 ```xml
-<com.sdds.uikit.Loader
-    style="@style/{{ docs-theme-prefix }}.ComponentOverlays.Loader"
-    app:sd_loaderType="progress"
-    app:sd_progress="0.9"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    />
+<!-- @sample: com/sdds/uikit/fixtures/Loader_Simple.xml -->
 ```
 
 Пример использования через стили [Spinner] и [CircularProgressBar]:
 
 ```xml
-<com.sdds.uikit.Loader
-    app:sd_circularProgressBarStyleOverlay="@style/{{ docs-theme-prefix }}.ComponentOverlays.CircularProgressBarXlAccent"
-    app:sd_spinnerStyleOverlay="@style/{{ docs-theme-prefix }}.ComponentOverlays.SpinnerLNegative"
-    app:sd_loaderType="spinner"
-    app:sd_progress="0.9"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    />
+<!-- @sample: com/sdds/uikit/fixtures/Loader_Custom_Overlays.xml -->
+
 ```
 
 ## Стиль Loader

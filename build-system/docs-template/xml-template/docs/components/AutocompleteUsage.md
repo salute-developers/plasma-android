@@ -66,66 +66,23 @@ parent.addView(autocomplete)
 ## Пример использования в XML
 
 ```xml
-<com.sdds.uikit.Autocomplete
-    android:id="@+id/autocomplete"
-    style="@style/{{ docs-theme-prefix }}.Components.Autocomplete"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Autocomplete_Simple.xml -->
 ```
 
 ## Можно указать свой TextField
 
 ```xml
-<com.sdds.uikit.Autocomplete
-    android:id="@+id/autocomplete"
-    style="@style/{{ docs-theme-prefix }}.Components.Autocomplete"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <com.sdds.uikit.TextField
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</com.sdds.uikit.Autocomplete>
+<!-- @sample: com/sdds/uikit/fixtures/Autocomplete_Custom_TextField.xml -->
 ```
 
 ## Можно указать свой плейсхолдер для пустого состояния
 ```xml
-<com.sdds.uikit.Autocomplete
-    android:id="@+id/autocomplete"
-    style="@style/{{ docs-theme-prefix }}.Components.Autocomplete"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    <com.sdds.uikit.dropdown.DropdownEmptyStateView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:sd_description="Нет данных"
-        app:sd_icon="@drawable/ic_info" />
-
-</com.sdds.uikit.Autocomplete>
+<!-- @sample: com/sdds/uikit/fixtures/Autocomplete_EmptyState_PlaceHolder.xml -->
 ```
 Или футер: 
 
 ```xml
-<com.sdds.uikit.Autocomplete
-    android:id="@+id/autocomplete"
-    style="@style/{{ docs-theme-prefix }}.Components.Autocomplete"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    <com.sdds.uikit.dropdown.DropdownFooterView
-        android:layout_width="match_parent"
-        android:layout_height="48dp">
-
-        <com.sdds.uikit.TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Загрузка…"
-            android:layout_gravity="center" />
-    </com.sdds.uikit.dropdown.DropdownFooterView>
-
-</com.sdds.uikit.Autocomplete>
+<!-- @sample: com/sdds/uikit/fixtures/Autocomplete_EmptyState_Footer.xml -->
 ```
 ---
 

@@ -17,47 +17,7 @@ Tabs работает с дочерними элементами **TabItem** (т
 
 ### XML
 ```xml
-<com.sdds.uikit.Tabs
-    android:id="@+id/tabs"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:sd_tabIndicatorColor="@color/sd_color_state_primary"
-    app:sd_tabIndicatorThickness="2dp"
-    app:sd_tabsMinSpacing="8dp"
-    app:sd_dividerEnabled="true"
-    app:sd_overflowIconsEnabled="true"
-    app:sd_overflowPrevIcon="@drawable/ic_chevron_left"
-    app:sd_overflowNextIcon="@drawable/ic_chevron_right"
-    app:sd_disclosureIcon="@drawable/ic_more_horiz"
-    app:sd_disclosureText="Ещё"
-    app:sd_disclosureColor="@color/sd_color_state_secondary"
-    app:sd_tabItemStyleOverlay="@style/Widget.Sdds.TabItemOverlay">
-
-    <!-- Текст + иконка -->
-    <com.sdds.uikit.TabItem
-        android:id="@+id/tab_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Главная"
-        app:sd_actionEnabled="true"
-        app:sd_action="@drawable/ic_close_16"/>
-
-    <com.sdds.uikit.TabItem
-        android:id="@+id/tab_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Профиль"/>
-
-    <!-- Только иконка (IconTabItem) с возможным счётчиком -->
-    <com.sdds.uikit.IconTabItem
-        android:id="@+id/tab_notifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:sd_counterOffsetX="2dp"
-        app:sd_counterOffsetY="2dp"/>
-
-</com.sdds.uikit.Tabs>
+<!-- @sample: com/sdds/uikit/fixtures/Tabs_Simple.xml -->
 ```
 
 > Внутренний `Tabs` автоматически превратит дочерние `TabItem`/`IconTabItem` в элементы вкладок.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample-start: id=DrawerLayout_Simple -->
+<com.sdds.uikit.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    app:sd_focusDepended="true"
+    app:sd_peakHeight="20dp"
+    app:sd_shiftContent="true"
+    app:sd_drawerMargin="2dp" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:sd_drawerPlacement="left" />
+
+</com.sdds.uikit.DrawerLayout>
+<!-- sample-end: id=DrawerLayout_Simple -->

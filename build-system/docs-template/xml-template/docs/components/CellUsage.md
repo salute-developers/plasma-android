@@ -8,62 +8,7 @@ title: Cell
 столбец содержащий три разных текста, стилизованных по-своему (label, title, subtitle)
 
 ```xml
-<com.sdds.uikit.CellLayout
-    style="@style/{{ docs-theme-prefix }}.Components.Cell.L"
-    android:id="@+id/cell"
-    android:focusable="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:padding="2dp">
-
-    <com.sdds.uikit.Avatar
-        android:id="@+id/componentCellStartAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:sd_name="User" />
-
-    <com.sdds.uikit.Switch
-        android:id="@+id/componentCellStartSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawablePadding="0dp" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/componentCellLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Label"
-        app:layout_cellContent="label" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/componentCellTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        app:layout_cellContent="title" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/componentCellSubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Subtitle"
-        app:layout_cellContent="subtitle" />
-
-    <com.sdds.uikit.Avatar
-        android:id="@+id/componentCellEndAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:sd_name="User"
-        app:layout_cellContent="end"/>
-
-    <com.sdds.uikit.Switch
-        android:id="@+id/componentCellEndSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawablePadding="0dp"
-        app:layout_cellContent="end" />
-</com.sdds.uikit.CellLayout>
+<!-- @sample: com/sdds/uikit/fixtures/CellLayout_Simple.xml -->
 ```
 
 ## Стиль Cell

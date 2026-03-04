@@ -3,21 +3,11 @@ title: Badge
 ---
 
 ```xml
-<com.sdds.uikit.Badge
-    style="@style/{{ docs-theme-prefix }}.Components.BadgeSolid.L.Warning"
-    android:text="Badge"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    />
+<!-- @sample: com/sdds/uikit/fixtures/Badge_Simple.xml -->
 ```
 
 ```xml
- <com.sdds.uikit.IconBadge
-    style="@style/{{ docs-theme-prefix }}.Components.IconBadgeSolid.L.Accent"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:drawableStart="@drawable/ic_bank_card_lock_outline_16"
-/>
+<!-- @sample: com/sdds/uikit/fixtures/IconBadge_Simple.xml -->
 ```
 
 ## Стиль Badge

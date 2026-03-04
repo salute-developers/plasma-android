@@ -3,13 +3,7 @@ title: ProgressBar
 ---
 
 ```xml
-<com.sdds.uikit.ProgressBar
-    style="@style/{{ docs-theme-prefix }}.Components.ProgressBar.Accent"
-    android:maxHeight="10dp"
-    app:sd_progress="0.5"
-    app:sd_trackHeight="2dp"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/ProgressBar_Simple.xml -->
 ```
 
 ## Стиль ProgressBar

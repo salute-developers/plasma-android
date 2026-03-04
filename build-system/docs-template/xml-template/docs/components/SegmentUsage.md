@@ -5,28 +5,7 @@ title: Segment
 Контент Segment формируется с помощью SegmentItem.
 
 ```xml
- <com.sdds.uikit.Segment
-    style="@style/{{ docs-theme-prefix }}.Components.Segment.Xl.Primary"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <com.sdds.uikit.SegmentItem
-        android:text="Label"
-        app:sd_value="Value"
-        app:sd_icon="@drawable/ic_arrow_down_16"
-        android:checked="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <com.sdds.uikit.SegmentItem
-        android:text="Label"
-        app:sd_value="Value"
-        app:sd_counterEnabled="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-  </com.sdds.uikit.Segment>
+<!-- @sample: com/sdds/uikit/fixtures/Segment_Simple.xml -->
 ```
 
 ## Стиль Segment

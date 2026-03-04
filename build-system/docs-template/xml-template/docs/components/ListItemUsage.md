@@ -6,41 +6,7 @@ title: ListItem
 выполняется аналогично компоненту Cell.
 
 ```xml
-<com.sdds.uikit.ListItemView
-    style="@style/{{ docs-theme-prefix }}.Components.ListItemNormal.M"
-    android:id="@+id/first"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:sd_avatarStyle="@style/{{ docs-theme-prefix }}.Components.Avatar.Xxl"
-    app:sd_disclosureText="disclosure">
-
-    <com.sdds.uikit.Avatar
-        app:sd_name="User Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/firstItemLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Label"
-        app:layout_cellContent="label" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/firstItemTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        app:layout_cellContent="title" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/firstItemSubtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Subtitle"
-        app:layout_cellContent="subtitle" />
-
-</com.sdds.uikit.ListItemView>
+<!-- @sample: com/sdds/uikit/fixtures/ListItemView_Simple.xml -->
 ```
 
 ## Стиль ListItem

@@ -10,14 +10,7 @@ title: TextSkeleton
 на всю ширину контейнера или с учетом псевдо отклонения от ширины (имитируется неравномерность, как при написании текста).
 
 ```xml
-<com.sdds.uikit.TextSkeleton
-    style="@style/{{ docs-theme-prefix }}.Components.TextSkeleton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:textAppearance="@style/{{ docs-theme-prefix }}.TextAppearance.BodyMNormal"
-    app:sd_autoStart="true"
-    app:sd_lineCount="4"/>
+<!-- @sample: com/sdds/uikit/fixtures/TextSkeleton_Simple.xml -->
 ```
 
 ## Стиль TextSkeleton

@@ -14,28 +14,7 @@ Gravity.CENTER_VERTICAL для горизонтального `ToolBar`, Gravity
 добавления контента в компонент.
 
 ```xml
-<com.sdds.uikit.ToolBar
-    style="@style/{{ docs-theme-prefix }}.Components.Toolbar.L"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:sd_slotsAmount="2"
-    app:sd_hasDivider="true"
-    >
-
-    <com.sdds.uikit.IconButton
-        style="@style/{{ docs-theme-prefix }}.Components.IconButton.L.Accent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:sd_icon="@drawable/ic_animal_fill_16"
-        app:sd_slotIndex="2"/>
-
-    <com.sdds.uikit.IconButton
-        style="@style/{{ docs-theme-prefix }}.Components.IconButton.L.Accent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:sd_icon="@drawable/ic_animal_fill_16"
-        app:sd_slotIndex="1"/>
-    </com.sdds.uikit.ToolBar>
+<!-- @sample: com/sdds/uikit/fixtures/ToolBar_Simple.xml -->
 ```
 
 ## Стиль ToolBar
