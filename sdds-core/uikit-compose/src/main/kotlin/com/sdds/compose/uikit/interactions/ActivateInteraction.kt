@@ -124,7 +124,7 @@ internal fun Modifier.activatable(
     }
 }
 
-private fun MutableState<ActivateInteraction.Activate?>.tryDeactivate(
+internal fun MutableState<ActivateInteraction.Activate?>.tryDeactivate(
     interactionSource: MutableInteractionSource?,
 ) {
     value?.let { oldValue ->
@@ -134,7 +134,7 @@ private fun MutableState<ActivateInteraction.Activate?>.tryDeactivate(
     }
 }
 
-private suspend fun MutableState<ActivateInteraction.Activate?>.deactivate(
+internal suspend fun MutableState<ActivateInteraction.Activate?>.deactivate(
     interactionSource: MutableInteractionSource?,
 ) {
     value?.let { oldValue ->
@@ -144,7 +144,7 @@ private suspend fun MutableState<ActivateInteraction.Activate?>.deactivate(
     }
 }
 
-private suspend fun MutableState<ActivateInteraction.Activate?>.activate(
+internal suspend fun MutableState<ActivateInteraction.Activate?>.activate(
     interactionSource: MutableInteractionSource?,
 ) {
     val interaction = ActivateInteraction.Activate()

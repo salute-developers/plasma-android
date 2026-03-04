@@ -46,6 +46,7 @@ import com.sdds.compose.uikit.RectSkeletonStyle
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.SelectStyle
 import com.sdds.compose.uikit.SliderStyle
 import com.sdds.compose.uikit.SpinnerStyle
 import com.sdds.compose.uikit.SwitchStyle
@@ -54,6 +55,7 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextSkeletonStyle
 import com.sdds.compose.uikit.ToastStyle
+import com.sdds.compose.uikit.ToolBarStyle
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.WheelStyle
 import com.sdds.compose.uikit.style.Style
@@ -91,8 +93,8 @@ import com.sdds.playground.sandbox.drawer.compose.DrawerPreview
 import com.sdds.playground.sandbox.drawer.compose.DrawerScreen
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuPreview
 import com.sdds.playground.sandbox.dropdownmenu.compose.DropdownMenuScreen
-import com.sdds.playground.sandbox.editable.EditablePreview
-import com.sdds.playground.sandbox.editable.EditableScreen
+import com.sdds.playground.sandbox.editable.compose.EditablePreview
+import com.sdds.playground.sandbox.editable.compose.EditableScreen
 import com.sdds.playground.sandbox.file.compose.FilePreview
 import com.sdds.playground.sandbox.file.compose.FileScreen
 import com.sdds.playground.sandbox.form.FormItemPreview
@@ -127,6 +129,8 @@ import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
+import com.sdds.playground.sandbox.select.SelectPreview
+import com.sdds.playground.sandbox.select.SelectScreen
 import com.sdds.playground.sandbox.slider.compose.SliderPreview
 import com.sdds.playground.sandbox.slider.compose.SliderScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen
@@ -143,6 +147,8 @@ import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonPreview
 import com.sdds.playground.sandbox.textskeleton.compose.TextSkeletonScreen
 import com.sdds.playground.sandbox.toast.compose.ToastScreen
+import com.sdds.playground.sandbox.toolbar.compose.ToolBarPreview
+import com.sdds.playground.sandbox.toolbar.compose.ToolBarScreen
 import com.sdds.playground.sandbox.tooltip.compose.TooltipScreen
 import com.sdds.playground.sandbox.wheel.compose.WheelPreview
 import com.sdds.playground.sandbox.wheel.compose.WheelScreen
@@ -404,6 +410,14 @@ internal sealed class ComponentScreen(
         { EditableScreen(it) },
         { style, _ -> EditablePreview(style as EditableStyle) },
     )
+    object ToolBar : ComponentScreen(
+        { ToolBarScreen(it) },
+        { style, _ -> ToolBarPreview(style as ToolBarStyle) },
+    )
+    object Select : ComponentScreen(
+        { SelectScreen(it) },
+        { style, _ -> SelectPreview(style as SelectStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -471,6 +485,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SLIDER -> ComponentScreen.Slider
         CoreComponent.FORM_ITEM -> ComponentScreen.FormItem
         CoreComponent.EDITABLE -> ComponentScreen.Editable
+        CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
+        CoreComponent.SELECT -> ComponentScreen.Select
         else -> ComponentScreen.Empty
     }
 }

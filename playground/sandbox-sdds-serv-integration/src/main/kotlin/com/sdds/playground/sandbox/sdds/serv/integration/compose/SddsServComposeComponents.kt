@@ -204,6 +204,13 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.ToolBar,
+                mapOf(
+                    "ToolBarHorizontal" to SddsServToolBarHorizontalVariationsCompose,
+                    "ToolBarVertical" to SddsServToolBarVerticalVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to SddsServToastVariationsCompose,
@@ -439,6 +446,24 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                 ComponentKey.Editable,
                 mapOf(
                     "Editable" to SddsServEditableVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.Select,
+                mapOf(
+                    "SelectSingleNormal" to SddsServSelectSingleNormalVariationsCompose,
+                    "SelectSingleTight" to SddsServSelectSingleTightVariationsCompose,
+                    "SelectMultipleNormal" to SddsServSelectMultipleNormalVariationsCompose,
+                    "SelectMultipleTight" to SddsServSelectMultipleTightVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.SelectItem,
+                mapOf(
+                    "SelectItemSingleNormal" to SddsServSelectItemSingleNormalVariationsCompose,
+                    "SelectItemSingleTight" to SddsServSelectItemSingleTightVariationsCompose,
+                    "SelectItemMultipleNormal" to SddsServSelectItemMultipleNormalVariationsCompose,
+                    "SelectItemMultipleTight" to SddsServSelectItemMultipleTightVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

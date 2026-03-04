@@ -425,7 +425,6 @@ private class PopoverPositionProvider(
 ) : PopupPositionProvider {
 
     private var popoverOffsetWhenTriggerCentered: Offset = Offset.Zero
-    private var contentSizeWasRecalculated: Boolean = false
     var innerPlacement = placement
         private set
     var innerTailAlignment = tailAlignment
@@ -529,7 +528,6 @@ private class PopoverPositionProvider(
         availableWindowSize: IntSize,
         triggerPositionInRoot: IntOffset,
     ) {
-        if (contentSizeWasRecalculated) return
         val availablePopupHeight = getAvailableHeight(
             popupContentSize,
             finalPopupPosition,
@@ -546,7 +544,6 @@ private class PopoverPositionProvider(
 
         if (clipWidth || clipHeight) {
             onContentSizeChanged.invoke(IntSize(availablePopupWidth, availablePopupHeight))
-            contentSizeWasRecalculated = true
         }
     }
 

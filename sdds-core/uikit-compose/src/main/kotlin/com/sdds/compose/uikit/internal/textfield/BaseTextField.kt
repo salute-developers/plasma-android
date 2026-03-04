@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.internal.textfield
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.InteractionSource
@@ -18,6 +19,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -76,7 +78,6 @@ import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.drawIndicator
-import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.scrollbar
@@ -109,6 +110,8 @@ import com.sdds.compose.uikit.topAlignmentLine
  * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
  * когда [FocusSelectorSettings] != None
  * @param interactionSource источник взаимодействия с полем
+ * @param fakeTextField флаг, выключающий возможность ввода текста в textfield. Например, для использования в Select.
+ * @param onDecorationBoxClicked обработчик нажатий на контейнер textfield. Работает только для [fakeTextField] == true.
  */
 @Composable
 @Suppress("LongMethod")
@@ -135,6 +138,8 @@ internal fun BaseTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    fakeTextField: Boolean = false,
+    onDecorationBoxClicked: (() -> Unit)? = null,
 ) {
     val dimensions = style.dimensions
     val colors = style.colors
@@ -252,12 +257,13 @@ internal fun BaseTextField(
     BasicTextField(
         modifier = modifier
             .then(activatableModifier)
+            .textFieldClickable(enabled, fakeTextField, onDecorationBoxClicked, interactionSource)
             .testTag("textField"),
         value = value,
         onValueChange = onValueChange,
         onTextLayout = { textLayoutResult = it },
-        enabled = enabled,
-        readOnly = readOnly,
+        enabled = enabled && !fakeTextField,
+        readOnly = readOnly || fakeTextField,
         textStyle = valueStyle,
         keyboardOptions = keyboardOptions.updateKeyboardOptions(singleLine),
         keyboardActions = keyboardActions.updateKeyboardActions(singleLine),
@@ -288,7 +294,7 @@ internal fun BaseTextField(
                                 ),
                                 dimensions = dimensions,
                             )
-                            .enable(enabled, enabledAlpha, disabledAlpha),
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha),
                         labelPlacement = labelPlacement,
                         fieldType = fieldType,
                         labelText = finalLabelText,
@@ -296,6 +302,14 @@ internal fun BaseTextField(
                         labelTextStyle = labelStyle,
                         optionalTextStyle = optionalStyle,
                         horizontalSpacing = dimensions.optionalPadding,
+                    )
+
+                    val innerFieldContent = getInnerFieldContent(
+                        fakeTextField = fakeTextField,
+                        enabled = enabled,
+                        value = value,
+                        valueStyle = valueStyle,
+                        innerTextField = it,
                     )
 
                     DecorationBox(
@@ -314,7 +328,7 @@ internal fun BaseTextField(
                                 colors.indicatorColor(readOnly, enabled, interactionSource),
                             )
                             .clip(style.shape)
-                            .enable(enabled, enabledAlpha, disabledAlpha)
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha)
                             .drawFieldAppearance(
                                 backgroundColor = colors
                                     .backgroundColor(readOnly)
@@ -346,7 +360,7 @@ internal fun BaseTextField(
                             ),
                         value = value.text,
                         textLayoutResult = textLayoutResult,
-                        innerTextField = it,
+                        innerTextField = innerFieldContent,
                         interactionSource = innerInteractionSource,
                         innerLabel = innerLabel(
                             label = finalLabelText,
@@ -396,6 +410,7 @@ internal fun BaseTextField(
                         verticalScrollState = verticalScrollState,
                         horizontalScrollState = horizontalScrollState,
                         singleLine = singleLine,
+                        enabled = enabled,
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = labelStyle,
                         prefix = textOrNull(
@@ -418,7 +433,7 @@ internal fun BaseTextField(
                             .layoutId(CAPTION_CONTENT_ID)
                             .focusProperties { canFocus = false }
                             .padding(top = dimensions.helperTextPadding)
-                            .enable(enabled, enabledAlpha, disabledAlpha),
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha),
                         text = captionText,
                         textStyle = captionStyle,
                         helperTextPlacement = captionPlacement,
@@ -428,7 +443,7 @@ internal fun BaseTextField(
                             .layoutId(COUNTER_CONTENT_ID)
                             .focusProperties { canFocus = false }
                             .padding(top = dimensions.helperTextPadding)
-                            .enable(enabled, enabledAlpha, disabledAlpha),
+                            .enableAlpha(enabled, enabledAlpha, disabledAlpha),
                         text = counterText,
                         textStyle = counterStyle,
                         helperTextPlacement = counterPlacement,
@@ -437,6 +452,10 @@ internal fun BaseTextField(
             )
         },
     )
+}
+
+private fun Modifier.enableAlpha(enabled: Boolean, enabledAlpha: Float, disabledAlpha: Float): Modifier {
+    return this.graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
 }
 
 private suspend fun scrollToCaret(
@@ -473,6 +492,52 @@ private suspend fun scrollToCaret(
             else -> null
         }
         if (target != null && target != scroll.value) scroll.scrollTo(target)
+    }
+}
+
+private fun Modifier.textFieldClickable(
+    enabled: Boolean,
+    fakeTextField: Boolean,
+    onDecorationBoxClicked: (() -> Unit)?,
+    interactionSource: MutableInteractionSource,
+): Modifier {
+    return if (fakeTextField && onDecorationBoxClicked != null) {
+        this
+            .clickable(
+                enabled = enabled,
+                indication = null,
+                interactionSource = interactionSource,
+            ) { onDecorationBoxClicked() }
+    } else {
+        this
+    }
+}
+
+private fun getInnerFieldContent(
+    fakeTextField: Boolean,
+    enabled: Boolean,
+    value: TextFieldValue,
+    valueStyle: TextStyle,
+    innerTextField: @Composable () -> Unit,
+): @Composable () -> Unit {
+    return if (fakeTextField) {
+        {
+            if (enabled) {
+                SelectionContainer {
+                    Text(
+                        text = value.annotatedString,
+                        style = valueStyle,
+                    )
+                }
+            } else {
+                Text(
+                    text = value.annotatedString,
+                    style = valueStyle,
+                )
+            }
+        }
+    } else {
+        innerTextField
     }
 }
 

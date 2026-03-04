@@ -1,3 +1,19 @@
+## CollapsingNavigationBar для корневой страницы или вложенной странницы
+
+У CollapsingNavigationBar есть 2 конфигурации для корневой и вложенной страницы, отличающиеся наличием кнопки назад.
+
+### Пример CollapsingNavigationBar для корневой страницы
+
+```kotlin
+// @sample: com/sdds/plasma/homeds/docs/samples/CollapsingNavigationBar_MainPage.kt
+```
+
+### Пример CollapsingNavigationBar для вложенной страницы
+
+```kotlin
+// @sample: com/sdds/plasma/homeds/docs/samples/CollapsingNavigationBar_InternalPage.kt
+```
+
 ## CollapsingNavigationBar + Overlay
 
 CollpasingNavigationBar можно использовать вместе с Overlay в тех случаях, когда у CollpasingNavigationBar нет фона и он может накладываться

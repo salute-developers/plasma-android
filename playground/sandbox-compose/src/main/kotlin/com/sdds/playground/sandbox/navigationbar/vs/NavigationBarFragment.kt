@@ -14,7 +14,7 @@ import com.sdds.testing.vs.navigationbar.navigationBar
 import com.sdds.uikit.NavigationBar
 
 /**
- * Фрагмент с компонентом NoteCompact
+ * Фрагмент с компонентом NavigationBar
  */
 internal class NavigationBarFragment :
     ComponentFragment<NavigationBarUiState, NavigationBar, NavigationBarParametersViewModel>() {

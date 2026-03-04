@@ -12,6 +12,13 @@ title: Toast
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.toast.Toast_Simple -->
 
+## Многострочный текст в Toast
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/toast/Toast_TextMultiline.kt
+```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.toast.Toast_TextMultiline -->
+
 ## Стиль Toast
 
 Для Toast существует набор сгенерированных стилей. Также стиль можно настроить с помощью ToastStyle.builder().

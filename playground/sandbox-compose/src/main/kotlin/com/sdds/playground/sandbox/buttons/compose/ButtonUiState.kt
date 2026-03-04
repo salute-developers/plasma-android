@@ -20,6 +20,7 @@ internal data class ButtonUiState(
     val buttonLabel: String = "Label",
     val buttonValue: String? = null,
     val spacing: ButtonSpacing = ButtonSpacing.Packed,
+    val hasFixedWidth: Boolean = false,
     val enabled: Boolean = true,
     val loading: Boolean = false,
 ) : UiState {

@@ -2,17 +2,19 @@ package com.sdds.compose.uikit
 
 import androidx.compose.animation.core.InfiniteTransition
 import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
-import com.sdds.compose.uikit.internal.resolveLineHeightPx
+import androidx.compose.ui.text.style.LineHeightStyle
 import kotlin.random.Random
 
 /**
@@ -47,19 +49,24 @@ fun TextSkeleton(
 ) {
     if (lineCount < 1) throw IllegalStateException("RectSkeleton: line count must be greater than 0")
     val textSize = with(LocalDensity.current) { textStyle.fontSize.toDp() }
-    val lineHeight = with(LocalDensity.current) { resolveLineHeightPx(textStyle).toDp() }
+    val alignment = remember(textStyle) { textStyle.lineHeightStyle?.alignment.toContentAlignment() }
+    val lineHeight = with(LocalDensity.current) { textStyle.lineHeight.toDp() }
     Column(modifier = modifier) {
         for (lineIndex in 0 until lineCount) {
-            RectSkeleton(
-                modifier = Modifier
-                    .height(lineHeight)
-                    .padding(vertical = (lineHeight - textSize) / 2)
-                    .fillMaxWidth(fraction = lineWidthProvider.widthFactor(lineIndex, lineCount)),
-                duration = duration,
-                brush = brush,
-                shape = shape,
-                transition = transition,
-            )
+            Box(
+                modifier = Modifier.height(lineHeight),
+                contentAlignment = alignment,
+            ) {
+                RectSkeleton(
+                    modifier = Modifier
+                        .height(textSize)
+                        .fillMaxWidth(fraction = lineWidthProvider.widthFactor(lineIndex, lineCount)),
+                    duration = duration,
+                    brush = brush,
+                    shape = shape,
+                    transition = transition,
+                )
+            }
         }
     }
 }
@@ -109,5 +116,13 @@ interface SkeletonLineWidthProvider {
             val randomF = random.nextFloat()
             return min + randomF * (max - min)
         }
+    }
+}
+
+private fun LineHeightStyle.Alignment?.toContentAlignment(): Alignment {
+    return when (this) {
+        LineHeightStyle.Alignment.Top -> Alignment.TopCenter
+        LineHeightStyle.Alignment.Bottom -> Alignment.BottomCenter
+        else -> Alignment.Center
     }
 }

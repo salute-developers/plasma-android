@@ -10,6 +10,7 @@ import com.sdds.serv.styles.navigationbar.Rounded
 import com.sdds.serv.styles.navigationbar.Shadow
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.navigationbar.NavigationBarContentBottomStart
+import com.sdds.testing.compose.navigationbar.NavigationBarInlineRelative
 import com.sdds.testing.compose.navigationbar.NavigationBarLongTextBottomStartInline
 import com.sdds.testing.compose.navigationbar.NavigationBarLongTextContentInlineCenterBottom
 import com.sdds.testing.compose.navigationbar.NavigationBarTextContentBottomCenterBottom
@@ -68,6 +69,13 @@ class ComposeNavigationBarScreenshotTest(
     fun testNavBarHasBackgroundShadowRounded() {
         composeTestRule.content {
             NavigationBarTextContentBottomCenterBottom(NavigationBarInternalPage.HasBackground.Shadow.Rounded.style())
+        }
+    }
+
+    @Test
+    fun testNavigationBarInlineRelative() {
+        composeTestRule.content {
+            NavigationBarInlineRelative(NavigationBarMainPage.NoBackground.style())
         }
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.Editable" >
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:longClickable">true</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+</resources>

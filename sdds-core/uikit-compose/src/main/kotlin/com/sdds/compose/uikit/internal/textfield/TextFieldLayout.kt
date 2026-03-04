@@ -63,6 +63,7 @@ import kotlin.math.roundToInt
 internal fun TextFieldLayout(
     modifier: Modifier,
     singleLine: Boolean,
+    enabled: Boolean,
     textField: @Composable () -> Unit,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -172,6 +173,7 @@ internal fun TextFieldLayout(
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
                 singleLine = singleLine,
+                enabled = enabled,
                 prefix = prefix,
                 suffix = suffix,
                 textLayoutResult = textLayoutResult,
@@ -263,6 +265,7 @@ private fun CompositeTextFieldContent(
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
+    enabled: Boolean,
     valueTextStyle: TextStyle,
     prefix: (@Composable () -> Unit)?,
     suffix: (@Composable () -> Unit)?,
@@ -298,6 +301,7 @@ private fun CompositeTextFieldContent(
                 scrollState = verticalScrollState,
                 valueTextStyle = valueTextStyle,
                 onChipGroupSizeChanged = onChipGroupSizeChanged,
+                enabled = enabled,
             )
         } else {
             TextFieldContent(
@@ -308,6 +312,7 @@ private fun CompositeTextFieldContent(
                 dimensions = dimensions,
                 scrollState = horizontalScrollState,
                 onChipGroupSizeChanged = onChipGroupSizeChanged,
+                enabled = enabled,
             )
         }
     }
@@ -330,6 +335,7 @@ private fun TextAreaContent(
     scrollState: ScrollState?,
     valueTextStyle: TextStyle,
     onChipGroupSizeChanged: (IntSize) -> Unit,
+    enabled: Boolean,
 ) {
     val chipStyle = chipGroupStyle.chipStyle
     Column(
@@ -338,7 +344,7 @@ private fun TextAreaContent(
                 hasChips = chips != null,
                 chipContainerShape = chipStyle.shape,
             )
-            .then(scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier),
+            .then(scrollState?.let { Modifier.verticalScroll(it, enabled) } ?: Modifier),
         content = {
             if (chips != null) {
                 val valueHeight = with(LocalDensity.current) { valueTextStyle.lineHeight.toDp() }
@@ -390,6 +396,7 @@ private fun TextFieldContent(
     dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
     onChipGroupSizeChanged: (IntSize) -> Unit,
+    enabled: Boolean,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -399,7 +406,7 @@ private fun TextFieldContent(
                 hasChips = chips != null,
                 chipContainerShape = chipGroupStyle.chipStyle.shape,
             )
-            .then(scrollState?.let { Modifier.horizontalScroll(it) } ?: Modifier),
+            .then(scrollState?.let { Modifier.horizontalScroll(it, enabled) } ?: Modifier),
         content = {
             if (chips != null) {
                 val gapPx = with(LocalDensity.current) {

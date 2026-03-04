@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
+import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.SegmentHorizontal
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
@@ -31,6 +32,33 @@ fun Segment_Simple() {
                     counter = "55",
                     enabled = true,
                 )
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun Segment_Dividers() {
+    val segmentCount = 2
+    composableCodeSnippet {
+        SegmentHorizontal(
+            stretch = false,
+            hasBackground = true,
+        ) {
+            repeat(segmentCount) {
+                segmentItem {
+                    SegmentItem(
+                        isSelected = true,
+                        label = "Label",
+                        value = "Value",
+                        startIcon = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
+                        counter = "55",
+                        enabled = true,
+                    )
+                }
+
+                if (it < segmentCount - 1) divider { Divider() }
             }
         }
     }

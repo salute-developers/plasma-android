@@ -13,12 +13,19 @@ import com.sdds.plasma.giga.app.styles.chipgroup.Positive
 import com.sdds.plasma.giga.app.styles.chipgroup.S
 import com.sdds.plasma.giga.app.styles.chipgroup.Secondary
 import com.sdds.plasma.giga.app.styles.chipgroup.Warning
+import com.sdds.plasma.giga.app.styles.chipgroup.Xl
 import com.sdds.plasma.giga.app.styles.chipgroup.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaGigaAppEmbeddedChipGroupWideVariationsCompose : ComposeStyleProvider<String, ChipGroupStyle>() {
     override val variations: Map<String, @Composable () -> ChipGroupStyle> =
         mapOf(
+            "Xl.Default" to { EmbeddedChipGroupWide.Xl.Default.style() },
+            "Xl.Accent" to { EmbeddedChipGroupWide.Xl.Accent.style() },
+            "Xl.Negative" to { EmbeddedChipGroupWide.Xl.Negative.style() },
+            "Xl.Positive" to { EmbeddedChipGroupWide.Xl.Positive.style() },
+            "Xl.Secondary" to { EmbeddedChipGroupWide.Xl.Secondary.style() },
+            "Xl.Warning" to { EmbeddedChipGroupWide.Xl.Warning.style() },
             "L.Default" to { EmbeddedChipGroupWide.L.Default.style() },
             "L.Accent" to { EmbeddedChipGroupWide.L.Accent.style() },
             "L.Negative" to { EmbeddedChipGroupWide.L.Negative.style() },

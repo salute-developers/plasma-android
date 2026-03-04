@@ -31,8 +31,19 @@ title: Segment
 
 ```kotlin
 SegmentHorizontal(
-    stretch = false,
+    ...
     hasBackground = false,
-    style = Segment.Xl.Primary.style(),
 ) {...}
 ```
+
+## Segment с Divider
+
+Чтобы добавить разделители между `SegmentItem`, используйте слот `divider { ... }` внутри `SegmentHorizontal/SegmentVertical`.
+Обычно divider добавляется **между** элементами, поэтому удобно делать это в цикле и проверять индекс, но 
+можно использовать и свою логику
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/segment/Segment_Dividers.kt
+```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.segment.Segment_Dividers -->

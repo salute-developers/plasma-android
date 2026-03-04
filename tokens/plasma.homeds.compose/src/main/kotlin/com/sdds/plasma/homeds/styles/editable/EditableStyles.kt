@@ -155,7 +155,7 @@ public val Editable.H2: WrapperEditableH2
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.headerH2Bold)
         .dimensions {
-            iconSize(36.0.dp)
+            iconSize(24.0.dp)
             iconMargin(8.0.dp)
         }
         .wrap(::WrapperEditableH2)
@@ -167,7 +167,7 @@ public val Editable.H3: WrapperEditableH3
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.headerH3Bold)
         .dimensions {
-            iconSize(30.0.dp)
+            iconSize(24.0.dp)
             iconMargin(6.0.dp)
         }
         .wrap(::WrapperEditableH3)
@@ -179,7 +179,7 @@ public val Editable.H4: WrapperEditableH4
         .invariantProps
         .textStyle(PlasmaHomeDsTheme.typography.headerH4Bold)
         .dimensions {
-            iconSize(26.0.dp)
+            iconSize(24.0.dp)
             iconMargin(6.0.dp)
         }
         .wrap(::WrapperEditableH4)

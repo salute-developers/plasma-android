@@ -49,6 +49,8 @@ import com.sdds.plugin.themebuilder.internal.components.rectskeleton.RectSkeleto
 import com.sdds.plugin.themebuilder.internal.components.scrollbar.ScrollBarConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.select.SelectConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.select.SelectItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.slider.SliderConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.spinner.SpinnerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.switcher.SwitchConfigDelegate
@@ -129,7 +131,7 @@ internal val componentDelegates by unsafeLazy {
         "tabs" to TabsConfigDelegate(),
         "tab-item" to TabItemConfigDelegate(TabItemComponent.TabItem),
         "icon-tab-item" to TabItemConfigDelegate(TabItemComponent.IconTabItem),
-        "toolbar" to ToolBarConfigDelegate(),
+        "tool-bar" to ToolBarConfigDelegate(),
         "navigation-bar" to NavigationBarConfigDelegate(),
         "collapsing-navigation-bar" to CollapsingNavigationBarConfigDelegate(),
         "pagination-dots" to PaginationDotsConfigDelegate(),
@@ -139,5 +141,7 @@ internal val componentDelegates by unsafeLazy {
         "file" to FileConfigDelegate(),
         "form-item" to FormItemConfigDelegate(),
         "editable" to EditableConfigDelegate(),
+        "select-item" to SelectItemConfigDelegate(),
+        "select" to SelectConfigDelegate(),
     )
 }

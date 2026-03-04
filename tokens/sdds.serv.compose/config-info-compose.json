@@ -2658,6 +2658,30 @@
          "styleName": "EmbeddedChip",
          "variations": [
             {
+               "name": "xl.default",
+               "composeReference": "EmbeddedChip.Xl.Default"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "EmbeddedChip.Xl.Accent"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "EmbeddedChip.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "EmbeddedChip.Xl.Positive"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "EmbeddedChip.Xl.Secondary"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "EmbeddedChip.Xl.Warning"
+            },
+            {
                "name": "l.default",
                "composeReference": "EmbeddedChip.L.Default"
             },
@@ -3159,6 +3183,30 @@
          "styleName": "EmbeddedChipGroupDense",
          "variations": [
             {
+               "name": "xl.default",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Default"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Accent"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Positive"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Secondary"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Warning"
+            },
+            {
                "name": "l.default",
                "composeReference": "EmbeddedChipGroupDense.L.Default"
             },
@@ -3261,6 +3309,30 @@
          "coreName": "ChipGroup",
          "styleName": "EmbeddedChipGroupWide",
          "variations": [
+            {
+               "name": "xl.default",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Default"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Accent"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Positive"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Secondary"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Warning"
+            },
             {
                "name": "l.default",
                "composeReference": "EmbeddedChipGroupWide.L.Default"
@@ -6658,6 +6730,84 @@
             {
                "name": "s",
                "composeReference": "Tooltip.S"
+            }
+         ]
+      },
+      {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBarHorizontal",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ToolBarHorizontal.L"
+            },
+            {
+               "name": "l.has-shadow",
+               "composeReference": "ToolBarHorizontal.L.HasShadow"
+            },
+            {
+               "name": "m",
+               "composeReference": "ToolBarHorizontal.M"
+            },
+            {
+               "name": "m.has-shadow",
+               "composeReference": "ToolBarHorizontal.M.HasShadow"
+            },
+            {
+               "name": "s",
+               "composeReference": "ToolBarHorizontal.S"
+            },
+            {
+               "name": "s.has-shadow",
+               "composeReference": "ToolBarHorizontal.S.HasShadow"
+            },
+            {
+               "name": "xs",
+               "composeReference": "ToolBarHorizontal.Xs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "composeReference": "ToolBarHorizontal.Xs.HasShadow"
+            }
+         ]
+      },
+      {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBarVertical",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ToolBarVertical.L"
+            },
+            {
+               "name": "l.has-shadow",
+               "composeReference": "ToolBarVertical.L.HasShadow"
+            },
+            {
+               "name": "m",
+               "composeReference": "ToolBarVertical.M"
+            },
+            {
+               "name": "m.has-shadow",
+               "composeReference": "ToolBarVertical.M.HasShadow"
+            },
+            {
+               "name": "s",
+               "composeReference": "ToolBarVertical.S"
+            },
+            {
+               "name": "s.has-shadow",
+               "composeReference": "ToolBarVertical.S.HasShadow"
+            },
+            {
+               "name": "xs",
+               "composeReference": "ToolBarVertical.Xs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "composeReference": "ToolBarVertical.Xs.HasShadow"
             }
          ]
       },
@@ -11842,6 +11992,222 @@
             {
                "name": "body-xxs",
                "composeReference": "Editable.BodyXxs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectSingleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectSingleNormal.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectSingleNormal.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectSingleNormal.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectSingleNormal.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectSingleNormal.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectSingleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectSingleTight.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectSingleTight.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectSingleTight.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectSingleTight.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectSingleTight.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectMultipleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectMultipleNormal.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectMultipleNormal.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectMultipleNormal.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectMultipleNormal.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectMultipleNormal.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectMultipleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectMultipleTight.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectMultipleTight.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectMultipleTight.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectMultipleTight.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectMultipleTight.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectItem",
+         "styleName": "SelectItemSingleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectItemSingleNormal.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectItemSingleNormal.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectItemSingleNormal.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectItemSingleNormal.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectItemSingleNormal.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectItem",
+         "styleName": "SelectItemSingleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectItemSingleTight.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectItemSingleTight.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectItemSingleTight.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectItemSingleTight.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectItemSingleTight.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectItem",
+         "styleName": "SelectItemMultipleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectItemMultipleNormal.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectItemMultipleNormal.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectItemMultipleNormal.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectItemMultipleNormal.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectItemMultipleNormal.Xs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectItem",
+         "styleName": "SelectItemMultipleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "composeReference": "SelectItemMultipleTight.Xl"
+            },
+            {
+               "name": "l",
+               "composeReference": "SelectItemMultipleTight.L"
+            },
+            {
+               "name": "m",
+               "composeReference": "SelectItemMultipleTight.M"
+            },
+            {
+               "name": "s",
+               "composeReference": "SelectItemMultipleTight.S"
+            },
+            {
+               "name": "xs",
+               "composeReference": "SelectItemMultipleTight.Xs"
             }
          ]
       }

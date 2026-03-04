@@ -9,9 +9,16 @@ internal data class ListUiState(
     val hasDisclosure: Boolean = true,
     val amount: Int = 3,
     val hasDivider: Boolean = false,
+    val startContent: ListItemStartContent = ListItemStartContent.IconSize24,
 ) : UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }
+}
+
+internal enum class ListItemStartContent {
+    IconSize24,
+    IconSize36,
+    Counter,
 }

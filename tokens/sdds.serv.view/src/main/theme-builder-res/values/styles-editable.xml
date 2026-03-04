@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Editable" parent="Sdds.Components.Editable">
+        <item name="sd_valueColor">@color/serv_editable_value_color</item>
+        <item name="sd_iconTint">@color/serv_editable_icon_tint</item>
+        <item name="sd_cursorColor">?serv_textDefaultAccent</item>
+        <item name="sd_disabledAlpha">0.4</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.H1">
+        <item name="sd_iconMargin">@dimen/serv_editable_h1_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_h1_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH1Bold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableH1">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.H1</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.H2">
+        <item name="sd_iconMargin">@dimen/serv_editable_h2_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_h2_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableH2">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.H2</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.H3">
+        <item name="sd_iconMargin">@dimen/serv_editable_h3_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_h3_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH3Bold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableH3">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.H3</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.H4">
+        <item name="sd_iconMargin">@dimen/serv_editable_h4_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_h4_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Bold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableH4">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.H4</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.H5">
+        <item name="sd_iconMargin">@dimen/serv_editable_h5_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_h5_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableH5">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.H5</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.BodyL">
+        <item name="sd_iconMargin">@dimen/serv_editable_body_l_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_body_l_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableBodyL">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyL</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.BodyM">
+        <item name="sd_iconMargin">@dimen/serv_editable_body_m_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_body_m_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableBodyM">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyM</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.BodyS">
+        <item name="sd_iconMargin">@dimen/serv_editable_body_s_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_body_s_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableBodyS">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyS</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.BodyXs">
+        <item name="sd_iconMargin">@dimen/serv_editable_body_xs_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_body_xs_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableBodyXs">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyXs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Editable.BodyXxs">
+        <item name="sd_iconMargin">@dimen/serv_editable_body_xxs_icon_margin</item>
+        <item name="sd_iconSize">@dimen/serv_editable_body_xxs_icon_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EditableBodyXxs">
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.BodyXxs</item>
+    </style>
+</resources>

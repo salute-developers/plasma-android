@@ -14,11 +14,18 @@ import com.sdds.serv.styles.chipgroup.Positive
 import com.sdds.serv.styles.chipgroup.S
 import com.sdds.serv.styles.chipgroup.Secondary
 import com.sdds.serv.styles.chipgroup.Warning
+import com.sdds.serv.styles.chipgroup.Xl
 import com.sdds.serv.styles.chipgroup.Xs
 
 internal object SddsServEmbeddedChipGroupDenseVariationsCompose : ComposeStyleProvider<String, ChipGroupStyle>() {
     override val variations: Map<String, @Composable () -> ChipGroupStyle> =
         mapOf(
+            "Xl.Default" to { EmbeddedChipGroupDense.Xl.Default.style() },
+            "Xl.Accent" to { EmbeddedChipGroupDense.Xl.Accent.style() },
+            "Xl.Negative" to { EmbeddedChipGroupDense.Xl.Negative.style() },
+            "Xl.Positive" to { EmbeddedChipGroupDense.Xl.Positive.style() },
+            "Xl.Secondary" to { EmbeddedChipGroupDense.Xl.Secondary.style() },
+            "Xl.Warning" to { EmbeddedChipGroupDense.Xl.Warning.style() },
             "L.Default" to { EmbeddedChipGroupDense.L.Default.style() },
             "L.Accent" to { EmbeddedChipGroupDense.L.Accent.style() },
             "L.Negative" to { EmbeddedChipGroupDense.L.Negative.style() },

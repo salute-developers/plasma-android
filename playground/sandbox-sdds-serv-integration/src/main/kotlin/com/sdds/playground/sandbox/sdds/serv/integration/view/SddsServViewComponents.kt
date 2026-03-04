@@ -195,10 +195,10 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
-                ComponentKey.Toolbar,
+                ComponentKey.ToolBar,
                 mapOf(
-                    "ToolbarHorizontal" to SddsServToolbarHorizontalVariationsView,
-                    "ToolbarVertical" to SddsServToolbarVerticalVariationsView,
+                    "ToolBarHorizontal" to SddsServToolBarHorizontalVariationsView,
+                    "ToolBarVertical" to SddsServToolBarVerticalVariationsView,
                 ),
             ),
             ViewComponent(
@@ -411,6 +411,12 @@ object SddsServViewComponents : ComponentsProviderView() {
                 mapOf(
                     "FileCircularProgress" to SddsServFileCircularProgressVariationsView,
                     "FileLinearProgress" to SddsServFileLinearProgressVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Editable,
+                mapOf(
+                    "Editable" to SddsServEditableVariationsView,
                 ),
             ),
         ).associateBy { it.key }

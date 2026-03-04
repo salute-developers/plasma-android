@@ -47,6 +47,12 @@ internal class ButtonViewModel(
         )
     }
 
+    private fun updateHasFixedWidthState(hasFixedWidth: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            hasFixedWidth = hasFixedWidth,
+        )
+    }
+
     private fun updateLoadingState(loading: Boolean) {
         internalUiState.value = internalUiState.value.copy(
             loading = loading,
@@ -93,6 +99,11 @@ internal class ButtonViewModel(
                 name = "enabled",
                 value = enabled,
                 onApply = { updateEnabledState(it) },
+            ),
+            Property.BooleanProperty(
+                name = "hasFixedWidth",
+                value = hasFixedWidth,
+                onApply = { updateHasFixedWidthState(it) },
             ),
             Property.BooleanProperty(
                 name = "loading",

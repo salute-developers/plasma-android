@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.divider.DividerProperties
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemProperties
 import kotlinx.serialization.Serializable
 
@@ -20,7 +21,11 @@ internal data class SegmentProperties(
     val paddingEnd: Dimension? = null,
     val paddingTop: Dimension? = null,
     val paddingBottom: Dimension? = null,
+    val gap: Dimension? = null,
+    val dividerPaddingStart: Dimension? = null,
+    val dividerPaddingEnd: Dimension? = null,
     val segmentItemStyle: ComponentStyle<SegmentItemProperties>? = null,
+    val dividerStyle: ComponentStyle<DividerProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -34,6 +39,7 @@ internal data class SegmentProperties(
             paddingTop = paddingTop ?: otherProps.paddingTop,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
             segmentItemStyle = segmentItemStyle ?: otherProps.segmentItemStyle,
+            dividerStyle = dividerStyle ?: otherProps.dividerStyle,
         )
     }
 }

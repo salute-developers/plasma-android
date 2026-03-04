@@ -10,6 +10,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.ToastStyle
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
@@ -22,13 +23,13 @@ import com.sdds.docs.DocSample
 @DocSample(needScreenshot = true)
 fun Toast_Simple() {
     OverlayHost {
-        val overlayManager = LocalOverlayManager.current
+        composableCodeSnippet {
+            val overlayManager = LocalOverlayManager.current
 
-        LaunchedEffect(Unit) {
-            overlayManager.showToast(
-                position = OverlayPosition.Center,
-            ) {
-                composableCodeSnippet {
+            LaunchedEffect(Unit) {
+                overlayManager.showToast(
+                    position = OverlayPosition.Center,
+                ) {
                     Toast(
                         text = "Toast text",
                         contentStart = {
@@ -44,6 +45,33 @@ fun Toast_Simple() {
                             )
                         },
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun Toast_TextMultiline() {
+    OverlayHost {
+        composableCodeSnippet {
+            val overlayManager = LocalOverlayManager.current
+
+            LaunchedEffect(Unit) {
+                overlayManager.showToast(
+                    position = OverlayPosition.Center,
+                ) {
+                    Toast(
+                        contentStart = {
+                            Icon(
+                                painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
+                                contentDescription = null,
+                            )
+                        },
+                    ) {
+                        Text("First line\nSecond Line")
+                    }
                 }
             }
         }

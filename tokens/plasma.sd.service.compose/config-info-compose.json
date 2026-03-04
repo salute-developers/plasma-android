@@ -2634,6 +2634,30 @@
          "styleName": "EmbeddedChip",
          "variations": [
             {
+               "name": "xl.default",
+               "composeReference": "EmbeddedChip.Xl.Default"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "EmbeddedChip.Xl.Accent"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "EmbeddedChip.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "EmbeddedChip.Xl.Positive"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "EmbeddedChip.Xl.Secondary"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "EmbeddedChip.Xl.Warning"
+            },
+            {
                "name": "l.default",
                "composeReference": "EmbeddedChip.L.Default"
             },
@@ -3135,6 +3159,30 @@
          "styleName": "EmbeddedChipGroupDense",
          "variations": [
             {
+               "name": "xl.default",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Default"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Accent"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Positive"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Secondary"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "EmbeddedChipGroupDense.Xl.Warning"
+            },
+            {
                "name": "l.default",
                "composeReference": "EmbeddedChipGroupDense.L.Default"
             },
@@ -3237,6 +3285,30 @@
          "coreName": "ChipGroup",
          "styleName": "EmbeddedChipGroupWide",
          "variations": [
+            {
+               "name": "xl.default",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Default"
+            },
+            {
+               "name": "xl.accent",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Accent"
+            },
+            {
+               "name": "xl.negative",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Negative"
+            },
+            {
+               "name": "xl.positive",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Positive"
+            },
+            {
+               "name": "xl.secondary",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Secondary"
+            },
+            {
+               "name": "xl.warning",
+               "composeReference": "EmbeddedChipGroupWide.Xl.Warning"
+            },
             {
                "name": "l.default",
                "composeReference": "EmbeddedChipGroupWide.L.Default"
@@ -6623,6 +6695,84 @@
             {
                "name": "s",
                "composeReference": "Tooltip.S"
+            }
+         ]
+      },
+      {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBarHorizontal",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ToolBarHorizontal.L"
+            },
+            {
+               "name": "l.has-shadow",
+               "composeReference": "ToolBarHorizontal.L.HasShadow"
+            },
+            {
+               "name": "m",
+               "composeReference": "ToolBarHorizontal.M"
+            },
+            {
+               "name": "m.has-shadow",
+               "composeReference": "ToolBarHorizontal.M.HasShadow"
+            },
+            {
+               "name": "s",
+               "composeReference": "ToolBarHorizontal.S"
+            },
+            {
+               "name": "s.has-shadow",
+               "composeReference": "ToolBarHorizontal.S.HasShadow"
+            },
+            {
+               "name": "xs",
+               "composeReference": "ToolBarHorizontal.Xs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "composeReference": "ToolBarHorizontal.Xs.HasShadow"
+            }
+         ]
+      },
+      {
+         "key": "tool-bar",
+         "coreName": "ToolBar",
+         "styleName": "ToolBarVertical",
+         "variations": [
+            {
+               "name": "l",
+               "composeReference": "ToolBarVertical.L"
+            },
+            {
+               "name": "l.has-shadow",
+               "composeReference": "ToolBarVertical.L.HasShadow"
+            },
+            {
+               "name": "m",
+               "composeReference": "ToolBarVertical.M"
+            },
+            {
+               "name": "m.has-shadow",
+               "composeReference": "ToolBarVertical.M.HasShadow"
+            },
+            {
+               "name": "s",
+               "composeReference": "ToolBarVertical.S"
+            },
+            {
+               "name": "s.has-shadow",
+               "composeReference": "ToolBarVertical.S.HasShadow"
+            },
+            {
+               "name": "xs",
+               "composeReference": "ToolBarVertical.Xs"
+            },
+            {
+               "name": "xs.has-shadow",
+               "composeReference": "ToolBarVertical.Xs.HasShadow"
             }
          ]
       },

@@ -60,4 +60,6 @@
     <item type="id" name="slider"/>
     <item type="id" name="autocomplete"/>
     <item type="id" name="file"/>
+    <item type="id" name="navigation_bar"/>
+    <item type="id" name="editable"/>
 </resources>
