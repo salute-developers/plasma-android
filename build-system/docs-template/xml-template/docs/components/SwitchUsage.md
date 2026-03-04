@@ -48,7 +48,7 @@ title: Switch
 ### Изменение цвета фона у Switch, в зависимости от фокуса
 
 ```xml
-<!-- @sample: com/sdds/uikit/fixtures/bg_switch_sample.xml -->
+<!-- @sample: com/sdds/uikit/fixtures/background_switch_example.xml -->
 ```
 
 ```xml
