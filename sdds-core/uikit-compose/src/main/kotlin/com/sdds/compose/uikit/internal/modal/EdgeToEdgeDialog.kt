@@ -71,6 +71,10 @@ private fun ConfigureWindow(
                         insets
                     }
                 }
+            } else {
+                window.setSoftInputMode(
+                    @Suppress("DEPRECATION") WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE,
+                )
             }
             window.setWindowAnimations(-1)
             if (!useNativeBlackout) {
