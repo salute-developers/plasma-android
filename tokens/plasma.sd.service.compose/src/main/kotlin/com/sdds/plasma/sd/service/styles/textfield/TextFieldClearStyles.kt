@@ -26,6 +26,7 @@ import com.sdds.plasma.sd.service.styles.chipgroup.L
 import com.sdds.plasma.sd.service.styles.chipgroup.M
 import com.sdds.plasma.sd.service.styles.chipgroup.S
 import com.sdds.plasma.sd.service.styles.chipgroup.Secondary
+import com.sdds.plasma.sd.service.styles.chipgroup.Xl
 import com.sdds.plasma.sd.service.styles.chipgroup.Xs
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
@@ -1147,7 +1148,7 @@ public val TextFieldClear.Xl: WrapperTextFieldClearXl
         .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xl.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXl)
 

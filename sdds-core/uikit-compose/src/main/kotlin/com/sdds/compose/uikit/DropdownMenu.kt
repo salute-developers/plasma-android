@@ -38,7 +38,7 @@ import com.sdds.compose.uikit.internal.widthOrZero
 
 /**
  * Компонент DropdownMenu.
- * Представляет из себя раскрывающееся меню — отображает список пунктов поверх контента.
+ * Представляет собой раскрывающееся меню — отображает список пунктов поверх контента.
  *
  * @param opened будет ли открыто меню
  * @param modifier модификатор
@@ -81,6 +81,80 @@ fun DropdownMenu(
     scrollState: LazyListState? = null,
     showEmptyState: Boolean = false,
     emptyState: (@Composable DropdownScope.() -> Unit)? = null,
+    footer: (@Composable () -> Unit)? = null,
+    content: @Composable () -> Unit,
+) {
+    DropdownMenu(
+        opened = opened,
+        modifier = modifier,
+        clipHeight = clipHeight,
+        clipWidth = clipWidth,
+        onDismissRequest = onDismissRequest,
+        triggerInfo = triggerInfo,
+        style = style,
+        placement = placement,
+        placementMode = placementMode,
+        alignment = alignment,
+        popupProperties = popupProperties,
+        enterTransition = enterTransition,
+        exitTransition = exitTransition,
+        interactionSource = interactionSource,
+        offset = offset,
+        scrollState = scrollState,
+        showEmptyState = showEmptyState,
+        emptyState = emptyState,
+        header = null,
+        footer = footer,
+        content = content,
+    )
+}
+
+/**
+ * Компонент DropdownMenu.
+ * Представляет собой раскрывающееся меню — отображает список пунктов поверх контента.
+ *
+ * @param opened будет ли открыто меню
+ * @param onDismissRequest колбэк, который будет вызван при нажатии вне меню
+ * @param triggerInfo информация о размерах и размещении триггера
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param clipHeight высота DropdownMenu будет ограничена доступным пространством на экране, с учетом клавиатуры
+ * @param clipWidth ширина DropdownMenu будет ограничена доступным пространством на экране
+ * @param placement ориентация компонента относительно триггера
+ * @param placementMode режим размещения [PopoverPlacementMode]
+ * @param alignment выравнивание компонента относительно триггера
+ * @param popupProperties свойства [Popup]
+ * @param enterTransition анимация появления
+ * @param exitTransition анимация исчезновения
+ * @param interactionSource источник взаимодействий
+ * @param scrollState состояния прокрутки [LazyListState]
+ * @param emptyState слот для представления пустого состояния
+ * @param footer слот для футера. Например для лоадера, индикатора загрузки и т.д.
+ * @param content содержимое DropdownMenu
+ */
+@Composable
+@Suppress("LongMethod")
+@NonRestartableComposable
+fun DropdownMenu(
+    opened: Boolean,
+    onDismissRequest: () -> Unit,
+    triggerInfo: TriggerInfo,
+    modifier: Modifier = Modifier,
+    style: DropdownMenuStyle = LocalDropdownMenuStyle.current,
+    clipHeight: Boolean = false,
+    clipWidth: Boolean = false,
+    placement: PopoverPlacement = PopoverPlacement.Top,
+    placementMode: PopoverPlacementMode = PopoverPlacementMode.Loose,
+    alignment: PopoverAlignment = PopoverAlignment.Start,
+    popupProperties: PopupProperties = remember { DefaultPopupProperties },
+    enterTransition: EnterTransition = fadeIn(),
+    exitTransition: ExitTransition = fadeOut(),
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    offset: Dp = style.dimensions.offset,
+    scrollState: LazyListState? = null,
+    showEmptyState: Boolean = false,
+    emptyState: (@Composable DropdownScope.() -> Unit)? = null,
+    header: (@Composable () -> Unit)? = null,
     footer: (@Composable () -> Unit)? = null,
     content: @Composable () -> Unit,
 ) {
@@ -134,8 +208,9 @@ fun DropdownMenu(
                 if (showEmptyState && emptyState != null) {
                     DropdownScopeImpl.emptyState()
                 } else {
-                    ScrollableContentWithFooter(
+                    ScrollableContentWithHeaderFooter(
                         listContent = { content.invoke() },
+                        headerContent = { header?.invoke() },
                         footerContent = { footer?.invoke() },
                         scrollBar = { ScrollBarContent(scrollState, style) },
                     )
@@ -274,9 +349,10 @@ private fun BoxScope.ScrollBarContent(scrollState: LazyListState?, style: Dropdo
 }
 
 @Composable
-private fun ScrollableContentWithFooter(
+private fun ScrollableContentWithHeaderFooter(
     modifier: Modifier = Modifier,
     listContent: @Composable () -> Unit,
+    headerContent: @Composable () -> Unit,
     footerContent: @Composable () -> Unit,
     scrollBar: @Composable () -> Unit,
 ) {
@@ -284,46 +360,56 @@ private fun ScrollableContentWithFooter(
         modifier = modifier,
         content = {
             Box(
-                modifier = Modifier.layoutId("listContent"),
+                modifier = Modifier.layoutId(LIST_CONTENT_ID),
             ) {
                 listContent.invoke()
             }
 
-            Box(modifier = Modifier.layoutId("footerContent")) {
+            Box(modifier = Modifier.layoutId(HEADER_ID)) {
+                headerContent.invoke()
+            }
+
+            Box(modifier = Modifier.layoutId(FOOTER_ID)) {
                 footerContent.invoke()
             }
 
-            Box(modifier = Modifier.layoutId("scrollbar")) {
+            Box(modifier = Modifier.layoutId(SCROLLBAR_ID)) {
                 scrollBar.invoke()
             }
         },
     ) { measurables, constraints ->
         val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
         val footerPlaceable =
-            measurables.find { it.layoutId == "footerContent" }?.measure(looseConstraints)
+            measurables.find { it.layoutId == FOOTER_ID }?.measure(looseConstraints)
         val footerHeight = footerPlaceable.heightOrZero()
 
-        val listPlaceable = measurables.find { it.layoutId == "listContent" }?.measure(
-            constraints.offset(vertical = -footerHeight),
+        val headerPlaceable =
+            measurables.find { it.layoutId == HEADER_ID }?.measure(looseConstraints)
+        val headerHeight = headerPlaceable.heightOrZero()
+
+        val listPlaceable = measurables.find { it.layoutId == LIST_CONTENT_ID }?.measure(
+            constraints.offset(vertical = -footerHeight - headerHeight),
         )
 
-        val height = listPlaceable.heightOrZero() + footerPlaceable.heightOrZero()
+        val height = listPlaceable.heightOrZero() + footerPlaceable.heightOrZero() + headerPlaceable.heightOrZero()
 
-        val scrollBarConstraints = constraints.copy(maxHeight = height)
+        val scrollBarConstraints = constraints.copy(maxHeight = listPlaceable.heightOrZero())
         val scrollBarPlaceable = measurables
-            .find { it.layoutId == "scrollbar" }
+            .find { it.layoutId == SCROLLBAR_ID }
             ?.measure(scrollBarConstraints)
 
         val width = maxOf(
             listPlaceable.widthOrZero(),
             footerPlaceable.widthOrZero(),
+            headerPlaceable.widthOrZero(),
         )
 
         layout(width, height) {
-            listPlaceable?.placeRelative(0, 0)
+            headerPlaceable?.placeRelative(0, 0)
+            listPlaceable?.placeRelative(0, headerPlaceable.heightOrZero())
             val footerX = (width - (footerPlaceable.widthOrZero())) / 2
             footerPlaceable?.placeRelative(footerX, height - footerHeight)
-            scrollBarPlaceable?.placeRelative(width - (scrollBarPlaceable.width), y = 0)
+            scrollBarPlaceable?.placeRelative(width - (scrollBarPlaceable.width), y = headerPlaceable.heightOrZero())
         }
     }
 }
@@ -364,3 +450,8 @@ private fun DropdownMenuPreview() {
         }
     }
 }
+
+private const val LIST_CONTENT_ID = "list_content"
+private const val HEADER_ID = "header_content"
+private const val FOOTER_ID = "footer_content"
+private const val SCROLLBAR_ID = "scrollbar_content"

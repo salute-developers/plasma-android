@@ -21,7 +21,7 @@ title: Button
 ## Расположение контента внутри Button
 
 Расположение контента задается при помощи параметра spacing. 
-Может быть Packed (контент центрирован, лишние оступы располагаются по краям):
+Может быть Packed (контент центрирован, лишние отступы располагаются по краям):
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/BasicButton_LabelValue_Packed.kt

@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.LocalProgressBarStyle
 import com.sdds.compose.uikit.LocalRadioBoxGroupStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
+import com.sdds.compose.uikit.LocalSelectStyle
 import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
@@ -81,6 +82,8 @@ import com.sdds.serv.styles.radioboxgroup.RadioBoxGroup
 import com.sdds.serv.styles.segmentitem.M
 import com.sdds.serv.styles.segmentitem.Primary
 import com.sdds.serv.styles.segmentitem.SegmentItem
+import com.sdds.serv.styles.select.M
+import com.sdds.serv.styles.select.SelectMultipleNormal
 import com.sdds.serv.styles.spinner.Default
 import com.sdds.serv.styles.spinner.Spinner
 import com.sdds.serv.styles.spinner.Xs
@@ -157,6 +160,7 @@ fun SandboxTheme(
                 LocalAvatarGroupStyle provides AvatarGroup.S.style(),
                 LocalChipStyle provides Chip.M.Default.style(),
                 LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
+                LocalSelectStyle provides SelectMultipleNormal.M.style(),
                 LocalCellStyle provides Cell.M.style(),
                 LocalCardStyle provides CardSolid.M.style(),
                 LocalSandboxStyle provides SandboxStyle.create(

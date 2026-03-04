@@ -85,13 +85,14 @@ fun Editable(
     val textMeasurer = rememberTextMeasurer()
     Layout(
         modifier = modifier.enable(enabled = enabled, disabledAlpha = style.disableAlpha),
-        measurePolicy = remember(iconPlacement, value, style.textStyle, singleLine) {
+        measurePolicy = remember(iconPlacement, value, style.textStyle, singleLine, maxLines) {
             EditableMeasurePolicy(
                 iconModePlacement = iconPlacement,
                 textMeasurer = textMeasurer,
                 value = value,
                 textStyle = style.textStyle,
                 singleLine = singleLine,
+                maxLines = maxLines,
             )
         },
         content = {
@@ -166,6 +167,7 @@ private class EditableMeasurePolicy(
     private val value: TextFieldValue,
     private val textStyle: TextStyle,
     private val singleLine: Boolean,
+    private val maxLines: Int,
 ) : MeasurePolicy {
 
     override fun MeasureScope.measure(
@@ -181,10 +183,14 @@ private class EditableMeasurePolicy(
             EditableIconPlacement.Absolute -> constraints
             EditableIconPlacement.Relative -> constraints.offset(-iconPlaceable.widthOrZero())
         }
-        val finalConstraints = if (!singleLine || originalFieldConstraints.hasFixedWidth) {
+        val finalConstraints = if (originalFieldConstraints.hasFixedWidth) {
             originalFieldConstraints
         } else {
-            val fieldExactWidth = originalFieldConstraints.constrainWidth(getSingleLineTextWidth())
+            val fieldExactWidth = if (singleLine) {
+                originalFieldConstraints.constrainWidth(getSingleLineTextWidth())
+            } else {
+                originalFieldConstraints.constrainWidth(getMultiLineTextWidth(maxLines))
+            }
             originalFieldConstraints.copy(
                 minWidth = DEFAULT_MIN_WIDTH,
                 maxWidth = fieldExactWidth.coerceAtLeast(DEFAULT_MIN_WIDTH),
@@ -220,6 +226,16 @@ private class EditableMeasurePolicy(
             text = value.text,
             style = textStyle,
             maxLines = 1,
+        )
+        val textWidth = textLayoutResult.size.width
+        return textWidth + DEFAULT_CURSOR_WIDTH
+    }
+
+    private fun getMultiLineTextWidth(maxLines: Int): Int {
+        val textLayoutResult = textMeasurer.measure(
+            text = value.text,
+            style = textStyle,
+            maxLines = maxLines,
         )
         val textWidth = textLayoutResult.size.width
         return textWidth + DEFAULT_CURSOR_WIDTH

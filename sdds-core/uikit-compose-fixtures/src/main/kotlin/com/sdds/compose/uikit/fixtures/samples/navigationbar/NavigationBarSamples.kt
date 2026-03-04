@@ -151,7 +151,7 @@ fun NavigationBar_BottomTextAndContentMultiplyActions() {
             textPlacement = NavigationBarTextPlacement.Bottom,
             contentPlacement = NavigationBarContentPlacement.Bottom,
             textAlign = NavigationBarTextAlign.Center,
-            textContent = { Text("Text") },
+            titleContent = { Text("Text") },
             actionEnd = {
                 Icon(
                     modifier = Modifier.clickable { /* действие */ },
