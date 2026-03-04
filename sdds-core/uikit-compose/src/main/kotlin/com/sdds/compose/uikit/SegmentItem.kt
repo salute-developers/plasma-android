@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.DpSize
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.interactions.selection
@@ -235,6 +236,7 @@ private fun StartContent(
     CompositionLocalProvider(
         LocalTint provides startContentColor,
         LocalCounterStyle provides style.counterStyle,
+        LocalIconDefaultSize provides DpSize(style.dimensions.startContentSize, style.dimensions.startContentSize),
     ) {
         Box(
             modifier = Modifier
@@ -253,6 +255,7 @@ private fun EndContent(
     CompositionLocalProvider(
         LocalTint provides endContentColor,
         LocalCounterStyle provides style.counterStyle,
+        LocalIconDefaultSize provides DpSize(style.dimensions.startContentSize, style.dimensions.startContentSize),
     ) {
         Box(
             modifier = Modifier
