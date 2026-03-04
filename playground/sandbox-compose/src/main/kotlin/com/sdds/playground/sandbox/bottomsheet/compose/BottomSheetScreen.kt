@@ -62,6 +62,8 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
                     }
                 },
             )
+            val bottomInsetsModifier = Modifier.navigationBarsPadding()
+                .imePadding()
             ModalBottomSheet(
                 modifier = Modifier.statusBarsPadding(),
                 style = style,
@@ -75,14 +77,13 @@ internal fun BottomSheetScreen(componentKey: ComponentKey = ComponentKey.BottomS
                 header = { if (uiState.header && uiState.fixedHeader) Header(backgroundColor) },
                 footer = {
                     if (uiState.footer && uiState.fixedFooter) {
-                        Footer(backgroundColor = backgroundColor, modifier = Modifier.navigationBarsPadding())
+                        Footer(backgroundColor = backgroundColor, modifier = bottomInsetsModifier)
                     }
                 },
             ) {
                 Column(
                     modifier = Modifier
-                        .navigationBarsPadding()
-                        .imePadding()
+                        .then(if (!uiState.footer && !uiState.fixedFooter) bottomInsetsModifier else Modifier)
                         .verticalScroll(scrollState),
                 ) {
                     if (uiState.header && !uiState.fixedHeader) {
