@@ -9,13 +9,7 @@ title: Slider
 ## Использование Slider в xml
 
 ```xml
-<com.sdds.uikit.Slider
-    style="@style/{{ docs-theme-prefix }}.Components.SliderHorizontalLabelOuter.L.Accent"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    app:sd_title="Title"
-    app:sd_icon="@drawable/ic_animal_fill_16"/>
+<!-- @sample: com/sdds/uikit/fixtures/Slider_Simple.xml -->
 ```
 
 ## Стили

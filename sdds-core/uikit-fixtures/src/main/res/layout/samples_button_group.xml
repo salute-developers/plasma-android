@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=ButtonGroup_Simple -->
+    <com.sdds.uikit.ButtonGroup
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <com.sdds.uikit.Button
+            app:sd_value="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.sdds.uikit.Button
+            app:sd_value="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.sdds.uikit.Button
+            app:sd_value="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.sdds.uikit.ButtonGroup>
+    <!-- sample-end: id=ButtonGroup_Simple -->
+
+    <!-- sample-start: id=IconButtonGroup_Simple -->
+    <com.sdds.uikit.ButtonGroup
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
+        <com.sdds.uikit.IconButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_iconTint="#009688"
+            app:sd_icon="@drawable/ic_plasma_36"/>
+
+        <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
+        <com.sdds.uikit.IconButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_iconTint="#009688"
+            app:sd_icon="@drawable/ic_plasma_36"/>
+
+        <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
+        <com.sdds.uikit.IconButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_iconTint="#009688"
+            app:sd_icon="@drawable/ic_plasma_36"/>
+
+    </com.sdds.uikit.ButtonGroup>
+    <!-- sample-end: id=IconButtonGroup_Simple -->
+
+</LinearLayout>

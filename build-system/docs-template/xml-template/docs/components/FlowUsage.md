@@ -7,42 +7,7 @@ title: Flow
 Если на одной строке не хватает места, часть компонентов переносится на следующую строку.
 
 ```xml
-    <com.sdds.uikit.FlowLayout
-        app:sd_mainAxisGap="5dp"
-        app:sd_crossAxisGap="5dp"
-        app:sd_alignment="end"
-        app:sd_arrangement="center"
-        app:sd_itemsPerLine="3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.sdds.uikit.Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LabeL"
-            app:sd_value="Value" />
-
-        <com.sdds.uikit.Button
-            style="@style/{{ docs-theme-prefix }}.Components.BasicButton.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LabeL"
-            app:sd_value="Value" />
-
-        <com.sdds.uikit.Button
-            style="@style/{{ docs-theme-prefix }}.Components.BasicButton.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LabeL"
-            app:sd_value="Value" />
-
-        <com.sdds.uikit.Button
-            style="@style/{{ docs-theme-prefix }}.Components.BasicButton.Xs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LabeL"
-            app:sd_value="Value" />
-    </com.sdds.uikit.FlowLayout>
+ <!-- @sample: com/sdds/uikit/fixtures/FlowLayout_Simple.xml -->
 ```
 
 ## Настройка Flow

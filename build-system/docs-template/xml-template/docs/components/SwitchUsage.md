@@ -3,12 +3,7 @@ title: Switch
 ---
 
 ```xml
-<com.sdds.uikit.Switch
-    style="@style/{{ docs-theme-prefix }}.Components.Switch.L.ToggleS"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Label"
-    app:sd_description="Description" />
+<!-- @sample: com/sdds/uikit/fixtures/Switch_Simple.xml -->
 ```
 
 ## Стиль Switch
@@ -47,35 +42,15 @@ title: Switch
 :::
 
 ```xml
-<com.sdds.uikit.Switch
-    style="..."
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Label"
-    app:sd_description="Description"
-    app:sd_background="?{{ docs-theme-resPrefix }}_surfaceDefaultSolidDefault"
-    app:sd_shapeAppearance="?{{ docs-theme-resPrefix }}_shapeRoundM"
-/>
+<!-- @sample: com/sdds/uikit/fixtures/Switch_Background.xml -->
 ```
 
 ### Изменение цвета фона у Switch, в зависимости от фокуса
 
 ```xml
-<!-- @color/bg_switch_example -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="?{{ docs-theme-resPrefix }}_surfaceDefaultSolidDefault" android:state_focused="true"/>
-    <item android:color="?{{ docs-theme-resPrefix }}_surfaceDefaultClear"/>
-</selector>
+<!-- @sample: com/sdds/uikit/fixtures/bg_switch_sample.xml -->
 ```
 
 ```xml
-<com.sdds.uikit.Switch
-    style="..."
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Label"
-    app:sd_description="Description"
-    app:sd_background="@color/bg_switch_example"
-    app:sd_shapeAppearance="?{{ docs-theme-resPrefix }}_shapeRoundM"
-/>
+<!-- @sample: com/sdds/uikit/fixtures/Switch_Custom_Color.xml -->
 ```

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=NotificationContent_Simple -->
+    <com.sdds.uikit.NotificationContent
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="300dp"
+        app:sd_notificationIconPlacement="start"
+        app:sd_buttonLayout="stretch"
+        app:sd_text="Notification Text"
+        app:sd_title="Notification Title">
+
+        <com.sdds.uikit.ButtonGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.sdds.uikit.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ok" />
+
+            <com.sdds.uikit.Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel" />
+        </com.sdds.uikit.ButtonGroup>
+
+    </com.sdds.uikit.NotificationContent>
+    <!-- sample-end: id=NotificationContent_Simple -->
+
+</LinearLayout>

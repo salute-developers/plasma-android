@@ -47,11 +47,7 @@ title: Accordion
 ### XML: Accordion
 
 ```xml
-<com.sdds.uikit.Accordion
-    android:id="@+id/accordion"
-    style="@style/{{ docs-theme-prefix }}.Components.Accordion.M"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+<!-- @sample: com/sdds/uikit/fixtures/Accordion_Simple.xml -->
 ```
 
 ### Kotlin: Простая настройка
@@ -120,15 +116,7 @@ class MyAccordionAdapter : AccordionAdapter<MyItem, MyViewHolder>() {
 ### XML: разметка элемента
 
 ```xml
-<com.sdds.uikit.AccordionItemView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/{{ docs-theme-prefix }}.Components.AccordionItem.M" >
-    
-    <!-- Кастомный дополнительный контент   -->
-    <com.sdds.uikit.TextView
-        android:id="@+id/customContent"/>
-</com.sdds.uikit.AccordionItemView>
+<!-- @sample: com/sdds/uikit/fixtures/Accordion_Custom_Content.xml -->
 ```
 
 ### Примечание

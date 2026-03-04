@@ -3,20 +3,7 @@ title: TextField
 ---
 
 ```xml
-<com.sdds.uikit.TextField
-    style="@style/{{ docs-theme-prefix }}.Components.TextField.L"
-    app:sd_label="Label"
-    app:sd_value="Value"
-    app:sd_suffixText="TA"
-    app:sd_caption="Caption"
-    app:sd_indicatorSize="10dp"
-    app:sd_icon="@drawable/ic_arrow_down_16"
-    app:sd_iconPadding="20dp"
-    app:sd_requirementMode="start"
-    app:sd_counter="1234"
-    app:sd_labelPadding="10dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/TextField_Simple.xml -->
 ```
 
 ## Стиль TextField
@@ -95,18 +82,7 @@ title: TextField
 так как эти два компонента отличаются друг от друга только визуально.
 
 ```xml
-<com.sdds.uikit.TextArea
-    style="@style/{{ docs-theme-prefix }}.Components.TextArea.L"
-    app:sd_label="Label"
-    app:sd_value="Value"
-    app:sd_suffixText="TA"
-    app:sd_caption="Caption"
-    app:sd_indicatorSize="10dp"
-    app:sd_requirementMode="end"
-    app:sd_counter="12"
-    app:sd_labelPadding="10dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/TextArea_Simple.xml -->
 ```
 
 ## TextField readOnly

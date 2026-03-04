@@ -20,15 +20,7 @@ Keep - некорректный код/символ сохраняется в п
 ### XML: CodeInput
 
 ```xml
-<com.sdds.uikit.CodeInput
-    android:id="@+id/codeInput"
-    style="@style/{{ docs-theme-prefix }}.Components.CodeInput.M"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-    app:sd_codeLength="4"
-    android:layout_gravity="center"
-    app:sd_caption="Caption"
-    app:sd_captionAlignment="center"/>
+<!-- @sample: com/sdds/uikit/fixtures/CodeInput_Simple.xml -->
 ```
 
 ## Стиль CodeInput

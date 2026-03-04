@@ -5,29 +5,7 @@ title: AvatarGroup
 Контент AvatarGroup формируется с помощью [Avatar](AvatarUsage.md#avatar).
 
 ```xml
-
-<com.sdds.uikit.AvatarGroup 
-    style="@style/{{ docs-theme-prefix }}.Components.AvatarGroup.S"
-    android:layout_height="wrap_content" 
-    android:layout_width="wrap_content" 
-    app:sd_itemOffset="10dp"
-    app:sd_itemSpacing="2dp">
-
-    <com.sdds.uikit.Avatar 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:sd_name="User Name" />
-
-    <com.sdds.uikit.Avatar 
-        android:layout_height="wrap_content" 
-        android:layout_width="wrap_content"
-        app:sd_name="User Name" />
-
-    <com.sdds.uikit.Avatar 
-        android:layout_height="wrap_content" 
-        android:layout_width="wrap_content"
-        app:sd_name="User Name" />
-</com.sdds.uikit.AvatarGroup>
+<!-- @sample: com/sdds/uikit/fixtures/AvatarGroup_Simple.xml -->
 ```
 
 ## Стиль AvatarGroup

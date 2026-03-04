@@ -9,63 +9,13 @@ title: Drawer
 sd_drawerPlacement, указав сторону расположения панели. Пример использования `DrawerLayout` с "кастомной" панелью:  
 
 ```xml
-<com.sdds.uikit.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clipChildren="false"
-    app:sd_focusDepended="true"
-    app:sd_peakHeight="20dp"
-    app:sd_shiftContent="true"
-    app:sd_drawerMargin="2dp" >
-
-    <include
-        layout="@layout/..."
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:sd_drawerPlacement="left" />
-    
-</com.sdds.uikit.DrawerLayout>
+<!-- @sample: com/sdds/uikit/fixtures/DrawerLayout_Simple.xml -->
 ```
 
 Пример использования `DrawerLayout` с `Drawer`:  
 
 ```xml
-<com.sdds.uikit.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:clipChildren="false"
-    app:sd_focusDepended="true"
-    app:sd_peakHeight="20dp"
-    app:sd_shiftContent="true"
-    app:sd_drawerMargin="2dp" >
-
-    <include
-        layout="@layout/..."
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.sdds.uikit.Drawer
-        style="@style/{{ docs-theme-prefix }}.Sdkit.StarDs.Components.Drawer.HasBackground"
-        app:sd_drawerPlacement="left"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
-
-        <androidx.fragment.app.FragmentContainerView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:sd_contentPlacement="body"/>
-
-    </com.sdds.uikit.Drawer>
-
-</com.sdds.uikit.DrawerLayout>
+<!-- @sample: com/sdds/uikit/fixtures/DrawerLayout_With_Drawer.xml -->
 ```
 
 ## Стиль Drawer

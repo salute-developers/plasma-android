@@ -3,12 +3,7 @@ title: Chip
 ---
 
 ```xml
-<com.sdds.uikit.Chip
-    style="@style/{{ docs-theme-prefix }}.Components.Chip.L.Negative"
-    android:text="Chip"
-    android:drawableStart="@drawable/ic_arrow_down_16"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Chip_Simple.xml -->
 ```
 
 ## Стиль Chip

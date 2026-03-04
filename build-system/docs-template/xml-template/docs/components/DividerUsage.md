@@ -3,12 +3,7 @@ title: Divider
 ---
 
 ```xml
-<com.sdds.uikit.Divider
-    style="@style/{{ docs-theme-prefix }}.Components.Divider"
-    app:sd_thickness="2dp"
-    android:orientation="vertical"
-    android:layout_height="100dp"
-    android:layout_width="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Divider_Simple.xml -->
 ```
 
 ## Стиль Divider

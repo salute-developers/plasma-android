@@ -3,12 +3,7 @@ title: RadioBox
 ---
 
 ```xml
-<com.sdds.uikit.RadioBox
-    style="@style/{{ docs-theme-prefix }}.Components.RadioBox.L"
-    android:text="Label"
-    app:sd_description="Description"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/RadioBox_Simple.xml -->
 ```
 
 ## Стиль RadioBox

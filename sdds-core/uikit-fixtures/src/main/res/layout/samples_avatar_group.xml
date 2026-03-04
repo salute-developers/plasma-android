@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=AvatarGroup_Simple -->
+    <com.sdds.uikit.AvatarGroup
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:sd_itemOffset="10dp"
+        app:sd_itemSpacing="2dp">
+
+        <com.sdds.uikit.Avatar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:sd_background="#111"
+            app:sd_name="User Name" />
+
+        <com.sdds.uikit.Avatar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:sd_background="#111"
+            app:sd_name="User Name" />
+
+        <com.sdds.uikit.Avatar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:sd_background="#111"
+            app:sd_name="User Name" />
+    </com.sdds.uikit.AvatarGroup>
+    <!-- sample-end: id=AvatarGroup_Simple -->
+
+</LinearLayout>

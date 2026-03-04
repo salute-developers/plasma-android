@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=ChipGroup_Simple -->
+    <com.sdds.uikit.ChipGroup
+        app:sd_gap="10dp"
+        app:sd_lineSpacing="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- placeholder: android:drawableStart="@drawable/ic_arrow_down_16"" -> android:drawableStart="Your drawable"  -->
+        <com.sdds.uikit.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_arrow_down_16"
+            android:text="Chip" />
+
+        <!-- placeholder: android:drawableStart="@drawable/ic_arrow_down_16"" -> android:drawableStart="Your drawable"  -->
+        <com.sdds.uikit.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_arrow_down_16"
+            android:text="Chip" />
+    </com.sdds.uikit.ChipGroup>
+    <!-- sample-end: id=ChipGroup_Simple -->
+
+</LinearLayout>

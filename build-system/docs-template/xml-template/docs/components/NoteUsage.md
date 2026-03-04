@@ -30,51 +30,13 @@ ContentBefore.  Для корректного отображения, компо
 ## Использование Note в xml
 
 ```xml
-<com.sdds.uikit.NoteCompact
-    style="@style/{{ docs-theme-prefix }}.Components.Note.L.HasClose.Negative"
-    app:sd_title="Title"
-    app:sd_text="Text"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-    <com.sdds.uikit.ImageView
-        app:layout_noteContent="contentBefore"
-        android:src="@drawable/ic_salute_outline_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.LinkButton
-        app:layout_noteContent="action"
-        android:text="Label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    
-</com.sdds.uikit.NoteCompact>
+<!-- @sample: com/sdds/uikit/fixtures/Note_Simple.xml -->
 ```
 
 ## Использование NoteCompact в xml
 
 ```xml
-<com.sdds.uikit.NoteCompact
-    style="@style/{{ docs-theme-prefix }}.Components.NoteCompact.L.HasClose.Positive"
-    app:sd_title="Title"
-    app:sd_text="Text"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" >
-
-    <com.sdds.uikit.ImageView
-        app:layout_noteContent="contentBefore"
-        android:src="@drawable/ic_salute_outline_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.sdds.uikit.LinkButton
-        app:layout_noteContent="action"
-        android:text="Label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    
-</com.sdds.uikit.NoteCompact>
+<!-- @sample: com/sdds/uikit/fixtures/NoteCompact_Simple.xml -->
 ```
 
 ## Стили
