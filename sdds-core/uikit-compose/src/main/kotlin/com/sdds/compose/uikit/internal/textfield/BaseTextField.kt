@@ -410,6 +410,7 @@ internal fun BaseTextField(
                         verticalScrollState = verticalScrollState,
                         horizontalScrollState = horizontalScrollState,
                         singleLine = singleLine,
+                        enabled = enabled,
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = labelStyle,
                         prefix = textOrNull(
