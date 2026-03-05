@@ -8,7 +8,11 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
@@ -136,6 +140,90 @@ fun Editable(
                 }
             }
         },
+    )
+}
+
+/**
+ * Редактируемое текстовое поле
+ *
+ * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
+ * @param value значение в поле ввода
+ * @param onValueChange callback для изменения текста при вводе
+ * @param style стиль компонента
+ * @param icon иконка справа
+ * @param singleLine если false, поле может быть многострочным
+ * @param readOnly если false - доступно только для чтения, запись отключена
+ * @param enabled если false - фокусировка, ввод текста и копирование отключены
+ * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
+ * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
+ * @param maxLines максимальное количество строк
+ * @param minLines минимальное количество строк
+ * @param textAlign выранивание текста
+ * @param iconPlacement режим расположения иконки [EditableIconPlacement].
+ * @param visualTransformation фильтр визуального отображения [VisualTransformation].
+ * @param onTextLayout колбэк, сигнализирующий об окончания лэйаута текста
+ * @param interactionSource источник взаимодействий с полем
+ */
+@Composable
+fun Editable(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    style: EditableStyle = LocalEditableStyle.current,
+    icon: @Composable (() -> Unit)? = null,
+    singleLine: Boolean = false,
+    readOnly: Boolean = false,
+    enabled: Boolean = true,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
+    textAlign: TextAlign = TextAlign.Start,
+    iconPlacement: EditableIconPlacement = EditableIconPlacement.Absolute,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    var textFieldValueSate by remember {
+        mutableStateOf(TextFieldValue(text = value))
+    }
+    val textFieldValue = textFieldValueSate.copy(text = value)
+    SideEffect {
+        if (textFieldValue.selection != textFieldValueSate.selection ||
+            textFieldValue.composition != textFieldValueSate.composition
+        ) {
+            textFieldValueSate = textFieldValue
+        }
+    }
+    var lastTextValue by remember(value) {
+        mutableStateOf(value)
+    }
+
+    Editable(
+        value = textFieldValue,
+        onValueChange = { newTextFieldValueState ->
+            textFieldValueSate = newTextFieldValueState
+            val stringChanged = lastTextValue != newTextFieldValueState.text
+            lastTextValue = newTextFieldValueState.text
+            if (stringChanged) {
+                onValueChange(newTextFieldValueState.text)
+            }
+        },
+        modifier = modifier,
+        style = style,
+        icon = icon,
+        singleLine = singleLine,
+        readOnly = readOnly,
+        enabled = enabled,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        maxLines = maxLines,
+        minLines = minLines,
+        textAlign = textAlign,
+        iconPlacement = iconPlacement,
+        visualTransformation = visualTransformation,
+        onTextLayout = onTextLayout,
+        interactionSource = interactionSource,
     )
 }
 
