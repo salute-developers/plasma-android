@@ -24,6 +24,7 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
+import com.sdds.compose.uikit.internal.modal.HalfExpandedSettings
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.docs.DocSample
 import kotlinx.coroutines.launch
@@ -34,6 +35,93 @@ fun ModalBottomSheet_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
             initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "показать BottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            fitContent = false,
+            header = { Text("Header") },
+            footer = { Text("Footer") },
+        ) {
+            Text("Text")
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_HalfExpanded_Skip() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+            halfExpandedSettings = HalfExpandedSettings.Skip,
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "показать BottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            fitContent = false,
+            header = { Text("Header") },
+            footer = { Text("Footer") },
+        ) {
+            Text("Text")
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_HalfExpanded_Fraction() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+            halfExpandedSettings = HalfExpandedSettings.Fraction(0.3f),
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "показать BottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            fitContent = false,
+            header = { Text("Header") },
+            footer = { Text("Footer") },
+        ) {
+            Text("Text")
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_HalfExpanded_Height() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+            halfExpandedSettings = HalfExpandedSettings.Height(500.dp),
         )
         val scope = rememberCoroutineScope()
         Button(
