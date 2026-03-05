@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Loader_Simple -->
+    <com.sdds.uikit.Loader
+        app:sd_loaderType="progress"
+        app:sd_progress="0.9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <!-- sample-end: id=Loader_Simple -->
+
+    <!-- sample-start: id=Loader_Custom_Overlays -->
+    <!-- placeholder:  app:sd_circularProgressBarStyleOverlay="@null" -> app:sd_circularProgressBarStyleOverlay="Your overlay"  -->
+    <!-- placeholder:  app:sd_spinnerStyleOverlay="@null" ->  app:sd_spinnerStyleOverlay="Your overlay"  -->
+    <com.sdds.uikit.Loader
+        app:sd_circularProgressBarStyleOverlay="@null"
+        app:sd_spinnerStyleOverlay="@null"
+        app:sd_loaderType="spinner"
+        app:sd_progress="0.9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- sample-end: id=Loader_Custom_Overlays -->
+
+</LinearLayout>

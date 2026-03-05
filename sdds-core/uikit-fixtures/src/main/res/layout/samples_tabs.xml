@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Tabs_Simple -->
+    <!-- placeholder: app:sd_overflowPrevIcon="@drawable/ic_edit_fill_24" -> app:sd_overflowPrevIcon="Your icon"  -->
+    <!-- placeholder: app:sd_overflowNextIcon="@drawable/ic_edit_fill_24" -> app:sd_overflowNextIcon="Your icon"  -->
+    <!-- placeholder: app:sd_disclosureIcon="@drawable/ic_close_24" -> app:sd_disclosureIcon="Your icon"  -->
+    <com.sdds.uikit.Tabs
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:sd_tabIndicatorColor="#FF0000"
+        app:sd_tabIndicatorThickness="2dp"
+        app:sd_tabsMinSpacing="8dp"
+        app:sd_dividerEnabled="true"
+        app:sd_overflowIconsEnabled="true"
+        app:sd_overflowPrevIconColor="#111"
+        app:sd_overflowPrevIcon="@drawable/ic_edit_fill_24"
+        app:sd_overflowNextIconColor="#111"
+        app:sd_overflowNextIcon="@drawable/ic_edit_fill_24"
+        app:sd_disclosureIcon="@drawable/ic_close_24"
+        app:sd_disclosureText="Ещё"
+        app:sd_disclosureColor="#0F0F0F" >
+
+        <!-- Текст + иконка -->
+        <!-- placeholder: app:sd_action="@drawable/ic_close_16" -> app:sd_action="Your action"  -->
+        <com.sdds.uikit.TabItem
+            android:id="@+id/tab_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Главная"
+            app:sd_actionEnabled="true"
+            app:sd_actionTint="#111"
+            app:sd_action="@drawable/ic_close_16"/>
+
+        <com.sdds.uikit.TabItem
+            android:id="@+id/tab_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_actionTint="#111"
+            android:text="Профиль"/>
+
+        <!-- Только иконка (IconTabItem) с возможным счётчиком -->
+        <com.sdds.uikit.IconTabItem
+            android:id="@+id/tab_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_counterOffsetX="2dp"
+            app:sd_counterOffsetY="2dp"
+            android:background="#FFCDCD"
+            app:sd_actionTint="#111"
+            app:sd_counterText="50"/>
+
+    </com.sdds.uikit.Tabs>
+    <!-- sample-end: id=Tabs_Simple -->
+
+</LinearLayout>

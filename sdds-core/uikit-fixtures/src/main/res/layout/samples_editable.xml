@@ -20,6 +20,10 @@
         app:sd_iconMargin="8dp" />
     <!-- sample-end: id=Editable_Simple -->
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
     <!-- sample-start: id=Editable_SingleLine_Icon_Relative -->
     <!-- placeholder: app:sd_icon="@drawable/ic_file_check_fill_16" -> app:sd_icon="Your icon"  -->
     <com.sdds.uikit.Editable

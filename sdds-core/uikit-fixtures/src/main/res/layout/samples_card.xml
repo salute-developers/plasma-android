@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Card_Simple -->
+    <com.sdds.uikit.Card
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:sd_alignment="center"
+        app:sd_arrangement="center"
+        app:sd_crossAxisGap="20dp"
+        app:sd_itemsPerLine="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello" />
+
+        <com.sdds.uikit.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:sd_value="Value" />
+
+        <com.sdds.uikit.CardContent
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.sdds.uikit.CardContent>
+    </com.sdds.uikit.Card>
+    <!-- sample-end: id=Card_Simple -->
+
+</LinearLayout>

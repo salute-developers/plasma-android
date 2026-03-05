@@ -3,11 +3,7 @@ title: CircularProgressBar
 ---
 
 ```xml
-<com.sdds.uikit.CircularProgressBar
-    style="@style/{{ docs-theme-prefix }}.Components.CircularProgressBar.L.Gradient"
-    app:sd_progress="0.8"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/CircularProgressBar_Simple.xml -->
 ```
 
 ## Стиль CircularProgressBar

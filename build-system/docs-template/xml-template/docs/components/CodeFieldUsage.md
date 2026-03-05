@@ -19,16 +19,7 @@ Keep - некорректный код/символ сохраняется в п
 ### XML: CodeField
 
 ```xml
-<com.sdds.uikit.CodeField
-    android:id="@+id/codeField"
-    style="@style/{{ docs-theme-prefix }}.Components.CodeField.M"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-    app:sd_codeLength="4"
-    android:layout_gravity="center"
-    app:sd_caption="Caption"
-    app:sd_hasCursor="true"
-    app:sd_captionAlignment="center"/>
+<!-- @sample: com/sdds/uikit/fixtures/CodeField_Simple.xml -->
 ```
 
 ## Стиль CodeField
