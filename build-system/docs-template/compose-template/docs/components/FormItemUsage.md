@@ -10,11 +10,15 @@ title: FormItem
 // @sample: com/sdds/compose/uikit/fixtures/samples/formitem/FormItem_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.formitem_FormItem_Simple -->
+
 ### Пример с hint и Tooltip
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/formitem/FormItem_WithHint.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.formitem_FormItem_WithHint -->
 
 ## Стиль FormItem
 

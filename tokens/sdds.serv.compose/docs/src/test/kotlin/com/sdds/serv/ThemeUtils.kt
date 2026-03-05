@@ -64,6 +64,7 @@ import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTextSkeletonStyle
 import com.sdds.compose.uikit.LocalToastStyle
+import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.accordion.AccordionSolidActionStart
@@ -197,6 +198,8 @@ import com.sdds.serv.styles.textskeleton.TextSkeleton
 import com.sdds.serv.styles.toast.Default
 import com.sdds.serv.styles.toast.Rounded
 import com.sdds.serv.styles.toast.Toast
+import com.sdds.serv.styles.toolbar.M
+import com.sdds.serv.styles.toolbar.ToolBarHorizontal
 import com.sdds.serv.styles.tooltip.M
 import com.sdds.serv.styles.tooltip.Tooltip
 import com.sdds.serv.theme.SddsServTheme
@@ -298,6 +301,7 @@ fun ThemeSetup(
             LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.Default.style(),
+            LocalToolBarStyle provides ToolBarHorizontal.M.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
         ) {
             content()

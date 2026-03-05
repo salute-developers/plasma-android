@@ -25,9 +25,8 @@ fun Toast_Simple() {
     OverlayHost {
         composableCodeSnippet {
             val overlayManager = LocalOverlayManager.current
-
-            repeat(5) {
-                LaunchedEffect(Unit) {
+            LaunchedEffect(Unit) {
+                repeat(5) {
                     overlayManager.showToast(
                         position = OverlayPosition.BottomCenter
                     ) {
@@ -63,18 +62,20 @@ fun Toast_TextMultiline() {
             val overlayManager = LocalOverlayManager.current
 
             LaunchedEffect(Unit) {
-                overlayManager.showToast(
-                    position = OverlayPosition.Center,
-                ) {
-                    Toast(
-                        contentStart = {
-                            Icon(
-                                painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
-                                contentDescription = null,
-                            )
-                        },
+                repeat(5) {
+                    overlayManager.showToast(
+                        position = OverlayPosition.BottomCenter,
                     ) {
-                        Text("First line\nSecond Line")
+                        Toast(
+                            contentStart = {
+                                Icon(
+                                    painter = painterResource(com.sdds.icons.R.drawable.ic_shazam_16),
+                                    contentDescription = null,
+                                )
+                            },
+                        ) {
+                            Text("First line\nSecond Line")
+                        }
                     }
                 }
             }

@@ -17,6 +17,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Avatar
+import com.sdds.compose.uikit.AvatarPlaceholder
+import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.Cell
@@ -138,7 +140,10 @@ fun Cell_AvatarSwitch() {
             label = AnnotatedString("Лейбл"),
             disclosureContentEnabled = false,
             startContent = {
-                Avatar(painter = painterResource(id = R.drawable.ic_profile_square_fill_36))
+                Avatar(
+                    status = AvatarStatus.Active,
+                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
+                )
             },
             endContent = {
                 var active by remember { mutableStateOf(false) }

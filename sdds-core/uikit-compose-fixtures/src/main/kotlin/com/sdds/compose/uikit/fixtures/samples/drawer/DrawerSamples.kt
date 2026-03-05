@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -16,16 +17,25 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
+import com.sdds.compose.uikit.Avatar
+import com.sdds.compose.uikit.AvatarPlaceholder
+import com.sdds.compose.uikit.AvatarStatus
+import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.CloseIconAlignment
 import com.sdds.compose.uikit.CloseIconPlacement
+import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.Drawer
 import com.sdds.compose.uikit.DrawerAlignment
 import com.sdds.compose.uikit.DrawerValue
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.rememberDrawerState
@@ -56,42 +66,89 @@ fun Drawer_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = false)
+@DocSample(needScreenshot = true)
 fun Drawer_WithHeaderFooter() {
     composableCodeSnippet {
-        val drawerState = rememberDrawerState(
-            initialValue = placeholder(
-                DrawerValue.Opened,
-                replace = "DrawerValue.Closed",
-            ),
-        )
+        val drawerState = rememberDrawerState(initialValue = DrawerValue.Opened)
         val scope = rememberCoroutineScope()
-
-        Drawer(
-            drawerState = drawerState,
-            drawerHeader = { Text("Заголовок", modifier = Modifier.padding(16.dp)) },
-            drawerFooter = {
+        val items = listOf(
+            R.drawable.ic_mail_outline_24 to "Пример текста",
+            R.drawable.ic_star_outline_24 to "Пример текста",
+            R.drawable.ic_settings_outline_24 to "Пример текста",
+            R.drawable.ic_tag_badge_outline_24 to "Пример текста",
+            R.drawable.ic_folder_outline_24 to "Пример текста",
+        )
+        Column {
+            Drawer(
+                drawerState = drawerState,
+                openOnFocus = false,
+                drawerHeader = {
+                    Row(
+                        modifier = Modifier.padding(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Avatar(
+                            status = AvatarStatus.Active,
+                            placeholder = AvatarPlaceholder.Name("Michael Scott"),
+                        )
+                        Text("Заголовок", modifier = Modifier.padding(16.dp))
+                    }
+                    Divider()
+                },
+                drawerFooter = {
+                    Divider(modifier = Modifier.padding(top = 48.dp))
+                    Button(
+                        label = "Выйти",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        spacing = ButtonSpacing.Packed,
+                        onClick = { scope.launch { drawerState.close() } },
+                    )
+                },
+                drawerContent = {
+                    Column {
+                        items.forEachIndexed { index, item ->
+                            Row(
+                                modifier = Modifier.padding(12.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Image(
+                                    modifier = Modifier.size(24.dp),
+                                    colorFilter = placeholder(ColorFilter.tint(Color.Black), "/** Токен цвета */"),
+                                    painter = painterResource(item.first),
+                                    contentDescription = "image",
+                                )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(item.second)
+                                if (index == 0) {
+                                    Spacer(modifier = Modifier.weight(1f))
+                                    Badge(
+                                        modifier = Modifier
+                                            .padding(12.dp),
+                                        label = "Новых: 5",
+                                    )
+                                }
+                            }
+                            if (index < items.lastIndex) {
+                                Divider(modifier = Modifier.padding(start = 48.dp))
+                            }
+                        }
+                    }
+                },
+            ) {
                 Button(
-                    label = "Закрыть",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    onClick = { scope.launch { drawerState.close() } },
+                    label = "Открыть",
+                    modifier = Modifier.align(Alignment.Center),
+                    onClick = { scope.launch { drawerState.open() } },
                 )
-            },
-            drawerContent = { Text("Основное содержимое", modifier = Modifier.padding(16.dp)) },
-        ) {
-            Button(
-                label = "Открыть",
-                modifier = Modifier.align(Alignment.Center),
-                onClick = { scope.launch { drawerState.open() } },
-            )
+            }
         }
     }
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_PeekAndOverlay() {
     composableCodeSnippet {
         val drawerState = rememberDrawerState(
@@ -152,7 +209,7 @@ fun Drawer_Alignments() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_CustomCloseIcon() {
     composableCodeSnippet {
         val drawerState = rememberDrawerState(
@@ -189,7 +246,7 @@ fun Drawer_CustomCloseIcon() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_NoGestures() {
     composableCodeSnippet {
         val drawerState = rememberDrawerState(
@@ -215,7 +272,7 @@ fun Drawer_NoGestures() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_MoveContent() {
     composableCodeSnippet {
         val drawerState = rememberDrawerState(
@@ -261,7 +318,7 @@ fun Drawer_NoAutoOpenOnFocus() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_WithConfirm() {
     composableCodeSnippet {
         val canClose = remember { mutableStateOf(false) }
@@ -299,7 +356,7 @@ fun Drawer_WithConfirm() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Drawer_ProgrammaticControl() {
     composableCodeSnippet {
         val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)

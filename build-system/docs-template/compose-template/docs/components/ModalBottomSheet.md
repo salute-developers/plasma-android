@@ -33,8 +33,6 @@ title: ModalBottomSheet
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetHandleInner_Simple.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheetHandleInner_Simple -->
-
 ## Ограничение высоты ModalBottomSheet по контенту
 
 С помощью параметра fitContent возможно ограничить высоту bottomSheet в развернутом виде, но только в том случае, если высота контента меньше высоты экрана.
@@ -42,9 +40,6 @@ title: ModalBottomSheet
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheetFitContent_Simple.kt
 ```
-
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheetFitContent_Simple -->
-
 
 ## Обработка Window Insets
 

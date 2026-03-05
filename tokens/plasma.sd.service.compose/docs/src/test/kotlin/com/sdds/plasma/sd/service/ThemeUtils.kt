@@ -58,6 +58,7 @@ import com.sdds.compose.uikit.LocalTabBarStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTextSkeletonStyle
 import com.sdds.compose.uikit.LocalToastStyle
+import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.accordion.AccordionSolidActionStart
@@ -176,6 +177,8 @@ import com.sdds.plasma.sd.service.styles.textskeleton.TextSkeleton
 import com.sdds.plasma.sd.service.styles.toast.Default
 import com.sdds.plasma.sd.service.styles.toast.Rounded
 import com.sdds.plasma.sd.service.styles.toast.Toast
+import com.sdds.plasma.sd.service.styles.toolbar.M
+import com.sdds.plasma.sd.service.styles.toolbar.ToolBarHorizontal
 import com.sdds.plasma.sd.service.styles.tooltip.M
 import com.sdds.plasma.sd.service.styles.tooltip.Tooltip
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
@@ -271,6 +274,7 @@ fun ThemeSetup(
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.Default.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
+            LocalToolBarStyle provides ToolBarHorizontal.M.style(),
         ) {
             content()
         }

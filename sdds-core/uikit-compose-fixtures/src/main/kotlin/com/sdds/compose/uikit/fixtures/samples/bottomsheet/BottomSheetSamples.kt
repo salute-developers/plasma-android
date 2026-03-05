@@ -7,11 +7,8 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -66,32 +63,30 @@ fun ModalBottomSheet_Simple() {
             handlePlacement = BottomSheetHandlePlacement.Inner,
             fitContent = false,
             header = {
-                Box {
-                    Column {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween,
+                Column {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text(
+                            color = placeholder({ Color.DarkGray }, replace = "/** Токен цвета */"),
+                            text = "Заголовок"
+                        )
+                        IconButton(
+                            iconRes = R.drawable.ic_close_24
                         ) {
-                            Text(
-                                color = placeholder({ Color.DarkGray }, replace = "/** Токен цвета */"),
-                                text = "Заголовок"
-                            )
-                            IconButton(
-                                iconRes = R.drawable.ic_close_24
-                            ) {
-                                scope.launch { sheetState.hide() }
-                            }
+                            scope.launch { sheetState.hide() }
                         }
-                        Spacer(modifier = Modifier.padding(6.dp))
-                        Divider()
-                        Spacer(modifier = Modifier.padding(6.dp))
                     }
+                    Spacer(modifier = Modifier.padding(6.dp))
+                    Divider()
+                    Spacer(modifier = Modifier.padding(6.dp))
                 }
             },
             body = {
                 var value by remember { mutableStateOf(TextFieldValue("")) }
-                com.sdds.compose.uikit.TextField(
+                TextField(
                     modifier = Modifier.fillMaxWidth(),
                     value = value,
                     labelText = "Лейбл",
