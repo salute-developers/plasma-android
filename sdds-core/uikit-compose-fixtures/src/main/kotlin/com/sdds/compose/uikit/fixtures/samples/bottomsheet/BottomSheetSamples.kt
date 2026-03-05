@@ -70,7 +70,7 @@ fun ModalBottomSheet_Simple() {
                         horizontalArrangement = Arrangement.SpaceBetween,
                     ) {
                         Text(
-                            color = placeholder({ Color.DarkGray }, replace = "/** Токен цвета */"),
+                            color = placeholder({ Color.DarkGray }, "/** Токен цвета */"),
                             text = "Заголовок"
                         )
                         IconButton(

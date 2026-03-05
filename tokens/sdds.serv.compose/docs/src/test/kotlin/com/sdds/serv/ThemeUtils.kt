@@ -56,6 +56,7 @@ import com.sdds.compose.uikit.LocalRectSkeletonStyle
 import com.sdds.compose.uikit.LocalScrollBarStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSegmentStyle
+import com.sdds.compose.uikit.LocalSelectStyle
 import com.sdds.compose.uikit.LocalSliderStyle
 import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
@@ -176,6 +177,8 @@ import com.sdds.serv.styles.segment.Segment
 import com.sdds.serv.styles.segmentitem.M
 import com.sdds.serv.styles.segmentitem.Primary
 import com.sdds.serv.styles.segmentitem.SegmentItem
+import com.sdds.serv.styles.select.M
+import com.sdds.serv.styles.select.SelectMultipleNormal
 import com.sdds.serv.styles.slider.Default
 import com.sdds.serv.styles.slider.M
 import com.sdds.serv.styles.slider.SliderHorizontalLabelInner
@@ -293,6 +296,7 @@ fun ThemeSetup(
             LocalScrollBarStyle provides ScrollBar.M.style(),
             LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
             LocalSegmentStyle provides Segment.M.Primary.style(),
+            LocalSelectStyle provides SelectMultipleNormal.M.style(),
             LocalSliderStyle provides SliderHorizontalLabelInner.M.Default.style(),
             LocalSpinnerStyle provides Spinner.M.Default.style(),
             LocalSwitchStyle provides Switch.M.style(),
