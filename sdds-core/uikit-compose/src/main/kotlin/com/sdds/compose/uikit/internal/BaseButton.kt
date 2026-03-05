@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
@@ -35,6 +37,8 @@ import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.ButtonDimensions
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.LocalIconDefaultSize
+import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.ProvideTextBehaviour
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
@@ -230,6 +234,34 @@ internal fun ButtonIcon(
             .requiredSize(size),
         tint = iconColor,
     )
+}
+
+/**
+ * Иконка кнопки с произвольным контентом. Умеет подставлять отступы в начале и в конце.
+ *
+ */
+@Composable
+internal fun ButtonIcon(
+    iconSize: Dp,
+    marginStart: Dp = 0.dp,
+    marginEnd: Dp = 0.dp,
+    iconColor: Color,
+    icon: @Composable () -> Unit,
+) {
+    Box(
+        Modifier.padding(
+            start = if (marginStart.value > 0) marginStart else 0.dp,
+            end = if (marginEnd.value > 0) marginEnd else 0.dp,
+        ),
+    ) {
+        val actualIconSize = if (iconSize == 0.dp) Dp.Unspecified else iconSize
+        CompositionLocalProvider(
+            LocalTint provides iconColor,
+            LocalIconDefaultSize provides DpSize(actualIconSize, actualIconSize),
+        ) {
+            icon()
+        }
+    }
 }
 
 /**
