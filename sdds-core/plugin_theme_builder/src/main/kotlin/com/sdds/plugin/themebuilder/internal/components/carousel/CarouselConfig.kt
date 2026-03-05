@@ -10,12 +10,12 @@ import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
-import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorProperties
+import com.sdds.plugin.themebuilder.internal.components.paginationdots.PaginationDotsProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class CarouselProperties(
-    val indicatorStyle: ComponentStyle<IndicatorProperties>? = null,
+    val indicatorStyle: ComponentStyle<PaginationDotsProperties>? = null,
     val nextButtonStyle: ComponentStyle<ButtonProperties>? = null,
     val prevButtonStyle: ComponentStyle<ButtonProperties>? = null,
     val nextButtonIcon: Icon? = null,

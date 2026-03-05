@@ -6699,84 +6699,6 @@
          ]
       },
       {
-         "key": "tool-bar",
-         "coreName": "ToolBar",
-         "styleName": "ToolBarHorizontal",
-         "variations": [
-            {
-               "name": "l",
-               "composeReference": "ToolBarHorizontal.L"
-            },
-            {
-               "name": "l.has-shadow",
-               "composeReference": "ToolBarHorizontal.L.HasShadow"
-            },
-            {
-               "name": "m",
-               "composeReference": "ToolBarHorizontal.M"
-            },
-            {
-               "name": "m.has-shadow",
-               "composeReference": "ToolBarHorizontal.M.HasShadow"
-            },
-            {
-               "name": "s",
-               "composeReference": "ToolBarHorizontal.S"
-            },
-            {
-               "name": "s.has-shadow",
-               "composeReference": "ToolBarHorizontal.S.HasShadow"
-            },
-            {
-               "name": "xs",
-               "composeReference": "ToolBarHorizontal.Xs"
-            },
-            {
-               "name": "xs.has-shadow",
-               "composeReference": "ToolBarHorizontal.Xs.HasShadow"
-            }
-         ]
-      },
-      {
-         "key": "tool-bar",
-         "coreName": "ToolBar",
-         "styleName": "ToolBarVertical",
-         "variations": [
-            {
-               "name": "l",
-               "composeReference": "ToolBarVertical.L"
-            },
-            {
-               "name": "l.has-shadow",
-               "composeReference": "ToolBarVertical.L.HasShadow"
-            },
-            {
-               "name": "m",
-               "composeReference": "ToolBarVertical.M"
-            },
-            {
-               "name": "m.has-shadow",
-               "composeReference": "ToolBarVertical.M.HasShadow"
-            },
-            {
-               "name": "s",
-               "composeReference": "ToolBarVertical.S"
-            },
-            {
-               "name": "s.has-shadow",
-               "composeReference": "ToolBarVertical.S.HasShadow"
-            },
-            {
-               "name": "xs",
-               "composeReference": "ToolBarVertical.Xs"
-            },
-            {
-               "name": "xs.has-shadow",
-               "composeReference": "ToolBarVertical.Xs.HasShadow"
-            }
-         ]
-      },
-      {
          "key": "toast",
          "coreName": "Toast",
          "styleName": "Toast",
@@ -9570,6 +9492,21 @@
             {
                "name": "xl.has-button",
                "composeReference": "DropdownEmptyState.Xl.HasButton"
+            }
+         ]
+      },
+      {
+         "key": "carousel",
+         "coreName": "Carousel",
+         "styleName": "Carousel",
+         "variations": [
+            {
+               "name": "buttons-placement-inner",
+               "composeReference": "Carousel.ButtonsPlacementInner"
+            },
+            {
+               "name": "buttons-placement-outer",
+               "composeReference": "Carousel.ButtonsPlacementOuter"
             }
          ]
       },
