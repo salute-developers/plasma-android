@@ -97,6 +97,7 @@ fun IconButton(
 @Composable
 fun IconButton(
     icon: @Composable () -> Unit,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconContentDescription: String? = null,
     style: ButtonStyle = LocalIconButtonStyle.current,
@@ -105,7 +106,6 @@ fun IconButton(
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClickLabel: String? = null,
-    onClick: () -> Unit,
 ) {
     val dimensions = style.dimensions
     BaseButton(
