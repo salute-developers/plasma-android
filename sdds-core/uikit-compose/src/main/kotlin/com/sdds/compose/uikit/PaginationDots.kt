@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
@@ -34,7 +35,7 @@ import kotlin.math.roundToInt
 
 /**
  * Элементы переключения.
- * Oтображают возможность перемещения между небольшим количеством однородных элементов контента.
+ * Отображают возможность перемещения между небольшим количеством однородных элементов контента.
  *
  * @param modifier модификатор
  * @param style стиль компонента
@@ -50,6 +51,10 @@ fun PaginationDots(
     selectedIndex: Int,
     totalCount: Int,
     visibleCount: Int = 5,
+    scrollAnimationSpec: AnimationSpec<Float> = tween(
+        durationMillis = SCROLL_ANIMATION_DURATION,
+        easing = FastOutSlowInEasing,
+    ),
 ) {
     check(visibleCount <= totalCount) { "totalCount should be greater than or equal to the visibleCount" }
     val safeSelectedIndex = selectedIndex.coerceIn(0, totalCount - 1)
@@ -76,7 +81,7 @@ fun PaginationDots(
         delay(50)
         scrollState.animateScrollTo(
             value = startOffset * scrollStepPx,
-            animationSpec = tween(durationMillis = SCROLL_ANIMATION_DURATION, easing = FastOutSlowInEasing),
+            animationSpec = scrollAnimationSpec,
         )
     }
 

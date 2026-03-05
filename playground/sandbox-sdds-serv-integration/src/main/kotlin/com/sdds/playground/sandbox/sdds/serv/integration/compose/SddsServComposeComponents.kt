@@ -204,13 +204,6 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
-                ComponentKey.ToolBar,
-                mapOf(
-                    "ToolBarHorizontal" to SddsServToolBarHorizontalVariationsCompose,
-                    "ToolBarVertical" to SddsServToolBarVerticalVariationsCompose,
-                ),
-            ),
-            ComposeComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to SddsServToastVariationsCompose,
@@ -427,6 +420,12 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                 ComponentKey.DropdownEmptyState,
                 mapOf(
                     "DropdownEmptyState" to SddsServDropdownEmptyStateVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to SddsServCarouselVariationsCompose,
                 ),
             ),
             ComposeComponent(

@@ -198,13 +198,6 @@ object PlasmaB2cComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
-                ComponentKey.ToolBar,
-                mapOf(
-                    "ToolBarHorizontal" to PlasmaB2cToolBarHorizontalVariationsCompose,
-                    "ToolBarVertical" to PlasmaB2cToolBarVerticalVariationsCompose,
-                ),
-            ),
-            ComposeComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to PlasmaB2cToastVariationsCompose,
@@ -373,6 +366,12 @@ object PlasmaB2cComposeComponents : ComponentsProviderCompose() {
                 ComponentKey.DropdownEmptyState,
                 mapOf(
                     "DropdownEmptyState" to PlasmaB2cDropdownEmptyStateVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
+                ComponentKey.Carousel,
+                mapOf(
+                    "Carousel" to PlasmaB2cCarouselVariationsCompose,
                 ),
             ),
             ComposeComponent(
