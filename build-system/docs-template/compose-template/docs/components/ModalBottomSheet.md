@@ -79,3 +79,30 @@ title: ModalBottomSheet
 ```
 
 <!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.bottomsheet.ModalBottomSheet_Insets -->
+
+
+## HalfExpandedSettings
+
+Настройки поведения ModalBottomSheet для состояния HalfExpanded.
+- `HalfExpanded.Skip` - отключает BottomSheetValue.HalfExpanded, в этом случае BottomSheet имеет два  
+возможных состояния: BottomSheetValue.Hidden - полностью скрыт, BottomSheetValue.Expanded - полностью открыт.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_HalfExpanded_Skip.kt
+```
+
+- `HalfExpanded.Fraction(val expandFraction: Float)` - определяет позицию HalfExpanded как долю
+expandFraction (процентное соотношение) от высоты экрана, на которое будет открыт BottomSheet в состоянии  
+HalfExpanded. Значение ограничивается диапазоном 0f..1f.  
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_HalfExpanded_Fraction.kt
+```
+
+- `HalfExpanded.Height(val height: Dp)` - определяет позицию HalfExpanded через фиксированную высоту
+height (видимую часть BottomSheet). Значение преобразуется в пиксели с использованием текущего Density и  
+ограничивается доступной высотой экрана.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/bottomsheet/ModalBottomSheet_HalfExpanded_Height.kt
+```
