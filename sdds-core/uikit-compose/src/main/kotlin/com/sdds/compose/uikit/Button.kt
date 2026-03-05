@@ -78,6 +78,60 @@ fun IconButton(
 }
 
 /**
+ * Кнопка с иконкой.
+ * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
+ * На время анимации загрузки контент будет скрыт или станет полупрозрачным
+ * в зависимости от стиля.
+ * @param icon контент, представляющий иконку
+ * @param modifier модификатор
+ * @param iconContentDescription описание иконки
+ * @param style стиль кнопки
+ * @param enabled флаг доступности кнопки
+ * @param loading флаг загрузки
+ * @param indication [Indication] кнопки
+ * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param onClickLabel надпись для Accessibility
+ * @param onClick обработчик нажатий
+ * @param
+ */
+@Composable
+fun IconButton(
+    icon: @Composable () -> Unit,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    iconContentDescription: String? = null,
+    style: ButtonStyle = LocalIconButtonStyle.current,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    indication: Indication? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClickLabel: String? = null,
+) {
+    val dimensions = style.dimensions
+    BaseButton(
+        modifier = modifier.requiredSize(dimensions.height),
+        onClick = onClick,
+        shape = LocalButtonForceShape.current ?: style.shape,
+        dimensions = dimensions,
+        colors = style.colors,
+        enabled = enabled,
+        loading = loading,
+        loadingAlpha = style.loadingAlpha,
+        disabledAlpha = style.disableAlpha,
+        indication = indication,
+        interactionSource = interactionSource,
+        onClickLabel = onClickLabel,
+        startContent = {
+            ButtonIcon(
+                iconSize = dimensions.iconSize,
+                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
+                icon = icon,
+            )
+        },
+    )
+}
+
+/**
  * Кнопка с текстом и иконкой с прозрачным фоном.
  * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
