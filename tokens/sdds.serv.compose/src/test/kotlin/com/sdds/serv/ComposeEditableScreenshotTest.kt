@@ -133,6 +133,14 @@ class ComposeEditableScreenshotTest(
         }
     }
 
+    @Test
+    fun testEditableDeleteText() {
+        composeTestRule.content {
+            EditableSingleLineRelativeStart(Editable.H1.style())
+        }
+        composeTestRule.onNodeWithTag("EditableField").performTextClearance()
+    }
+
     private val longText =
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
