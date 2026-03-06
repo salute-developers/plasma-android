@@ -12,7 +12,16 @@ import com.sdds.serv.styles.basicbutton.M
 import com.sdds.serv.styles.modal.Default
 import com.sdds.serv.styles.modal.Modal
 import com.sdds.testing.compose.RoborazziConfigCompose
+import com.sdds.testing.compose.modal.ModalBottomCenter
+import com.sdds.testing.compose.modal.ModalBottomEnd
+import com.sdds.testing.compose.modal.ModalBottomStart
+import com.sdds.testing.compose.modal.ModalCenter
+import com.sdds.testing.compose.modal.ModalCenterEnd
+import com.sdds.testing.compose.modal.ModalCenterStart
 import com.sdds.testing.compose.modal.ModalNativeBlackoutHasClose
+import com.sdds.testing.compose.modal.ModalTopCenter
+import com.sdds.testing.compose.modal.ModalTopEnd
+import com.sdds.testing.compose.modal.ModalTopStart
 import com.sdds.testing.compose.modal.ModalWithoutNativeBlackout
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
@@ -47,6 +56,132 @@ class ComposeModalScreenshotTest(
     fun testModalWithoutNativeBlackout() {
         composeTestRule.content {
             ModalWithoutNativeBlackout(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalTopStart() {
+        composeTestRule.content {
+            ModalTopStart(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalTopCenter() {
+        composeTestRule.content {
+            ModalTopCenter(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalTopEnd() {
+        composeTestRule.content {
+            ModalTopEnd(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalCenterStart() {
+        composeTestRule.content {
+            ModalCenterStart(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalCenter() {
+        composeTestRule.content {
+            ModalCenter(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalCenterEnd() {
+        composeTestRule.content {
+            ModalCenterEnd(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalBottomStart() {
+        composeTestRule.content {
+            ModalBottomStart(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalBottomCenter() {
+        composeTestRule.content {
+            ModalBottomCenter(
+                style = Modal.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testModalBottomEnd() {
+        composeTestRule.content {
+            ModalBottomEnd(
                 style = Modal.Default.style(),
                 buttonStyle = BasicButton.M.Default.style(),
             )

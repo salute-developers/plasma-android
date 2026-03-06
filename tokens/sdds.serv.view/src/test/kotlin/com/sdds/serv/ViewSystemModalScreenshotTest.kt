@@ -53,4 +53,148 @@ class ViewSystemModalScreenshotTest(
         ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
         captureScreenRoboImage()
     }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalTopStart() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalTopStart(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalTopCenter() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalTopCenter(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalTopEnd() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalTopEnd(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalCenterStart() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalCenterStart(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalCenter() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalCenter(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalCenterEnd() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalCenterEnd(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalBottomStart() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalBottomStart(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalBottomCenter() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalBottomCenter(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    override fun testModalBottomEnd() {
+        themedComponent(
+            action = {
+                onView(withId(it.id))
+                    .perform(click())
+            },
+            skipDefaultCaptureRoboImage = true,
+        ) {
+            modalBottomEnd(R.style.Serv_Sdds_ComponentOverlays_Modal)
+        }
+        ShadowLooper.runUiThreadTasksIncludingDelayedTasks()
+        captureScreenRoboImage()
+    }
 }
