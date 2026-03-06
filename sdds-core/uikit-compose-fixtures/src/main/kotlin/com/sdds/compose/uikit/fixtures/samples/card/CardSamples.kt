@@ -48,7 +48,7 @@ fun Card_Simple() {
                 modifier = Modifier
                     .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.Center,
             ) {
                 Text(
                     text = "Заголовок",
@@ -61,7 +61,7 @@ fun Card_Simple() {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center,
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
                     ) {
                         Image(
                             contentScale = ContentScale.Crop,
@@ -77,7 +77,7 @@ fun Card_Simple() {
                         Row(
                             modifier = Modifier.padding(top = 12.dp),
                             horizontalArrangement = Arrangement.spacedBy(12.dp),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Image(
                                 contentScale = ContentScale.Crop,
@@ -133,7 +133,7 @@ fun Card_Extra() {
                     disclosureContentEnabled = true,
                     disclosureIconRes = R.drawable.ic_chevron_right_24,
                 )
-            }
+            },
         ) {
             Box(modifier = Modifier.fillMaxSize()) {
                 Image(
@@ -141,7 +141,7 @@ fun Card_Extra() {
                     painter = painterResource(id = R.drawable.ic_video_clip_outline_36),
                     colorFilter = placeholder(
                         ColorFilter.tint(Color.Black),
-                        replace = "/** Токен цвета */"
+                        replace = "/** Токен цвета */",
                     ),
                     contentDescription = "",
                 )

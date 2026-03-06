@@ -238,7 +238,8 @@ fun Project.filterComponents(docsDir: File, componentsConfig: File) {
 }
 
 fun File.needScreenshots(components: Set<String>): Boolean {
-    return name.removeSuffix("Usage.md") in components
+    val componentName = name.removeSuffix("Usage.md")
+    return components.any { it.contains(componentName) || componentName.contains(it) }
 }
 
 fun Project.resolveComponents(componentsConfig: File): Set<String> {

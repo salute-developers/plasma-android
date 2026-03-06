@@ -12,7 +12,7 @@ title: ToolBar
 // @sample: com/sdds/compose/uikit/fixtures/samples/toolbar/ToolBar_Simple.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.toolBar.ToolBar_Simple -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.toolbar.ToolBar_Simple -->
 
 Контент ToolBar задается через ToolBarScope. Scope предоставляет функцию для добавления 
 `fun section(content: @Composable () -> Unit)`. Каждый вызов `section {some composable content}`  

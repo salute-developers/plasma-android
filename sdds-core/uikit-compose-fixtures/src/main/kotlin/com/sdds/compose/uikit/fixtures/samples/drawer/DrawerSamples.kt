@@ -85,7 +85,7 @@ fun Drawer_WithHeaderFooter() {
                 drawerHeader = {
                     Row(
                         modifier = Modifier.padding(8.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Avatar(
                             status = AvatarStatus.Active,
@@ -111,7 +111,7 @@ fun Drawer_WithHeaderFooter() {
                         items.forEachIndexed { index, item ->
                             Row(
                                 modifier = Modifier.padding(12.dp),
-                                verticalAlignment = Alignment.CenterVertically
+                                verticalAlignment = Alignment.CenterVertically,
                             ) {
                                 Image(
                                     modifier = Modifier.size(24.dp),

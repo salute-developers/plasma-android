@@ -28,7 +28,7 @@ fun Toast_Simple() {
             LaunchedEffect(Unit) {
                 repeat(5) {
                     overlayManager.showToast(
-                        position = OverlayPosition.BottomCenter
+                        position = OverlayPosition.BottomCenter,
                     ) {
                         composableCodeSnippet {
                             Toast(
