@@ -54,6 +54,7 @@ import com.sdds.compose.uikit.LocalTabBarStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTextSkeletonStyle
 import com.sdds.compose.uikit.LocalToastStyle
+import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.accordion.AccordionSolidActionStart
@@ -155,12 +156,15 @@ import com.sdds.plasma.giga.styles.tabbar.M
 import com.sdds.plasma.giga.styles.tabbar.TabBarSolid
 import com.sdds.plasma.giga.styles.textfield.Default
 import com.sdds.plasma.giga.styles.textfield.M
+import com.sdds.plasma.giga.styles.textfield.OuterLabel
 import com.sdds.plasma.giga.styles.textfield.TextField
 import com.sdds.plasma.giga.styles.textskeleton.Default
 import com.sdds.plasma.giga.styles.textskeleton.TextSkeleton
 import com.sdds.plasma.giga.styles.toast.Default
 import com.sdds.plasma.giga.styles.toast.Rounded
 import com.sdds.plasma.giga.styles.toast.Toast
+import com.sdds.plasma.giga.styles.toolbar.M
+import com.sdds.plasma.giga.styles.toolbar.ToolBarHorizontal
 import com.sdds.plasma.giga.styles.tooltip.M
 import com.sdds.plasma.giga.styles.tooltip.Tooltip
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
@@ -248,10 +252,11 @@ fun ThemeSetup(
             LocalSpinnerStyle provides Spinner.M.Default.style(),
             LocalSwitchStyle provides Switch.M.style(),
             LocalTabBarStyle provides TabBarSolid.M.Default.style(),
-            LocalTextFieldStyle provides TextField.M.Default.style(),
+            LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.Default.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
+            LocalToolBarStyle provides ToolBarHorizontal.M.style(),
         ) {
             content()
         }

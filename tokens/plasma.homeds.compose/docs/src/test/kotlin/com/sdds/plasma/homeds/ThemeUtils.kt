@@ -26,6 +26,8 @@ import com.sdds.compose.uikit.LocalCircularProgressBarStyle
 import com.sdds.compose.uikit.LocalCollapsingNavigationBarStyle
 import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalDividerStyle
+import com.sdds.compose.uikit.LocalEditableStyle
+import com.sdds.compose.uikit.LocalFormItemStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
@@ -66,6 +68,7 @@ import com.sdds.plasma.homeds.styles.buttongroup.Dense
 import com.sdds.plasma.homeds.styles.buttongroup.M
 import com.sdds.plasma.homeds.styles.card.Card
 import com.sdds.plasma.homeds.styles.card.M
+import com.sdds.plasma.homeds.styles.card.Xl
 import com.sdds.plasma.homeds.styles.cell.Cell
 import com.sdds.plasma.homeds.styles.cell.M
 import com.sdds.plasma.homeds.styles.checkbox.CheckBox
@@ -89,6 +92,10 @@ import com.sdds.plasma.homeds.styles.counter.Default
 import com.sdds.plasma.homeds.styles.counter.M
 import com.sdds.plasma.homeds.styles.divider.Default
 import com.sdds.plasma.homeds.styles.divider.Divider
+import com.sdds.plasma.homeds.styles.editable.BodyM
+import com.sdds.plasma.homeds.styles.editable.Editable
+import com.sdds.plasma.homeds.styles.formitem.Default
+import com.sdds.plasma.homeds.styles.formitem.FormItem
 import com.sdds.plasma.homeds.styles.iconbadge.Default
 import com.sdds.plasma.homeds.styles.iconbadge.IconBadgeSolid
 import com.sdds.plasma.homeds.styles.iconbadge.M
@@ -187,7 +194,7 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
-            LocalCardStyle provides Card.M.style(),
+            LocalCardStyle provides Card.Xl.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
             LocalCheckBoxStyle provides CheckBox.M.Default.style(),
@@ -197,6 +204,8 @@ fun ThemeSetup(
             LocalCollapsingNavigationBarStyle provides CollapsingNavigationBarMainPage.Default.style(),
             LocalCounterStyle provides Counter.M.Default.style(),
             LocalDividerStyle provides Divider.Default.style(),
+            LocalEditableStyle provides Editable.BodyM.style(),
+            LocalFormItemStyle provides FormItem.Default.style(),
             LocalImageStyle provides Image.Ratio3x4.style(),
             LocalIndicatorStyle provides Indicator.M.Default.style(),
             LocalListStyle provides List.S.style(),

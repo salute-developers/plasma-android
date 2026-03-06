@@ -18,6 +18,8 @@ title: Editable
 // @sample: com/sdds/compose/uikit/fixtures/samples/editable/Editable_RelativeIcon.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.editable_Editable_RelativeIcon -->
+
 ## Стиль Editable
 
 Стиль Editable можно настроить с помощью EditableStyle.builder(). Так же существует набор сгенерированных стилей.
