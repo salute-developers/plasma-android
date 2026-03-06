@@ -13,14 +13,13 @@ import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
-import kotlin.intArrayOf
 
 @RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
 class ViewSystemEditableScreenshotTest(
     theme: String,
-): EditableTestCases(theme) {
+) : EditableTestCases(theme) {
 
     @Test
     override fun testEditableH1SingleLineRelativeStart() {
@@ -47,7 +46,7 @@ class ViewSystemEditableScreenshotTest(
                 onView(withId(it.id))
                     .perform(click())
                     .perform(typeText(longText))
-            }
+            },
         ) {
             margins {
                 editableMultiLineAbsoluteEnd(R.style.Serv_Sdds_ComponentOverlays_EditableH3)
@@ -71,7 +70,7 @@ class ViewSystemEditableScreenshotTest(
                 onView(withId(it.id))
                     .perform(click())
                     .perform(typeText(longText))
-            }
+            },
         ) {
             margins {
                 editableSingleLineAbsoluteCenter(R.style.Serv_Sdds_ComponentOverlays_EditableH5)
@@ -95,7 +94,7 @@ class ViewSystemEditableScreenshotTest(
                 onView(withId(it.id))
                     .perform(click())
                     .perform(typeText("!@#$%^&*()"))
-            }
+            },
         ) {
             margins {
                 editableMultiLineRelativeCenter(R.style.Serv_Sdds_ComponentOverlays_EditableBodyM)
@@ -119,7 +118,7 @@ class ViewSystemEditableScreenshotTest(
                 onView(withId(it.id))
                     .perform(click())
                     .perform(typeText(longText))
-            }
+            },
         ) {
             margins {
                 editableMultiLineRelativeCenter(R.style.Serv_Sdds_ComponentOverlays_EditableBodyXs)
@@ -143,7 +142,7 @@ class ViewSystemEditableScreenshotTest(
                 onView(withId(it.id))
                     .perform(click())
                     .perform(clearText())
-            }
+            },
         ) {
             editableSingleLineRelativeStart(R.style.Serv_Sdds_ComponentOverlays_EditableH1)
         }

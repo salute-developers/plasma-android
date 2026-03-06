@@ -5,7 +5,6 @@ import com.sdds.testing.vs.ComponentScope
 import com.sdds.testing.vs.RoborazziConfig
 import com.sdds.uikit.Editable
 
-
 /**
  * Тест-кейсы для [Editable]
  */
@@ -78,7 +77,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = true,
                 readonly = false,
                 iconPlacement = IconPlacement.Relative,
-                textAlignment = TextAlign.Start
+                textAlignment = TextAlign.Start,
             ),
         ).apply {
             id = R.id.editable
@@ -95,7 +94,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = true,
                 readonly = false,
                 iconPlacement = IconPlacement.Relative,
-                textAlignment = TextAlign.Center
+                textAlignment = TextAlign.Center,
             ),
         ).apply {
             id = R.id.editable
@@ -112,7 +111,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = false,
                 readonly = false,
                 iconPlacement = IconPlacement.Absolute,
-                textAlignment = TextAlign.End
+                textAlignment = TextAlign.End,
             ),
         ).apply {
             id = R.id.editable
@@ -129,7 +128,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = true,
                 readonly = false,
                 iconPlacement = IconPlacement.Absolute,
-                textAlignment = TextAlign.Center
+                textAlignment = TextAlign.Center,
             ),
         ).apply {
             id = R.id.editable
@@ -146,7 +145,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = false,
                 readonly = false,
                 iconPlacement = IconPlacement.Relative,
-                textAlignment = TextAlign.Start
+                textAlignment = TextAlign.Start,
             ),
         ).apply {
             id = R.id.editable
@@ -163,7 +162,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = false,
                 readonly = false,
                 iconPlacement = IconPlacement.Relative,
-                textAlignment = TextAlign.Center
+                textAlignment = TextAlign.Center,
             ),
         ).apply {
             id = R.id.editable
@@ -180,7 +179,7 @@ abstract class EditableTestCases(mode: String) : RoborazziConfig(mode) {
                 singleLine = false,
                 readonly = true,
                 iconPlacement = IconPlacement.Relative,
-                textAlignment = TextAlign.Start
+                textAlignment = TextAlign.Start,
             ),
         ).apply {
             id = R.id.editable
