@@ -206,7 +206,7 @@ interface PropertyProducer<State : UiState> {
  * провайдер свойств. Используется системой сторибука для получения
  * механизма генерации свойств от компонента.
  */
-interface PropertiesProducesProvider {
+interface PropertiesProducerProvider {
 
     /**
      * Возвращает провайдер свойств для указанного типа состояния.

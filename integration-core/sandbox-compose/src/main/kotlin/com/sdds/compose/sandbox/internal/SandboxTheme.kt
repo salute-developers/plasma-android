@@ -65,7 +65,6 @@ fun SandboxTheme(
         }
     }
 
-    content()
     SddsSandboxTheme(
         colors = colorScheme,
         gradients = if (darkTheme) DarkGradients else LightGradients,
