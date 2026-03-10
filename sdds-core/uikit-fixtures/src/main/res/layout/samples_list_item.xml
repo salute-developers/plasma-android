@@ -7,7 +7,7 @@
 
     <!-- sample-start: id=ListItemView_Simple -->
     <com.sdds.uikit.ListItemView
-        android:id="@+id/first"
+        android:id="@+id/list_item_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:sd_disclosureText="disclosure">

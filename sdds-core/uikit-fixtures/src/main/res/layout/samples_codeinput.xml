@@ -7,7 +7,7 @@
 
     <!-- sample-start: id=CodeInput_Simple -->
     <com.sdds.uikit.CodeInput
-        android:id="@+id/codeInput"
+        android:id="@+id/code_input_simple"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         app:sd_codeLength="4"

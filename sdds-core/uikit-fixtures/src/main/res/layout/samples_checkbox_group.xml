@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=CheckBoxGroup_Simple -->
     <com.sdds.uikit.CheckBoxGroup
+        android:id="@+id/checkbox_group_simple"
         app:sd_itemOffset="20dp"
         app:sd_itemSpacing="20dp"
         app:sd_hasMain="true"

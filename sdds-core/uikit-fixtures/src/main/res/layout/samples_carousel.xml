@@ -9,7 +9,7 @@
     <!-- placeholder: app:sd_nextButtonIcon="@drawable/ic_arrow_right_36" -> app:sd_nextButtonIcon="Your icon"  -->
     <!-- placeholder: app:sd_prevButtonIcon="@drawable/ic_arrow_left_36" -> app:sd_prevButtonIcon="Your icon"  -->
     <com.sdds.uikit.Carousel
-        android:id="@+id/carousel"
+        android:id="@+id/carousel_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#5CCBD5"

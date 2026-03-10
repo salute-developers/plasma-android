@@ -6,6 +6,7 @@
 
     <!-- sample-start: id=Indicator_Simple -->
     <com.sdds.uikit.Indicator
+        android:id="@+id/indicator_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <!-- sample-end: id=Indicator_Simple -->

@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=CheckBox_Simple -->
     <com.sdds.uikit.CheckBox
+        android:id="@+id/checkbox_simple"
         android:text="Label"
         app:sd_description="Description"
         app:sd_descriptionTextColor="#f1f1"

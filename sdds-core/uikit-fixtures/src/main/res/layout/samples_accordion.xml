@@ -6,7 +6,7 @@
 
     <!-- sample-start: id=Accordion_Simple -->
     <com.sdds.uikit.Accordion
-        android:id="@+id/accordion"
+        android:id="@+id/accordion_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <!-- sample-end: id=Accordion_Simple -->

@@ -8,6 +8,7 @@
     <!-- sample-start: id=TextField_Simple -->
     <!-- placeholder: app:sd_icon="@drawable/ic_arrow_down_16" -> app:sd_icon="Your icon"  -->
     <com.sdds.uikit.TextField
+        android:id="@+id/text_field_simple"
         app:sd_label="Label"
         app:sd_value="Value"
         app:sd_suffixText="TA"
@@ -26,6 +27,7 @@
 
     <!-- sample-start: id=TextArea_Simple -->
     <com.sdds.uikit.TextArea
+        android:id="@+id/text_area_simple"
         app:sd_label="Label"
         app:sd_value="Value"
         app:sd_suffixText="TA"

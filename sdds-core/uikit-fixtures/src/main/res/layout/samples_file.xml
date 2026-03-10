@@ -7,7 +7,7 @@
 
     <!-- sample-start: id=File_Simple -->
     <com.sdds.uikit.File
-        android:id="@+id/file"
+        android:id="@+id/file_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

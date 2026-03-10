@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=AvatarGroup_Simple -->
     <com.sdds.uikit.AvatarGroup
+        android:id="@+id/avatar_group_simple"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:sd_itemOffset="10dp"

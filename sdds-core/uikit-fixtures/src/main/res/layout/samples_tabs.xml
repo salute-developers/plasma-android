@@ -10,7 +10,7 @@
     <!-- placeholder: app:sd_overflowNextIcon="@drawable/ic_edit_fill_24" -> app:sd_overflowNextIcon="Your icon"  -->
     <!-- placeholder: app:sd_disclosureIcon="@drawable/ic_close_24" -> app:sd_disclosureIcon="Your icon"  -->
     <com.sdds.uikit.Tabs
-        android:id="@+id/tabs"
+        android:id="@+id/tabs_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

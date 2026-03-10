@@ -7,6 +7,7 @@
     <!-- sample-start: id=Chip_Simple -->
     <!-- placeholder: android:drawableStart="@drawable/ic_arrow_down_16"" -> android:drawableStart="Your drawable"  -->
     <com.sdds.uikit.Chip
+        android:id="@+id/chip_simple"
         android:text="Chip"
         android:drawableStart="@drawable/ic_arrow_down_16"
         android:layout_width="wrap_content"

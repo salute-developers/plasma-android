@@ -9,6 +9,7 @@
 
     <!-- sample-start: id=Divider_Simple -->
     <com.sdds.uikit.Divider
+        android:id="@+id/divider_simple"
         app:sd_thickness="2dp"
         android:orientation="horizontal"
         android:layout_height="wrap_content"

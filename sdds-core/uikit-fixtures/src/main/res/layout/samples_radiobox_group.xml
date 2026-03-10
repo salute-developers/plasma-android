@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=RadioBoxGroup_Simple -->
     <com.sdds.uikit.RadioBoxGroup
+        android:id="@+id/radio_box_group_simple"
         app:sd_itemSpacing="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

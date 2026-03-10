@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=Badge_Simple -->
     <com.sdds.uikit.Badge
+        android:id="@+id/badge_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Badge"

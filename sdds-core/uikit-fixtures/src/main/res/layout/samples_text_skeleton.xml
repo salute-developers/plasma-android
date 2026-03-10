@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=TextSkeleton_Simple -->
     <com.sdds.uikit.TextSkeleton
+        android:id="@+id/text_skeleton_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

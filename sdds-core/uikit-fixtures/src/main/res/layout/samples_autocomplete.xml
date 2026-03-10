@@ -7,7 +7,7 @@
 
     <!-- sample-start: id=Autocomplete_Simple -->
     <com.sdds.uikit.Autocomplete
-        android:id="@+id/autocomplete"
+        android:id="@+id/autocomplete_simple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <!-- sample-end: id=Autocomplete_Simple -->

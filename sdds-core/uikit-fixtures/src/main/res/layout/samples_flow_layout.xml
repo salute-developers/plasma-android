@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=FlowLayout_Simple -->
     <com.sdds.uikit.FlowLayout
+        android:id="@+id/flowlayout_simple"
         app:sd_mainAxisGap="5dp"
         app:sd_crossAxisGap="5dp"
         app:sd_alignment="end"

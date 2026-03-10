@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=RectSkeleton_Simple -->
     <com.sdds.uikit.RectSkeleton
+        android:id="@+id/rect_skeleton_simple"
         android:layout_width="100dp"
         android:layout_height="100dp" />
     <!-- sample-end: id=RectSkeleton_Simple -->

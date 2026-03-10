@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=Switch_Simple -->
     <com.sdds.uikit.Switch
+        android:id="@+id/switch_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:sd_buttonTrackColor="#C3DBCD"

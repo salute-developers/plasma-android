@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=Note_Simple -->
     <com.sdds.uikit.Note
+        android:id="@+id/note_simple"
         app:sd_title="Title"
         app:sd_text="Text"
         app:sd_background="#2301"
@@ -32,6 +33,7 @@
     <!-- sample-start: id=NoteCompact_Simple -->
     <!-- placeholder: android:src="@drawable/ic_salute_outline_24"" -> android:src="Your resource"  -->
     <com.sdds.uikit.NoteCompact
+        android:id="@+id/note_compact_simple"
         app:sd_title="Title"
         app:sd_text="Text"
         app:sd_background="#5401"

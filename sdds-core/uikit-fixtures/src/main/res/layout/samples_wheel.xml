@@ -7,7 +7,7 @@
 
     <!-- sample-start: id=Wheel_Simple -->
     <com.sdds.uikit.Wheel
-        android:id="@+id/wheel"
+        android:id="@+id/wheel_simple"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:sd_wheelCount="2"

@@ -8,6 +8,7 @@
 
     <!-- sample-start: id=ProgressBar_Simple -->
     <com.sdds.uikit.ProgressBar
+        android:id="@+id/progressbar_simple"
         android:maxHeight="10dp"
         app:sd_progress="0.5"
         app:sd_trackHeight="4dp"

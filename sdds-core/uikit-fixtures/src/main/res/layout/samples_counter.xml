@@ -6,6 +6,7 @@
 
     <!-- sample-start: id=Counter_Simple -->
     <com.sdds.uikit.Counter
+        android:id="@+id/counter_simple"
         android:text="521321412"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

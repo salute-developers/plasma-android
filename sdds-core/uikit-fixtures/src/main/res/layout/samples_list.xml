@@ -7,6 +7,7 @@
 
     <!-- sample-start: id=ListView_Simple -->
     <com.sdds.uikit.ListView
+        android:id="@+id/list_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <!-- sample-end: id=ListView_Simple -->
