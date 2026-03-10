@@ -24,6 +24,7 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -185,7 +186,7 @@ fun Editable(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     var textFieldValueSate by remember {
-        mutableStateOf(TextFieldValue(text = value))
+        mutableStateOf(TextFieldValue(text = value, selection = TextRange(value.length)))
     }
     val textFieldValue = textFieldValueSate.copy(text = value)
     SideEffect {
