@@ -177,7 +177,7 @@ fun rememberModalBottomSheetState(
     halfExpandedSettings: HalfExpandedSettings,
 ): BottomSheetState {
     val density = LocalDensity.current
-    return key(initialValue) {
+    return key(initialValue, halfExpandedSettings) {
         rememberSaveable(
             initialValue,
             animationSpec,
