@@ -1,8 +1,6 @@
 package com.sdds.playground.sandbox.bottomsheet.compose.test
 
-
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,21 +13,17 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.Button
@@ -43,8 +37,6 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.internal.modal.BottomSheetState
-import com.sdds.compose.uikit.internal.modal.BottomSheetValue
-import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.bottomsheet.Default
 import com.sdds.plasma.giga.styles.bottomsheet.ModalBottomSheet
@@ -58,12 +50,10 @@ import com.sdds.plasma.giga.styles.iconbutton.Pilled
 import com.sdds.plasma.giga.styles.iconbutton.Secondary
 import com.sdds.plasma.giga.styles.textarea.Default
 import com.sdds.plasma.giga.styles.textarea.S
-import com.sdds.plasma.giga.styles.textarea.TextArea
 import com.sdds.plasma.giga.styles.textfield.Default
 import com.sdds.plasma.giga.styles.textfield.S
 import com.sdds.plasma.giga.styles.textfield.TextField
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
-
 import kotlinx.coroutines.launch
 import com.sdds.icons.R as PlasmaR
 
@@ -229,6 +219,7 @@ internal fun ResearchSettingsDialogUltra(
                     color = { secondaryTextColor },
                 )
 
+                @Suppress("TodoPattern")
                 TextField(
                     modifier = Modifier
                         .semantics {

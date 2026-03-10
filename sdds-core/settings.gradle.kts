@@ -33,7 +33,4 @@ include(
     ":docs-views",
     ":docs-compose",
     ":docs-ksp",
-    ":sandbox-core",
-    ":sandbox-compose",
-    ":sandbox-ksp",
 )
