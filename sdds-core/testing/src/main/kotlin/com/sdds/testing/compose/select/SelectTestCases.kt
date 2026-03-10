@@ -27,6 +27,7 @@ import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.Select
 import com.sdds.compose.uikit.SelectButton
 import com.sdds.compose.uikit.SelectItem
+import com.sdds.compose.uikit.SelectScope
 import com.sdds.compose.uikit.SelectState
 import com.sdds.compose.uikit.SelectStyle
 import com.sdds.compose.uikit.SelectTextField
@@ -154,7 +155,7 @@ fun SelectMultipleTightLBottomEnd(style: SelectStyle) {
             "Пётр Петров",
         ),
 
-    )
+        )
 }
 
 /**
@@ -195,6 +196,9 @@ fun SelectMultipleNormalReadOnly(style: SelectStyle) {
     )
 }
 
+/**
+ * Select common тест-кейс
+ */
 @Composable
 fun SelectTextFieldCommon(
     alignment: Alignment,
@@ -241,40 +245,12 @@ fun SelectTextFieldCommon(
             },
             footer = footer,
             trigger = {
-                when (triggerType) {
-                    SelectTriggerType.TextField -> {
-                        SelectTextField(
-                            modifier = Modifier
-                                .width(260.dp),
-                            value = "",
-                            enabled = selectTextFieldEnabled,
-                            readOnly = selectTextFieldReadOnly,
-                            placeholderText = "Сотрудник",
-                            iconOpened = R.drawable.ic_chevron_up_24,
-                            iconClosed = R.drawable.ic_chevron_down_24,
-                            chipsContent = if (checkedStateManager.selectedItems.isNotEmpty()) {
-                                { checkedStateManager.selectedItems.forEach { Chip(label = it) } }
-                            } else {
-                                null
-                            },
-                            startContent = {
-                                Icon(
-                                    painterResource(R.drawable.ic_search_24),
-                                    "",
-                                )
-                            },
-                        )
-                    }
-
-                    SelectTriggerType.Button -> {
-                        SelectButton(
-                            modifier = Modifier.width(260.dp),
-                            label = checkedStateManager.selectedItems.firstOrNull() ?: "Value",
-                            iconOpened = R.drawable.ic_chevron_up_24,
-                            iconClosed = R.drawable.ic_chevron_down_24,
-                        )
-                    }
-                }
+                TriggerContent(
+                    triggerType = triggerType,
+                    selectedItems = checkedStateManager.selectedItems,
+                    selectTextFieldEnabled = selectTextFieldEnabled,
+                    selectTextFieldReadOnly = selectTextFieldReadOnly,
+                )
             },
             listContent = {
                 items(SelectList.size) {
@@ -292,6 +268,49 @@ fun SelectTextFieldCommon(
                 }
             },
         )
+    }
+}
+
+@Composable
+private fun SelectScope.TriggerContent(
+    triggerType: SelectTriggerType,
+    selectedItems: List<String>,
+    selectTextFieldEnabled: Boolean,
+    selectTextFieldReadOnly: Boolean,
+) {
+    when (triggerType) {
+        SelectTriggerType.TextField -> {
+            SelectTextField(
+                modifier = Modifier
+                    .width(260.dp),
+                value = "",
+                enabled = selectTextFieldEnabled,
+                readOnly = selectTextFieldReadOnly,
+                placeholderText = "Сотрудник",
+                iconOpened = R.drawable.ic_chevron_up_24,
+                iconClosed = R.drawable.ic_chevron_down_24,
+                chipsContent = if (selectedItems.isNotEmpty()) {
+                    { selectedItems.forEach { Chip(label = it) } }
+                } else {
+                    null
+                },
+                startContent = {
+                    Icon(
+                        painterResource(R.drawable.ic_search_24),
+                        "",
+                    )
+                },
+            )
+        }
+
+        SelectTriggerType.Button -> {
+            SelectButton(
+                modifier = Modifier.width(260.dp),
+                label = selectedItems.firstOrNull() ?: "Value",
+                iconOpened = R.drawable.ic_chevron_up_24,
+                iconClosed = R.drawable.ic_chevron_down_24,
+            )
+        }
     }
 }
 
@@ -326,6 +345,9 @@ private val SelectList = listOf(
     "Николай Волков",
 )
 
+/**
+ * Тип триггера Select
+ */
 enum class SelectTriggerType {
     TextField,
     Button,
