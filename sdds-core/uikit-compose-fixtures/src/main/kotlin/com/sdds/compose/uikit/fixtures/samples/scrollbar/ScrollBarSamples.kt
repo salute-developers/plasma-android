@@ -22,7 +22,7 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.docs.DocSample
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ScrollBar_Simple() {
     composableCodeSnippet {
         val scrollState = rememberScrollState()
@@ -49,7 +49,7 @@ fun ScrollBar_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ScrollBarLazy_Simple() {
     composableCodeSnippet {
         val lazyState = rememberLazyListState()

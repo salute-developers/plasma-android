@@ -144,7 +144,7 @@ fun NavigationBar_BottomContentInlineText() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun NavigationBar_BottomTextAndContentMultiplyActions() {
     composableCodeSnippet {
         NavigationBar(

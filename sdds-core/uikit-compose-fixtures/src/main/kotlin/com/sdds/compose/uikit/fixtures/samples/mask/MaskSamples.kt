@@ -31,7 +31,7 @@ fun Mask_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskPhone_Simple() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -47,7 +47,7 @@ fun MaskPhone_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskPhone_Custom() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -67,7 +67,7 @@ fun MaskPhone_Custom() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskDate_Simple() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -82,7 +82,7 @@ fun MaskDate_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskDate_Custom() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -102,7 +102,7 @@ fun MaskDate_Custom() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskTime_Simple() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -117,7 +117,7 @@ fun MaskTime_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskTime_Custom() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -137,7 +137,7 @@ fun MaskTime_Custom() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskNumber_Simple() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }
@@ -153,7 +153,7 @@ fun MaskNumber_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun MaskNumber_Custom() {
     composableCodeSnippet {
         var text by remember { mutableStateOf("") }

@@ -20,7 +20,7 @@ import com.sdds.compose.uikit.OverlayStyle
 import com.sdds.docs.DocSample
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Overlay_Simple() {
     composableCodeSnippet {
         Overlay(

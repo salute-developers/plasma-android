@@ -21,6 +21,8 @@ title: Drawer
 // @sample: com/sdds/compose/uikit/fixtures/samples/drawer/Drawer_WithHeaderFooter.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.drawer_Drawer_WithHeaderFooter -->
+
 ---
 
 ## 3) Peek Offset и затемняющий оверлей

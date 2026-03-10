@@ -13,7 +13,7 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.docs.DocSample
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Divider_Simple() {
     composableCodeSnippet {
         Divider(

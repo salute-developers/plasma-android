@@ -18,15 +18,21 @@ title: Wheel
 // @sample: com/sdds/compose/uikit/fixtures/samples/wheel/Wheel_AlarmClockWithControlsAndSeparator.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.wheel.Wheel_AlarmClockWithControlsAndSeparator -->
+
 ### Пример будильника с выраниванием по центру и Divider в качестве разделителя
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/wheel/Wheel_CenteredAlarmClockWithControlsAndDivider.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.wheel.Wheel_CenteredAlarmClockWithControlsAndDivider -->
+
 ### Пример будильника с расположением чисел на колесе, начиная сверху колеса
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/wheel/Wheel_AlarmClockWithEdgePlacement.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.wheel.Wheel_AlarmClockWithEdgePlacement -->
 
 ## Стиль Wheel
 
