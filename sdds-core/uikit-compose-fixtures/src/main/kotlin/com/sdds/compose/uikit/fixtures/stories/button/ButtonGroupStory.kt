@@ -29,6 +29,26 @@ import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
 import com.sdds.sandbox.enumProperty
 
+/**
+ * Состояние пользовательского интерфейса для группы кнопок в сторибуке.
+ *
+ * Определяет настраиваемые параметры группы кнопок, которые будут доступны
+ * для изменения в панели управления. Демонстрирует использование кастомных
+ * провайдеров свойств и трансформеров значений.
+ *
+ * @param variant вариация группы кнопок
+ * @param appearance внешний вид кнопок внутри группы
+ * @param orientation ориентация группы (горизонтальная/вертикальная).
+ * Использует кастомный провайдер [ButtonGroupOrientationProperty]
+ * для генерации свойства с отображаемым именем "orient"
+ * @param amount количество кнопок в группе.
+ * Использует кастомный трансформер [ButtonGroupAmountTransformer]
+ * для валидации значения (неотрицательное число)
+ *
+ * @see StoryUiState
+ * @see StoryProperty
+ * @see ButtonGroupOrientation
+ */
 @StoryUiState
 data class ButtonGroupUiState(
     override val variant: String = "",
@@ -38,17 +58,41 @@ data class ButtonGroupUiState(
     @StoryProperty(transformedBy = ButtonGroupAmountTransformer::class)
     val amount: Int = 3,
 ) : UiState {
+    /**
+     * Создает копию состояния с обновленными значениями внешнего вида и вариации.
+     *
+     * @param appearance новое значение внешнего вида
+     * @param variant новое значение вариации
+     * @return обновленная копия [ButtonGroupUiState]
+     */
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }
 }
 
+/**
+ * История компонента ButtonGroup для сторибука.
+ *
+ * @see Story
+ * @see ComposeBaseStory
+ * @see ComponentKey.ButtonGroup
+ * @see ButtonGroupStyle
+ */
 @Story
-object ButtonGroupStory: ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>(
+object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>(
     ComponentKey.ButtonGroup,
     ButtonGroupUiState(),
-    ButtonGroupUiStatePropertiesProducer
+    ButtonGroupUiStatePropertiesProducer,
 ) {
+    /**
+     * Композируемая функция для отображения группы кнопок.
+     *
+     * Автоматически добавляет прокрутку в зависимости от ориентации группы
+     * и отступы для лучшей визуализации.
+     *
+     * @param style стиль группы кнопок
+     * @param state текущее состояние с параметрами настройки
+     */
     @Composable
     override fun BoxScope.Content(style: ButtonGroupStyle, state: ButtonGroupUiState) {
         val scrollModifier = when (state.orientation) {
@@ -68,6 +112,13 @@ object ButtonGroupStory: ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>(
         }
     }
 
+    /**
+     * Вспомогательная функция для создания содержимого кнопки в группе.
+     *
+     * @param appearance внешний вид, определяющий тип кнопки:
+     *                   - содержит "Icon" -> отображается иконка
+     *                   - иначе -> отображается текстовая кнопка
+     */
     private fun ButtonGroupScope.buttonContent(appearance: String = "") {
         if (appearance.contains("Icon")) {
             button { IconButton(painterResource(R.drawable.ic_plasma_24), {}) }
@@ -83,8 +134,24 @@ object ButtonGroupStory: ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>(
     }
 }
 
+/**
+ * Провайдер свойства для ориентации группы кнопок.
+ *
+ * Генерирует свойство с выбором из предопределенных значений перечисления
+ * [ButtonGroupOrientation]. Используется вместе с аннотацией [StoryProperty]
+ * для кастомизации отображения в панели управления.
+ *
+ * @see PropertyProducer
+ * @see enumProperty
+ */
 object ButtonGroupOrientationProperty : PropertyProducer<ButtonGroupUiState> {
 
+    /**
+     * Создает свойство выбора ориентации на основе текущего состояния.
+     *
+     * @param state текущее состояние группы кнопок
+     * @return [Property.SingleChoiceProperty] с вариантами ориентации
+     */
     override fun produce(state: ButtonGroupUiState): Property<*> {
         return enumProperty(
             name = "orientation",
@@ -93,9 +160,23 @@ object ButtonGroupOrientationProperty : PropertyProducer<ButtonGroupUiState> {
     }
 }
 
+/**
+ * Трансформер значения для количества кнопок в группе.
+ *
+ * Обеспечивает валидацию вводимого значения: гарантирует, что количество
+ * кнопок не может быть отрицательным. Применяется автоматически при изменении
+ * свойства amount в панели управления.
+ *
+ * @see StateValueTransformer
+ */
 object ButtonGroupAmountTransformer : StateValueTransformer<Int, Int> {
+    /**
+     * Преобразует входное значение, обеспечивая его неотрицательность.
+     *
+     * @param input исходное значение (может быть любым целым числом)
+     * @return значение, приведенное к диапазону [0, +∞)
+     */
     override fun transform(input: Int): Int {
         return input.coerceAtLeast(0)
     }
-
 }
