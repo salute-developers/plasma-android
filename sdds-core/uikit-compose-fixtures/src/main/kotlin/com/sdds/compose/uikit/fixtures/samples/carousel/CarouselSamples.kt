@@ -39,7 +39,7 @@ fun Carousel_Simple() {
         val carouselState = rememberPagerState { carouselData.size }
         Carousel(
             state = carouselState,
-            pageSize = PageSize.Fixed(250.dp)
+            pageSize = PageSize.Fixed(250.dp),
         ) {
             Card(
                 modifier = Modifier
@@ -72,7 +72,7 @@ fun Carousel_NoControls() {
         Carousel(
             state = carouselState,
             hasControls = false,
-            pageSize = PageSize.Fixed(250.dp)
+            pageSize = PageSize.Fixed(250.dp),
         ) {
             Card(
                 modifier = Modifier
@@ -105,7 +105,7 @@ fun Carousel_NoIndicator() {
         Carousel(
             state = carouselState,
             hasIndicator = false,
-            pageSize = PageSize.Fixed(250.dp)
+            pageSize = PageSize.Fixed(250.dp),
         ) {
             Card(
                 modifier = Modifier
@@ -138,7 +138,7 @@ fun Carousel_ContentSnapToCenter() {
         Carousel(
             state = carouselState,
             snapPosition = SnapPosition.Center,
-            pageSize = PageSize.Fixed(250.dp)
+            pageSize = PageSize.Fixed(250.dp),
         ) {
             Card(
                 modifier = Modifier
@@ -165,19 +165,19 @@ fun Carousel_Style() {
             .prevButtonStyle(
                 placeholder(
                     ButtonStyle.iconButtonBuilder().style(),
-                    "/** Стиль компонента IconButton */"
+                    "/** Стиль компонента IconButton */",
                 ),
             )
             .nextButtonStyle(
                 placeholder(
                     ButtonStyle.iconButtonBuilder().style(),
-                    "/** Стиль компонента IconButton */"
+                    "/** Стиль компонента IconButton */",
                 ),
             )
             .indicatorStyle(
                 placeholder(
                     PaginationDotsStyle.builder().style(),
-                    "/** Стиль компонента PaginationDots */"
+                    "/** Стиль компонента PaginationDots */",
                 ),
             )
             .prevButtonIcon(R.drawable.ic_chevron_left_36)
