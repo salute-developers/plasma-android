@@ -9,9 +9,7 @@ android {
 }
 
 dependencies {
-
-    implementation("sdds-core:sandbox-core")
-    implementation("sdds-core:sandbox-compose")
+    implementation("integration-core:sandbox-core")
+    implementation("integration-core:sandbox-compose")
     implementation("sdds-core:uikit-compose-fixtures")
 }
-
