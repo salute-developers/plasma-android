@@ -39,6 +39,7 @@ import androidx.compose.ui.semantics.dismiss
 import androidx.compose.ui.semantics.expand
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
@@ -149,18 +150,44 @@ fun rememberModalBottomSheetState(
     confirmValueChange: (BottomSheetValue) -> Boolean = { true },
     skipHalfExpanded: Boolean = false,
 ): BottomSheetState {
+    return rememberModalBottomSheetState(
+        initialValue = initialValue,
+        animationSpec = animationSpec,
+        confirmValueChange = confirmValueChange,
+        halfExpandedSettings = if (skipHalfExpanded) {
+            HalfExpandedSettings.Skip
+        } else {
+            HalfExpandedSettings.Fraction(0.5f)
+        },
+    )
+}
+
+/**
+ * Create and remember a ModalBottomSheetState.
+ * @param initialValue - The initial value of the state.
+ * @param animationSpec - The default animation that will be used to animate to a new state.
+ * @param confirmValueChange - Optional callback invoked to confirm or veto a pending value change.
+ * @param halfExpandedSettings - How should ModalBottomSheet behave at HalfExpanded state.
+ */
+@Composable
+fun rememberModalBottomSheetState(
+    initialValue: BottomSheetValue,
+    animationSpec: AnimationSpec<Float> = DefaultAnimationSpec,
+    confirmValueChange: (BottomSheetValue) -> Boolean = { true },
+    halfExpandedSettings: HalfExpandedSettings,
+): BottomSheetState {
     val density = LocalDensity.current
-    return key(initialValue) {
+    return key(initialValue, halfExpandedSettings) {
         rememberSaveable(
             initialValue,
             animationSpec,
-            skipHalfExpanded,
+            halfExpandedSettings,
             confirmValueChange,
             density,
-            saver = BottomSheetState.saver(
+            saver = saver(
                 density = density,
                 animationSpec = animationSpec,
-                skipHalfExpanded = skipHalfExpanded,
+                halfExpandedSettings = halfExpandedSettings,
                 confirmValueChange = confirmValueChange,
             ),
         ) {
@@ -168,7 +195,7 @@ fun rememberModalBottomSheetState(
                 density = density,
                 initialValue = initialValue,
                 animationSpec = animationSpec,
-                isSkipHalfExpanded = skipHalfExpanded,
+                halfExpandedSettings = halfExpandedSettings,
                 confirmValueChange = confirmValueChange,
             )
         }
@@ -180,17 +207,43 @@ fun rememberModalBottomSheetState(
  * @param initialValue - The initial value of the state.
  * @param density The density that this state can use to convert values to and from dp.
  * @param animationSpec - The default animation that will be used to animate to a new state.
+ * @param halfExpandedSettings - How should ModalBottomSheet behave at HalfExpanded state.
  * @param confirmValueChange - Optional callback invoked to confirm or veto a pending state change.
- * @param isSkipHalfExpanded - Should ModalBottomSheet expand at HalfExpanded value
  */
 @OptIn(ExperimentalFoundationApi::class)
 class BottomSheetState(
     initialValue: BottomSheetValue,
-    density: Density,
+    internal val density: Density,
     internal val animationSpec: AnimationSpec<Float> = DefaultAnimationSpec,
-    internal val isSkipHalfExpanded: Boolean = false,
+    internal val halfExpandedSettings: HalfExpandedSettings = HalfExpandedSettings.Fraction(0.5f),
     internal val confirmValueChange: (BottomSheetValue) -> Boolean,
 ) {
+
+    /**
+     * State of the persistent bottom sheet in ModalBottomSheet.
+     * @param initialValue - The initial value of the state.
+     * @param density The density that this state can use to convert values to and from dp.
+     * @param animationSpec - The default animation that will be used to animate to a new state.
+     * @param isSkipHalfExpanded - Should ModalBottomSheet expand at HalfExpanded value
+     * @param confirmValueChange - Optional callback invoked to confirm or veto a pending state change.
+     */
+    constructor(
+        initialValue: BottomSheetValue,
+        density: Density,
+        animationSpec: AnimationSpec<Float> = DefaultAnimationSpec,
+        isSkipHalfExpanded: Boolean = false,
+        confirmValueChange: (BottomSheetValue) -> Boolean,
+    ) : this (
+        initialValue = initialValue,
+        density = density,
+        animationSpec = animationSpec,
+        halfExpandedSettings = if (isSkipHalfExpanded) {
+            HalfExpandedSettings.Skip
+        } else {
+            HalfExpandedSettings.Fraction(0.5f)
+        },
+        confirmValueChange = confirmValueChange,
+    )
 
     internal val anchoredDraggableState = AnchoredDraggableState(
         initialValue = initialValue,
@@ -270,10 +323,10 @@ class BottomSheetState(
         get() = anchoredDraggableState.anchors.hasPositionFor(HalfExpanded)
 
     init {
-        if (isSkipHalfExpanded) {
+        if (halfExpandedSettings == HalfExpandedSettings.Skip) {
             require(initialValue != HalfExpanded) {
-                "The initial value must not be set to HalfExpanded if skipHalfExpanded is set to" +
-                    " true."
+                "The initial value must not be set to HalfExpanded if halfExpandedSettings is " +
+                    "HalfExpandedSettings.Skip"
             }
         }
     }
@@ -350,7 +403,7 @@ class BottomSheetState(
         fun saver(
             animationSpec: AnimationSpec<Float>,
             confirmValueChange: (BottomSheetValue) -> Boolean,
-            skipHalfExpanded: Boolean,
+            halfExpandedSettings: HalfExpandedSettings,
             density: Density,
         ): Saver<BottomSheetState, *> = Saver(
             save = { it.currentValue },
@@ -359,7 +412,7 @@ class BottomSheetState(
                     initialValue = it,
                     density = density,
                     animationSpec = animationSpec,
-                    isSkipHalfExpanded = skipHalfExpanded,
+                    halfExpandedSettings = halfExpandedSettings,
                     confirmValueChange = confirmValueChange,
                 )
             },
@@ -454,8 +507,8 @@ private fun Modifier.bottomSheetAnchors(
 ) = onSizeChanged { sheetSize ->
     val newAnchors = DraggableAnchors {
         Hidden at fullHeight
-        val halfHeight = fullHeight / 2f
-        if (!sheetState.isSkipHalfExpanded && sheetSize.height > halfHeight) {
+        val halfHeight = getHalfHeight(sheetState, fullHeight)
+        if (halfHeight != null && sheetSize.height > halfHeight) {
             HalfExpanded at halfHeight
         }
         if (sheetSize.height != 0) {
@@ -487,4 +540,46 @@ private fun Modifier.bottomSheetAnchors(
         }
     }
     sheetState.anchoredDraggableState.updateAnchors(newAnchors, newTarget)
+}
+
+private fun getHalfHeight(
+    sheetState: BottomSheetState,
+    fullHeight: Float,
+) = when (val settings = sheetState.halfExpandedSettings) {
+    is HalfExpandedSettings.Fraction -> {
+        fullHeight * (1f - settings.expandFraction.coerceIn(0f..1f))
+    }
+    is HalfExpandedSettings.Height -> {
+        val heightPx = with(sheetState.density) { settings.height.toPx() }
+        fullHeight - (heightPx.coerceIn(0f, fullHeight))
+    }
+    else -> null
+}
+
+/**
+ * Настройки поведения BottomSheet для состояния HalfExpanded
+ */
+sealed class HalfExpandedSettings {
+
+    /**
+     * Cостояние HalfExpanded не учитывается, BottomSheet либо полностью скрыт,
+     * либо полностью открыт.
+     */
+    data object Skip : HalfExpandedSettings()
+
+    /**
+     * Определяет позицию HalfExpanded как долю от высоты экрана
+     * [expandFraction] доля (процентное соотношение)
+     * на которое будет открыт BottomSheet в состоянии HalfExpanded.
+     * Значение ограничивается диапазоном 0f..1f
+     */
+    data class Fraction(val expandFraction: Float) : HalfExpandedSettings()
+
+    /**
+     * Определяет позицию HalfExpanded через фиксированную высоту
+     * [height] точная высота видимой части BottomSheet в состоянии HalfExpanded.
+     * Значение преобразуется в пиксели с использованием текущего [Density] и
+     * ограничивается доступной высотой экрана.
+     */
+    data class Height(val height: Dp) : HalfExpandedSettings()
 }
