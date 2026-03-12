@@ -6,12 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -38,7 +38,7 @@ internal fun EditableScreen(componentKey: ComponentKey = ComponentKey.Editable) 
             key = componentKey.toString(),
         ),
         component = { editableUiState, style ->
-            var text by remember { mutableStateOf(TextFieldValue("Value")) }
+            var text by rememberSaveable { mutableStateOf("Value") }
             val focusRequester = remember { FocusRequester() }
             Editable(
                 modifier = Modifier
@@ -54,7 +54,6 @@ internal fun EditableScreen(componentKey: ComponentKey = ComponentKey.Editable) 
                                 interactionSource = remember { MutableInteractionSource() },
                             ) {
                                 focusRequester.requestFocus()
-                                text = text.copy(selection = TextRange(text.text.length))
                             },
                         painter = painterResource(R.drawable.ic_edit_fill_36),
                         contentDescription = null,
