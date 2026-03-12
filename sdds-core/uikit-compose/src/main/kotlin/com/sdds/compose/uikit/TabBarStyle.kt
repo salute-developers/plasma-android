@@ -7,11 +7,16 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.internal.common.asBrush
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -164,6 +169,11 @@ interface TabBarColors {
     val backgroundColor: InteractiveColor
 
     /**
+     * Цвет фона
+     */
+    val background: StatefulValue<Brush>
+
+    /**
      * Цвет разделителя
      */
     val dividerColor: InteractiveColor
@@ -194,7 +204,12 @@ interface TabBarColorsBuilder {
      * Устанавливает цвет фона [backgroundColor]
      */
     fun backgroundColor(backgroundColor: Color): TabBarColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
+        backgroundColor(backgroundColor.asBrush().asStatefulValue())
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): TabBarColorsBuilder
 
     /**
      * Устанавливает цвет разделителя [dividerColor]
@@ -230,15 +245,20 @@ private data class DefaultTabBarColors(
     override val backgroundColor: InteractiveColor,
     override val dividerColor: InteractiveColor,
     override val backgroundBlurTint: InteractiveColor,
+    override val background: StatefulValue<Brush>,
 ) : TabBarColors {
     class Builder : TabBarColorsBuilder {
         private var backgroundColor: InteractiveColor? = null
+        private var background: StatefulValue<Brush>? = null
         private var backgroundBlurTint: InteractiveColor? = null
 
         private var dividerColor: InteractiveColor? = null
 
         override fun backgroundColor(backgroundColor: InteractiveColor): TabBarColorsBuilder =
             apply { this.backgroundColor = backgroundColor }
+
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>): TabBarColorsBuilder =
+            apply { this.background = backgroundColor }
 
         override fun dividerColor(dividerColor: InteractiveColor): TabBarColorsBuilder =
             apply {
@@ -254,6 +274,9 @@ private data class DefaultTabBarColors(
             backgroundColor = backgroundColor ?: Color.Transparent.asInteractive(),
             dividerColor = dividerColor ?: Color.Unspecified.asInteractive(),
             backgroundBlurTint = backgroundBlurTint ?: Color.Unspecified.asInteractive(),
+            background = background
+                ?: backgroundColor?.asStatefulBrush()
+                ?: Color.Transparent.asBrush().asStatefulValue(),
         )
     }
 }

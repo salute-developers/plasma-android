@@ -1,7 +1,7 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
@@ -168,7 +168,7 @@ private class DefaultSegmentItemStyle(
 
         override fun style(): SegmentItemStyle {
             return DefaultSegmentItemStyle(
-                shape = shape ?: CircleShape,
+                shape = shape ?: RoundedCornerShape(0),
                 labelStyle = labelStyle ?: TextStyle.Default,
                 valueStyle = valueStyle ?: TextStyle.Default,
                 colors = colorsBuilder.build(),

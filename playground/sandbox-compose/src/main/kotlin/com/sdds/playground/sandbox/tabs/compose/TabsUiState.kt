@@ -16,8 +16,8 @@ internal data class TabsUiState(
     val counter: Boolean = false,
     val count: String = "1",
     val actionEnabled: Boolean = false,
-    val dividerEnabled: Boolean = true,
-    val indicatorEnabled: Boolean = true,
+    val dividerEnabled: Boolean = false,
+    val indicatorEnabled: Boolean = false,
 ) : UiState {
 
     override fun updateVariant(

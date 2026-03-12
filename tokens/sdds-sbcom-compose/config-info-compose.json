@@ -1,0 +1,786 @@
+{
+   "name": "sdds_sbcom",
+   "packageName": "com.sdds.sbcom",
+   "components": [
+      {
+         "key": "basic-button",
+         "coreName": "BasicButton",
+         "styleName": "BasicButton",
+         "variations": [
+            {
+               "name": "m.primary",
+               "composeReference": "BasicButton.M.Primary"
+            },
+            {
+               "name": "m.accent-filled",
+               "composeReference": "BasicButton.M.AccentFilled"
+            },
+            {
+               "name": "m.accent-white",
+               "composeReference": "BasicButton.M.AccentWhite"
+            },
+            {
+               "name": "m.accent-grey",
+               "composeReference": "BasicButton.M.AccentGrey"
+            },
+            {
+               "name": "m.danger-tint",
+               "composeReference": "BasicButton.M.DangerTint"
+            },
+            {
+               "name": "s.primary",
+               "composeReference": "BasicButton.S.Primary"
+            },
+            {
+               "name": "s.accent-filled",
+               "composeReference": "BasicButton.S.AccentFilled"
+            },
+            {
+               "name": "s.accent-white",
+               "composeReference": "BasicButton.S.AccentWhite"
+            },
+            {
+               "name": "s.accent-grey",
+               "composeReference": "BasicButton.S.AccentGrey"
+            },
+            {
+               "name": "s.danger-tint",
+               "composeReference": "BasicButton.S.DangerTint"
+            },
+            {
+               "name": "xs.primary",
+               "composeReference": "BasicButton.Xs.Primary"
+            },
+            {
+               "name": "xs.accent-filled",
+               "composeReference": "BasicButton.Xs.AccentFilled"
+            },
+            {
+               "name": "xs.accent-white",
+               "composeReference": "BasicButton.Xs.AccentWhite"
+            },
+            {
+               "name": "xs.accent-grey",
+               "composeReference": "BasicButton.Xs.AccentGrey"
+            },
+            {
+               "name": "xs.danger-tint",
+               "composeReference": "BasicButton.Xs.DangerTint"
+            },
+            {
+               "name": "xxs.primary",
+               "composeReference": "BasicButton.Xxs.Primary"
+            },
+            {
+               "name": "xxs.accent-filled",
+               "composeReference": "BasicButton.Xxs.AccentFilled"
+            },
+            {
+               "name": "xxs.accent-white",
+               "composeReference": "BasicButton.Xxs.AccentWhite"
+            },
+            {
+               "name": "xxs.accent-grey",
+               "composeReference": "BasicButton.Xxs.AccentGrey"
+            },
+            {
+               "name": "xxs.danger-tint",
+               "composeReference": "BasicButton.Xxs.DangerTint"
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
+         "styleName": "IconButton",
+         "variations": [
+            {
+               "name": "m.accent-filled",
+               "composeReference": "IconButton.M.AccentFilled"
+            },
+            {
+               "name": "m.accent-grey",
+               "composeReference": "IconButton.M.AccentGrey"
+            },
+            {
+               "name": "m.danger-tint",
+               "composeReference": "IconButton.M.DangerTint"
+            },
+            {
+               "name": "s.accent-filled",
+               "composeReference": "IconButton.S.AccentFilled"
+            },
+            {
+               "name": "s.accent-grey",
+               "composeReference": "IconButton.S.AccentGrey"
+            },
+            {
+               "name": "s.danger-tint",
+               "composeReference": "IconButton.S.DangerTint"
+            },
+            {
+               "name": "xs.accent-filled",
+               "composeReference": "IconButton.Xs.AccentFilled"
+            },
+            {
+               "name": "xs.accent-grey",
+               "composeReference": "IconButton.Xs.AccentGrey"
+            },
+            {
+               "name": "xs.danger-tint",
+               "composeReference": "IconButton.Xs.DangerTint"
+            }
+         ]
+      },
+      {
+         "key": "icon-button",
+         "coreName": "IconButton",
+         "styleName": "IconButtonClear",
+         "variations": [
+            {
+               "name": "m.accent",
+               "composeReference": "IconButtonClear.M.Accent"
+            },
+            {
+               "name": "m.danger-tint",
+               "composeReference": "IconButtonClear.M.DangerTint"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "IconButtonClear.S.Accent"
+            },
+            {
+               "name": "s.danger-tint",
+               "composeReference": "IconButtonClear.S.DangerTint"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "IconButtonClear.Xs.Accent"
+            },
+            {
+               "name": "xs.danger-tint",
+               "composeReference": "IconButtonClear.Xs.DangerTint"
+            }
+         ]
+      },
+      {
+         "key": "link-button",
+         "coreName": "LinkButton",
+         "styleName": "LinkButton",
+         "variations": [
+            {
+               "name": "m.accent",
+               "composeReference": "LinkButton.M.Accent"
+            },
+            {
+               "name": "m.danger-tint",
+               "composeReference": "LinkButton.M.DangerTint"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "LinkButton.S.Accent"
+            },
+            {
+               "name": "s.danger-tint",
+               "composeReference": "LinkButton.S.DangerTint"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "LinkButton.Xs.Accent"
+            },
+            {
+               "name": "xs.danger-tint",
+               "composeReference": "LinkButton.Xs.DangerTint"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "LinkButton.Xxs.Accent"
+            },
+            {
+               "name": "xxs.danger-tint",
+               "composeReference": "LinkButton.Xxs.DangerTint"
+            }
+         ]
+      },
+      {
+         "key": "bottom-sheet",
+         "coreName": "BottomSheet",
+         "styleName": "ModalBottomSheet",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "ModalBottomSheet.Default"
+            }
+         ]
+      },
+      {
+         "key": "check-box",
+         "coreName": "CheckBox",
+         "styleName": "CheckBox",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "CheckBox.Default"
+            }
+         ]
+      },
+      {
+         "key": "chip",
+         "coreName": "Chip",
+         "styleName": "Chip",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "Chip.Default"
+            },
+            {
+               "name": "has-content-start",
+               "composeReference": "Chip.HasContentStart"
+            }
+         ]
+      },
+      {
+         "key": "chip-group",
+         "coreName": "ChipGroup",
+         "styleName": "ChipGroup",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "ChipGroup.Default"
+            },
+            {
+               "name": "has-content-start",
+               "composeReference": "ChipGroup.HasContentStart"
+            }
+         ]
+      },
+      {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "Counter",
+         "variations": [
+            {
+               "name": "primary",
+               "composeReference": "Counter.Primary"
+            },
+            {
+               "name": "secondary",
+               "composeReference": "Counter.Secondary"
+            },
+            {
+               "name": "accent",
+               "composeReference": "Counter.Accent"
+            },
+            {
+               "name": "danger",
+               "composeReference": "Counter.Danger"
+            }
+         ]
+      },
+      {
+         "key": "divider",
+         "coreName": "Divider",
+         "styleName": "Divider",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Divider.Default"
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "Indicator",
+         "variations": [
+            {
+               "name": "success",
+               "composeReference": "Indicator.Success"
+            },
+            {
+               "name": "global-white",
+               "composeReference": "Indicator.GlobalWhite"
+            },
+            {
+               "name": "mute",
+               "composeReference": "Indicator.Mute"
+            },
+            {
+               "name": "danger",
+               "composeReference": "Indicator.Danger"
+            },
+            {
+               "name": "warning",
+               "composeReference": "Indicator.Warning"
+            }
+         ]
+      },
+      {
+         "key": "loader",
+         "coreName": "Loader",
+         "styleName": "Loader",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Loader.Default"
+            }
+         ]
+      },
+      {
+         "key": "overlay",
+         "coreName": "Overlay",
+         "styleName": "Overlay",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Overlay.Default"
+            }
+         ]
+      },
+      {
+         "key": "circular-progress-bar",
+         "coreName": "CircularProgressBar",
+         "styleName": "CircularProgressBar",
+         "variations": [
+            {
+               "name": "xxl.primary",
+               "composeReference": "CircularProgressBar.Xxl.Primary"
+            },
+            {
+               "name": "xxl.secondary",
+               "composeReference": "CircularProgressBar.Xxl.Secondary"
+            },
+            {
+               "name": "xxl.global-white",
+               "composeReference": "CircularProgressBar.Xxl.GlobalWhite"
+            },
+            {
+               "name": "xxl.accent",
+               "composeReference": "CircularProgressBar.Xxl.Accent"
+            },
+            {
+               "name": "xxl.danger",
+               "composeReference": "CircularProgressBar.Xxl.Danger"
+            },
+            {
+               "name": "m.primary",
+               "composeReference": "CircularProgressBar.M.Primary"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "CircularProgressBar.M.Secondary"
+            },
+            {
+               "name": "m.global-white",
+               "composeReference": "CircularProgressBar.M.GlobalWhite"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "CircularProgressBar.M.Accent"
+            },
+            {
+               "name": "m.danger",
+               "composeReference": "CircularProgressBar.M.Danger"
+            },
+            {
+               "name": "s.primary",
+               "composeReference": "CircularProgressBar.S.Primary"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "CircularProgressBar.S.Secondary"
+            },
+            {
+               "name": "s.global-white",
+               "composeReference": "CircularProgressBar.S.GlobalWhite"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "CircularProgressBar.S.Accent"
+            },
+            {
+               "name": "s.danger",
+               "composeReference": "CircularProgressBar.S.Danger"
+            },
+            {
+               "name": "xs.primary",
+               "composeReference": "CircularProgressBar.Xs.Primary"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "CircularProgressBar.Xs.Secondary"
+            },
+            {
+               "name": "xs.global-white",
+               "composeReference": "CircularProgressBar.Xs.GlobalWhite"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "CircularProgressBar.Xs.Accent"
+            },
+            {
+               "name": "xs.danger",
+               "composeReference": "CircularProgressBar.Xs.Danger"
+            },
+            {
+               "name": "xxs.primary",
+               "composeReference": "CircularProgressBar.Xxs.Primary"
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "CircularProgressBar.Xxs.Secondary"
+            },
+            {
+               "name": "xxs.global-white",
+               "composeReference": "CircularProgressBar.Xxs.GlobalWhite"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "CircularProgressBar.Xxs.Accent"
+            },
+            {
+               "name": "xxs.danger",
+               "composeReference": "CircularProgressBar.Xxs.Danger"
+            }
+         ]
+      },
+      {
+         "key": "popover",
+         "coreName": "Popover",
+         "styleName": "Popover",
+         "variations": [
+            {
+               "name": "m.default",
+               "composeReference": "Popover.M.Default"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Popover.M.Accent"
+            },
+            {
+               "name": "s.default",
+               "composeReference": "Popover.S.Default"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Popover.S.Accent"
+            }
+         ]
+      },
+      {
+         "key": "radio-box",
+         "coreName": "RadioBox",
+         "styleName": "RadioBox",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "RadioBox.Default"
+            }
+         ]
+      },
+      {
+         "key": "segment",
+         "coreName": "Segment",
+         "styleName": "Segment",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Segment.Default"
+            }
+         ]
+      },
+      {
+         "key": "segment-item",
+         "coreName": "SegmentItem",
+         "styleName": "SegmentItem",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "SegmentItem.Default"
+            }
+         ]
+      },
+      {
+         "key": "switch",
+         "coreName": "Switch",
+         "styleName": "Switch",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Switch.Default"
+            }
+         ]
+      },
+      {
+         "key": "text-field",
+         "coreName": "TextField",
+         "styleName": "TextField",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "TextField.Default"
+            },
+            {
+               "name": "error",
+               "composeReference": "TextField.Error"
+            }
+         ]
+      },
+      {
+         "key": "tooltip",
+         "coreName": "Tooltip",
+         "styleName": "Tooltip",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Tooltip.Default"
+            }
+         ]
+      },
+      {
+         "key": "modal",
+         "coreName": "Modal",
+         "styleName": "Modal",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "Modal.Default"
+            }
+         ]
+      },
+      {
+         "key": "rect-skeleton",
+         "coreName": "RectSkeleton",
+         "styleName": "RectSkeleton",
+         "variations": [
+            {
+               "name": "default",
+               "composeReference": "RectSkeleton.Default"
+            },
+            {
+               "name": "pulse",
+               "composeReference": "RectSkeleton.Pulse"
+            }
+         ]
+      },
+      {
+         "key": "spinner",
+         "coreName": "Spinner",
+         "styleName": "Spinner",
+         "variations": [
+            {
+               "name": "m.primary",
+               "composeReference": "Spinner.M.Primary"
+            },
+            {
+               "name": "m.secondary",
+               "composeReference": "Spinner.M.Secondary"
+            },
+            {
+               "name": "m.global-white",
+               "composeReference": "Spinner.M.GlobalWhite"
+            },
+            {
+               "name": "m.accent",
+               "composeReference": "Spinner.M.Accent"
+            },
+            {
+               "name": "m.danger",
+               "composeReference": "Spinner.M.Danger"
+            },
+            {
+               "name": "s.primary",
+               "composeReference": "Spinner.S.Primary"
+            },
+            {
+               "name": "s.secondary",
+               "composeReference": "Spinner.S.Secondary"
+            },
+            {
+               "name": "s.global-white",
+               "composeReference": "Spinner.S.GlobalWhite"
+            },
+            {
+               "name": "s.accent",
+               "composeReference": "Spinner.S.Accent"
+            },
+            {
+               "name": "s.danger",
+               "composeReference": "Spinner.S.Danger"
+            },
+            {
+               "name": "xs.primary",
+               "composeReference": "Spinner.Xs.Primary"
+            },
+            {
+               "name": "xs.secondary",
+               "composeReference": "Spinner.Xs.Secondary"
+            },
+            {
+               "name": "xs.global-white",
+               "composeReference": "Spinner.Xs.GlobalWhite"
+            },
+            {
+               "name": "xs.accent",
+               "composeReference": "Spinner.Xs.Accent"
+            },
+            {
+               "name": "xs.danger",
+               "composeReference": "Spinner.Xs.Danger"
+            },
+            {
+               "name": "xxs.primary",
+               "composeReference": "Spinner.Xxs.Primary"
+            },
+            {
+               "name": "xxs.secondary",
+               "composeReference": "Spinner.Xxs.Secondary"
+            },
+            {
+               "name": "xxs.global-white",
+               "composeReference": "Spinner.Xxs.GlobalWhite"
+            },
+            {
+               "name": "xxs.accent",
+               "composeReference": "Spinner.Xxs.Accent"
+            },
+            {
+               "name": "xxs.danger",
+               "composeReference": "Spinner.Xxs.Danger"
+            }
+         ]
+      },
+      {
+         "key": "list",
+         "coreName": "List",
+         "styleName": "DropdownMenuList",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownMenuList.Default"
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
+         "styleName": "DropdownMenuItem",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownMenuItem.Default"
+            }
+         ]
+      },
+      {
+         "key": "dropdown-menu",
+         "coreName": "DropdownMenu",
+         "styleName": "DropdownMenu",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "DropdownMenu.Default"
+            }
+         ]
+      },
+      {
+         "key": "scroll-bar",
+         "coreName": "ScrollBar",
+         "styleName": "ScrollBar",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "ScrollBar.Default"
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "BasicButtonGroup",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "BasicButtonGroup.Default"
+            }
+         ]
+      },
+      {
+         "key": "button-group",
+         "coreName": "ButtonGroup",
+         "styleName": "IconButtonGroup",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "IconButtonGroup.Default"
+            }
+         ]
+      },
+      {
+         "key": "tab-bar",
+         "coreName": "TabBar",
+         "styleName": "TabBar",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "TabBar.Default"
+            }
+         ]
+      },
+      {
+         "key": "tab-bar-item",
+         "coreName": "TabBarItem",
+         "styleName": "TabBarItem",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "TabBarItem.Default"
+            }
+         ]
+      },
+      {
+         "key": "tabs",
+         "coreName": "Tabs",
+         "styleName": "TabsFolder",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "TabsFolder.Default"
+            }
+         ]
+      },
+      {
+         "key": "tab-item",
+         "coreName": "TabItem",
+         "styleName": "TabItemFolder",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "TabItemFolder.Default"
+            }
+         ]
+      },
+      {
+         "key": "collapsing-navigation-bar",
+         "coreName": "CollapsingNavigationBar",
+         "styleName": "CollapsingNavigationBarMainPage",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "CollapsingNavigationBarMainPage.Default"
+            }
+         ]
+      },
+      {
+         "key": "collapsing-navigation-bar",
+         "coreName": "CollapsingNavigationBar",
+         "styleName": "CollapsingNavigationBarInternalPage",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "CollapsingNavigationBarInternalPage.Default"
+            }
+         ]
+      }
+   ]
+}

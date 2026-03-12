@@ -29,12 +29,19 @@ import com.sdds.playground.sandbox.plasma.homeds.integration.compose.PlasmaHomed
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.compose.PlasmaB2cComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.view.PlasmaB2cViewComponents
+import com.sdds.playground.sandbox.sdds.sbcom.integration.SddsSbComThemeWrapper
+import com.sdds.playground.sandbox.sdds.sbcom.integration.compose.SddsSbcomComposeComponents
 import com.sdds.playground.sandbox.sdds.serv.integration.SddsServThemeWrapper
 import com.sdds.playground.sandbox.sdds.serv.integration.compose.SddsServComposeComponents
 import com.sdds.playground.sandbox.sdds.serv.integration.view.SddsServViewComponents
 import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteThemeWrapper
 import com.sdds.playground.sandbox.stylessalute.integration.compose.StylesSaluteComposeComponents
 import com.sdds.playground.sandbox.stylessalute.integration.view.StylesSaluteViewComponents
+import com.sdds.sbcom.theme.SddsSbComTheme
+import com.sdds.sbcom.theme.subthemes.Default
+import com.sdds.sbcom.theme.subthemes.Inverse
+import com.sdds.sbcom.theme.subthemes.OnDark
+import com.sdds.sbcom.theme.subthemes.OnLight
 import com.sdds.serv.theme.SddsServTheme
 import com.sdds.serv.theme.subthemes.Default
 import com.sdds.serv.theme.subthemes.Inverse
@@ -48,6 +55,7 @@ internal enum class Theme {
     PlasmaGiga,
     PlasmaGigaApp,
     PlasmaHomeDs,
+    SddsSbCom,
     ;
 
     internal companion object {
@@ -114,6 +122,17 @@ internal val composeThemes: List<ThemeInfoCompose> = listOf(
             SubTheme.ON_LIGHT to { PlasmaHomeDsTheme.OnLight(content = it) },
             SubTheme.ON_DARK to { PlasmaHomeDsTheme.OnDark(content = it) },
             SubTheme.INVERSE to { PlasmaHomeDsTheme.Inverse(content = it) },
+        ),
+    ),
+    ThemeInfoCompose(
+        theme = Theme.SddsSbCom,
+        components = SddsSbcomComposeComponents,
+        themeWrapper = { SddsSbComThemeWrapper(it) },
+        subthemes = mapOf(
+            SubTheme.DEFAULT to { SddsSbComTheme.Default(content = it) },
+            SubTheme.ON_LIGHT to { SddsSbComTheme.OnLight(content = it) },
+            SubTheme.ON_DARK to { SddsSbComTheme.OnDark(content = it) },
+            SubTheme.INVERSE to { SddsSbComTheme.Inverse(content = it) },
         ),
     ),
 )
