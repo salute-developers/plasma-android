@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.graphics.rememberBlurStyle
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.internal.common.asBrush
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.background
 import com.sdds.compose.uikit.shadow.shadow
 
@@ -49,7 +49,7 @@ fun TabBar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: TabBarScope.() -> Unit,
 ) {
-    val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
+    val backgroundColor = style.colors.background.getValue(interactionSource)
     val backgroundBlurTint = style.colors.backgroundBlurTint.colorForInteraction(interactionSource)
     val shape = remember(style.topShape, style.bottomShape) {
         if (style.topShape == style.bottomShape) {
@@ -67,7 +67,7 @@ fun TabBar(
         shape = shape,
         blurRadius = style.dimensions.backgroundBlurRadius,
         tint = backgroundBlurTint,
-        fallbackBackground = backgroundColor.asBrush(),
+        fallbackBackground = backgroundColor,
     )
     Row(
         modifier = Modifier

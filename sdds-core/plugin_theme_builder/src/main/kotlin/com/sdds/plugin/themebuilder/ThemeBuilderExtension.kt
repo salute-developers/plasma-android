@@ -26,6 +26,7 @@ open class ThemeBuilderExtension {
     internal var autoGenerate: Boolean = true
     internal var defaultThemeTypography = DefaultThemeTypography.DYNAMIC
     internal var componentsMetaStyleClass: Boolean = false
+    internal var ignoreDisabledTokens: Boolean = false
 
     /**
      * Временный способ установки любого url для конфигов компонентов
@@ -185,6 +186,15 @@ open class ThemeBuilderExtension {
      */
     fun defaultTypography(typography: DefaultThemeTypography) {
         this.defaultThemeTypography = typography
+    }
+
+    /**
+     * Устанавливает поведение для выключенных токенов.
+     * Если токены выключены, то код для них не будет генерироваться.
+     * По умолчанию [false]
+     */
+    fun ignoreDisabledTokens(ignore: Boolean) {
+        this.ignoreDisabledTokens = ignore
     }
 
     private fun updateTarget(newTarget: ThemeBuilderTarget) {

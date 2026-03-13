@@ -188,8 +188,8 @@ import com.sdds.testing.compose.progress.ProgressBarDefault
 import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeM
 import com.sdds.testing.compose.radiobox.RadioBoxSizeM
 import com.sdds.testing.compose.rectskeleton.RectSkeletonForSandbox
-import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
-import com.sdds.testing.compose.segment.SegmentSizeLCounter
+import com.sdds.testing.compose.segment.SegmentItemSizeS
+import com.sdds.testing.compose.segment.SegmentSizeXs
 import com.sdds.testing.compose.spinner.SpinnerTest
 import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.textarea.TextAreaLDefaultTBTA
@@ -277,9 +277,9 @@ internal sealed class ComponentScreen(
     object Indicator : ComponentScreen({ IndicatorScreen(it) }, { it, _ -> IndicatorCommon(it as IndicatorStyle) })
     object Counter : ComponentScreen({ CounterScreen(it) }, { it, _ -> CounterCommon(it as CounterStyle) })
     object SegmentItem :
-        ComponentScreen({ SegmentItemScreen(it) }, { it, _ -> SegmentItemSizeMSecondaryPilled(it as SegmentItemStyle) })
+        ComponentScreen({ SegmentItemScreen(it) }, { it, _ -> SegmentItemSizeS(it as SegmentItemStyle) })
 
-    object Segment : ComponentScreen({ SegmentScreen(it) }, { it, _ -> SegmentSizeLCounter(it as SegmentStyle) })
+    object Segment : ComponentScreen({ SegmentScreen(it) }, { it, _ -> SegmentSizeXs(it as SegmentStyle) })
     object Divider : ComponentScreen({ DividerScreen(it) }, { it, _ -> DividerDefault(it as DividerStyle) })
     object Overlay : ComponentScreen(
         { OverlayScreen(it) },

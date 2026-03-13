@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.collapsingnavigationbar.CollapsingNavigationBarProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -119,7 +120,11 @@ internal class CollapsingNavigationBarComposeVariationGenerator(
             buildString {
                 appendLine(".colors {")
                 props.backgroundColor?.let {
-                    appendLine(getColor("backgroundColor", it, true))
+                    if (it is Gradient) {
+                        appendLine(getGradientOrWrappedColor("background", it))
+                    } else {
+                        appendLine(getColor("backgroundColor", it, true))
+                    }
                 }
                 props.backIconColor?.let {
                     appendLine(getColor("backIconColor", it, true))
