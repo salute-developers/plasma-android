@@ -141,6 +141,7 @@ internal interface PropertiesListStyle {
  * @param properties свойства
  */
 @Composable
+@Suppress("LongMethod")
 internal fun PropertiesList(
     onSelect: (Property<*>) -> Unit,
     onReset: () -> Unit,
@@ -176,6 +177,15 @@ internal fun PropertiesList(
                         )
 
                     is Property.IntProperty ->
+                        ValuePropertyListItem(
+                            style = style,
+                            onClick = { onSelect(property) },
+                            propertyName = property.name,
+                            propertyValue = property.value.toString(),
+                            icon = painterResource(id = Icons.ic_keyboard_outline_16),
+                        )
+
+                    is Property.FloatProperty ->
                         ValuePropertyListItem(
                             style = style,
                             onClick = { onSelect(property) },

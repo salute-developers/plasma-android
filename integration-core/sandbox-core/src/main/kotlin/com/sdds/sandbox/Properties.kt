@@ -149,7 +149,6 @@ sealed class Property<Value> {
      * Свойство целочисленного типа.
      *
      * Отображается в панели управления как поле для ввода числа
-     * или слайдер (в зависимости от реализации UI).
      *
      * @property name название свойства
      * @property value текущее целочисленное значение
@@ -158,6 +157,19 @@ sealed class Property<Value> {
         override val name: String,
         override val value: Int,
     ) : Property<Int>()
+
+    /**
+     * Свойство типа с плавающей точкой.
+     *
+     * Отображается в панели управления как поле для ввода числа
+     *
+     * @property name название свойства
+     * @property value текущее целочисленное значение
+     */
+    data class FloatProperty(
+        override val name: String,
+        override val value: Float,
+    ) : Property<Float>()
 }
 
 /**
