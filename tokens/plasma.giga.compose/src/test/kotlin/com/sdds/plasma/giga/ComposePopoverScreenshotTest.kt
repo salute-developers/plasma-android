@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service
+package com.sdds.plasma.giga
 
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -6,14 +6,14 @@ import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.basicbutton.BasicButton
-import com.sdds.plasma.sd.service.styles.basicbutton.Default
-import com.sdds.plasma.sd.service.styles.basicbutton.S
-import com.sdds.plasma.sd.service.styles.popover.Accent
-import com.sdds.plasma.sd.service.styles.popover.Default
-import com.sdds.plasma.sd.service.styles.popover.M
-import com.sdds.plasma.sd.service.styles.popover.Popover
-import com.sdds.plasma.sd.service.styles.popover.S
+import com.sdds.plasma.giga.styles.basicbutton.BasicButton
+import com.sdds.plasma.giga.styles.basicbutton.Default
+import com.sdds.plasma.giga.styles.basicbutton.S
+import com.sdds.plasma.giga.styles.popover.Accent
+import com.sdds.plasma.giga.styles.popover.Default
+import com.sdds.plasma.giga.styles.popover.M
+import com.sdds.plasma.giga.styles.popover.Popover
+import com.sdds.plasma.giga.styles.popover.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.popover.PopoverMAccentStrictTopCenterCenterStart
 import com.sdds.testing.compose.popover.PopoverMDefaultLooseStartBottomCenter
