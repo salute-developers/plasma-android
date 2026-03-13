@@ -1,7 +1,5 @@
 package com.sdds.compose.uikit.fixtures.stories.drawer
 
-import androidx.compose.foundation.focusable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,12 +12,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.FocusState
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.sandbox.internal.focusableItem
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.CloseIconAlignment
 import com.sdds.compose.uikit.Drawer
@@ -180,18 +175,3 @@ private val DrawerListItemStyle: ListItemStyle
             }
             .style()
     }
-
-@Composable
-private fun Modifier.focusableItem(
-    focusRequester: FocusRequester? = remember { FocusRequester() },
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource? = null,
-    onFocusChanged: (FocusState) -> Unit = {},
-): Modifier = this
-    .onFocusChanged {
-        onFocusChanged(it)
-    }
-    .let { modifier ->
-        focusRequester?.let { modifier.focusRequester(it) } ?: modifier
-    }
-    .focusable(enabled, interactionSource)
