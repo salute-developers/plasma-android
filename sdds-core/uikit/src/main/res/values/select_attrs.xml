@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_selectStyle" format="reference" />
+    <attr name="sd_selectItemStyle" format="reference" />
+    <attr name="sd_selectItemStyleOverlay" format="reference" />
+
+    <declare-styleable name="Select" tools:ignore="ResourceName">
+        <attr name="sd_buttonStyleOverlay" />
+        <attr name="sd_textFieldStyleOverlay" />
+        <attr name="sd_dropdownMenuStyleOverlay" />
+        <attr name="sd_selectItemStyleOverlay" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectItem" tools:ignore="ResourceName">
+        <attr name="sd_background" />
+        <attr name="sd_iconTint" />
+        <attr name="sd_cellStyleOverlay" format="reference" />
+        <attr name="sd_checkBoxStyleOverlay" />
+        <attr name="sd_icon" />
+        <attr name="sd_controlMargin" format="dimension" />
+        <attr name="sd_controlSize" format="dimension" />
+        <attr name="sd_itemType" format="enum" >
+            <enum name="single" value="0" />
+            <enum name="multiple" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SelectItem_Layout" tools:ignore="ResourceName">
+        <attr name="android:layout_gravity" />
+        <attr name="sd_layout_forceDuplicateParentState"/>
+        <attr name="layout_itemContent" format="enum">
+            <enum name="control" value="0" />
+            <enum name="start" value="1" />
+            <enum name="center" value="2" />
+            <enum name="end" value="3" />
+            <enum name="label" value="4"/>
+            <enum name="title" value="5"/>
+            <enum name="subtitle" value="6"/>
+            <enum name="disclosure" value="7"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

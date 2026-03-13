@@ -3692,6 +3692,41 @@
          "styleName": "EmbeddedChip",
          "variations": [
             {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXlDefault"
+            },
+            {
+               "name": "xl.accent",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXlAccent"
+            },
+            {
+               "name": "xl.negative",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXlNegative"
+            },
+            {
+               "name": "xl.positive",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXlPositive"
+            },
+            {
+               "name": "xl.secondary",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXlSecondary"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChip.Xl.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipXlWarning"
+            },
+            {
                "name": "l",
                "viewReference": "Serv.Sdds.Components.EmbeddedChip.L",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipL"
@@ -4413,6 +4448,41 @@
          "styleName": "EmbeddedChipGroupDense",
          "variations": [
             {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXlDefault"
+            },
+            {
+               "name": "xl.accent",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXlAccent"
+            },
+            {
+               "name": "xl.negative",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXlNegative"
+            },
+            {
+               "name": "xl.positive",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXlPositive"
+            },
+            {
+               "name": "xl.secondary",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXlSecondary"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseXlWarning"
+            },
+            {
                "name": "l",
                "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupDense.L",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupDenseL"
@@ -4559,6 +4629,41 @@
          "coreName": "ChipGroup",
          "styleName": "EmbeddedChipGroupWide",
          "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXl"
+            },
+            {
+               "name": "xl.default",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Default",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlDefault"
+            },
+            {
+               "name": "xl.accent",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Accent",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlAccent"
+            },
+            {
+               "name": "xl.negative",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Negative",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlNegative"
+            },
+            {
+               "name": "xl.positive",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Positive",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlPositive"
+            },
+            {
+               "name": "xl.secondary",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Secondary",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlSecondary"
+            },
+            {
+               "name": "xl.warning",
+               "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Warning",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlWarning"
+            },
             {
                "name": "l",
                "viewReference": "Serv.Sdds.Components.EmbeddedChipGroupWide.L",
@@ -7915,100 +8020,6 @@
                "name": "s",
                "viewReference": "Serv.Sdds.Components.Tooltip.S",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.TooltipS"
-            }
-         ]
-      },
-      {
-         "key": "tool-bar",
-         "coreName": "ToolBar",
-         "styleName": "ToolBarHorizontal",
-         "variations": [
-            {
-               "name": "l",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.L",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalL"
-            },
-            {
-               "name": "l.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.L.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalLHasShadow"
-            },
-            {
-               "name": "m",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.M",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalM"
-            },
-            {
-               "name": "m.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.M.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalMHasShadow"
-            },
-            {
-               "name": "s",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.S",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalS"
-            },
-            {
-               "name": "s.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.S.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalSHasShadow"
-            },
-            {
-               "name": "xs",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.Xs",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalXs"
-            },
-            {
-               "name": "xs.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarHorizontal.Xs.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarHorizontalXsHasShadow"
-            }
-         ]
-      },
-      {
-         "key": "tool-bar",
-         "coreName": "ToolBar",
-         "styleName": "ToolBarVertical",
-         "variations": [
-            {
-               "name": "l",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.L",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalL"
-            },
-            {
-               "name": "l.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.L.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalLHasShadow"
-            },
-            {
-               "name": "m",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.M",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalM"
-            },
-            {
-               "name": "m.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.M.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalMHasShadow"
-            },
-            {
-               "name": "s",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.S",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalS"
-            },
-            {
-               "name": "s.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.S.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalSHasShadow"
-            },
-            {
-               "name": "xs",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.Xs",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalXs"
-            },
-            {
-               "name": "xs.has-shadow",
-               "viewReference": "Serv.Sdds.Components.ToolBarVertical.Xs.HasShadow",
-               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.ToolBarVerticalXsHasShadow"
             }
          ]
       },
@@ -13140,6 +13151,262 @@
                "name": "body-xxs",
                "viewReference": "Serv.Sdds.Components.Editable.BodyXxs",
                "viewOverlayReference": "Serv.Sdds.ComponentOverlays.EditableBodyXxs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectSingleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectSingleNormal.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleNormalXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectSingleNormal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleNormalL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectSingleNormal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleNormalM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectSingleNormal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleNormalS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectSingleNormal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleNormalXs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectSingleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectSingleTight.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleTightXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectSingleTight.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleTightL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectSingleTight.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleTightM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectSingleTight.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleTightS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectSingleTight.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectSingleTightXs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectMultipleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleNormal.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleNormalXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleNormal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleNormalL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleNormal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleNormalM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleNormal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleNormalS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleNormal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleNormalXs"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "SelectMultipleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleTight.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleTightXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleTight.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleTightL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleTight.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleTightM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleTight.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleTightS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectMultipleTight.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectMultipleTightXs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectIem",
+         "styleName": "SelectItemSingleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleNormal.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleNormalXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleNormal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleNormalL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleNormal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleNormalM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleNormal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleNormalS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleNormal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleNormalXs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectIem",
+         "styleName": "SelectItemSingleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleTight.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleTightXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleTight.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleTightL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleTight.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleTightM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleTight.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleTightS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectItemSingleTight.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemSingleTightXs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectIem",
+         "styleName": "SelectItemMultipleNormal",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleNormal.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleNormal.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleNormal.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleNormal.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleNormal.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalXs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectIem",
+         "styleName": "SelectItemMultipleTight",
+         "variations": [
+            {
+               "name": "xl",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleTight.Xl",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleTightXl"
+            },
+            {
+               "name": "l",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleTight.L",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleTightL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleTight.M",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleTightM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleTight.S",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleTightS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Serv.Sdds.Components.SelectItemMultipleTight.Xs",
+               "viewOverlayReference": "Serv.Sdds.ComponentOverlays.SelectItemMultipleTightXs"
             }
          ]
       }

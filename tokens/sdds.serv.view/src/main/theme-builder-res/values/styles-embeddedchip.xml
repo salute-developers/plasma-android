@@ -10,6 +10,57 @@
         <item name="sd_drawableEndTint">@color/serv_embedded_chip_drawable_end_tint</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ChipColorStateProvider</item>
     </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl">
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_embedded_chip_xl_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="android:minHeight">@dimen/serv_embedded_chip_xl_min_height</item>
+        <item name="android:paddingStart">@dimen/serv_embedded_chip_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_embedded_chip_xl_padding_end</item>
+        <item name="sd_textPaddingStart">@dimen/serv_embedded_chip_xl_text_padding_start</item>
+        <item name="sd_textPaddingEnd">@dimen/serv_embedded_chip_xl_text_padding_end</item>
+        <item name="sd_contentStartSize">@dimen/serv_embedded_chip_xl_content_start_size</item>
+        <item name="sd_contentEndSize">@dimen/serv_embedded_chip_xl_content_end_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXl">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl.Default">
+        <item name="serv_chipColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXlDefault">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl.Accent">
+        <item name="serv_chipColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXlAccent">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl.Negative">
+        <item name="serv_chipColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXlNegative">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl.Positive">
+        <item name="serv_chipColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXlPositive">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl.Secondary">
+        <item name="serv_chipColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXlSecondary">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChip.Xl.Warning">
+        <item name="serv_chipColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipXlWarning">
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.Xl.Warning</item>
+    </style>
     <style name="Serv.Sdds.Components.EmbeddedChip.L">
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
         <item name="sd_shapeAppearanceAdjustment">@dimen/serv_embedded_chip_l_shape_adjustment</item>
