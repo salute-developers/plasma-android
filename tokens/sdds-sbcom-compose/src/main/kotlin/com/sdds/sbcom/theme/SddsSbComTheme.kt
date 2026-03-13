@@ -72,7 +72,7 @@ public fun SddsSbComTheme(
     gradients: SddsSbComGradients = SddsSbComTheme.gradients,
     shapes: SddsSbComShapes = defaultSddsSbComShapes(),
     shadows: SddsSbComShadows = defaultSddsSbComShadows(),
-    typography: SddsSbComTypography = smallSddsSbComTypography(),
+    typography: SddsSbComTypography = dynamicSddsSbComTypography(),
     spacing: SddsSbComSpacing = defaultSddsSbComSpacing(),
     content: @Composable () -> Unit,
 ) {

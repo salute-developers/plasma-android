@@ -8,6 +8,8 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.sbcom.tokens.TypographyLargeTokens
+import com.sdds.sbcom.tokens.TypographyMediumTokens
 import com.sdds.sbcom.tokens.TypographySmallTokens
 
 /**
@@ -15,18 +17,6 @@ import com.sdds.sbcom.tokens.TypographySmallTokens
  */
 @Immutable
 public data class SddsSbComTypography internal constructor(
-    /**
-     * typography l display-m-bold
-     */
-    public val displayMBold: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-m-medium
-     */
-    public val displayMMedium: TextStyle = TextStyle.Default,
-    /**
-     * typography l display-m
-     */
-    public val displayMNormal: TextStyle = TextStyle.Default,
     /**
      * typography l display-s-bold
      */
@@ -191,12 +181,89 @@ public fun smallSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography
 )
 
 /**
+ * Возвращает [SddsSbComTypography] для WindowSizeClass.Medium
+ */
+public fun mediumSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography(
+    displaySBold = TypographyMediumTokens.DisplaySBold,
+    displaySMedium = TypographyMediumTokens.DisplaySMedium,
+    displaySNormal = TypographyMediumTokens.DisplaySNormal,
+    headerH1Bold = TypographyMediumTokens.HeaderH1Bold,
+    headerH1Medium = TypographyMediumTokens.HeaderH1Medium,
+    headerH1Normal = TypographyMediumTokens.HeaderH1Normal,
+    headerH2Bold = TypographyMediumTokens.HeaderH2Bold,
+    headerH2Medium = TypographyMediumTokens.HeaderH2Medium,
+    headerH2Normal = TypographyMediumTokens.HeaderH2Normal,
+    headerH3Bold = TypographyMediumTokens.HeaderH3Bold,
+    headerH3Medium = TypographyMediumTokens.HeaderH3Medium,
+    headerH3Normal = TypographyMediumTokens.HeaderH3Normal,
+    headerH4Bold = TypographyMediumTokens.HeaderH4Bold,
+    headerH4Medium = TypographyMediumTokens.HeaderH4Medium,
+    headerH4Normal = TypographyMediumTokens.HeaderH4Normal,
+    bodyLBold = TypographyMediumTokens.BodyLBold,
+    bodyLMedium = TypographyMediumTokens.BodyLMedium,
+    bodyLNormal = TypographyMediumTokens.BodyLNormal,
+    bodyMBold = TypographyMediumTokens.BodyMBold,
+    bodyMMedium = TypographyMediumTokens.BodyMMedium,
+    bodyMNormal = TypographyMediumTokens.BodyMNormal,
+    bodySBold = TypographyMediumTokens.BodySBold,
+    bodySMedium = TypographyMediumTokens.BodySMedium,
+    bodySNormal = TypographyMediumTokens.BodySNormal,
+    bodyXsBold = TypographyMediumTokens.BodyXsBold,
+    bodyXsMedium = TypographyMediumTokens.BodyXsMedium,
+    bodyXsNormal = TypographyMediumTokens.BodyXsNormal,
+    bodyXxsBold = TypographyMediumTokens.BodyXxsBold,
+    bodyXxsMedium = TypographyMediumTokens.BodyXxsMedium,
+    bodyXxsNormal = TypographyMediumTokens.BodyXxsNormal,
+)
+
+/**
+ * Возвращает [SddsSbComTypography] для WindowSizeClass.Expanded
+ */
+public fun largeSddsSbComTypography(): SddsSbComTypography = SddsSbComTypography(
+    displaySBold = TypographyLargeTokens.DisplaySBold,
+    displaySMedium = TypographyLargeTokens.DisplaySMedium,
+    displaySNormal = TypographyLargeTokens.DisplaySNormal,
+    headerH1Bold = TypographyLargeTokens.HeaderH1Bold,
+    headerH1Medium = TypographyLargeTokens.HeaderH1Medium,
+    headerH1Normal = TypographyLargeTokens.HeaderH1Normal,
+    headerH2Bold = TypographyLargeTokens.HeaderH2Bold,
+    headerH2Medium = TypographyLargeTokens.HeaderH2Medium,
+    headerH2Normal = TypographyLargeTokens.HeaderH2Normal,
+    headerH3Bold = TypographyLargeTokens.HeaderH3Bold,
+    headerH3Medium = TypographyLargeTokens.HeaderH3Medium,
+    headerH3Normal = TypographyLargeTokens.HeaderH3Normal,
+    headerH4Bold = TypographyLargeTokens.HeaderH4Bold,
+    headerH4Medium = TypographyLargeTokens.HeaderH4Medium,
+    headerH4Normal = TypographyLargeTokens.HeaderH4Normal,
+    bodyLBold = TypographyLargeTokens.BodyLBold,
+    bodyLMedium = TypographyLargeTokens.BodyLMedium,
+    bodyLNormal = TypographyLargeTokens.BodyLNormal,
+    bodyMBold = TypographyLargeTokens.BodyMBold,
+    bodyMMedium = TypographyLargeTokens.BodyMMedium,
+    bodyMNormal = TypographyLargeTokens.BodyMNormal,
+    bodySBold = TypographyLargeTokens.BodySBold,
+    bodySMedium = TypographyLargeTokens.BodySMedium,
+    bodySNormal = TypographyLargeTokens.BodySNormal,
+    bodyXsBold = TypographyLargeTokens.BodyXsBold,
+    bodyXsMedium = TypographyLargeTokens.BodyXsMedium,
+    bodyXsNormal = TypographyLargeTokens.BodyXsNormal,
+    bodyXxsBold = TypographyLargeTokens.BodyXxsBold,
+    bodyXxsMedium = TypographyLargeTokens.BodyXxsMedium,
+    bodyXxsNormal = TypographyLargeTokens.BodyXxsNormal,
+)
+
+/**
  * Возвращает разные [SddsSbComTypography] в зависимости от ширины окна. Значение динамически
  * изменяется при изменении ширины окна.
  */
 @Composable
 public fun dynamicSddsSbComTypography(): SddsSbComTypography {
-    return smallSddsSbComTypography()
+    val widthClass = collectWindowSizeInfoAsState().value.widthClass
+    return when (widthClass) {
+        WindowSizeClass.Expanded -> largeSddsSbComTypography()
+        WindowSizeClass.Medium -> mediumSddsSbComTypography()
+        WindowSizeClass.Compact -> smallSddsSbComTypography()
+    }
 }
 
 /**
