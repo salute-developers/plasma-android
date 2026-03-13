@@ -112,7 +112,7 @@ class ComposeFormItemScreenshotTest(
     }
 
     @Test
-    fun testTapHasHint() {
+    fun testFormItemTapHasHint() {
         composeTestRule.content {
             FormItemTapHasHint(FormItem.L.Default.style())
         }
