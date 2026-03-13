@@ -15,7 +15,7 @@ import androidx.compose.ui.focus.onFocusChanged
  * @author Малышев Александр on 26.11.2024
  */
 @Composable
-internal fun Modifier.focusableItem(
+fun Modifier.focusableItem(
     focusRequester: FocusRequester? = remember { FocusRequester() },
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource? = null,
