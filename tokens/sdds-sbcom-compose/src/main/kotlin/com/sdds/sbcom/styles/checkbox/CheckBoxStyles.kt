@@ -13,8 +13,10 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CheckBoxStates
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.CheckBoxStyleBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -40,9 +42,20 @@ public val CheckBox.Default: WrapperCheckBoxDefault
     @JvmName("WrapperCheckBoxDefault")
     get() = CheckBoxStyle.builder(this)
         .shape(CircleShape)
+        .backgroundShape(CircleShape)
         .colorValues {
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            backgroundColor(
+                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent.multiplyAlpha(0.08f),
+                    setOf(InteractiveState.Pressed)
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
+                    setOf(InteractiveState.Focused)
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
+                ),
             )
             descriptionColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
@@ -87,6 +100,10 @@ public val CheckBox.Default: WrapperCheckBoxDefault
             toggleBorderOffset(0.0.dp)
             toggleBorderWidth(0.0.dp)
             togglePadding(1.0.dp)
+            paddingStart(9.0.dp)
+            paddingEnd(9.0.dp)
+            paddingTop(9.0.dp)
+            paddingBottom(9.0.dp)
         }
         .disableAlpha(0.4f)
         .wrap(::WrapperCheckBoxDefault)

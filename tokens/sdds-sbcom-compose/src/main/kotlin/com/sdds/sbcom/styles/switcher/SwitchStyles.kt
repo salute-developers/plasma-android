@@ -71,6 +71,7 @@ public val Switch.Default: WrapperSwitchDefault
             toggleTrackHeight(32.0.dp)
             toggleThumbWidth(24.0.dp)
             toggleThumbHeight(24.0.dp)
+            toggleThumbPadding(4.0.dp)
             textPadding(12.0.dp)
             descriptionPadding(4.0.dp)
         }

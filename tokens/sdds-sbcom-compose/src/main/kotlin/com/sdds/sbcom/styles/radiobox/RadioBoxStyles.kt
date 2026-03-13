@@ -16,6 +16,7 @@ import com.sdds.compose.uikit.RadioBoxStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -41,7 +42,18 @@ public val RadioBox.Default: WrapperRadioBoxDefault
     @JvmName("WrapperRadioBoxDefault")
     get() = RadioBoxStyle.builder(this)
         .shape(CircleShape)
+        .backgroundShape(CircleShape)
         .colorValues {
+            backgroundColor(
+                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Hovered)
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent.multiplyAlpha(0.08f),
+                    setOf(InteractiveState.Pressed)
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
+                    setOf(InteractiveState.Focused)
+                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
+                ),
+            )
             toggleColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
             )
@@ -64,6 +76,10 @@ public val RadioBox.Default: WrapperRadioBoxDefault
                 ),
             )
             togglePadding(2.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
+            paddingTop(10.0.dp)
+            paddingBottom(10.0.dp)
         }
         .disableAlpha(0.4f)
         .wrap(::WrapperRadioBoxDefault)

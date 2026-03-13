@@ -3,6 +3,61 @@
    "packageName": "com.sdds.sbcom",
    "components": [
       {
+         "key": "avatar",
+         "coreName": "Avatar",
+         "styleName": "Avatar",
+         "variations": [
+            {
+               "name": "size-180",
+               "composeReference": "Avatar.Size180"
+            },
+            {
+               "name": "size-72",
+               "composeReference": "Avatar.Size72"
+            },
+            {
+               "name": "size-64",
+               "composeReference": "Avatar.Size64"
+            },
+            {
+               "name": "size-56",
+               "composeReference": "Avatar.Size56"
+            },
+            {
+               "name": "size-48",
+               "composeReference": "Avatar.Size48"
+            },
+            {
+               "name": "size-44",
+               "composeReference": "Avatar.Size44"
+            },
+            {
+               "name": "size-40",
+               "composeReference": "Avatar.Size40"
+            },
+            {
+               "name": "size-36",
+               "composeReference": "Avatar.Size36"
+            },
+            {
+               "name": "size-32",
+               "composeReference": "Avatar.Size32"
+            },
+            {
+               "name": "size-26",
+               "composeReference": "Avatar.Size26"
+            },
+            {
+               "name": "size-24",
+               "composeReference": "Avatar.Size24"
+            },
+            {
+               "name": "size-20",
+               "composeReference": "Avatar.Size20"
+            }
+         ]
+      },
+      {
          "key": "basic-button",
          "coreName": "BasicButton",
          "styleName": "BasicButton",

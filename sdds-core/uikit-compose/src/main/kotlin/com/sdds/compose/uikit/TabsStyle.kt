@@ -461,6 +461,26 @@ interface TabsDimensions {
      */
     val minHeight: Dp
 
+    /**
+     * Отступ вначале
+     */
+    val contentPaddingStart: Dp
+
+    /**
+     * Отступ вконце
+     */
+    val contentPaddingEnd: Dp
+
+    /**
+     * Отступ сверху
+     */
+    val contentPaddingTop: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val contentPaddingBottom: Dp
+
     companion object {
 
         /**
@@ -491,6 +511,26 @@ interface TabsDimensionsBuilder {
     fun minHeight(minHeight: Dp): TabsDimensionsBuilder
 
     /**
+     * Устанавливает отступ вначале
+     */
+    fun contentPaddingStart(paddingStart: Dp): TabsDimensionsBuilder
+
+    /**
+     * Устанавливает отступ вначале
+     */
+    fun contentPaddingEnd(paddingEnd: Dp): TabsDimensionsBuilder
+
+    /**
+     * Устанавливает отступ сверху
+     */
+    fun contentPaddingTop(paddingTop: Dp): TabsDimensionsBuilder
+
+    /**
+     * Устанавливает отступ сверху
+     */
+    fun contentPaddingBottom(paddingBottom: Dp): TabsDimensionsBuilder
+
+    /**
      * Вернет [TabsDimensions]
      */
     fun build(): TabsDimensions
@@ -501,12 +541,20 @@ private class DefaultTabsDimensions(
     override val indicatorThickness: Dp,
     override val minSpacing: Dp,
     override val minHeight: Dp,
+    override val contentPaddingStart: Dp,
+    override val contentPaddingEnd: Dp,
+    override val contentPaddingTop: Dp,
+    override val contentPaddingBottom: Dp,
 ) : TabsDimensions {
 
     class Builder : TabsDimensionsBuilder {
         private var indicatorThickness: Dp? = null
         private var minSpacing: Dp? = null
         private var minHeight: Dp? = null
+        private var contentPaddingStart: Dp? = null
+        private var contentPaddingEnd: Dp? = null
+        private var contentPaddingTop: Dp? = null
+        private var contentPaddingBottom: Dp? = null
 
         override fun indicatorThickness(indicatorThickness: Dp) = apply {
             this.indicatorThickness = indicatorThickness
@@ -520,11 +568,31 @@ private class DefaultTabsDimensions(
             this.minHeight = minHeight
         }
 
+        override fun contentPaddingStart(paddingStart: Dp) = apply {
+            this.contentPaddingStart = paddingStart
+        }
+
+        override fun contentPaddingEnd(paddingEnd: Dp) = apply {
+            this.contentPaddingEnd = paddingEnd
+        }
+
+        override fun contentPaddingTop(paddingTop: Dp) = apply {
+            this.contentPaddingTop = paddingTop
+        }
+
+        override fun contentPaddingBottom(paddingBottom: Dp) = apply {
+            this.contentPaddingBottom = paddingBottom
+        }
+
         override fun build(): TabsDimensions {
             return DefaultTabsDimensions(
                 indicatorThickness = indicatorThickness ?: 2.dp,
                 minSpacing = minSpacing ?: 4.dp,
                 minHeight = minHeight ?: 32.dp,
+                contentPaddingStart = contentPaddingStart ?: 0.dp,
+                contentPaddingEnd = contentPaddingEnd ?: 0.dp,
+                contentPaddingTop = contentPaddingTop ?: 0.dp,
+                contentPaddingBottom = contentPaddingBottom ?: 0.dp,
             )
         }
     }

@@ -18,6 +18,8 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.styles.divider.Default
 import com.sdds.sbcom.styles.divider.Divider
+import com.sdds.sbcom.styles.list.Default
+import com.sdds.sbcom.styles.list.DropdownMenuList
 import com.sdds.sbcom.styles.scrollbar.Default
 import com.sdds.sbcom.styles.scrollbar.ScrollBar
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -42,6 +44,7 @@ public val DropdownMenu.Default: WrapperDropdownMenuDefault
     @Composable
     @JvmName("WrapperDropdownMenuDefault")
     get() = DropdownMenuStyle.builder(this)
+        .shape(SddsSbComTheme.shapes.roundL)
         .shadow(SddsSbComTheme.shadows.downHardM)
         .colors {
             backgroundColor(
@@ -49,12 +52,16 @@ public val DropdownMenu.Default: WrapperDropdownMenuDefault
             )
         }
         .dimensions {
+            width(200.0.dp)
             offset(8.0.dp)
             paddingStart(2.0.dp)
             paddingEnd(2.0.dp)
             paddingTop(2.0.dp)
             paddingBottom(2.0.dp)
+            scrollBarPaddingTop(10.0.dp)
+            scrollBarPaddingBottom(12.0.dp)
         }
+        .listStyle(DropdownMenuList.Default.style())
         .dividerStyle(Divider.Default.style())
         .scrollBarStyle(ScrollBar.Default.style())
         .wrap(::WrapperDropdownMenuDefault)

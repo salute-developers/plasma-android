@@ -13,6 +13,12 @@ object SddsSbcomComposeComponents : ComponentsProviderCompose() {
     override val generated: Map<ComponentKey, ComposeComponent<String, out Style>> =
         listOf(
             ComposeComponent(
+                ComponentKey.Avatar,
+                mapOf(
+                    "Avatar" to SddsSbcomAvatarVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.BasicButton,
                 mapOf(
                     "BasicButton" to SddsSbcomBasicButtonVariationsCompose,

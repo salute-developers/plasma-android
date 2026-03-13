@@ -7,6 +7,7 @@
 
 package com.sdds.sbcom.styles.buttongroup
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonGroupStyle
@@ -14,9 +15,9 @@ import com.sdds.compose.uikit.ButtonGroupStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.sbcom.styles.basicbutton.AccentGrey
 import com.sdds.sbcom.styles.basicbutton.BasicButton
 import com.sdds.sbcom.styles.basicbutton.M
-import com.sdds.sbcom.styles.basicbutton.Primary
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -38,8 +39,10 @@ public val BasicButtonGroup.Default: WrapperBasicButtonGroupDefault
     @Composable
     @JvmName("WrapperBasicButtonGroupDefault")
     get() = ButtonGroupStyle.builder(this)
+        .internalShape(CircleShape)
+        .externalShape(CircleShape)
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.M.Primary.style())
+        .buttonStyle(BasicButton.M.AccentGrey.style())
         .wrap(::WrapperBasicButtonGroupDefault)

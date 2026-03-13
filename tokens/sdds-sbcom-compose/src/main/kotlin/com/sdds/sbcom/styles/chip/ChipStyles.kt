@@ -67,62 +67,53 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             )
             contentStartColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
                         to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed)
+                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected)
+                        to SddsSbComTheme.colors.textOnDarkPrimary,
                 ),
             )
             contentEndColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
                         to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed)
+                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected)
+                        to SddsSbComTheme.colors.textOnDarkPrimary,
                 ),
             )
             labelColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.textOnDarkPrimary,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Pressed,
-                    )
+                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
                         to SddsSbComTheme.colors.textOnDarkPrimaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
                         to SddsSbComTheme.colors.textOnDarkPrimaryHover,
+                    setOf(InteractiveState.Pressed)
+                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
+                    setOf(InteractiveState.Selected)
+                        to SddsSbComTheme.colors.textOnDarkPrimary,
                 ),
             )
         }

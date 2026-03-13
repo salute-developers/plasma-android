@@ -7,6 +7,7 @@
 
 package com.sdds.sbcom.styles.segmentitem
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.SegmentItemStyle
@@ -37,6 +38,7 @@ public val SegmentItem.Default: WrapperSegmentItemDefault
     @Composable
     @JvmName("WrapperSegmentItemDefault")
     get() = SegmentItemStyle.builder(this)
+        .shape(CircleShape)
         .labelStyle(SddsSbComTheme.typography.bodySMedium)
         .valueStyle(SddsSbComTheme.typography.bodySMedium)
         .colors {

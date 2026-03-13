@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.internal.checkable.checkbox
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -11,7 +12,9 @@ import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.ProvideTextStyle
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
+import com.sdds.compose.uikit.internal.common.background
 
 @Composable
 internal fun BaseCheckBox(
@@ -40,6 +43,13 @@ internal fun BaseCheckBox(
     BaseCheckableLayout(
         modifier = modifier
             .then(selectableModifier)
+            .background(style.colorValues.backgroundColor.getValue(interactionSource), style.backgroundShape)
+            .padding(
+                start = style.dimensionValues.paddingStart,
+                top = style.dimensionValues.paddingTop,
+                end = style.dimensionValues.paddingEnd,
+                bottom = style.dimensionValues.paddingBottom,
+            )
             .graphicsLayer { alpha = if (enabled) 1f else 0.4f },
         control = {
             CheckBoxControl(

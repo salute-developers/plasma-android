@@ -94,10 +94,12 @@ public fun SddsSbComTheme(
         LocalSddsSbComSpacing provides spacing,
         LocalTextSelectionColors provides textSelectionColors,
         content = {
-            ProvideTextStyle(
-                value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
-                content = content,
-            )
+            DefaultComponents {
+                ProvideTextStyle(
+                    value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
+                    content = content,
+                )
+            }
         },
     )
 }

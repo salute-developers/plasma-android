@@ -7,6 +7,7 @@
 
 package com.sdds.sbcom.styles.tabitem
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabItemStyle
@@ -40,6 +41,7 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
     @Composable
     @JvmName("WrapperTabItemFolderDefault")
     get() = TabItemStyle.builder(this)
+        .shape(CircleShape)
         .labelStyle(SddsSbComTheme.typography.bodyMMedium)
         .colors {
             backgroundColor(
