@@ -9,6 +9,7 @@ import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CardStyle
+import com.sdds.compose.uikit.CarouselStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
@@ -75,6 +76,8 @@ import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
 import com.sdds.playground.sandbox.card.compose.CardScreen
+import com.sdds.playground.sandbox.carousel.compose.CarouselPreview
+import com.sdds.playground.sandbox.carousel.compose.CarouselScreen
 import com.sdds.playground.sandbox.cell.compose.CellScreen
 import com.sdds.playground.sandbox.checkbox.compose.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupScreen
@@ -418,6 +421,10 @@ internal sealed class ComponentScreen(
         { SelectScreen(it) },
         { style, _ -> SelectPreview(style as SelectStyle) },
     )
+    object Carousel : ComponentScreen(
+        { CarouselScreen(it) },
+        { style, _ -> CarouselPreview(style as CarouselStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -487,6 +494,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.EDITABLE -> ComponentScreen.Editable
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         CoreComponent.SELECT -> ComponentScreen.Select
+        CoreComponent.CAROUSEL -> ComponentScreen.Carousel
         else -> ComponentScreen.Empty
     }
 }
