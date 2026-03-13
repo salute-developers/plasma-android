@@ -151,7 +151,10 @@ fun SandboxTheme(
     )
 }
 
-internal const val FIELD_FOCUS_SELECTOR_MODE_SWITCH = true
+/**
+ * Выключатель фокус селектора для компонентов на базе TextField
+ */
+const val FIELD_FOCUS_SELECTOR_MODE_SWITCH = true
 
 @Composable
 private fun defaultPropertiesListStyle(

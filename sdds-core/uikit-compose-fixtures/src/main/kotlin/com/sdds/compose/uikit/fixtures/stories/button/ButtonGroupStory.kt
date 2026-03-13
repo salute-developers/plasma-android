@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
 import com.sdds.sandbox.ButtonGroupUiStatePropertiesProducer
+import com.sdds.sandbox.ButtonGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Property
 import com.sdds.sandbox.PropertyProducer
@@ -83,6 +84,7 @@ object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>
     ComponentKey.ButtonGroup,
     ButtonGroupUiState(),
     ButtonGroupUiStatePropertiesProducer,
+    ButtonGroupUiStateTransformer,
 ) {
     /**
      * Композируемая функция для отображения группы кнопок.
