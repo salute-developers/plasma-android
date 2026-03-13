@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=RectSkeleton_Simple -->
+    <com.sdds.uikit.RectSkeleton
+        android:id="@+id/rect_skeleton_simple"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <!-- sample-end: id=RectSkeleton_Simple -->
+</LinearLayout>

@@ -8,10 +8,7 @@ Overlay представляет из себя контейнер - подлож
 доступны атрибуты AndroidFrameLayout.  
 
 ```xml
-<com.sdds.uikit.OverlayView
-    style="@style/{{ docs-theme-prefix }}.Components.OverlayView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+<!-- @sample: com/sdds/uikit/fixtures/OverlayView_Simple.xml -->
 ```
 
 ## Стиль Overlay

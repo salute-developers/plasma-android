@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=FlowLayout_Simple -->
+    <com.sdds.uikit.FlowLayout
+        android:id="@+id/flowlayout_simple"
+        app:sd_mainAxisGap="5dp"
+        app:sd_crossAxisGap="5dp"
+        app:sd_alignment="end"
+        app:sd_arrangement="center"
+        app:sd_itemsPerLine="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.sdds.uikit.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LabeL"
+            app:sd_value="Value" />
+
+        <com.sdds.uikit.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LabeL"
+            app:sd_value="Value" />
+
+        <com.sdds.uikit.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LabeL"
+            app:sd_value="Value" />
+
+        <com.sdds.uikit.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LabeL"
+            app:sd_value="Value" />
+    </com.sdds.uikit.FlowLayout>
+    <!-- sample-end: id=FlowLayout_Simple -->
+
+</LinearLayout>

@@ -15,61 +15,7 @@ title: File
 ## Использование File в xml
 
 ```xml
-<com.sdds.uikit.File xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/file"
-    style="@style/{{ docs-theme-prefix }}.Components.FileCircularProgress.L.Negative"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <com.sdds.uikit.ImageView
-        android:id="@+id/componentFileIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_file_check_fill_24"
-        app:layout_fileContent="icon" />
-
-    <com.sdds.uikit.IconButton
-        android:id="@+id/componentFileIconButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_fileContent="action"
-        app:sd_icon="@drawable/ic_close_24" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/componentFileLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Label"
-        app:layout_fileContent="label" />
-
-    <com.sdds.uikit.TextView
-        android:id="@+id/componentFileDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description"
-        app:layout_fileContent="description" />
-
-
-    <com.sdds.uikit.CircularProgressBar
-        android:id="@+id/componentFileCircularPB"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_fileContent="progress"
-        app:sd_progress="0.5" >
-
-        <com.sdds.uikit.IconButton
-            android:id="@+id/actionInProgress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_fileContent="action"
-            app:sd_icon="@drawable/ic_close_16" />
-
-    </com.sdds.uikit.CircularProgressBar>
-
-</com.sdds.uikit.File>
+<!-- @sample: com/sdds/uikit/fixtures/File_Simple.xml -->
 ```
 
 Обратите внимание, что у каждого вложенного компонента указана роль layout_fileContent.  

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=RadioBoxGroup_Simple -->
+    <com.sdds.uikit.RadioBoxGroup
+        android:id="@+id/radio_box_group_simple"
+        app:sd_itemSpacing="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.sdds.uikit.RadioBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:sd_descriptionTextColor="#6666"
+            app:sd_description="Description" />
+
+        <com.sdds.uikit.RadioBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:sd_descriptionTextColor="#6666"
+            app:sd_description="Description" />
+
+        <com.sdds.uikit.RadioBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:sd_descriptionTextColor="#6666"
+            app:sd_description="Description" />
+    </com.sdds.uikit.RadioBoxGroup>
+    <!-- sample-end: id=RadioBoxGroup_Simple -->
+
+</LinearLayout>

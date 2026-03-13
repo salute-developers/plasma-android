@@ -6,11 +6,7 @@ title: List
 Можно использовать с ListViewAdapter в качестве RecyclerView.Adapter и [ListItemView](ListItemUsage.md) в качестве элементов.
 
 ```xml
-<com.sdds.uikit.ListView
-    android:id="+@id/exampleList"
-    style="@style/{{ docs-theme-prefix }}.Components.ListNormal.L"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/ListView_Simple.xml -->
 ```
 
 ## Стиль List

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=ToolBar_Simple -->
+    <com.sdds.uikit.ToolBar
+        android:id="@+id/toolbar_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:sd_slotsAmount="3"
+        app:sd_hasDivider="true"
+        >
+
+        <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
+        <com.sdds.uikit.IconButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_icon="@drawable/ic_plasma_36"
+            app:sd_iconTint="#111"
+            app:sd_slotIndex="2"/>
+
+        <com.sdds.uikit.Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:sd_slotIndex="1"/>
+            />
+
+        <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
+        <com.sdds.uikit.IconButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_icon="@drawable/ic_plasma_36"
+            app:sd_iconTint="#111"
+            app:sd_slotIndex="0"/>
+
+    </com.sdds.uikit.ToolBar>
+    <!-- sample-end: id=ToolBar_Simple -->
+
+</LinearLayout>

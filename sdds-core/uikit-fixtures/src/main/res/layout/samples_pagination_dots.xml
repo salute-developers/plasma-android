@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=PaginationDots_Simple -->
+    <com.sdds.uikit.PaginationDots
+        android:id="@+id/pagination_dots_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:sd_gap="5dp"
+        app:sd_itemCount="10"
+        app:sd_dotBackground="#111"
+        app:sd_dotWidth="25dp"
+        app:sd_dotHeight="25dp"
+        app:sd_visibleItemCount="7"
+        app:sd_edgeIndicatorCount="2"
+        app:sd_currentItem="0"/>
+    <!-- sample-end: id=PaginationDots_Simple -->
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="50dp" />
+
+    <!-- sample-start: id=PaginationDots_Vertical_Simple -->
+    <com.sdds.uikit.PaginationDots
+        android:id="@+id/pagination_dots_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:sd_gap="5dp"
+        app:sd_itemCount="10"
+        app:sd_dotBackground="#111"
+        app:sd_dotWidth="25dp"
+        app:sd_dotHeight="25dp"
+        app:sd_visibleItemCount="7"
+        app:sd_edgeIndicatorCount="2"
+        app:sd_currentItem="0"/>
+    <!-- sample-end: id=PaginationDots_Vertical_Simple -->
+
+</LinearLayout>

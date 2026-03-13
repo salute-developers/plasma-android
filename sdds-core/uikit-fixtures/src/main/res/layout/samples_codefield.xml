@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=CodeField_Simple -->
+    <com.sdds.uikit.CodeField
+        android:id="@+id/code_field_simple"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:sd_codeLength="4"
+        android:layout_gravity="center"
+        app:sd_dotSize="10dp"
+        app:sd_dotColor="#111"
+        app:sd_background="111"
+        app:sd_caption="Caption"
+        app:sd_hasCursor="true"
+        app:sd_captionAlignment="center"/>
+    <!-- sample-end: id=CodeField_Simple -->
+
+</LinearLayout>

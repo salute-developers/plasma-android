@@ -8,37 +8,8 @@ title: Card
 Компонент Card является базовым контейнером. CardContent используется для вложенного контента внутри Card, имеет свою форму.
 
 ```xml
-<com.sdds.uikit.Card
-    style="@style/{{ docs-theme-prefix }}.Components.CardSolid.M"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    app:sd_alignment="center"
-    app:sd_arrangement="center"
-    app:sd_crossAxisGap="20dp"
-    app:sd_itemsPerLine="1">
+<!-- @sample: com/sdds/uikit/fixtures/Card_Simple.xml -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello" />
-
-    <com.sdds.uikit.Button
-        style="@style/{{ docs-theme-prefix }}.Components.BasicButton.Xs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Label"
-        app:sd_value="Value" />
-
-    <com.sdds.uikit.CardContent
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <DatePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </com.sdds.uikit.CardContent>
-</com.sdds.uikit.Card>
 ```
 
 ## Стиль Card

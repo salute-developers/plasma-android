@@ -5,11 +5,7 @@ title: Spinner
 Индикатор бесконечной загрузки.
 
 ```xml
-<com.sdds.uikit.Spinner
-    style="@style/{{ docs-theme-prefix }}.Components.Spinner.Xs.Accent"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-/>
+<!-- @sample: com/sdds/uikit/fixtures/Spinner_Simple.xml -->
 ```
 
 ## Стиль Spinner

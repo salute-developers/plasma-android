@@ -85,14 +85,7 @@ parentLayout.addView(wheel)
 :::
 
 ```xml
-<com.sdds.uikit.Wheel
-    android:id="@+id/wheel"
-    style="@style/{{ docs-theme-prefix }}.Components.Wheel.H1"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    app:sd_wheelCount="2"
-    app:sd_controlsEnabled="true"
-    app:sd_separatorType="dots" />
+<!-- @sample: com/sdds/uikit/fixtures/Wheel_Simple.xml -->
 ```
 
 А затем настроить его в `onViewCreated` или `onCreate`:
@@ -116,11 +109,7 @@ wheel.setControlsDisplayMode(0, Wheel.CONTROLS_DISPLAY_MODE_ALWAYS)
 
 В xml:
 ```xml
-<com.sdds.uikit.Wheel
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    app:sd_controlsDisplayMode="if_active"
-/>
+<!-- @sample: com/sdds/uikit/fixtures/Wheel_ControlsEnabled.xml -->
 ```
 
 ## Индикация выбранного элемента
@@ -133,15 +122,7 @@ wheel.setControlsDisplayMode(0, Wheel.CONTROLS_DISPLAY_MODE_ALWAYS)
 :::
 
 ```xml
-<com.sdds.uikit.Wheel
-    android:id="@+id/wheel"
-    style="@style/{{ docs-theme-prefix }}.Components.Wheel.H1"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    app:sd_itemSelectorEnabled="true"
-    app:sd_itemSelectorTint="?{{ docs-theme-resPrefix }}_surfaceDefaultSolidDefault"
-    app:sd_itemSelectorShapeAppearance="?{{ docs-theme-resPrefix }}_shapeRoundM"
-    />
+<!-- @sample: com/sdds/uikit/fixtures/Wheel_Selected_Indication.xml -->
 ```
 
 ## Примечание

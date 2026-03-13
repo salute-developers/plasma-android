@@ -3,15 +3,7 @@ title: CheckBox
 ---
 
 ```xml
-<com.sdds.uikit.CheckBox
-    android:text="Label"
-    app:sd_description="Description"
-    app:sd_descriptionTextColor="#f1f1"
-    app:sd_descriptionPadding="5dp"
-    android:drawablePadding="10dp"
-    app:sd_buttonPadding="2dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/CheckBox_Simple.xml -->
 ```
 
 ## Стиль CheckBox
@@ -41,12 +33,3 @@ title: CheckBox
 Основной текст стилизуется с помощью стандартных атрибутов android.  
 Для настройки и корректировки формы скругления используйте [sd_shapeAppearance](../theme/ShapeAppearance.md#sd_shapeappearance).  
 Для использования заранее сгенерированного стиля, необходимо через атрибут style указать стиль из библиотеки.  
-
-```xml
-<com.sdds.uikit.CheckBox
-    style="{{ docs-theme-prefix }}.Components.Checkbox.L"
-    android:text="Label"
-    app:sd_description="Description"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-```
