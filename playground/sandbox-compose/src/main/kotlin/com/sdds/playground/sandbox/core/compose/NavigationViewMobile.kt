@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.core.compose
 
-import android.util.Log
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -132,7 +131,6 @@ internal fun ComponentPreview(
     component: @Composable (Style, ComponentKey) -> Unit,
 ) {
     themeInfo.themeWrapper {
-        Log.e("ComponentPreview", "ComponentPreview: get for key $key")
         val styleProvider = themeInfo.components.get<String, Style>(key).styleProviders.values.first()
         val style = styleProvider.style("")
         component(style, key)
