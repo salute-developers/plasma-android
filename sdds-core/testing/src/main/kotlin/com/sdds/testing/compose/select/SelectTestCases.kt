@@ -155,7 +155,7 @@ fun SelectMultipleTightLBottomEnd(style: SelectStyle) {
             "Пётр Петров",
         ),
 
-        )
+    )
 }
 
 /**

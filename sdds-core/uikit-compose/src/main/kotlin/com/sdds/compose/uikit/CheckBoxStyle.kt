@@ -817,7 +817,7 @@ private class DefaultCheckBoxStyle(
                 colorValues = mapColors(),
                 dimensions = dimensions ?: CheckBoxDimensions(),
                 dimensionValues = dimensionValuesBuilder.build(),
-                animationDuration = animationDuration ?: 100,
+                animationDuration = animationDuration ?: 200,
                 disableAlpha = disableAlpha ?: 0.4f,
             )
         }

@@ -1,7 +1,12 @@
 package com.sdds.compose.uikit.internal.checkable.radiobox
 
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.Transition
+import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
@@ -43,6 +48,7 @@ import com.sdds.compose.uikit.interactions.getValueAsState
  * @param animationDuration длительность анимации
  * @param colors цвета RadioBox
  */
+@Suppress("LongMethod")
 @Composable
 internal fun RadioBoxControl(
     checked: Boolean,
@@ -56,16 +62,34 @@ internal fun RadioBoxControl(
 ) {
     val stateSet = remember(checked) { if (checked) setOf(RadioBoxStates.Checked) else emptySet() }
 
-    val iconXTranslate = iconXTranslate(checked, dimensions, animationDuration)
-    val iconYTranslate = iconYTranslate(checked, dimensions, animationDuration)
-    val iconWidth = iconWidth(checked, dimensions, animationDuration)
-    val iconHeight = iconHeight(checked, dimensions, animationDuration)
+    val transition = updateTransition(checked, label = "radioBoxTransition")
+
+    val iconXTranslate = transition.iconXTranslate(dimensions, animationDuration)
+    val iconYTranslate = transition.iconYTranslate(dimensions, animationDuration)
+    val iconWidth = transition.iconWidth(dimensions, animationDuration)
+    val iconHeight = transition.iconHeight(checked, dimensions, animationDuration)
 
     val toggleBorderWidth = dimensions.toggleBorderWidth.getValueAsState(interactionSource, stateSet)
     val toggleBorderOffset = dimensions.toggleBorderOffset.getValueAsState(interactionSource, stateSet)
-    val toggleColor = colors.toggleColor.colorForInteraction(interactionSource, stateSet)
-    val borderColor = colors.toggleBorderColor.colorForInteraction(interactionSource, stateSet)
-    val iconColor = colors.toggleIconColor.colorForInteraction(interactionSource, stateSet)
+    val toggleColor = transition.animateColor(
+        transitionSpec = { tween(animationDuration) },
+        label = "toggleColor",
+    ) {
+        colors.toggleColor.colorForInteraction(interactionSource, radioBoxStateSet(it))
+    }
+    val borderColor = transition.animateColor(
+        transitionSpec = { tween(animationDuration) },
+        label = "borderColor",
+    ) {
+        colors.toggleBorderColor.colorForInteraction(interactionSource, radioBoxStateSet(it))
+    }
+    val iconColor = transition.animateColor(
+        transitionSpec = { tween(animationDuration) },
+        label = "iconColor",
+    ) {
+        colors.toggleIconColor.colorForInteraction(interactionSource, radioBoxStateSet(it))
+    }
+    val progress = transition.progress(animationDuration)
 
     Box(
         contentAlignment = Alignment.Center,
@@ -80,17 +104,17 @@ internal fun RadioBoxControl(
                 val toggleIconOutline = createIconOutline(CircleShape, iconWidth, iconHeight, iconContent)
 
                 onDrawBehind {
-                    drawOutline(toggleOutline, toggleColor, style = Fill)
                     translate(
                         left = getBorderOutlineTranslate(toggleBorderWidth, toggleBorderOffset),
                         top = getBorderOutlineTranslate(toggleBorderWidth, toggleBorderOffset),
                     ) {
                         drawOutline(
                             outline = toggleBorderOutline,
-                            color = borderColor,
+                            color = borderColor.value,
                             style = Stroke(width = toggleBorderWidth.value.toPx()),
                         )
                     }
+                    drawOutline(toggleOutline, toggleColor.value, style = Fill)
                     toggleIconOutline?.let {
                         translate(
                             left = getIconHorizontalTranslate(dimensions) + iconXTranslate.value.toPx(),
@@ -98,8 +122,9 @@ internal fun RadioBoxControl(
                         ) {
                             drawOutline(
                                 outline = toggleIconOutline,
-                                color = iconColor,
+                                color = iconColor.value,
                                 style = Fill,
+                                alpha = progress.value,
                             )
                         }
                     }
@@ -111,46 +136,58 @@ internal fun RadioBoxControl(
 }
 
 @Composable
-private fun iconXTranslate(
-    checked: Boolean,
+private fun Transition<Boolean>.iconXTranslate(
     dimensions: RadioBoxDimensionValues,
     animationDuration: Int,
 ): State<Dp> {
-    return animateDpAsState(
-        targetValue = if (checked) 0.dp else dimensions.toggleIconWidth / 2,
-        animationSpec = tween(durationMillis = animationDuration),
+    return animateDp(
+        transitionSpec = { tween(durationMillis = animationDuration) },
         label = "iconXTranslate",
-    )
+    ) {
+        if (it) 0.dp else dimensions.toggleIconWidth / 2
+    }
 }
 
 @Composable
-private fun iconYTranslate(
-    checked: Boolean,
+private fun Transition<Boolean>.iconYTranslate(
     dimensions: RadioBoxDimensionValues,
     animationDuration: Int,
 ): State<Dp> {
-    return animateDpAsState(
-        targetValue = if (checked) 0.dp else dimensions.toggleIconHeight / 2,
-        animationSpec = tween(durationMillis = animationDuration),
+    return animateDp(
+        transitionSpec = { tween(durationMillis = animationDuration) },
         label = "iconYTranslate",
-    )
+    ) {
+        if (it) 0.dp else dimensions.toggleIconHeight / 2
+    }
 }
 
 @Composable
-private fun iconWidth(
-    checked: Boolean,
+private fun Transition<Boolean>.iconWidth(
     dimensions: RadioBoxDimensionValues,
     animationDuration: Int,
 ): State<Dp> {
-    return animateDpAsState(
-        targetValue = if (checked) dimensions.toggleIconWidth else 0.dp,
-        animationSpec = tween(durationMillis = animationDuration),
+    return animateDp(
+        transitionSpec = { tween(durationMillis = animationDuration) },
         label = "toggleIconWidth",
-    )
+    ) {
+        if (it) dimensions.toggleIconWidth else 0.dp
+    }
 }
 
 @Composable
-private fun iconHeight(
+private fun Transition<Boolean>.progress(
+    animationDuration: Int,
+): State<Float> {
+    return animateFloat(
+        transitionSpec = { tween(animationDuration) },
+        label = "progress",
+    ) {
+        if (it) 1f else 0f
+    }
+}
+
+@Composable
+private fun Transition<Boolean>.iconHeight(
     checked: Boolean,
     dimensions: RadioBoxDimensionValues,
     animationDuration: Int,
@@ -177,6 +214,9 @@ private fun IconContent(
         iconContent.invoke()
     }
 }
+
+private fun radioBoxStateSet(checked: Boolean): Set<RadioBoxStates> =
+    if (checked) setOf(RadioBoxStates.Checked) else emptySet()
 
 private fun DrawScope.getIconHorizontalTranslate(dimensions: RadioBoxDimensionValues): Float {
     return (size.width / 2 - dimensions.toggleIconWidth.toPx() / 2)
