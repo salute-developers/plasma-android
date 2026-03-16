@@ -44,4 +44,6 @@ include(
     ":plasma-stards-view:docs",
     ":plasma-stards-compose",
     ":plasma-stards-compose:docs",
+    ":sdds-sbcom-compose",
+    ":sdds-sbcom-compose:docs",
 )

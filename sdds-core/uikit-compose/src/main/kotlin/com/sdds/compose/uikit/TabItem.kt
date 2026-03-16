@@ -64,13 +64,13 @@ fun TabItem(
                 minHeight = style.dimensions.minHeight,
                 minWidth = style.dimensions.minWidth,
             )
-            .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-            )
             .background(
                 color = style.colors.backgroundColor.getValue(interactionSource, stateSet),
                 shape = style.shape,
+            )
+            .padding(
+                start = style.dimensions.paddingStart,
+                end = style.dimensions.paddingEnd,
             ),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,

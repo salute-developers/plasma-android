@@ -143,7 +143,7 @@ internal class SwitchComposeVariationGenerator(
                     appendDimension("toggle_thumb_height", it, variationId)
                 }
                 props.togglePadding?.let {
-                    appendDimension("toggle_padding", it, variationId)
+                    appendDimension("toggle_thumb_padding", it, variationId)
                 }
                 props.textPadding?.let {
                     appendDimension("text_padding", it, variationId)

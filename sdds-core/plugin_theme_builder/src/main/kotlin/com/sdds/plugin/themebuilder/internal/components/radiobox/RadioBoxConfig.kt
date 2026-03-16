@@ -15,11 +15,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class RadioBoxProperties(
     val shape: Shape? = null,
+    val backgroundShape: Shape? = null,
     val labelStyle: Typography? = null,
     val descriptionStyle: Typography? = null,
     val toggleColor: Color? = null,
     val toggleBorderColor: Color? = null,
     val toggleIconColor: Color? = null,
+    val backgroundColor: Color? = null,
     val labelColor: Color? = null,
     val descriptionColor: Color? = null,
     val toggleBorderWidth: Dimension? = null,
@@ -31,6 +33,10 @@ internal data class RadioBoxProperties(
     val toggleHeight: Dimension? = null,
     val toggleIconWidth: Dimension? = null,
     val toggleIconHeight: Dimension? = null,
+    val paddingStart: Dimension? = null,
+    val paddingEnd: Dimension? = null,
+    val paddingTop: Dimension? = null,
+    val paddingBottom: Dimension? = null,
     val disableAlpha: FloatValue? = null,
 ) : PropertyOwner {
 
@@ -39,11 +45,13 @@ internal data class RadioBoxProperties(
         val otherProps = parent as? RadioBoxProperties ?: return this
         return copy(
             shape = shape ?: otherProps.shape,
+            backgroundShape = backgroundShape ?: otherProps.backgroundShape,
             labelStyle = labelStyle ?: otherProps.labelStyle,
             descriptionStyle = descriptionStyle ?: otherProps.descriptionStyle,
             toggleColor = toggleColor ?: otherProps.toggleColor,
             toggleBorderColor = toggleBorderColor ?: otherProps.toggleBorderColor,
             toggleIconColor = toggleIconColor ?: otherProps.toggleIconColor,
+            backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             labelColor = labelColor ?: otherProps.labelColor,
             descriptionColor = descriptionColor ?: otherProps.descriptionColor,
             toggleBorderWidth = toggleBorderWidth ?: otherProps.toggleBorderWidth,
@@ -56,6 +64,10 @@ internal data class RadioBoxProperties(
             toggleIconWidth = toggleIconWidth ?: otherProps.toggleIconWidth,
             toggleIconHeight = toggleIconHeight ?: otherProps.toggleIconHeight,
             disableAlpha = disableAlpha ?: otherProps.disableAlpha,
+            paddingStart = paddingStart ?: otherProps.paddingStart,
+            paddingTop = paddingTop ?: otherProps.paddingTop,
+            paddingEnd = paddingEnd ?: otherProps.paddingEnd,
+            paddingBottom = paddingBottom ?: otherProps.paddingBottom,
         )
     }
 }

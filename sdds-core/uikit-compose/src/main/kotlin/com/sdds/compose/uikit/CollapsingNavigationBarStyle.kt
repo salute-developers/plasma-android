@@ -6,12 +6,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.transform
+import com.sdds.compose.uikit.internal.common.asBrush
 import com.sdds.compose.uikit.shadow.ShadowAppearance
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -210,7 +214,16 @@ interface CollapsingNavigationBarColors {
     /**
      * Цвет фона
      */
+    @Deprecated(
+        "Use background: StatefulValue<Brush> property",
+        replaceWith = ReplaceWith("background"),
+    )
     val backgroundColor: StatefulValue<Color>
+
+    /**
+     * Цвет фона
+     */
+    val background: StatefulValue<Brush>
 
     /**
      * Цвет кнопки закрытия
@@ -260,6 +273,11 @@ interface CollapsingNavigationBarColorsBuilder {
      * Устанавливает фон [backgroundColor] компонента.
      */
     fun backgroundColor(backgroundColor: StatefulValue<Color>): CollapsingNavigationBarColorsBuilder
+
+    /**
+     * Устанавливает фон [backgroundColor] компонента.
+     */
+    fun background(backgroundColor: StatefulValue<Brush>): CollapsingNavigationBarColorsBuilder
 
     /**
      * Устанавливает цвет кнопки закрытия [backIconColor].
@@ -330,10 +348,12 @@ private data class DefaultCollapsingNavigationBarColors(
     override val actionEndColor: StatefulValue<Color>,
     override val titleColor: StatefulValue<Color>,
     override val descriptionColor: StatefulValue<Color>,
+    override val background: StatefulValue<Brush>,
 ) : CollapsingNavigationBarColors {
 
     class Builder : CollapsingNavigationBarColorsBuilder {
         private var backgroundColor: StatefulValue<Color>? = null
+        private var background: StatefulValue<Brush>? = null
         private var backIconColor: StatefulValue<Color>? = null
         private var actionStartColor: StatefulValue<Color>? = null
         private var actionEndColor: StatefulValue<Color>? = null
@@ -342,6 +362,10 @@ private data class DefaultCollapsingNavigationBarColors(
 
         override fun backgroundColor(backgroundColor: StatefulValue<Color>) = apply {
             this.backgroundColor = backgroundColor
+        }
+
+        override fun background(backgroundColor: StatefulValue<Brush>) = apply {
+            this.background = backgroundColor
         }
 
         override fun backIconColor(backIconColor: StatefulValue<Color>) = apply {
@@ -376,6 +400,9 @@ private data class DefaultCollapsingNavigationBarColors(
                 descriptionColor = descriptionColor ?: Color.LightGray.asStatefulValue(
                     setOf(CollapsingNavigationBarStates.Collapsed) to Color.DarkGray,
                 ),
+                background = background
+                    ?: backgroundColor?.transform { SolidColor(it) }
+                    ?: Color.Transparent.asBrush().asStatefulValue(),
             )
         }
     }

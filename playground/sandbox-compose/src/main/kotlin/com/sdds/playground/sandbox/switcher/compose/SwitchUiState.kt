@@ -18,7 +18,7 @@ internal data class SwitchUiState(
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
-    val toggleable: Boolean = false,
+    val toggleable: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

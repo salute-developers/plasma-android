@@ -8,6 +8,7 @@ import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -155,10 +156,16 @@ fun Tabs(
         val showDropdown = remember { mutableStateOf(false) }
         Layout(
             modifier = Modifier
+                .clip(style.shape)
                 .background(
                     color = style.colors.backgroundColor.colorForInteraction(interactionSource),
                 )
-                .clip(style.shape),
+                .padding(
+                    start = style.dimensions.contentPaddingStart,
+                    top = style.dimensions.contentPaddingTop,
+                    end = style.dimensions.contentPaddingEnd,
+                    bottom = style.dimensions.contentPaddingBottom,
+                ),
             measurePolicy = remember(orientation) {
                 when (orientation) {
                     TabsOrientation.Horizontal -> HorizontalMeasurePolicy()

@@ -14,7 +14,7 @@ internal data class SegmentUiState(
     val label: String = "Label",
     val value: String = "",
     val startIcon: Boolean = false,
-    val endContent: SegmentItemContent = SegmentItemContent.COUNTER,
+    val endContent: SegmentItemContent = SegmentItemContent.NONE,
     val count: String = "1",
     val hasDivider: Boolean = false,
 ) : UiState {

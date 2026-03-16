@@ -49,6 +49,7 @@ internal class RadioBoxComposeVariationGenerator(
         variationId: String,
     ): List<String> = listOfNotNull(
         shapeCall(props, variationId),
+        backgroundShapeCall(props, variationId),
         labelStyleCall(props),
         descriptionStyleCall(props),
         colorsCall(props),
@@ -59,6 +60,12 @@ internal class RadioBoxComposeVariationGenerator(
     private fun shapeCall(props: RadioBoxProperties, variationId: String): String? {
         return props.shape?.let {
             getShape(it, variationId)
+        }
+    }
+
+    private fun backgroundShapeCall(props: RadioBoxProperties, variationId: String): String? {
+        return props.backgroundShape?.let {
+            getShape(it, variationId, shapeName = "backgroundShape")
         }
     }
 
@@ -87,6 +94,9 @@ internal class RadioBoxComposeVariationGenerator(
                 props.labelColor?.let {
                     appendLine(getColor("labelColor", it))
                 }
+                props.backgroundColor ?.let {
+                    appendLine(getColor("backgroundColor", it))
+                }
                 props.descriptionColor?.let {
                     appendLine(getColor("descriptionColor", it))
                 }
@@ -106,6 +116,7 @@ internal class RadioBoxComposeVariationGenerator(
         }
     }
 
+    @Suppress("CyclomaticComplexMethod")
     private fun dimensionsCall(
         props: RadioBoxProperties,
         variationId: String,
@@ -140,6 +151,18 @@ internal class RadioBoxComposeVariationGenerator(
                 props.descriptionPadding?.let {
                     appendDimension("description_padding", it, variationId)
                 }
+                props.paddingStart?.let {
+                    appendDimension("padding_start", it, variationId)
+                }
+                props.paddingEnd?.let {
+                    appendDimension("padding_end", it, variationId)
+                }
+                props.paddingTop?.let {
+                    appendDimension("padding_top", it, variationId)
+                }
+                props.paddingBottom?.let {
+                    appendDimension("padding_bottom", it, variationId)
+                }
                 append("}")
             }
         } else {
@@ -155,7 +178,11 @@ internal class RadioBoxComposeVariationGenerator(
             toggleWidth != null ||
             toggleHeight != null ||
             toggleIconWidth != null ||
-            toggleIconHeight != null
+            toggleIconHeight != null ||
+            paddingStart != null ||
+            paddingTop != null ||
+            paddingEnd != null ||
+            paddingBottom != null
     }
 
     private fun RadioBoxProperties.hasColors(): Boolean {
@@ -163,6 +190,7 @@ internal class RadioBoxComposeVariationGenerator(
             toggleBorderColor != null ||
             toggleIconColor != null ||
             descriptionColor != null ||
-            labelColor != null
+            labelColor != null ||
+            backgroundColor != null
     }
 }

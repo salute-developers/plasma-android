@@ -176,6 +176,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:Input
     abstract val defaultThemeTypography: Property<DefaultThemeTypography>
 
+    /**
+     * Конфигурация размеров
+     */
+    @get:Input
+    abstract val ignoreDisabledTokens: Property<Boolean>
+
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
@@ -268,6 +274,13 @@ abstract class GenerateThemeTask : DefaultTask() {
 
     private fun decodeBase(): Theme =
         metaFile.get().asFile.decode<Theme>(Serializer.meta)
+            .let { theme ->
+                if (ignoreDisabledTokens.get()) {
+                    theme.copy(tokens = theme.tokens.filter { it.enabled })
+                } else {
+                    theme
+                }
+            }
             .also { logger.debug("decoded base $it") }
 
     private val colors: Map<String, String> by unsafeLazy {

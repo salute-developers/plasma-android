@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
 
@@ -117,7 +118,8 @@ fun Chip(
                 alpha = { if (it) ENABLED_CHIP_ALPHA else style.disableAlpha },
                 role = Role.Button,
                 interactionSource = interactionSource,
-            ),
+            )
+            .selection(isSelected, interactionSource),
         dimensionsSet = dimensionsSet,
         colorsSet = colorsSet,
         labelContent = label,

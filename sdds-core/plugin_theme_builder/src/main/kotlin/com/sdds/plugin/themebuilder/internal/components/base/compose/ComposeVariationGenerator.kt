@@ -488,7 +488,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         val receiverType = getInternalClassType(receiverName)
         val mergedViews = variation.mergedViews()
         mergedViews.forEach { viewEntry ->
-            val extensionName = viewEntry.key.capitalized()
+            val extensionName = viewEntry.key.techToCamelCase().capitalized()
             val extensionBody = propsToBuilderCalls(
                 props = viewEntry.value.props,
                 variationId = viewEntry.key,

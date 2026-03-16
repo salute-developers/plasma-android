@@ -210,6 +210,18 @@ internal class TabsComposeVariationGenerator(
                 props.minHeight?.let {
                     appendDimension("min_height", it, variationId)
                 }
+                props.paddingStart?.let {
+                    appendDimension("content_padding_start", it, variationId)
+                }
+                props.paddingEnd?.let {
+                    appendDimension("content_padding_end", it, variationId)
+                }
+                props.paddingTop?.let {
+                    appendDimension("content_padding_top", it, variationId)
+                }
+                props.paddingBottom?.let {
+                    appendDimension("content_padding_bottom", it, variationId)
+                }
                 append("}")
             }
         } else {

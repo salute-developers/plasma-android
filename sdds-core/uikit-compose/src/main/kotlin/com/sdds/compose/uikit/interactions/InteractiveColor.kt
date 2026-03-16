@@ -10,7 +10,9 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import com.sdds.compose.uikit.internal.common.asBrush
 
 /**
  * "Интерактивный" цвет. Дает возможность определить цвета для каждого [Interaction] из [InteractionSource]
@@ -162,5 +164,39 @@ private class ColorStateList(
     @Composable
     override fun colorForInteractionAsState(interactionSource: InteractionSource): State<Color> {
         return getValueAsState(interactionSource)
+    }
+}
+
+/**
+ * Преобразует [InteractiveColor] в [StatefulValue] с [Color]
+ */
+fun InteractiveColor.asStatefulColor(): StatefulValue<Color> {
+    return when (this) {
+        is SimpleInteractiveColor -> default.asStatefulValue(
+            setOf(InteractiveState.Pressed) to pressed,
+            setOf(InteractiveState.Hovered) to hovered,
+            setOf(InteractiveState.Focused) to focused,
+            setOf(InteractiveState.Activated) to activated,
+            setOf(InteractiveState.Selected) to selected,
+        )
+        is ColorStateList -> this
+        else -> Color.Transparent.asStatefulValue()
+    }
+}
+
+/**
+ * Преобразует [InteractiveColor] в [StatefulValue] с [Brush]
+ */
+fun InteractiveColor.asStatefulBrush(): StatefulValue<Brush> {
+    return when (this) {
+        is SimpleInteractiveColor -> default.asBrush().asStatefulValue(
+            setOf(InteractiveState.Pressed) to pressed.asBrush(),
+            setOf(InteractiveState.Hovered) to hovered.asBrush(),
+            setOf(InteractiveState.Focused) to focused.asBrush(),
+            setOf(InteractiveState.Activated) to activated.asBrush(),
+            setOf(InteractiveState.Selected) to selected.asBrush(),
+        )
+        is ColorStateList -> this.transform { it.asBrush() }
+        else -> Color.Transparent.asBrush().asStatefulValue()
     }
 }

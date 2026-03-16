@@ -152,6 +152,9 @@ dependencies {
     "starAppImplementation"("tokens:plasma-stards-compose")
     "starAppImplementation"(project(":sandbox-plasma-stards-integration"))
 
+    implementation("tokens:sdds-sbcom-compose")
+    implementation(project(":sandbox-sdds-sbcom-integration"))
+
     implementation(project(":sandbox-core-integration"))
     implementation("sdds-core:testing") {
         exclude("org.robolectric", "robolectric")

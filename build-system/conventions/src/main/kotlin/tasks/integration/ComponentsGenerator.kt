@@ -120,9 +120,8 @@ internal abstract class ComponentGenerator {
                 "key" to "IconTabs",
                 "appearances" to iconTabsAppearancesBlock
             )
-        )
-
-        return listOf(tabs, iconTabs)
+        ).takeIf { iconTabsAppearancesBlock.isNotBlank() }
+        return listOfNotNull(tabs, iconTabs)
     }
 
     protected fun Any.loadTemplate(path: String): String {

@@ -15,12 +15,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class CheckBoxProperties(
     val shape: Shape? = null,
+    val backgroundShape: Shape? = null,
     val labelStyle: Typography? = null,
     val descriptionStyle: Typography? = null,
     val toggleColor: Color? = null,
     val toggleBorderColor: Color? = null,
     val toggleIconColor: Color? = null,
     val labelColor: Color? = null,
+    val backgroundColor: Color? = null,
     val descriptionColor: Color? = null,
     val toggleBorderOffset: Dimension? = null,
     val toggleBorderWidth: Dimension? = null,
@@ -32,6 +34,10 @@ internal data class CheckBoxProperties(
     val toggleIconWidth: Dimension? = null,
     val toggleIconHeight: Dimension? = null,
     val disableAlpha: FloatValue? = null,
+    val paddingStart: Dimension? = null,
+    val paddingEnd: Dimension? = null,
+    val paddingTop: Dimension? = null,
+    val paddingBottom: Dimension? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -39,12 +45,14 @@ internal data class CheckBoxProperties(
         val otherProps = parent as? CheckBoxProperties ?: return this
         return copy(
             shape = shape ?: otherProps.shape,
+            backgroundShape = backgroundShape ?: otherProps.backgroundShape,
             labelStyle = labelStyle ?: otherProps.labelStyle,
             descriptionStyle = descriptionStyle ?: otherProps.descriptionStyle,
             toggleColor = toggleColor ?: otherProps.toggleColor,
             toggleBorderColor = toggleBorderColor ?: otherProps.toggleBorderColor,
             toggleIconColor = toggleIconColor ?: otherProps.toggleIconColor,
             labelColor = labelColor ?: otherProps.labelColor,
+            backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             descriptionColor = descriptionColor ?: otherProps.descriptionColor,
             toggleBorderOffset = toggleBorderOffset ?: otherProps.toggleBorderOffset,
             toggleBorderWidth = toggleBorderWidth ?: otherProps.toggleBorderWidth,
@@ -56,6 +64,10 @@ internal data class CheckBoxProperties(
             toggleIconWidth = toggleIconWidth ?: otherProps.toggleIconWidth,
             toggleIconHeight = toggleIconHeight ?: otherProps.toggleIconHeight,
             disableAlpha = disableAlpha ?: otherProps.disableAlpha,
+            paddingStart = paddingStart ?: otherProps.paddingStart,
+            paddingTop = paddingTop ?: otherProps.paddingTop,
+            paddingEnd = paddingEnd ?: otherProps.paddingEnd,
+            paddingBottom = paddingBottom ?: otherProps.paddingBottom,
         )
     }
 }

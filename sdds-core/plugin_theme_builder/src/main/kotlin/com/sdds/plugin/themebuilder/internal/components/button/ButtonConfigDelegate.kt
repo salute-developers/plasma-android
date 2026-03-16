@@ -57,6 +57,7 @@ internal class ButtonConfigDelegate(
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
             componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+            styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
             styleBuilderFactoryFunName = "${component.componentName.techToCamelCase().decapitalized()}Builder",
         )
     }

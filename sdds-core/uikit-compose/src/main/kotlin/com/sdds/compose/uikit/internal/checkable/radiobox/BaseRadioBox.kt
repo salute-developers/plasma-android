@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.internal.checkable.radiobox
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -10,7 +11,9 @@ import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
+import com.sdds.compose.uikit.internal.common.background
 
 @Composable
 internal fun BaseRadioBox(
@@ -40,6 +43,13 @@ internal fun BaseRadioBox(
     BaseCheckableLayout(
         modifier = modifier
             .then(selectableModifier)
+            .background(style.colorValues.backgroundColor.getValue(interactionSource), style.backgroundShape)
+            .padding(
+                start = style.dimensionValues.paddingStart,
+                top = style.dimensionValues.paddingTop,
+                end = style.dimensionValues.paddingEnd,
+                bottom = style.dimensionValues.paddingBottom,
+            )
             .graphicsLayer { alpha = if (enabled) 1f else 0.4f },
         control = {
             RadioBoxControl(
