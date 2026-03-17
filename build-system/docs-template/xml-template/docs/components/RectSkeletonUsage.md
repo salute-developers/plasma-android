@@ -3,10 +3,7 @@ title: RectSkeleton
 ---
 
 ```xml
-<com.sdds.uikit.RectSkeleton
-    style="@style/{{ docs-theme-prefix }}.Components.RectSkeleton"
-    android:layout_width="100dp"
-    android:layout_height="100dp"/>
+<!-- @sample: com/sdds/uikit/fixtures/RectSkeleton_Simple.xml -->
 ```
 
 ## Стиль RectSkeleton

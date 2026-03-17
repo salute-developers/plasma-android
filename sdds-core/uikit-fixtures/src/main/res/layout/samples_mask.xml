@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Mask_Phone -->
+    <com.sdds.uikit.TextField
+        android:id="@+id/mask_phone"
+        app:sd_label="Телефон"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=Mask_Phone -->
+
+    <!-- sample-start: id=Mask_Date -->
+    <com.sdds.uikit.TextField
+        android:id="@+id/mask_date"
+        app:sd_label="Дата"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=Mask_Date -->
+
+    <!-- sample-start: id=Mask_Time -->
+    <com.sdds.uikit.TextField
+        android:id="@+id/mask_time"
+        app:sd_label="Дата"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=Mask_Time -->
+
+    <!-- sample-start: id=Mask_Number -->
+    <com.sdds.uikit.TextField
+        android:id="@+id/mask_number"
+        app:sd_label="Дата"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=Mask_Number -->
+
+    <!-- sample-start: id=Mask_Custom -->
+    <com.sdds.uikit.TextField
+        android:id="@+id/mask_custom"
+        app:sd_label="Произвольная"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=Mask_Custom -->
+
+</LinearLayout>

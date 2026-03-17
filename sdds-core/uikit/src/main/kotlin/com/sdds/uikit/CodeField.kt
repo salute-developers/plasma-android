@@ -900,7 +900,9 @@ open class CodeField @JvmOverloads constructor(
             if (groupSA != 0) groupShape = ShapeModel.create(context, groupSA)
             val captionAppearance = getResourceId(R.styleable.CodeField_sd_captionAppearance, 0)
             if (captionAppearance != 0) captionView.setTextAppearance(captionAppearance)
-            captionView.setTextColor(getColorStateList(R.styleable.CodeField_sd_captionColor))
+            val captionColor =
+                getColorStateList(R.styleable.CodeField_sd_captionColor) ?: ColorStateList.valueOf(Color.RED)
+            captionView.setTextColor(captionColor)
             colorState = ColorState.obtain(context, attrs, defStyleAttr, defStyleRes)
             val length = getInt(R.styleable.CodeField_sd_codeLength, 0)
             if (length > 0 && length != _codeLength) {

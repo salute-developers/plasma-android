@@ -3,11 +3,7 @@ title: Counter
 ---
 
 ```xml
- <com.sdds.uikit.Counter
-    style="@style/{{ docs-theme-prefix }}.Components.Counter.L.Positive"
-    android:text="521321412"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Counter_Simple.xml -->
 ```
 
 ## Стиль Counter

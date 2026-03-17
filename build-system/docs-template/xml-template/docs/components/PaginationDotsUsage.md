@@ -63,27 +63,14 @@ viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(
 :::
 
 ```xml
-<com.sdds.uikit.PaginationDots
-    android:id="@+id/paginationDots"
-    style="@style/{{ docs-theme-prefix }}.Components.PaginationDotsHorizontal.M"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:sd_itemCount="10"
-    app:sd_visibleItemCount="7"
-    app:sd_currentItem="0"/>
+<!-- @sample: com/sdds/uikit/fixtures/PaginationDots_Simple.xml -->
 ```
 
 ## Вертикальная ориентация
 
 ```xml
-<com.sdds.uikit.PaginationDots
-    android:id="@+id/paginationDots"
-    style="@style/{{ docs-theme-prefix }}.Components.PaginationDotsVertical.M"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:sd_itemCount="10"
-    app:sd_visibleItemCount="7"
-    app:sd_currentItem="0"/>
+<!-- @sample: com/sdds/uikit/fixtures/PaginationDots_Vertical_Simple.xml -->
+
 ```
 
 ## Советы по настройке

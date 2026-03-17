@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=ListItemView_Simple -->
+    <com.sdds.uikit.ListItemView
+        android:id="@+id/list_item_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:sd_disclosureText="disclosure">
+
+        <com.sdds.uikit.Avatar
+            app:sd_name="User Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/firstItemLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:layout_cellContent="label" />
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/firstItemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            app:layout_cellContent="title" />
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/firstItemSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtitle"
+            app:layout_cellContent="subtitle" />
+
+    </com.sdds.uikit.ListItemView>
+    <!-- sample-end: id=ListItemView_Simple -->
+
+</LinearLayout>

@@ -101,14 +101,7 @@ parentLayout.addView(carousel)
 :::
 
 ```xml
-<com.sdds.uikit.Carousel
-    android:id="@+id/carousel"
-    style="@style/{{ docs-theme-prefix }}.Components.Carousel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:sd_controlsEnabled="true"
-    app:sd_controlsPlacement="inner"
-    app:sd_gap="20dp" />
+<!-- @sample: com/sdds/uikit/fixtures/Carousel_Simple.xml -->
 ```
 
 А затем настроить его в `onViewCreated` или `onCreate`:
@@ -145,14 +138,7 @@ carousel.prevButtonPadding = resources.getDimensionPixelSize(R.dimen.space_m)
 В XML:
 
 ```xml
-<com.sdds.uikit.Carousel
-    android:id="@+id/carousel"
-    style="@style/{{ docs-theme-prefix }}.Components.Carousel"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:sd_controlsPlacement="outer"
-    app:sd_nextButtonPadding="@dimen/space_m"
-    app:sd_prevButtonPadding="@dimen/space_m" />
+<!-- @sample: com/sdds/uikit/fixtures/Carousel_ControlsPlacement.xml -->
 ```
 
 ## Индикатор страниц

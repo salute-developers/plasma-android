@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- sample-start: id=background_switch_example -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- placeholder: android:color="#AAF6AE" -> android:color="Your color"  -->
+    <item android:color="#AAF6AE"
+        android:state_focused="true" />
+    <!-- placeholder: android:color="#626262" -> android:color="Your color"  -->
+    <item android:color="#626262" />
+</selector>
+    <!-- sample-end: id=background_switch_example -->

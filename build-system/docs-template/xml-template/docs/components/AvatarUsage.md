@@ -3,12 +3,8 @@ title: Avatar
 ---
 
 ```xml
-<com.sdds.uikit.Avatar
-    style="@style/{{ docs-theme-prefix }}.Components.Avatar.L"
-    android:id="@+id/Avatar"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content" 
-    />
+<!-- @sample: com/sdds/uikit/fixtures/Avatar_Simple.xml -->
+
 ```
 
 ## Стиль Avatar

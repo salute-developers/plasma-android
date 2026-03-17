@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- sample-start: id=Badge_Simple -->
+    <com.sdds.uikit.Badge
+        android:id="@+id/badge_simple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Badge"
+        />
+    <!-- sample-end: id=Badge_Simple -->
+
+    <!-- sample-start: id=Badge_Icon_Start -->
+    <!-- placeholder: android:drawableStart="@drawable/ic_plasma_24" -> android:drawableStart="Your drawable"  -->
+    <com.sdds.uikit.Badge
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Badge"
+        android:drawableStart="@drawable/ic_plasma_24"
+        />
+    <!-- sample-end: id=Badge_Icon_Start -->
+
+    <!-- sample-start: id=Badge_Icon_End -->
+    <!-- placeholder: android:drawableEnd="@drawable/ic_plasma_24" -> android:drawableEnd="Your drawable"  -->
+    <com.sdds.uikit.Badge
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Badge"
+        android:drawableEnd="@drawable/ic_plasma_24"
+        />
+    <!-- sample-end: id=Badge_Icon_End -->
+
+    <!-- sample-start: id=IconBadge_Simple -->
+    <!-- placeholder: android:drawableStart="@drawable/ic_plasma_24" -> android:drawableStart="Your drawable"  -->
+    <com.sdds.uikit.IconBadge
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_plasma_24"
+        />
+    <!-- sample-end: id=IconBadge_Simple -->
+
+
+
+</LinearLayout>

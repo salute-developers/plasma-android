@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Carousel_Simple -->
+    <!-- placeholder: app:sd_nextButtonIcon="@drawable/ic_arrow_right_36" -> app:sd_nextButtonIcon="Your icon"  -->
+    <!-- placeholder: app:sd_prevButtonIcon="@drawable/ic_arrow_left_36" -> app:sd_prevButtonIcon="Your icon"  -->
+    <com.sdds.uikit.Carousel
+        android:id="@+id/carousel_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5CCBD5"
+        app:sd_nextButtonIcon="@drawable/ic_arrow_right_36"
+        app:sd_prevButtonIcon="@drawable/ic_arrow_left_36"
+        app:sd_gap="20dp" />
+    <!-- sample-end: id=Carousel_Simple -->
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <!-- sample-start: id=Carousel_ControlsPlacement -->
+    <!-- placeholder: app:sd_nextButtonIcon="@drawable/ic_arrow_right_36" -> app:sd_nextButtonIcon="Your icon"  -->
+    <!-- placeholder: app:sd_prevButtonIcon="@drawable/ic_arrow_left_36" -> app:sd_prevButtonIcon="Your icon"  -->
+    <com.sdds.uikit.Carousel
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sd_controlsEnabled="true"
+        app:sd_controlsPlacement="outer"
+        android:background="#5CCBD5"
+        app:sd_nextButtonIcon="@drawable/ic_arrow_right_36"
+        app:sd_prevButtonIcon="@drawable/ic_arrow_left_36"
+        app:sd_nextButtonPadding="10dp"
+        app:sd_prevButtonPadding="10dp"
+        app:sd_gap="20dp" />
+    <!-- sample-end: id=Carousel_ControlsPlacement -->
+
+</LinearLayout>

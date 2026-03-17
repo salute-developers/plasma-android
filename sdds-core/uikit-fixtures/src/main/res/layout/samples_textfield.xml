@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=TextField_Simple -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_arrow_down_16" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.TextField
+        android:id="@+id/text_field_simple"
+        app:sd_label="Label"
+        app:sd_value="Value"
+        app:sd_suffixText="TA"
+        app:sd_caption="Caption"
+        app:sd_indicatorSize="10dp"
+        app:sd_icon="@drawable/ic_arrow_down_16"
+        app:sd_iconTint="#111"
+        app:sd_iconSize="24dp"
+        app:sd_iconPadding="20dp"
+        app:sd_requirementMode="start"
+        app:sd_counter="1234"
+        app:sd_labelPadding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=TextField_Simple -->
+
+    <!-- sample-start: id=TextArea_Simple -->
+    <com.sdds.uikit.TextArea
+        android:id="@+id/text_area_simple"
+        app:sd_label="Label"
+        app:sd_value="Value"
+        app:sd_suffixText="TA"
+        app:sd_caption="Caption"
+        app:sd_indicatorSize="10dp"
+        app:sd_requirementMode="end"
+        app:sd_counter="12"
+        app:sd_labelPadding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=TextArea_Simple -->
+
+</LinearLayout>
