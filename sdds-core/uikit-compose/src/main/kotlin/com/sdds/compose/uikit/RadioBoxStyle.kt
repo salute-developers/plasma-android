@@ -927,7 +927,7 @@ private class DefaultRadioBoxStyle(
                 colorValues = mapColors(),
                 dimensions = dimensions ?: RadioBoxDimensions(),
                 dimensionValues = dimensionValuesBuilder.build(),
-                animationDuration = animationDuration ?: 100,
+                animationDuration = animationDuration ?: 200,
                 disableAlpha = disableAlpha ?: 0.4f,
                 backgroundShape = backgroundShape ?: RectangleShape,
             )
