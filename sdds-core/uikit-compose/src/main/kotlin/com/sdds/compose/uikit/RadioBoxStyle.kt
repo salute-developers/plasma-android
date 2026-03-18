@@ -8,7 +8,10 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -16,7 +19,9 @@ import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.internal.common.asBrush
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -85,6 +90,11 @@ interface RadioBoxStyle : Style {
      * Альфа в состоянии disabled
      */
     val disableAlpha: Float
+
+    /**
+     * Форма фона
+     */
+    val backgroundShape: Shape
 
     companion object {
 
@@ -164,6 +174,12 @@ interface RadioBoxStyleBuilder : StyleBuilder<RadioBoxStyle> {
      * @see RadioBoxStyle.shape
      */
     fun shape(shape: CornerBasedShape): RadioBoxStyleBuilder
+
+    /**
+     * Устанавливает форму фона [shape]
+     * @see RadioBoxStyle.shape
+     */
+    fun backgroundShape(backgroundShape: Shape): RadioBoxStyleBuilder
 }
 
 /**
@@ -362,6 +378,11 @@ interface RadioBoxColorValues {
      */
     val toggleBorderColor: InteractiveColor
 
+    /**
+     * Цвет фона
+     */
+    val backgroundColor: StatefulValue<Brush>
+
     companion object {
 
         /**
@@ -443,6 +464,33 @@ interface RadioBoxColorValuesBuilder {
         toggleIconColor(toggleIconColor.asInteractive())
 
     /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see RadioBoxColorValues.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: StatefulValue<Brush>): RadioBoxColorValuesBuilder
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see RadioBoxColorValuesBuilder.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: InteractiveColor): RadioBoxColorValuesBuilder =
+        backgroundColor(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see RadioBoxColorValuesBuilder.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): RadioBoxColorValuesBuilder =
+        backgroundColor(backgroundColor.asStatefulValue())
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see RadioBoxColorValuesBuilder.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Color): RadioBoxColorValuesBuilder =
+        backgroundColor(backgroundColor.asBrush())
+
+    /**
      * Возвращает экземпляр [RadioBoxColors]
      */
     fun build(): RadioBoxColorValues
@@ -521,6 +569,26 @@ interface RadioBoxDimensionValues {
      */
     val toggleBorderOffset: StatefulValue<Dp>
 
+    /**
+     * Отступ сверху
+     */
+    val paddingTop: Dp
+
+    /**
+     * Отступ вначале
+     */
+    val paddingStart: Dp
+
+    /**
+     * Отступ вконце
+     */
+    val paddingEnd: Dp
+
+    /**
+     * Отступ снизу
+     */
+    val paddingBottom: Dp
+
     companion object {
         /**
          * Возвращает билдер [RadioBoxDimensionsBuilder]
@@ -592,6 +660,26 @@ interface RadioBoxDimensionsBuilder {
     fun descriptionPadding(descriptionPadding: Dp): RadioBoxDimensionsBuilder
 
     /**
+     * Устанавливает отступ вначале
+     */
+    fun paddingStart(paddingStart: Dp): RadioBoxDimensionsBuilder
+
+    /**
+     * Устанавливает отступ сверху
+     */
+    fun paddingTop(paddingTop: Dp): RadioBoxDimensionsBuilder
+
+    /**
+     * Устанавливает отступ вконце
+     */
+    fun paddingEnd(paddingEnd: Dp): RadioBoxDimensionsBuilder
+
+    /**
+     * Устанавливает отступ снизу
+     */
+    fun paddingBottom(paddingBottom: Dp): RadioBoxDimensionsBuilder
+
+    /**
      * Возвращает экземпляр [RadioBoxDimensions]
      */
     fun build(): RadioBoxDimensionValues
@@ -608,6 +696,10 @@ private class DefaultRadioBoxDimensions(
     override val toggleBorderOffset: StatefulValue<Dp>,
     override val textPadding: Dp,
     override val descriptionPadding: Dp,
+    override val paddingTop: Dp,
+    override val paddingStart: Dp,
+    override val paddingEnd: Dp,
+    override val paddingBottom: Dp,
 ) : RadioBoxDimensionValues {
 
     class Builder : RadioBoxDimensionsBuilder {
@@ -620,6 +712,10 @@ private class DefaultRadioBoxDimensions(
         private var toggleBorderOffset: StatefulValue<Dp>? = null
         private var textPadding: Dp? = null
         private var descriptionPadding: Dp? = null
+        private var paddingTop: Dp? = null
+        private var paddingStart: Dp? = null
+        private var paddingEnd: Dp? = null
+        private var paddingBottom: Dp? = null
 
         override fun toggleWidth(toggleWidth: Dp) = apply {
             this.toggleWidth = toggleWidth
@@ -657,6 +753,22 @@ private class DefaultRadioBoxDimensions(
             this.descriptionPadding = descriptionPadding
         }
 
+        override fun paddingStart(paddingStart: Dp) = apply {
+            this.paddingStart = paddingStart
+        }
+
+        override fun paddingTop(paddingTop: Dp) = apply {
+            this.paddingTop = paddingTop
+        }
+
+        override fun paddingEnd(paddingEnd: Dp) = apply {
+            this.paddingEnd = paddingEnd
+        }
+
+        override fun paddingBottom(paddingBottom: Dp) = apply {
+            this.paddingBottom = paddingBottom
+        }
+
         override fun build(): RadioBoxDimensionValues {
             return DefaultRadioBoxDimensions(
                 toggleWidth = toggleWidth ?: 22.dp,
@@ -674,6 +786,10 @@ private class DefaultRadioBoxDimensions(
                 ),
                 textPadding = textPadding ?: 12.dp,
                 descriptionPadding = descriptionPadding ?: 2.dp,
+                paddingStart = this.paddingStart ?: 0.dp,
+                paddingTop = this.paddingTop ?: 0.dp,
+                paddingEnd = this.paddingEnd ?: 0.dp,
+                paddingBottom = this.paddingBottom ?: 0.dp,
             )
         }
     }
@@ -693,10 +809,12 @@ private class DefaultRadioBoxStyle(
     override val disableAlpha: Float,
     @Deprecated("Don't use")
     override val animationDuration: Int,
+    override val backgroundShape: Shape,
 ) : RadioBoxStyle {
 
     class Builder : RadioBoxStyleBuilder {
         private var shape: CornerBasedShape? = null
+        private var backgroundShape: Shape? = null
         private var labelStyle: TextStyle? = null
         private var descriptionStyle: TextStyle? = null
         private var colorsBuilder: RadioBoxColorsBuilder = RadioBoxColors.builder()
@@ -796,6 +914,10 @@ private class DefaultRadioBoxStyle(
             this.shape = shape
         }
 
+        override fun backgroundShape(backgroundShape: Shape) = apply {
+            this.backgroundShape = backgroundShape
+        }
+
         override fun style(): RadioBoxStyle {
             return DefaultRadioBoxStyle(
                 shape = shape ?: CircleShape,
@@ -805,8 +927,9 @@ private class DefaultRadioBoxStyle(
                 colorValues = mapColors(),
                 dimensions = dimensions ?: RadioBoxDimensions(),
                 dimensionValues = dimensionValuesBuilder.build(),
-                animationDuration = animationDuration ?: 100,
+                animationDuration = animationDuration ?: 200,
                 disableAlpha = disableAlpha ?: 0.4f,
+                backgroundShape = backgroundShape ?: RectangleShape,
             )
         }
     }
@@ -819,6 +942,7 @@ private class DefaultRadioBoxColorValues(
     override val toggleColor: InteractiveColor,
     override val toggleBorderColor: InteractiveColor,
     override val toggleIconColor: InteractiveColor,
+    override val backgroundColor: StatefulValue<Brush>,
 ) : RadioBoxColorValues {
 
     class Builder : RadioBoxColorValuesBuilder {
@@ -827,6 +951,7 @@ private class DefaultRadioBoxColorValues(
         private var toggleColor: InteractiveColor? = null
         private var toggleBorderColor: InteractiveColor? = null
         private var toggleIconColor: InteractiveColor? = null
+        private var backgroundColor: StatefulValue<Brush>? = null
 
         override fun labelColor(labelColor: InteractiveColor) = apply {
             this.labelColor = labelColor
@@ -848,6 +973,10 @@ private class DefaultRadioBoxColorValues(
             this.toggleIconColor = toggleIconColor
         }
 
+        override fun backgroundColor(backgroundColor: StatefulValue<Brush>) = apply {
+            this.backgroundColor = backgroundColor
+        }
+
         override fun build(): RadioBoxColorValues {
             return DefaultRadioBoxColorValues(
                 labelColor = labelColor ?: Color.Black.asInteractive(),
@@ -864,6 +993,7 @@ private class DefaultRadioBoxColorValues(
                         setOf(InteractiveState.Focused, RadioBoxStates.Checked) to Color.Green,
                         setOf(RadioBoxStates.Checked) to Color.Green,
                     ),
+                backgroundColor = backgroundColor ?: Color.Transparent.asBrush().asStatefulValue(),
             )
         }
     }

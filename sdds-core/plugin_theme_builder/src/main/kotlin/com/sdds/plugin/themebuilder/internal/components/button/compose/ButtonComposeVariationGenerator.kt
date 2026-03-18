@@ -22,6 +22,7 @@ internal class ButtonComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderName: String,
     styleBuilderFactoryFunName: String,
 ) : ComposeVariationGenerator<ButtonProperties>(
     themeClassName = themeClassName,
@@ -34,6 +35,7 @@ internal class ButtonComposeVariationGenerator(
     componentPackage = componentPackage,
     outputLocation = outputLocation,
     componentName = componentName,
+    styleBuilderName = styleBuilderName,
     styleBuilderFactoryFunName = styleBuilderFactoryFunName,
 ) {
 

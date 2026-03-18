@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- sample-start: id=Accordion_Simple -->
+    <com.sdds.uikit.Accordion
+        android:id="@+id/accordion_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <!-- sample-end: id=Accordion_Simple -->
+
+    <!-- sample-start: id=Accordion_Custom_Content -->
+    <com.sdds.uikit.AccordionItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/customContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.sdds.uikit.AccordionItemView>
+    <!-- sample-end: id=Accordion_Custom_Content -->
+
+
+</LinearLayout>

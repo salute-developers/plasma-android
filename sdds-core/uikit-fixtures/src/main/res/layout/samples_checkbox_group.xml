@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=CheckBoxGroup_Simple -->
+    <com.sdds.uikit.CheckBoxGroup
+        android:id="@+id/checkbox_group_simple"
+        app:sd_itemOffset="20dp"
+        app:sd_itemSpacing="20dp"
+        app:sd_hasMain="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.sdds.uikit.CheckBox
+            android:text="Label"
+            app:sd_description="Description"
+            app:sd_descriptionTextColor="#f1f1"
+            app:sd_descriptionPadding="5dp"
+            android:drawablePadding="10dp"
+            app:sd_buttonPadding="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.sdds.uikit.CheckBox
+            android:text="Label"
+            app:sd_description="Description"
+            app:sd_descriptionTextColor="#f1f1"
+            app:sd_descriptionPadding="5dp"
+            android:drawablePadding="10dp"
+            app:sd_buttonPadding="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.sdds.uikit.CheckBox
+            android:text="Label"
+            app:sd_description="Description"
+            app:sd_descriptionTextColor="#f1f1"
+            app:sd_descriptionPadding="5dp"
+            android:drawablePadding="10dp"
+            app:sd_buttonPadding="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </com.sdds.uikit.CheckBoxGroup>
+    <!-- sample-end: id=CheckBoxGroup_Simple -->
+
+</LinearLayout>

@@ -31,7 +31,9 @@ import com.sdds.compose.uikit.LocalCounterStyle
 import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
+import com.sdds.compose.uikit.LocalEditableStyle
 import com.sdds.compose.uikit.LocalFileStyle
+import com.sdds.compose.uikit.LocalFormItemStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
@@ -54,6 +56,7 @@ import com.sdds.compose.uikit.LocalRectSkeletonStyle
 import com.sdds.compose.uikit.LocalScrollBarStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSegmentStyle
+import com.sdds.compose.uikit.LocalSelectStyle
 import com.sdds.compose.uikit.LocalSliderStyle
 import com.sdds.compose.uikit.LocalSpinnerStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
@@ -62,6 +65,7 @@ import com.sdds.compose.uikit.LocalTabsStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTextSkeletonStyle
 import com.sdds.compose.uikit.LocalToastStyle
+import com.sdds.compose.uikit.LocalToolBarStyle
 import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.accordion.AccordionSolidActionStart
@@ -115,10 +119,14 @@ import com.sdds.serv.styles.drawer.DrawerCloseOuter
 import com.sdds.serv.styles.drawer.M
 import com.sdds.serv.styles.dropdownmenu.DropdownMenuNormal
 import com.sdds.serv.styles.dropdownmenu.M
+import com.sdds.serv.styles.editable.BodyM
+import com.sdds.serv.styles.editable.Editable
 import com.sdds.serv.styles.file.Default
 import com.sdds.serv.styles.file.FileCircularProgress
 import com.sdds.serv.styles.file.FileLinearProgress
 import com.sdds.serv.styles.file.M
+import com.sdds.serv.styles.formitem.FormItem
+import com.sdds.serv.styles.formitem.M
 import com.sdds.serv.styles.iconbadge.Default
 import com.sdds.serv.styles.iconbadge.IconBadgeSolid
 import com.sdds.serv.styles.iconbadge.M
@@ -169,6 +177,8 @@ import com.sdds.serv.styles.segment.Segment
 import com.sdds.serv.styles.segmentitem.M
 import com.sdds.serv.styles.segmentitem.Primary
 import com.sdds.serv.styles.segmentitem.SegmentItem
+import com.sdds.serv.styles.select.M
+import com.sdds.serv.styles.select.SelectMultipleNormal
 import com.sdds.serv.styles.slider.Default
 import com.sdds.serv.styles.slider.M
 import com.sdds.serv.styles.slider.SliderHorizontalLabelInner
@@ -184,12 +194,15 @@ import com.sdds.serv.styles.tabs.M
 import com.sdds.serv.styles.tabs.TabsDefault
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
+import com.sdds.serv.styles.textfield.OuterLabel
 import com.sdds.serv.styles.textfield.TextField
 import com.sdds.serv.styles.textskeleton.Default
 import com.sdds.serv.styles.textskeleton.TextSkeleton
 import com.sdds.serv.styles.toast.Default
 import com.sdds.serv.styles.toast.Rounded
 import com.sdds.serv.styles.toast.Toast
+import com.sdds.serv.styles.toolbar.M
+import com.sdds.serv.styles.toolbar.ToolBarHorizontal
 import com.sdds.serv.styles.tooltip.M
 import com.sdds.serv.styles.tooltip.Tooltip
 import com.sdds.serv.theme.SddsServTheme
@@ -258,6 +271,8 @@ fun ThemeSetup(
             LocalDividerStyle provides Divider.Default.style(),
             LocalDrawerStyle provides DrawerCloseOuter.M.style(),
             LocalDropdownMenuStyle provides DropdownMenuNormal.M.style(),
+            LocalEditableStyle provides Editable.BodyM.style(),
+            LocalFormItemStyle provides FormItem.M.style(),
             LocalFileStyle provides FileCircularProgress.M.Default.style(),
             LocalFileStyle provides FileLinearProgress.M.Default.style(),
             LocalImageStyle provides Image.Ratio3x4.style(),
@@ -281,14 +296,16 @@ fun ThemeSetup(
             LocalScrollBarStyle provides ScrollBar.M.style(),
             LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
             LocalSegmentStyle provides Segment.M.Primary.style(),
+            LocalSelectStyle provides SelectMultipleNormal.M.style(),
             LocalSliderStyle provides SliderHorizontalLabelInner.M.Default.style(),
             LocalSpinnerStyle provides Spinner.M.Default.style(),
             LocalSwitchStyle provides Switch.M.style(),
             LocalTabBarStyle provides TabBarSolid.M.Default.style(),
             LocalTabsStyle provides TabsDefault.M.style(),
-            LocalTextFieldStyle provides TextField.M.Default.style(),
+            LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeleton.Default.style(),
             LocalToastStyle provides Toast.Rounded.Default.style(),
+            LocalToolBarStyle provides ToolBarHorizontal.M.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
         ) {
             content()

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Note_Simple -->
+    <com.sdds.uikit.Note
+        android:id="@+id/note_simple"
+        app:sd_title="Title"
+        app:sd_text="Text"
+        app:sd_background="#2301"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <!-- placeholder: android:src="@drawable/ic_salute_outline_24"" -> android:src="Your resource"  -->
+        <com.sdds.uikit.ImageView
+            app:layout_noteContent="contentBefore"
+            android:src="@drawable/ic_salute_outline_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.sdds.uikit.LinkButton
+            app:layout_noteContent="action"
+            android:text="Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.sdds.uikit.Note>
+    <!-- sample-end: id=Note_Simple -->
+
+    <!-- sample-start: id=NoteCompact_Simple -->
+    <!-- placeholder: android:src="@drawable/ic_salute_outline_24"" -> android:src="Your resource"  -->
+    <com.sdds.uikit.NoteCompact
+        android:id="@+id/note_compact_simple"
+        app:sd_title="Title"
+        app:sd_text="Text"
+        app:sd_background="#5401"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <com.sdds.uikit.ImageView
+            app:layout_noteContent="contentBefore"
+            android:src="@drawable/ic_salute_outline_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.sdds.uikit.LinkButton
+            app:layout_noteContent="action"
+            android:text="Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.sdds.uikit.NoteCompact>
+    <!-- sample-end: id=NoteCompact_Simple -->
+
+</LinearLayout>

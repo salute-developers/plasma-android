@@ -5,44 +5,7 @@ title: CheckBoxGroup
 Контент CheckBoxGroup формируется с помощью [CheckBox](CheckBoxUsage.md#checkbox).
 
 ```xml
- <com.sdds.uikit.CheckBoxGroup
-    app:sd_itemOffset="20dp"
-    app:sd_itemSpacing="20dp"
-    app:sd_hasMain="true"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-        <com.sdds.uikit.CheckBox
-            android:text="Label"
-            app:sd_description="Description"
-            app:sd_descriptionTextColor="#f1f1"
-            app:sd_descriptionPadding="5dp"
-            android:drawablePadding="10dp"
-            app:sd_buttonPadding="2dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <com.sdds.uikit.CheckBox
-            android:text="Label"
-            app:sd_description="Description"
-            app:sd_descriptionTextColor="#f1f1"
-            app:sd_descriptionPadding="5dp"
-            android:drawablePadding="10dp"
-            app:sd_buttonPadding="2dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        
-        <com.sdds.uikit.CheckBox
-            android:text="Label"
-            app:sd_description="Description"
-            app:sd_descriptionTextColor="#f1f1"
-            app:sd_descriptionPadding="5dp"
-            android:drawablePadding="10dp"
-            app:sd_buttonPadding="2dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        
-</com.sdds.uikit.CheckBoxGroup>
+ <!-- @sample: com/sdds/uikit/fixtures/CheckBoxGroup_Simple.xml -->
 ```
 
 ## Стиль CheckBoxGroup

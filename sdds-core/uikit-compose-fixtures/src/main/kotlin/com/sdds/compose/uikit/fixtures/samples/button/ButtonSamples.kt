@@ -1,7 +1,9 @@
 package com.sdds.compose.uikit.fixtures.samples.button
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -78,10 +80,11 @@ fun BasicButton_LabelValue_Packed() {
 }
 
 @Composable
-@DocSample
+@DocSample(needScreenshot = true)
 fun BasicButton_LabelValue_SpaceBetween() {
     composableCodeSnippet {
         Button(
+            modifier = Modifier.fillMaxWidth(),
             label = "Label",
             value = "Value",
             spacing = ButtonSpacing.SpaceBetween,

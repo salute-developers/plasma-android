@@ -297,6 +297,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             namespace.set(getProjectNameSpace())
             dimensionsConfig.set(extension.dimensionsConfig)
             defaultThemeTypography.set(extension.defaultThemeTypography)
+            ignoreDisabledTokens.set(extension.ignoreDisabledTokens)
             dependsOn(unzipTask)
         }
     }

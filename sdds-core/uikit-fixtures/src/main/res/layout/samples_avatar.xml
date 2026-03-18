@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Avatar_Simple -->
+    <!-- placeholder android:src="@drawable/il_avatar_for_test" -> android:src="Your resource"  -->
+    <com.sdds.uikit.Avatar
+        android:id="@+id/avatar_simple"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:sd_status="active"
+        app:sd_name="User Name"
+        android:src="@drawable/il_avatar_for_test" />
+    <!-- sample-end: id=Avatar_Simple -->
+
+</LinearLayout>

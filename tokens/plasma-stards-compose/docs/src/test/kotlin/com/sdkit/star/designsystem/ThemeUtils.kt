@@ -142,6 +142,7 @@ import com.sdkit.star.designsystem.styles.switcher.M
 import com.sdkit.star.designsystem.styles.switcher.Switch
 import com.sdkit.star.designsystem.styles.textfield.Default
 import com.sdkit.star.designsystem.styles.textfield.M
+import com.sdkit.star.designsystem.styles.textfield.OuterLabel
 import com.sdkit.star.designsystem.styles.textfield.TextField
 import com.sdkit.star.designsystem.styles.textskeleton.M
 import com.sdkit.star.designsystem.styles.textskeleton.TextSkeletonText
@@ -231,7 +232,7 @@ fun ThemeSetup(
             LocalSegmentStyle provides Segment.M.Primary.style(),
             LocalSpinnerStyle provides Spinner.M.Default.style(),
             LocalSwitchStyle provides Switch.M.style(),
-            LocalTextFieldStyle provides TextField.M.Default.style(),
+            LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
             LocalTextSkeletonStyle provides TextSkeletonText.M.style(),
             LocalTooltipStyle provides Tooltip.M.style(),
             LocalWheelStyle provides Wheel.H1.CenterAlign.style(),

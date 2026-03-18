@@ -23,15 +23,17 @@ fun Segment_Simple() {
             stretch = false,
             hasBackground = true,
         ) {
-            segmentItem {
-                SegmentItem(
-                    isSelected = true,
-                    label = "Label",
-                    value = "Value",
-                    startIcon = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
-                    counter = "55",
-                    enabled = true,
-                )
+            repeat(3) { index ->
+                segmentItem {
+                    SegmentItem(
+                        isSelected = index == 0,
+                        label = "Label",
+                        value = "Value",
+                        startIcon = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
+                        counter = "55",
+                        enabled = true,
+                    )
+                }
             }
         }
     }

@@ -44,6 +44,8 @@ import com.sdds.compose.uikit.shadow.shadow
  * @param footer нижний колонтитул
  * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
  * (компонент рисуется под navBar и под statusBar)
+ * ModalBottomSheet. Ожидается значение в пределах 0f..1f, где 0f - полностью спрятан,
+ * 1f - полностью открыт.
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -100,6 +102,8 @@ fun ModalBottomSheet(
  * @param footer нижний колонтитул
  * @param edgeToEdge включает отображение ModalBottomSheet в режиме edge-to-edge
  * (компонент рисуется под navBar и под statusBar)
+ * ModalBottomSheet. Ожидается значение в пределах 0f..1f, где 0f - полностью спрятан,
+ * 1f - полностью открыт.
  * @param body основной контент
  */
 @OptIn(ExperimentalFoundationApi::class)

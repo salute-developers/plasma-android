@@ -1,24 +1,32 @@
 package com.sdds.compose.uikit.fixtures.samples.card
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Card
 import com.sdds.compose.uikit.CardContent
 import com.sdds.compose.uikit.CardStyle
-import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.Cell
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
@@ -32,35 +40,67 @@ fun Card_Simple() {
     composableCodeSnippet {
         Card(
             modifier = Modifier
-                .width(100.dp)
-                .height(150.dp),
+                .width(150.dp)
+                .height(200.dp),
             focusSelectorSettings = LocalFocusSelectorSettings.current,
         ) {
-            Column {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .weight(1f),
-                ) {
-                    Text(
-                        "Card text",
-                        modifier = Modifier
-                            .align(Alignment.Center),
-                    )
-                }
+            Column(
+                modifier = Modifier
+                    .fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+            ) {
+                Text(
+                    text = "Заголовок",
+                    color = placeholder({ Color.Gray }, replace = "/** Токен цвета */"),
+                )
                 CardContent(
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally),
+                    modifier = Modifier,
                     focusSelectorSettings = FocusSelectorSettings.None,
                 ) {
-                    Image(
-                        contentScale = ContentScale.Crop,
-                        painter = painterResource(id = R.drawable.ic_add_smile_fill_36),
-                        contentDescription = "Android",
-                    )
-                    Text(
-                        text = "Content",
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier.fillMaxSize(),
+                    ) {
+                        Image(
+                            contentScale = ContentScale.Crop,
+                            painter = painterResource(id = R.drawable.ic_bulb_diode_fill_36),
+                            colorFilter = ColorFilter.tint(Color.Black),
+                            contentDescription = "Android",
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "Подзаголовок",
+                            color = placeholder({ Color.Black }, replace = "/** Токен цвета */"),
+                        )
+                        Row(
+                            modifier = Modifier.padding(top = 12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Image(
+                                contentScale = ContentScale.Crop,
+                                painter = painterResource(id = R.drawable.ic_power_16),
+                                colorFilter = ColorFilter.tint(Color.Black),
+                                contentDescription = "Power",
+                            )
+
+                            Image(
+                                contentScale = ContentScale.Crop,
+                                painter = painterResource(id = R.drawable.ic_reset_outline_16),
+                                colorFilter = ColorFilter.tint(Color.Black),
+                                contentDescription = "Reset",
+                            )
+
+                            Image(
+                                contentScale = ContentScale.Crop,
+                                painter = painterResource(id = R.drawable.ic_settings_outline_16),
+                                colorFilter = ColorFilter.tint(Color.Black),
+                                contentDescription = "Settings",
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -72,20 +112,40 @@ fun Card_Simple() {
 fun Card_Extra() {
     composableCodeSnippet {
         Card(
-            label = { Text("Title") },
+            modifier = Modifier
+                .width(350.dp)
+                .height(200.dp),
+            focusSelectorSettings = LocalFocusSelectorSettings.current,
             extra = {
-                IconButton(
-                    modifier = Modifier.align(Alignment.BottomEnd),
-                    iconRes = R.drawable.ic_plasma_24,
-                    onClick = {},
+                Cell(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.TopCenter),
+                    title = AnnotatedString("Заголовок"),
+                    subtitle = AnnotatedString("Подзаголовок"),
+                    startContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_camera_video_rec_outline_36),
+                            contentDescription = "",
+                        )
+                    },
+                    disclosureText = AnnotatedString("Текст"),
+                    disclosureContentEnabled = true,
+                    disclosureIconRes = R.drawable.ic_chevron_right_24,
                 )
             },
         ) {
-            Image(
-                contentScale = ContentScale.Crop,
-                painter = painterResource(id = R.drawable.ic_add_smile_fill_36),
-                contentDescription = "Android",
-            )
+            Box(modifier = Modifier.fillMaxSize()) {
+                Image(
+                    modifier = Modifier.align(Alignment.Center),
+                    painter = painterResource(id = R.drawable.ic_video_clip_outline_36),
+                    colorFilter = placeholder(
+                        ColorFilter.tint(Color.Black),
+                        replace = "/** Токен цвета */",
+                    ),
+                    contentDescription = "",
+                )
+            }
         }
     }
 }

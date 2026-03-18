@@ -3,10 +3,7 @@ title: Indicator
 ---
 
 ```xml
-<com.sdds.uikit.Indicator
-    style="@style/{{ docs-theme-prefix }}.Components.Indicator.L"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Indicator_Simple.xml -->
 ```
 
 ## Стиль Indicator

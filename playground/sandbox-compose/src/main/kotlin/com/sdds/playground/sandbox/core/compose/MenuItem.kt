@@ -9,6 +9,7 @@ import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CardStyle
+import com.sdds.compose.uikit.CarouselStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
@@ -75,6 +76,8 @@ import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
 import com.sdds.playground.sandbox.card.compose.CardScreen
+import com.sdds.playground.sandbox.carousel.compose.CarouselPreview
+import com.sdds.playground.sandbox.carousel.compose.CarouselScreen
 import com.sdds.playground.sandbox.cell.compose.CellScreen
 import com.sdds.playground.sandbox.checkbox.compose.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupScreen
@@ -185,8 +188,8 @@ import com.sdds.testing.compose.progress.ProgressBarDefault
 import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeM
 import com.sdds.testing.compose.radiobox.RadioBoxSizeM
 import com.sdds.testing.compose.rectskeleton.RectSkeletonForSandbox
-import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
-import com.sdds.testing.compose.segment.SegmentSizeLCounter
+import com.sdds.testing.compose.segment.SegmentItemSizeS
+import com.sdds.testing.compose.segment.SegmentSizeXs
 import com.sdds.testing.compose.spinner.SpinnerTest
 import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.textarea.TextAreaLDefaultTBTA
@@ -274,9 +277,9 @@ internal sealed class ComponentScreen(
     object Indicator : ComponentScreen({ IndicatorScreen(it) }, { it, _ -> IndicatorCommon(it as IndicatorStyle) })
     object Counter : ComponentScreen({ CounterScreen(it) }, { it, _ -> CounterCommon(it as CounterStyle) })
     object SegmentItem :
-        ComponentScreen({ SegmentItemScreen(it) }, { it, _ -> SegmentItemSizeMSecondaryPilled(it as SegmentItemStyle) })
+        ComponentScreen({ SegmentItemScreen(it) }, { it, _ -> SegmentItemSizeS(it as SegmentItemStyle) })
 
-    object Segment : ComponentScreen({ SegmentScreen(it) }, { it, _ -> SegmentSizeLCounter(it as SegmentStyle) })
+    object Segment : ComponentScreen({ SegmentScreen(it) }, { it, _ -> SegmentSizeXs(it as SegmentStyle) })
     object Divider : ComponentScreen({ DividerScreen(it) }, { it, _ -> DividerDefault(it as DividerStyle) })
     object Overlay : ComponentScreen(
         { OverlayScreen(it) },
@@ -418,6 +421,10 @@ internal sealed class ComponentScreen(
         { SelectScreen(it) },
         { style, _ -> SelectPreview(style as SelectStyle) },
     )
+    object Carousel : ComponentScreen(
+        { CarouselScreen(it) },
+        { style, _ -> CarouselPreview(style as CarouselStyle) },
+    )
     object Empty : ComponentScreen({})
 }
 
@@ -487,6 +494,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.EDITABLE -> ComponentScreen.Editable
         CoreComponent.TOOL_BAR -> ComponentScreen.ToolBar
         CoreComponent.SELECT -> ComponentScreen.Select
+        CoreComponent.CAROUSEL -> ComponentScreen.Carousel
         else -> ComponentScreen.Empty
     }
 }

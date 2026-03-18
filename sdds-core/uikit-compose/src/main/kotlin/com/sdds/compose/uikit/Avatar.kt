@@ -319,7 +319,7 @@ fun Modifier.avatar(
             ?.colorForInteractionAsState(interactionSource, stateSet)
         Modifier.placeholder(
             text = placeholder.minimize,
-            style = style.textStyle.merge(TextStyle(brush = colors.textColor)),
+            style = style.textStyle,
             textMeasurer = rememberTextMeasurer(),
             textBrushProvider = { textBrushes?.value },
             textColorProvider = { textColors?.value },

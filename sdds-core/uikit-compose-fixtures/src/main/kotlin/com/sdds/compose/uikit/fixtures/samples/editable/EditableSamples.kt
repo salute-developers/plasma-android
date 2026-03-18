@@ -26,7 +26,7 @@ import com.sdds.docs.DocSample
 import com.sdds.icons.R
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Editable_Simple() {
     composableCodeSnippet {
         var text by remember { mutableStateOf(TextFieldValue("Value")) }
@@ -38,7 +38,7 @@ fun Editable_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Editable_AbsoluteIcon() {
     composableCodeSnippet {
         var text by remember { mutableStateOf(TextFieldValue("Value")) }

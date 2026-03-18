@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- sample-start: id=OverlayView_Simple -->
+<com.sdds.uikit.OverlayView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay_simple"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</com.sdds.uikit.OverlayView>
+    <!-- sample-end: id=OverlayView_Simple -->

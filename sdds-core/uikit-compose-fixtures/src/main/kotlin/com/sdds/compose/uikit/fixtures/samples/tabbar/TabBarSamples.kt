@@ -81,7 +81,7 @@ fun TabBar_WithCounter() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun TabBar_CustomItem() {
     composableCodeSnippet {
         var selectedIndex by remember { mutableStateOf(0) }

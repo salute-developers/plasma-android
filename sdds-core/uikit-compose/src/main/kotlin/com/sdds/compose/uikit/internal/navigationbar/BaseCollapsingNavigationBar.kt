@@ -7,7 +7,6 @@ import androidx.compose.animation.core.DecayAnimationSpec
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.animateDecay
 import androidx.compose.animation.core.animateTo
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
@@ -39,7 +38,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -100,11 +102,11 @@ internal fun BaseCollapsingNavBar(
     }
 
     val colorTransitionFraction = scrollBehavior?.state?.collapsedFraction ?: 0f
-    val background = style.colors.backgroundColor.getValue(interactionSource, emptySet())
+    val background = style.colors.background.getValue(interactionSource, emptySet())
     val scrolledBackground =
-        style.colors.backgroundColor.getValue(interactionSource, collapsedStateSet)
-    val appBarContainerColor =
-        containerColor(colorTransitionFraction, background, scrolledBackground)
+        style.colors.background.getValue(interactionSource, collapsedStateSet)
+    val appBarBackgroundProgress =
+        FastOutLinearInEasing.transform(colorTransitionFraction)
 
     val collapsedAlpha = TopTextAlphaEasing.transform(colorTransitionFraction)
     val expandedAlpha = 1f - colorTransitionFraction
@@ -135,7 +137,11 @@ internal fun BaseCollapsingNavBar(
             .then(appBarDragModifier)
             .shadow(style.shadow)
             .clip(rememberNavBarShape(style.bottomShape))
-            .background(appBarContainerColor),
+            .appBarBackground(
+                containerColor = background,
+                scrolledContainerColor = scrolledBackground,
+                progress = appBarBackgroundProgress,
+            ),
     ) {
         Box {
             // Верхний контент
@@ -401,17 +407,57 @@ private fun NavigationBarTextAlign.toHorizontalAlignment(): Alignment.Horizontal
     }
 }
 
+private fun Modifier.appBarBackground(
+    containerColor: Brush,
+    scrolledContainerColor: Brush,
+    progress: Float,
+): Modifier = drawWithCache {
+    val clampedProgress = progress.coerceIn(0f, 1f)
+    val resolvedBrush = containerColor(
+        progress = clampedProgress,
+        containerColor = containerColor,
+        scrolledContainerColor = scrolledContainerColor,
+    )
+
+    if (resolvedBrush != null) {
+        onDrawBehind {
+            drawRect(brush = resolvedBrush)
+        }
+    } else {
+        onDrawBehind {
+            if (clampedProgress < 1f) {
+                drawRect(
+                    brush = containerColor,
+                    alpha = 1f - clampedProgress,
+                )
+            }
+            if (clampedProgress > 0f) {
+                drawRect(
+                    brush = scrolledContainerColor,
+                    alpha = clampedProgress,
+                )
+            }
+        }
+    }
+}
+
 @Stable
 private fun containerColor(
-    colorTransitionFraction: Float,
-    containerColor: Color,
-    scrolledContainerColor: Color,
-): Color {
-    return lerp(
-        containerColor,
-        scrolledContainerColor,
-        FastOutLinearInEasing.transform(colorTransitionFraction),
-    )
+    progress: Float,
+    containerColor: Brush,
+    scrolledContainerColor: Brush,
+): Brush? {
+    return if (containerColor is SolidColor && scrolledContainerColor is SolidColor) {
+        SolidColor(
+            lerp(
+                containerColor.value,
+                scrolledContainerColor.value,
+                progress,
+            ),
+        )
+    } else {
+        null
+    }
 }
 
 /**

@@ -6,12 +6,7 @@ title: ScrollBar
 Предназначен для совместного использования RecyclerView, ScrollView, HorizontalScrollView.  
 
 ```xml
-<com.sdds.uikit.ScrollBar
-    style="@style/{{ docs-theme-prefix }}.Components.ScrollBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    app:sd_autoHide="true" />
+<!-- @sample: com/sdds/uikit/fixtures/ScrollBar_Simple.xml -->
 ```
 
 ## Стиль ScrollBar

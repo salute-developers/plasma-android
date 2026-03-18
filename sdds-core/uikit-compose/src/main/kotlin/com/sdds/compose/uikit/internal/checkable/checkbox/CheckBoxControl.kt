@@ -2,6 +2,7 @@
 
 package com.sdds.compose.uikit.internal.checkable.checkbox
 
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
@@ -71,11 +72,11 @@ internal fun CheckBoxControl(
 ) {
     val stateSet = remember(state) { state.toStateSet() }
     val transition = updateTransition(state, label = "transition")
-    val checkDrawFraction by transition.animateFloat(
+    val checkDrawFraction = transition.animateFloat(
         transitionSpec = {
             when {
                 initialState == ToggleableState.Off -> tween(animationDuration)
-                targetState == ToggleableState.Off -> snap(animationDuration)
+                targetState == ToggleableState.Off -> tween(animationDuration)
                 else -> spring()
             }
         },
@@ -83,8 +84,7 @@ internal fun CheckBoxControl(
     ) {
         checkDrawFraction(it)
     }
-
-    val checkCenterGravitationShiftFraction by transition.animateFloat(
+    val checkCenterGravitationShiftFraction = transition.animateFloat(
         transitionSpec = {
             when {
                 initialState == ToggleableState.Off -> snap()
@@ -102,9 +102,24 @@ internal fun CheckBoxControl(
         dimensions.toggleBorderOffset.getValueAsState(interactionSource, stateSet)
     val toggleIconWidth = dimensions.toggleIconWidth.getValueAsState(interactionSource, stateSet)
     val toggleIconHeight = dimensions.toggleIconHeight.getValueAsState(interactionSource, stateSet)
-    val toggleColor = colors.toggleColor.colorForInteraction(interactionSource, stateSet)
-    val borderColor = colors.toggleBorderColor.colorForInteraction(interactionSource, stateSet)
-    val iconColor = colors.toggleIconColor.colorForInteraction(interactionSource, stateSet)
+    val toggleColor = transition.animateColor(
+        transitionSpec = { tween(animationDuration) },
+        label = "toggleColor",
+    ) {
+        colors.toggleColor.colorForInteraction(interactionSource, it.toStateSet())
+    }
+    val borderColor = transition.animateColor(
+        transitionSpec = { tween(animationDuration) },
+        label = "borderColor",
+    ) {
+        colors.toggleBorderColor.colorForInteraction(interactionSource, it.toStateSet())
+    }
+    val iconColor = transition.animateColor(
+        transitionSpec = { tween(animationDuration) },
+        label = "iconColor",
+    ) {
+        colors.toggleIconColor.colorForInteraction(interactionSource, it.toStateSet())
+    }
 
     Box(
         contentAlignment = Alignment.Center,
@@ -120,22 +135,22 @@ internal fun CheckBoxControl(
                     createBorderOutline(shape, toggleBorderWidth, toggleBorderOffset)
 
                 onDrawBehind {
-                    drawOutline(toggleOutline, toggleColor, style = Fill)
                     translate(
                         left = getBorderOutlineTranslate(toggleBorderWidth, toggleBorderOffset),
                         top = getBorderOutlineTranslate(toggleBorderWidth, toggleBorderOffset),
                     ) {
                         drawOutline(
                             outline = toggleBorderOutline,
-                            color = borderColor,
+                            color = borderColor.value,
                             style = Stroke(width = toggleBorderWidth.value.toPx()),
                         )
                     }
+                    drawOutline(toggleOutline, toggleColor.value, style = Fill)
                     if (icons == null) {
                         drawCheck(
-                            checkColor = iconColor,
-                            checkFraction = checkDrawFraction,
-                            crossCenterGravitation = checkCenterGravitationShiftFraction,
+                            checkColor = iconColor.value,
+                            checkFraction = checkDrawFraction.value,
+                            crossCenterGravitation = checkCenterGravitationShiftFraction.value,
                             strokeWidthPx = DEFAULT_CHECKBOX_LINE_WIDTH.dp.toPx(),
                             drawingCache = checkCache,
                         )
@@ -189,7 +204,7 @@ private fun DrawScope.drawCheck(
         pathToDraw.reset()
         pathMeasure.getSegment(0f, pathMeasure.length * checkFraction, pathToDraw, true)
     }
-    drawPath(drawingCache.pathToDraw, checkColor, style = stroke)
+    drawPath(drawingCache.pathToDraw, checkColor, style = stroke, alpha = checkFraction)
 }
 
 @Composable

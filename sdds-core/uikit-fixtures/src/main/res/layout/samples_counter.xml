@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Counter_Simple -->
+    <com.sdds.uikit.Counter
+        android:id="@+id/counter_simple"
+        android:text="521321412"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <!-- sample-end: id=Counter_Simple -->
+
+</LinearLayout>

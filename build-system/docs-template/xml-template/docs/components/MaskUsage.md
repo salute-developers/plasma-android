@@ -22,19 +22,11 @@ textField.setMask(mask: TextField.Mask?, displayMode: Int)
 
 ## Быстрый старт
 ```xml
-<com.sdds.uikit.TextField
-    style="@style/{{ docs-theme-prefix }}.Components.TextField.L"
-    app:sd_label="Телефон"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Mask_Phone.xml -->
 ```
 
 ```kotlin
-// Пример: телефон с маской, показывать только во время ввода
-textField.setMask(
-    mask = TextField.Mask.Phone(),
-    displayMode = TextField.MASK_DISPLAY_MODE_ON_INPUT
-)
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Phone.kt
 ```
 
 ---
@@ -45,12 +37,14 @@ textField.setMask(
 ### 1) Телефон — `TextField.Mask.Phone`
 Маска телефонного номера. Состоит из `prefix` и `suffix`.
 
+Значения по умолчанию подходят под RU-формат
 ```kotlin
-// Значения по умолчанию подходят под RU-формат
-textField.setMask(TextField.Mask.Phone())
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Phone.kt
+```
 
-// Кастомизация, например, под международный формат
-textField.setMask(TextField.Mask.Phone(prefix = "+1", suffix = "(000) 000-00-00"))
+Кастомизация, например, под международный формат
+```kotlin
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Phone_CustomFormat.kt
 ```
 
 - `prefix` — префикс (например, код страны).
@@ -62,14 +56,14 @@ textField.setMask(TextField.Mask.Phone(prefix = "+1", suffix = "(000) 000-00-00"
 Маска даты.
 
 ```kotlin
-textField.setMask(TextField.Mask.Date)
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Date.kt
 ```
 
 ### 3) Время — `TextField.Mask.Time`
 Маска времени `часы:минуты`.
 
 ```kotlin
-textField.setMask(TextField.Mask.Time)
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Time.kt
 ```
 
 ### 4) Число — `TextField.Mask.Number`
@@ -81,22 +75,16 @@ textField.setMask(TextField.Mask.Time)
 - `groupSeparator` — разделитель групп разрядов (по умолчанию пробел)
 - `decimalSeparator` — десятичный разделитель (по умолчанию запятая)
 
+Денежный формат: 2–2 знака после разделителя, пробел как групповой, запятая как десятичный
 ```kotlin
-// Денежный формат: 2–2 знака после разделителя, пробел как групповой, запятая как десятичный
-textField.setMask(
-    TextField.Mask.Number(
-        decimalMinCount = 2,
-        decimalMaxCount = 2
-    )
-)
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Number.kt
 ```
 
 ### 5) Кастомная — `TextField.Mask.Custom`
 Произвольный шаблон маски.
-
+Пример произвольного шаблона: AA-#### (буквы/цифры — для примера)
 ```kotlin
-// Пример произвольного шаблона: AA-#### (буквы/цифры — для примера)
-textField.setMask(TextField.Mask.Custom("AA-[0000]"))
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Custom.kt
 ```
 
 ---
@@ -105,12 +93,14 @@ textField.setMask(TextField.Mask.Custom("AA-[0000]"))
 - **ALWAYS** (`TextField.MASK_DISPLAY_MODE_ALWAYS`) — маска отображается постоянно.
 - **ON_INPUT** (`TextField.MASK_DISPLAY_MODE_ON_INPUT`) — маска видна только во время ввода пользователем.
 
+Всегда показывать структуру телефонного номера
 ```kotlin
-// Всегда показывать структуру телефонного номера
-textField.setMask(TextField.Mask.Phone(), TextField.MASK_DISPLAY_MODE_ALWAYS)
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Phone_Always.kt
+```
 
-// Показывать маску только при вводе
-textField.setMask(TextField.Mask.Phone(), TextField.MASK_DISPLAY_MODE_ON_INPUT)
+Показывать маску только при вводе
+```kotlin
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Phone.kt
 ```
 
 ---
@@ -127,33 +117,19 @@ textField.setMask(TextField.Mask.Phone(), TextField.MASK_DISPLAY_MODE_ON_INPUT)
 Чтобы отключить маску и вернуть обычный ввод:
 
 ```kotlin
-textField.setMask(null)
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Disabled.kt
 ```
 
 ---
 
 ## Полный пример
 ```xml
-<com.sdds.uikit.TextField
-    style="@style/{{ docs-theme-prefix }}.Components.TextField.L"
-    app:sd_label="Сумма"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
+<!-- @sample: com/sdds/uikit/fixtures/Mask_Number.xml -->
 ```
 
+Числовая маска с двумя знаками после разделителя, маска видна постоянно.
 ```kotlin
-// Числовая маска с двумя знаками после разделителя,
-// маска видна постоянно
-textField.setMask(
-    mask = TextField.Mask.Number(
-        decimalMinCount = 2,
-        decimalMaxCount = 2
-    ),
-    displayMode = TextField.MASK_DISPLAY_MODE_ALWAYS
-)
-
-textField.suffixText = "₽"
-textField.value = "12345"
+// @sample: com/sdds/uikit/fixtures/samples/mask/Mask_Sum_Always_Display.kt
 ```
 
 ---

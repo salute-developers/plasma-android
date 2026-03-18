@@ -474,7 +474,7 @@ private class PopoverPositionProvider(
         val triggerScaleFactor = triggerInfo.focusScaleFactor
         val triggerSize = triggerInfo.size
         val triggerPositionInRoot = triggerInfo.positionInRoot
-        val contentSize = popoverContentSize()
+        val contentSize = popoverContentSize().takeIf { it != IntSize.Zero } ?: popupContentSize
         val scaledTriggerSize = triggerSize.calculateScaledSize(triggerScaleFactor)
         val desiredPopupPosition = calculatePopupPosition(
             triggerPositionInRoot = triggerPositionInRoot,

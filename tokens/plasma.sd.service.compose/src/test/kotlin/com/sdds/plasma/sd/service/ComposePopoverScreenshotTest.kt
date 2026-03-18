@@ -8,7 +8,6 @@ import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.basicbutton.BasicButton
 import com.sdds.plasma.sd.service.styles.basicbutton.Default
-import com.sdds.plasma.sd.service.styles.basicbutton.M
 import com.sdds.plasma.sd.service.styles.basicbutton.S
 import com.sdds.plasma.sd.service.styles.popover.Accent
 import com.sdds.plasma.sd.service.styles.popover.Default

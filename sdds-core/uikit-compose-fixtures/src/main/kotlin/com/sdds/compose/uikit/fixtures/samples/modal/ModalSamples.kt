@@ -1,11 +1,17 @@
 package com.sdds.compose.uikit.fixtures.samples.modal
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -17,6 +23,7 @@ import com.sdds.compose.uikit.Modal
 import com.sdds.compose.uikit.ModalStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.shadow.ShadowAppearance
+import com.sdds.compose.uikit.style.style
 import com.sdds.docs.DocSample
 
 @Composable
@@ -34,10 +41,34 @@ fun Modal_Simple() {
             modifier = Modifier.width(300.dp),
             hasClose = true,
             closeIcon = painterResource(com.sdds.icons.R.drawable.ic_close_24),
+            dimBackground = true,
+            useNativeBlackout = true,
         ) {
             Column {
-                Text("Modal text")
-                Button(label = "Ok", onClick = { showModal.value = false })
+                Text("Заголовок")
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Button(
+                            modifier = Modifier.align(Alignment.CenterVertically),
+                            label = "Ок",
+                            onClick = {
+                                showModal.value = false
+                            },
+                        )
+                        Button(
+                            modifier = Modifier.align(Alignment.CenterVertically),
+                            label = "Отмена",
+                            onClick = {
+                                showModal.value = false
+                            },
+                        )
+                    }
+                }
             }
         }
     }

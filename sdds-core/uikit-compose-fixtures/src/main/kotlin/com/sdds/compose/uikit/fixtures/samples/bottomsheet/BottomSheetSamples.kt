@@ -1,22 +1,35 @@
 package com.sdds.compose.uikit.fixtures.samples.bottomsheet
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.BottomSheetHandlePlacement
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonSpacing
+import com.sdds.compose.uikit.Divider
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.ModalBottomSheet
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.Text
@@ -24,8 +37,10 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
+import com.sdds.compose.uikit.internal.modal.HalfExpandedSettings
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.docs.DocSample
+import com.sdds.icons.R
 import kotlinx.coroutines.launch
 
 @Composable
@@ -33,7 +48,131 @@ import kotlinx.coroutines.launch
 fun ModalBottomSheet_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.HalfExpanded, "BottomSheetValue.Hidden"),
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "показать BottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Inner,
+            fitContent = false,
+            header = {
+                Column {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        Text(
+                            color = placeholder({ Color.DarkGray }, "/** Токен цвета */"),
+                            text = "Заголовок",
+                        )
+                        IconButton(
+                            iconRes = R.drawable.ic_close_24,
+                        ) {
+                            scope.launch { sheetState.hide() }
+                        }
+                    }
+                    Spacer(modifier = Modifier.padding(6.dp))
+                    Divider()
+                    Spacer(modifier = Modifier.padding(6.dp))
+                }
+            },
+            body = {
+                var value by remember { mutableStateOf(TextFieldValue("")) }
+                TextField(
+                    modifier = Modifier.fillMaxWidth(),
+                    value = value,
+                    labelText = "Лейбл",
+                    placeholderText = "Введите текст",
+                    onValueChange = { value = it },
+                    focusSelectorSettings = FocusSelectorSettings.None,
+                )
+            },
+            footer = {
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    label = "Сохранить",
+                    spacing = ButtonSpacing.Packed,
+                    onClick = {},
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_HalfExpanded_Skip() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
             initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+            halfExpandedSettings = HalfExpandedSettings.Skip,
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "показать BottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            fitContent = false,
+            header = { Text("Header") },
+            footer = { Text("Footer") },
+        ) {
+            Text("Text")
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_HalfExpanded_Fraction() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+            halfExpandedSettings = HalfExpandedSettings.Fraction(0.3f),
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "показать BottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            fitContent = false,
+            header = { Text("Header") },
+            footer = { Text("Footer") },
+        ) {
+            Text("Text")
+        }
+    }
+}
+
+@Composable
+@DocSample(needScreenshot = true)
+fun ModalBottomSheet_HalfExpanded_Height() {
+    composableCodeSnippet {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = placeholder(BottomSheetValue.Expanded, "BottomSheetValue.Hidden"),
+            halfExpandedSettings = HalfExpandedSettings.Height(500.dp),
         )
         val scope = rememberCoroutineScope()
         Button(
@@ -86,7 +225,7 @@ fun ModalBottomSheet_Style() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ModalBottomSheetHandleInner_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
@@ -102,7 +241,7 @@ fun ModalBottomSheetHandleInner_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ModalBottomSheetFitContent_Simple() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
@@ -111,7 +250,7 @@ fun ModalBottomSheetFitContent_Simple() {
         ModalBottomSheet(
             sheetState = sheetState,
             fitContent = true,
-            body = { Text("Text") },
+            body = { Text("Заголовок") },
         )
     }
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- sample-start: id=CellLayout_Simple -->
+    <com.sdds.uikit.CellLayout
+        android:id="@+id/cell_simple"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="2dp">
+
+        <com.sdds.uikit.Switch
+            android:id="@+id/componentCellStartSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="0dp" />
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/componentCellLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            app:layout_cellContent="label" />
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/componentCellTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            app:layout_cellContent="title" />
+
+        <com.sdds.uikit.TextView
+            android:id="@+id/componentCellSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtitle"
+            app:layout_cellContent="subtitle" />
+
+        <com.sdds.uikit.Avatar
+            android:id="@+id/componentCellEndAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:sd_name="User"
+            app:layout_cellContent="end"/>
+
+    </com.sdds.uikit.CellLayout>
+    <!-- sample-end: id=CellLayout_Simple -->
+</LinearLayout>
