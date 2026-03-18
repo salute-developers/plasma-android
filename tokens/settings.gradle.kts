@@ -43,6 +43,8 @@ include(
     ":stylessalute.view:docs",
     ":plasma-stards-view",
     ":plasma-stards-view:docs",
+    ":plasma-stards-view:app",
+    ":plasma-stards-view:integration",
     ":plasma-stards-compose",
     ":plasma-stards-compose:docs",
     ":sdds-sbcom-compose",

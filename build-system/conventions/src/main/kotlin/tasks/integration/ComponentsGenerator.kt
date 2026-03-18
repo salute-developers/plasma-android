@@ -271,9 +271,32 @@ internal class XmlComponentsGenerator(
     private val config: Config,
     private val packageName: String,
     private val packageDir: File,
+    private val scheme: Scheme,
 ) : ComponentGenerator() {
 
     private val themeName = config.name.toPascalCase()
+
+    private val viewStyleProviderTemplateName: String = when (scheme) {
+        Scheme.V1 -> "ViewStyleProviderKt.txt"
+        Scheme.V2 -> "ViewStyleProviderKt_V2.txt"
+    }
+
+    private val viewStyleInstanceTemplateName: String = when (scheme) {
+        Scheme.V1 -> "ViewStyleInstanceKt.txt"
+        Scheme.V2 -> "ViewStyleInstanceKt_V2.txt"
+    }
+
+    private val viewComponentInstanceTemplateName: String = when (scheme) {
+        Scheme.V1 -> "ViewComponentInstanceKt.txt"
+        Scheme.V2 -> "ViewComponentInstanceKt_V2.txt"
+    }
+
+    private val viewComponentProviderTemplateName: String = when (scheme) {
+        Scheme.V1 -> "ViewComponentProviderKt.txt"
+        Scheme.V2 -> "ViewComponentProviderKt_V2.txt"
+    }
+
+    private val viewAppearanceInstanceTemplateName: String = "ViewAppearanceInstanceKt.txt"
 
     override fun generate() {
         config.components.forEach {
@@ -295,8 +318,8 @@ internal class XmlComponentsGenerator(
         themePackageName: String,
         packageDir: File,
     ) {
-        val styleProviderTemplate = loadTemplate("ViewStyleProviderKt.txt").trim()
-        val styleInstanceTemplate = loadTemplate("ViewStyleInstanceKt.txt")
+        val styleProviderTemplate = loadTemplate(viewStyleProviderTemplateName).trim()
+        val styleInstanceTemplate = loadTemplate(viewStyleInstanceTemplateName)
 
         val styleContent = component.variations
             .joinToString("\n") {
@@ -329,9 +352,9 @@ internal class XmlComponentsGenerator(
         packageName: String,
         packageDir: File,
     ) {
-        val componentTemplate = loadTemplate("ViewComponentInstanceKt.txt").trim()
-        val appearanceTemplate = loadTemplate("ViewAppearanceInstanceKt.txt").trim()
-        val providerTemplate = loadTemplate("ViewComponentProviderKt.txt").trim()
+        val componentTemplate = loadTemplate(viewComponentInstanceTemplateName).trim()
+        val appearanceTemplate = loadTemplate(viewAppearanceInstanceTemplateName).trim()
+        val providerTemplate = loadTemplate(viewComponentProviderTemplateName).trim()
 
         // Group components by coreName
         val grouped: Map<String, List<Component>> = components.groupBy { it.key }
@@ -375,8 +398,4 @@ private fun String.toPascalCase(joinSeparator: String = ""): String =
 internal fun String.techToCamelCase(): String {
     val segments = split(".", "-")
     return segments.joinToString("") { it.capitalized() }
-}
-
-private object ComponentGeneratorUtils {
-
 }

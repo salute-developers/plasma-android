@@ -79,4 +79,14 @@ abstract class ComponentProvider {
         return components[key] as? Component<P>
             ?: throw IllegalArgumentException("No $key exists")
     }
+
+    companion object {
+        /**
+         * Пустой провайдер компонентов
+         */
+        val Empty = object : ComponentProvider() {
+            override val generated: Map<ComponentKey, Component<*>>
+                get() = emptyMap()
+        }
+    }
 }

@@ -29,7 +29,10 @@ internal class SandboxStoryProcessor(
                 require(classDeclaration.classKind == ClassKind.OBJECT) {
                     "Expected object, got ${classDeclaration.classKind}"
                 }
-                StoryData(storyClass = classDeclaration.asStarProjectedType())
+                StoryData(
+                    storyClass = classDeclaration.asStarProjectedType(),
+                    sourceFile = classDeclaration.containingFile,
+                )
             }
             .let { StoriesRegistryData(it) }
             .generateRegistry()
@@ -42,7 +45,10 @@ internal class SandboxStoryProcessor(
         val registryGenerator = StoryRegistryGenerator(packageName)
         val fileSpec = registryGenerator.build(this)
         val outputStream = codeGenerator.createNewFile(
-            dependencies = Dependencies(aggregating = false),
+            dependencies = Dependencies(
+                aggregating = true,
+                sources = stories.mapNotNull { it.sourceFile }.toTypedArray(),
+            ),
             packageName = fileSpec.packageName,
             fileName = fileSpec.name,
         )

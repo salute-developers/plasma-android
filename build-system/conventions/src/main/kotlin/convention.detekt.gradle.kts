@@ -1,8 +1,8 @@
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
+import utils.baseDetektConfigPath
 import utils.findDetektBaselineAll
-import utils.isSandboxIntegrationModule
 import utils.withVersionCatalogs
 
 apply<DetektPlugin>()
@@ -17,21 +17,11 @@ configure<DetektExtension> {
     // почему-то есть плагин `convention.detekt`, но нету includeBuild с именем 'build-system'.
     // Делаем хак, что если это мета-проект с генерацией accessors - то не настраиваем detekt.
     if (!project.displayName.contains("generatePrecompiledScriptPluginAccessors")) {
-        try {
-            val buildSystemProjectDir = gradle.includedBuild("build-system").projectDir.path
-            val detektDirPath = if (project.isSandboxIntegrationModule()) {
-                project.parent?.projectDir?.path ?: buildSystemProjectDir
-            } else {
-                buildSystemProjectDir
-            }
-            val configFilePath = "$detektDirPath/.detekt/config.yml"
-            if (file(configFilePath).exists()) {
-                config = files(configFilePath)
-            } else {
-                throw GradleException("Detekt config not found in path: '$configFilePath'")
-            }
-        } catch (e: UnknownDomainObjectException) {
-            throw GradleException("Include build with name 'build-system' not found in project: '${project.displayName}'.")
+        val configFilePath = project.baseDetektConfigPath()
+        if (file(configFilePath).exists()) {
+            config = files(configFilePath)
+        } else {
+            throw GradleException("Detekt config not found in path: '$configFilePath'")
         }
     }
     if (project.name != "gradle-kotlin-dsl-accessors" &&

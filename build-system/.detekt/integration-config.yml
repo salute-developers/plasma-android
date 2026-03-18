@@ -1,3 +1,6 @@
+style:
+  MaxLineLength:
+    active: false
 comments:
   active: true
   UndocumentedPublicClass:

@@ -2,6 +2,8 @@ package com.sdds.compose.sandbox.internal
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusGroup
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
@@ -127,9 +130,10 @@ internal fun PropertyEditor(
     style: PropertyEditorStyle = LocalPropertyEditorStyle.current,
 ) {
     Column(
-        modifier = modifier
+        modifier = Modifier
             .clip(style.shape)
             .background(style.backgroundColor)
+            .then(modifier)
             .padding(start = 4.dp, end = 4.dp, bottom = 24.dp),
     ) {
         EditorHeader(
@@ -201,6 +205,7 @@ private fun TextPropertyEditor(
     )
     Spacer(modifier = Modifier.height(style.spacing))
     LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
         keyboardController?.show()
     }
 }
@@ -217,15 +222,22 @@ private fun <T> ChoiceEditor(
     val selectedIndex = choices.indexOf(selected).coerceAtLeast(0)
     val focusRequester = remember { List(choices.size) { FocusRequester() } }
     val listState = rememberLazyListState()
-    LaunchedEffect(selectedIndex) {
-        listState.scrollToItem(selectedIndex)
-        focusRequester[selectedIndex].requestFocus()
-    }
     Column(
-        Modifier
-            .fillMaxHeight(),
+        modifier = Modifier
+            .fillMaxHeight()
+            .focusGroup(),
+        verticalArrangement = Arrangement.spacedBy(style.spacing),
     ) {
-        ChoiceEditorHeader(propertyName, style)
+        ChoiceEditorHeader(
+            modifier = Modifier
+                .onFocusChanged {
+                    if (it.isFocused) focusRequester[selectedIndex].requestFocus()
+                }
+                .focusable(),
+            propertyName = propertyName,
+            style = style,
+        )
+
         LazyColumn(
             state = listState,
             verticalArrangement = Arrangement.spacedBy(style.editorItemPadding),
@@ -239,16 +251,17 @@ private fun <T> ChoiceEditor(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(style.editorItemHeight)
-//                        .focusableItem(
-//                            focusRequester = focusRequester[it],
-//                            interactionSource = interactionSource,
-//                        )
+                        .focusRequester(focusRequester[it])
                         .selection(isSelected, interactionSource)
                         .background(color = background, shape = style.editorItemShape)
-                        .clickable {
-                            selected = choice
-                            onConfirm(choice)
-                        }
+                        .clickable(
+                            onClick = {
+                                selected = choice
+                                onConfirm(choice)
+                            },
+                            indication = null,
+                            interactionSource = interactionSource,
+                        )
                         .padding(horizontal = style.editorItemPadding),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
@@ -267,19 +280,13 @@ private fun <T> ChoiceEditor(
 private fun ChoiceEditorHeader(
     propertyName: String,
     style: PropertyEditorStyle,
+    modifier: Modifier = Modifier,
 ) {
-    Spacer(modifier = Modifier.height(style.spacing))
-    Row(
-        Modifier
-            .padding(horizontal = style.editorItemPadding),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = propertyName,
-            style = style.editorItemTextStyle.copy(style.choiceEditorTextColor),
-        )
-    }
-    Spacer(modifier = Modifier.height(style.spacing))
+    Text(
+        modifier = modifier.padding(horizontal = style.editorItemPadding),
+        text = propertyName,
+        style = style.editorItemTextStyle.copy(style.choiceEditorTextColor),
+    )
 }
 
 @Composable

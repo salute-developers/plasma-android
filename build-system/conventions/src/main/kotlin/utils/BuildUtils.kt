@@ -3,8 +3,10 @@ package utils
 import com.android.build.gradle.LibraryExtension
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.accessors.dm.LibrariesForIcons
+import org.gradle.api.GradleException
 import java.io.File
 import org.gradle.api.Project
+import org.gradle.api.UnknownDomainObjectException
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.the
 
@@ -20,6 +22,26 @@ fun findDetektBaselineAll(project: Project): File =
         project.logger.warn("${project.displayName}: fallback to use project-specific '.detekt/detekt-baseline.xml'")
         File("${project.projectDir}/.detekt/detekt-baseline.xml")
     }
+
+/**
+ * Возвращает путь до базового конфига Detekt
+ */
+fun Project.baseDetektConfigPath(): String {
+    val detektDirPath = baseDetektConfigDirPath()
+    return "$detektDirPath/config.yml"
+}
+
+/**
+ * Возвращает путь до директории с базовым конфигом Detekt
+ */
+fun Project.baseDetektConfigDirPath(): String {
+    return try {
+        val buildSystemPath = gradle.includedBuild("build-system").projectDir.path
+        "$buildSystemPath/.detekt"
+    } catch (e: UnknownDomainObjectException) {
+        throw GradleException("Include build with name 'build-system' not found in project: '${project.displayName}'.")
+    }
+}
 
 /**
  * Предоставляет скоуп для доступа к каталогу версий
@@ -87,4 +109,4 @@ fun Project.isComposeLib(): Boolean =
  * Возвращает true, если текущий проект - интеграционный модуль песочницы, иначе false
  */
 fun Project.isSandboxIntegrationModule(): Boolean =
-    name.endsWith("integration") && !name.contains("core")
+    plugins.hasPlugin("convention.integration-view") || plugins.hasPlugin("convention.integration-compose")

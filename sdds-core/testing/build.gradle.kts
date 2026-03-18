@@ -2,6 +2,7 @@ plugins {
     id("convention.android-lib")
     id("kotlin-parcelize")
     id("convention.compose")
+    alias(libs.plugins.ksp)
 }
 
 group = "sdds-core"
@@ -22,6 +23,8 @@ dependencies {
     implementation(project(":uikit"))
     implementation(project(":icons"))
     implementation(project(":uikit-compose"))
+    implementation("integration-core:sandbox-core")
+    ksp("integration-core:sandbox-ksp")
     implementation(libs.base.glide)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)

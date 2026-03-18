@@ -15,6 +15,11 @@ enum class ComponentsTarget {
     XML,
 }
 
+enum class Scheme {
+    V1,
+    V2
+}
+
 abstract class GenerateComponentsDictionary : DefaultTask() {
 
     @get:InputFile
@@ -25,6 +30,9 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
 
     @get:Input
     abstract val target: Property<ComponentsTarget>
+
+    @get:Input
+    abstract val scheme: Property<Scheme>
 
     init {
         group = "sandbox"
@@ -46,6 +54,7 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
 
         val pkg = packageName.orNull ?: "com.sdds.generated"
         val target = target.get() ?: throw GradleException("Property target must be specified")
+        val scheme = scheme.get() ?: Scheme.V1
         // Determine output dir from main source set root and packageName
         val mainRoot = resolveMainSourceRoot()
         val pkgPath = pkg.replace('.', File.separatorChar)
@@ -54,7 +63,7 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
 
         val generator = when(target) {
             ComponentsTarget.COMPOSE -> ComposeComponentsGenerator(config, pkg, packageDir)
-            ComponentsTarget.XML -> XmlComponentsGenerator(config, pkg, packageDir)
+            ComponentsTarget.XML -> XmlComponentsGenerator(config, pkg, packageDir, scheme)
         }
 
         generator.generate()

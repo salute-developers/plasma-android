@@ -3,6 +3,7 @@ package com.sdds.testing.vs.button
 import android.os.Parcelable
 import android.widget.LinearLayout.HORIZONTAL
 import android.widget.LinearLayout.VERTICAL
+import com.sdds.sandbox.StoryUiState
 import com.sdds.testing.vs.UiState
 import com.sdds.uikit.Button
 import kotlinx.parcelize.Parcelize
@@ -22,6 +23,7 @@ import com.sdds.icons.R.drawable as Icons
  * @property amount количество кнопок в группе
  */
 @Parcelize
+@StoryUiState
 data class ButtonUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -45,22 +47,22 @@ data class ButtonUiState(
  * @property iconId идентификатор ресурса кнопки
  */
 @Parcelize
-sealed class ButtonIcon(val iconId: Int = Icons.ic_plasma_24) : Parcelable {
+enum class ButtonIcon(val iconId: Int = Icons.ic_plasma_24) : Parcelable {
 
     /**
      * Иконка вначале кнопки
      */
-    object Start : ButtonIcon()
+    Start,
 
     /**
      * Иконка вконце кнопки
      */
-    object End : ButtonIcon()
+    End,
 
     /**
      * Отсутствие иконки
      */
-    object No : ButtonIcon(0)
+    No(0),
 }
 
 /**

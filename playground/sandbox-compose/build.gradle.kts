@@ -156,6 +156,7 @@ dependencies {
     implementation(project(":sandbox-sdds-sbcom-integration"))
 
     implementation(project(":sandbox-core-integration"))
+    implementation("integration-core:sandbox-core")
     implementation("sdds-core:testing") {
         exclude("org.robolectric", "robolectric")
     }

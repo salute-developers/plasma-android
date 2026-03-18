@@ -23,7 +23,6 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.stateIn
 
 internal class ComponentViewModel<State : UiState, S : Style>(
@@ -37,16 +36,11 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     private val internalUiState = MutableStateFlow(defaultState)
     private val _subtheme = MutableStateFlow<SubTheme?>(null)
 
+    private val theme: ComposeTheme
+        get() = themeManager.currentTheme.value as? ComposeTheme ?: ComposeTheme.Default
+
     val uiState: StateFlow<State>
         get() = internalUiState.asStateFlow()
-
-    /**
-     * Подтема
-     */
-    val theme: StateFlow<ComposeTheme>
-        get() = themeManager.currentTheme
-            .mapNotNull { it as? ComposeTheme }
-            .stateIn(viewModelScope, SharingStarted.Lazily, ComposeTheme.Default)
 
     /**
      * Подтема
@@ -132,20 +126,20 @@ internal class ComponentViewModel<State : UiState, S : Style>(
 
     private fun getStyleProvider(appearance: String): ComposeStyleProvider<S>? {
         return runCatching {
-            theme.value.getStyleProvider<S>(componentKey, appearance)
+            theme.getStyleProvider<S>(componentKey, appearance)
         }.getOrNull()
     }
 
     private fun getAppearances(): Set<String> {
-        return theme.value.getAppearances(componentKey)
+        return theme.getAppearances(componentKey)
     }
 
     private fun getDefaultAppearances(): String {
-        return theme.value.getDefaultAppearance(componentKey)
+        return theme.getDefaultAppearance(componentKey)
     }
 
     private fun getSubThemes(): Set<SubTheme> {
-        return theme.value.subthemes.keys
+        return theme.subthemes.keys
     }
 
     private fun State.toProps(): List<Property<*>> = propertiesProducer.getProperties(this)

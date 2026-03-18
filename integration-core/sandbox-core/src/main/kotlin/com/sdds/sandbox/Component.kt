@@ -243,7 +243,11 @@ private enum class CoreComponentName(displayName: String? = null) {
     EDITABLE,
     ;
 
-    val displayName: String = displayName ?: this.name.lowercase().replaceFirstChar { it.uppercase() }
+    val displayName: String = displayName ?: this.name
+        .split("_")
+        .joinToString("") { parts ->
+            parts.lowercase().replaceFirstChar { it.uppercase() }
+        }
 }
 
 private fun String.group(): ComponentGroup {
