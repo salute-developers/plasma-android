@@ -1,5 +1,6 @@
 package com.sdds.sandbox.ksp.internal
 
+import com.google.devtools.ksp.symbol.KSFile
 import com.google.devtools.ksp.symbol.KSType
 
 internal data class StoriesRegistryData(
@@ -8,4 +9,5 @@ internal data class StoriesRegistryData(
 
 internal data class StoryData(
     val storyClass: KSType,
+    val sourceFile: KSFile?,
 )

@@ -2,7 +2,6 @@ package com.sdds.compose.sandbox.internal
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
@@ -113,7 +112,8 @@ internal fun NavigationViewTv(
                 color = style.menuBackground,
                 shape = style.menuShape,
             )
-            .padding(start = 4.dp, end = 4.dp, bottom = 24.dp),
+            .padding(start = 4.dp, end = 4.dp, bottom = 24.dp)
+            .systemBarsPadding(),
 
     ) {
         Row(
@@ -137,8 +137,7 @@ internal fun NavigationViewTv(
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
                         modifier = Modifier
-                            .padding(start = style.groupPadding)
-                            .focusable(index == 0),
+                            .padding(start = style.groupPadding),
                         text = menuItem.componentKey.group.displayName,
                         style = style.headerTextStyle.copy(color = style.headerTextColor),
                     )
@@ -147,7 +146,6 @@ internal fun NavigationViewTv(
                 NavigationItemTv(
                     title = menuItem.title,
                     style = style,
-                    focusable = focusable,
                     isSelected = index == currentIndex,
                     onClick = {
                         currentIndex = index
@@ -164,8 +162,6 @@ private fun NavigationItemTv(
     title: String,
     style: NavigationViewStyle,
     isSelected: Boolean = false,
-    focusable: Boolean = false,
-    focusRequester: FocusRequester? = null,
     onClick: () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
@@ -175,11 +171,6 @@ private fun NavigationItemTv(
         modifier = Modifier
             .height(style.itemHeight)
             .fillMaxWidth()
-            .focusableItem(
-                enabled = focusable,
-                focusRequester = focusRequester,
-                interactionSource = interactionSource,
-            )
             .selection(
                 selected = isSelected,
                 interactionSource = interactionSource,

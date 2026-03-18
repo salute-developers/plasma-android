@@ -1,15 +1,17 @@
 package com.sdds.compose.sandbox
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.style.Style
-import com.sdds.sandbox.Component
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.ComponentProvider
 import com.sdds.sandbox.Theme
 import com.sdds.sandbox.ThemeManager
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.mapNotNull
 
 /**
  * Реализация темы для Compose-сторибука, объединяющая компоненты и их стилизацию.
@@ -18,6 +20,7 @@ import kotlinx.coroutines.flow.mapNotNull
  * включая возможность оборачивать контент в общий стилевой контекст (например,
  * MaterialTheme) и поддерживать подтемы для различных вариаций оформления.
  *
+ * @param displayName отображаемое название темы
  * @param components провайдер всех компонентов, доступных в данной теме
  * @param themeWrapper композируемая функция-обёртка, применяемая к каждому компоненту
  * для обеспечения единого стилевого контекста (темы)
@@ -29,6 +32,7 @@ import kotlinx.coroutines.flow.mapNotNull
  * @see SubTheme
  */
 class ComposeTheme(
+    val displayName: String,
     override val components: ComponentProvider,
     val themeWrapper: @Composable (@Composable () -> Unit) -> Unit,
     val subthemes: Map<SubTheme, @Composable (@Composable () -> Unit) -> Unit> = emptyMap(),
@@ -47,11 +51,9 @@ class ComposeTheme(
          * когда стилизация полностью определяется внутри самих компонентов.
          */
         val Default = ComposeTheme(
-            components = object : ComponentProvider() {
-                override val generated: Map<ComponentKey, Component<*>>
-                    get() = emptyMap()
-            },
-            themeWrapper = {},
+            displayName = "Default",
+            components = ComponentProvider.Empty,
+            themeWrapper = { it() },
         )
     }
 }
@@ -121,9 +123,16 @@ enum class SubTheme(val key: String) : ValueState {
  * @see ThemeManager.currentTheme
  * @see ComposeTheme
  */
-val ThemeManager.currentComposeTheme: Flow<ComposeTheme>
-    get() = currentTheme
-        .mapNotNull { it as? ComposeTheme }
+val ThemeManager.currentComposeThemeAsState: State<ComposeTheme>
+    @Composable
+    get() {
+        val theme = currentTheme.collectAsState()
+        return remember {
+            derivedStateOf {
+                (theme.value as? ComposeTheme) ?: ComposeTheme.Default
+            }
+        }
+    }
 
 /**
  * Получает провайдер стилей указанного типа для компонента и варианта оформления.

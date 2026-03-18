@@ -78,6 +78,7 @@ internal class StoryPropertiesProducerGenerator(
 
         parameters.forEach { param ->
             val name = param.name
+            val isNullable = param.type.isMarkedNullable
             val displayName = param.displayName ?: name
 
             // если есть кастомный producer → используем его
@@ -105,21 +106,21 @@ internal class StoryPropertiesProducerGenerator(
                     "%T.IntProperty(name = %S, value = $stateVar.%L),\n",
                     ClassName("com.sdds.sandbox", "Property"),
                     displayName,
-                    name,
+                    if (isNullable) "$name ?: 0" else name,
                 )
 
                 "kotlin.Boolean" -> add(
                     "%T.BooleanProperty(name = %S, value = $stateVar.%L),\n",
                     ClassName("com.sdds.sandbox", "Property"),
                     displayName,
-                    name,
+                    if (isNullable) "$name ?: false" else name,
                 )
 
                 "kotlin.Float" -> add(
                     "%T.FloatProperty(name = %S, value = $stateVar.%L),\n",
                     ClassName("com.sdds.sandbox", "Property"),
                     displayName,
-                    name,
+                    if (isNullable) "$name ?: 0f" else name,
                 )
 
                 else -> {
@@ -128,7 +129,7 @@ internal class StoryPropertiesProducerGenerator(
                         "%T.StringProperty(name = %S, value = $stateVar.%L),\n",
                         ClassName("com.sdds.sandbox", "Property"),
                         displayName,
-                        name,
+                        if (isNullable) "$name.orEmpty()" else name,
                     )
                 }
             }

@@ -16,6 +16,10 @@ import androidx.core.view.WindowCompat
 import com.sdds.compose.sandbox.SubTheme
 import com.sdds.compose.sandbox.styles.card.CardSolid
 import com.sdds.compose.sandbox.styles.card.L
+import com.sdds.compose.sandbox.styles.cell.Cell
+import com.sdds.compose.sandbox.styles.cell.Xs
+import com.sdds.compose.sandbox.styles.drawer.DrawerCloseNone
+import com.sdds.compose.sandbox.styles.drawer.M
 import com.sdds.compose.sandbox.styles.iconbutton.Clear
 import com.sdds.compose.sandbox.styles.iconbutton.IconButton
 import com.sdds.compose.sandbox.styles.iconbutton.Pilled
@@ -31,10 +35,14 @@ import com.sdds.compose.sandbox.theme.darkSddsSandboxColors
 import com.sdds.compose.sandbox.theme.darkSddsSandboxGradients
 import com.sdds.compose.sandbox.theme.lightSddsSandboxColors
 import com.sdds.compose.sandbox.theme.lightSddsSandboxGradients
+import com.sdds.compose.uikit.LocalDrawerStyle
+import com.sdds.compose.uikit.SwitchStates
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import androidx.compose.ui.graphics.Color as ComposeColor
 
@@ -103,6 +111,7 @@ fun SandboxTheme(
                         } else {
                             colorScheme.surfaceDefaultTransparentSecondary
                         },
+                        selected = colorScheme.surfaceDefaultSolidSecondary,
                     ),
                     itemCard = CardSolid.L.builder
                         .colors {
@@ -111,6 +120,14 @@ fun SandboxTheme(
                         .style(),
                     headerTextColor = colorScheme.textDefaultPrimary,
                     headerTextStyle = SddsSandboxTheme.typography.bodyMBold,
+                    itemHeight = 24.dp,
+                    itemPaddings = 12.dp,
+                    groupPadding = 6.dp,
+                    menuBackground = colorScheme.surfaceDefaultSolidCard,
+                    menuShape = SddsSandboxTheme.shapes.roundL,
+                    menuWidth = 240.dp,
+                    headerHeight = 72.dp,
+                    selectedShape = SddsSandboxTheme.shapes.roundXs,
                 ),
                 LocalPropertiesListStyle provides defaultPropertiesListStyle(darkTheme),
                 LocalPropertyEditorStyle provides PropertyEditorStyle.create(
@@ -145,6 +162,18 @@ fun SandboxTheme(
                     choiceEditorTextColor = colorScheme.textDefaultSecondary,
                     spacing = 14.dp,
                 ),
+                LocalDrawerStyle provides DrawerCloseNone.M.modify {
+                    dimensions {
+                        paddingEnd(0.dp)
+                        paddingStart(0.dp)
+                        paddingTop(0.dp)
+                        paddingBottom(0.dp)
+                    }
+                    shape(SddsSandboxTheme.shapes.roundL)
+                    colors {
+                        backgroundColor(SddsSandboxTheme.colors.surfaceDefaultClear)
+                    }
+                }.style(),
                 content = content,
             )
         },
@@ -157,6 +186,7 @@ fun SandboxTheme(
 const val FIELD_FOCUS_SELECTOR_MODE_SWITCH = true
 
 @Composable
+@Suppress("LongMethod")
 private fun defaultPropertiesListStyle(
     darkTheme: Boolean,
 ): PropertiesListStyle =
@@ -196,12 +226,37 @@ private fun defaultPropertiesListStyle(
         ),
         propertyPaddings = 6.dp,
         spaceBetweenProperties = 14.dp,
-        propertySwitchStyle = Switch.M.ToggleS.style(),
+        propertySwitchStyle = Switch.M.ToggleS.modify {
+            colorValues {
+                toggleTrackColor(
+                    SddsSandboxTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                        setOf(SwitchStates.Checked)
+                            to SddsSandboxTheme.colors.surfaceDefaultAccent,
+                        setOf(InteractiveState.Focused)
+                            to SddsSandboxTheme.colors.surfaceInverseTransparentTertiary,
+                    ),
+                )
+            }
+        }.style(),
         propertyItemShape = SddsSandboxTheme.shapes.roundXs,
         propertyHeight = 24.dp,
         dividerWidth = 1.dp,
         dividerColor = SddsSandboxTheme.colors.surfaceDefaultSolidSecondary,
-        resetButtonStyle = IconButton.Xs.Pilled.Clear.style(),
+        resetButtonStyle = IconButton.Xs.Pilled.Clear.modify {
+            colors {
+                backgroundColor(
+                    SddsSandboxTheme.colors.surfaceDefaultClear.asInteractive(
+                        setOf(InteractiveState.Focused) to SddsSandboxTheme.colors.surfaceDefaultSolidDefault,
+                    ),
+                )
+                iconColor(
+                    SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
+                        setOf(InteractiveState.Focused) to SddsSandboxTheme.colors.textInversePrimary,
+                    ),
+                )
+            }
+        }.style(),
+        itemCellStyle = Cell.Xs.style(),
     )
 
 private val DarkColors = darkSddsSandboxColors()
