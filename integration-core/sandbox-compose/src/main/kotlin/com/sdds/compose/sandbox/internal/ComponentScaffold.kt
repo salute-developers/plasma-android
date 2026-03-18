@@ -11,13 +11,14 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -32,12 +33,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInRoot
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeTheme
 import com.sdds.compose.sandbox.SubTheme
-import com.sdds.compose.sandbox.currentComposeTheme
+import com.sdds.compose.sandbox.currentComposeThemeAsState
 import com.sdds.compose.sandbox.getStyleProvider
 import com.sdds.compose.uikit.style.Style
 import com.sdds.sandbox.ComponentKey
@@ -53,8 +53,8 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
-    if (LocalContext.current.isTvDevice()) {
-        TvScaffold(
+    if (isLargeDevice()) {
+        LargeScaffold(
             key = key,
             viewModel = viewModel,
             themeManager = themeManager,
@@ -85,7 +85,11 @@ private fun <State : UiState, S : Style> MobileScaffold(
         bottomSheetState = sheetState,
         sheetPeekHeight = 74.dp,
         bottomSheetContent = {
-            AnimatedMenuProperty(title = "${key.group.displayName},${key.value}", viewModel = viewModel)
+            AnimatedMenuProperty(
+                title = "${key.group.displayName},${key.value}",
+                viewModel = viewModel,
+                isLargeScreen = false,
+            )
         },
     ) { sheetHeight ->
         var top by remember { mutableFloatStateOf(0f) }
@@ -129,24 +133,14 @@ private fun <State : UiState, S : Style> MobileScaffold(
 }
 
 @Composable
-private fun <State : UiState, S : Style> TvScaffold(
+private fun <State : UiState, S : Style> LargeScaffold(
     key: ComponentKey,
     viewModel: ComponentViewModel<State, S>,
     themeManager: ThemeManager = ThemeManager,
     componentAlignment: (State) -> Alignment = { Alignment.Center },
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
-    Row(
-        modifier = Modifier
-            .fillMaxSize(),
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxHeight()
-                .width(240.dp),
-        ) {
-            AnimatedMenuProperty(title = "${key.group.displayName},${key.value}", viewModel = viewModel)
-        }
+    Row(modifier = Modifier.fillMaxSize()) {
         val uiState by viewModel.uiState.collectAsState()
         val currentSubTheme by viewModel.subtheme.collectAsState()
         val sandboxStyle = LocalSandboxStyle.current
@@ -156,6 +150,16 @@ private fun <State : UiState, S : Style> TvScaffold(
                 sandboxStyle.componentBackgroundColor.getValue(stateSet)
             }
         }
+
+        AnimatedMenuProperty(
+            modifier = Modifier
+                .fillMaxHeight()
+                .width(240.dp),
+            title = "${key.group.displayName},${key.value}",
+            viewModel = viewModel,
+            isLargeScreen = true,
+        )
+
         Box(
             modifier = Modifier
                 .weight(1f, fill = true)
@@ -182,7 +186,7 @@ private fun <State : UiState, S : Style> BoxScope.StyledComponent(
     currentSubTheme: SubTheme?,
     component: @Composable BoxScope.(State, S) -> Unit,
 ) {
-    val currentTheme by themeManager.currentComposeTheme.collectAsState(ComposeTheme.Default)
+    val currentTheme by themeManager.currentComposeThemeAsState
     currentTheme.themeWrapper {
         val styleProvider = currentTheme.getStyleProvider<S>(key, uiState.appearance)
         val style = styleProvider?.style(uiState.variant)
@@ -215,6 +219,8 @@ private fun SubTheme(
 private fun <State : UiState, S : Style> AnimatedMenuProperty(
     title: String,
     viewModel: ComponentViewModel<State, S>,
+    isLargeScreen: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     val contentState = remember { mutableStateOf<MenuPropertyContent>(MenuPropertyContent.PropertiesList) }
     val properties by viewModel.properties.collectAsState()
@@ -222,6 +228,7 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
         contentState.value = MenuPropertyContent.PropertiesList
     }
     AnimatedContent(
+        modifier = modifier,
         targetState = contentState.value,
         transitionSpec = {
             if (targetState is MenuPropertyContent.PropertiesList) {
@@ -233,10 +240,12 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
             }.using(SizeTransform(clip = false))
         },
     ) { content ->
+        val insetsModifier = if (isLargeScreen) Modifier.systemBarsPadding() else Modifier.navigationBarsPadding()
         when (content) {
             MenuPropertyContent.PropertiesList -> {
                 PropertiesList(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxHeight()
+                        .then(insetsModifier),
                     headerTitle = title,
                     properties = properties,
                     onSelect = { property ->
@@ -253,7 +262,8 @@ private fun <State : UiState, S : Style> AnimatedMenuProperty(
 
             is MenuPropertyContent.PropertyEditor -> {
                 PropertyEditor(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxHeight()
+                        .then(insetsModifier),
                     headerTitle = title,
                     property = content.property,
                     onConfirm = { name, value ->

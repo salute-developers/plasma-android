@@ -32,8 +32,11 @@ themeBuilder {
 }
 
 dependencies {
-
     implementation(project(":sandbox-core"))
+    implementation(project(":sandbox-compose"))
+    implementation(libs.base.androidX.compose.foundation)
+    implementation(libs.base.androidX.core)
     implementation(libs.sdds.uikit)
+    implementation(libs.sdds.uikit.compose)
     implementation(icons.sdds.icons)
 }

@@ -16,7 +16,7 @@ internal fun KSPropertyDeclaration.isCompanionObjectProperty(): Boolean {
 
 internal fun KSPropertyDeclaration.isIgnoredProperty(): Boolean {
     val name = simpleName.asString()
-    return name == "appearance" || name == "variant"
+    return name == "appearance" || name == "variant" || name == "colorVariant"
 }
 
 internal fun KSType.isObject(): Boolean {

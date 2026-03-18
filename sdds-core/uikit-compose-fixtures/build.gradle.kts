@@ -21,13 +21,6 @@ android {
     }
 }
 
-detekt {
-    config = files(
-        "$rootDir/../build-system/.detekt/config.yml",
-        "$projectDir/detekt-config.yml"
-    )
-}
-
 ksp {
     arg("sandbox.packageName", "com.sdds.compose.uikit.fixtures.stories")
 }

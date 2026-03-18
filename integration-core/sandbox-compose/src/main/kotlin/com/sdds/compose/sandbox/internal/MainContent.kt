@@ -1,7 +1,5 @@
 package com.sdds.compose.sandbox.internal
 
-import android.content.Context
-import android.content.pm.PackageManager
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.tween
@@ -16,16 +14,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -33,9 +27,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sdds.compose.sandbox.ComposeTheme
-import com.sdds.compose.sandbox.currentComposeTheme
+import com.sdds.compose.sandbox.currentComposeThemeAsState
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.WindowSizeClass
+import com.sdds.compose.uikit.collectWindowSizeInfoAsState
 import com.sdds.icons.R
 import com.sdds.sandbox.ThemeManager
 import kotlinx.coroutines.launch
@@ -43,40 +39,44 @@ import kotlinx.coroutines.launch
 @Suppress("LongMethod")
 @Composable
 internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
-    val currentTheme by themeManager.currentComposeTheme.collectAsState(ComposeTheme.Default)
+    val currentTheme by themeManager.currentComposeThemeAsState
+    val isLarge = isLargeDevice()
     val menuItems = remember(currentTheme) { currentTheme.components.getMenuItems() }
     val scope = rememberCoroutineScope()
     val navController = rememberNavController()
     val currentBackStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
-    val selectedRoute = rememberSaveable { mutableStateOf<String?>(null) }
-    val savedRoute = rememberSaveable { mutableStateOf(menuItems.first().route) }
-    val isTv = LocalContext.current.isTvDevice()
-    val showTopBar = currentBackStackEntry?.destination?.route == "menuItems"
-    LaunchedEffect(currentTheme) { selectedRoute.value = null }
+    val showTopBar = currentBackStackEntry?.destination?.route == START_DESTINATION
+    val navigationContent: @Composable () -> Unit = {
+        NavigationGraph(
+            navController = navController,
+            menuItems = menuItems,
+            themeInfo = currentTheme,
+            isTv = isLarge,
+        )
+    }
 
-    if (isTv) {
+    if (isLarge) {
         TvLayout(
             menuItems = {
                 NavigationViewTv(
                     items = menuItems,
-                    title = currentTheme.toString(),
+                    title = currentTheme.displayName,
                     focusable = true,
                     onSelect = {
                         scope.launch {
                             navController.navigate(it.route) {
-                                currentBackStackEntry?.destination?.route?.let { prevRoute ->
-                                    popUpTo(prevRoute) { inclusive = true }
+                                popUpTo(navController.graph.startDestinationId) {
+                                    saveState = true
                                 }
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                            savedRoute.value = it.route
                         }
                     },
                 )
             },
         ) {
-            NavigationGraph(navController, menuItems, savedRoute.value, null, true)
+            navigationContent()
         }
     } else {
         MobileLayout(
@@ -89,7 +89,7 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                 )
             },
         ) {
-            NavigationGraph(navController, menuItems, null, currentTheme, false)
+            navigationContent()
         }
     }
 }
@@ -98,8 +98,7 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
 internal fun NavigationGraph(
     navController: NavHostController,
     menuItems: List<MenuItem>,
-    startDestination: String? = null,
-    themeInfo: ComposeTheme? = null,
+    themeInfo: ComposeTheme,
     isTv: Boolean,
 ) {
     val transitions = remember(isTv) {
@@ -129,7 +128,7 @@ internal fun NavigationGraph(
 
     NavHost(
         navController = navController,
-        startDestination = startDestination ?: "menuItems",
+        startDestination = START_DESTINATION,
         enterTransition = { transitions.enter },
         exitTransition = { transitions.exit },
         popEnterTransition = { transitions.popEnter },
@@ -140,8 +139,10 @@ internal fun NavigationGraph(
                 item.destination.composeScreen(item.componentKey)
             }
         }
-        themeInfo?.let {
-            composable("menuItems") {
+        composable(START_DESTINATION) {
+            if (isTv) {
+                menuItems.first().let { it.destination.composeScreen(it.componentKey) }
+            } else {
                 NavigationViewMobile(
                     items = menuItems,
                     themeInfo = themeInfo,
@@ -191,6 +192,10 @@ private data class NavigationTransition(
     val popExit: ExitTransition,
 )
 
-internal fun Context.isTvDevice(): Boolean {
-    return packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
+@Composable
+internal fun isLargeDevice(): Boolean {
+    val sizeInfo by collectWindowSizeInfoAsState()
+    return sizeInfo.widthClass == WindowSizeClass.Expanded
 }
+
+private const val START_DESTINATION = "menuItems"
