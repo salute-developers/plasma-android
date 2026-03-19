@@ -17,6 +17,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.sandbox.internal.FIELD_FOCUS_SELECTOR_MODE_SWITCH
@@ -28,6 +29,7 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
@@ -116,6 +118,37 @@ object TextFieldStory : ComposeBaseStory<TextFieldUiState, TextFieldStyle>(
                 )
             }
         }
+    }
+
+    @Composable
+    override fun Preview(
+        style: TextFieldStyle,
+        key: ComponentKey,
+    ) {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+        TextField(
+            value = value,
+            style = style,
+            labelText = "Label",
+            placeholderText = "",
+            captionText = "Caption",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorSettings = FocusSelectorSettings.None,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
     }
 }
 

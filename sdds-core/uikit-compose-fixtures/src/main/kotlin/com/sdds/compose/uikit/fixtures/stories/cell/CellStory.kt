@@ -24,6 +24,7 @@ import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.icons.R
 import com.sdds.sandbox.CellUiStatePropertiesProducer
 import com.sdds.sandbox.CellUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -88,6 +89,32 @@ object CellStory : ComposeBaseStory<CellUiState, CellStyle>(
             startContent = cellContent(contentType = state.startContent),
             endContent = cellContent(contentType = state.endContent),
             interactionSource = interactionSource,
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: CellStyle,
+        key: ComponentKey,
+    ) {
+        Cell(
+            modifier = Modifier.fillMaxWidth(),
+            style = style,
+            title = AnnotatedString("Title"),
+            subtitle = AnnotatedString(""),
+            label = AnnotatedString("Label"),
+            disclosureContentEnabled = false,
+            startContent = {
+                Avatar(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
         )
     }
 }

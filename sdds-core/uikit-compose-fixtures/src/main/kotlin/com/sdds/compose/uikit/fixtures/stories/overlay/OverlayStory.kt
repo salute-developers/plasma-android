@@ -2,6 +2,8 @@ package com.sdds.compose.uikit.fixtures.stories.overlay
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -67,6 +69,35 @@ object OverlayStory : ComposeBaseStory<OverlayUiState, OverlayStyle>(
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(end = 8.dp, top = 8.dp),
+                    icon = painterResource(id = R.drawable.ic_close_24),
+                    onClick = { showOverlay = false },
+                )
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: OverlayStyle,
+        key: ComponentKey,
+    ) {
+        var showOverlay by remember { mutableStateOf(false) }
+        Button(
+            label = "Show Overlay",
+            onClick = {
+                showOverlay = true
+            },
+        )
+        if (showOverlay) {
+            Overlay(
+                modifier = Modifier
+                    .height(60.dp)
+                    .fillMaxWidth(),
+                style = style,
+            ) {
+                IconButton(
+                    modifier = Modifier
+                        .align(Alignment.CenterEnd),
                     icon = painterResource(id = R.drawable.ic_close_24),
                     onClick = { showOverlay = false },
                 )

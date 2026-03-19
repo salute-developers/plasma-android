@@ -1,11 +1,10 @@
-import com.diffplug.gradle.spotless.SpotlessExtension
+import tasks.integration.ComponentsTarget
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.kotlin.dsl.register
-import tasks.integration.ComponentsTarget
 import tasks.integration.GenerateComponentsDictionary
+import tasks.integration.Scheme
 import utils.baseDetektConfigDirPath
 import utils.baseDetektConfigPath
-import utils.withVersionCatalogs
 
 
 tasks.register<GenerateComponentsDictionary>("generateComposeIntegration") {
@@ -19,6 +18,14 @@ tasks.register<GenerateComponentsDictionary>("generateComposeIntegration") {
         properties["integration.compose.package-name"]?.toString()
             ?: throw GradleException("integration.compose.package-name is not specified")
     )
+    themeAlias.set(properties["theme-alias"]?.toString())
+    scheme.set(
+        when (properties["integration.compose.scheme"]?.toString()) {
+            "V2" -> Scheme.V2
+            else -> Scheme.V1
+        }
+    )
+
     target.set(ComponentsTarget.COMPOSE)
 }
 

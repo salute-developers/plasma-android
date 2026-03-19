@@ -2,10 +2,13 @@ package com.sdds.compose.uikit.fixtures.stories.button
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonIcons
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.icons.R
 import com.sdds.sandbox.ButtonUiStatePropertiesProducer
 import com.sdds.sandbox.ButtonUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -86,6 +89,22 @@ object BasicButtonStory : ComposeBaseStory<ButtonUiState, ButtonStyle>(
             label = state.label,
             value = state.value,
             onClick = {}, // Пустой обработчик для демонстрационных целей
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: ButtonStyle,
+        key: ComponentKey,
+    ) {
+        Button(
+            style = style,
+            icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            spacing = ButtonSpacing.Packed,
+            label = "Label",
+            enabled = true,
+            loading = false,
+            onClick = {},
         )
     }
 }

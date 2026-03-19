@@ -7,6 +7,7 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.icons.R
 import com.sdds.sandbox.ChipUiStatePropertiesProducer
 import com.sdds.sandbox.ChipUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -48,6 +49,25 @@ object ChipStory : ComposeBaseStory<ChipUiState, ChipStyle>(
             enabled = state.enabled,
             startContent = startContent(state.hasStartIcon),
             endContent = endContent(state.hasEndIcon),
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: ChipStyle,
+        key: ComponentKey,
+    ) {
+        Chip(
+            style = style,
+            label = "Label",
+            onClick = {},
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = true,
         )
     }
 }

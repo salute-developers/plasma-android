@@ -1,0 +1,41 @@
+package ${{ packageName }}
+
+import androidx.compose.foundation.isSystemInDarkTheme
+import com.sdds.compose.sandbox.ComposeTheme
+import com.sdds.compose.sandbox.SubTheme
+import com.sdds.compose.sandbox.ui.SandboxActivity
+import ${{ themePackageName }}.theme.${{ themeAliasName }}Theme
+import ${{ themePackageName }}.theme.dark${{ themeAliasName }}Colors
+import ${{ themePackageName }}.theme.dark${{ themeAliasName }}Gradients
+import ${{ themePackageName }}.theme.light${{ themeAliasName }}Colors
+import ${{ themePackageName }}.theme.light${{ themeAliasName }}Gradients
+import ${{ themePackageName }}.theme.subthemes.Default
+import ${{ themePackageName }}.theme.subthemes.Inverse
+import ${{ themePackageName }}.theme.subthemes.OnDark
+import ${{ themePackageName }}.theme.subthemes.OnLight
+import com.sdds.sandbox.ComponentProvider
+import com.sdds.sandbox.ComponentProviderUtils.plus
+import com.sdds.sandbox.ThemeManager
+
+fun SandboxActivity.registerTheme(componentProvider: ComponentProvider = ComponentProvider.Empty) {
+    val theme = ComposeTheme(
+        displayName = "${{ themeName }}",
+        components = ${{ themeName }}ComposeComponents + componentProvider,
+        themeWrapper = {
+            val isDark = isSystemInDarkTheme()
+            ${{ themeAliasName }}Theme(
+                colors = if (isDark) dark${{ themeAliasName }}Colors() else light${{ themeAliasName }}Colors(),
+                gradients = if (isDark) dark${{ themeAliasName }}Gradients() else light${{ themeAliasName }}Gradients(),
+            ) {
+                it()
+            }
+        },
+        subthemes = mapOf(
+            SubTheme.DEFAULT to { ${{ themeAliasName }}Theme.Default(content = it) },
+            SubTheme.ON_LIGHT to { ${{ themeAliasName }}Theme.OnLight(content = it) },
+            SubTheme.ON_DARK to { ${{ themeAliasName }}Theme.OnDark(content = it) },
+            SubTheme.INVERSE to { ${{ themeAliasName }}Theme.Inverse(content = it) },
+        ),
+    )
+    ThemeManager.updateTheme(theme)
+}

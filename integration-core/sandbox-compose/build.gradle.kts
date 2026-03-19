@@ -39,6 +39,7 @@ dependencies {
 
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.base.androidX.activity.compose)
+    implementation(libs.base.androidX.activity)
     implementation(libs.base.androidX.lifecycle.compose.viewmodel)
     implementation(libs.base.androidX.navigation.compose)
 

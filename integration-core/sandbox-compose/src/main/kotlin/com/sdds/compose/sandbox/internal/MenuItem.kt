@@ -6,6 +6,7 @@ import com.sdds.compose.uikit.style.Style
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.ComponentProvider
 import com.sdds.sandbox.StoryRegistry
+import com.sdds.sandbox.UiState
 
 internal class MenuItem(
     val title: String,
@@ -36,9 +37,9 @@ internal class ComponentScreen(
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
 private fun ComponentKey.screen(): ComponentScreen {
-    val story = StoryRegistry.get(this) as? ComposeBaseStory<*, *> ?: return EmptyScreen
+    val story = StoryRegistry.get(this) as? ComposeBaseStory<UiState, Style> ?: return EmptyScreen
     return ComponentScreen(
         composeScreen = { story.Story() },
-        null,
+        preview = { style, key -> story.Preview(style, key) },
     )
 }

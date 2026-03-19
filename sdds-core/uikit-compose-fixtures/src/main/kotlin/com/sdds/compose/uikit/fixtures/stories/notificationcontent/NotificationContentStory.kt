@@ -57,4 +57,21 @@ object NotificationContentStory :
             },
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: NotificationContentStyle,
+        key: ComponentKey,
+    ) {
+        NotificationContent(
+            modifier = Modifier.fillMaxWidth(0.6f),
+            style = style,
+            title = "Title",
+            text = "Text",
+            buttons = {
+                button { Button("Ok", {}) }
+                button { Button("Cancel", {}) }
+            },
+        )
+    }
 }

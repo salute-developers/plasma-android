@@ -22,6 +22,7 @@ import com.sdds.compose.uikit.fixtures.R
 import com.sdds.compose.uikit.fixtures.stories.textfield.TextFieldIcon
 import com.sdds.compose.uikit.fixtures.stories.textfield.getTextFieldExampleIcon
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.mask.DateMask
 import com.sdds.compose.uikit.mask.MaskedTextField
 import com.sdds.compose.uikit.mask.NumberMask
@@ -131,6 +132,24 @@ object MaskedTextFieldStory : ComposeBaseStory<MaskedTextFieldUiState, TextField
                 )
             }
         }
+    }
+
+    @Composable
+    override fun Preview(
+        style: TextFieldStyle,
+        key: ComponentKey,
+    ) {
+        MaskedTextField(
+            value = "0000000000",
+            mask = remember { PhoneMask() },
+            onValueChange = {},
+            style = style,
+            placeholderText = "placeholder",
+            labelText = "label",
+            startContent = true.getTextFieldExampleIcon(TextFieldIcon.Start),
+            endContent = true.getTextFieldExampleIcon(TextFieldIcon.End),
+            focusSelectorSettings = LocalFocusSelectorSettings.current,
+        )
     }
 }
 

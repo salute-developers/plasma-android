@@ -7,8 +7,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
+import com.sdds.compose.uikit.LocalButtonStyle
+import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.ProvideTextStyle
-import kotlin.Unit
+import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.homeds.styles.basicbutton.BasicButton
+import com.sdds.plasma.homeds.styles.basicbutton.Default
+import com.sdds.plasma.homeds.styles.basicbutton.M
+import com.sdds.plasma.homeds.styles.switcher.M
+import com.sdds.plasma.homeds.styles.switcher.Switch
 
 /**
  * Аттрибуты темы PlasmaHomeDsTheme
@@ -94,10 +101,15 @@ public fun PlasmaHomeDsTheme(
         LocalPlasmaHomeDsSpacing provides spacing,
         LocalTextSelectionColors provides textSelectionColors,
         content = {
-            ProvideTextStyle(
-                value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
-                content = content,
-            )
+            CompositionLocalProvider(
+                LocalButtonStyle provides BasicButton.M.Default.style(),
+                LocalSwitchStyle provides Switch.M.style(),
+            ) {
+                ProvideTextStyle(
+                    value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),
+                    content = content,
+                )
+            }
         },
     )
 }

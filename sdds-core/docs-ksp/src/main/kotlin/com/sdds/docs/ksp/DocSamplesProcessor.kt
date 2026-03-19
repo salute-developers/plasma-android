@@ -8,6 +8,7 @@ import com.google.devtools.ksp.processing.SymbolProcessor
 import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
 import com.google.devtools.ksp.processing.SymbolProcessorProvider
 import com.google.devtools.ksp.symbol.KSAnnotated
+import com.google.devtools.ksp.symbol.KSFile
 import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.google.devtools.ksp.validate
 import java.io.OutputStreamWriter
@@ -85,7 +86,11 @@ class DocSamplesProcessor(
                 continue
             }
 
-            val entry = Entry(key = key, reference = CallableReference(needScreenshot, ref))
+            val entry = Entry(
+                key = key,
+                reference = CallableReference(needScreenshot, ref),
+                sourceFile = fn.containingFile,
+            )
             val target = referenceType.getReferenceTarget()
             val existing = target.putIfAbsent(key, entry)
             if (existing != null) {
@@ -177,14 +182,14 @@ class DocSamplesProcessor(
         composable: List<Entry>,
     ) {
         val pkg = packageName
-        val fileName = "DocSampleRegistry"
 
         if (regular.isEmpty() && composable.isEmpty() && view.isEmpty()) return
 
+        val sources = (regular + view + composable).mapNotNull { it.sourceFile }.toTypedArray()
         val file = codeGenerator.createNewFile(
-            dependencies = Dependencies(aggregating = true),
+            dependencies = Dependencies(aggregating = true, sources = sources),
             packageName = pkg,
-            fileName = fileName,
+            fileName = "DocSampleRegistry",
         )
 
         OutputStreamWriter(file, Charsets.UTF_8).use { out ->
@@ -252,6 +257,7 @@ class DocSamplesProcessor(
     private data class Entry(
         val key: String,
         val reference: CallableReference,
+        val sourceFile: KSFile?,
     )
 
     private data class CallableReference(

@@ -73,4 +73,28 @@ object ModalStory : ComposeBaseStory<ModalUiState, ModalStyle>(
             Text("Modal", modifier = Modifier.wrapContentSize())
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: ModalStyle,
+        key: ComponentKey,
+    ) {
+        val showModal = remember { mutableStateOf(false) }
+        Button(
+            label = "Show Modal",
+            onClick = { showModal.value = true },
+        )
+        Modal(
+            show = showModal.value,
+            style = style,
+            onDismissRequest = { showModal.value = false },
+            modifier = Modifier.width(300.dp),
+            hasClose = true,
+            dimBackground = true,
+            useNativeBlackout = true,
+            closeIcon = painterResource(R.drawable.ic_close_24),
+        ) {
+            Text("Modal", modifier = Modifier.wrapContentSize())
+        }
+    }
 }

@@ -62,4 +62,19 @@ object CheckBoxStory : ComposeBaseStory<CheckBoxUiState, CheckBoxStyle>(
             enabled = state.enabled,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: CheckBoxStyle,
+        key: ComponentKey,
+    ) {
+        CheckBox(
+            style = style,
+            state = ToggleableState.On,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }

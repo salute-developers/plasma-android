@@ -8,6 +8,7 @@ import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconBadge
+import com.sdds.icons.R
 import com.sdds.sandbox.BadgeUiStatePropertiesProducer
 import com.sdds.sandbox.BadgeUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -55,6 +56,23 @@ object BadgeStory : ComposeBaseStory<BadgeUiState, BadgeStyle>(
             endContent = badgeContent(state.contentRight),
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: BadgeStyle,
+        key: ComponentKey,
+    ) {
+        Badge(
+            style = style,
+            label = "Label",
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_plasma_16),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
 }
 
 @Story
@@ -72,6 +90,22 @@ object IconBadgeStory : ComposeBaseStory<BadgeUiState, BadgeStyle>(
         IconBadge(
             style = style,
             content = badgeContent(state.contentLeft),
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: BadgeStyle,
+        key: ComponentKey,
+    ) {
+        IconBadge(
+            style = style,
+            content = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_plasma_16),
+                    contentDescription = "",
+                )
+            },
         )
     }
 }

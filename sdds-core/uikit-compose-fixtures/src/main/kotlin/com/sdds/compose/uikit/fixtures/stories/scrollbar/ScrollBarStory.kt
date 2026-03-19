@@ -1,8 +1,12 @@
 package com.sdds.compose.uikit.fixtures.stories.scrollbar
 
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,11 +17,14 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.ScrollBarUiStatePropertiesProducer
 import com.sdds.sandbox.ScrollBarUiStateTransformer
@@ -98,6 +105,39 @@ object ScrollBarStory : ComposeBaseStory<ScrollBarUiState, ScrollBarStyle>(
                     hoverExpand = state.hoverExpand,
                 )
             }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: ScrollBarStyle,
+        key: ComponentKey,
+    ) {
+        Box(
+            modifier = Modifier.height(40.dp),
+        ) {
+            val scrollState = rememberScrollState()
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(2.dp),
+                modifier = Modifier
+                    .horizontalScroll(scrollState),
+            ) {
+                repeat(20) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_clown_24),
+                        contentDescription = "",
+                    )
+                }
+            }
+            ScrollBar(
+                scrollState = scrollState,
+                modifier = Modifier.align(Alignment.BottomCenter),
+                style = style,
+                orientation = Orientation.Horizontal,
+                hasTrack = true,
+                hoverExpand = false,
+                alwaysShowScrollbar = true,
+            )
         }
     }
 }

@@ -79,4 +79,23 @@ object ChipGroupStory : ComposeBaseStory<ChipGroupUiState, ChipGroupStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: ChipGroupStyle,
+        key: ComponentKey,
+    ) {
+        ChipGroup(
+            style = style,
+            content = {
+                repeat(3) {
+                    Chip(
+                        label = "Label",
+                        onClick = {},
+                        enabled = true,
+                    )
+                }
+            },
+        )
+    }
 }

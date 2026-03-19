@@ -86,4 +86,17 @@ object PaginationDotsStory : ComposeBaseStory<PaginationDotsUiState, PaginationD
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: PaginationDotsStyle,
+        key: ComponentKey,
+    ) {
+        PaginationDots(
+            style = style,
+            selectedIndex = 0,
+            visibleCount = 5,
+            totalCount = 13,
+        )
+    }
 }

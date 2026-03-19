@@ -89,6 +89,39 @@ object TooltipStory : ComposeBaseStory<TooltipUiState, TooltipStyle>(
             text = AnnotatedString(state.text),
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: TooltipStyle,
+        key: ComponentKey,
+    ) {
+        val showTooltip = remember { mutableStateOf(false) }
+        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+
+        Button(
+            modifier = Modifier
+                .popoverTrigger(triggerInfo),
+            label = "Show Tooltip",
+            onClick = { showTooltip.value = true },
+        )
+        Tooltip(
+            show = showTooltip.value,
+            modifier = Modifier.widthIn(0.dp, 160.dp),
+            triggerInfo = { triggerInfo.value },
+            placement = PopoverPlacement.Top,
+            placementMode = PopoverPlacementMode.Loose,
+            triggerCentered = false,
+            alignment = PopoverAlignment.Start,
+            style = style,
+            tailEnabled = true,
+            onDismissRequest = {
+                showTooltip.value = false
+            },
+            duration = 3000,
+            contentStart = { Icon(painter = painterResource(R.drawable.ic_shazam_16), "") },
+            text = AnnotatedString("Tooltip text you can replace"),
+        )
+    }
 }
 
 private fun getContentStart(hasContentStart: Boolean): @Composable (() -> Unit)? {

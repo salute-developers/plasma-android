@@ -44,4 +44,15 @@ object CounterStory : ComposeBaseStory<CounterUiState, CounterStyle>(
             count = state.count,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: CounterStyle,
+        key: ComponentKey,
+    ) {
+        Counter(
+            style = style,
+            count = "123",
+        )
+    }
 }

@@ -21,6 +21,7 @@ rootProject.name = "tokens"
 
 includeBuild("../build-system")
 includeBuild("../sdds-core")
+includeBuild("../integration-core")
 include(
     ":plasma.giga.compose",
     ":plasma.giga.compose:docs",
@@ -30,6 +31,7 @@ include(
     ":plasma.sd.service.compose:docs",
     ":plasma.homeds.compose",
     ":plasma.homeds.compose:docs",
+    ":plasma.homeds.compose:integration",
     ":plasma.homeds.compose:app",
     ":plasma.sd.service.view",
     ":plasma.sd.service.view:docs",

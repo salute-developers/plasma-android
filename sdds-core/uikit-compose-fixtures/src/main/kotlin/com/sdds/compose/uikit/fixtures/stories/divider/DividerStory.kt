@@ -40,4 +40,12 @@ object DividerStory : ComposeBaseStory<DividerUiState, DividerStyle>(
     ) {
         Divider(style = style)
     }
+
+    @Composable
+    override fun Preview(
+        style: DividerStyle,
+        key: ComponentKey,
+    ) {
+        Divider(style = style)
+    }
 }

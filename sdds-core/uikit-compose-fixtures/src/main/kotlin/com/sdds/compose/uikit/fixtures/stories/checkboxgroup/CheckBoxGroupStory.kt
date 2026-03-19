@@ -100,6 +100,38 @@ object CheckBoxGroupStory : ComposeBaseStory<CheckBoxGroupUiState, CheckBoxGroup
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: CheckBoxGroupStyle,
+        key: ComponentKey,
+    ) {
+        CheckBoxGroup(
+            style = style,
+        ) {
+            rootCheckbox {
+                CheckBox(
+                    state = ToggleableState.On,
+                    label = "Label",
+                    description = "Description",
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.On,
+                    label = "Label",
+                    description = "Description",
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.On,
+                    label = "Label",
+                    description = "Description",
+                )
+            }
+        }
+    }
 }
 
 private fun List<CheckBoxGroupItem>.getParentState(): ToggleableState =

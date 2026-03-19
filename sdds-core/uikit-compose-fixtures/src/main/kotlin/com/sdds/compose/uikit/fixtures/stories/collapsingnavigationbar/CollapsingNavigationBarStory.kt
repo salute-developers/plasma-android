@@ -95,6 +95,25 @@ object CollapsingNavigationBarStory :
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: CollapsingNavigationBarStyle,
+        key: ComponentKey,
+    ) {
+        CollapsingNavigationBar(
+            style = style,
+            collapsedTitle = textContent("Title"),
+            content = content("Content"),
+            actionStart = actionStart(true),
+            actionEnd = actionEnd(true),
+            expandedTitle = textContent("Title"),
+            expandedDescription = textContent("Description"),
+            collapsedDescription = textContent(
+                "Description",
+            ),
+        )
+    }
 }
 
 private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {

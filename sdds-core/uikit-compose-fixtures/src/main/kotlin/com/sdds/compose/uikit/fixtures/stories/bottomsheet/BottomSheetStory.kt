@@ -6,7 +6,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -126,6 +128,48 @@ object BottomSheetStory : ComposeBaseStory<BottomSheetUiState, ModalBottomSheetS
                 if (state.footer && !state.fixedFooter) {
                     Footer(backgroundColor)
                 }
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: ModalBottomSheetStyle,
+        key: ComponentKey,
+    ) {
+        val sheetState = rememberModalBottomSheetState(
+            initialValue = BottomSheetValue.Hidden,
+        )
+        val scope = rememberCoroutineScope()
+        Button(
+            label = "show ModalBottomSheet",
+            onClick = {
+                scope.launch {
+                    sheetState.show()
+                }
+            },
+        )
+        ModalBottomSheet(
+            style = style,
+            modifier = Modifier.statusBarsPadding(),
+            sheetState = sheetState,
+            handlePlacement = BottomSheetHandlePlacement.Auto,
+            fitContent = false,
+            header = {},
+            footer = {},
+        ) {
+            Column(
+                Modifier.fillMaxWidth()
+                    .navigationBarsPadding(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Spacer(Modifier.height(32.dp))
+                Text(
+                    "Android operating system is the largest" +
+                        "installed base among various mobile platforms" +
+                        "across the globe. Hundreds of millions of mobile devices" +
+                        "are powered by Android in more than 190 countries of the world.",
+                )
             }
         }
     }

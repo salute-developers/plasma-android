@@ -10,6 +10,8 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
+import com.sdds.compose.uikit.isChecked
+import com.sdds.compose.uikit.updateSelection
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.RadioBoxGroupUiStatePropertiesProducer
 import com.sdds.sandbox.RadioBoxGroupUiStateTransformer
@@ -54,6 +56,42 @@ object RadioBoxGroupStory : ComposeBaseStory<RadioBoxGroupUiState, RadioBoxGroup
                     label = state.label,
                     description = state.description,
                     onClick = { currentItem = it },
+                )
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: RadioBoxGroupStyle,
+        key: ComponentKey,
+    ) {
+        RadioBoxGroup(
+            style = style,
+            default = 1,
+        ) { selection ->
+            radioBoxItem(key = 1) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 2) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 3) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
                 )
             }
         }

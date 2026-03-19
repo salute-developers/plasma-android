@@ -160,6 +160,68 @@ object AutocompleteStory : ComposeBaseStory<AutocompleteUiState, AutocompleteSty
             )
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: AutocompleteStyle,
+        key: ComponentKey,
+    ) {
+        var text by remember { mutableStateOf(TextFieldValue()) }
+        var showDropdown by remember { mutableStateOf(false) }
+        val textFieldInteractionSource = remember { MutableInteractionSource() }
+        val filteredList = AutocompleteSuggestions.filterSuggestions(text.text)
+        val showEmptyState = filteredList.isEmpty()
+
+        Autocomplete(
+            showDropdown = showDropdown,
+            onDismissRequest = { showDropdown = false },
+            style = style,
+            field = {
+                TextField(
+                    modifier = Modifier.width(240.dp),
+                    value = text,
+                    placeholderText = "Сотрудник",
+                    captionText = "Введите имя Алексей",
+                    onValueChange = {
+                        text = it
+                        showDropdown = true
+                    },
+                    endContent = {
+                        Icon(painter = painterResource(com.sdds.icons.R.drawable.ic_search_24), "")
+                    },
+                    focusSelectorSettings = FocusSelectorSettings.None,
+                    interactionSource = textFieldInteractionSource,
+                )
+            },
+            showEmptyState = showEmptyState,
+            emptyState = {
+                EmptyState(
+                    iconRes = com.sdds.icons.R.drawable.ic_plasma_36,
+                    description = "Empty State",
+                    buttonLabel = "Action",
+                )
+            },
+            footer = { Loading() },
+        ) {
+            items(filteredList.size) { index ->
+                ListItem(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable(
+                            indication = null,
+                            interactionSource = remember { MutableInteractionSource() },
+                        ) {
+                            text = TextFieldValue(
+                                text = filteredList[index],
+                                selection = TextRange(filteredList[index].length),
+                            )
+                            showDropdown = false
+                        },
+                    text = filteredList[index],
+                )
+            }
+        }
+    }
 }
 
 private val keyboardHeight: Dp

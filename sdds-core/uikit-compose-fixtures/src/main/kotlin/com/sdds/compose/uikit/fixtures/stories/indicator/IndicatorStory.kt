@@ -40,4 +40,14 @@ object IndicatorStory : ComposeBaseStory<IndicatorUiState, IndicatorStyle>(
     ) {
         Indicator(style = style)
     }
+
+    @Composable
+    override fun Preview(
+        style: IndicatorStyle,
+        key: ComponentKey,
+    ) {
+        Indicator(
+            style = style,
+        )
+    }
 }

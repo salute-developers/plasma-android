@@ -48,6 +48,7 @@ internal abstract class ComponentGenerator {
                 appearanceTemplate = appearanceTemplate,
                 themeName = themeName,
             )
+
             else -> getDefaultComponentProviderEntry(
                 key = key,
                 comps = comps,
@@ -134,9 +135,31 @@ internal class ComposeComponentsGenerator(
     private val config: Config,
     private val packageName: String,
     private val packageDir: File,
+    private val scheme: Scheme,
+    private val themeAlias: String,
 ) : ComponentGenerator() {
 
     private val themeName = config.name.toPascalCase()
+
+    private val styleProviderTemplatePath = when (scheme) {
+        Scheme.V1 -> "ComposeStyleProviderKt_V1.txt"
+        Scheme.V2 -> "ComposeStyleProviderKt_V2.txt"
+    }
+
+    private val styleInstanceTemplatePath = when (scheme) {
+        Scheme.V1 -> "ComposeStyleInstanceKt_V1.txt"
+        Scheme.V2 -> "ComposeStyleInstanceKt_V2.txt"
+    }
+
+    private val componentInstanceTemplatePath = when (scheme) {
+        Scheme.V1 -> "ComposeComponentInstanceKt_V1.txt"
+        Scheme.V2 -> "ComposeComponentInstanceKt_V2.txt"
+    }
+
+    private val componentProviderTemplatePath = when (scheme) {
+        Scheme.V1 -> "ComposeComponentProviderKt_V1.txt"
+        Scheme.V2 -> "ComposeComponentProviderKt_V2.txt"
+    }
 
     override fun generate() {
         config.components.forEach {
@@ -145,10 +168,11 @@ internal class ComposeComponentsGenerator(
                 component = it,
                 packageName = packageName,
                 themePackageName = config.packageName,
-                packageDir = packageDir
+                packageDir = packageDir,
             )
         }
         createComponentProvider()
+        createRegisterTheme(config.packageName)
     }
 
     private fun createStyleProvider(
@@ -158,8 +182,9 @@ internal class ComposeComponentsGenerator(
         themePackageName: String,
         packageDir: File,
     ) {
-        val styleProviderTemplate = loadTemplate("ComposeStyleProviderKt.txt").trim()
-        val styleInstanceTemplate = loadTemplate("ComposeStyleInstanceKt.txt")
+
+        val styleProviderTemplate = loadTemplate(styleProviderTemplatePath).trim()
+        val styleInstanceTemplate = loadTemplate(styleInstanceTemplatePath)
         val importTemplate = loadTemplate("ComposeImportInstanceKt.txt")
 
         val styleContent = component.variations
@@ -224,19 +249,41 @@ internal class ComposeComponentsGenerator(
             "BasicButton",
             "IconButton",
             "LinkButton" -> "ButtonStyle"
+
             "TextArea" -> "TextFieldStyle"
             "IconBadge" -> "BadgeStyle"
             "BottomSheet" -> "ModalBottomSheetStyle"
             "TabItem",
             "IconTabItem" -> "TabItemStyle"
+
             else -> "${component.coreName}Style"
         }
     }
 
+    private fun createRegisterTheme(
+        themePackageName: String,
+    ) {
+        if (scheme != Scheme.V2) return
+
+        val registerThemeTemplate = loadTemplate("ComposeRegisterThemeKt_V2.txt").trim()
+        val content = expand(
+            registerThemeTemplate,
+            mapOf(
+                "packageName" to packageName,
+                "themeName" to themeName,
+                "themeAliasName" to themeAlias,
+                "themePackageName" to themePackageName,
+            )
+        )
+        val outFile = File(packageDir, "${themeName}RegisterTheme.kt")
+        outFile.parentFile?.mkdirs()
+        outFile.writeText(content)
+    }
+
     private fun createComponentProvider() {
-        val componentTemplate = loadTemplate("ComposeComponentInstanceKt.txt").trim()
+        val componentTemplate = loadTemplate(componentInstanceTemplatePath).trim()
         val appearanceTemplate = loadTemplate("ComposeAppearanceInstanceKt.txt").trim()
-        val providerTemplate = loadTemplate("ComposeComponentProviderKt.txt").trim()
+        val providerTemplate = loadTemplate(componentProviderTemplatePath).trim()
 
         // Group components by coreName
         val grouped: Map<String, List<Component>> = config.components.groupBy { it.key }
@@ -390,8 +437,8 @@ private fun String.toPascalCase(joinSeparator: String = ""): String =
         .split(".")
         .joinToString(joinSeparator) { part ->
             part.split(Regex("[^A-Za-z0-9]+"))
-            .filter { it.isNotBlank() }
-            .joinToString("") { it.replaceFirstChar { c -> c.uppercaseChar() } }
+                .filter { it.isNotBlank() }
+                .joinToString("") { it.replaceFirstChar { c -> c.uppercaseChar() } }
         }
 
 

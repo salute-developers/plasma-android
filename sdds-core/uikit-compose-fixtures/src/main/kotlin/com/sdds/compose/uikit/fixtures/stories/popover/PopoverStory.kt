@@ -131,4 +131,53 @@ object PopoverStory : ComposeBaseStory<PopoverUiState, PopoverStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: PopoverStyle,
+        key: ComponentKey,
+    ) {
+        val showPopover = remember { mutableStateOf(false) }
+        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+        Button(
+            modifier = Modifier
+                .popoverTrigger(triggerInfo),
+            label = "Show Popover",
+            onClick = { showPopover.value = true },
+        )
+        Popover(
+            show = showPopover.value,
+            triggerInfo = triggerInfo.value,
+            placement = PopoverPlacement.Top,
+            placementMode = PopoverPlacementMode.Loose,
+            triggerCentered = false,
+            alignment = PopoverAlignment.Start,
+            style = style,
+            tailEnabled = true,
+            onDismissRequest = {
+                showPopover.value = false
+            },
+            duration = 3000L,
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(
+                        top = 12.dp,
+                        bottom = 8.dp,
+                        start = 8.dp,
+                        end = 8.dp,
+                    ),
+            ) {
+                Text("Title")
+                Spacer(Modifier.height(4.dp))
+                Text("Text")
+                Spacer(Modifier.height(12.dp))
+                Button(
+                    modifier = Modifier.width(166.dp),
+                    label = "Ok",
+                    onClick = {},
+                )
+            }
+        }
+    }
 }

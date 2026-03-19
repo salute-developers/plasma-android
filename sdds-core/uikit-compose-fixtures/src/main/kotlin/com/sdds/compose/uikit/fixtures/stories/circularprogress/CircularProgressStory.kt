@@ -47,4 +47,16 @@ object CircularProgressStory : ComposeBaseStory<CircularProgressUiState, Circula
             trackEnabled = state.trackEnabled,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: CircularProgressBarStyle,
+        key: ComponentKey,
+    ) {
+        CircularProgressBar(
+            progress = 0.5f,
+            style = style,
+            trackEnabled = true,
+        )
+    }
 }

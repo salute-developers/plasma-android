@@ -98,6 +98,21 @@ object FormItemStory : ComposeBaseStory<FormItemUiState, FormItemStyle>(
             )
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: FormItemStyle,
+        key: ComponentKey,
+    ) {
+        FormItem(
+            style = style,
+            content = getContent("Form Item Content"),
+            title = getContentOrNull("Title"),
+            titleCaption = getContentOrNull("TitleCaption"),
+            caption = getIconTextOrNull("Caption", true),
+            counter = getContentOrNull("Counter"),
+        )
+    }
 }
 
 @Composable

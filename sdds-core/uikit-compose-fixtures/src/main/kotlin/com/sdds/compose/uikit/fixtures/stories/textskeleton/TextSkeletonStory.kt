@@ -75,4 +75,15 @@ object TextSkeletonStory : ComposeBaseStory<TextSkeletonUiState, TextSkeletonSty
             )
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: TextSkeletonStyle,
+        key: ComponentKey,
+    ) {
+        TextSkeleton(
+            style = style,
+            lineCount = 3,
+        )
+    }
 }

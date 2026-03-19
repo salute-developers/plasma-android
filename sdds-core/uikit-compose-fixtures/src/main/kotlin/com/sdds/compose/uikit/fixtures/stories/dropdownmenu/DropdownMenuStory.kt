@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -112,6 +113,40 @@ object DropdownMenuStory : ComposeBaseStory<DropdownMenuUiState, DropdownMenuSty
                             Divider()
                         }
                     }
+                }
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: DropdownMenuStyle,
+        key: ComponentKey,
+    ) {
+        val showDropdownMenu = remember { mutableStateOf(false) }
+        val triggerInfo = remember { mutableStateOf(TriggerInfo()) }
+        Button(
+            modifier = Modifier.popoverTrigger(triggerInfo),
+            label = "Show Dropdown",
+            onClick = { showDropdownMenu.value = true },
+        )
+        DropdownMenu(
+            opened = showDropdownMenu.value,
+            onDismissRequest = {
+                showDropdownMenu.value = false
+            },
+            placement = PopoverPlacement.Bottom,
+            placementMode = PopoverPlacementMode.Strict,
+            alignment = PopoverAlignment.Center,
+            triggerInfo = triggerInfo.value,
+            style = style,
+        ) {
+            List(modifier = Modifier.width(200.dp)) {
+                items(3) {
+                    ListItem(
+                        text = "Item Title $it",
+                        disclosureEnabled = true,
+                    )
                 }
             }
         }
