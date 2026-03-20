@@ -4,8 +4,8 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.uikit.fixtures.SDK_NUMBER
 import com.sdds.plasma.sd.service.colorstate.TextFieldColorState
+import com.sdds.uikit.fixtures.SDK_NUMBER
 import com.sdds.uikit.fixtures.testcases.TextFieldTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
