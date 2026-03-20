@@ -75,6 +75,23 @@ object NavigationBarStory : ComposeBaseStory<NavigationBarUiState, NavigationBar
             },
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: NavigationBarStyle,
+        key: ComponentKey,
+    ) {
+        NavigationBar(
+            style = style,
+            textPlacement = NavigationBarTextPlacement.Inline,
+            contentPlacement = NavigationBarContentPlacement.Inline,
+            textAlign = NavigationBarTextAlign.Start,
+            titleContent = textContent("Text"),
+            content = content("Content"),
+            actionStart = actionStart(true),
+            actionEnd = actionEnd(true),
+        )
+    }
 }
 
 private fun actionStart(hasAction: Boolean): (@Composable RowScope.() -> Unit)? {

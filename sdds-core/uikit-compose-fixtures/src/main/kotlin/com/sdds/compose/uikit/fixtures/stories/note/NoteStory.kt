@@ -75,6 +75,30 @@ object NoteStory : ComposeBaseStory<NoteUiState, NoteStyle>(
             },
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: NoteStyle,
+        key: ComponentKey,
+    ) {
+        Note(
+            style = style,
+            text = "Text",
+            title = "Title",
+            contentBefore = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_salute_outline_24),
+                    contentDescription = null,
+                )
+            },
+            action = {
+                LinkButton(
+                    label = "Label",
+                    onClick = {},
+                )
+            },
+        )
+    }
 }
 
 @Story
@@ -109,6 +133,30 @@ object NoteCompactStory : ComposeBaseStory<NoteUiState, NoteCompactStyle>(
                 }
             } else {
                 null
+            },
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: NoteCompactStyle,
+        key: ComponentKey,
+    ) {
+        NoteCompact(
+            style = style,
+            text = "Text",
+            title = "Title",
+            contentBefore = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_salute_outline_24),
+                    contentDescription = null,
+                )
+            },
+            action = {
+                LinkButton(
+                    label = "Label",
+                    onClick = {},
+                )
             },
         )
     }

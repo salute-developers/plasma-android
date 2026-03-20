@@ -163,6 +163,16 @@ object AvatarStory : ComposeBaseStory<AvatarUiState, AvatarStyle>(
             AvatarContent(state)
         }
     }
+
+    @Composable
+    override fun Preview(style: AvatarStyle, key: ComponentKey) {
+        Avatar(
+            style = style,
+            status = AvatarStatus.Active,
+            actionEnabled = false,
+            placeholder = AvatarPlaceholder.Name("Michael Scott"),
+        )
+    }
 }
 
 @Story
@@ -208,6 +218,37 @@ object AvatarGroupStory : ComposeBaseStory<AvatarUiState, AvatarGroupStyle>(
             }
             counter {
                 AvatarCounter(displayCount = it)
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: AvatarGroupStyle,
+        key: ComponentKey,
+    ) {
+        AvatarGroup(
+            style = style,
+            threshold = 1,
+        ) {
+            avatar {
+                Avatar(
+                    status = AvatarStatus.Active,
+                    actionEnabled = false,
+                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
+                    painter = painterResource(id = R.drawable.il_avatar_test),
+                    contentScale = ContentScale.Fit,
+                )
+            }
+            avatar {
+                Avatar(
+                    status = AvatarStatus.Active,
+                    actionEnabled = false,
+                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
+                )
+            }
+            counter {
+                AvatarCounter(3)
             }
         }
     }

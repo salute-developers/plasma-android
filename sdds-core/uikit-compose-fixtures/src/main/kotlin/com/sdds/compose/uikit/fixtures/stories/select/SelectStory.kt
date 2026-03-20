@@ -11,7 +11,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -195,6 +198,47 @@ object SelectStory : ComposeBaseStory<SelectUiState, SelectStyle>(
                 },
             )
         }
+    }
+
+    @Composable
+    override fun Preview(
+        style: SelectStyle,
+        key: ComponentKey,
+    ) {
+        var state by remember { mutableStateOf(SelectState()) }
+        val stateManager = rememberSelectSingleDataStateManager(SelectList, SelectList[1])
+        Select(
+            style = style,
+            state = state,
+            trigger = {
+                SelectButton(
+                    modifier = Modifier.width(260.dp),
+                    label = getButtonValue(
+                        SelectItemType.Single,
+                        stateManager.selectedItems,
+                    ),
+                    iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
+                    iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                )
+            },
+            listContent = {
+                items(SelectList.size) {
+                    SelectItem(
+                        modifier = Modifier.fillMaxWidth(),
+                        checked = stateManager.isSelected(SelectList[it]),
+                        onClick = {
+                            Log.d("Select", "Item $it was selected")
+                            stateManager.onItemPressed(SelectList[it])
+                        },
+                    ) {
+                        Cell(
+                            title = AnnotatedString(SelectList[it]),
+                            disclosureIconRes = null,
+                        )
+                    }
+                }
+            },
+        )
     }
 }
 

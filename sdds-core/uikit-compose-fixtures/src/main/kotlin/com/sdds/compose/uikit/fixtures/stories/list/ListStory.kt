@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.fixtures.stories.list
 
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.RowScope
@@ -18,6 +19,8 @@ import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.ListUiStatePropertiesProducer
 import com.sdds.sandbox.ListUiStateTransformer
@@ -80,6 +83,33 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
                 if (state.hasDivider) {
                     Divider()
                 }
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: ListStyle,
+        key: ComponentKey,
+    ) {
+        List(
+            modifier = Modifier.fillMaxWidth(),
+            style = style,
+        ) {
+            items(3) {
+                val interactionSource = remember { MutableInteractionSource() }
+                val isFocused = interactionSource.collectIsFocusedAsState()
+                ListItem(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .focusable(interactionSource = interactionSource)
+                        .focusSelector(
+                            settings = LocalFocusSelectorSettings.current,
+                        ) { isFocused.value },
+                    text = "Title $it",
+                    disclosureEnabled = true,
+                    interactionSource = interactionSource,
+                )
             }
         }
     }

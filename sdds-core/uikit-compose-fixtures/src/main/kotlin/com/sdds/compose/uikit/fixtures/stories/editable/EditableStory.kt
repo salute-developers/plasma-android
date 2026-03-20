@@ -91,4 +91,23 @@ object EditableStory : ComposeBaseStory<EditableUiState, EditableStyle>(
             readOnly = state.readonly,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: EditableStyle,
+        key: ComponentKey,
+    ) {
+        Editable(
+            style = style,
+            value = TextFieldValue("Value"),
+            onValueChange = {},
+            singleLine = true,
+            icon = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_edit_fill_36),
+                    contentDescription = null,
+                )
+            },
+        )
+    }
 }

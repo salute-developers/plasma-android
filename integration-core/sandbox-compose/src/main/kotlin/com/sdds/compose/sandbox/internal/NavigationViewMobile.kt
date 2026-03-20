@@ -89,38 +89,41 @@ internal fun NavigationViewMobile(
 ) {
     var currentIndex by remember { mutableIntStateOf(0) }
     val style = LocalNavigationViewStyle.current
-    LazyColumn(
-        modifier
-            .fillMaxWidth()
-            .padding(6.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        itemsIndexed(items) { index, menuItem ->
-            val isFirstOfGroup = index == 0 || items[index - 1].componentKey.group != menuItem.componentKey.group
-            if (isFirstOfGroup) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = menuItem.componentKey.group.displayName,
-                    style = style.headerTextStyle.copy(color = style.headerTextColor),
+    themeInfo.themeWrapper {
+        LazyColumn(
+            modifier
+                .fillMaxWidth()
+                .padding(6.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            itemsIndexed(items) { index, menuItem ->
+                val isFirstOfGroup =
+                    index == 0 || items[index - 1].componentKey.group != menuItem.componentKey.group
+                if (isFirstOfGroup) {
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = menuItem.componentKey.group.displayName,
+                        style = style.headerTextStyle.copy(color = style.headerTextColor),
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+                NavigationItemMobile(
+                    title = menuItem.title,
+                    icon = painterResource(id = R.drawable.ic_romb_outline_16),
+                    onClick = {
+                        currentIndex = index
+                        onSelect(menuItem)
+                    },
+                    preview = {
+                        ComponentPreview(
+                            key = menuItem.componentKey,
+                            themeInfo = themeInfo,
+                        ) { style, key ->
+                            menuItem.destination.preview?.invoke(style, key)
+                        }
+                    },
                 )
-                Spacer(modifier = Modifier.height(8.dp))
             }
-            NavigationItemMobile(
-                title = menuItem.title,
-                icon = painterResource(id = R.drawable.ic_romb_outline_16),
-                onClick = {
-                    currentIndex = index
-                    onSelect(menuItem)
-                },
-                preview = {
-                    ComponentPreview(
-                        key = menuItem.componentKey,
-                        themeInfo = themeInfo,
-                    ) { style, key ->
-                        menuItem.destination.preview?.invoke(style, key)
-                    }
-                },
-            )
         }
     }
 }
@@ -131,9 +134,7 @@ internal fun ComponentPreview(
     themeInfo: ComposeTheme,
     component: @Composable (Style, ComponentKey) -> Unit,
 ) {
-    themeInfo.themeWrapper {
-        val styleProvider = themeInfo.defaultStyleProvider<Style>(componentKey = key)
-        val style = styleProvider.style("")
-        component(style, key)
-    }
+    val styleProvider = themeInfo.defaultStyleProvider<Style>(componentKey = key)
+    val style = styleProvider.style("")
+    component(style, key)
 }

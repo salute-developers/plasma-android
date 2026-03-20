@@ -7,7 +7,7 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Icon
-import com.sdds.compose.uikit.IconBadge
+import com.sdds.icons.R
 import com.sdds.sandbox.BadgeUiStatePropertiesProducer
 import com.sdds.sandbox.BadgeUiStateTransformer
 import com.sdds.sandbox.ComponentKey
@@ -55,23 +55,21 @@ object BadgeStory : ComposeBaseStory<BadgeUiState, BadgeStyle>(
             endContent = badgeContent(state.contentRight),
         )
     }
-}
 
-@Story
-object IconBadgeStory : ComposeBaseStory<BadgeUiState, BadgeStyle>(
-    ComponentKey.IconBadge,
-    BadgeUiState(),
-    BadgeUiStatePropertiesProducer,
-    BadgeUiStateTransformer,
-) {
     @Composable
-    override fun BoxScope.Content(
+    override fun Preview(
         style: BadgeStyle,
-        state: BadgeUiState,
+        key: ComponentKey,
     ) {
-        IconBadge(
+        Badge(
             style = style,
-            content = badgeContent(state.contentLeft),
+            label = "Label",
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_plasma_16),
+                    contentDescription = "",
+                )
+            },
         )
     }
 }

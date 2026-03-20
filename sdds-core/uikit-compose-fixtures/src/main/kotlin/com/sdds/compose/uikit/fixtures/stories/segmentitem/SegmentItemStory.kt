@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.icons.R
@@ -67,6 +68,27 @@ object SegmentItemStory : ComposeBaseStory<SegmentItemUiState, SegmentItemStyle>
             counter = counter(state.count, state.endContent),
             enabled = state.enabled,
             interactionSource = interactionSource,
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: SegmentItemStyle,
+        key: ComponentKey,
+    ) {
+        SegmentItem(
+            style = style,
+            isSelected = true,
+            label = "Label",
+            value = "Value",
+            enabled = true,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_plasma_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = null,
         )
     }
 }

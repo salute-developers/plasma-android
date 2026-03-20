@@ -61,4 +61,17 @@ object CodeFieldStory : ComposeBaseStory<CodeFieldUiState, CodeFieldStyle>(
 
         LaunchedEffect(Unit) { focusRequester.requestFocus() }
     }
+
+    @Composable
+    override fun Preview(
+        style: CodeFieldStyle,
+        key: ComponentKey,
+    ) {
+        CodeField(
+            style = style,
+            codeLength = 6,
+            hidden = false,
+            caption = "Caption",
+        )
+    }
 }

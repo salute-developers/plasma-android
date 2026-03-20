@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.fixtures.stories.image
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -50,6 +51,21 @@ object ImageStory : ComposeBaseStory<ImageUiState, ImageStyle>(
             contentDescription = null,
             modifier = Modifier
                 .width(100.dp)
+                .background(Color.Gray),
+            style = style,
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: ImageStyle,
+        key: ComponentKey,
+    ) {
+        Image(
+            painter = painterResource(R.drawable.ic_alarm_done_fill_36),
+            contentDescription = null,
+            modifier = Modifier
+                .height(100.dp)
                 .background(Color.Gray),
             style = style,
         )

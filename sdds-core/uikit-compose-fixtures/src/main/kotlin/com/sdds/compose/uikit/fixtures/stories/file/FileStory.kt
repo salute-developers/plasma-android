@@ -96,6 +96,42 @@ object FileStory : ComposeBaseStory<FileUiState, FileStyle>(
             actionPlacement = state.actionPlacement,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: FileStyle,
+        key: ComponentKey,
+    ) {
+        File(
+            style = style,
+            label = "image.png",
+            description = "226 КБ",
+            isLoading = true,
+            image = {
+                Icon(
+                    painterResource(R.drawable.ic_file_check_fill_36),
+                    contentDescription = "",
+                )
+            },
+            progress = {
+                CircularProgressBar(
+                    progress = 0.4f,
+                    valueContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_16),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+            action = {
+                IconButton(
+                    iconRes = R.drawable.ic_close_36,
+                    onClick = {},
+                )
+            },
+        )
+    }
 }
 
 @Composable

@@ -56,7 +56,7 @@ internal class SandboxStoryStateProcessor(
     private fun StoryClassBuilder<StoryStateData>.generate(data: StoryStateData) {
         val fileSpec = this.build(data)
         val outputStream = codeGenerator.createNewFile(
-            dependencies = Dependencies(aggregating = false, data.file),
+            dependencies = Dependencies(aggregating = true, data.file),
             packageName = fileSpec.packageName,
             fileName = fileSpec.name,
         )

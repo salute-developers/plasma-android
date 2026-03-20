@@ -97,6 +97,39 @@ object SegmentStory : ComposeBaseStory<SegmentUiState, SegmentStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: SegmentStyle,
+        key: ComponentKey,
+    ) {
+        SegmentHorizontal(
+            style = style,
+            stretch = false,
+            hasBackground = true,
+        ) {
+            repeat(3) { index ->
+                segmentItem {
+                    SegmentItem(
+                        isSelected = index == 0,
+                        label = "Label",
+                        enabled = true,
+                        startContent = {
+                            Icon(
+                                painter = painterResource(id = R.drawable.ic_plasma_24),
+                                contentDescription = "",
+                            )
+                        },
+                        endContent = {
+                            Counter(
+                                count = "123",
+                            )
+                        },
+                    )
+                }
+            }
+        }
+    }
 }
 
 @Composable

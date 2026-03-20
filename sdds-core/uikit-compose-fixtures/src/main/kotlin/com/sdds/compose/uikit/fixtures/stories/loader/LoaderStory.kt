@@ -54,4 +54,17 @@ object LoaderStory : ComposeBaseStory<LoaderUiState, LoaderStyle>(
             loaderType = state.loaderType,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: LoaderStyle,
+        key: ComponentKey,
+    ) {
+        Loader(
+            style = style,
+            progress = 0.5f,
+            trackEnabled = true,
+            loaderType = LoaderType.Spinner,
+        )
+    }
 }

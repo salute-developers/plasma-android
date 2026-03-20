@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
@@ -130,6 +131,40 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
                         count = if (state.counter) state.count else null,
                         icon = R.drawable.ic_plasma_24,
                         actionIcon = actionIcon(state, style),
+                        onActionClicked = {},
+                    )
+                }
+            }
+        }
+    }
+
+    @Composable
+    override fun Preview(
+        style: TabsStyle,
+        key: ComponentKey,
+    ) {
+        var selectedTab by remember { mutableIntStateOf(0) }
+        Tabs(
+            modifier = Modifier,
+            style = style,
+            selectedTabIndex = selectedTab,
+            onTabClicked = {
+                selectedTab = it
+            },
+        ) {
+            repeat(3) { index ->
+                val label = "Tab$index"
+                tab(dropdownAlias = label) { selected ->
+                    TabItem(
+                        isSelected = selected,
+                        label = label,
+                        startContent = {
+                            Icon(
+                                painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                                contentDescription = "",
+                            )
+                        },
+                        actionIcon = com.sdds.icons.R.drawable.ic_close_24,
                         onActionClicked = {},
                     )
                 }

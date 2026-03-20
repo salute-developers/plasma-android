@@ -109,6 +109,39 @@ object DrawerStory : ComposeBaseStory<DrawerUiState, DrawerStyle>(
             )
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: DrawerStyle,
+        key: ComponentKey,
+    ) {
+        val drawerState = rememberDrawerState(
+            initialValue = DrawerValue.Closed,
+        )
+        val scope = rememberCoroutineScope()
+
+        Drawer(
+            drawerState = drawerState,
+            style = style,
+            drawerContent = {
+                List {
+                    items(3) {
+                        ListItem(text = "item $it")
+                    }
+                }
+            },
+        ) {
+            Button(
+                label = "Показать Drawer",
+                modifier = Modifier.align(Alignment.Center),
+                onClick = {
+                    scope.launch {
+                        drawerState.open()
+                    }
+                },
+            )
+        }
+    }
 }
 
 @Composable

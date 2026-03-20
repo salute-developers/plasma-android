@@ -105,4 +105,17 @@ object CodeInputStory : ComposeBaseStory<CodeInputUiState, CodeInputStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: CodeInputStyle,
+        key: ComponentKey,
+    ) {
+        CodeInput(
+            style = style,
+            codeLength = 6,
+            hidden = true,
+            caption = "Caption",
+        )
+    }
 }

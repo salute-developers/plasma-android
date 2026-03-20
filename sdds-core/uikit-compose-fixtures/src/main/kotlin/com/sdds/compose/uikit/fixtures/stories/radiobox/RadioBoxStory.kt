@@ -55,4 +55,19 @@ object RadioBoxStory : ComposeBaseStory<RadioBoxUiState, RadioBoxStyle>(
             enabled = state.enabled,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: RadioBoxStyle,
+        key: ComponentKey,
+    ) {
+        RadioBox(
+            style = style,
+            checked = true,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }

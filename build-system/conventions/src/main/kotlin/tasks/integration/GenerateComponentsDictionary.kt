@@ -17,7 +17,7 @@ enum class ComponentsTarget {
 
 enum class Scheme {
     V1,
-    V2
+    V2,
 }
 
 abstract class GenerateComponentsDictionary : DefaultTask() {
@@ -27,6 +27,9 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
 
     @get:Input
     abstract val packageName: Property<String>
+
+    @get:Input
+    abstract val themeAlias: Property<String>
 
     @get:Input
     abstract val target: Property<ComponentsTarget>
@@ -54,6 +57,7 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
 
         val pkg = packageName.orNull ?: "com.sdds.generated"
         val target = target.get() ?: throw GradleException("Property target must be specified")
+        val themeAlias = themeAlias.get() ?: throw GradleException("Property themeAlias must be specified")
         val scheme = scheme.get() ?: Scheme.V1
         // Determine output dir from main source set root and packageName
         val mainRoot = resolveMainSourceRoot()
@@ -62,7 +66,15 @@ abstract class GenerateComponentsDictionary : DefaultTask() {
         if (!packageDir.exists()) packageDir.mkdirs()
 
         val generator = when(target) {
-            ComponentsTarget.COMPOSE -> ComposeComponentsGenerator(config, pkg, packageDir)
+            ComponentsTarget.COMPOSE -> {
+                ComposeComponentsGenerator(
+                    config = config,
+                    packageName = pkg,
+                    packageDir = packageDir,
+                    scheme = scheme,
+                    themeAlias = themeAlias,
+                )
+            }
             ComponentsTarget.XML -> XmlComponentsGenerator(config, pkg, packageDir, scheme)
         }
 

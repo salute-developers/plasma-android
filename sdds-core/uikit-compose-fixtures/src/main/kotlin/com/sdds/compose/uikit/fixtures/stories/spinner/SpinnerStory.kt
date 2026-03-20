@@ -37,4 +37,14 @@ object SpinnerStory : ComposeBaseStory<SpinnerUiState, SpinnerStyle>(
     ) {
         Spinner(style = style)
     }
+
+    @Composable
+    override fun Preview(
+        style: SpinnerStyle,
+        key: ComponentKey,
+    ) {
+        Spinner(
+            style = style,
+        )
+    }
 }

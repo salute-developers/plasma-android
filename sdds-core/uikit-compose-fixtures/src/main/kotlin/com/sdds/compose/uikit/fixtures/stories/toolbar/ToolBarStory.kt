@@ -75,6 +75,33 @@ object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: ToolBarStyle,
+        key: ComponentKey,
+    ) {
+        ToolBar(
+            hasDivider = true,
+            style = style,
+        ) {
+            for (item in 0..2) {
+                if (item % 2 == 0) {
+                    section {
+                        Row {
+                            IconButton(R.drawable.ic_plasma_24) { }
+                            Spacer(modifier = Modifier.size(4.dp))
+                            IconButton(R.drawable.ic_salute_outline_24) { }
+                        }
+                    }
+                } else {
+                    section {
+                        Button("Label", {})
+                    }
+                }
+            }
+        }
+    }
 }
 
 @Composable

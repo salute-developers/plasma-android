@@ -1,0 +1,24 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package ${{ packageName }}
+
+import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.${{ coreStyleClass }}
+import com.sdds.compose.uikit.style.style
+import com.sdds.compose.sandbox.ComposeStyleProvider
+import com.sdds.compose.sandbox.ComposeStyleReference
+import ${{ themePackageName }}.styles.${{ componentPackage }}.${{ styleName }}
+
+${{ variationImports }}
+
+internal object ${{ themeName }}${{ styleName }}VariationsCompose : ComposeStyleProvider<${{ coreStyleClass }}>() {
+    override val variations: Map<String, ComposeStyleReference<${{ coreStyleClass }}>> =
+        mapOf(
+${{ variations }}
+        )
+}

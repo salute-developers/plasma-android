@@ -2,10 +2,6 @@ package com.sdds.compose.uikit.fixtures.stories.checkbox
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CheckBox
@@ -53,13 +49,27 @@ object CheckBoxStory : ComposeBaseStory<CheckBoxUiState, CheckBoxStyle>(
         style: CheckBoxStyle,
         state: CheckBoxUiState,
     ) {
-        var checkedState by remember { mutableStateOf(ToggleableState.Off) }
         CheckBox(
             style = style,
-            state = checkedState,
+            state = state.state,
             label = state.label,
             description = state.description,
             enabled = state.enabled,
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: CheckBoxStyle,
+        key: ComponentKey,
+    ) {
+        CheckBox(
+            style = style,
+            state = ToggleableState.On,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
         )
     }
 }

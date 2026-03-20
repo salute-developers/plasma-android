@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -71,5 +72,18 @@ object RectSkeletonStory : ComposeBaseStory<RectSkeletonUiState, RectSkeletonSty
                 )
             }
         }
+    }
+
+    @Composable
+    override fun Preview(
+        style: RectSkeletonStyle,
+        key: ComponentKey,
+    ) {
+        RectSkeleton(
+            modifier = Modifier
+                .width(200.dp)
+                .height(60.dp),
+            style = style,
+        )
     }
 }

@@ -49,4 +49,16 @@ object ProgressStory : ComposeBaseStory<ProgressUiState, ProgressBarStyle>(
             style = style,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: ProgressBarStyle,
+        key: ComponentKey,
+    ) {
+        ProgressBar(
+            progress = 0.25f,
+            modifier = Modifier.width(240.dp),
+            style = style,
+        )
+    }
 }

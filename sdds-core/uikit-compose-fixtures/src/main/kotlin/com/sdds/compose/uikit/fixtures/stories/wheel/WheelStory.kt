@@ -80,4 +80,27 @@ object WheelStory : ComposeBaseStory<WheelUiState, WheelStyle>(
             )
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: WheelStyle,
+        key: ComponentKey,
+    ) {
+        Wheel(
+            style = style,
+            hasControls = true,
+            wheelCount = 1,
+            visibleItemsCount = 3,
+            wheelSeparator = WheelSeparator.None,
+        ) { wheelIndex ->
+            WheelDataSet(
+                List(20) {
+                    WheelItemData(
+                        "Label",
+                        "TA",
+                    )
+                },
+            )
+        }
+    }
 }

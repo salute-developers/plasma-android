@@ -62,4 +62,18 @@ object SwitchStory : ComposeBaseStory<SwitchUiState, SwitchStyle>(
             },
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: SwitchStyle,
+        key: ComponentKey,
+    ) {
+        Switch(
+            style = style,
+            active = true,
+            label = "Label",
+            description = "Description",
+            enabled = true,
+        )
+    }
 }

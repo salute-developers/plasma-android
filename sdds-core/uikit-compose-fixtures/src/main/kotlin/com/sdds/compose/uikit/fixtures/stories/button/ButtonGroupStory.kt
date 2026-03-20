@@ -114,6 +114,21 @@ object ButtonGroupStory : ComposeBaseStory<ButtonGroupUiState, ButtonGroupStyle>
         }
     }
 
+    @Composable
+    override fun Preview(
+        style: ButtonGroupStyle,
+        key: ComponentKey,
+    ) {
+        ButtonGroup(
+            style = style,
+            orientation = ButtonGroupOrientation.Horizontal,
+        ) {
+            repeat(3) {
+                buttonContent()
+            }
+        }
+    }
+
     /**
      * Вспомогательная функция для создания содержимого кнопки в группе.
      *

@@ -22,7 +22,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.stateIn
 
 internal class ComponentViewModel<State : UiState, S : Style>(
@@ -36,11 +37,16 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     private val internalUiState = MutableStateFlow(defaultState)
     private val _subtheme = MutableStateFlow<SubTheme?>(null)
 
-    private val theme: ComposeTheme
-        get() = themeManager.currentTheme.value as? ComposeTheme ?: ComposeTheme.Default
-
     val uiState: StateFlow<State>
         get() = internalUiState.asStateFlow()
+
+    /**
+     * Подтема
+     */
+    val theme: StateFlow<ComposeTheme>
+        get() = themeManager.currentTheme
+            .mapNotNull { it as? ComposeTheme }
+            .stateIn(viewModelScope, SharingStarted.Lazily, ComposeTheme.Default)
 
     /**
      * Подтема
@@ -50,11 +56,11 @@ internal class ComponentViewModel<State : UiState, S : Style>(
 
     @OptIn(ExperimentalCoroutinesApi::class)
     override val properties: StateFlow<List<Property<*>>>
-        get() = internalUiState
-            .mapLatest { state ->
-                updateUiStateWithDefaultVariant()
-                appearanceProperties(state) + variantProperty(state) + state.toProps()
-            }
+        get() = combine(internalUiState, theme) { state, themeState ->
+            if (themeState.components.components.isEmpty()) return@combine emptyList()
+            updateUiStateWithDefaultVariant(state, themeState)
+            appearanceProperties(state, themeState) + variantProperty(state, themeState) + state.toProps()
+        }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     @Suppress("UNCHECKED_CAST")
@@ -73,11 +79,10 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun updateUiStateWithDefaultVariant() {
-        val state = internalUiState.value
-        val defaultAppearance = getDefaultAppearances()
+    private fun updateUiStateWithDefaultVariant(state: State, themeState: ComposeTheme) {
+        val defaultAppearance = getDefaultAppearances(themeState)
         val appearance = state.appearance.ifEmpty { defaultAppearance }
-        val styleProvider = getStyleProvider(appearance) ?: return
+        val styleProvider = getStyleProvider(appearance, themeState) ?: return
         if (state.variant.isNotEmpty() &&
             styleProvider.variants.contains(state.variant)
         ) {
@@ -89,19 +94,19 @@ internal class ComponentViewModel<State : UiState, S : Style>(
         ) as State
     }
 
-    private fun appearanceProperties(state: State): List<Property.SingleChoiceProperty> {
+    private fun appearanceProperties(state: State, themeState: ComposeTheme): List<Property.SingleChoiceProperty> {
         return listOf(
             Property.SingleChoiceProperty(
                 APPEARANCE_PROPERTY_NAME,
-                variants = getAppearances().toList(),
+                variants = getAppearances(themeState).toList(),
                 value = state.appearance,
             ),
         )
     }
 
-    private fun variantProperty(state: State): List<Property.SingleChoiceProperty> {
-        val styleProvider = getStyleProvider(state.appearance) ?: return emptyList()
-        val subthemes = getSubThemes()
+    private fun variantProperty(state: State, themeState: ComposeTheme): List<Property.SingleChoiceProperty> {
+        val styleProvider = getStyleProvider(state.appearance, themeState) ?: return emptyList()
+        val subthemes = getSubThemes(themeState)
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
             variantProperties.add(
@@ -124,22 +129,22 @@ internal class ComponentViewModel<State : UiState, S : Style>(
         return variantProperties
     }
 
-    private fun getStyleProvider(appearance: String): ComposeStyleProvider<S>? {
+    private fun getStyleProvider(appearance: String, themeState: ComposeTheme): ComposeStyleProvider<S>? {
         return runCatching {
-            theme.getStyleProvider<S>(componentKey, appearance)
+            themeState.getStyleProvider<S>(componentKey, appearance)
         }.getOrNull()
     }
 
-    private fun getAppearances(): Set<String> {
-        return theme.getAppearances(componentKey)
+    private fun getAppearances(themeState: ComposeTheme): Set<String> {
+        return themeState.getAppearances(componentKey)
     }
 
-    private fun getDefaultAppearances(): String {
-        return theme.getDefaultAppearance(componentKey)
+    private fun getDefaultAppearances(themeState: ComposeTheme): String {
+        return themeState.getDefaultAppearance(componentKey)
     }
 
-    private fun getSubThemes(): Set<SubTheme> {
-        return theme.subthemes.keys
+    private fun getSubThemes(themeState: ComposeTheme): Set<SubTheme> {
+        return themeState.subthemes.keys
     }
 
     private fun State.toProps(): List<Property<*>> = propertiesProducer.getProperties(this)

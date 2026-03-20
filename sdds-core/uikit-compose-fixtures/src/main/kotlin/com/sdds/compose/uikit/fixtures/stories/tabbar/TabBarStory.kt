@@ -85,6 +85,26 @@ object TabBarStory : ComposeBaseStory<TabBarUiState, TabBarStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: TabBarStyle,
+        key: ComponentKey,
+    ) {
+        TabBar(style = style) {
+            repeat(3) {
+                tabItem {
+                    TabBarItem(
+                        isSelected = it == 0,
+                        defaultIcon = R.drawable.ic_smile_outline_36,
+                        selectedIcon = R.drawable.ic_smile_fill_36,
+                        label = "Label",
+                        extra = { Counter(count = "12") },
+                    )
+                }
+            }
+        }
+    }
 }
 
 private fun getExtra(extraType: TabBarExtraType): (@Composable () -> Unit)? {

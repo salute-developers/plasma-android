@@ -74,4 +74,26 @@ object SliderStory : ComposeBaseStory<SliderUiState, SliderStyle>(
             alignment = if (horizontal) state.alignment else style.alignment,
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: SliderStyle,
+        key: ComponentKey,
+    ) {
+        Slider(
+            style = style,
+            title = "Title",
+            labelContent = {
+                Icon(
+                    painter = painterResource(R.drawable.ic_salute_outline_36),
+                    contentDescription = null,
+                )
+            },
+            value = 0.5f,
+            valueFormatTransformer = { progress ->
+                "%.2f".format(progress)
+            },
+            onValueChange = {},
+        )
+    }
 }

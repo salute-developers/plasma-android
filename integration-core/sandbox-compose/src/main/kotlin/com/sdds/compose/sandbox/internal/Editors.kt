@@ -150,7 +150,7 @@ internal fun PropertyEditor(
                 propertyName = property.name,
             )
 
-            is Property.IntProperty -> TextPropertyEditor(
+            is Property.IntProperty, is Property.FloatProperty -> TextPropertyEditor(
                 onConfirm = { onConfirm(property.name, it) },
                 propertyName = property.name,
                 currentValue = property.value.toString(),

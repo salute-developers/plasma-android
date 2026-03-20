@@ -78,6 +78,19 @@ object AccordionStory : ComposeBaseStory<AccordionUiState, AccordionStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(style: AccordionStyle, key: ComponentKey) {
+        Accordion(style = style) {
+            var opened by remember { mutableStateOf(false) }
+            AccordionItem(
+                opened = opened,
+                onClick = { opened = !opened },
+                title = "Title",
+                content = { Text("Content text") },
+            )
+        }
+    }
 }
 
 @Composable

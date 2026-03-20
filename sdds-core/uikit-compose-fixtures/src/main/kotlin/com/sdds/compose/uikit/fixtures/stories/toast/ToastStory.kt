@@ -77,6 +77,40 @@ object ToastStory : ComposeBaseStory<ToastUiState, ToastStyle>(
             },
         )
     }
+
+    @Composable
+    override fun Preview(
+        style: ToastStyle,
+        key: ComponentKey,
+    ) {
+        val overlayManager = LocalOverlayManager.current
+        Button(
+            label = "Show Toast",
+            onClick = {
+                overlayManager.showToast(
+                    position = OverlayPosition.BottomCenter,
+                ) {
+                    Toast(
+                        style = style,
+                        text = "Toast Text",
+                        contentStart = { Icon(painter = painterResource(R.drawable.ic_shazam_16), "") },
+                        contentEnd = {
+                            Icon(
+                                modifier = Modifier.clickable(
+                                    indication = null,
+                                    interactionSource = remember { MutableInteractionSource() },
+                                ) {
+                                    overlayManager.remove(it)
+                                },
+                                painter = painterResource(R.drawable.ic_close_16),
+                                contentDescription = "",
+                            )
+                        },
+                    )
+                }
+            },
+        )
+    }
 }
 
 private fun getContentStart(hasContentStart: Boolean): @Composable (() -> Unit)? {

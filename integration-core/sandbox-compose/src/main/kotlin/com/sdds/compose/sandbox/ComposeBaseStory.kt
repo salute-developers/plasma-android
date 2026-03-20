@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.sandbox.internal.ComponentScaffold
 import com.sdds.compose.sandbox.internal.ComponentViewModel
 import com.sdds.compose.sandbox.internal.ComponentViewModelFactory
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.style.Style
 import com.sdds.sandbox.BaseStory
 import com.sdds.sandbox.ComponentKey
@@ -58,6 +59,18 @@ abstract class ComposeBaseStory<State : UiState, S : Style>(
         style: S,
         state: State,
     )
+
+    /**
+     * Composable функция для отображения содержимого превью компонента.
+     *
+     * Должна быть реализована в наследниках для определения превью в списке навигации по компонентам.
+     *
+     * @param style стиль компонента, влияющий на его внешний вид
+     */
+    @Composable
+    open fun Preview(style: S, key: ComponentKey) {
+        Text("empty preview, key=$key")
+    }
 
     /**
      * Внутренняя композируемая функция, интегрирующая историю с инфраструктурой сторибука.
