@@ -95,9 +95,6 @@ abstract class ComponentProvider {
  * Утилитарные функции для работы с [ComponentProvider].
  *
  * Предоставляет удобные способы комбинирования и создания провайдеров компонентов.
- *
- * @author ...
- * @since ...
  */
 object ComponentProviderUtils {
 

@@ -14,6 +14,9 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.sdds.compose.sandbox.SubTheme
+import com.sdds.compose.sandbox.styles.basicbutton.BasicButton
+import com.sdds.compose.sandbox.styles.basicbutton.Default
+import com.sdds.compose.sandbox.styles.basicbutton.M
 import com.sdds.compose.sandbox.styles.card.CardSolid
 import com.sdds.compose.sandbox.styles.card.L
 import com.sdds.compose.sandbox.styles.cell.Cell
@@ -25,6 +28,7 @@ import com.sdds.compose.sandbox.styles.iconbutton.IconButton
 import com.sdds.compose.sandbox.styles.iconbutton.Pilled
 import com.sdds.compose.sandbox.styles.iconbutton.Xs
 import com.sdds.compose.sandbox.styles.switcher.M
+import com.sdds.compose.sandbox.styles.switcher.S
 import com.sdds.compose.sandbox.styles.switcher.Switch
 import com.sdds.compose.sandbox.styles.switcher.ToggleS
 import com.sdds.compose.sandbox.styles.textfield.InnerLabel
@@ -35,7 +39,9 @@ import com.sdds.compose.sandbox.theme.darkSddsSandboxColors
 import com.sdds.compose.sandbox.theme.darkSddsSandboxGradients
 import com.sdds.compose.sandbox.theme.lightSddsSandboxColors
 import com.sdds.compose.sandbox.theme.lightSddsSandboxGradients
+import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
+import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -82,6 +88,8 @@ fun SandboxTheme(
                     borderStroke = BorderStroke(1.dp, colorScheme.surfaceDefaultAccent),
                     strokePadding = 2.dp,
                 ),
+                LocalButtonStyle provides BasicButton.M.Default.style(),
+                LocalSwitchStyle provides Switch.S.style(),
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
