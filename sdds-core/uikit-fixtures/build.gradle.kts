@@ -29,5 +29,6 @@ dependencies {
     ksp(project(":docs-ksp"))
 
     implementation(libs.base.androidX.appcompat)
+    implementation(libs.base.androidX.recyclerView)
     implementation(libs.base.androidX.core)
 }
