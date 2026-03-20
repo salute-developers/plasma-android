@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -122,6 +123,22 @@ object BasicButtonStory : ComposeBaseStory<ButtonUiState, ButtonStyle>(
             onClick = {
                 Log.d("BasicButton", "onClick")
             },
+        )
+    }
+
+    @Composable
+    override fun Preview(
+        style: ButtonStyle,
+        key: ComponentKey,
+    ) {
+        Button(
+            style = style,
+            icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            spacing = ButtonSpacing.Packed,
+            label = "Label",
+            enabled = true,
+            loading = false,
+            onClick = {},
         )
     }
 
