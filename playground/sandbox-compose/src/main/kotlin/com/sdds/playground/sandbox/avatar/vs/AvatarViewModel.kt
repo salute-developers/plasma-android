@@ -6,11 +6,11 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.avatar.AvatarExtra
-import com.sdds.testing.vs.avatar.AvatarExtraPlacement
-import com.sdds.testing.vs.avatar.AvatarUiState
-import com.sdds.testing.vs.avatar.ExampleMode
 import com.sdds.uikit.Avatar
+import com.sdds.uikit.fixtures.stories.avatar.AvatarExtra
+import com.sdds.uikit.fixtures.stories.avatar.AvatarExtraPlacement
+import com.sdds.uikit.fixtures.stories.avatar.AvatarUiState
+import com.sdds.uikit.fixtures.stories.avatar.ExampleMode
 
 /**
  * ViewModel для экранов с компонентом [Avatar]

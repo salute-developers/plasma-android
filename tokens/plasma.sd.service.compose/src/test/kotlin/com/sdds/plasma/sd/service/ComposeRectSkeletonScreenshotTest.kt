@@ -1,13 +1,13 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.RectSkeletonTest
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.rectskeleton.Default
 import com.sdds.plasma.sd.service.styles.rectskeleton.Lighter
 import com.sdds.plasma.sd.service.styles.rectskeleton.RectSkeleton
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.rectskeleton.RectSkeletonTest
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

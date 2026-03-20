@@ -1,6 +1,18 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxGroupSizeM
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxGroupSizeMDisabled
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxGroupSizeS
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeLNegative
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeLNegativeUnchecked
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeM
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeMIndeterminate
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeMediumNoLabelAndDesc
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeSDisabled
+import com.sdds.compose.uikit.fixtures.testcases.CheckBoxSizeSUnchecked
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.checkbox.CheckBox
 import com.sdds.plasma.homeds.styles.checkbox.Default
@@ -11,18 +23,6 @@ import com.sdds.plasma.homeds.styles.checkbox.S
 import com.sdds.plasma.homeds.styles.checkboxgroup.CheckBoxGroup
 import com.sdds.plasma.homeds.styles.checkboxgroup.M
 import com.sdds.plasma.homeds.styles.checkboxgroup.S
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeM
-import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeMDisabled
-import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeS
-import com.sdds.testing.compose.checkbox.CheckBoxSizeLNegative
-import com.sdds.testing.compose.checkbox.CheckBoxSizeLNegativeUnchecked
-import com.sdds.testing.compose.checkbox.CheckBoxSizeM
-import com.sdds.testing.compose.checkbox.CheckBoxSizeMIndeterminate
-import com.sdds.testing.compose.checkbox.CheckBoxSizeMediumNoLabelAndDesc
-import com.sdds.testing.compose.checkbox.CheckBoxSizeSDisabled
-import com.sdds.testing.compose.checkbox.CheckBoxSizeSUnchecked
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

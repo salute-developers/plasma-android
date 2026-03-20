@@ -6,12 +6,12 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.navigationbar.AlignmentStrategy
-import com.sdds.testing.vs.navigationbar.ContentBetweenActionsAlignment
-import com.sdds.testing.vs.navigationbar.ContentPlacement
-import com.sdds.testing.vs.navigationbar.NavigationBarUiState
-import com.sdds.testing.vs.navigationbar.TextAlignment
-import com.sdds.testing.vs.navigationbar.TextPlacement
+import com.sdds.uikit.fixtures.stories.navigationbar.AlignmentStrategy
+import com.sdds.uikit.fixtures.stories.navigationbar.ContentBetweenActionsAlignment
+import com.sdds.uikit.fixtures.stories.navigationbar.ContentPlacement
+import com.sdds.uikit.fixtures.stories.navigationbar.NavigationBarUiState
+import com.sdds.uikit.fixtures.stories.navigationbar.TextAlignment
+import com.sdds.uikit.fixtures.stories.navigationbar.TextPlacement
 
 /**
  * ViewModel для экранов с компонентом NavigationBar

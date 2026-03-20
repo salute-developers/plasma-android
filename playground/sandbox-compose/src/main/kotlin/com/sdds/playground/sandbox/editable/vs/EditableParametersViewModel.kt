@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.editable.EditableUiState
-import com.sdds.testing.vs.editable.IconPlacement
-import com.sdds.testing.vs.editable.TextAlign
+import com.sdds.uikit.fixtures.stories.editable.EditableUiState
+import com.sdds.uikit.fixtures.stories.editable.IconPlacement
+import com.sdds.uikit.fixtures.stories.editable.TextAlign
 
 /**
  * ViewModel для экранов с компонентом Editable

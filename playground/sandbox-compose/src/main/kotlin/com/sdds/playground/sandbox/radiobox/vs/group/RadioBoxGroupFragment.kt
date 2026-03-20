@@ -4,12 +4,11 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.radiobox.RadioBoxUiState
-import com.sdds.testing.vs.radiobox.applyState
-import com.sdds.testing.vs.radiobox.radioBoxGroup
 import com.sdds.uikit.RadioBoxGroup
+import com.sdds.uikit.fixtures.stories.radiobox.RadioBoxUiState
+import com.sdds.uikit.fixtures.stories.radiobox.applyState
+import com.sdds.uikit.fixtures.stories.radiobox.radioBoxGroup
 
 /**
  * Фрагмент с компонентом RadioBoxGroup

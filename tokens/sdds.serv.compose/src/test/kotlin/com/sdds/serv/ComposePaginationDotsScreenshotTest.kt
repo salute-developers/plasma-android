@@ -3,6 +3,13 @@ package com.sdds.serv
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.PaginationDotsItemOneVisibleOne
+import com.sdds.compose.uikit.fixtures.testcases.PaginationDotsItemSevenVisibleFive
+import com.sdds.compose.uikit.fixtures.testcases.PaginationDotsItemTenVisibleSeven
+import com.sdds.compose.uikit.fixtures.testcases.PaginationDotsItemThreeVisibleThree
+import com.sdds.compose.uikit.fixtures.testcases.PaginationDotsItemTwentyVisibleNine
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.iconbutton.Default
 import com.sdds.serv.styles.iconbutton.IconButton
@@ -12,13 +19,6 @@ import com.sdds.serv.styles.paginationdots.M
 import com.sdds.serv.styles.paginationdots.PaginationDotsHorizontal
 import com.sdds.serv.styles.paginationdots.PaginationDotsVertical
 import com.sdds.serv.styles.paginationdots.S
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.paginationdots.PaginationDotsItemOneVisibleOne
-import com.sdds.testing.compose.paginationdots.PaginationDotsItemSevenVisibleFive
-import com.sdds.testing.compose.paginationdots.PaginationDotsItemTenVisibleSeven
-import com.sdds.testing.compose.paginationdots.PaginationDotsItemThreeVisibleThree
-import com.sdds.testing.compose.paginationdots.PaginationDotsItemTwentyVisibleNine
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

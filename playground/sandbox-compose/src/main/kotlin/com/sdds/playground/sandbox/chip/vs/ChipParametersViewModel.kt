@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.testing.vs.chip.ChipUiState
-import com.sdds.testing.vs.chip.GravityMode
 import com.sdds.uikit.ChipGroup
+import com.sdds.uikit.fixtures.stories.chip.ChipUiState
+import com.sdds.uikit.fixtures.stories.chip.GravityMode
 
 /**
  * ViewModel для экранов с компонентом Chip

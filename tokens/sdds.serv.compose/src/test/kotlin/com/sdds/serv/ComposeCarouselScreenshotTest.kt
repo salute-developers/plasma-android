@@ -1,17 +1,17 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CarouselAlignmentCenterOuterControls
+import com.sdds.compose.uikit.fixtures.testcases.CarouselAlignmentEndInnerControlsIndicator
+import com.sdds.compose.uikit.fixtures.testcases.CarouselAlignmentStartControlsInner
+import com.sdds.compose.uikit.fixtures.testcases.CarouselCenterInnerGapNoIndicatorNoControls
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.carousel.ButtonsPlacementInner
 import com.sdds.serv.styles.carousel.ButtonsPlacementOuter
 import com.sdds.serv.styles.carousel.Carousel
 import com.sdds.serv.theme.SddsServTheme
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.carousel.CarouselAlignmentCenterOuterControls
-import com.sdds.testing.compose.carousel.CarouselAlignmentEndInnerControlsIndicator
-import com.sdds.testing.compose.carousel.CarouselAlignmentStartControlsInner
-import com.sdds.testing.compose.carousel.CarouselCenterInnerGapNoIndicatorNoControls
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

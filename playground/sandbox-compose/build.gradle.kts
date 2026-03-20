@@ -126,6 +126,8 @@ tasks.register("generateVersionDescription") {
 }
 
 dependencies {
+    implementation("sdds-core:uikit-fixtures")
+    implementation("sdds-core:uikit-compose-fixtures")
     implementation(icons.sdds.icons)
     implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")
@@ -156,10 +158,8 @@ dependencies {
     implementation(project(":sandbox-sdds-sbcom-integration"))
 
     implementation(project(":sandbox-core-integration"))
+
     implementation("integration-core:sandbox-core")
-    implementation("sdds-core:testing") {
-        exclude("org.robolectric", "robolectric")
-    }
     implementation(libs.sdds.uikit.compose)
     implementation(libs.sdds.uikit)
 

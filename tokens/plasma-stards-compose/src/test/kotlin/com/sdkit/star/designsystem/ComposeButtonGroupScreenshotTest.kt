@@ -1,12 +1,12 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ButtonGroupHorizontal
+import com.sdds.compose.uikit.fixtures.testcases.ButtonGroupHorizontalMaxAmount
+import com.sdds.compose.uikit.fixtures.testcases.ButtonGroupVertical
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.buttongroup.ButtonGroupHorizontal
-import com.sdds.testing.compose.buttongroup.ButtonGroupHorizontalMaxAmount
-import com.sdds.testing.compose.buttongroup.ButtonGroupVertical
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.buttongroup.BasicButtonGroup
 import com.sdkit.star.designsystem.styles.buttongroup.Default
 import com.sdkit.star.designsystem.styles.buttongroup.Dense

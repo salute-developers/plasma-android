@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.segment.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.segement.SegmentUiState
-import com.sdds.testing.vs.segement.applyState
-import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.uikit.SegmentItem
+import com.sdds.uikit.fixtures.stories.segment.SegmentUiState
+import com.sdds.uikit.fixtures.stories.segment.applyState
+import com.sdds.uikit.fixtures.stories.segment.segmentItem
 
 internal class SegmentItemFragment : ComponentFragment<SegmentUiState, SegmentItem, SegmentItemViewModel>() {
 

@@ -1,6 +1,14 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.FileCircularProgressHasImageEnd
+import com.sdds.compose.uikit.fixtures.testcases.FileCircularProgressIsLoadingEndLongText
+import com.sdds.compose.uikit.fixtures.testcases.FileCircularProgressIsLoadingHasImageNoDesc
+import com.sdds.compose.uikit.fixtures.testcases.FileCircularProgressIsLoadingStart
+import com.sdds.compose.uikit.fixtures.testcases.FileLinearProgressIsLoadingHasImageEnd
+import com.sdds.compose.uikit.fixtures.testcases.FileLinearProgressIsLoadingStart
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.file.Default
 import com.sdds.plasma.giga.app.styles.file.FileCircularProgress
@@ -10,14 +18,6 @@ import com.sdds.plasma.giga.app.styles.file.M
 import com.sdds.plasma.giga.app.styles.file.Negative
 import com.sdds.plasma.giga.app.styles.file.S
 import com.sdds.plasma.giga.app.styles.file.Xs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.file.FileCircularProgressHasImageEnd
-import com.sdds.testing.compose.file.FileCircularProgressIsLoadingEndLongText
-import com.sdds.testing.compose.file.FileCircularProgressIsLoadingHasImageNoDesc
-import com.sdds.testing.compose.file.FileCircularProgressIsLoadingStart
-import com.sdds.testing.compose.file.FileLinearProgressIsLoadingHasImageEnd
-import com.sdds.testing.compose.file.FileLinearProgressIsLoadingStart
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

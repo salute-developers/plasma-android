@@ -5,10 +5,10 @@ import android.widget.FrameLayout
 import androidx.core.view.setMargins
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.slider.SliderUiState
-import com.sdds.testing.vs.slider.applyState
-import com.sdds.testing.vs.slider.slider
 import com.sdds.uikit.Slider
+import com.sdds.uikit.fixtures.stories.slider.SliderUiState
+import com.sdds.uikit.fixtures.stories.slider.applyState
+import com.sdds.uikit.fixtures.stories.slider.slider
 
 /**
  * Фрагмент с компонентом Slider

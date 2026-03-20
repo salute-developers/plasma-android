@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.radiobox.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.radiobox.RadioBoxUiState
-import com.sdds.testing.vs.radiobox.applyState
-import com.sdds.testing.vs.radiobox.radioBox
 import com.sdds.uikit.RadioBox
+import com.sdds.uikit.fixtures.stories.radiobox.RadioBoxUiState
+import com.sdds.uikit.fixtures.stories.radiobox.applyState
+import com.sdds.uikit.fixtures.stories.radiobox.radioBox
 
 /**
  * Фрагмент с компонентом RadioBox

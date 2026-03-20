@@ -5,10 +5,10 @@ import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.flow.FlowUiState
-import com.sdds.testing.vs.flow.applyState
-import com.sdds.testing.vs.flow.flowLayout
 import com.sdds.uikit.FlowLayout
+import com.sdds.uikit.fixtures.stories.flow.FlowUiState
+import com.sdds.uikit.fixtures.stories.flow.applyState
+import com.sdds.uikit.fixtures.stories.flow.flowLayout
 
 /**
  * Фрагмент с компонентом FlowLayout

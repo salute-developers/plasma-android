@@ -1,16 +1,16 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CardHorizontal
+import com.sdds.compose.uikit.fixtures.testcases.CardVertical
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.card.CardClear
 import com.sdds.serv.styles.card.CardSolid
 import com.sdds.serv.styles.card.L
 import com.sdds.serv.styles.card.M
 import com.sdds.serv.styles.card.S
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.card.CardHorizontal
-import com.sdds.testing.compose.card.CardVertical
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

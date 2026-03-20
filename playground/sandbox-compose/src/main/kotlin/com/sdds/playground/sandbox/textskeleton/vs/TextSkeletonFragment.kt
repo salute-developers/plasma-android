@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.skeleton.TextSkeletonUiState
-import com.sdds.testing.vs.skeleton.applyState
-import com.sdds.testing.vs.skeleton.textSkeleton
 import com.sdds.uikit.TextSkeleton
 import com.sdds.uikit.TextView
+import com.sdds.uikit.fixtures.R
+import com.sdds.uikit.fixtures.stories.skeleton.TextSkeletonUiState
+import com.sdds.uikit.fixtures.stories.skeleton.applyState
+import com.sdds.uikit.fixtures.stories.skeleton.textSkeleton
 
 /**
  * Фрагмент с компонентом TextSkeleton
@@ -39,7 +40,7 @@ internal class TextSkeletonFragment :
     }
 
     override fun onComponentUpdate(component: View?, state: TextSkeletonUiState) {
-        component?.findViewById<TextSkeleton>(com.sdds.testing.R.id.text_skeleton)?.applyState(state)
-        component?.findViewById<TextView>(com.sdds.testing.R.id.text_over_skeleton)?.applyState(state)
+        component?.findViewById<TextSkeleton>(R.id.text_skeleton)?.applyState(state)
+        component?.findViewById<TextView>(R.id.text_over_skeleton)?.applyState(state)
     }
 }

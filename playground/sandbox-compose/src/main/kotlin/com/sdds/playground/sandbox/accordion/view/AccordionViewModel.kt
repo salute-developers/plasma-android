@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.testing.vs.accordion.AccordionUiState
+import com.sdds.uikit.fixtures.stories.accordion.AccordionUiState
 
 internal class AccordionViewModel(
     defaultState: AccordionUiState,

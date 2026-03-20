@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.tabs.DisplayMode
-import com.sdds.testing.vs.tabs.TabItemIcon
-import com.sdds.testing.vs.tabs.TabsUiState
+import com.sdds.uikit.fixtures.stories.tabs.DisplayMode
+import com.sdds.uikit.fixtures.stories.tabs.TabItemIcon
+import com.sdds.uikit.fixtures.stories.tabs.TabsUiState
 
 internal class TabsViewModel(
     defaultState: TabsUiState,

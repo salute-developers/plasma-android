@@ -6,10 +6,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.flow.FlowAlignment
-import com.sdds.testing.vs.flow.FlowArrangement
-import com.sdds.testing.vs.flow.FlowOrientation
-import com.sdds.testing.vs.flow.FlowUiState
+import com.sdds.uikit.fixtures.stories.flow.FlowAlignment
+import com.sdds.uikit.fixtures.stories.flow.FlowArrangement
+import com.sdds.uikit.fixtures.stories.flow.FlowOrientation
+import com.sdds.uikit.fixtures.stories.flow.FlowUiState
 
 /**
  * ViewModel компонента Flow

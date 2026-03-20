@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.loader.LoaderType
-import com.sdds.testing.vs.loader.LoaderUiState
+import com.sdds.uikit.fixtures.stories.loader.LoaderType
+import com.sdds.uikit.fixtures.stories.loader.LoaderUiState
 
 internal class LoaderViewModel(
     defaultState: LoaderUiState,

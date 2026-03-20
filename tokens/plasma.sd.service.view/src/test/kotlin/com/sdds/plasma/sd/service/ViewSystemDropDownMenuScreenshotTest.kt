@@ -6,9 +6,9 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.DropDownMenuTestCases
 import com.sdds.plasma.sd.service.colorstate.ListItemViewColorState
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.dropdownmenu.DropDownMenuTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

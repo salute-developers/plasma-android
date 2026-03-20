@@ -6,11 +6,11 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.popover.PopoverUiState
-import com.sdds.testing.vs.popover.popoverWithTrigger
-import com.sdds.testing.vs.popover.showWithState
-import com.sdds.testing.vs.popover.toGravity
 import com.sdds.uikit.Popover
+import com.sdds.uikit.fixtures.stories.popover.PopoverUiState
+import com.sdds.uikit.fixtures.stories.popover.popoverWithTrigger
+import com.sdds.uikit.fixtures.stories.popover.showWithState
+import com.sdds.uikit.fixtures.stories.popover.toGravity
 
 /**
  * Фрагмент с компонентом Popover

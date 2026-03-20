@@ -1,15 +1,15 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.TabBarCounter
+import com.sdds.compose.uikit.fixtures.testcases.TabBarCustomWeight
+import com.sdds.compose.uikit.fixtures.testcases.TabBarExtraNone
+import com.sdds.compose.uikit.fixtures.testcases.TabBarIndicator
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.tabbar.Default
 import com.sdds.plasma.homeds.styles.tabbar.TabBar
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.tabbar.TabBarCounter
-import com.sdds.testing.compose.tabbar.TabBarCustomWeight
-import com.sdds.testing.compose.tabbar.TabBarExtraNone
-import com.sdds.testing.compose.tabbar.TabBarIndicator
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

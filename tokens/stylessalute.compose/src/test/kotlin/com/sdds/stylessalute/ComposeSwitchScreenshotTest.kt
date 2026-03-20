@@ -1,19 +1,19 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.SwitchLOn
+import com.sdds.compose.uikit.fixtures.testcases.SwitchMOff
+import com.sdds.compose.uikit.fixtures.testcases.SwitchOffDisabled
+import com.sdds.compose.uikit.fixtures.testcases.SwitchOnDisabled
+import com.sdds.compose.uikit.fixtures.testcases.SwitchS
 import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.switcher.L
 import com.sdds.stylessalute.styles.switcher.M
 import com.sdds.stylessalute.styles.switcher.S
 import com.sdds.stylessalute.styles.switcher.Switch
 import com.sdds.stylessalute.styles.switcher.ToggleS
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.switcher.SwitchLOn
-import com.sdds.testing.compose.switcher.SwitchMOff
-import com.sdds.testing.compose.switcher.SwitchOffDisabled
-import com.sdds.testing.compose.switcher.SwitchOnDisabled
-import com.sdds.testing.compose.switcher.SwitchS
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

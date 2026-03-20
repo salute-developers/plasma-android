@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.chip.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.chip.ChipUiState
-import com.sdds.testing.vs.chip.applyState
-import com.sdds.testing.vs.chip.chip
 import com.sdds.uikit.Chip
+import com.sdds.uikit.fixtures.stories.chip.ChipUiState
+import com.sdds.uikit.fixtures.stories.chip.applyState
+import com.sdds.uikit.fixtures.stories.chip.chip
 
 /**
  * Фрагмент с компонентом Chip

@@ -1,6 +1,14 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ButtonGroupHorizontal
+import com.sdds.compose.uikit.fixtures.testcases.ButtonGroupHorizontalMaxAmount
+import com.sdds.compose.uikit.fixtures.testcases.ButtonGroupVertical
+import com.sdds.compose.uikit.fixtures.testcases.IconButtonGroupHorizontal
+import com.sdds.compose.uikit.fixtures.testcases.IconButtonGroupHorizontalMaxAmount
+import com.sdds.compose.uikit.fixtures.testcases.IconButtonGroupVertical
 import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.buttongroup.BasicButtonGroup
 import com.sdds.stylessalute.styles.buttongroup.Default
@@ -14,14 +22,6 @@ import com.sdds.stylessalute.styles.buttongroup.S
 import com.sdds.stylessalute.styles.buttongroup.Segmented
 import com.sdds.stylessalute.styles.buttongroup.Wide
 import com.sdds.stylessalute.styles.buttongroup.Xs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.buttongroup.ButtonGroupHorizontal
-import com.sdds.testing.compose.buttongroup.ButtonGroupHorizontalMaxAmount
-import com.sdds.testing.compose.buttongroup.ButtonGroupVertical
-import com.sdds.testing.compose.buttongroup.IconButtonGroupHorizontal
-import com.sdds.testing.compose.buttongroup.IconButtonGroupHorizontalMaxAmount
-import com.sdds.testing.compose.buttongroup.IconButtonGroupVertical
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

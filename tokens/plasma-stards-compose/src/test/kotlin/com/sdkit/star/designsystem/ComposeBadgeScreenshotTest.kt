@@ -1,13 +1,13 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.BadgeCommon
+import com.sdds.compose.uikit.fixtures.testcases.BadgeSizeLDefaultContentLeft
+import com.sdds.compose.uikit.fixtures.testcases.BadgeSizeMAccentContentRight
+import com.sdds.compose.uikit.fixtures.testcases.IconBadgeCommon
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.badge.BadgeCommon
-import com.sdds.testing.compose.badge.BadgeSizeLDefaultContentLeft
-import com.sdds.testing.compose.badge.BadgeSizeMAccentContentRight
-import com.sdds.testing.compose.badge.IconBadgeCommon
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.badge.Accent
 import com.sdkit.star.designsystem.styles.badge.BadgeSolid
 import com.sdkit.star.designsystem.styles.badge.BadgeTransparent

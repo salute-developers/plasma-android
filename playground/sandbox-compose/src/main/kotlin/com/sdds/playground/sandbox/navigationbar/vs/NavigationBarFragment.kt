@@ -8,10 +8,10 @@ import android.widget.FrameLayout.LayoutParams
 import androidx.core.view.setMargins
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.navigationbar.NavigationBarUiState
-import com.sdds.testing.vs.navigationbar.applyState
-import com.sdds.testing.vs.navigationbar.navigationBar
 import com.sdds.uikit.NavigationBar
+import com.sdds.uikit.fixtures.stories.navigationbar.NavigationBarUiState
+import com.sdds.uikit.fixtures.stories.navigationbar.applyState
+import com.sdds.uikit.fixtures.stories.navigationbar.navigationBar
 
 /**
  * Фрагмент с компонентом NavigationBar

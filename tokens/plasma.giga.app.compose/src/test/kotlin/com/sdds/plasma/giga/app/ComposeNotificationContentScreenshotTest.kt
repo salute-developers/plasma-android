@@ -1,6 +1,13 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentHasAction
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentLongText
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentNoText
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentNoTitle
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentNoTitleNoText
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.notificationcontent.ButtonStretch
 import com.sdds.plasma.giga.app.styles.notificationcontent.Default
@@ -12,13 +19,6 @@ import com.sdds.plasma.giga.app.styles.notificationcontent.NoButtonStretch
 import com.sdds.plasma.giga.app.styles.notificationcontent.NotificationContent
 import com.sdds.plasma.giga.app.styles.notificationcontent.Positive
 import com.sdds.plasma.giga.app.styles.notificationcontent.Warning
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.notificationcontent.NotificationContentHasAction
-import com.sdds.testing.compose.notificationcontent.NotificationContentLongText
-import com.sdds.testing.compose.notificationcontent.NotificationContentNoText
-import com.sdds.testing.compose.notificationcontent.NotificationContentNoTitle
-import com.sdds.testing.compose.notificationcontent.NotificationContentNoTitleNoText
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

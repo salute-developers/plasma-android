@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.counter.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.counter.CounterUiState
-import com.sdds.testing.vs.counter.applyState
-import com.sdds.testing.vs.counter.counter
 import com.sdds.uikit.Counter
+import com.sdds.uikit.fixtures.stories.counter.CounterUiState
+import com.sdds.uikit.fixtures.stories.counter.applyState
+import com.sdds.uikit.fixtures.stories.counter.counter
 
 /**
  * Фрагмент с компонентом Counter

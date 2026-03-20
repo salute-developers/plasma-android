@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.modal.ModalGravity
-import com.sdds.testing.vs.modal.ModalUiState
+import com.sdds.uikit.fixtures.stories.modal.ModalGravity
+import com.sdds.uikit.fixtures.stories.modal.ModalUiState
 
 /**
  * ViewModel компонента Modal

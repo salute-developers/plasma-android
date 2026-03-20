@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.avatar.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.avatar.AvatarUiState
-import com.sdds.testing.vs.avatar.applyState
-import com.sdds.testing.vs.avatar.avatarGroup
 import com.sdds.uikit.AvatarGroup
+import com.sdds.uikit.fixtures.stories.avatar.AvatarUiState
+import com.sdds.uikit.fixtures.stories.avatar.applyState
+import com.sdds.uikit.fixtures.stories.avatar.avatarGroup
 
 /**
  * Фрагмент с компонентом AvatarGroup

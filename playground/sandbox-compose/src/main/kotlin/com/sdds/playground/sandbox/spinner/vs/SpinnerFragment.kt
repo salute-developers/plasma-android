@@ -4,9 +4,9 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.spinner.SpinnerUiState
-import com.sdds.testing.vs.spinner.spinner
 import com.sdds.uikit.Spinner
+import com.sdds.uikit.fixtures.stories.spinner.SpinnerUiState
+import com.sdds.uikit.fixtures.stories.spinner.spinner
 
 /**
  * Фрагмент с компонентом Spinner

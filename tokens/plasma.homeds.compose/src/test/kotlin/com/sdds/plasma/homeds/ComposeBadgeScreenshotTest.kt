@@ -1,6 +1,12 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.BadgeCommon
+import com.sdds.compose.uikit.fixtures.testcases.BadgeSizeLDefaultContentLeft
+import com.sdds.compose.uikit.fixtures.testcases.BadgeSizeMAccentContentRight
+import com.sdds.compose.uikit.fixtures.testcases.IconBadgeCommon
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.badge.Accent
 import com.sdds.plasma.homeds.styles.badge.BadgeClear
@@ -31,12 +37,6 @@ import com.sdds.plasma.homeds.styles.iconbadge.Positive
 import com.sdds.plasma.homeds.styles.iconbadge.S
 import com.sdds.plasma.homeds.styles.iconbadge.Warning
 import com.sdds.plasma.homeds.styles.iconbadge.Xs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.badge.BadgeCommon
-import com.sdds.testing.compose.badge.BadgeSizeLDefaultContentLeft
-import com.sdds.testing.compose.badge.BadgeSizeMAccentContentRight
-import com.sdds.testing.compose.badge.IconBadgeCommon
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.skeleton.TextSkeletonUiState
-import com.sdds.testing.vs.skeleton.TextSkeletonWidth
+import com.sdds.uikit.fixtures.stories.skeleton.TextSkeletonUiState
+import com.sdds.uikit.fixtures.stories.skeleton.TextSkeletonWidth
 
 /**
  * ViewModel компонента TextSkeleton

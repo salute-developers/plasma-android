@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.note.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.note.NoteUiState
-import com.sdds.testing.vs.note.applyState
-import com.sdds.testing.vs.note.noteCompact
 import com.sdds.uikit.NoteCompact
+import com.sdds.uikit.fixtures.stories.note.NoteUiState
+import com.sdds.uikit.fixtures.stories.note.applyState
+import com.sdds.uikit.fixtures.stories.note.noteCompact
 
 /**
  * Фрагмент с компонентом NoteCompact

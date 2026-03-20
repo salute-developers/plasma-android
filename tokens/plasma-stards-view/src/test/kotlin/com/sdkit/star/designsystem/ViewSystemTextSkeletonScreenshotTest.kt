@@ -3,8 +3,8 @@ package com.sdkit.star.designsystem
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.skeleton.TextSkeletonTestCases
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.TextSkeletonTestCases
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith

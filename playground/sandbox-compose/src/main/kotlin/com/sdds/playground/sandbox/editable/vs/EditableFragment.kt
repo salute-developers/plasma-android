@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.editable.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.editable.EditableUiState
-import com.sdds.testing.vs.editable.applyState
-import com.sdds.testing.vs.editable.editable
 import com.sdds.uikit.Editable
+import com.sdds.uikit.fixtures.stories.editable.EditableUiState
+import com.sdds.uikit.fixtures.stories.editable.applyState
+import com.sdds.uikit.fixtures.stories.editable.editable
 
 /**
  * Фрагмент с компонентом Editable

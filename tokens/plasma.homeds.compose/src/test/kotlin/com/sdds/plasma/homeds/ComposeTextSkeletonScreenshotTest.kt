@@ -1,6 +1,10 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.TextSkeletonDefaultNoText
+import com.sdds.compose.uikit.fixtures.testcases.TextSkeletonDefaultTextRandom
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.textskeleton.H1
 import com.sdds.plasma.homeds.styles.textskeleton.H2
@@ -17,10 +21,6 @@ import com.sdds.plasma.homeds.styles.textskeleton.TextSkeletonHeader
 import com.sdds.plasma.homeds.styles.textskeleton.TextSkeletonText
 import com.sdds.plasma.homeds.styles.textskeleton.Xs
 import com.sdds.plasma.homeds.styles.textskeleton.Xxs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.textskeleton.TextSkeletonDefaultNoText
-import com.sdds.testing.compose.textskeleton.TextSkeletonDefaultTextRandom
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

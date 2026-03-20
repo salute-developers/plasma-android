@@ -3,9 +3,9 @@ package com.sdds.playground.sandbox.indicator.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.indicator.IndicatorUiState
-import com.sdds.testing.vs.indicator.indicator
 import com.sdds.uikit.Indicator
+import com.sdds.uikit.fixtures.stories.indicator.IndicatorUiState
+import com.sdds.uikit.fixtures.stories.indicator.indicator
 
 /**
  * Фрагмент с компонентом Indicator

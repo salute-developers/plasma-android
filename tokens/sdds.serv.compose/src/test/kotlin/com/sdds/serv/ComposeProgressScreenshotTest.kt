@@ -1,6 +1,16 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarAccent
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarDefault
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarDefaultValueOne
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarGradientAccent
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarNegative
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarPositive
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarSecondary
+import com.sdds.compose.uikit.fixtures.testcases.ProgressBarWarning
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.progressbar.Accent
 import com.sdds.serv.styles.progressbar.Default
@@ -10,16 +20,6 @@ import com.sdds.serv.styles.progressbar.Positive
 import com.sdds.serv.styles.progressbar.ProgressBar
 import com.sdds.serv.styles.progressbar.Secondary
 import com.sdds.serv.styles.progressbar.Warning
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.progress.ProgressBarAccent
-import com.sdds.testing.compose.progress.ProgressBarDefault
-import com.sdds.testing.compose.progress.ProgressBarDefaultValueOne
-import com.sdds.testing.compose.progress.ProgressBarGradientAccent
-import com.sdds.testing.compose.progress.ProgressBarNegative
-import com.sdds.testing.compose.progress.ProgressBarPositive
-import com.sdds.testing.compose.progress.ProgressBarSecondary
-import com.sdds.testing.compose.progress.ProgressBarWarning
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

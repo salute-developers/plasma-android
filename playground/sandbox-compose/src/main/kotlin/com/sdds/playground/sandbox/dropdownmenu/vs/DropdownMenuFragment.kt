@@ -7,10 +7,10 @@ import android.widget.FrameLayout
 import androidx.core.view.updateMargins
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.dropdownmenu.DropdownMenuUiState
-import com.sdds.testing.vs.dropdownmenu.dropdownMenuTrigger
-import com.sdds.testing.vs.dropdownmenu.showWithState
-import com.sdds.testing.vs.popover.toGravity
+import com.sdds.uikit.fixtures.stories.dropdownmenu.DropdownMenuUiState
+import com.sdds.uikit.fixtures.stories.dropdownmenu.dropdownMenuTrigger
+import com.sdds.uikit.fixtures.stories.dropdownmenu.showWithState
+import com.sdds.uikit.fixtures.stories.popover.toGravity
 
 internal class DropdownMenuFragment : ComponentFragment<DropdownMenuUiState, View, DropdownMenuViewModel>() {
 

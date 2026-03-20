@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.testing.vs.note.NoteUiState
+import com.sdds.uikit.fixtures.stories.note.NoteUiState
 
 /**
  * ViewModel для экранов с компонентом NoteCompact
