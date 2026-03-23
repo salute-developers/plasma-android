@@ -1,5 +1,6 @@
 plugins {
     id("convention.kotlin-lib")
+    id("convention.maven-publish")
 }
 
 group = "integration-core"
