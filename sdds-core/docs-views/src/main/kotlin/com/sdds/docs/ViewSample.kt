@@ -1,10 +1,7 @@
-package com.sdds.docs.views
+package com.sdds.docs
 
 import android.content.Context
 import android.view.View
-import com.sdds.docs.Sample
-import com.sdds.docs.SampleId
-import com.sdds.docs.SampleRegistry
 
 /**
  * Обертка для View кода - примера в документацию

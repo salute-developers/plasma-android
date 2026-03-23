@@ -20,6 +20,10 @@ android {
     }
 }
 
+ksp {
+    arg("packageName", "com.sdds.docs")
+}
+
 dependencies {
     implementation(project(":uikit"))
     implementation(project(":icons"))

@@ -208,7 +208,7 @@ class DocSamplesProcessor(
             if (view.isNotEmpty()) {
                 out.appendLine("import android.content.Context")
                 out.appendLine("import android.view.View")
-                out.appendLine("import com.sdds.docs.views.ViewSample")
+                out.appendLine("import com.sdds.docs.ViewSample")
                 out.appendLine()
             }
 
