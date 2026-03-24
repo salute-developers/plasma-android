@@ -8,9 +8,9 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
+import com.sdds.compose.uikit.fixtures.stories.ProgressUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ProgressUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.ProgressUiStatePropertiesProducer
-import com.sdds.sandbox.ProgressUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

@@ -22,10 +22,10 @@ import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.PopoverStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.fixtures.stories.PopoverUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.PopoverUiStateTransformer
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.PopoverUiStatePropertiesProducer
-import com.sdds.sandbox.PopoverUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

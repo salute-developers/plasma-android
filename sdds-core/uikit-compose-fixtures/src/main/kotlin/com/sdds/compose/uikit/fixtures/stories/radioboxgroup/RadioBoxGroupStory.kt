@@ -10,11 +10,11 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
+import com.sdds.compose.uikit.fixtures.stories.RadioBoxGroupUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.RadioBoxGroupUiStateTransformer
 import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.updateSelection
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.RadioBoxGroupUiStatePropertiesProducer
-import com.sdds.sandbox.RadioBoxGroupUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

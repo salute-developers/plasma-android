@@ -14,6 +14,8 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.ToastStyle
+import com.sdds.compose.uikit.fixtures.stories.ToastUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ToastUiStateTransformer
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.OverlayManager
 import com.sdds.compose.uikit.overlay.OverlayPosition
@@ -22,8 +24,6 @@ import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.ToastUiStatePropertiesProducer
-import com.sdds.sandbox.ToastUiStateTransformer
 import com.sdds.sandbox.UiState
 
 @StoryUiState

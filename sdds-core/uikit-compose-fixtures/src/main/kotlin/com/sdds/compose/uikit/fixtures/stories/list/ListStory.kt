@@ -19,11 +19,11 @@ import com.sdds.compose.uikit.List
 import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.ListUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ListUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.ListUiStatePropertiesProducer
-import com.sdds.sandbox.ListUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

@@ -9,12 +9,12 @@ import com.sdds.compose.uikit.WheelDataSet
 import com.sdds.compose.uikit.WheelItemData
 import com.sdds.compose.uikit.WheelSeparator
 import com.sdds.compose.uikit.WheelStyle
+import com.sdds.compose.uikit.fixtures.stories.WheelUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.WheelUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
-import com.sdds.sandbox.WheelUiStatePropertiesProducer
-import com.sdds.sandbox.WheelUiStateTransformer
 
 /**
  * Состояние компонента [Wheel].

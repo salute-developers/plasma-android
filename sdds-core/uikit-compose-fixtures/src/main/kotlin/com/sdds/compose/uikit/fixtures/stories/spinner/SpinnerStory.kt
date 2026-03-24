@@ -5,9 +5,9 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.SpinnerStyle
+import com.sdds.compose.uikit.fixtures.stories.SpinnerUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.SpinnerUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.SpinnerUiStatePropertiesProducer
-import com.sdds.sandbox.SpinnerUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

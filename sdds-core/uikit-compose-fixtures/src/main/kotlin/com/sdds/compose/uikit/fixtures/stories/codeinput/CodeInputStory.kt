@@ -26,10 +26,10 @@ import com.sdds.compose.uikit.CodeInputCaptionAlignment
 import com.sdds.compose.uikit.CodeInputStyle
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.stories.CodeInputUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CodeInputUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.isEnabled
-import com.sdds.sandbox.CodeInputUiStatePropertiesProducer
-import com.sdds.sandbox.CodeInputUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

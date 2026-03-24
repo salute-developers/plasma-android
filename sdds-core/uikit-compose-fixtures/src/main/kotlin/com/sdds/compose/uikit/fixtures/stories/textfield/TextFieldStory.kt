@@ -27,14 +27,14 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.fixtures.stories.TextFieldUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.TextFieldUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.TextFieldUiStatePropertiesProducer
-import com.sdds.sandbox.TextFieldUiStateTransformer
 import com.sdds.sandbox.UiState
 
 @StoryUiState

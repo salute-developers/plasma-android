@@ -6,6 +6,7 @@ import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LIST
+import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.STAR
@@ -23,6 +24,7 @@ internal class StoryPropertiesProducerGenerator(
     private val fileSpecBuilder by lazy(LazyThreadSafetyMode.NONE) { FileSpec.builder(packageName, fileNameWithSuffix) }
     private val propertiesProducerType = ClassName("com.sdds.sandbox", "PropertiesProducer")
     private val propertyType = ClassName("com.sdds.sandbox", "Property")
+    private val enumPropertyExt = MemberName("com.sdds.sandbox", "enumProperty")
     private val keepAnnotation = ClassName("androidx.annotation", "Keep")
 
     override fun build(data: StoryStateData): FileSpec {
@@ -93,7 +95,8 @@ internal class StoryPropertiesProducerGenerator(
             // enum → enumProperty(...)
             if (param.type.isEnum()) {
                 add(
-                    "enumProperty(name = %S, value = $stateVar.%L),\n",
+                    "%M(name = %S, value = $stateVar.%L),\n",
+                    enumPropertyExt,
                     displayName,
                     name,
                 )
@@ -104,21 +107,21 @@ internal class StoryPropertiesProducerGenerator(
             when (param.type.declaration.qualifiedName?.asString()) {
                 "kotlin.Int" -> add(
                     "%T.IntProperty(name = %S, value = $stateVar.%L),\n",
-                    ClassName("com.sdds.sandbox", "Property"),
+                    propertyType,
                     displayName,
                     if (isNullable) "$name ?: 0" else name,
                 )
 
                 "kotlin.Boolean" -> add(
                     "%T.BooleanProperty(name = %S, value = $stateVar.%L),\n",
-                    ClassName("com.sdds.sandbox", "Property"),
+                    propertyType,
                     displayName,
                     if (isNullable) "$name ?: false" else name,
                 )
 
                 "kotlin.Float" -> add(
                     "%T.FloatProperty(name = %S, value = $stateVar.%L),\n",
-                    ClassName("com.sdds.sandbox", "Property"),
+                    propertyType,
                     displayName,
                     if (isNullable) "$name ?: 0f" else name,
                 )
@@ -127,7 +130,7 @@ internal class StoryPropertiesProducerGenerator(
                     // fallback → StringProperty
                     add(
                         "%T.StringProperty(name = %S, value = $stateVar.%L),\n",
-                        ClassName("com.sdds.sandbox", "Property"),
+                        propertyType,
                         displayName,
                         if (isNullable) "$name.orEmpty()" else name,
                     )

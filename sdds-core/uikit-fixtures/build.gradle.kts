@@ -22,6 +22,7 @@ android {
 
 ksp {
     arg("packageName", "com.sdds.docs")
+    arg("sandbox.packageName", "com.sdds.uikit.fixtures.stories")
 }
 
 dependencies {

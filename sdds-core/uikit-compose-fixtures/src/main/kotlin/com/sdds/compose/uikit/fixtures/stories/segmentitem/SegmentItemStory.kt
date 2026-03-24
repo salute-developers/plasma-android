@@ -12,10 +12,10 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
+import com.sdds.compose.uikit.fixtures.stories.SegmentItemUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.SegmentItemUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.SegmentItemUiStatePropertiesProducer
-import com.sdds.sandbox.SegmentItemUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

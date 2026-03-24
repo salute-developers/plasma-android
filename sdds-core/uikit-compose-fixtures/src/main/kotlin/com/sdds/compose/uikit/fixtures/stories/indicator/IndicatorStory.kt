@@ -5,9 +5,9 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.IndicatorStyle
+import com.sdds.compose.uikit.fixtures.stories.IndicatorUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.IndicatorUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.IndicatorUiStatePropertiesProducer
-import com.sdds.sandbox.IndicatorUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

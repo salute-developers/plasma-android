@@ -9,11 +9,11 @@ import androidx.compose.runtime.setValue
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.fixtures.stories.SwitchUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.SwitchUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.SwitchUiStatePropertiesProducer
-import com.sdds.sandbox.SwitchUiStateTransformer
 import com.sdds.sandbox.UiState
 
 /**

@@ -19,10 +19,10 @@ import com.sdds.compose.uikit.NavigationBarStyle
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.NavigationBarTextPlacement
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.NavigationBarUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.NavigationBarUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.NavigationBarUiStatePropertiesProducer
-import com.sdds.sandbox.NavigationBarUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

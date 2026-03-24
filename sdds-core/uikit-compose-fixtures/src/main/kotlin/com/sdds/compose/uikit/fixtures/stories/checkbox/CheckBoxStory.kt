@@ -6,8 +6,8 @@ import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStyle
-import com.sdds.sandbox.CheckBoxUiStatePropertiesProducer
-import com.sdds.sandbox.CheckBoxUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.CheckBoxUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CheckBoxUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

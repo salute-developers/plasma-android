@@ -13,10 +13,10 @@ import com.sdds.compose.uikit.Note
 import com.sdds.compose.uikit.NoteCompact
 import com.sdds.compose.uikit.NoteCompactStyle
 import com.sdds.compose.uikit.NoteStyle
+import com.sdds.compose.uikit.fixtures.stories.NoteUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.NoteUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.NoteUiStatePropertiesProducer
-import com.sdds.sandbox.NoteUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CircularProgressBar
 import com.sdds.compose.uikit.CircularProgressBarStyle
-import com.sdds.sandbox.CircularProgressUiStatePropertiesProducer
-import com.sdds.sandbox.CircularProgressUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.CircularProgressUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CircularProgressUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

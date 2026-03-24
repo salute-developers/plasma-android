@@ -12,10 +12,10 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.ImageStyle
+import com.sdds.compose.uikit.fixtures.stories.ImageUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ImageUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.ImageUiStatePropertiesProducer
-import com.sdds.sandbox.ImageUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

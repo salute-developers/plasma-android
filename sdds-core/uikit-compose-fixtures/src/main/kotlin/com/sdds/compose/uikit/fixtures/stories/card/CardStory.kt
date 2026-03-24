@@ -21,10 +21,10 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.stories.CardUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CardUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
-import com.sdds.sandbox.CardUiStatePropertiesProducer
-import com.sdds.sandbox.CardUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

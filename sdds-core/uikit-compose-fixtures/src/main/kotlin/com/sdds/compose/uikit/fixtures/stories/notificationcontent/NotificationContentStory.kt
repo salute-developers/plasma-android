@@ -8,9 +8,9 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.NotificationContent
 import com.sdds.compose.uikit.NotificationContentStyle
+import com.sdds.compose.uikit.fixtures.stories.NotificationContentUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.NotificationContentUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.NotificationContentUiStatePropertiesProducer
-import com.sdds.sandbox.NotificationContentUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

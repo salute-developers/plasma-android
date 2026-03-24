@@ -38,12 +38,12 @@ import com.sdds.compose.uikit.SelectStyle
 import com.sdds.compose.uikit.SelectTextField
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.SelectUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.SelectUiStateTransformer
 import com.sdds.compose.uikit.rememberSelectMultipleDataStateManager
 import com.sdds.compose.uikit.rememberSelectSingleDataStateManager
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.SelectUiStatePropertiesProducer
-import com.sdds.sandbox.SelectUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

@@ -20,10 +20,10 @@ import com.sdds.compose.uikit.Editable
 import com.sdds.compose.uikit.EditableIconPlacement
 import com.sdds.compose.uikit.EditableStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.fixtures.stories.EditableUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.EditableUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.EditableUiStatePropertiesProducer
-import com.sdds.sandbox.EditableUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

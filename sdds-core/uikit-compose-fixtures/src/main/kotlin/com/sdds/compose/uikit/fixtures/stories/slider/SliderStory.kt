@@ -10,10 +10,10 @@ import com.sdds.compose.uikit.SlideDirection
 import com.sdds.compose.uikit.Slider
 import com.sdds.compose.uikit.SliderAlignment
 import com.sdds.compose.uikit.SliderStyle
+import com.sdds.compose.uikit.fixtures.stories.SliderUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.SliderUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.SliderUiStatePropertiesProducer
-import com.sdds.sandbox.SliderUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

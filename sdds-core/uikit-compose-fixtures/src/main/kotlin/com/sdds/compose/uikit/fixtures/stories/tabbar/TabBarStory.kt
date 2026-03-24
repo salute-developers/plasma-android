@@ -17,12 +17,12 @@ import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.TabBar
 import com.sdds.compose.uikit.TabBarItem
 import com.sdds.compose.uikit.TabBarStyle
+import com.sdds.compose.uikit.fixtures.stories.TabBarUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.TabBarUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.TabBarUiStatePropertiesProducer
-import com.sdds.sandbox.TabBarUiStateTransformer
 import com.sdds.sandbox.UiState
 
 @StoryUiState
