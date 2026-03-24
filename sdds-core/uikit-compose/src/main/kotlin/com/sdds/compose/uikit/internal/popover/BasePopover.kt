@@ -94,6 +94,7 @@ internal fun BasePopover(
     interactionSource: MutableInteractionSource,
     content: @Composable () -> Unit,
 ) {
+    val rootView = LocalView.current.rootView
     val tailHeight = dimensions.tailHeight
     val tailWidth = dimensions.tailWidth
     val tailPadding = dimensions.tailPadding
@@ -150,12 +151,6 @@ internal fun BasePopover(
         } else {
             Modifier
         }
-        val clickableForShadowZoneModifier = Modifier
-            .pointerInput(Unit) {
-                detectTapGestures(
-                    onTap = { onDismissRequest.invoke() },
-                )
-            }
         val ignoreContentTapModifier = Modifier
             .pointerInput(Unit) {
                 detectTapGestures(
@@ -167,8 +162,11 @@ internal fun BasePopover(
             properties = popupProperties,
             onDismissRequest = onDismissRequest,
         ) {
+            val dialogView = LocalView.current.rootView
+            LaunchedEffect(dialogView, rootView) {
+                dialogView.enablePassthroughTouch(rootView)
+            }
             AnimatedVisibility(
-                modifier = clickableForShadowZoneModifier,
                 visibleState = visibleState,
                 enter = enterTransition,
                 exit = exitTransition,

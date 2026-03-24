@@ -1,7 +1,5 @@
 package com.sdds.compose.uikit.overlay
 
-import android.graphics.Rect
-import android.view.View
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExitTransition
 import androidx.compose.animation.core.MutableTransitionState
@@ -39,6 +37,7 @@ import androidx.compose.ui.util.fastForEachIndexed
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import com.sdds.compose.uikit.internal.SwipeToDismissBox
+import com.sdds.compose.uikit.internal.popover.enablePassthroughTouch
 import com.sdds.compose.uikit.internal.rememberSwipeToDismissBoxState
 import com.sdds.compose.uikit.overlay.OverlayDismissDirection.DismissToEnd
 import com.sdds.compose.uikit.overlay.OverlayDismissDirection.DismissToStart
@@ -275,29 +274,6 @@ private fun OverlayPopup(
             }
         }
     }
-}
-
-@Suppress("ClickableViewAccessibility")
-private fun View.enablePassthroughTouch(decorView: View) {
-    setOnTouchListener { v, event ->
-        val anchorLocation = decorView.getScreenRect()
-        val listLocation = v.getScreenRect()
-        val offsetX = (listLocation.left - anchorLocation.left).toFloat()
-        val offsetY = (listLocation.top - anchorLocation.top).toFloat()
-        event.offsetLocation(offsetX, offsetY)
-        decorView.dispatchTouchEvent(event)
-    }
-}
-
-private fun View.getScreenRect(): Rect {
-    val location = IntArray(2)
-    getLocationOnScreen(location)
-    return Rect(
-        location[0],
-        location[1],
-        (location[0] + width * scaleX).toInt(),
-        (location[1] + height * scaleY).toInt(),
-    )
 }
 
 private fun OverlayPosition.toAlignment(): Alignment = when (this) {
