@@ -195,6 +195,9 @@ internal class DecoratedFieldBox(
             return _scrollBarEnabled && _editableContainer.measuredHeight < chipsContentHeight
         }
 
+    private var isInteractiveNoEditable: Boolean = false
+    private var onClickInNoneEditable: (() -> Unit)? = null
+
     val editText: MaskedEditText
         get() = _field
 
@@ -393,6 +396,13 @@ internal class DecoratedFieldBox(
     fun getCompoundPaddingEnd(): Int =
         paddingEnd + if (actionView.isVisible) actionView.measuredWidth + _actionPadding else 0
 
+    fun setInteractiveNoEditable(noEditable: Boolean, onClick: (() -> Unit)? = null) {
+        if (isInteractiveNoEditable != noEditable) {
+            isInteractiveNoEditable = noEditable
+            onClickInNoneEditable = onClick
+        }
+    }
+
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
         children.forEach { it.isEnabled = enabled }
@@ -406,6 +416,10 @@ internal class DecoratedFieldBox(
         if (_editableContainer.paddingTop != valueOffset) {
             _editableContainer.updatePadding(top = valueOffset, bottom = 0)
         }
+    }
+
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
+        return if (isInteractiveNoEditable) true else super.onInterceptTouchEvent(ev)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -731,6 +745,7 @@ internal class DecoratedFieldBox(
     private fun handleTap() {
         focusEditText()
         updateTextState(true)
+        onClickInNoneEditable?.invoke()
     }
 
     @Suppress()
@@ -920,7 +935,7 @@ internal class DecoratedFieldBox(
     }
 
     private fun focusEditText() {
-        editText.forceFocus()
+        editText.forceFocus(showIme = !isInteractiveNoEditable)
         _editableContainer.removeCallbacks(_smoothScrollRunnable)
         if (!isSingleLine()) {
             _smoothScrollRunnable = _editableContainer.postDelayed(100) {

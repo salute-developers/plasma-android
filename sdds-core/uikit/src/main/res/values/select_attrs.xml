@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_selectStyle" format="reference" />
+    <attr name="sd_selectItemStyle" format="reference" />
+    <attr name="sd_selectItemStyleOverlay" format="reference" />
+
+    <declare-styleable name="Select" tools:ignore="ResourceName">
+        <!-- Оверлэй стиль компонента Button -->
+        <attr name="sd_buttonStyleOverlay" />
+        <!-- Оверлэй стиль компонента TextField -->
+        <attr name="sd_textFieldStyleOverlay" />
+        <!-- Оверлэй стиль компонента DropdownMenu -->
+        <attr name="sd_dropdownMenuStyleOverlay" />
+        <!-- Оверлэй стиль компонента SelectItem -->
+        <attr name="sd_selectItemStyleOverlay" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectItem" tools:ignore="ResourceName">
+        <!-- Оверлэй стиль компонента CellLayout -->
+        <attr name="sd_cellStyleOverlay" format="reference" />
+        <!-- Оверлэй стиль компонента CheckBox -->
+        <attr name="sd_checkBoxStyleOverlay" />
+        <!-- Цвет фона -->
+        <attr name="sd_background" />
+        <attr name="android:checked" />
+        <attr name="android:checkable" />
+        <!-- Окрас иконки отвечающей за checked состояние -->
+        <attr name="sd_iconTint" />
+        <!-- Иконка отвечающая за checked состояние -->
+        <attr name="sd_icon" />
+        <!-- Отступ основного контента от элемента отвечающего за checked состояние -->
+        <attr name="sd_controlMargin" format="dimension" />
+        <!-- Размер области для элемента отвечающего за checked состояние -->
+        <attr name="sd_controlSize" format="dimension" />
+        <!-- Тип SelectItem в Select -->
+        <attr name="sd_itemType" format="enum">
+            <!-- В checked состоянии будет показана иконка -->
+            <enum name="single" value="0" />
+            <!-- В checked состоянии будет показан CheckBox -->
+            <enum name="multiple" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SelectItem_Layout" tools:ignore="ResourceName">
+        <attr name="android:layout_gravity" />
+        <attr name="sd_layout_forceDuplicateParentState" />
+        <!-- Роли компонентов, размещаемых внутри SelectItem -->
+        <attr name="layout_itemContent" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+            <enum name="label" value="3" />
+            <enum name="title" value="4" />
+            <enum name="subtitle" value="5" />
+            <enum name="disclosure" value="6" />
+        </attr>
+    </declare-styleable>
+
+</resources>

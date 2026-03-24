@@ -132,8 +132,8 @@ import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarPreview
 import com.sdds.playground.sandbox.scrollbar.compose.ScrollBarScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentScreen
-import com.sdds.playground.sandbox.select.SelectPreview
-import com.sdds.playground.sandbox.select.SelectScreen
+import com.sdds.playground.sandbox.select.compose.SelectPreview
+import com.sdds.playground.sandbox.select.compose.SelectScreen
 import com.sdds.playground.sandbox.slider.compose.SliderPreview
 import com.sdds.playground.sandbox.slider.compose.SliderScreen
 import com.sdds.playground.sandbox.spinner.compose.SpinnerScreen

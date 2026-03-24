@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.select
+package com.sdds.playground.sandbox.select.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
