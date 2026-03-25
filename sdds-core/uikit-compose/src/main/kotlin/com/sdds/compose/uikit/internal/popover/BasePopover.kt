@@ -1,5 +1,7 @@
 package com.sdds.compose.uikit.internal.popover
 
+import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
@@ -157,16 +159,29 @@ internal fun BasePopover(
                     onTap = {},
                 )
             }
+        val clickableForShadowZoneModifier =
+            if (popupProperties.dismissOnClickOutside && popupProperties.focusable) {
+                Modifier.pointerInput(Unit) {
+                    detectTapGestures(
+                        onTap = { onDismissRequest.invoke() },
+                    )
+                }
+            } else {
+                Modifier
+            }
         Popup(
             popupPositionProvider = positionProvider,
             properties = popupProperties,
             onDismissRequest = onDismissRequest,
         ) {
             val dialogView = LocalView.current.rootView
-            LaunchedEffect(dialogView, rootView) {
-                dialogView.enablePassthroughTouch(rootView)
+            if (!popupProperties.focusable) {
+                LaunchedEffect(dialogView, rootView) {
+                    dialogView.enablePassthroughTouch(rootView)
+                }
             }
             AnimatedVisibility(
+                modifier = clickableForShadowZoneModifier,
                 visibleState = visibleState,
                 enter = enterTransition,
                 exit = exitTransition,
@@ -196,13 +211,43 @@ internal fun BasePopover(
                     if (popupProperties.usePlatformDefaultWidth) {
                         val contentView = LocalView.current.rootView
                         SideEffect {
-                            contentView.updateLayoutParams { width = ViewGroup.LayoutParams.MATCH_PARENT }
+                            contentView.updateLayoutParams {
+                                width = ViewGroup.LayoutParams.MATCH_PARENT
+                            }
                         }
                     }
                 }
             }
         }
     }
+}
+
+@Suppress("ClickableViewAccessibility")
+private fun View.enablePassthroughTouch(decorView: View) {
+    setOnTouchListener { v, event ->
+        val anchorRect = decorView.getScreenRect()
+        val popupRect = v.getScreenRect()
+        val offsetX = (popupRect.left - anchorRect.left).toFloat()
+        val offsetY = (popupRect.top - anchorRect.top).toFloat()
+
+        val transformedEvent = MotionEvent.obtain(event)
+        transformedEvent.offsetLocation(offsetX, offsetY)
+        val result = decorView.dispatchTouchEvent(transformedEvent)
+        transformedEvent.recycle()
+
+        result
+    }
+}
+
+private fun View.getScreenRect(): android.graphics.Rect {
+    val location = IntArray(2)
+    getLocationOnScreen(location)
+    return android.graphics.Rect(
+        location[0],
+        location[1],
+        (location[0] + width * scaleX).toInt(),
+        (location[1] + height * scaleY).toInt(),
+    )
 }
 
 @Composable
