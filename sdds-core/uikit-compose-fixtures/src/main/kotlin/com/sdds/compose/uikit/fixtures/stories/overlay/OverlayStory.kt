@@ -19,10 +19,10 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Overlay
 import com.sdds.compose.uikit.OverlayStyle
+import com.sdds.compose.uikit.fixtures.stories.OverlayUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.OverlayUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.OverlayUiStatePropertiesProducer
-import com.sdds.sandbox.OverlayUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

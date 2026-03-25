@@ -21,10 +21,10 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.NavBarCenterAlignmentStrategy
 import com.sdds.compose.uikit.NavigationBarTextAlign
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.CollapsingNavigationBarUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CollapsingNavigationBarUiStateTransformer
 import com.sdds.compose.uikit.rememberCollapsingNavigationBarState
 import com.sdds.icons.R
-import com.sdds.sandbox.CollapsingNavigationBarUiStatePropertiesProducer
-import com.sdds.sandbox.CollapsingNavigationBarUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

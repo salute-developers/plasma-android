@@ -40,9 +40,9 @@ import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.Spinner
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.fixtures.stories.AutocompleteUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.AutocompleteUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
-import com.sdds.sandbox.AutocompleteUiStatePropertiesProducer
-import com.sdds.sandbox.AutocompleteUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

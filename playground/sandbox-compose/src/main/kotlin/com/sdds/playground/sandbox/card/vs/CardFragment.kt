@@ -5,10 +5,10 @@ import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.card.CardUiState
-import com.sdds.testing.vs.card.applyState
-import com.sdds.testing.vs.card.card
 import com.sdds.uikit.Card
+import com.sdds.uikit.fixtures.stories.card.CardUiState
+import com.sdds.uikit.fixtures.stories.card.applyState
+import com.sdds.uikit.fixtures.stories.card.card
 
 /**
  * Фрагмент с компонентом Card

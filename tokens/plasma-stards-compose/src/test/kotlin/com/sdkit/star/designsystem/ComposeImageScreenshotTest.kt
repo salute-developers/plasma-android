@@ -1,10 +1,10 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ImageTestCase
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.image.ImageTestCase
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.image.Image
 import com.sdkit.star.designsystem.styles.image.Ratio16x9
 import com.sdkit.star.designsystem.styles.image.Ratio1x1

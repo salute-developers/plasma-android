@@ -19,10 +19,10 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.PaginationDots
 import com.sdds.compose.uikit.PaginationDotsStyle
+import com.sdds.compose.uikit.fixtures.stories.PaginationDotsUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.PaginationDotsUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.PaginationDotsUiStatePropertiesProducer
-import com.sdds.sandbox.PaginationDotsUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

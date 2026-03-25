@@ -1,13 +1,13 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.LoaderForSandbox
+import com.sdds.compose.uikit.fixtures.testcases.LoaderProgress
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.loader.Default
 import com.sdds.plasma.sd.service.styles.loader.Loader
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.loader.LoaderForSandbox
-import com.sdds.testing.compose.loader.LoaderProgress
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

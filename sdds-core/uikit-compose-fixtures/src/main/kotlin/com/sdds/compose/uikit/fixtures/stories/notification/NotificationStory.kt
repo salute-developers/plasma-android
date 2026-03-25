@@ -17,13 +17,13 @@ import com.sdds.compose.uikit.Notification
 import com.sdds.compose.uikit.NotificationContent
 import com.sdds.compose.uikit.NotificationStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.NotificationUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.NotificationUiStateTransformer
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
 import com.sdds.compose.uikit.overlay.OverlayPosition
 import com.sdds.compose.uikit.overlay.showNotification
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.NotificationUiStatePropertiesProducer
-import com.sdds.sandbox.NotificationUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

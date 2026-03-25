@@ -5,10 +5,10 @@ import android.view.Gravity
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.accordion.AccordionUiState
-import com.sdds.testing.vs.accordion.accordion
-import com.sdds.testing.vs.accordion.applyState
 import com.sdds.uikit.Accordion
+import com.sdds.uikit.fixtures.stories.accordion.AccordionUiState
+import com.sdds.uikit.fixtures.stories.accordion.accordion
+import com.sdds.uikit.fixtures.stories.accordion.applyState
 
 internal class AccordionFragment : ComponentFragment<AccordionUiState, Accordion, AccordionViewModel>() {
 

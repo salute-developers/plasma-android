@@ -17,9 +17,9 @@ import com.sdds.compose.uikit.ButtonGroupOrientation
 import com.sdds.compose.uikit.ButtonGroupScope
 import com.sdds.compose.uikit.ButtonGroupStyle
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.fixtures.stories.ButtonGroupUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ButtonGroupUiStateTransformer
 import com.sdds.icons.R
-import com.sdds.sandbox.ButtonGroupUiStatePropertiesProducer
-import com.sdds.sandbox.ButtonGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Property
 import com.sdds.sandbox.PropertyProducer

@@ -15,9 +15,9 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.fixtures.stories.ChipGroupUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ChipGroupUiStateTransformer
 import com.sdds.icons.R
-import com.sdds.sandbox.ChipGroupUiStatePropertiesProducer
-import com.sdds.sandbox.ChipGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

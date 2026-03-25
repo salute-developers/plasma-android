@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.codeinput.CodeInputUiState
-import com.sdds.testing.vs.codeinput.applyState
-import com.sdds.testing.vs.codeinput.codeInput
 import com.sdds.uikit.CodeInput
+import com.sdds.uikit.fixtures.stories.codeinput.CodeInputUiState
+import com.sdds.uikit.fixtures.stories.codeinput.applyState
+import com.sdds.uikit.fixtures.stories.codeinput.codeInput
 
 /**
  * Фрагмент с компонентом CodeInput

@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.testing.vs.textfield.ExampleChipData
-import com.sdds.testing.vs.textfield.TextFieldUiState
+import com.sdds.uikit.fixtures.stories.textfield.ExampleChipData
+import com.sdds.uikit.fixtures.stories.textfield.TextFieldUiState
 
 /**
  * [ViewModel] компонента [TextArea]

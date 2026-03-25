@@ -25,12 +25,12 @@ import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.PopoverPlacement
 import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.DropdownMenuUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.popover.TriggerPlacement
 import com.sdds.compose.uikit.fixtures.stories.popover.toAlignment
 import com.sdds.compose.uikit.popoverTrigger
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.DropdownMenuUiStatePropertiesProducer
-import com.sdds.sandbox.DropdownMenuUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

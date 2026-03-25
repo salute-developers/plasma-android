@@ -5,9 +5,9 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.notification.NotificationUiState
-import com.sdds.testing.vs.notification.notification
-import com.sdds.testing.vs.notification.notificationTrigger
+import com.sdds.uikit.fixtures.stories.notification.NotificationUiState
+import com.sdds.uikit.fixtures.stories.notification.notification
+import com.sdds.uikit.fixtures.stories.notification.notificationTrigger
 
 internal class NotificationFragment : ComponentFragment<NotificationUiState, View, NotificationViewModel>() {
     private var notificationContext: Context? = null

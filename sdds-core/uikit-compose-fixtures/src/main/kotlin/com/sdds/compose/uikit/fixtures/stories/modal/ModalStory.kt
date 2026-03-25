@@ -16,10 +16,10 @@ import com.sdds.compose.uikit.Modal
 import com.sdds.compose.uikit.ModalGravity
 import com.sdds.compose.uikit.ModalStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.ModalUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ModalUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.ModalUiStatePropertiesProducer
-import com.sdds.sandbox.ModalUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

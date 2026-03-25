@@ -26,12 +26,12 @@ import com.sdds.compose.uikit.ListItem
 import com.sdds.compose.uikit.ListItemStyle
 import com.sdds.compose.uikit.LocalListItemStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.DrawerUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.DrawerUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.rememberDrawerState
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.DrawerUiStatePropertiesProducer
-import com.sdds.sandbox.DrawerUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

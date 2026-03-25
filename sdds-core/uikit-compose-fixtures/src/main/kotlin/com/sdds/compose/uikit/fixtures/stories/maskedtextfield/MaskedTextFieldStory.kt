@@ -19,6 +19,8 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.stories.MaskedTextFieldUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.MaskedTextFieldUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.textfield.TextFieldIcon
 import com.sdds.compose.uikit.fixtures.stories.textfield.getTextFieldExampleIcon
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
@@ -31,8 +33,6 @@ import com.sdds.compose.uikit.mask.TextFieldMask
 import com.sdds.compose.uikit.mask.TextFieldMaskMode
 import com.sdds.compose.uikit.mask.TimeMask
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.MaskedTextFieldUiStatePropertiesProducer
-import com.sdds.sandbox.MaskedTextFieldUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

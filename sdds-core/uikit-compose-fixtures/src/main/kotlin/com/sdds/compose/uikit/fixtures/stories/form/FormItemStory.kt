@@ -25,9 +25,9 @@ import com.sdds.compose.uikit.PopoverAlignment
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.fixtures.stories.FormItemUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.FormItemUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.FormItemUiStatePropertiesProducer
-import com.sdds.sandbox.FormItemUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

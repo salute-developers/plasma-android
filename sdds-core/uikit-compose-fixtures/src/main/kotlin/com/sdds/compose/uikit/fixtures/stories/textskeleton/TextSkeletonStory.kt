@@ -13,11 +13,11 @@ import com.sdds.compose.uikit.SkeletonLineWidthProvider
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextSkeleton
 import com.sdds.compose.uikit.TextSkeletonStyle
+import com.sdds.compose.uikit.fixtures.stories.TextSkeletonUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.TextSkeletonUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.TextSkeletonUiStatePropertiesProducer
-import com.sdds.sandbox.TextSkeletonUiStateTransformer
 import com.sdds.sandbox.UiState
 
 @StoryUiState

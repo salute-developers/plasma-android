@@ -19,9 +19,9 @@ import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.fixtures.R
+import com.sdds.compose.uikit.fixtures.stories.AvatarUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.AvatarUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.badge.badgeContent
-import com.sdds.sandbox.AvatarUiStatePropertiesProducer
-import com.sdds.sandbox.AvatarUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Property
 import com.sdds.sandbox.PropertyProducer

@@ -1,7 +1,6 @@
 package com.sdds.uikit.fixtures.stories
 
 import com.sdds.compose.sandbox.ui.SandboxActivity
-import com.sdds.sandbox.registerStories
 
 /**
  * Регистрирует все основные (core) истории компонентов в текущей SandboxActivity.

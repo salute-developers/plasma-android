@@ -5,9 +5,9 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
+import com.sdds.compose.uikit.fixtures.stories.CounterUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CounterUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.CounterUiStatePropertiesProducer
-import com.sdds.sandbox.CounterUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

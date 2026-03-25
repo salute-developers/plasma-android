@@ -6,10 +6,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.mask.MaskUiState
-import com.sdds.testing.vs.mask.TextFieldMask
-import com.sdds.testing.vs.mask.TextFieldMaskDisplayMode
 import com.sdds.uikit.TextField
+import com.sdds.uikit.fixtures.stories.mask.MaskUiState
+import com.sdds.uikit.fixtures.stories.mask.TextFieldMask
+import com.sdds.uikit.fixtures.stories.mask.TextFieldMaskDisplayMode
 
 /**
  * [ViewModel] компонента [TextField] с маской

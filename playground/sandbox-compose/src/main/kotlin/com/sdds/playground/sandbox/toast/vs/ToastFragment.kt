@@ -5,9 +5,9 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.toast.ToastUiState
-import com.sdds.testing.vs.toast.toast
-import com.sdds.testing.vs.toast.toastTrigger
+import com.sdds.uikit.fixtures.stories.toast.ToastUiState
+import com.sdds.uikit.fixtures.stories.toast.toast
+import com.sdds.uikit.fixtures.stories.toast.toastTrigger
 
 internal class ToastFragment : ComponentFragment<ToastUiState, View, ToastViewModel>() {
     private var toastContext: Context? = null

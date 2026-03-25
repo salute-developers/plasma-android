@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.chip.ChipUiState
-import com.sdds.testing.vs.chip.applyState
-import com.sdds.testing.vs.chip.chipGroup
 import com.sdds.uikit.ChipGroup
+import com.sdds.uikit.fixtures.stories.chip.ChipUiState
+import com.sdds.uikit.fixtures.stories.chip.applyState
+import com.sdds.uikit.fixtures.stories.chip.chipGroup
 
 /**
  * Фрагмент с компонентом [ChipGroup]

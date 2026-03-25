@@ -6,11 +6,11 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.popover.toGravity
-import com.sdds.testing.vs.tooltip.TooltipUiState
-import com.sdds.testing.vs.tooltip.showWithState
-import com.sdds.testing.vs.tooltip.tooltipWithTrigger
 import com.sdds.uikit.Tooltip
+import com.sdds.uikit.fixtures.stories.popover.toGravity
+import com.sdds.uikit.fixtures.stories.tooltip.TooltipUiState
+import com.sdds.uikit.fixtures.stories.tooltip.showWithState
+import com.sdds.uikit.fixtures.stories.tooltip.tooltipWithTrigger
 
 /**
  * Фрагмент с компонентом Tooltip

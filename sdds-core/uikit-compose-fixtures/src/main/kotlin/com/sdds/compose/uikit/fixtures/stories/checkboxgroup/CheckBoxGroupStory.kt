@@ -11,8 +11,8 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
-import com.sdds.sandbox.CheckBoxGroupUiStatePropertiesProducer
-import com.sdds.sandbox.CheckBoxGroupUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.CheckBoxGroupUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CheckBoxGroupUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

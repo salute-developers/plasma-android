@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.carousel.CarouselUiState
-import com.sdds.testing.vs.carousel.applyState
-import com.sdds.testing.vs.carousel.carousel
 import com.sdds.uikit.Carousel
 import com.sdds.uikit.dp
+import com.sdds.uikit.fixtures.stories.carousel.CarouselUiState
+import com.sdds.uikit.fixtures.stories.carousel.applyState
+import com.sdds.uikit.fixtures.stories.carousel.carousel
 
 internal class CarouselFragment : ComponentFragment<CarouselUiState, Carousel, CarouselViewModel>() {
 

@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.drawer.CloseAlignment
-import com.sdds.testing.vs.drawer.DrawerUiState
 import com.sdds.uikit.DrawerLayout
+import com.sdds.uikit.fixtures.stories.drawer.CloseAlignment
+import com.sdds.uikit.fixtures.stories.drawer.DrawerUiState
 
 /**
  * ViewModel компонента Drawer

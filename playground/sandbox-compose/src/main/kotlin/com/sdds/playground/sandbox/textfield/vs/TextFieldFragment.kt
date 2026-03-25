@@ -5,10 +5,10 @@ import android.view.KeyEvent
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.textfield.TextFieldUiState
-import com.sdds.testing.vs.textfield.applyState
-import com.sdds.testing.vs.textfield.textField
 import com.sdds.uikit.TextField
+import com.sdds.uikit.fixtures.stories.textfield.TextFieldUiState
+import com.sdds.uikit.fixtures.stories.textfield.applyState
+import com.sdds.uikit.fixtures.stories.textfield.textField
 
 /**
  * Фрагмент с компонентом TextField

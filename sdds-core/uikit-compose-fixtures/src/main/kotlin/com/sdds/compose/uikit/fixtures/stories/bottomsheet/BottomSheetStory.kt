@@ -29,11 +29,11 @@ import com.sdds.compose.uikit.ModalBottomSheet
 import com.sdds.compose.uikit.ModalBottomSheetStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.fixtures.stories.BottomSheetUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.BottomSheetUiStateTransformer
 import com.sdds.compose.uikit.fs.FocusSelectorSettings
 import com.sdds.compose.uikit.internal.modal.BottomSheetValue
 import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
-import com.sdds.sandbox.BottomSheetUiStatePropertiesProducer
-import com.sdds.sandbox.BottomSheetUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

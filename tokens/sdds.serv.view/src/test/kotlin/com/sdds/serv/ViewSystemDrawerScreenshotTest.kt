@@ -8,8 +8,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.drawer.DrawerTestCases
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.DrawerTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -78,7 +78,7 @@ class ViewSystemDrawerScreenshotTest(
             skipDefaultCaptureRoboImage = true,
             action = {
                 onView(withText("Show Drawer")).perform(click())
-                onView(withId(com.sdds.testing.R.id.drawer_layout)).perform(swipeDown())
+                onView(withId(com.sdds.uikit.fixtures.R.id.drawer_layout)).perform(swipeDown())
             },
         ) {
             drawerCloseInnerMBottomEnd(

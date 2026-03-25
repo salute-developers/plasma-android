@@ -7,9 +7,9 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.fixtures.stories.BadgeUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.BadgeUiStateTransformer
 import com.sdds.icons.R
-import com.sdds.sandbox.BadgeUiStatePropertiesProducer
-import com.sdds.sandbox.BadgeUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

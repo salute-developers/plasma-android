@@ -24,10 +24,10 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.ScrollBarStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.ScrollBarUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ScrollBarUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.ScrollBarUiStatePropertiesProducer
-import com.sdds.sandbox.ScrollBarUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

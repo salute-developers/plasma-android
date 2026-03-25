@@ -26,7 +26,6 @@ include(
     ":plugin_theme_builder",
     ":uikit",
     ":uikit-compose",
-    ":testing",
     ":uikit-fixtures",
     ":uikit-compose-fixtures",
     ":docs",

@@ -7,9 +7,9 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.fixtures.stories.ChipUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ChipUiStateTransformer
 import com.sdds.icons.R
-import com.sdds.sandbox.ChipUiStatePropertiesProducer
-import com.sdds.sandbox.ChipUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

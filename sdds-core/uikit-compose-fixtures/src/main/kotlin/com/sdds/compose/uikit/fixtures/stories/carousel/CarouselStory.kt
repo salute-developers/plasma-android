@@ -16,8 +16,8 @@ import com.sdds.compose.uikit.Carousel
 import com.sdds.compose.uikit.CarouselStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
-import com.sdds.sandbox.CarouselUiStatePropertiesProducer
-import com.sdds.sandbox.CarouselUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.CarouselUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CarouselUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

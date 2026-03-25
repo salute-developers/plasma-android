@@ -61,7 +61,7 @@ class SandboxProcessor(
      * Имя пакета, в котором будут генерироваться классы.
      * По умолчанию "com.sdds.sandbox", может быть переопределено через опцию "packageName".
      */
-    private val packageName: String = options["packageName"] ?: "com.sdds.sandbox"
+    private val packageName: String = options["sandbox.packageName"] ?: "com.sdds.sandbox"
 
     /**
      * Процессор для обработки классов, помеченных аннотацией [StoryUiState].

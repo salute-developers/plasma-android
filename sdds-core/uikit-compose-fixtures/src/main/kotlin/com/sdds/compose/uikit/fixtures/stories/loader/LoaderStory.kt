@@ -8,9 +8,9 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Loader
 import com.sdds.compose.uikit.LoaderStyle
 import com.sdds.compose.uikit.LoaderType
+import com.sdds.compose.uikit.fixtures.stories.LoaderUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.LoaderUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.LoaderUiStatePropertiesProducer
-import com.sdds.sandbox.LoaderUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

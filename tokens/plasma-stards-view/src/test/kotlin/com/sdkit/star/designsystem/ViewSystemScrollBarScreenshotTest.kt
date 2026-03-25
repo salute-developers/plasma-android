@@ -4,8 +4,8 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.scrollbar.ScrollBarTestCases
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.ScrollBarTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner

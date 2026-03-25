@@ -11,8 +11,8 @@ import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CodeField
 import com.sdds.compose.uikit.CodeFieldCaptionAlignment
 import com.sdds.compose.uikit.CodeFieldStyle
-import com.sdds.sandbox.CodeFieldUiStatePropertiesProducer
-import com.sdds.sandbox.CodeFieldUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.CodeFieldUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CodeFieldUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

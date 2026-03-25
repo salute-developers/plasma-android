@@ -16,12 +16,12 @@ import com.sdds.compose.uikit.TabItem
 import com.sdds.compose.uikit.Tabs
 import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsStyle
+import com.sdds.compose.uikit.fixtures.stories.TabsUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.TabsUiStateTransformer
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.TabsUiStatePropertiesProducer
-import com.sdds.sandbox.TabsUiStateTransformer
 import com.sdds.sandbox.UiState
 
 @StoryUiState

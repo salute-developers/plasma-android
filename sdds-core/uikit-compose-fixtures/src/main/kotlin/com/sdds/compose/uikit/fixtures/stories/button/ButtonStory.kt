@@ -12,9 +12,9 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonIcons
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.fixtures.stories.ButtonUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.ButtonUiStateTransformer
 import com.sdds.icons.R
-import com.sdds.sandbox.ButtonUiStatePropertiesProducer
-import com.sdds.sandbox.ButtonUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

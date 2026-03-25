@@ -1,14 +1,14 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentHasAction
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentLongText
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentNoText
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentNoTitle
+import com.sdds.compose.uikit.fixtures.testcases.NotificationContentNoTitleNoText
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.notificationcontent.NotificationContentHasAction
-import com.sdds.testing.compose.notificationcontent.NotificationContentLongText
-import com.sdds.testing.compose.notificationcontent.NotificationContentNoText
-import com.sdds.testing.compose.notificationcontent.NotificationContentNoTitle
-import com.sdds.testing.compose.notificationcontent.NotificationContentNoTitleNoText
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.notificationcontent.ButtonStretch
 import com.sdkit.star.designsystem.styles.notificationcontent.Default
 import com.sdkit.star.designsystem.styles.notificationcontent.IconStart

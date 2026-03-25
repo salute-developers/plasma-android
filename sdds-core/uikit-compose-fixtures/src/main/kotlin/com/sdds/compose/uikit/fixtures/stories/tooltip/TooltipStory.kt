@@ -18,6 +18,8 @@ import com.sdds.compose.uikit.PopoverPlacementMode
 import com.sdds.compose.uikit.Tooltip
 import com.sdds.compose.uikit.TooltipStyle
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.fixtures.stories.TooltipUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.TooltipUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.popover.TriggerPlacement
 import com.sdds.compose.uikit.fixtures.stories.popover.autoHideToMs
 import com.sdds.compose.uikit.fixtures.stories.popover.toAlignment
@@ -26,8 +28,6 @@ import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
-import com.sdds.sandbox.TooltipUiStatePropertiesProducer
-import com.sdds.sandbox.TooltipUiStateTransformer
 import com.sdds.sandbox.UiState
 
 @StoryUiState

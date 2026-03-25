@@ -23,8 +23,8 @@ import com.sdds.compose.uikit.AccordionItem
 import com.sdds.compose.uikit.AccordionStyle
 import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.Text
-import com.sdds.sandbox.AccordionUiStatePropertiesProducer
-import com.sdds.sandbox.AccordionUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.AccordionUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.AccordionUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

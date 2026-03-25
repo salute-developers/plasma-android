@@ -4,10 +4,11 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.paginationdots.PaginationDotsUiState
-import com.sdds.testing.vs.paginationdots.applyState
-import com.sdds.testing.vs.paginationdots.paginationDotsWithControls
 import com.sdds.uikit.PaginationDots
+import com.sdds.uikit.fixtures.R
+import com.sdds.uikit.fixtures.stories.paginationdots.PaginationDotsUiState
+import com.sdds.uikit.fixtures.stories.paginationdots.applyState
+import com.sdds.uikit.fixtures.stories.paginationdots.paginationDotsWithControls
 
 internal class PaginationDotsFragment : ComponentFragment<PaginationDotsUiState, View, PaginationDotsViewModel>() {
 
@@ -33,6 +34,6 @@ internal class PaginationDotsFragment : ComponentFragment<PaginationDotsUiState,
     }
 
     override fun onComponentUpdate(component: View?, state: PaginationDotsUiState) {
-        component?.findViewById<PaginationDots>(com.sdds.testing.R.id.pagination_dots)?.applyState(state)
+        component?.findViewById<PaginationDots>(R.id.pagination_dots)?.applyState(state)
     }
 }

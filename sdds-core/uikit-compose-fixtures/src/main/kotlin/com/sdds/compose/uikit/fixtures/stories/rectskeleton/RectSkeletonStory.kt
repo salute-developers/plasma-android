@@ -15,9 +15,9 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.RectSkeleton
 import com.sdds.compose.uikit.RectSkeletonStyle
+import com.sdds.compose.uikit.fixtures.stories.RectSkeletonUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.RectSkeletonUiStateTransformer
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.RectSkeletonUiStatePropertiesProducer
-import com.sdds.sandbox.RectSkeletonUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState

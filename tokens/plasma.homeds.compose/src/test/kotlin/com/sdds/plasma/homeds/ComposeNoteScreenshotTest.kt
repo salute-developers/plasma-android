@@ -1,6 +1,17 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.NoteCompactHasCloseLongText
+import com.sdds.compose.uikit.fixtures.testcases.NoteCompactHasCloseTitleText
+import com.sdds.compose.uikit.fixtures.testcases.NoteCompactLScalableDefaultTitleTextHasAction
+import com.sdds.compose.uikit.fixtures.testcases.NoteCompactTitleTextHasAction
+import com.sdds.compose.uikit.fixtures.testcases.NoteHasCloseLongTitleLongTextHasAction
+import com.sdds.compose.uikit.fixtures.testcases.NoteHasCloseNoAction
+import com.sdds.compose.uikit.fixtures.testcases.NoteHasCloseTitleText
+import com.sdds.compose.uikit.fixtures.testcases.NoteNoTitleNoText
+import com.sdds.compose.uikit.fixtures.testcases.NoteTitleTextHasAction
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.note.ContentBeforeFixed
 import com.sdds.plasma.homeds.styles.note.ContentBeforeScalable
@@ -17,17 +28,6 @@ import com.sdds.plasma.homeds.styles.notecompact.HasClose
 import com.sdds.plasma.homeds.styles.notecompact.Info
 import com.sdds.plasma.homeds.styles.notecompact.NoteCompact
 import com.sdds.plasma.homeds.styles.notecompact.Positive
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.note.NoteCompactHasCloseLongText
-import com.sdds.testing.compose.note.NoteCompactHasCloseTitleText
-import com.sdds.testing.compose.note.NoteCompactLScalableDefaultTitleTextHasAction
-import com.sdds.testing.compose.note.NoteCompactTitleTextHasAction
-import com.sdds.testing.compose.note.NoteHasCloseLongTitleLongTextHasAction
-import com.sdds.testing.compose.note.NoteHasCloseNoAction
-import com.sdds.testing.compose.note.NoteHasCloseTitleText
-import com.sdds.testing.compose.note.NoteNoTitleNoText
-import com.sdds.testing.compose.note.NoteTitleTextHasAction
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.drawer.DrawerUiState
-import com.sdds.testing.vs.drawer.applyState
-import com.sdds.testing.vs.drawer.drawer
 import com.sdds.uikit.DrawerLayout
+import com.sdds.uikit.fixtures.R
+import com.sdds.uikit.fixtures.stories.drawer.DrawerUiState
+import com.sdds.uikit.fixtures.stories.drawer.applyState
+import com.sdds.uikit.fixtures.stories.drawer.drawer
 
 /**
  * Фрагмент с компонентом Drawer
@@ -33,6 +34,6 @@ internal class DrawerFragment : ComponentFragment<DrawerUiState, View, DrawerVie
     }
 
     override fun onComponentUpdate(component: View?, state: DrawerUiState) {
-        component?.findViewById<DrawerLayout>(com.sdds.testing.R.id.drawer_layout)?.applyState(state)
+        component?.findViewById<DrawerLayout>(R.id.drawer_layout)?.applyState(state)
     }
 }

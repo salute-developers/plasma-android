@@ -22,11 +22,11 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Switch
+import com.sdds.compose.uikit.fixtures.stories.CellUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.CellUiStateTransformer
 import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.icons.R
-import com.sdds.sandbox.CellUiStatePropertiesProducer
-import com.sdds.sandbox.CellUiStateTransformer
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState

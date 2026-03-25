@@ -1,8 +1,8 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.avatar.AvatarTestCases
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.AvatarTestCases
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith

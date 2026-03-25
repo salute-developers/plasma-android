@@ -20,11 +20,11 @@ import com.sdds.compose.uikit.SegmentScope
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentVertical
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fixtures.stories.SegmentUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.SegmentUiStateTransformer
 import com.sdds.compose.uikit.fixtures.stories.segmentitem.SegmentItemContent
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
-import com.sdds.sandbox.SegmentUiStatePropertiesProducer
-import com.sdds.sandbox.SegmentUiStateTransformer
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
