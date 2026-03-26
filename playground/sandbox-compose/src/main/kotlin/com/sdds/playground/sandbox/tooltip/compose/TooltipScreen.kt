@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.tooltip.compose
 
+import android.util.Log
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -45,7 +46,10 @@ internal fun TooltipScreen(componentKey: ComponentKey = ComponentKey.Tooltip) {
                     .align(tooltipUiState.triggerPlacement.toAlignment())
                     .popoverTrigger(triggerInfo),
                 label = "show",
-                onClick = { showTooltip.value = true },
+                onClick = {
+                    Log.d("Tooltip", "trigger button clicked")
+                    showTooltip.value = true
+                },
             )
             Tooltip(
                 show = showTooltip.value,
