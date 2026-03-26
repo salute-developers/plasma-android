@@ -28,6 +28,22 @@ for MODULE in "${MODULES[@]}"; do
       EVENT_TYPE="publish-uikit"
       PAYLOAD="{\"tag\": \"$TAG\"}"
       ;;
+    ":integration-core:sandbox-compose")
+      EVENT_TYPE="publish-integration-sandbox-compose"
+      PAYLOAD="{\"tag\": \"$TAG\"}"
+      ;;
+    ":integration-core:sandbox-view")
+      EVENT_TYPE="publish-integration-sandbox-view"
+      PAYLOAD="{\"tag\": \"$TAG\"}"
+      ;;
+    ":integration-core:sandbox-core")
+      EVENT_TYPE="publish-integration-sandbox-core"
+      PAYLOAD="{\"tag\": \"$TAG\"}"
+      ;;
+    ":integration-core:sandbox-ksp")
+      EVENT_TYPE="publish-integration-sandbox-ksp"
+      PAYLOAD="{\"tag\": \"$TAG\"}"
+      ;;
     ":sdds-core:plugin_theme_builder")
       EVENT_TYPE="publish-plugin-theme-builder"
       PAYLOAD="{\"tag\": \"$TAG\"}"

@@ -59,6 +59,14 @@ while IFS= read -r FILE; do
     fi
   fi
 
+  # integration-core
+  if [[ "$FILE" == integration-core/*/* ]]; then
+    FIRST=$(echo "$FILE" | cut -d '/' -f2)
+    MODULE=":integration-core:$FIRST"
+    MODULES_SET+=("$MODULE")
+    echo "✅ Matched: $MODULE"
+  fi
+
   # tokens/*
   if [[ "$FILE" == tokens/* ]]; then
     INCLUDE_SANDBOX=true
