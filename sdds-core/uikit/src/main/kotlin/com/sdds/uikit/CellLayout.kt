@@ -29,8 +29,12 @@ import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
+import com.sdds.uikit.statelist.AnimatedStateManagerHolder
+import com.sdds.uikit.statelist.AnimationConfig
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.StateManager
 import com.sdds.uikit.statelist.StyleStateList
+import com.sdds.uikit.statelist.getColorAnimationConfig
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.getStyleStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
@@ -54,8 +58,12 @@ open class CellLayout @JvmOverloads constructor(
     defStyleRes: Int = R.style.Sdds_Components_Cell,
 ) : ViewGroup(context, attrs, defStyleAttr, defStyleRes),
     Shapeable,
-    HasFocusSelector by FocusSelectorDelegate(context, attrs, defStyleAttr, defStyleRes) {
+    HasFocusSelector by FocusSelectorDelegate(context, attrs, defStyleAttr, defStyleRes),
+    AnimatedStateManagerHolder {
 
+    private var _bgAnimationConfig: AnimationConfig? = null
+    private var _textAnimationConfig: AnimationConfig? = null
+    private var _imageAnimationConfig: AnimationConfig? = null
     private val _shaper = shapeable(attrs, defStyleAttr, defStyleRes)
     private val _startContentBounds: Rect = Rect()
     private val _endContentBounds: Rect = Rect()
@@ -86,6 +94,8 @@ open class CellLayout @JvmOverloads constructor(
     private var _contentEndPaddingEnabled = false
     private var _disclosurePaddingEnabled = false
     private var _backgroundList: ColorValueStateList? = null
+
+    override val manager: StateManager = StateManager()
 
     /**
      * Выравнивание дочерних элементов относительно строки, в которой они находятся.
@@ -197,6 +207,15 @@ open class CellLayout @JvmOverloads constructor(
         _forceDuplicateParentState =
             typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
         _backgroundList = typedArray.getColorValueStateList(context, R.styleable.CellLayout_sd_background)
+        _bgAnimationConfig = typedArray.getColorAnimationConfig(
+            R.styleable.CellLayout_sd_backgroundAnimationDuration,
+        )
+        _textAnimationConfig = typedArray.getColorAnimationConfig(
+            R.styleable.CellLayout_sd_textAnimationDuration,
+        )
+        _imageAnimationConfig = typedArray.getColorAnimationConfig(
+            R.styleable.CellLayout_sd_imageAnimationDuration,
+        )
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
         resetDisclosure()
@@ -446,7 +465,7 @@ open class CellLayout @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        setBackgroundValueList(_backgroundList)
+        setBackgroundValueList(_backgroundList, _bgAnimationConfig)
     }
 
     override fun generateDefaultLayoutParams(): LayoutParams {
@@ -535,31 +554,43 @@ open class CellLayout @JvmOverloads constructor(
 
     private fun TextView.applyLabelRole() {
         _labelAppearance?.let { setTextAppearancesList(_labelAppearance) }
-        _labelColor?.let(::setTextColor)
+        val colorValueStateList = _labelColor?.let { ColorValueStateList.valueOf(it) }
+        setTextAnimationConfig(_textAnimationConfig)
+        colorValueStateList?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _labelColor)
         state = if (colorState == null) ViewState.PRIMARY else null
     }
 
     private fun TextView.applyTitleRole() {
         _titleAppearance?.let { setTextAppearancesList(it) }
-        _titleColor?.let(::setTextColor)
+        val colorValueStateList = _titleColor?.let { ColorValueStateList.valueOf(it) }
+        setTextAnimationConfig(_textAnimationConfig)
+        colorValueStateList?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _titleColor)
         state = if (colorState == null) ViewState.PRIMARY else null
     }
 
     private fun TextView.applySubtitleRole() {
         _subtitleAppearance?.let { setTextAppearancesList(it) }
-        _subtitleColor?.let(::setTextColor)
+        val colorValueStateList = _subtitleColor?.let { ColorValueStateList.valueOf(it) }
+        setTextAnimationConfig(_textAnimationConfig)
+        colorValueStateList?.let(::setTextColor)
         TextViewCompat.setCompoundDrawableTintList(this, _subtitleColor)
         state = if (colorState == null) ViewState.PRIMARY else null
     }
 
     private fun View.applyDisclosureRole() {
         when (this) {
-            is ImageView -> imageTintList = _disclosureColor
+            is ImageView -> {
+                val colorValueStateList = _disclosureColor?.let { ColorValueStateList.valueOf(it) }
+                setImageAnimationConfig(_imageAnimationConfig)
+                colorValueStateList?.let(::setImageTintValueList)
+            }
             is TextView -> {
                 setTextAppearance(_disclosureTextAppearance)
-                _disclosureTextColor?.let(::setTextColor)
+                val colorValueStateList = _disclosureTextColor?.let { ColorValueStateList.valueOf(it) }
+                setTextAnimationConfig(_textAnimationConfig)
+                colorValueStateList?.let(::setTextColor)
                 if (compoundDrawablesRelative.all { it == null }) {
                     setCompoundDrawablesRelativeWithIntrinsicBounds(
                         null,
@@ -568,7 +599,6 @@ open class CellLayout @JvmOverloads constructor(
                         null,
                     )
                 }
-                TextViewCompat.setCompoundDrawableTintList(this, _disclosureColor)
                 state = ViewState.SECONDARY
             }
 
@@ -579,6 +609,8 @@ open class CellLayout @JvmOverloads constructor(
             }
 
             is DisclosureView -> {
+                setTextAnimationConfig(_textAnimationConfig)
+                setImageAnimationConfig(_imageAnimationConfig)
                 setTextAppearance(_disclosureTextAppearance)
                 if (_disclosureTextColor != null) {
                     setColor(_disclosureTextColor, _disclosureColor)
@@ -645,6 +677,14 @@ open class CellLayout @JvmOverloads constructor(
             addView(disclosureIcon)
         }
 
+        fun setTextAnimationConfig(animationConfig: AnimationConfig?) {
+            disclosureText.setTextAnimationConfig(animationConfig)
+        }
+
+        fun setImageAnimationConfig(animationConfig: AnimationConfig?) {
+            disclosureIcon.setImageAnimationConfig(animationConfig)
+        }
+
         fun setDisclosure(text: CharSequence?, icon: Drawable?) {
             disclosureText.text = text
             disclosureText.isVisible = !text.isNullOrBlank()
@@ -657,13 +697,16 @@ open class CellLayout @JvmOverloads constructor(
         }
 
         fun setColor(color: ColorStateList?) {
-            color?.let { disclosureText.setTextColor(it) }
-            disclosureIcon.imageTintList = color
+            val colorValueStateList = color?.let { ColorValueStateList.valueOf(it) }
+            colorValueStateList?.let { disclosureText.setTextColor(it) }
+            colorValueStateList?.let { disclosureIcon.setImageTintValueList(it) }
         }
 
         fun setColor(textColor: ColorStateList?, iconColor: ColorStateList?) {
-            textColor?.let { disclosureText.setTextColor(it) }
-            disclosureIcon.imageTintList = iconColor
+            val textColorValueStateList = textColor?.let { ColorValueStateList.valueOf(it) }
+            val iconColorValueStateList = iconColor?.let { ColorValueStateList.valueOf(it) }
+            textColor?.let { disclosureText.setTextColor(textColorValueStateList) }
+            iconColor?.let { disclosureIcon.setImageTintValueList(iconColorValueStateList) }
         }
     }
 

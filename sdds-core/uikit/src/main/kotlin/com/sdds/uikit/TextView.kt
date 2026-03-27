@@ -18,12 +18,17 @@ import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shader.CachedShaderFactory
+import com.sdds.uikit.statelist.AnimatedStateManagerHolder
+import com.sdds.uikit.statelist.AnimationConfig
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.StateManager
 import com.sdds.uikit.statelist.StyleStateList
+import com.sdds.uikit.statelist.getColorAnimationConfig
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.getStyleForState
 import com.sdds.uikit.statelist.getStyleStateList
 import com.sdds.uikit.statelist.setTextColorValue
+import com.sdds.uikit.statelist.setTextDrawableColorValue
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -43,18 +48,23 @@ open class TextView @JvmOverloads constructor(
 ) : AppCompatTextView(context, attrs, defStyleAttr),
     ViewStateHolder,
     ColorStateHolder,
-    HasFocusSelector by FocusSelectorDelegate(context, attrs, defStyleAttr) {
+    HasFocusSelector by FocusSelectorDelegate(context, attrs, defStyleAttr),
+    AnimatedStateManagerHolder {
 
     @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
 
+    private var _textAnimationConfig: AnimationConfig? = null
     private var _textTint: ColorValueStateList? = null
+    private var _textDrawableColor: ColorValueStateList? = null
     private val _textBounds: Rect = Rect()
     private var _textShaderFactory: CachedShaderFactory = CachedShaderFactory.create()
     private var _respectLineHeightEnabled: Boolean = false
     private var _calculatedLineHeight: Float = 0f
     private var _textAppearances: StyleStateList? = null
     private var _currentTextAppearance: Int = 0
+
+    override val manager: StateManager = StateManager()
 
     /**
      * Флаг включает режим установки высоты [TextView] по lineHeight.
@@ -99,6 +109,11 @@ open class TextView @JvmOverloads constructor(
         context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0).use {
             setTextColor(it.getColorValueStateList(context, R.styleable.TextView_sd_textColor))
             setTextAppearancesList(it.getStyleStateList(context, R.styleable.TextView_sd_textAppearance))
+            _textAnimationConfig = it.getColorAnimationConfig(
+                R.styleable.TextView_sd_textAnimationDuration,
+            )
+            _textDrawableColor = it.getColorValueStateList(context, R.styleable.TextView_sd_drawableColor)
+                ?: it.getColorValueStateList(context, R.styleable.TextView_sd_textColor)
         }
         @Suppress("LeakingThis")
         applySelector(this)
@@ -109,6 +124,14 @@ open class TextView @JvmOverloads constructor(
             return _calculatedLineHeight.roundToInt()
         }
         return super.getLineHeight()
+    }
+
+    /**
+     * Устанавливает конфигурацию анимации текста [animationConfig]
+     */
+    fun setTextAnimationConfig(animationConfig: AnimationConfig?) {
+        _textAnimationConfig = animationConfig
+        refreshDrawableState()
     }
 
     override fun setTextAppearance(resId: Int) {
@@ -207,12 +230,14 @@ open class TextView @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         refreshTextAppearanceIfNeed()
-        setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF())
+        setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF(), _textAnimationConfig)
+        setTextDrawableColorValue(_textTint, _textAnimationConfig)
     }
 
     private fun updateBounds() {
         paint.getTextBounds(text.toString(), 0, text.length, _textBounds)
-        setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF())
+        setTextColorValue(_textTint, _textShaderFactory, _textBounds.toRectF(), _textAnimationConfig)
+        setTextDrawableColorValue(_textTint, _textAnimationConfig)
     }
 
     private fun refreshTextAppearanceIfNeed() {
