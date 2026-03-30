@@ -39,6 +39,8 @@ include(
     ":sdds.serv.compose:docs",
     ":sdds.serv.view",
     ":sdds.serv.view:docs",
+    ":sdds.serv.view:integration",
+    ":sdds.serv.view:app",
     ":stylessalute.compose",
     ":stylessalute.compose:docs",
     ":stylessalute.view",

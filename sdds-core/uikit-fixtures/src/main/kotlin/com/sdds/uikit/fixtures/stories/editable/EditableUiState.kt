@@ -2,6 +2,7 @@ package com.sdds.uikit.fixtures.stories.editable
 
 import android.os.Parcelable
 import android.view.Gravity
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Editable
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -17,6 +18,7 @@ import kotlinx.parcelize.Parcelize
  * @property textAlignment выравнивание текста
  */
 @Parcelize
+@StoryUiState
 data class EditableUiState(
     override val variant: String = "",
     override val appearance: String = "",

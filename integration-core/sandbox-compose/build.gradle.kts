@@ -46,5 +46,6 @@ dependencies {
 
     // Preview support
     implementation(libs.base.androidX.compose.uiTooling.preview)
+    implementation(libs.appcompat)
     debugImplementation(libs.base.androidX.compose.uiTooling)
 }

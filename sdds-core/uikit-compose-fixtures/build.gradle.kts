@@ -35,6 +35,7 @@ dependencies {
     implementation("integration-core:sandbox-compose")
     ksp(project(":docs-ksp"))
     ksp("integration-core:sandbox-ksp")
+    implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.test.roborazzi)
     implementation(libs.test.roborazzi.rule)

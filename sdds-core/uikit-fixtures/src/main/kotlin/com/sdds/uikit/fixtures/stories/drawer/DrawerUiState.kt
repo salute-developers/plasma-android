@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.drawer
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.DrawerLayout
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -20,6 +21,7 @@ import kotlinx.parcelize.Parcelize
  * если header отсутствует
  */
 @Parcelize
+@StoryUiState
 data class DrawerUiState(
     override val variant: String = "",
     override val appearance: String = "",

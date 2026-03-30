@@ -1,6 +1,8 @@
 package com.sdds.uikit.fixtures.stories.textfield
 
 import android.os.Parcelable
+import com.sdds.sandbox.IgnoreProperty
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.TextField
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -24,6 +26,7 @@ import kotlinx.parcelize.Parcelize
  * @property suffix суффикс
  */
 @Parcelize
+@StoryUiState
 data class TextFieldUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -38,6 +41,7 @@ data class TextFieldUiState(
     val enabled: Boolean = true,
     val readOnly: Boolean = false,
     val hasChips: Boolean = false,
+    @IgnoreProperty
     val chipData: List<ExampleChipData> = emptyList(),
     val prefix: String? = "TB",
     val suffix: String? = "TA",

@@ -2,6 +2,7 @@ package com.sdds.compose.sandbox
 
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.sandbox.internal.ComponentScaffold
 import com.sdds.compose.sandbox.internal.ComponentViewModel
@@ -11,10 +12,12 @@ import com.sdds.compose.uikit.style.Style
 import com.sdds.sandbox.BaseStory
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.PropertiesProducer
+import com.sdds.sandbox.StateOwner
 import com.sdds.sandbox.StateTransformer
 import com.sdds.sandbox.UiState
 import com.sdds.sandbox.producer
 import com.sdds.sandbox.transformer
+import kotlinx.coroutines.flow.StateFlow
 
 /**
  * Абстрактный базовый класс для создания историй компонентов в Compose-сторибуке.
@@ -42,7 +45,14 @@ abstract class ComposeBaseStory<State : UiState, S : Style>(
     override val defaultState: State,
     override val propertiesProducer: PropertiesProducer<State> = defaultState.producer(),
     override val stateTransformer: StateTransformer<State> = defaultState.transformer(),
-) : BaseStory<State> {
+) : BaseStory<State>, StateOwner<State> {
+
+    private var stateOwner: StateOwner<State>? = null
+
+    override val uiState: StateFlow<State>
+        get() = checkNotNull(stateOwner) {
+            "StateOwner is not available until ${this::class.simpleName}.Story() enters composition"
+        }.uiState
 
     /**
      * Composable функция для отображения содержимого истории компонента.
@@ -72,6 +82,12 @@ abstract class ComposeBaseStory<State : UiState, S : Style>(
         Text("empty preview, key=$key")
     }
 
+    override fun updateState(state: State) {
+        checkNotNull(stateOwner) {
+            "StateOwner is not available until ${this::class.simpleName}.Story() enters composition"
+        }.updateState(state)
+    }
+
     /**
      * Внутренняя композируемая функция, интегрирующая историю с инфраструктурой сторибука.
      *
@@ -85,17 +101,26 @@ abstract class ComposeBaseStory<State : UiState, S : Style>(
      */
     @Composable
     internal fun Story() {
+        val viewModel = viewModel<ComponentViewModel<State, S>>(
+            factory = ComponentViewModelFactory<State, S>(
+                defaultState = defaultState,
+                propertiesProducer = propertiesProducer,
+                stateTransformer = stateTransformer,
+                componentKey = component,
+            ),
+            key = component.toString(),
+        )
+        DisposableEffect(viewModel) {
+            stateOwner = viewModel
+            onDispose {
+                if (stateOwner === viewModel) {
+                    stateOwner = null
+                }
+            }
+        }
         ComponentScaffold(
             key = component,
-            viewModel = viewModel<ComponentViewModel<State, S>>(
-                factory = ComponentViewModelFactory<State, S>(
-                    defaultState = defaultState,
-                    propertiesProducer = propertiesProducer,
-                    stateTransformer = stateTransformer,
-                    componentKey = component,
-                ),
-                key = component.toString(),
-            ),
+            viewModel = viewModel,
             component = { state, style ->
                 Content(style, state)
             },

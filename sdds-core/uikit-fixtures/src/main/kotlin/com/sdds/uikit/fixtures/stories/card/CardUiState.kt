@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.card
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -11,6 +12,7 @@ import kotlinx.parcelize.Parcelize
  * @author Малышев Александр on 14.08.2025
  */
 @Parcelize
+@StoryUiState
 data class CardUiState(
     override val variant: String = "",
     override val appearance: String = "",

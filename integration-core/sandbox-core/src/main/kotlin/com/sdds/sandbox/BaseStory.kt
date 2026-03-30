@@ -79,3 +79,13 @@ annotation class StoryProperty(
     val producedBy: KClass<*> = Unit::class,
     val transformedBy: KClass<*> = Unit::class,
 )
+
+/**
+ * Аннотация для пометки свойства игнорируемого StoryPropertyProducer
+ * Такие свойства не должны отображаться в панели управления сторибука,
+ *
+ * Применяется к полям и свойствам класса.
+ */
+@Target(allowedTargets = [AnnotationTarget.FIELD, AnnotationTarget.PROPERTY])
+@Retention
+annotation class IgnoreProperty

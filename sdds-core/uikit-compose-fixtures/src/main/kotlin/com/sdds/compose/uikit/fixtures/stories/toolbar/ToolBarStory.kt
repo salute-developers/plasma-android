@@ -40,7 +40,7 @@ data class ToolBarUiState(
 
 @Story
 object ToolBarStory : ComposeBaseStory<ToolBarUiState, ToolBarStyle>(
-    ComponentKey.Toolbar,
+    ComponentKey.ToolBar,
     ToolBarUiState(),
     ToolBarUiStatePropertiesProducer,
     ToolBarUiStateTransformer,

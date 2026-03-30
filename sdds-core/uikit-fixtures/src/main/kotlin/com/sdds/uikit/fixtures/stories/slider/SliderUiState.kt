@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.slider
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Slider
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -19,6 +20,7 @@ import kotlinx.parcelize.Parcelize
  * @property alignment выравнивание контента внутри компонента
  */
 @Parcelize
+@StoryUiState
 data class SliderUiState(
     override val variant: String = "",
     override val appearance: String = "",

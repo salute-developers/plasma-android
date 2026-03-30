@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.modal
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -14,6 +15,7 @@ import kotlinx.parcelize.Parcelize
  * @property hasClose включить ли кнопку закрытия
  */
 @Parcelize
+@StoryUiState
 data class ModalUiState(
     override val variant: String = "",
     override val appearance: String = "",

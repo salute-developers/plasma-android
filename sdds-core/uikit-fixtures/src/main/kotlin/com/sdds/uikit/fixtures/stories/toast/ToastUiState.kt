@@ -1,7 +1,10 @@
 package com.sdds.uikit.fixtures.stories.toast
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import com.sdds.uikit.overlays.OverlayPosition
+import kotlinx.parcelize.Parcelize
 
 /**
  * Состояние компонента Toast
@@ -13,6 +16,8 @@ import com.sdds.uikit.overlays.OverlayPosition
  * @property autoDismiss автоматическое скрытие Toast
  * @property hasAnimation включает/выключает анимацию
  */
+@Parcelize
+@StoryUiState
 data class ToastUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -22,7 +27,7 @@ data class ToastUiState(
     val position: OverlayPosition = OverlayPosition.BottomCenter,
     val autoDismiss: Boolean = true,
     val hasAnimation: Boolean = true,
-) : UiState {
+) : Parcelable, UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

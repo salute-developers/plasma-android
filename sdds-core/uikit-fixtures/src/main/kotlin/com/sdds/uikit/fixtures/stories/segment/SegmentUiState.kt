@@ -2,6 +2,7 @@ package com.sdds.uikit.fixtures.stories.segment
 
 import android.os.Parcelable
 import com.sdds.icons.R
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Segment
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -21,6 +22,7 @@ import kotlinx.parcelize.Parcelize
  * @property count текст счетчика
  */
 @Parcelize
+@StoryUiState
 data class SegmentUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -45,23 +47,22 @@ data class SegmentUiState(
  * @property iconId идентификатор ресурса кнопки
  */
 @Parcelize
-sealed class SegmentItemIcon(val iconId: Int = R.drawable.ic_plasma_24) :
-    Parcelable {
+enum class SegmentItemIcon(val iconId: Int = R.drawable.ic_plasma_24) : Parcelable {
 
     /**
      * Иконка вначале
      */
-    object Start : SegmentItemIcon()
+    Start,
 
     /**
      * Иконка вконце
      */
-    object End : SegmentItemIcon()
+    End,
 
     /**
      * Отсутствие иконки
      */
-    object No : SegmentItemIcon(0)
+    No(0),
 }
 
 /**

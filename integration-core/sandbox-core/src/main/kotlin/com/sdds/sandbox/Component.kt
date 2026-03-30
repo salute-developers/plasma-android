@@ -129,7 +129,7 @@ data class ComponentKey(
         val TabItem = ComponentKey(CoreComponentName.TAB_ITEM)
         val IconTabItem = ComponentKey(CoreComponentName.ICON_TAB_ITEM)
         val IconTabs = ComponentKey(CoreComponentName.ICON_TABS)
-        val Toolbar = ComponentKey(CoreComponentName.TOOL_BAR)
+        val ToolBar = ComponentKey(CoreComponentName.TOOL_BAR)
         val NavigationBar = ComponentKey(CoreComponentName.NAVIGATION_BAR)
         val CollapsingNavigationBar = ComponentKey(CoreComponentName.COLLAPSING_NAVIGATION_BAR)
         val PaginationDots = ComponentKey(CoreComponentName.PAGINATION_DOTS)

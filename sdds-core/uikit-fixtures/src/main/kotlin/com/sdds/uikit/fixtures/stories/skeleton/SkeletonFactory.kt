@@ -48,7 +48,6 @@ fun textSkeleton(
     val contextWithAppearance = context.styleWrapper(appearanceOverlay)
     val contextWithSkeleton = contextWithAppearance.styleWrapper(style)
     val appearanceRes = resolveTextAppearance(contextWithSkeleton)
-
     val skeletonView = skeletonShimmer(contextWithSkeleton, state, appearanceRes)
     val textView = text(contextWithSkeleton, state, appearanceRes)
     return FrameLayout(context).apply {

@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.loader
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Loader
 import com.sdds.uikit.fixtures.UiState
 import com.sdds.uikit.fixtures.stories.loader.LoaderType.Progress
@@ -12,11 +13,13 @@ import kotlinx.parcelize.Parcelize
  * @property variant вариация
  * @property loaderType тип прогресса загрузки
  */
+@Parcelize
+@StoryUiState
 data class LoaderUiState(
     override val variant: String = "",
     override val appearance: String = "",
     val loaderType: LoaderType = Spinner,
-) : UiState {
+) : Parcelable, UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }
