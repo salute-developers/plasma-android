@@ -545,6 +545,8 @@ open class ImageView @JvmOverloads constructor(
         _aspectRatio = typedArray.getFloat(R.styleable.ImageView_sd_aspectRatio, 0f)
         _imageAnimationConfig = typedArray.getColorAnimationConfig(
             R.styleable.ImageView_sd_imageAnimationDuration,
+            R.styleable.ImageView_sd_imageAnimationInterpolator,
+            context,
         )
         typedArray.recycle()
     }

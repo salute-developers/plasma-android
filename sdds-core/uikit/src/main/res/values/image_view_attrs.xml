@@ -36,5 +36,6 @@
         <attr name="sd_fsShapeAppearance" />
         <attr name="sd_fsShapeAdjustment" />
         <attr name="sd_imageAnimationDuration" />
+        <attr name="sd_imageAnimationInterpolator" />
     </declare-styleable>
 </resources>

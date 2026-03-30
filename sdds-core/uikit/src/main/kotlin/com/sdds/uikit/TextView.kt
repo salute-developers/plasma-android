@@ -111,6 +111,8 @@ open class TextView @JvmOverloads constructor(
             setTextAppearancesList(it.getStyleStateList(context, R.styleable.TextView_sd_textAppearance))
             _textAnimationConfig = it.getColorAnimationConfig(
                 R.styleable.TextView_sd_textAnimationDuration,
+                R.styleable.TextView_sd_textAnimationInterpolator,
+                context,
             )
             _textDrawableColor = it.getColorValueStateList(context, R.styleable.TextView_sd_drawableColor)
                 ?: it.getColorValueStateList(context, R.styleable.TextView_sd_textColor)

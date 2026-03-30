@@ -1,9 +1,12 @@
 package com.sdds.uikit.statelist
 
 import android.animation.TimeInterpolator
+import android.content.Context
+import android.content.res.Resources
 import android.content.res.TypedArray
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AccelerateInterpolator
+import android.view.animation.AnimationUtils
 import android.view.animation.DecelerateInterpolator
 
 /**
@@ -23,10 +26,18 @@ data class AnimationConfig(
 /**
  * Извлекает конфигурацию анимации цвета из [TypedArray] по указанным атрибутам.
  *
+ * Функция анализирует атрибуты продолжительности и интерполятора в TypedArray
+ * и создает соответствующую конфигурацию анимации. Если ни один из атрибутов
+ * не присутствует в TypedArray, возвращается `null`.
+ *
  * Если атрибут продолжительности не указан, используется значение по умолчанию 200 мс.
- * @receiver TypedArray Исходный массив типизированных атрибутов
+ * Если атрибут интерполятора не указан, используется интерполятор по умолчанию [AccelerateDecelerateInterpolator].
+ *
+ * @receiver TypedArray Исходный массив типизированных атрибутов (обычно из XML-разметки)
  * @param durationAttr Идентификатор атрибута продолжительности анимации (например, `R.attr.animationDuration`)
- * @return Конфигурация анимации, если присутствует атрибут,
+ * @param interpolatorAttr Идентификатор атрибута интерполятора анимации (например, `R.attr.animationInterpolator`).
+ *                         По умолчанию `0`, что означает отсутствие атрибута
+ * @return Конфигурация анимации, если присутствует хотя бы один из атрибутов,
  *         иначе `null`
  *
  * @see AnimationConfig
@@ -36,10 +47,17 @@ data class AnimationConfig(
  */
 fun TypedArray.getColorAnimationConfig(
     durationAttr: Int,
+    interpolatorAttr: Int = 0,
+    context: Context,
 ): AnimationConfig? {
     val hasDuration = hasValue(durationAttr)
-    if (!hasDuration) return null
+    val hasInterpolator = hasValue(interpolatorAttr)
+    if (!hasDuration && !hasInterpolator) return null
     val duration = getInt(durationAttr, 200).toLong()
-    val defaultInterpolator = AccelerateDecelerateInterpolator()
-    return AnimationConfig(duration, defaultInterpolator)
+    val interpolator = try {
+        AnimationUtils.loadInterpolator(context, getResourceId(interpolatorAttr, 0))
+    } catch (e: Resources.NotFoundException) {
+        AccelerateDecelerateInterpolator()
+    }
+    return AnimationConfig(duration, interpolator)
 }

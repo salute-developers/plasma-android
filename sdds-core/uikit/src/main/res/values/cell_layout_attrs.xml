@@ -28,8 +28,11 @@
 
         <attr name="sd_background"/>
         <attr name="sd_backgroundAnimationDuration"/>
+        <attr name="sd_backgroundAnimationInterpolator"/>
         <attr name="sd_textAnimationDuration"/>
+        <attr name="sd_textAnimationInterpolator"/>
         <attr name="sd_imageAnimationDuration"/>
+        <attr name="sd_imageAnimationInterpolator"/>
         <attr name="sd_shapeAppearance"/>
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_strokeWidth"/>

@@ -209,12 +209,18 @@ open class CellLayout @JvmOverloads constructor(
         _backgroundList = typedArray.getColorValueStateList(context, R.styleable.CellLayout_sd_background)
         _bgAnimationConfig = typedArray.getColorAnimationConfig(
             R.styleable.CellLayout_sd_backgroundAnimationDuration,
+            R.styleable.CellLayout_sd_backgroundAnimationInterpolator,
+            context,
         )
         _textAnimationConfig = typedArray.getColorAnimationConfig(
             R.styleable.CellLayout_sd_textAnimationDuration,
+            R.styleable.CellLayout_sd_textAnimationInterpolator,
+            context,
         )
         _imageAnimationConfig = typedArray.getColorAnimationConfig(
             R.styleable.CellLayout_sd_imageAnimationDuration,
+            R.styleable.CellLayout_sd_imageAnimationInterpolator,
+            context,
         )
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
