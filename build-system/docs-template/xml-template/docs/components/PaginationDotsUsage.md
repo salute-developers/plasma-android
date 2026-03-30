@@ -66,12 +66,16 @@ viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(
 <!-- @sample: com/sdds/uikit/fixtures/PaginationDots_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.paginationdots.PaginationDots.Simple -->
+
+
 ## Вертикальная ориентация
 
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/PaginationDots_Vertical_Simple.xml -->
-
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.paginationdots.PaginationDots.Vertical -->
 
 ## Советы по настройке
 

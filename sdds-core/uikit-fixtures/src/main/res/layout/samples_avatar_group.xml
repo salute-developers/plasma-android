@@ -9,26 +9,21 @@
     <com.sdds.uikit.AvatarGroup
         android:id="@+id/avatar_group_simple"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        app:sd_itemOffset="10dp"
-        app:sd_itemSpacing="2dp">
+        android:layout_width="wrap_content">
 
         <com.sdds.uikit.Avatar
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            app:sd_background="#111"
             app:sd_name="User Name" />
 
         <com.sdds.uikit.Avatar
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            app:sd_background="#111"
             app:sd_name="User Name" />
 
         <com.sdds.uikit.Avatar
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            app:sd_background="#111"
             app:sd_name="User Name" />
     </com.sdds.uikit.AvatarGroup>
     <!-- sample-end: id=AvatarGroup_Simple -->

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Serv_Doc_Theme" parent="Serv.Sdds.MaterialComponents.Light">
+
+        <item name="sd_accordionStyle">@style/Serv.Sdds.Components.AccordionSolidActionStart.H3</item>
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.M</item>
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Default</item>
+        <item name="sd_buttonGroupStyle">@style/Serv.Sdds.Components.BasicButtonGroup.M.Dense.Default</item>
+        <item name="sd_autocompleteStyle">@style/Serv.Sdds.Components.AutocompleteNormal.M</item>
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Serv.Sdds.Components.AvatarGroup.S</item>
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeSolid.M.Default</item>
+        <item name="sd_iconBadgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Default</item>
+        <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
+        <item name="sd_carouselStyle">@style/Serv.Sdds.Components.Carousel.ButtonsPlacementInner</item>
+        <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
+        <item name="sd_circularProgressBarStyle">@style/Serv.Sdds.Components.CircularProgressBar.M.Default</item>
+        <item name="sd_codeFieldStyle">@style/Serv.Sdds.Components.CodeField.M</item>
+        <item name="sd_codeInputStyle">@style/Serv.Sdds.Components.CodeInput.M</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Default</item>
+        <item name="sd_drawerStyle">@style/Serv.Sdds.Components.DrawerCloseInner.M.HasShadow</item>
+        <item name="sd_dropdownMenuStyle">@style/Serv.Sdds.Components.DropdownMenuNormal.M</item>
+        <item name="sd_editableStyle">@style/Serv.Sdds.Components.Editable.H3</item>
+        <item name="sd_fileStyle">@style/Serv.Sdds.Components.FileCircularProgress.M.Default</item>
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Default</item>
+        <item name="sd_notificationContentStyle">@style/Serv.Sdds.Components.NotificationContent.ButtonStretch.Default</item>
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M.Primary</item>
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Primary</item>
+        <item name="sd_listViewStyle">@style/Serv.Sdds.Components.ListNormal.M</item>
+        <item name="sd_listItemViewStyle">@style/Serv.Sdds.Components.ListItemNormal.M</item>
+        <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.M</item>
+        <item name="sd_sliderStyle">@style/Serv.Sdds.Components.SliderHorizontalLabelOuter.M</item>
+        <item name="sd_spinnerStyle">@style/Serv.Sdds.Components.Spinner.M.Default</item>
+        <item name="sd_paginationDotsStyle">@style/Serv.Sdds.Components.PaginationDotsHorizontal.M</item>
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Default</item>
+        <item name="sd_tabsStyle">@style/Serv.Sdds.Components.TabsHeader.H3</item>
+        <item name="sd_textSkeletonStyle">@style/Serv.Sdds.Components.TextSkeleton.Default</item>
+        <item name="sd_rectSkeletonStyle">@style/Serv.Sdds.Components.RectSkeleton.Default</item>
+        <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.M.InnerLabel.RequiredStart</item>
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart</item>
+        <item name="sd_toolBarStyle">@style/Serv.Sdds.Components.ToolbarHorizontal.M</item>
+        <item name="android:radioButtonStyle">@style/Serv.Sdds.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Serv.Sdds.Components.CheckBox.M.Default</item>
+    </style>
+</resources>

@@ -10,7 +10,6 @@
         android:id="@+id/checkbox_simple"
         android:text="Label"
         app:sd_description="Description"
-        app:sd_descriptionTextColor="#f1f1"
         app:sd_descriptionPadding="5dp"
         android:drawablePadding="10dp"
         app:sd_buttonPadding="2dp"

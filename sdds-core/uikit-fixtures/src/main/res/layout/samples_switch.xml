@@ -10,11 +10,8 @@
         android:id="@+id/switch_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:sd_buttonTrackColor="#C3DBCD"
-        app:sd_buttonThumbColor="#0978CC"
         android:text="Label"
-        app:sd_description="Description"
-        app:sd_descriptionTextColor="#316F33" />
+        app:sd_description="Description" />
     <!-- sample-end: id=Switch_Simple -->
 
     <!-- sample-start: id=Switch_Background -->
@@ -22,13 +19,9 @@
     <com.sdds.uikit.Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:sd_buttonTrackColor="#C3DBCD"
-        app:sd_buttonThumbColor="#0978CC"
-        app:sd_background="#FDCBCB"
         app:sd_shapeAppearance="@style/Sdds.Shape.Round.Circle"
         android:text="Label"
-        app:sd_description="Description"
-        app:sd_descriptionTextColor="#316F33" />
+        app:sd_description="Description" />
     <!-- sample-end: id=Switch_Background -->
 
     <!-- sample-start: id=Switch_Custom_Color -->
@@ -39,7 +32,6 @@
         android:layout_height="wrap_content"
         android:text="Label"
         app:sd_description="Description"
-        app:sd_background="@color/bg_switch_sample"
         app:sd_shapeAppearance="@style/Sdds.Shape.Round.Circle" />
     <!-- sample-end: id=Switch_Custom_Color -->
 

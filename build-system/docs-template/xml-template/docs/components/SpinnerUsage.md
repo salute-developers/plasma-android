@@ -8,6 +8,8 @@ title: Spinner
 <!-- @sample: com/sdds/uikit/fixtures/Spinner_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.spinner.Spinner.Simple -->
+
 ## Стиль Spinner
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

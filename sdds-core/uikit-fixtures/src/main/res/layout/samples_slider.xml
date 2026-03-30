@@ -18,11 +18,9 @@
         app:sd_indicatorThickness="4dp"
         app:sd_trackThickness="2dp"
         app:sd_thumbSize="10dp"
-        app:sd_thumbColor="#111"
         app:sd_progress="0.5"
         app:sd_title="Title"
         app:sd_titleAlignment="start"
-        app:sd_iconTint="#111"
         app:sd_icon="@drawable/ic_plasma_24"/>
     <!-- sample-end: id=Slider_Simple -->
 

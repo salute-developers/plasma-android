@@ -22,6 +22,8 @@ Keep - некорректный код/символ сохраняется в п
 <!-- @sample: com/sdds/uikit/fixtures/CodeField_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.codefield.CodeField.Simple -->
+
 ## Стиль CodeField
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

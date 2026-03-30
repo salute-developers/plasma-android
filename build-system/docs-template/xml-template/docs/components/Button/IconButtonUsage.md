@@ -7,6 +7,8 @@ title: IconButton
 <!-- @sample: com/sdds/uikit/fixtures/IconButton_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.IconButton.Simple -->
+
 ## Стиль IconButton
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
@@ -38,3 +40,5 @@ title: IconButton
 ```kotlin
 // @sample: com/sdds/uikit/fixtures/samples/button/IconButton_isLoading.kt
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.IconButton.isLoading -->

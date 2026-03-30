@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Plasma_SdService_Doc_Theme" parent="Plasma.SdService.MaterialComponents.Light">
+
+        <item name="sd_accordionStyle">@style/Plasma.SdService.Components.AccordionSolidActionStart.H3</item>
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M</item>
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Default</item>
+        <item name="sd_buttonGroupStyle">@style/Plasma.SdService.Components.BasicButtonGroup.M.Dense.Default</item>
+        <item name="sd_autocompleteStyle">@style/Plasma.SdService.Components.AutocompleteNormal.M</item>
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Plasma.SdService.Components.AvatarGroup.S</item>
+        <item name="sd_badgeStyle">@style/Plasma.SdService.Components.BadgeSolid.M.Default</item>
+        <item name="sd_iconBadgeStyle">@style/Plasma.SdService.Components.IconBadgeTransparent.M.Default</item>
+        <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
+        <item name="sd_carouselStyle">@style/Plasma.SdService.Components.Carousel.ButtonsPlacementInner</item>
+        <item name="sd_cellStyle">@style/Plasma.SdService.Components.Cell.M</item>
+        <item name="sd_circularProgressBarStyle">@style/Plasma.SdService.Components.CircularProgressBar.M.Default</item>
+        <item name="sd_codeFieldStyle">@style/Plasma.SdService.Components.CodeField.M</item>
+        <item name="sd_codeInputStyle">@style/Plasma.SdService.Components.CodeInput.M</item>
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Default</item>
+        <item name="sd_drawerStyle">@style/Plasma.SdService.Components.DrawerCloseInner.M.HasShadow</item>
+        <item name="sd_dropdownMenuStyle">@style/Plasma.SdService.Components.DropdownMenuNormal.M</item>
+        <item name="sd_fileStyle">@style/Plasma.SdService.Components.FileCircularProgress.M.Default</item>
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Default</item>
+        <item name="sd_listViewStyle">@style/Plasma.SdService.Components.ListNormal.M</item>
+        <item name="sd_listItemViewStyle">@style/Plasma.SdService.Components.ListItemNormal.M</item>
+        <item name="sd_notificationContentStyle">@style/Plasma.SdService.Components.NotificationContent.ButtonStretch.Default</item>
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Primary</item>
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M.Primary</item>
+        <item name="sd_rectSkeletonStyle">@style/Plasma.SdService.Components.RectSkeleton.Default</item>
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.M</item>
+        <item name="sd_spinnerStyle">@style/Plasma.SdService.Components.Spinner.M.Default</item>
+        <item name="sd_paginationDotsStyle">@style/Plasma.SdService.Components.PaginationDotsHorizontal.M</item>
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Default</item>
+        <item name="sd_textSkeletonStyle">@style/Plasma.SdService.Components.TextSkeleton.Default</item>
+        <item name="sd_textAreaStyle">@style/Plasma.SdService.Components.TextArea.M.InnerLabel.RequiredStart</item>
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.M.InnerLabel.RequiredStart</item>
+        <item name="android:radioButtonStyle">@style/Plasma.SdService.Components.RadioBox.M</item>
+        <item name="android:checkboxStyle">@style/Plasma.SdService.Components.CheckBox.M.Default</item>
+    </style>
+</resources>

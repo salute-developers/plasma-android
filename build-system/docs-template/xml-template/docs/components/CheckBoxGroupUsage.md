@@ -5,8 +5,10 @@ title: CheckBoxGroup
 Контент CheckBoxGroup формируется с помощью [CheckBox](CheckBoxUsage.md#checkbox).
 
 ```xml
- <!-- @sample: com/sdds/uikit/fixtures/CheckBoxGroup_Simple.xml -->
+<!-- @sample: com/sdds/uikit/fixtures/CheckBoxGroup_Simple.xml -->
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.checkbox.group.CheckBoxGroup_Simple -->
 
 ## Стиль CheckBoxGroup
 

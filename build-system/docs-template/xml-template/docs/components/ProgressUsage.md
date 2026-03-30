@@ -6,6 +6,8 @@ title: ProgressBar
 <!-- @sample: com/sdds/uikit/fixtures/ProgressBar_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.progressbar.ProgressBar.Simple -->
+
 ## Стиль ProgressBar
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

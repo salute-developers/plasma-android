@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:text="First line \nSecond line"
         app:sd_icon="@drawable/ic_file_check_fill_16"
-        app:sd_iconTint="#111"
         app:sd_iconSize="16dp"
         app:sd_iconMargin="8dp" />
     <!-- sample-end: id=Editable_Simple -->
@@ -34,7 +33,6 @@
         android:singleLine="true"
         app:sd_editableIconPlacement="relative"
         app:sd_icon="@drawable/ic_file_check_fill_16"
-        app:sd_iconTint="#111"
         app:sd_iconSize="16dp"
         app:sd_iconMargin="8dp" />
     <!-- sample-end: id=Editable_SingleLine_Icon_Relative -->

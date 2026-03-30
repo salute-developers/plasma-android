@@ -43,6 +43,8 @@ title: Editable
 // @sample: com/sdds/uikit/fixtures/samples/editable/Editable_SingleLine_Icon_Relative.kt
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.editable.Editable.SingleLine.Icon.Relative -->
+
 ## Icon placement Absolute
 
 Режим расположения иконки(drawable), при котором размеры Editable не учитывают ее размер. Drawable находится вне 
@@ -53,6 +55,8 @@ title: Editable
 ```kotlin
 // @sample: com/sdds/uikit/fixtures/samples/editable/Editable_MultiLine_Icon_Absolute.kt
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.editable.Editable.MultiLine.Icon.Absolute -->
 
 ## Icon size 
 

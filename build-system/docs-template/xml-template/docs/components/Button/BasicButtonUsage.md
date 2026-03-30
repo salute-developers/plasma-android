@@ -7,6 +7,8 @@ title: Button
 <!-- @sample: com/sdds/uikit/fixtures/BasicButton_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.BasicButton_Simple -->
+
 ## Стиль Button
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
@@ -46,10 +48,14 @@ title: Button
 // @sample: com/sdds/uikit/fixtures/samples/button/BasicButton_LabelValue_Packed.kt
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.BasicButton_LabelValue_Packed -->
+
 или SpaceBetween (Контент отобразится по всей ширине, отступы будут добавлены между элементами контента):
 ```kotlin
 // @sample: com/sdds/uikit/fixtures/samples/button/BasicButton_LabelValue_SpaceBetween.kt
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.BasicButton_LabelValue_SpaceBetween -->
 
 ## Индикатор загрузки
 
@@ -58,4 +64,6 @@ title: Button
 ```kotlin
 // @sample: com/sdds/uikit/fixtures/samples/button/BasicButton_isLoading.kt
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.BasicButton_isLoading -->
 

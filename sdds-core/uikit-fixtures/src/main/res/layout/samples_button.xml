@@ -66,7 +66,6 @@
         android:layout_height="wrap_content"
         android:text="Label"
         app:sd_spacing="packed"
-        app:sd_value="Value"
         />
     <!-- sample-end: id=LinkButton_LabelValue_Packed -->
 
@@ -77,7 +76,7 @@
         android:layout_height="wrap_content"
         android:text="Label"
         app:sd_spacing="spaceBetween"
-        app:sd_value="Value"
+        app:sd_icon="@drawable/ic_plasma_24"
         />
     <!-- sample-end: id=LinkButton_LabelValue_SpaceBetween -->
 

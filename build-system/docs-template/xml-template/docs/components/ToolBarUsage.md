@@ -17,6 +17,8 @@ Gravity.CENTER_VERTICAL для горизонтального `ToolBar`, Gravity
 <!-- @sample: com/sdds/uikit/fixtures/ToolBar_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.toolbar.ToolBar.Simple -->
+
 ## Стиль ToolBar
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

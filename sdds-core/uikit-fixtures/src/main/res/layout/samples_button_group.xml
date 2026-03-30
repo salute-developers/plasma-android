@@ -14,16 +14,19 @@
         android:layout_height="wrap_content" >
 
         <com.sdds.uikit.Button
+            android:text="Label"
             app:sd_value="text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.sdds.uikit.Button
+            android:text="Label"
             app:sd_value="text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <com.sdds.uikit.Button
+            android:text="Label"
             app:sd_value="text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -43,21 +46,18 @@
         <com.sdds.uikit.IconButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:sd_iconTint="#009688"
             app:sd_icon="@drawable/ic_plasma_36"/>
 
         <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
         <com.sdds.uikit.IconButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:sd_iconTint="#009688"
             app:sd_icon="@drawable/ic_plasma_36"/>
 
         <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
         <com.sdds.uikit.IconButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:sd_iconTint="#009688"
             app:sd_icon="@drawable/ic_plasma_36"/>
 
     </com.sdds.uikit.ButtonGroup>

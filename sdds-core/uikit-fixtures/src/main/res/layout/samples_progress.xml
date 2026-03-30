@@ -11,10 +11,9 @@
         android:id="@+id/progressbar_simple"
         android:maxHeight="10dp"
         app:sd_progress="0.5"
-        app:sd_trackHeight="4dp"
+        app:sd_trackHeight="6dp"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:sd_progressColor="#155"
         app:backgroundTint="#2222"
         />
     <!-- sample-end: id=ProgressBar_Simple -->
