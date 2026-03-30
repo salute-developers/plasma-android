@@ -48,5 +48,13 @@
         <attr name="sd_itemSelectorEnabled"/>
         <attr name="sd_itemSelectorTint"/>
         <attr name="sd_itemSelectorShapeAppearance" format="reference" />
+        <attr name="sd_itemSelectorPaddingTop" format="dimension" />
+        <attr name="sd_itemSelectorPaddingBottom" format="dimension" />
+        <attr name="sd_itemSelectorPaddingStart" format="dimension" />
+        <attr name="sd_itemSelectorPaddingEnd" format="dimension" />
+
+        <attr name="sd_wheelEntryMinScale" format="float" />
+        <attr name="sd_wheelEntryMinAlpha" format="float" />
+
     </declare-styleable>
 </resources>

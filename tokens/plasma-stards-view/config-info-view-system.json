@@ -5301,17 +5301,17 @@
             }
          ]
       },
-     {
-       "key": "modal",
-       "coreName": "Modal",
-       "styleName": "Modal",
-       "variations": [
-         {
-           "name": "default",
-           "viewReference": "Sdkit.StarDs.Components.Modal",
-           "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.Modal"
-         }
-       ]
-     }
+      {
+         "key": "modal",
+         "coreName": "Modal",
+         "styleName": "Modal",
+         "variations": [
+            {
+               "name": "default",
+               "viewReference": "Sdkit.StarDs.Components.Modal",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.Modal"
+            }
+         ]
+      }
    ]
 }

@@ -75,6 +75,8 @@ open class Wheel @JvmOverloads constructor(
     private var _itemAlignment: Int = ITEM_ALIGNMENT_CENTER
     private var _itemTextAfterPadding: Int = 0
     private var _entryMinSpacing: Int = 0
+    private var _entryMinScale: Float = 0f
+    private var _entryMinAlpha: Float = 0f
 
     private var _descriptionTextAppearance: Int = 0
     private var _descriptionTextColor: ColorValueStateList? = null
@@ -90,6 +92,10 @@ open class Wheel @JvmOverloads constructor(
     private var _itemSelectorEnabled: Boolean = false
     private var _itemSelectorTint: ColorValueStateList? = null
     private var _itemSelectorShapeAppearanceRes: Int = 0
+    private var _itemSelectorPaddingTop: Int = 0
+    private var _itemSelectorPaddingBottom: Int = 0
+    private var _itemSelectorPaddingStart: Int = 0
+    private var _itemSelectorPaddingEnd: Int = 0
 
     /**
      * Количество видимых элементов в каждом колесе.
@@ -264,6 +270,34 @@ open class Wheel @JvmOverloads constructor(
             }
         }
 
+    /**
+     * Минимальное расстояние между элементами.
+     */
+    open var entryMinScale: Float
+        get() = _entryMinScale
+        set(value) {
+            if (_entryMinScale != value) {
+                _entryMinScale = value
+                configureWheelItems {
+                    it.entryMinScale = value
+                }
+            }
+        }
+
+    /**
+     * Минимальное расстояние между элементами.
+     */
+    open var entryMinAlpha: Float
+        get() = _entryMinAlpha
+        set(value) {
+            if (_entryMinAlpha != value) {
+                _entryMinAlpha = value
+                configureWheelItems {
+                    it.entryMinAlpha = value
+                }
+            }
+        }
+
     init {
         context.withStyledAttributes(attrs, R.styleable.Wheel, defStyleAttr, defStyleRes) {
             controlsEnabled = getBoolean(R.styleable.Wheel_sd_controlsEnabled, false)
@@ -291,6 +325,12 @@ open class Wheel @JvmOverloads constructor(
             _itemSelectorTint = getColorValueStateList(context, R.styleable.Wheel_sd_itemSelectorTint)
             _itemSelectorEnabled = getBoolean(R.styleable.Wheel_sd_itemSelectorEnabled, false)
             _itemSelectorShapeAppearanceRes = getResourceId(R.styleable.Wheel_sd_itemSelectorShapeAppearance, 0)
+            _itemSelectorPaddingTop = getDimensionPixelSize(R.styleable.Wheel_sd_itemSelectorPaddingTop, 0)
+            _itemSelectorPaddingBottom = getDimensionPixelSize(R.styleable.Wheel_sd_itemSelectorPaddingBottom, 0)
+            _itemSelectorPaddingStart = getDimensionPixelSize(R.styleable.Wheel_sd_itemSelectorPaddingStart, 0)
+            _itemSelectorPaddingEnd = getDimensionPixelSize(R.styleable.Wheel_sd_itemSelectorPaddingEnd, 0)
+            entryMinScale = getFloat(R.styleable.Wheel_sd_wheelEntryMinScale, 0f)
+            entryMinAlpha = getFloat(R.styleable.Wheel_sd_wheelEntryMinAlpha, 0f)
         }
         orientation = HORIZONTAL
         gravity = Gravity.CENTER
@@ -552,7 +592,8 @@ open class Wheel @JvmOverloads constructor(
         if (separatorType == SEPARATOR_TYPE_DOTS && childCount > 0) {
             val anyWheelItem = getChildAt(0) as WheelItemView
             configureDotDividers {
-                it.translationY = (it.measuredHeight - anyWheelItem.itemHeight) / 2f + entryMinSpacing
+                it.translationY =
+                    (it.measuredHeight - anyWheelItem.itemHeight + entryMinSpacing - descriptionPadding) / 2f
             }
         }
     }
@@ -612,6 +653,8 @@ open class Wheel @JvmOverloads constructor(
             setItemTextAfterColor(_itemTextAfterColor)
             itemAlignment = alignment
             entryMinSpacing = this@Wheel.entryMinSpacing
+            entryMinScale = this@Wheel.entryMinScale
+            entryMinAlpha = this@Wheel.entryMinAlpha
             itemTextAfterPadding = this@Wheel.itemTextAfterPadding
             setDescriptionTextAppearance(_descriptionTextAppearance)
             setDescriptionTextColor(_descriptionTextColor)
@@ -624,6 +667,12 @@ open class Wheel @JvmOverloads constructor(
             setControlIconDownColor(_controlIconDownTintList)
             setEntrySelectedListener(_entrySelectedListener)
             setItemSelectorTint(_itemSelectorTint)
+            setItemSelectorPaddings(
+                paddingStart = _itemSelectorPaddingStart,
+                paddingTop = _itemSelectorPaddingTop,
+                paddingEnd = _itemSelectorPaddingEnd,
+                paddingBottom = _itemSelectorPaddingBottom,
+            )
             setItemSelectorShapeAppearance(_itemSelectorShapeAppearanceRes)
             itemSelectorEnabled = this@Wheel._itemSelectorEnabled
             setFocusSelectorSettings(focusSelectorSettings)
@@ -640,6 +689,7 @@ open class Wheel @JvmOverloads constructor(
                 orientation = Divider.ORIENTATION_VERTICAL
                 layoutParams = FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
             }
+
             SEPARATOR_TYPE_DOTS -> TextView(context).apply {
                 isFocusable = false
                 setTextColor(_separatorColor ?: _itemTextColor)
@@ -648,6 +698,7 @@ open class Wheel @JvmOverloads constructor(
                 setTextAppearance(_itemTextAppearance)
                 layoutParams = FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
             }
+
             else -> null
         }
         return FrameLayout(context).apply {

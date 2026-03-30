@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
@@ -25,6 +26,8 @@ internal data class WheelProperties(
     val descriptionPadding: Dimension? = null,
     val separatorSpacing: Dimension? = null,
     val itemMinSpacing: Dimension? = null,
+    val itemMinAlpha: FloatValue? = null,
+    val itemMinScale: FloatValue? = null,
     val itemAlignment: Value? = null,
     val wheelCount: Value? = null,
     val visibleItemsCount: Value? = null,
@@ -40,6 +43,10 @@ internal data class WheelProperties(
     val itemSelectorEnabled: BooleanValue? = null,
     val itemSelectorShape: Shape? = null,
     val itemSelectorColor: Color? = null,
+    val itemSelectorPaddingTop: Dimension? = null,
+    val itemSelectorPaddingBottom: Dimension? = null,
+    val itemSelectorPaddingStart: Dimension? = null,
+    val itemSelectorPaddingEnd: Dimension? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -53,6 +60,8 @@ internal data class WheelProperties(
             descriptionPadding = descriptionPadding ?: otherProps.descriptionPadding,
             separatorSpacing = separatorSpacing ?: otherProps.separatorSpacing,
             itemMinSpacing = itemMinSpacing ?: otherProps.itemMinSpacing,
+            itemMinAlpha = itemMinAlpha ?: otherProps.itemMinAlpha,
+            itemMinScale = itemMinScale ?: otherProps.itemMinScale,
             itemAlignment = itemAlignment ?: otherProps.itemAlignment,
             wheelCount = wheelCount ?: otherProps.wheelCount,
             visibleItemsCount = visibleItemsCount ?: otherProps.visibleItemsCount,
@@ -67,6 +76,11 @@ internal data class WheelProperties(
             itemSelectorEnabled = itemSelectorEnabled ?: otherProps.itemSelectorEnabled,
             itemSelectorColor = itemSelectorColor ?: otherProps.itemSelectorColor,
             itemSelectorShape = itemSelectorShape ?: otherProps.itemSelectorShape,
+            itemSelectorPaddingStart = itemSelectorPaddingStart ?: otherProps.itemSelectorPaddingStart,
+            itemSelectorPaddingTop = itemSelectorPaddingTop ?: otherProps.itemSelectorPaddingTop,
+            itemSelectorPaddingEnd = itemSelectorPaddingEnd ?: otherProps.itemSelectorPaddingEnd,
+            itemSelectorPaddingBottom = itemSelectorPaddingBottom ?: otherProps.itemSelectorPaddingBottom,
+
         )
     }
 }
