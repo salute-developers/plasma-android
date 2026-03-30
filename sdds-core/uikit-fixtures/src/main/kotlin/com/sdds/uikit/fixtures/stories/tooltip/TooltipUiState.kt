@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.tooltip
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import com.sdds.uikit.fixtures.stories.popover.PopoverAlignment
 import com.sdds.uikit.fixtures.stories.popover.PopoverPlacement
@@ -23,6 +24,7 @@ import kotlinx.parcelize.Parcelize
  * @author Малышев Александр on 19.05.2025
  */
 @Parcelize
+@StoryUiState
 data class TooltipUiState(
     override val variant: String = "",
     override val appearance: String = "",

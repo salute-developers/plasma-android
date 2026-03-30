@@ -1,10 +1,13 @@
 package com.sdds.uikit.fixtures.stories.dropdownmenu
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import com.sdds.uikit.fixtures.stories.popover.PopoverAlignment
 import com.sdds.uikit.fixtures.stories.popover.PopoverPlacement
 import com.sdds.uikit.fixtures.stories.popover.PopoverPlacementMode
 import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
+import kotlinx.parcelize.Parcelize
 
 /**
  * Состояние компонента DropdownMenu
@@ -19,6 +22,8 @@ import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
  * @property alignment выравнивание
  * @property triggerAlignment выравнивание тригера
  */
+@Parcelize
+@StoryUiState
 data class DropdownMenuUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -31,7 +36,7 @@ data class DropdownMenuUiState(
     val placementMode: PopoverPlacementMode = PopoverPlacementMode.LOOSE,
     val alignment: PopoverAlignment = PopoverAlignment.CENTER,
     val triggerAlignment: PopoverTriggerAlignment = PopoverTriggerAlignment.CENTER,
-) : UiState {
+) : Parcelable, UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }

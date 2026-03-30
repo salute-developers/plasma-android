@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.notificationcontent
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -12,6 +13,7 @@ import kotlinx.parcelize.Parcelize
  * @property hasActions наличие кнопок
  */
 @Parcelize
+@StoryUiState
 data class NotificationContentUiState(
     override val variant: String = "",
     override val appearance: String = "",

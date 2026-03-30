@@ -1,7 +1,10 @@
 package com.sdds.uikit.fixtures.stories.wheel
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Wheel
 import com.sdds.uikit.fixtures.UiState
+import kotlinx.parcelize.Parcelize
 
 /**
  * Состояние компонента [Wheel].
@@ -18,6 +21,8 @@ import com.sdds.uikit.fixtures.UiState
  * @property hasInfiniteScroll Флаг бесконечной прокрутки.
  * @property controlsDisplayMode Режим отображения кнопок управления
  */
+@Parcelize
+@StoryUiState
 data class WheelUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -31,7 +36,7 @@ data class WheelUiState(
     val separatorType: WheelSeparatorType = WheelSeparatorType.DOTS,
     val hasInfiniteScroll: Boolean = true,
     val controlsDisplayMode: WheelControlsDisplayMode = WheelControlsDisplayMode.ALWAYS,
-) : UiState {
+) : Parcelable, UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }

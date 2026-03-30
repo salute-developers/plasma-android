@@ -1,10 +1,10 @@
 package com.sdds.uikit.fixtures.stories.chip
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.fixtures.UiState
-import com.sdds.uikit.viewstate.ViewState
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -17,10 +17,10 @@ import kotlinx.parcelize.Parcelize
  * @property isWrapped включен ли перенос строки
  * @property quantity количество Chip в группе
  * @property gravityMode горизонтальное выравнивание в группе
- * @property checkedState [ViewState] для Chip в состоянии isChecked == true
  * @property selectionMode режим выбора Chip в группе
  */
 @Parcelize
+@StoryUiState
 data class ChipUiState(
     override val variant: String = "",
     override val appearance: String = "",

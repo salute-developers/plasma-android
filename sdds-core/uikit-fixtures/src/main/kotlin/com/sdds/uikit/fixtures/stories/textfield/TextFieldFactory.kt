@@ -113,9 +113,11 @@ private class ChipAdapter : ChipGroup.Adapter() {
     }
 
     fun updateState(newChips: List<ExampleChipData>) {
-        chips.clear()
-        chips.addAll(newChips)
-        notifyChipGroupChanged()
+        if (chips != newChips) {
+            chips.clear()
+            chips.addAll(newChips)
+            notifyChipGroupChanged()
+        }
     }
 
     fun onDeleteChip(delegate: ChipDeleteDelegate) {

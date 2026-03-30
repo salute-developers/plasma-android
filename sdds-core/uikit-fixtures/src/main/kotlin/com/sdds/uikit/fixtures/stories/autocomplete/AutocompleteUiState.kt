@@ -1,8 +1,11 @@
 package com.sdds.uikit.fixtures.stories.autocomplete
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import com.sdds.uikit.fixtures.stories.popover.PopoverPlacementMode
 import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
+import kotlinx.parcelize.Parcelize
 
 /**
  * UI-состояние компонента Autocomplete для тестовых стендов.
@@ -16,6 +19,8 @@ import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
  * @property fieldAlignment Выравнивание поля Autocomplete относительно экрана.
  * @property dropdownPlacementMode Режим расположения Dropdown
  */
+@Parcelize
+@StoryUiState
 data class AutocompleteUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -23,7 +28,7 @@ data class AutocompleteUiState(
     val withEmptyState: Boolean = true,
     val fieldAlignment: PopoverTriggerAlignment = PopoverTriggerAlignment.CENTER,
     val dropdownPlacementMode: PopoverPlacementMode = PopoverPlacementMode.LOOSE,
-) : UiState {
+) : Parcelable, UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

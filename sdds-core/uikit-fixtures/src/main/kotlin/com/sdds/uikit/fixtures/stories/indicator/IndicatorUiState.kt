@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.indicator
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -9,6 +10,7 @@ import kotlinx.parcelize.Parcelize
  * @property variant вариация компонента
  */
 @Parcelize
+@StoryUiState
 data class IndicatorUiState(
     override val variant: String = "",
     override val appearance: String = "",

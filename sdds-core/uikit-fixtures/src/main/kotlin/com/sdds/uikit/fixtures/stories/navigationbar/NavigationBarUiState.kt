@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.navigationbar
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.NavigationBar
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -21,6 +22,7 @@ import kotlinx.parcelize.Parcelize
  * @property centerAlignmentStrategy стратегия выравнивание контента, находящегося в блоке с actions
  */
 @Parcelize
+@StoryUiState
 data class NavigationBarUiState(
     override val variant: String = "",
     override val appearance: String = "",

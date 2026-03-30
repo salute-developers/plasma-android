@@ -1,6 +1,10 @@
 package com.sdds.uikit.fixtures.stories.accordion
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
+import kotlinx.parcelize.Parcelize
+
 /**
  * UI-состояние для компонента аккордеона.
  *
@@ -11,6 +15,8 @@ import com.sdds.uikit.fixtures.UiState
  * @property animation Указывает, должна ли использоваться анимация.
  * @property hasDivider Показывать ли разделитель под элементом.
  */
+@Parcelize
+@StoryUiState
 data class AccordionUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -19,7 +25,7 @@ data class AccordionUiState(
     val contentText: String = "Content text",
     val animation: Boolean = true,
     val hasDivider: Boolean = false,
-) : UiState {
+) : Parcelable, UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

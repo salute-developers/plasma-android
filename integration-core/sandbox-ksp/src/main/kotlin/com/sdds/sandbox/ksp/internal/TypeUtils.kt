@@ -16,7 +16,11 @@ internal fun KSPropertyDeclaration.isCompanionObjectProperty(): Boolean {
 
 internal fun KSPropertyDeclaration.isIgnoredProperty(): Boolean {
     val name = simpleName.asString()
-    return name == "appearance" || name == "variant" || name == "colorVariant"
+    if (name == "appearance" || name == "variant" || name == "colorVariant") return true
+    val hasIgnoredAnnotation = annotations.any {
+        it.annotationType.resolve().declaration.qualifiedName?.asString() == "com.sdds.sandbox.IgnoreProperty"
+    }
+    return hasIgnoredAnnotation
 }
 
 internal fun KSType.isObject(): Boolean {

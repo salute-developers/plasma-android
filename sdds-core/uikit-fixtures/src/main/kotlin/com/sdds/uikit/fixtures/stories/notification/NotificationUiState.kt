@@ -1,7 +1,10 @@
 package com.sdds.uikit.fixtures.stories.notification
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import com.sdds.uikit.overlays.OverlayPosition
+import kotlinx.parcelize.Parcelize
 
 /**
  * Состояние компонента Notification
@@ -13,6 +16,8 @@ import com.sdds.uikit.overlays.OverlayPosition
  * @property hasClose отображается ли кнопка закрытия
  * @property hasAnimation включает/выключает анимацию
  */
+@Parcelize
+@StoryUiState
 data class NotificationUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -22,7 +27,7 @@ data class NotificationUiState(
     val focusable: Boolean = false,
     val hasClose: Boolean = true,
     val hasAnimation: Boolean = true,
-) : UiState {
+) : Parcelable, UiState {
 
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)

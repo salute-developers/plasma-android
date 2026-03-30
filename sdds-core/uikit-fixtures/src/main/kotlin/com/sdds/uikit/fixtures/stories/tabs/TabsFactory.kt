@@ -43,7 +43,30 @@ fun Tabs.applyIconsState(state: TabsUiState): Tabs = apply {
     displayMode = state.displayMode.mode
     dividerEnabled = state.dividerEnabled
     indicatorEnabled = state.indicatorEnabled
-    addIconTabsWith(state)
+    addIconTabsWith(
+        state.amount,
+        state.count,
+        state.tabItemLabel,
+        state.counter,
+        state.actionEnabled,
+    )
+    isEnabled = state.enabled
+}
+
+/**
+ * Применяет [TabsUiState] к [Tabs]
+ */
+fun Tabs.applyIconsState(state: IconTabsUiState): Tabs = apply {
+    displayMode = state.displayMode.mode
+    dividerEnabled = state.dividerEnabled
+    indicatorEnabled = state.indicatorEnabled
+    addIconTabsWith(
+        state.amount,
+        state.count,
+        state.disclosureText,
+        state.counter,
+        state.actionEnabled,
+    )
     isEnabled = state.enabled
 }
 
@@ -87,17 +110,23 @@ private fun Tabs.addTabsWith(state: TabsUiState) = apply {
     }
 }
 
-private fun Tabs.addIconTabsWith(state: TabsUiState) = apply {
+private fun Tabs.addIconTabsWith(
+    amount: Int,
+    count: String,
+    disclosureText: String,
+    counterEnabled: Boolean,
+    actionEnabled: Boolean,
+) = apply {
     clearTabs()
-    repeat(state.amount) {
+    repeat(amount) {
         addTab(
             Tabs.IconTab.builder(context)
                 .setId(it)
                 .setIcon(TabItemIcon.Start.iconId)
-                .setCounterText(state.count)
-                .setDisclosureText(state.tabItemLabel)
-                .setCounterEnabled(state.counter)
-                .setActionEnabled(state.actionEnabled)
+                .setCounterText(count)
+                .setDisclosureText(disclosureText)
+                .setCounterEnabled(counterEnabled)
+                .setActionEnabled(actionEnabled)
                 .build(),
         )
     }

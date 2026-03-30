@@ -14,7 +14,7 @@ typealias AndroidViewStyleReference = ComposeStyleReference<ViewStyle>
  * Стиль компонента Android View
  * @property res идентификатор ресурса стиля
  */
-class ViewStyle(@StyleRes val res: Int) : Style
+data class ViewStyle(@StyleRes val res: Int) : Style
 
 /**
  * Провайдер стилей компонента Android View

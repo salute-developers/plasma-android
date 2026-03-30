@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.progress
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -12,6 +13,7 @@ import kotlinx.parcelize.Parcelize
  * @property trackEnabled включает/выключает отображение фоновой линии прогресса
  */
 @Parcelize
+@StoryUiState
 data class CircularProgressUiState(
     override val variant: String = "",
     override val appearance: String = "",

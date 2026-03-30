@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.codeinput
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.CodeField
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -20,6 +21,7 @@ import kotlinx.parcelize.Parcelize
  * @property codeValidateBehavior сценарий обработки некорректного кода
  */
 @Parcelize
+@StoryUiState
 data class CodeInputUiState(
     override val variant: String = "",
     override val appearance: String = "",

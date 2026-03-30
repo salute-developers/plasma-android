@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.checkbox
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.CheckBox
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -14,6 +15,7 @@ import kotlinx.parcelize.Parcelize
  * @property enabled включен ли checkbox
  */
 @Parcelize
+@StoryUiState
 data class CheckBoxUiState(
     override val variant: String = "",
     override val appearance: String = "",

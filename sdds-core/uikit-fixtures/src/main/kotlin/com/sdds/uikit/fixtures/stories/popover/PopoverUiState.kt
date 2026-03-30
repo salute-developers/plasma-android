@@ -2,6 +2,7 @@ package com.sdds.uikit.fixtures.stories.popover
 
 import android.os.Parcelable
 import android.view.Gravity
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Popover
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -19,6 +20,7 @@ import kotlinx.parcelize.Parcelize
  * @author Малышев Александр on 19.05.2025
  */
 @Parcelize
+@StoryUiState
 data class PopoverUiState(
     override val variant: String = "",
     override val appearance: String = "",

@@ -1,5 +1,23 @@
 package com.sdds.sandbox
 
+import kotlinx.coroutines.flow.StateFlow
+
+/**
+ * Интерфейс владельца [UiState]
+ */
+interface StateOwner<State : UiState> {
+
+    /**
+     * Текущий [UiState]
+     */
+    val uiState: StateFlow<State>
+
+    /**
+     * Обновляет [UiState]
+     */
+    fun updateState(state: State)
+}
+
 /**
  * Базовый интерфейс для всех состояний пользовательского интерфейса в сторибуке.
  *

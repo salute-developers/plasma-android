@@ -18,6 +18,7 @@ tasks.register<GenerateComponentsDictionary>("generateViewIntegration") {
         Scheme.V1 -> rootProject
         Scheme.V2 -> project
     }
+    themeAlias.set(properties["theme-alias"]?.toString())
     configInputFile.set(
         sourceProject.file(
             properties["integration.view.config-path"]

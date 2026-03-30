@@ -154,7 +154,7 @@ private fun <State : UiState, S : Style> LargeScaffold(
         AnimatedMenuProperty(
             modifier = Modifier
                 .fillMaxHeight()
-                .width(240.dp),
+                .width(300.dp),
             title = "${key.group.displayName},${key.value}",
             viewModel = viewModel,
             isLargeScreen = true,

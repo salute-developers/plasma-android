@@ -1,7 +1,10 @@
 package com.sdds.uikit.fixtures.stories.carousel
 
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Carousel
 import com.sdds.uikit.fixtures.UiState
+import kotlinx.parcelize.Parcelize
 
 /**
  * Состояние компонент Carousel
@@ -14,6 +17,8 @@ import com.sdds.uikit.fixtures.UiState
  * @property indicatorVisibleItemCount кол-во видимых точек индикатора
  * @property withGap включен ли отступ между элементами
  */
+@Parcelize
+@StoryUiState
 data class CarouselUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -23,7 +28,7 @@ data class CarouselUiState(
     val indicatorEnabled: Boolean = true,
     val indicatorVisibleItemCount: Int = 5,
     val withGap: Boolean = true,
-) : UiState {
+) : Parcelable, UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
     }

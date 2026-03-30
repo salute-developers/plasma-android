@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.switcher
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -15,6 +16,7 @@ import kotlinx.parcelize.Parcelize
  * @property enabled включен ли switch
  */
 @Parcelize
+@StoryUiState
 data class SwitchUiState(
     override val variant: String = "",
     override val appearance: String = "",

@@ -12,12 +12,12 @@ import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.PropertiesOwner
 import com.sdds.sandbox.PropertiesProducer
 import com.sdds.sandbox.Property
+import com.sdds.sandbox.StateOwner
 import com.sdds.sandbox.StateTransformer
 import com.sdds.sandbox.ThemeManager
 import com.sdds.sandbox.UiState
 import com.sdds.sandbox.getAppearances
 import com.sdds.sandbox.getDefaultAppearance
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -32,12 +32,12 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     private val stateTransformer: StateTransformer<State>,
     private val componentKey: ComponentKey,
     private val themeManager: ThemeManager = ThemeManager,
-) : ViewModel(), PropertiesOwner {
+) : ViewModel(), PropertiesOwner, StateOwner<State> {
 
     private val internalUiState = MutableStateFlow(defaultState)
     private val _subtheme = MutableStateFlow<SubTheme?>(null)
 
-    val uiState: StateFlow<State>
+    override val uiState: StateFlow<State>
         get() = internalUiState.asStateFlow()
 
     /**
@@ -54,7 +54,6 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     val subtheme: StateFlow<SubTheme?>
         get() = _subtheme.asStateFlow()
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     override val properties: StateFlow<List<Property<*>>>
         get() = combine(internalUiState, theme) { state, themeState ->
             if (themeState.components.components.isEmpty()) return@combine emptyList()
@@ -76,6 +75,10 @@ internal class ComponentViewModel<State : UiState, S : Style>(
             }
             else -> stateTransformer.transform(internalUiState.value, name, value ?: "")
         }
+    }
+
+    override fun updateState(state: State) {
+        internalUiState.value = state
     }
 
     @Suppress("UNCHECKED_CAST")

@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.navigationdrawer
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.NavigationDrawer
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -17,6 +18,7 @@ import kotlinx.parcelize.Parcelize
  * @property hasFooter включен ли footer
  */
 @Parcelize
+@StoryUiState
 data class NavigationDrawerUiState(
     override val variant: String = "",
     override val appearance: String = "",

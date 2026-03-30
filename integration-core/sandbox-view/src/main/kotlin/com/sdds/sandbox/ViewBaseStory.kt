@@ -3,13 +3,21 @@ package com.sdds.sandbox
 import android.content.Context
 import android.view.ContextThemeWrapper
 import android.view.FocusFinder
+import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.FrameLayout.LayoutParams
 import androidx.compose.foundation.focusGroup
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
@@ -47,6 +55,15 @@ abstract class ViewBaseStory<State : UiState, V : View>(
     override val stateTransformer: StateTransformer<State> = defaultState.transformer(),
 ) : ComposeBaseStory<State, ViewStyle>(component, defaultState, propertiesProducer, stateTransformer) {
 
+    private var _currentStyle = ViewStyle(0)
+    private var _currentPreviewStyle = ViewStyle(0)
+
+    /**
+     * Текущий стиль
+     */
+    val currentStyle: ViewStyle
+        get() = _currentStyle
+
     @Composable
     override fun BoxScope.Content(
         style: ViewStyle,
@@ -58,22 +75,64 @@ abstract class ViewBaseStory<State : UiState, V : View>(
                 forceRecreateToken++
             }
         }
+
+        DisposableEffect(Unit) {
+            onDispose {
+                _currentStyle = ViewStyle(0)
+            }
+        }
         key(style, forceRecreateToken) {
             AndroidView(
-                modifier = Modifier.focusGroup(),
+                modifier = Modifier
+                    .scrollModifier()
+                    .fillMaxSize(),
                 factory = { ctx ->
-                    val content = getComponent(ContextThemeWrapper(ctx, style.res))
+                    _currentStyle = style
+                    val content = getComponent(ContextThemeWrapper(ctx, style.res)).apply {
+                        layoutParams = provideLayoutParams()
+                    }
                     FocusLockedHost(ctx).apply {
                         setContent(content)
                     }
                 },
                 update = { view ->
+                    _currentStyle = style
                     @Suppress("UNCHECKED_CAST")
                     onComponentUpdate(view.requireContent() as V, state)
                 },
             )
         }
     }
+
+    @Composable
+    override fun Preview(style: ViewStyle, key: ComponentKey) {
+        DisposableEffect(Unit) {
+            onDispose {
+                _currentStyle = ViewStyle(0)
+            }
+        }
+        AndroidView(
+            modifier = Modifier
+                .scrollModifier()
+                .fillMaxWidth()
+                .focusGroup(),
+            factory = { ctx ->
+                _currentStyle = style
+                val content = getComponent(ContextThemeWrapper(ctx, style.res)).apply {
+                    layoutParams = provideLayoutParams()
+                }
+                onComponentUpdate(content, defaultState)
+                FocusLockedHost(ctx).apply {
+                    setContent(content)
+                }
+            },
+        )
+    }
+
+    /**
+     * Режим скролла контейнера с компонентом
+     */
+    open val scrollMode: ScrollMode = ScrollMode.NONE
 
     /**
      * Функция, создающая компонент [V]
@@ -93,79 +152,119 @@ abstract class ViewBaseStory<State : UiState, V : View>(
      * По умолчанию false
      */
     open fun shouldRecreateComponentOnStateUpdate(state: State): Boolean = false
-}
 
-/**
- * Системы фокусов Compose и View конфликтуют, поэтому созданна данная обертка.
- * [FocusLockedHost] блокирует преждевременное снятие фокуса
- */
-private class FocusLockedHost(
-    context: Context,
-) : FrameLayout(context) {
-
-    init {
-        descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
-        isFocusable = false
-        isFocusableInTouchMode = false
-        clipChildren = false
-        clipToPadding = false
-    }
-
-    fun setContent(view: View) {
-        removeAllViews()
-        addView(
-            view,
-            LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT,
-            ),
-        )
-    }
-
-    fun requireContent(): View = getChildAt(0)
-        ?: error("FocusLockedHost has no content")
-
-    override fun focusSearch(focused: View?, direction: Int): View? {
-        if (focused != null && isDescendant(focused)) {
-            val internalNext = FocusFinder.getInstance().findNextFocus(this, focused, direction)
-            if (internalNext != null && internalNext !== focused && isDescendant(internalNext)) {
-                return internalNext
-            }
+    /**
+     * Функция предоставляет дефолтные парамеры для компонента.
+     */
+    open fun provideLayoutParams(): LayoutParams =
+        LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+            gravity = Gravity.CENTER
         }
-        return super.focusSearch(focused, direction)
+
+    @Composable
+    private fun Modifier.scrollModifier(): Modifier {
+        val scrollModifier = when (scrollMode) {
+            ScrollMode.VERTICAL -> Modifier.verticalScroll(rememberScrollState())
+            ScrollMode.HORIZONTAL -> Modifier.horizontalScroll(rememberScrollState())
+            ScrollMode.NONE -> Modifier
+        }
+        return this
+            .then(scrollModifier)
     }
 
-    @Suppress("NestedBlockDepth")
-    override fun dispatchKeyEvent(event: KeyEvent): Boolean {
-        if (event.action == KeyEvent.ACTION_DOWN) {
-            val direction = event.toFocusDirection()
-            if (direction != null) {
-                val focused = findFocus()
-                if (focused != null && focused !== this && isDescendant(focused)) {
-                    val internalNext = FocusFinder.getInstance().findNextFocus(this, focused, direction)
-                    if (internalNext != null && internalNext !== focused && isDescendant(internalNext)) {
-                        return internalNext.requestFocus()
+    /**
+     * Тип скролла, предоставляемый контейнером, в котором отображается Story компонента
+     */
+    enum class ScrollMode {
+
+        /**
+         * Вертикальный
+         */
+        VERTICAL,
+
+        /**
+         * Горизонтальный
+         */
+        HORIZONTAL,
+
+        /**
+         * Отсутствует
+         */
+        NONE,
+    }
+
+    /**
+     * Системы фокусов Compose и View конфликтуют, поэтому созданна данная обертка.
+     * [FocusLockedHost] блокирует преждевременное снятие фокуса
+     */
+    private class FocusLockedHost(
+        context: Context,
+    ) : FrameLayout(context) {
+
+        init {
+            descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
+            isFocusable = false
+            isFocusableInTouchMode = false
+            clipChildren = false
+            clipToPadding = false
+        }
+
+        fun setContent(view: View) {
+            removeAllViews()
+            addView(
+                view,
+                view.layoutParams ?: LayoutParams(
+                    LayoutParams.WRAP_CONTENT,
+                    LayoutParams.WRAP_CONTENT,
+                ),
+            )
+        }
+
+        fun requireContent(): View = getChildAt(0)
+            ?: error("FocusLockedHost has no content")
+
+        override fun focusSearch(focused: View?, direction: Int): View? {
+            if (focused != null && isDescendant(focused)) {
+                val internalNext = FocusFinder.getInstance().findNextFocus(this, focused, direction)
+                if (internalNext != null && internalNext !== focused && isDescendant(internalNext)) {
+                    return internalNext
+                }
+            }
+            return super.focusSearch(focused, direction)
+        }
+
+        @Suppress("NestedBlockDepth")
+        override fun dispatchKeyEvent(event: KeyEvent): Boolean {
+            if (event.action == KeyEvent.ACTION_DOWN) {
+                val direction = event.toFocusDirection()
+                if (direction != null) {
+                    val focused = findFocus()
+                    if (focused != null && focused !== this && isDescendant(focused)) {
+                        val internalNext = FocusFinder.getInstance().findNextFocus(this, focused, direction)
+                        if (internalNext != null && internalNext !== focused && isDescendant(internalNext)) {
+                            return internalNext.requestFocus()
+                        }
                     }
                 }
             }
+            return super.dispatchKeyEvent(event)
         }
-        return super.dispatchKeyEvent(event)
-    }
 
-    private fun isDescendant(view: View): Boolean {
-        var current: View? = view
-        while (current != null) {
-            if (current === this) return true
-            current = (current.parent as? View)
+        private fun isDescendant(view: View): Boolean {
+            var current: View? = view
+            while (current != null) {
+                if (current === this) return true
+                current = (current.parent as? View)
+            }
+            return false
         }
-        return false
-    }
 
-    private fun KeyEvent.toFocusDirection(): Int? = when (keyCode) {
-        KeyEvent.KEYCODE_DPAD_LEFT -> View.FOCUS_LEFT
-        KeyEvent.KEYCODE_DPAD_RIGHT -> View.FOCUS_RIGHT
-        KeyEvent.KEYCODE_DPAD_UP -> View.FOCUS_UP
-        KeyEvent.KEYCODE_DPAD_DOWN -> View.FOCUS_DOWN
-        else -> null
+        private fun KeyEvent.toFocusDirection(): Int? = when (keyCode) {
+            KeyEvent.KEYCODE_DPAD_LEFT -> View.FOCUS_LEFT
+            KeyEvent.KEYCODE_DPAD_RIGHT -> View.FOCUS_RIGHT
+            KeyEvent.KEYCODE_DPAD_UP -> View.FOCUS_UP
+            KeyEvent.KEYCODE_DPAD_DOWN -> View.FOCUS_DOWN
+            else -> null
+        }
     }
 }

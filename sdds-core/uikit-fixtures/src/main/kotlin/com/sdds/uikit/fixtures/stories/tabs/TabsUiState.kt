@@ -1,10 +1,11 @@
 package com.sdds.uikit.fixtures.stories.tabs
 
 import android.os.Parcelable
-import com.sdds.icons.R
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Tabs
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
+import com.sdds.icons.R.drawable as Icons
 
 /**
  * Состояние Tabs
@@ -22,6 +23,7 @@ import kotlinx.parcelize.Parcelize
  * @property indicatorEnabled включен ли индикатор
  */
 @Parcelize
+@StoryUiState
 data class TabsUiState(
     override val variant: String = "",
     override val appearance: String = "",
@@ -63,21 +65,20 @@ enum class DisplayMode(val mode: Int) : Parcelable {
  * @property iconId идентификатор ресурса кнопки
  */
 @Parcelize
-sealed class TabItemIcon(val iconId: Int = R.drawable.ic_plasma_24) :
-    Parcelable {
+enum class TabItemIcon(val iconId: Int = Icons.ic_plasma_24) : Parcelable {
 
     /**
      * Иконка вначале
      */
-    object Start : TabItemIcon()
+    Start,
 
     /**
      * Иконка вконце
      */
-    object End : TabItemIcon()
+    End,
 
     /**
      * Отсутствие иконки
      */
-    object No : TabItemIcon(0)
+    No(0),
 }

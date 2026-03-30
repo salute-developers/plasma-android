@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.file
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.File
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -17,6 +18,7 @@ import kotlinx.parcelize.Parcelize
  * @property contentType тип контента (иконка или изображение)
  */
 @Parcelize
+@StoryUiState
 data class FileUiState(
     override val variant: String = "",
     override val appearance: String = "",

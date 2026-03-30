@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.mask
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.TextField
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -24,6 +25,7 @@ import kotlinx.parcelize.Parcelize
  * @property maskDisplayMode режим отображения маски (всегда или только при вводе)
  */
 @Parcelize
+@StoryUiState
 data class MaskUiState(
     override val variant: String = "",
     override val appearance: String = "",

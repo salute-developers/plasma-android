@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.toolbar
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -11,6 +12,7 @@ import kotlinx.parcelize.Parcelize
  * @property slotsAmount количество слотов в ToolBar
  */
 @Parcelize
+@StoryUiState
 data class ToolBarUiState(
     override val variant: String = "",
     override val appearance: String = "",

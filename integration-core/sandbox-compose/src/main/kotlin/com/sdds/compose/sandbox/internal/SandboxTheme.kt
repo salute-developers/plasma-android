@@ -79,6 +79,8 @@ fun SandboxTheme(
         }
     }
 
+    val isLarge = isLargeDevice()
+
     SddsSandboxTheme(
         colors = colorScheme,
         gradients = if (darkTheme) DarkGradients else LightGradients,
@@ -126,7 +128,7 @@ fun SandboxTheme(
                             backgroundColor(colorScheme.surfaceDefaultSolidCard)
                         }
                         .style(),
-                    headerTextColor = colorScheme.textDefaultPrimary,
+                    headerTextColor = if (isLarge) colorScheme.textDefaultSecondary else colorScheme.textDefaultPrimary,
                     headerTextStyle = SddsSandboxTheme.typography.bodyMBold,
                     itemHeight = 24.dp,
                     itemPaddings = 12.dp,
@@ -137,7 +139,7 @@ fun SandboxTheme(
                     headerHeight = 72.dp,
                     selectedShape = SddsSandboxTheme.shapes.roundXs,
                 ),
-                LocalPropertiesListStyle provides defaultPropertiesListStyle(darkTheme),
+                LocalPropertiesListStyle provides defaultPropertiesListStyle(darkTheme, isLarge),
                 LocalPropertyEditorStyle provides PropertyEditorStyle.create(
                     headerHeight = 74.dp,
                     shape = SddsSandboxTheme.shapes.roundM,
@@ -197,6 +199,7 @@ const val FIELD_FOCUS_SELECTOR_MODE_SWITCH = true
 @Suppress("LongMethod")
 private fun defaultPropertiesListStyle(
     darkTheme: Boolean,
+    isLarge: Boolean,
 ): PropertiesListStyle =
     PropertiesListStyle.create(
         shape = SddsSandboxTheme.shapes.roundM,
@@ -209,7 +212,11 @@ private fun defaultPropertiesListStyle(
         headerTextStyle = SddsSandboxTheme.typography.bodyMBold,
         headerTextColor = SddsSandboxTheme.colors.textDefaultPrimary,
         headerDescriptionTextColor = SddsSandboxTheme.colors.textDefaultSecondary,
-        propertyLabelTextStyle = SddsSandboxTheme.typography.bodyMNormal,
+        propertyLabelTextStyle = if (isLarge) {
+            SddsSandboxTheme.typography.bodySNormal
+        } else {
+            SddsSandboxTheme.typography.bodyMNormal
+        },
         propertyValueTextColor = SddsSandboxTheme.colors.textDefaultPrimary.asInteractive(
             focused = if (darkTheme) {
                 SddsSandboxTheme.colors.textInversePrimary
@@ -217,7 +224,11 @@ private fun defaultPropertiesListStyle(
                 SddsSandboxTheme.colors.textDefaultPrimary
             },
         ),
-        propertyValueTextStyle = SddsSandboxTheme.typography.bodyMNormal,
+        propertyValueTextStyle = if (isLarge) {
+            SddsSandboxTheme.typography.bodySNormal
+        } else {
+            SddsSandboxTheme.typography.bodyMNormal
+        },
         propertyLabelTextColor = SddsSandboxTheme.colors.textDefaultSecondary.asInteractive(
             focused = if (darkTheme) {
                 SddsSandboxTheme.colors.textInverseSecondary

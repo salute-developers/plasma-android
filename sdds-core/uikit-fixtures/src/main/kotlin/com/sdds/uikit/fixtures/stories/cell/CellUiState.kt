@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.cell
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -17,6 +18,7 @@ import kotlinx.parcelize.Parcelize
  * @author Малышев Александр on 14.10.2024
  */
 @Parcelize
+@StoryUiState
 data class CellUiState(
     override val variant: String = "",
     override val appearance: String = "",

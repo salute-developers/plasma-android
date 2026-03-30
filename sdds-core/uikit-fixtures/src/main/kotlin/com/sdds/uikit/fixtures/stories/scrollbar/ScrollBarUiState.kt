@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.scrollbar
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -14,6 +15,7 @@ import kotlinx.parcelize.Parcelize
  * @property autoHideScrollBar скрывать ScrollBar при бездействии
  */
 @Parcelize
+@StoryUiState
 data class ScrollBarUiState(
     override val variant: String = "",
     override val appearance: String = "",

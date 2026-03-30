@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.avatar
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.Avatar
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
@@ -26,6 +27,7 @@ const val AVATAR_REMOTE_URL = "https://cdn.costumewall.com/wp-content/uploads/20
  * @property counterText текст счетчика
  */
 @Parcelize
+@StoryUiState
 data class AvatarUiState(
     override val variant: String = "",
     override val appearance: String = "",

@@ -1,6 +1,7 @@
 package com.sdds.uikit.fixtures.stories.radiobox
 
 import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
 import com.sdds.uikit.fixtures.UiState
 import kotlinx.parcelize.Parcelize
 
@@ -13,6 +14,7 @@ import kotlinx.parcelize.Parcelize
  * @property enabled включен ли RadioBox
  */
 @Parcelize
+@StoryUiState
 data class RadioBoxUiState(
     override val variant: String = "",
     override val appearance: String = "",

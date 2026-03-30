@@ -27,6 +27,7 @@ ksp {
 
 dependencies {
     implementation(project(":uikit"))
+    implementation(project(":uikit-compose"))
     implementation(project(":icons"))
     implementation(project(":docs"))
     implementation(project(":docs-views"))
