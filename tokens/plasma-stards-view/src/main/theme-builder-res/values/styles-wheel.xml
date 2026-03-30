@@ -22,10 +22,16 @@
         <item name="sd_itemTextAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
         <item name="sd_itemTextAfterAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
         <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_wheelEntryMinScale">0.35</item>
+        <item name="sd_wheelEntryMinAlpha">0.16</item>
         <item name="sd_itemTextAfterPadding">@dimen/sdkit_wheel_h1_text_after_padding</item>
         <item name="sd_descriptionPadding">@dimen/sdkit_wheel_h1_description_padding</item>
         <item name="sd_separatorSpacing">@dimen/sdkit_wheel_h1_separator_spacing</item>
         <item name="sd_itemMinSpacing">@dimen/sdkit_wheel_h1_item_min_spacing</item>
+        <item name="sd_itemSelectorPaddingTop">@dimen/sdkit_wheel_h1_item_selector_padding_top</item>
+        <item name="sd_itemSelectorPaddingStart">@dimen/sdkit_wheel_h1_item_selector_padding_start</item>
+        <item name="sd_itemSelectorPaddingEnd">@dimen/sdkit_wheel_h1_item_selector_padding_end</item>
+        <item name="sd_itemSelectorPaddingBottom">@dimen/sdkit_wheel_h1_item_selector_padding_bottom</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.WheelH1">
         <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1</item>

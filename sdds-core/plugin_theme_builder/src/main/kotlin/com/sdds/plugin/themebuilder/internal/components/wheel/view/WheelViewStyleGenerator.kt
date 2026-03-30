@@ -75,6 +75,8 @@ internal open class WheelViewStyleGenerator(
 
         props.itemSelectorEnabled?.let { booleanAttribute("sd_itemSelectorEnabled", it.value) }
         props.itemSelectorShape?.let { shapeAttribute(variation, it.value, it.adjustment, "itemSelector") }
+        props.itemMinScale?.let { valueAttribute("sd_wheelEntryMinScale", it.value.toString()) }
+        props.itemMinAlpha?.let { valueAttribute("sd_wheelEntryMinAlpha", it.value.toString()) }
     }
 
     internal enum class WheelDimensionsProperty(
@@ -85,6 +87,10 @@ internal open class WheelViewStyleGenerator(
         DESCRIPTION_PADDING("sd_descriptionPadding", "description_padding"),
         SEPARATOR_SPACING("sd_separatorSpacing", "separator_spacing"),
         ITEM_MIN_SPACING("sd_itemMinSpacing", "item_min_spacing"),
+        ITEM_SELECTOR_PADDING_TOP("sd_itemSelectorPaddingTop", "item_selector_padding_top"),
+        ITEM_SELECTOR_PADDING_START("sd_itemSelectorPaddingStart", "item_selector_padding_start"),
+        ITEM_SELECTOR_PADDING_END("sd_itemSelectorPaddingEnd", "item_selector_padding_end"),
+        ITEM_SELECTOR_PADDING_BOTTOM("sd_itemSelectorPaddingBottom", "item_selector_padding_bottom"),
         ;
 
         override fun provide(owner: WheelProperties): Dimension? {
@@ -93,6 +99,10 @@ internal open class WheelViewStyleGenerator(
                 DESCRIPTION_PADDING -> owner.descriptionPadding
                 SEPARATOR_SPACING -> owner.separatorSpacing
                 ITEM_MIN_SPACING -> owner.itemMinSpacing
+                ITEM_SELECTOR_PADDING_TOP -> owner.itemSelectorPaddingTop
+                ITEM_SELECTOR_PADDING_START -> owner.itemSelectorPaddingStart
+                ITEM_SELECTOR_PADDING_END -> owner.itemSelectorPaddingEnd
+                ITEM_SELECTOR_PADDING_BOTTOM -> owner.itemSelectorPaddingBottom
             }
         }
     }

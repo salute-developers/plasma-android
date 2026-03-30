@@ -124,6 +124,7 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         }
     }
     private val _selectorDrawable: ShapeDrawable = ShapeDrawable()
+    private val _selectorPaddings: Rect = Rect()
 
     val extraItemOffset: Int
         get() = _listView.extraItemOffset
@@ -254,6 +255,22 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
             }
         }
 
+    var entryMinScale: Float
+        get() = _listView.minEntryScale
+        set(value) {
+            if (_listView.minEntryScale != value) {
+                _listView.minEntryScale = value
+            }
+        }
+
+    var entryMinAlpha: Float
+        get() = _listView.minEntryAlpha
+        set(value) {
+            if (_listView.minEntryAlpha != value) {
+                _listView.minEntryAlpha = value
+            }
+        }
+
     init {
         populate()
         updateControls()
@@ -271,6 +288,10 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
 
     fun setItemSelectorTint(tint: ColorValueStateList?) {
         _selectorDrawable.setTintValue(tint)
+    }
+
+    fun setItemSelectorPaddings(paddingStart: Int, paddingTop: Int, paddingEnd: Int, paddingBottom: Int) {
+        _selectorPaddings.set(paddingStart, paddingTop, paddingEnd, paddingBottom)
     }
 
     fun setFocusSelectorSettings(settings: FocusSelectorSettings) {
@@ -451,22 +472,25 @@ internal class WheelItemView(context: Context) : ViewGroup(context) {
         if (estimateChild != null) {
             val spacing = entryMinSpacing / 2
             selectorBounds.set(
-                estimateChild.left,
-                estimateChild.top + spacing,
-                estimateChild.right,
-                estimateChild.bottom - spacing,
+                estimateChild.left - getSelectorPaddingStart(),
+                estimateChild.top - _selectorPaddings.top + spacing,
+                estimateChild.right + getSelectorPaddingEnd(),
+                estimateChild.bottom + _selectorPaddings.bottom - spacing,
             )
-        }
-        if (_descriptionView.isVisible) {
-            selectorBounds.left = minOf(selectorBounds.left, _descriptionView.left) - SELECTOR_SAFE_PADDING
-            selectorBounds.right = maxOf(selectorBounds.right, _descriptionView.right) + SELECTOR_SAFE_PADDING
-            selectorBounds.bottom += SELECTOR_SAFE_PADDING
         }
         selectorBounds.offsetTo(selectorBounds.left, (measuredHeight - selectorBounds.height()) / 2)
         if (_selectorDrawable.bounds != selectorBounds) {
             _selectorDrawable.bounds = selectorBounds
             invalidate()
         }
+    }
+
+    private fun getSelectorPaddingStart(): Int {
+        return if (layoutDirection == LAYOUT_DIRECTION_RTL) _selectorPaddings.right else _selectorPaddings.left
+    }
+
+    private fun getSelectorPaddingEnd(): Int {
+        return if (layoutDirection == LAYOUT_DIRECTION_RTL) _selectorPaddings.left else _selectorPaddings.right
     }
 
     private fun layoutChild(child: View, top: Int): Int {

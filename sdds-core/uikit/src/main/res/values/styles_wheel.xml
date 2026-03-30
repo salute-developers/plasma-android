@@ -5,6 +5,12 @@
         <item name="android:focusable">false</item>
         <item name="sd_controlsDisplayMode">always</item>
         <item name="sd_controlsClickable">true</item>
+        <item name="sd_wheelEntryMinAlpha">0.16</item>
+        <item name="sd_wheelEntryMinScale">0.35</item>
+        <item name="sd_itemSelectorPaddingStart">8dp</item>
+        <item name="sd_itemSelectorPaddingTop">8dp</item>
+        <item name="sd_itemSelectorPaddingEnd">8dp</item>
+        <item name="sd_itemSelectorPaddingBottom">8dp</item>
     </style>
 
     <style name="Sdds.Components.WheelItem" parent="Sdds.Components.ListItem">
