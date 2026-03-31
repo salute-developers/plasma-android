@@ -1,11 +1,11 @@
+import utils.addDefaultTargets
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("convention.android-lib")
+    id("convention.cmp-lib")
     id("convention.maven-publish")
-    id("convention.compose")
     id("convention.auto-bump")
     id("convention.dokka")
-    alias(libs.plugins.paparazzi)
     alias(libs.plugins.binary.compatibility.validator)
 }
 
@@ -13,35 +13,61 @@ group = "sdds-core"
 
 android {
     namespace = "com.sdds.compose.uikit"
-
-    kotlinOptions {
-        //comment following lines (freeCompilerArgs) to disable compose-metrics
-        freeCompilerArgs += listOf(
-            "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics")
-        freeCompilerArgs += listOf(
-            "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination="  + project.buildDir.absolutePath + "/compose_metrics")
-    }
 }
 
-dependencies {
+kotlin {
+    addDefaultTargets()
 
-    implementation(libs.base.androidX.compose.foundation)
-    implementation(libs.base.androidX.compose.material)
-    implementation(libs.base.androidX.compose.animation)
-    implementation(libs.sdds.haze)
-    implementation(libs.base.androidX.lifecycle.compose.viewmodel)
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.preview)
+                implementation(compose.uiTooling)
+                implementation(compose.animation)
+                implementation("sdds-haze:haze")
 
-    // Preview support
-    implementation(libs.base.androidX.compose.uiTooling.preview)
-    debugImplementation(libs.base.androidX.compose.uiTooling)
+            }
+        }
 
-    // UI Tests
-    androidTestImplementation(libs.base.test.ui.compose.jUnit4)
-    debugImplementation(libs.base.test.ui.compose.uiTestManifest)
+        androidMain {
+            dependencies {
+                implementation(libs.base.androidX.lifecycle.compose.viewmodel)
+            }
+        }
 
-    // Unit tests
-    testImplementation(libs.base.test.unit.jUnit)
+        val skikoMain by creating {
+            dependsOn(commonMain.get())
+        }
 
+//        iosMain {
+//            dependsOn(skikoMain)
+//        }
+
+        jvmMain {
+            dependsOn(skikoMain)
+        }
+
+//        named("wasmJsMain") {
+//            dependsOn(skikoMain)
+//        }
+//
+//        jsMain {
+//            dependsOn(skikoMain)
+//        }
+
+        commonTest {
+
+        }
+
+        jvmTest {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+            }
+        }
+    }
 }
