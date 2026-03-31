@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="sdkit_overlayModal" format="reference" />
+
+    <style name="Sdkit.StarDs.Gradient.ModalOverlayGradient">
+        <item name="sd_gradientType">radial</item>
+        <item name="sd_radiusHorizontal">0.6286</item>
+        <item name="sd_radiusVertical">1.89</item>
+        <item name="sd_centerX">1.0</item>
+        <item name="sd_centerY">0.5</item>
+        <item name="sd_colors">@array/sdkit_modal_overlay_gradient_colors</item>
+        <item name="sd_stops">@array/sdkit_modal_overlay_gradient_stops</item>
+    </style>
+
+    <color name="sdkit_modal_overlay_gradient_color0">#FF000000</color>
+    <color name="sdkit_modal_overlay_gradient_color1">#BF000000</color>
+    <color name="sdkit_modal_overlay_gradient_color2">#80000000</color>
+    <color name="sdkit_modal_overlay_gradient_color3">#00000000</color>
+    <color name="sdkit_modal_overlay_gradient_color4">#00000000</color>
+    <integer-array name="sdkit_modal_overlay_gradient_colors">
+        <item>@color/sdkit_modal_overlay_gradient_color0</item>
+        <item>@color/sdkit_modal_overlay_gradient_color1</item>
+        <item>@color/sdkit_modal_overlay_gradient_color2</item>
+        <item>@color/sdkit_modal_overlay_gradient_color3</item>
+        <item>@color/sdkit_modal_overlay_gradient_color4</item>
+    </integer-array>
+
+    <string-array name="sdkit_modal_overlay_gradient_stops">
+        <item>0.0</item>
+        <item>0.25</item>
+        <item>0.5</item>
+        <item>0.75</item>
+        <item>1.0</item>
+    </string-array>
+
     <integer name="sdkit_surfaceAccentGradient_angle">45</integer>
     <string-array name="sdkit_surfaceAccentGradient_stops">
         <item>0.0</item>

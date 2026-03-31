@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit.StarDs.Components.OverlayView.Modal">
+        <item name="sd_background">?sdkit_overlayModal</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.OverlayViewModal">
+        <item name="sd_overlayViewStyle">@style/Sdkit.StarDs.Components.OverlayView.Modal</item>
+    </style>
+</resources>
