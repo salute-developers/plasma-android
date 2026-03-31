@@ -8,6 +8,8 @@ title: AvatarGroup
 <!-- @sample: com/sdds/uikit/fixtures/AvatarGroup_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.avatar.group.AvatarGroup_Simple -->
+
 ## Стиль AvatarGroup
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

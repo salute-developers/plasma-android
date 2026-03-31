@@ -18,6 +18,8 @@ title: File
 <!-- @sample: com/sdds/uikit/fixtures/File_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.file.File.Simple -->
+
 Обратите внимание, что у каждого вложенного компонента указана роль layout_fileContent.  
 Стоит так же отметить, что внутри File предусмотрена автоматическая стилизация компонентов 
 ProgressBar, CircularProgressBar и IconButton (использующегося в качестве Action) если заданы атрибуты  

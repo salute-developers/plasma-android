@@ -33,11 +33,15 @@ ContentBefore.  Для корректного отображения, компо
 <!-- @sample: com/sdds/uikit/fixtures/Note_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.note.Note.Simple -->
+
 ## Использование NoteCompact в xml
 
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/NoteCompact_Simple.xml -->
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.note.NoteCompact.Simple -->
 
 ## Стили
 

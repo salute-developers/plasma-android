@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit_Doc_Theme" parent="Sdkit.StarDs.MaterialComponents.NoActionBar">
+
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M.Default</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M.Default</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+        <item name="android:textViewStyle">?sdkit_typographyBodyMBold</item>
+        <item name="switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:progressBarStyle">@style/Sdkit.StarDs.Components.ProgressBar.Default</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Sdkit.StarDs.Components.AvatarGroup</item>
+        <item name="sd_checkBoxGroupStyle">@style/Sdkit.StarDs.Components.CheckBoxGroup.M</item>
+        <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.M</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M.Default</item>
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide.M.Secondary</item>
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.Default</item>
+        <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M</item>
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch</item>
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Default</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.M.Default</item>
+        <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.M</item>
+        <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal.Xs</item>
+        <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.Xs</item>
+        <item name="sd_navigationDrawerStyle">@style/Sdkit.StarDs.Components.NavigationDrawer</item>
+        <item name="sd_notificationStyle">@style/Sdkit.StarDs.Components.NotificationLoose.M</item>
+        <item name="sd_dividerStyle">@style/Sdkit.StarDs.Components.Divider</item>
+        <item name="sd_drawerStyle">@style/Sdkit.StarDs.Components.Drawer.NoBackground</item>
+        <item name="sd_overlayViewStyle">@style/Sdkit.StarDs.Components.OverlayView</item>
+        <item name="sd_circularProgressBarStyle">@style/Sdkit.StarDs.Components.CircularProgressBar.M.Default</item>
+        <item name="sd_listViewStyle">@style/Sdkit.StarDs.Components.List.M</item>
+        <item name="sd_listItemViewStyle">@style/Sdkit.StarDs.Components.ListItem.M</item>
+        <item name="sd_notificationContentStyle">@style/Sdkit.StarDs.Components.NotificationContent.ButtonStretch.Default</item>
+        <item name="sd_paginationDotsStyle">@style/Sdkit.StarDs.Components.PaginationDotsHorizontal.M</item>
+        <item name="sd_modalStyle">@style/Sdkit.StarDs.Components.Modal</item>
+        <item name="sd_segmentStyle">@style/Sdkit.StarDs.Components.Segment.M.Primary</item>
+        <item name="sd_spinnerStyle">@style/Sdkit.StarDs.Components.Spinner.M.Default</item>
+        <item name="sd_segmentItemStyle">@style/Sdkit.StarDs.Components.SegmentItem.M.Primary</item>
+        <item name="sd_codeInputStyle">@style/Sdkit.StarDs.Components.CodeInput.M</item>
+        <item name="sd_rectSkeletonStyle">@style/Sdkit.StarDs.Components.RectSkeleton</item>
+        <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M.InnerLabel</item>
+        <item name="sd_textSkeletonStyle">@style/Sdkit.StarDs.Components.TextSkeletonBody.L</item>
+        <item name="sd_wheelStyle">@style/Sdkit.StarDs.Components.Wheel.H1.CenterAlign</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
+        <item name="sd_fsScaleEnabled">true</item>
+        <item name="sd_fsScaleFactor">0.05</item>
+        <item name="sd_fsBorderMode">none</item>
+        <item name="sd_fsEnabled">true</item>
+        <item name="sd_fsMainColor">?colorPrimary</item>
+        <item name="sd_fsAdditionalColor">?sdkit_surfaceDefaultTransparentTertiary</item>
+        <item name="sd_fsStrokeInset">@dimen/sdkit_spacer_0_5x</item>
+        <item name="sd_fsStrokeWidth">@dimen/sdkit_spacer_0_5x</item>
+    </style>
+</resources>

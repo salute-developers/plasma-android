@@ -69,6 +69,8 @@ parent.addView(autocomplete)
 <!-- @sample: com/sdds/uikit/fixtures/Autocomplete_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.autocomplete.Autocomplete_Simple -->
+
 ## Можно указать свой TextField
 
 ```xml

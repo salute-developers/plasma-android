@@ -91,6 +91,8 @@ fun component(
         clipToPadding = false
     }
     var view = componentScope.factory()
+    val parent = view.parent
+    if (parent is ViewGroup) parent.removeView(view)
     if (componentScope.hasHorizontalScroll) {
         view = view.horizontalScrollable()
     }

@@ -4,8 +4,9 @@ title: Avatar
 
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/Avatar_Simple.xml -->
-
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.avatar.Avatar_Simple -->
 
 ## Стиль Avatar
 

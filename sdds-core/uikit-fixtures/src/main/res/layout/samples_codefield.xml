@@ -13,8 +13,6 @@
         app:sd_codeLength="4"
         android:layout_gravity="center"
         app:sd_dotSize="10dp"
-        app:sd_dotColor="#111"
-        app:sd_background="#111"
         app:sd_caption="Caption"
         app:sd_hasCursor="true"
         app:sd_captionAlignment="center"/>

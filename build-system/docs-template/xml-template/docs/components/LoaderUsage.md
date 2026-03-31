@@ -12,6 +12,8 @@ title: Loader
 <!-- @sample: com/sdds/uikit/fixtures/Loader_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.loader.Loader.Simple -->
+
 Пример использования через стили [Spinner] и [CircularProgressBar]:
 
 ```xml

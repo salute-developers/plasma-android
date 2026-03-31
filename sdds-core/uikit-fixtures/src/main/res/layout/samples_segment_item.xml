@@ -10,11 +10,9 @@
         android:id="@+id/segment_item_simple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#2121"
         android:checked="true"
         android:text="Label"
         app:sd_icon="@drawable/ic_arrow_down_16"
-        app:sd_iconTint="#111"
         app:sd_value="Value" />
 
 

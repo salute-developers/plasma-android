@@ -14,7 +14,7 @@ fun LinkButton_Simple(context: Context): View {
     return binding.linkButtonSimple
 }
 
-@DocSample
+@DocSample(needScreenshot = false)
 fun LinkButton_LabelValue_Packed(context: Context): View {
     val binding = SamplesButtonBinding.inflate(LayoutInflater.from(context))
     return binding.linkButtonLabelValuePacked.also { button ->
@@ -26,7 +26,7 @@ fun LinkButton_LabelValue_Packed(context: Context): View {
     }
 }
 
-@DocSample
+@DocSample(needScreenshot = false)
 fun LinkButton_LabelValue_SpaceBetween(context: Context): View {
     val binding = SamplesButtonBinding.inflate(LayoutInflater.from(context))
     return binding.linkButtonLabelValueSpaceBetween.also { button ->

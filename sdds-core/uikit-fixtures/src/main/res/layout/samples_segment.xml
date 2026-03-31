@@ -16,9 +16,7 @@
         <com.sdds.uikit.SegmentItem
             android:text="Label"
             app:sd_value="Value"
-            android:background="#2121"
             app:sd_icon="@drawable/ic_arrow_down_16"
-            app:sd_iconTint="#111"
             android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

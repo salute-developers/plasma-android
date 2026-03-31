@@ -9,6 +9,8 @@ title: List
 <!-- @sample: com/sdds/uikit/fixtures/ListView_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.list.List.Simple -->
+
 ## Стиль List
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

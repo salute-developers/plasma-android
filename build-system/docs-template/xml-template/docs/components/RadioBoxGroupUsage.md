@@ -8,6 +8,8 @@ title: RadioBoxGroup
 <!-- @sample: com/sdds/uikit/fixtures/RadioBoxGroup_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.radiobox.group.RadioBoxGroup.Simple -->
+
 ## Стиль RadioBoxGroup
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

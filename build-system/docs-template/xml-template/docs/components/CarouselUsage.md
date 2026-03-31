@@ -104,6 +104,8 @@ parentLayout.addView(carousel)
 <!-- @sample: com/sdds/uikit/fixtures/Carousel_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.carousel.Carousel_Simple -->
+
 А затем настроить его в `onViewCreated` или `onCreate`:
 
 ```kotlin
