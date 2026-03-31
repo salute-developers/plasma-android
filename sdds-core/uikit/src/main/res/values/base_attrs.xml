@@ -37,7 +37,13 @@
     <attr name="sd_shapeColorAnimationEnabled" format="boolean" />
     <attr name="sd_disabledAlpha" format="float" />
     <attr name="sd_background" format="color|reference"/>
+    <attr name="sd_backgroundAnimationDuration" format="integer"/>
+    <attr name="sd_backgroundAnimationInterpolator" format="reference"/>
     <attr name="sd_textColor" format="color|reference"/>
+    <attr name="sd_textAnimationDuration" format="integer"/>
+    <attr name="sd_textAnimationInterpolator" format="reference"/>
+    <attr name="sd_imageAnimationDuration" format="integer"/>
+    <attr name="sd_imageAnimationInterpolator" format="reference"/>
 
     <declare-styleable name="SdViewStateHolder">
         <attr name="sd_viewState" format="enum">
