@@ -122,6 +122,8 @@
         <attr name="sd_endY" format="float"/>
 
         <attr name="sd_radius" format="float" />
+        <attr name="sd_radiusHorizontal" format="float" />
+        <attr name="sd_radiusVertical" format="float" />
         <attr name="sd_centerX" format="float" />
         <attr name="sd_centerY" format="float" />
 
@@ -137,6 +139,8 @@
         <attr name="sd_angle"/>
 
         <attr name="sd_radius" />
+        <attr name="sd_radiusHorizontal" />
+        <attr name="sd_radiusVertical" />
         <attr name="sd_centerX" />
         <attr name="sd_centerY" />
         <attr name="sd_startX" />
