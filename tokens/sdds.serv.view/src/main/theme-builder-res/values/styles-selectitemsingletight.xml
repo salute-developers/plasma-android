@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SelectItemSingleTight" parent="Sdds.Components.SelectItem">
+        <item name="sd_background">@color/serv_select_item_single_tight_background</item>
+        <item name="sd_iconTint">?serv_textDefaultAccent</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_itemType">single</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemSingleTight.Xl">
+        <item name="android:minHeight">@dimen/serv_select_item_single_tight_xl_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_single_tight_xl_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_single_tight_xl_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_single_tight_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_single_tight_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_single_tight_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_single_tight_xl_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellL</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemSingleTightXl">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemSingleTight.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemSingleTight.L">
+        <item name="android:minHeight">@dimen/serv_select_item_single_tight_l_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_single_tight_l_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_single_tight_l_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_single_tight_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_single_tight_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_single_tight_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_single_tight_l_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellL</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemSingleTightL">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemSingleTight.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemSingleTight.M">
+        <item name="android:minHeight">@dimen/serv_select_item_single_tight_m_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_single_tight_m_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_single_tight_m_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_single_tight_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_single_tight_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_single_tight_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_single_tight_m_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellM</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemSingleTightM">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemSingleTight.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemSingleTight.S">
+        <item name="android:minHeight">@dimen/serv_select_item_single_tight_s_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_single_tight_s_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_single_tight_s_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_single_tight_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_single_tight_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_single_tight_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_single_tight_s_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellS</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemSingleTightS">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemSingleTight.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemSingleTight.Xs">
+        <item name="android:minHeight">@dimen/serv_select_item_single_tight_xs_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_single_tight_xs_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_single_tight_xs_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_single_tight_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_single_tight_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_single_tight_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_single_tight_xs_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellXs</item>
+        <item name="sd_icon">@drawable/ic_done_16</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemSingleTightXs">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemSingleTight.Xs</item>
+    </style>
+</resources>

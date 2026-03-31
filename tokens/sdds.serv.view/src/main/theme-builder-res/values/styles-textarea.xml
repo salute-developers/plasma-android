@@ -964,7 +964,7 @@
         <item name="sd_textAreaStyle">@style/Serv.Sdds.Components.TextArea.L.InnerLabel.RequiredEnd.Error</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXlChips">
-        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.L.Secondary</item>
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupDense.Xl.Secondary</item>
     </style>
     <style name="Serv.Sdds.Components.TextArea.Xl">
         <item name="sd_requirementMode">optional</item>
