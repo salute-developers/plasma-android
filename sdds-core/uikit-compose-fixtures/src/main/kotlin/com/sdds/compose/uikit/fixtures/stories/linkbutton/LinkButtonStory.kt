@@ -1,19 +1,16 @@
-package com.sdds.compose.uikit.fixtures.stories.button
+package com.sdds.compose.uikit.fixtures.stories.linkbutton
 
-import android.util.Log
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonIcons
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.fixtures.stories.ButtonUiStatePropertiesProducer
-import com.sdds.compose.uikit.fixtures.stories.ButtonUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.LinkButtonUiStatePropertiesProducer
+import com.sdds.compose.uikit.fixtures.stories.LinkButtonUiStateTransformer
+import com.sdds.compose.uikit.fixtures.stories.button.ButtonIcon
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
@@ -21,11 +18,10 @@ import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
 
 @StoryUiState
-data class ButtonUiState(
+data class LinkButtonUiState(
     override val variant: String = "",
     override val appearance: String = "",
-    val label: String = "label",
-    val value: String? = null,
+    val label: String = "Label",
     val icon: ButtonIcon = ButtonIcon.Start,
     val spacing: ButtonSpacing = ButtonSpacing.Packed,
     val hasFixedWidth: Boolean = false,
@@ -45,37 +41,27 @@ enum class ButtonIcon {
 }
 
 @Story
-object BasicButtonStory : ComposeBaseStory<ButtonUiState, ButtonStyle>(
-    ComponentKey.BasicButton,
-    ButtonUiState(),
-    ButtonUiStatePropertiesProducer,
-    ButtonUiStateTransformer,
+object IconBasicButtonStory : ComposeBaseStory<LinkButtonUiState, ButtonStyle>(
+    ComponentKey.LinkButton,
+    LinkButtonUiState(),
+    LinkButtonUiStatePropertiesProducer,
+    LinkButtonUiStateTransformer,
 ) {
 
     @Composable
-    override fun BoxScope.Content(style: ButtonStyle, state: ButtonUiState) {
-        val widthModifier = if (state.hasFixedWidth) {
-            Modifier.width(260.dp)
-        } else {
-            Modifier
-        }
+    override fun BoxScope.Content(style: ButtonStyle, state: LinkButtonUiState) {
         Button(
-            modifier = widthModifier,
-            label = state.label,
-            value = state.value,
             style = style,
+            label = state.label,
             enabled = state.enabled,
             loading = state.loading,
             spacing = state.spacing,
             icons = when (state.icon) {
-                ButtonIcon.End -> ButtonIcons(endRes = com.sdds.icons.R.drawable.ic_plasma_24)
+                ButtonIcon.End -> ButtonIcons(endRes = R.drawable.ic_plasma_24)
                 ButtonIcon.No -> null
-                ButtonIcon.Start -> ButtonIcons(startRes = com.sdds.icons.R.drawable.ic_plasma_24)
+                ButtonIcon.Start -> ButtonIcons(startRes = R.drawable.ic_plasma_24)
             },
-            onClickLabel = "Протестировать текст для Accessibility",
-            onClick = {
-                Log.d("BasicButton", "onClick")
-            },
+            onClick = {},
         )
     }
 

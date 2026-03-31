@@ -63,7 +63,6 @@ plugin-metalava = "0.3.5"
 
 plugin-dokka = "1.8.20"
 plugin-mavenpublish = "0.29.0"
-appcompat = "1.7.1"
 
 [libraries]
 base-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
@@ -148,7 +147,6 @@ sdds-uikit-compose = { module = "io.github.salute-developers:sdds-uikit-compose"
 
 sdds-haze = { module = "io.github.salute-developers:sdds-haze", version.ref = "sdds-haze" }
 uikit-input-masks = { module = "com.redmadrobot:input-mask-android", version.ref = "uikit-input-masks-version" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 android-lib = { id = "com.android.library", version.ref = "global-gradle" }

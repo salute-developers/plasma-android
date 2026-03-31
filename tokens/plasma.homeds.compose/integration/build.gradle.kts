@@ -16,5 +16,6 @@ dependencies {
     implementation(libs.sdds.uikit.compose)
     implementation(icons.sdds.icons)
     implementation(libs.base.androidX.activity)
+    implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.compose.foundation)
 }
