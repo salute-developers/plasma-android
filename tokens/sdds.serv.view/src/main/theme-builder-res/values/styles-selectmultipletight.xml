@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SelectMultipleTight" parent="Sdds.Components.Select"/>
+    <style name="Serv.Sdds.Components.SelectMultipleTight.Xl">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXlSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuTightXl</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXlDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleTightXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleTightXl">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleTight.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleTight.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonLSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuTightL</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldLDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleTightL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleTightL">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleTight.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleTight.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonMSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuTightM</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldMDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleTightM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleTightM">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleTight.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleTight.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonSSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuTightS</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldSDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleTightS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleTightS">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleTight.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleTight.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXsSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuTightXs</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXsDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleTightXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleTightXs">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleTight.Xs</item>
+    </style>
+</resources>

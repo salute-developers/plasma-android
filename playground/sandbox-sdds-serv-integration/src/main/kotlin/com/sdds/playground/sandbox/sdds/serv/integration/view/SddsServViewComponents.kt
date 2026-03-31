@@ -195,13 +195,6 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
-                ComponentKey.ToolBar,
-                mapOf(
-                    "ToolBarHorizontal" to SddsServToolBarHorizontalVariationsView,
-                    "ToolBarVertical" to SddsServToolBarVerticalVariationsView,
-                ),
-            ),
-            ViewComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to SddsServToastVariationsView,
@@ -417,6 +410,24 @@ object SddsServViewComponents : ComponentsProviderView() {
                 ComponentKey.Editable,
                 mapOf(
                     "Editable" to SddsServEditableVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.Select,
+                mapOf(
+                    "SelectSingleNormal" to SddsServSelectSingleNormalVariationsView,
+                    "SelectSingleTight" to SddsServSelectSingleTightVariationsView,
+                    "SelectMultipleNormal" to SddsServSelectMultipleNormalVariationsView,
+                    "SelectMultipleTight" to SddsServSelectMultipleTightVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.SelectItem,
+                mapOf(
+                    "SelectItemSingleNormal" to SddsServSelectItemSingleNormalVariationsView,
+                    "SelectItemSingleTight" to SddsServSelectItemSingleTightVariationsView,
+                    "SelectItemMultipleNormal" to SddsServSelectItemMultipleNormalVariationsView,
+                    "SelectItemMultipleTight" to SddsServSelectItemMultipleTightVariationsView,
                 ),
             ),
         ).associateBy { it.key }

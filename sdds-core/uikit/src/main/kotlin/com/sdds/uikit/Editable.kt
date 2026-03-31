@@ -239,8 +239,8 @@ open class Editable @JvmOverloads constructor(
     /**
      * Запрашивает фокус и клавиатуру
      */
-    fun forceFocus() {
-        if (requestFocus() && !isReadOnly) {
+    fun forceFocus(showIme: Boolean = true) {
+        if (requestFocus() && !isReadOnly && showIme) {
             showImeImplicit()
         }
         setSelection(text?.length ?: 0)

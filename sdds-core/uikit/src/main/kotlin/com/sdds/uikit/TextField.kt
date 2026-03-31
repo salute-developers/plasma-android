@@ -665,6 +665,15 @@ open class TextField @JvmOverloads constructor(
         _decorationBox.setMask(mask, displayMode)
     }
 
+    /**
+     * Блокирует/разрешает взаимодействие с редактируемым полем
+     * @param noEditable включение / выключение режима
+     * @param onClick поведение при клике по полю в заблокированном режиме
+     */
+    fun setInteractiveNoEditable(noEditable: Boolean, onClick: (() -> Unit)? = null) {
+        _decorationBox.setInteractiveNoEditable(noEditable, onClick)
+    }
+
     @Suppress("UNNECESSARY_SAFE_CALL")
     override fun setEnabled(enabled: Boolean) {
         children.forEach {

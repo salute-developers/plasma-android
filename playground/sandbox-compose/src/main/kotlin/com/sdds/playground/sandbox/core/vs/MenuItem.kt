@@ -60,6 +60,7 @@ import com.sdds.playground.sandbox.rectskeleton.vs.RectSkeletonFragment
 import com.sdds.playground.sandbox.scrollbar.vs.ScrollBarFragment
 import com.sdds.playground.sandbox.segment.vs.SegmentItemFragment
 import com.sdds.playground.sandbox.segment.vs.group.SegmentFragment
+import com.sdds.playground.sandbox.select.vs.SelectFragment
 import com.sdds.playground.sandbox.slider.vs.SliderFragment
 import com.sdds.playground.sandbox.spinner.vs.SpinnerFragment
 import com.sdds.playground.sandbox.switcher.vs.SwitchFragment
@@ -441,6 +442,10 @@ internal sealed class ComponentScreen(
     object Editable : ComponentScreen(
         { item -> fragment<EditableFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Select : ComponentScreen(
+        { item -> fragment<SelectFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -507,6 +512,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.FILE -> ComponentScreen.File
         CoreComponent.NAVIGATION_BAR -> ComponentScreen.NavigationBar
         CoreComponent.EDITABLE -> ComponentScreen.Editable
+        CoreComponent.SELECT -> ComponentScreen.Select
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -575,6 +581,7 @@ private fun ComponentKey.routeId(): Int? {
         CoreComponent.FILE -> R.id.nav_file
         CoreComponent.NAVIGATION_BAR -> R.id.nav_navigation_bar
         CoreComponent.EDITABLE -> R.id.nav_editable
+        CoreComponent.SELECT -> R.id.nav_select
         else -> null
     }?.let { it + hashCode() }
 }
@@ -689,6 +696,7 @@ internal fun MenuItem.preview(context: Context, style: Int): View {
         CoreComponent.FILE -> file(context, style)
         CoreComponent.NAVIGATION_BAR -> navigationBar(context, style)
         CoreComponent.EDITABLE -> editable(context, style)
+        CoreComponent.SELECT -> select(context, style)
         else -> throw NoSuchElementException("Component not implemented")
     }
 }

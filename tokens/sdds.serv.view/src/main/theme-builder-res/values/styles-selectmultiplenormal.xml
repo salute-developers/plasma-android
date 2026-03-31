@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SelectMultipleNormal" parent="Sdds.Components.Select"/>
+    <style name="Serv.Sdds.Components.SelectMultipleNormal.Xl">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXlSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalXl</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXlDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalXl</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleNormalXl">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleNormal.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleNormal.L">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonLSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalL</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldLDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleNormalL">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleNormal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleNormal.M">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonMSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalM</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldMDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalM</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleNormalM">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleNormal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleNormal.S">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonSSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalS</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldSDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleNormalS">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleNormal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectMultipleNormal.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Serv.Sdds.ComponentOverlays.BasicButtonXsSecondary</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Serv.Sdds.ComponentOverlays.DropdownMenuNormalXs</item>
+        <item name="sd_textFieldStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXsDefault</item>
+        <item name="sd_selectItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalXs</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectMultipleNormalXs">
+        <item name="sd_selectStyle">@style/Serv.Sdds.Components.SelectMultipleNormal.Xs</item>
+    </style>
+</resources>
