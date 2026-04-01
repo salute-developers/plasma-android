@@ -1,6 +1,7 @@
 plugins {
     id("convention.kotlin-lib")
     id("convention.maven-publish")
+    id("convention.auto-bump")
 }
 
 group = "integration-core"
