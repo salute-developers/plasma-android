@@ -11,6 +11,8 @@ title: Cell
 <!-- @sample: com/sdds/uikit/fixtures/CellLayout_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.cell.CellLayout_Simple -->
+
 ## Стиль Cell
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

@@ -6,11 +6,11 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.dropdownmenu.DropdownMenuUiState
-import com.sdds.testing.vs.popover.PopoverAlignment
-import com.sdds.testing.vs.popover.PopoverPlacement
-import com.sdds.testing.vs.popover.PopoverPlacementMode
-import com.sdds.testing.vs.popover.PopoverTriggerAlignment
+import com.sdds.uikit.fixtures.stories.dropdownmenu.DropdownMenuUiState
+import com.sdds.uikit.fixtures.stories.popover.PopoverAlignment
+import com.sdds.uikit.fixtures.stories.popover.PopoverPlacement
+import com.sdds.uikit.fixtures.stories.popover.PopoverPlacementMode
+import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
 
 internal class DropdownMenuViewModel(
     defaultState: DropdownMenuUiState,

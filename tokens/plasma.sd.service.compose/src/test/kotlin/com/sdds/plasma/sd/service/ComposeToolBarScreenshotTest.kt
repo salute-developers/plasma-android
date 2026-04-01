@@ -1,6 +1,11 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ToolBarHorizontal
+import com.sdds.compose.uikit.fixtures.testcases.ToolBarHorizontalDivider
+import com.sdds.compose.uikit.fixtures.testcases.ToolBarVertical
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.basicbutton.BasicButton
 import com.sdds.plasma.sd.service.styles.basicbutton.Default
@@ -19,11 +24,6 @@ import com.sdds.plasma.sd.service.styles.toolbar.S
 import com.sdds.plasma.sd.service.styles.toolbar.ToolBarHorizontal
 import com.sdds.plasma.sd.service.styles.toolbar.ToolBarVertical
 import com.sdds.plasma.sd.service.styles.toolbar.Xs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.toolbar.ToolBarHorizontal
-import com.sdds.testing.compose.toolbar.ToolBarHorizontalDivider
-import com.sdds.testing.compose.toolbar.ToolBarVertical
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

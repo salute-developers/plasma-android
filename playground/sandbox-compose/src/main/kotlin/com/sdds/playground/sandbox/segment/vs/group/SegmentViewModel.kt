@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.segement.SegmentItemIcon
-import com.sdds.testing.vs.segement.SegmentOrientation
-import com.sdds.testing.vs.segement.SegmentUiState
+import com.sdds.uikit.fixtures.stories.segment.SegmentItemIcon
+import com.sdds.uikit.fixtures.stories.segment.SegmentOrientation
+import com.sdds.uikit.fixtures.stories.segment.SegmentUiState
 
 internal class SegmentViewModel(
     defaultState: SegmentUiState,

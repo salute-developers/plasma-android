@@ -6,6 +6,8 @@ title: Chip
 <!-- @sample: com/sdds/uikit/fixtures/Chip_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.chip.Chip.Simple -->
+
 ## Стиль Chip
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

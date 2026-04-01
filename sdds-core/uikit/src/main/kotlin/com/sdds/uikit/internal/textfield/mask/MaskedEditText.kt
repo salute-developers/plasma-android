@@ -58,6 +58,10 @@ internal open class MaskedEditText @JvmOverloads constructor(
         tailPaint.applyTextAppearance(context, resId)
     }
 
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
+
     override fun onTextChanged(
         maskFilled: Boolean,
         extractedValue: String,

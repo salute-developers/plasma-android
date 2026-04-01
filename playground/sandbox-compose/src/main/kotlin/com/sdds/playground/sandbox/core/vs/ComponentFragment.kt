@@ -33,10 +33,10 @@ import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
 import com.sdds.playground.sandbox.viewTheme
-import com.sdds.testing.vs.UiState
-import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.FrameLayout
 import com.sdds.uikit.colorFromAttr
+import com.sdds.uikit.fixtures.UiState
+import com.sdds.uikit.fixtures.styleWrapper
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

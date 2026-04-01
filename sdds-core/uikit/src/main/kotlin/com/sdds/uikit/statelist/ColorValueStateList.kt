@@ -1,8 +1,10 @@
 package com.sdds.uikit.statelist
 
+import android.animation.ArgbEvaluator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.Shader
@@ -17,6 +19,7 @@ import androidx.annotation.XmlRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.ColorUtils
 import androidx.core.widget.TextViewCompat
+import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
 import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.colorForState
@@ -66,7 +69,10 @@ class ColorValueStateList(
          */
         fun valueOf(value: Drawable?): ColorValueStateList? {
             if (value == null) return null
-            return ColorValueStateList(arrayOf(IntArray(0)), arrayOf(ColorValueHolder.DrawableValue(value)))
+            return ColorValueStateList(
+                arrayOf(IntArray(0)),
+                arrayOf(ColorValueHolder.DrawableValue(value)),
+            )
         }
 
         /**
@@ -76,7 +82,10 @@ class ColorValueStateList(
          * @return Новый [ColorValueStateList] с одним элементом.
          */
         fun valueOf(@ColorInt value: Int): ColorValueStateList {
-            return ColorValueStateList(arrayOf(IntArray(0)), arrayOf(ColorValueHolder.ColorValue(value)))
+            return ColorValueStateList(
+                arrayOf(IntArray(0)),
+                arrayOf(ColorValueHolder.ColorValue(value)),
+            )
         }
 
         /**
@@ -87,7 +96,10 @@ class ColorValueStateList(
          */
         fun valueOf(value: ColorStateList?): ColorValueStateList? {
             if (value == null) return null
-            return ColorValueStateList(arrayOf(IntArray(0)), arrayOf(ColorValueHolder.ColorListValue(value)))
+            return ColorValueStateList(
+                arrayOf(IntArray(0)),
+                arrayOf(ColorValueHolder.ColorListValue(value)),
+            )
         }
 
         /**
@@ -97,7 +109,10 @@ class ColorValueStateList(
          * @param values Список значений цвета.
          * @return Новый экземпляр [ColorValueStateList].
          */
-        fun fromStates(states: Array<IntArray>, values: List<ColorValueHolder>): ColorValueStateList {
+        fun fromStates(
+            states: Array<IntArray>,
+            values: List<ColorValueHolder>,
+        ): ColorValueStateList {
             require(states.size == values.size) { "States and values must have the same length" }
             return ColorValueStateList(states, values.toTypedArray())
         }
@@ -127,8 +142,12 @@ class ColorValueStateList(
                 if (parser.eventType == XmlPullParser.START_TAG && parser.name == ELEMENT_TAG) {
                     val itemAttrs = Xml.asAttributeSet(parser)
 
-                    val a = context.obtainStyledAttributes(itemAttrs, R.styleable.ColorValueStateListItem)
-                    val valueResId = a.getResourceId(R.styleable.ColorValueStateListItem_sd_color, 0)
+                    val a = context.obtainStyledAttributes(
+                        itemAttrs,
+                        R.styleable.ColorValueStateListItem,
+                    )
+                    val valueResId =
+                        a.getResourceId(R.styleable.ColorValueStateListItem_sd_color, 0)
                     val alpha = a.getFloat(R.styleable.ColorValueStateListItem_android_alpha, 1f)
                     a.recycle()
 
@@ -153,7 +172,10 @@ class ColorValueStateList(
          * @return Новый [ColorValueStateList].
          */
         internal fun valueOf(context: Context, @IdRes resId: Int): ColorValueStateList {
-            return ColorValueStateList(arrayOf(IntArray(0)), arrayOf(resolveValue(context, resId, 1f)))
+            return ColorValueStateList(
+                arrayOf(IntArray(0)),
+                arrayOf(resolveValue(context, resId, 1f)),
+            )
         }
 
         /**
@@ -257,36 +279,49 @@ fun TypedArray.getColorValueStateList(
         "xml" -> ColorValueStateListCache.get(context, stateListResId) { ctx, resId ->
             ColorValueStateList.inflate(ctx, resId)
         }
+
         else -> ColorValueStateList.valueOf(context, stateListResId)
     }
 }
 
 /**
- * Устанавливает фон [View] в соответствии с [ColorValueStateList].
+ * Анимирует переход цвета между состояниями для [ColorValueStateList].
  *
- * Применяет значение в зависимости от состояния View: цвет, drawable, tint или shader.
+ * Функция анализирует текущее состояние цветового списка и выполняет анимацию
+ * перехода между цветами, соответствующими начальному и целевому состояниям.
  *
- * @param colorValueStateList Список значений цвета для различных состояний.
+ * Логика работы:
+ * * Если список содержит простое значение (один цвет для всех состояний),
+ *   анимация не выполняется, а колбэк вызывается сразу с целевым значением
+ * * Если список имеет разные цвета для разных состояний, создается анимация
+ *   с использованием [ArgbEvaluator] для плавного перехода между ARGB-цветами
+ *
+ * @receiver ColorValueStateList Список цветовых значений, привязанных к состояниям
+ * @param stateSnapshot Снимок состояния, содержащий начальное и целевое состояния
+ * @param config Конфигурация анимации, определяющая длительность и интерполятор
+ * @param onValue Колбэк, вызываемый на каждом кадре анимации с текущим цветовым значением.
+ *                Если анимация не выполняется, колбэк вызывается один раз
+ *                с цветом из целевого состояния
+ *
+ * @see ColorValueStateList
+ * @see StateSnapshot
+ * @see AnimationConfig
+ * @see ArgbEvaluator
+ * @see ColorValueHolder
  */
-fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
-    if (colorValueStateList == null) return
-    val backgroundValue = if (colorValueStateList.isStateful()) {
-        colorValueStateList.getValueForState(drawableState)
-    } else {
-        colorValueStateList.getDefaultValue()
-    }
-    when (backgroundValue) {
-        is ColorValueHolder.ColorValue -> {
-            if (background != null && background !is ColorDrawable) {
-                backgroundTintList = ColorStateList.valueOf(backgroundValue.value)
-            } else {
-                setBackgroundColor(backgroundValue.value)
-            }
-        }
-        is ColorValueHolder.DrawableValue -> background = backgroundValue.value
-        is ColorValueHolder.ColorListValue -> backgroundTintList = backgroundValue.value
-        is ColorValueHolder.ShaderValue -> {}
-    }
+fun ColorValueStateList.animateColorValue(
+    stateSnapshot: StateSnapshot,
+    config: AnimationConfig,
+    onValue: (ColorValueHolder) -> Unit,
+) {
+    if (!isSimple()) return onValue(getValueForState(stateSnapshot.target))
+    animateValue(
+        initial = colorForState(stateSnapshot.initial, Color.TRANSPARENT),
+        target = colorForState(stateSnapshot.target, Color.TRANSPARENT),
+        evaluator = ArgbEvaluator(),
+        config = config,
+        onValue = { onValue(ColorValueHolder.ColorValue(it as? Int ?: Color.TRANSPARENT)) },
+    )
 }
 
 /**
@@ -295,35 +330,190 @@ fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
  * Применяет значение в зависимости от состояния View: цвет, drawable, tint или shader.
  *
  * @param colorValueStateList Список значений цвета для различных состояний.
+ */
+fun View.setBackgroundValueList(
+    colorValueStateList: ColorValueStateList?,
+    colorAnimationConfig: AnimationConfig? = null,
+) {
+    if (colorValueStateList == null) return
+    if (this is AnimatedStateManagerHolder && colorAnimationConfig != null) {
+        val needUpdate = manager.update(drawableState)
+        if (!needUpdate) return
+        colorValueStateList.animateColorValue(
+            stateSnapshot = manager.stateSnapshot,
+            config = colorAnimationConfig,
+        ) { holder ->
+            setBackgroundFromHolder(holder)
+        }
+        return
+    }
+
+    val backgroundValue = if (colorValueStateList.isStateful()) {
+        colorValueStateList.getValueForState(drawableState)
+    } else {
+        colorValueStateList.getDefaultValue()
+    }
+    setBackgroundFromHolder(backgroundValue)
+}
+
+private fun View.setBackgroundFromHolder(holder: ColorValueHolder) = when (holder) {
+    is ColorValueHolder.ColorValue -> {
+        if (background != null && background !is ColorDrawable) {
+            backgroundTintList = ColorStateList.valueOf(holder.value)
+        } else {
+            setBackgroundColor(holder.value)
+        }
+    }
+
+    is ColorValueHolder.DrawableValue -> background = holder.value
+    is ColorValueHolder.ColorListValue -> backgroundTintList = holder.value
+    is ColorValueHolder.ShaderValue -> {}
+}
+
+/**
+ * Устанавливает цвет текста [TextView] в соответствии с [ColorValueStateList].
+ *
+ * @param colorValueStateList Список значений цвета для различных состояний.
  * @param cachedShaderFactory делегат для кэширования [ShaderFactory]
  * @param textBounds границы текста
+ * @param colorAnimationConfig конфиг анимации
  */
 fun TextView.setTextColorValue(
     colorValueStateList: ColorValueStateList?,
     cachedShaderFactory: CachedShaderFactory,
     textBounds: RectF = EmptyRectF,
+    colorAnimationConfig: AnimationConfig? = null,
 ) {
     if (colorValueStateList == null) return
+
+    if (colorAnimationConfig != null) {
+        manager.update(drawableState)
+
+        colorValueStateList.animateColorValue(
+            stateSnapshot = manager.stateSnapshot,
+            config = colorAnimationConfig,
+        ) { holder ->
+            setTextColorFromHolder(holder, cachedShaderFactory, textBounds)
+        }
+        return
+    }
+
     val textColorValue = if (colorValueStateList.isStateful()) {
         colorValueStateList.getValueForState(drawableState)
     } else {
         colorValueStateList.getDefaultValue()
     }
-    when (textColorValue) {
+    setTextColorFromHolder(textColorValue, cachedShaderFactory, textBounds)
+}
+
+/**
+ * Устанавливает цвет drawable в [TextView] в соответствии с [ColorValueStateList].
+ *
+ * @param colorValueStateList Список значений цвета для различных состояний.
+ * @param colorAnimationConfig конфиг анимации
+ */
+fun TextView.setTextDrawableColorValue(
+    colorValueStateList: ColorValueStateList?,
+    colorAnimationConfig: AnimationConfig? = null,
+) {
+    if (colorValueStateList == null) return
+
+    if (colorAnimationConfig != null) {
+        manager.update(drawableState)
+
+        colorValueStateList.animateColorValue(
+            stateSnapshot = manager.stateSnapshot,
+            config = colorAnimationConfig,
+        ) { holder ->
+            setTextDrawableColorFromHolder(holder)
+        }
+        return
+    }
+
+    val textColorValue = if (colorValueStateList.isStateful()) {
+        colorValueStateList.getValueForState(drawableState)
+    } else {
+        colorValueStateList.getDefaultValue()
+    }
+    setTextDrawableColorFromHolder(textColorValue)
+}
+
+private fun TextView.setTextDrawableColorFromHolder(
+    holder: ColorValueHolder,
+) {
+    when (holder) {
         is ColorValueHolder.ColorValue -> {
-            setTextColor(textColorValue.value)
-            TextViewCompat.setCompoundDrawableTintList(this, ColorStateList.valueOf(textColorValue.value))
+            TextViewCompat.setCompoundDrawableTintList(
+                this,
+                ColorStateList.valueOf(holder.value),
+            )
         }
-        is ColorValueHolder.DrawableValue -> {}
+
         is ColorValueHolder.ColorListValue -> {
-            setTextColor(textColorValue.value)
-            TextViewCompat.setCompoundDrawableTintList(this, textColorValue.value)
+            TextViewCompat.setCompoundDrawableTintList(this, holder.value)
         }
+
         is ColorValueHolder.ShaderValue -> {
-            paint.color = -1
-            paint.shader = cachedShaderFactory.getShader(textColorValue.value, textBounds)
             TextViewCompat.setCompoundDrawableTintList(this, null)
         }
+        else -> Unit
+    }
+}
+
+private fun TextView.setTextColorFromHolder(
+    holder: ColorValueHolder,
+    cachedShaderFactory: CachedShaderFactory,
+    textBounds: RectF = EmptyRectF,
+) {
+    when (holder) {
+        is ColorValueHolder.ColorValue -> setTextColor(holder.value)
+        is ColorValueHolder.DrawableValue -> {}
+        is ColorValueHolder.ColorListValue -> setTextColor(holder.value)
+        is ColorValueHolder.ShaderValue -> {
+            paint.color = -1
+            paint.shader = cachedShaderFactory.getShader(holder.value, textBounds)
+        }
+    }
+}
+
+/**
+ * Устанавливает цвет [ImageView] в соответствии с [ColorValueStateList].
+ *
+ * @param colorValueStateList Список значений цвета для различных состояний.
+ * @param colorAnimationConfig конфиг анимации
+ */
+fun ImageView.setImageColorValueList(
+    colorValueStateList: ColorValueStateList?,
+    colorAnimationConfig: AnimationConfig? = null,
+) {
+    if (colorValueStateList == null) return
+
+    if (colorAnimationConfig != null) {
+        manager.update(drawableState)
+
+        colorValueStateList.animateColorValue(
+            stateSnapshot = manager.stateSnapshot,
+            config = colorAnimationConfig,
+        ) { holder ->
+            setImageColorFromHolder(holder)
+        }
+        return
+    }
+
+    val imageColorValue = if (colorValueStateList.isStateful()) {
+        colorValueStateList.getValueForState(drawableState)
+    } else {
+        colorValueStateList.getDefaultValue()
+    }
+    setImageColorFromHolder(imageColorValue)
+}
+
+private fun ImageView.setImageColorFromHolder(holder: ColorValueHolder) {
+    when (holder) {
+        is ColorValueHolder.ColorValue -> imageTintList = ColorStateList.valueOf(holder.value)
+        is ColorValueHolder.ColorListValue -> imageTintList = holder.value
+        is ColorValueHolder.DrawableValue -> {}
+        is ColorValueHolder.ShaderValue -> {}
     }
 }
 
@@ -376,6 +566,7 @@ fun Paint.setColorValue(
             }
             shader = shapeShaderFactory?.let { cachedShaderFactory.getShader(it, bounds) }
         }
+
         is ColorValueHolder.ShaderValue -> {
             shader = cachedShaderFactory.getShader(colorValue.value, bounds)
         }

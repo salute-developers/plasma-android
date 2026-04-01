@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=SelectItem_Simple -->
+    <!-- placeholder: app:sd_icon="@drawable/ic_done_24" -> app:sd_icon="Your icon"  -->
+    <com.sdds.uikit.SelectItemView
+        android:id="@+id/select_item_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sd_controlSize="24dp"
+        app:sd_icon="@drawable/ic_done_24"
+        app:sd_iconTint="#4CAF50"
+        android:checkable="true"
+        android:checked="true"
+        >
+
+        <!-- placeholder: android:src="@drawable/ic_plasma_36" -> android:src="Your resource"  -->
+        <com.sdds.uikit.ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_plasma_36"
+            android:tint="#111"
+            app:layout_itemContent="start" />
+
+        <com.sdds.uikit.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Label"
+            android:textColor="#111"
+            app:layout_itemContent="label" />
+
+        <com.sdds.uikit.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            app:layout_itemContent="title" />
+
+    </com.sdds.uikit.SelectItemView>
+    <!-- sample-end: id=SelectItem_Simple -->
+
+</LinearLayout>

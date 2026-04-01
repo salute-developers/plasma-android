@@ -1,12 +1,12 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.DividerDefault
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.divider.Default
 import com.sdds.plasma.giga.app.styles.divider.Divider
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.divider.DividerDefault
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

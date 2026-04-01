@@ -19,10 +19,14 @@ import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
-import com.sdds.uikit.statelist.ColorValueHolder
+import com.sdds.uikit.statelist.AnimatedStateManagerHolder
+import com.sdds.uikit.statelist.AnimationConfig
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.StateManager
+import com.sdds.uikit.statelist.getColorAnimationConfig
 import com.sdds.uikit.statelist.getColorValueStateList
 import com.sdds.uikit.statelist.setBackgroundValueList
+import com.sdds.uikit.statelist.setImageColorValueList
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -46,8 +50,10 @@ open class ImageView @JvmOverloads constructor(
     ViewStateHolder,
     ColorStateHolder,
     Shapeable,
-    HasFocusSelector by FocusSelectorDelegate() {
+    HasFocusSelector by FocusSelectorDelegate(),
+    AnimatedStateManagerHolder {
 
+    private var _imageAnimationConfig: AnimationConfig? = null
     private var hasAdjustedPaddingAfterLayoutDirectionResolved = false
 
     private var _shapeableImageDelegate: ShapeableImageDelegate? = null
@@ -68,6 +74,8 @@ open class ImageView @JvmOverloads constructor(
         applySelector(this, context, attrs, defStyleAttr)
         clipToOutline = false
     }
+
+    override val manager: StateManager = StateManager()
 
     /**
      * Внутренний отступ контента в начале.
@@ -267,7 +275,7 @@ open class ImageView @JvmOverloads constructor(
     fun setImageTintValueList(valueList: ColorValueStateList?) {
         if (_imageTintStateList != valueList) {
             _imageTintStateList = valueList
-            resetImageTintList(valueList)
+            setImageColorValueList(valueList, _imageAnimationConfig)
         }
     }
 
@@ -487,8 +495,8 @@ open class ImageView @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        setBackgroundValueList(_backgroundStateList)
-        setImageTintValueList(_imageTintStateList)
+        setBackgroundValueList(_backgroundStateList, _imageAnimationConfig)
+        setImageColorValueList(_imageTintStateList, _imageAnimationConfig)
     }
 
     internal fun getShapePath(): Path = _shapeableImageDelegate?.getShapePath() ?: boundsPath
@@ -535,6 +543,11 @@ open class ImageView @JvmOverloads constructor(
         }
         _backgroundStateList = typedArray.getColorValueStateList(context, R.styleable.ImageView_sd_background)
         _aspectRatio = typedArray.getFloat(R.styleable.ImageView_sd_aspectRatio, 0f)
+        _imageAnimationConfig = typedArray.getColorAnimationConfig(
+            R.styleable.ImageView_sd_imageAnimationDuration,
+            R.styleable.ImageView_sd_imageAnimationInterpolator,
+            context,
+        )
         typedArray.recycle()
     }
 
@@ -546,18 +559,12 @@ open class ImageView @JvmOverloads constructor(
         return layoutDirection == LAYOUT_DIRECTION_RTL
     }
 
-    private fun resetImageTintList(colorValueStateList: ColorValueStateList?) {
-        if (colorValueStateList == null) return
-        val imageTintValue = if (colorValueStateList.isStateful()) {
-            colorValueStateList.getValueForState(drawableState)
-        } else {
-            colorValueStateList.getDefaultValue()
-        }
-        when (imageTintValue) {
-            is ColorValueHolder.ColorValue -> imageTintList = ColorStateList.valueOf(imageTintValue.value)
-            is ColorValueHolder.ColorListValue -> imageTintList = imageTintValue.value
-            else -> Unit
-        }
+    /**
+     * Устанавливает конфиг анимации [AnimationConfig]
+     */
+    fun setImageAnimationConfig(animationConfig: AnimationConfig?) {
+        _imageAnimationConfig = animationConfig
+        refreshDrawableState()
     }
 
     companion object {

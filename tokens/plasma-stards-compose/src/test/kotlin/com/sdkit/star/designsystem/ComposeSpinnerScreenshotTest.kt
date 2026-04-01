@@ -1,10 +1,10 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.SpinnerTest
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.spinner.SpinnerTest
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.spinner.Accent
 import com.sdkit.star.designsystem.styles.spinner.Default
 import com.sdkit.star.designsystem.styles.spinner.Info

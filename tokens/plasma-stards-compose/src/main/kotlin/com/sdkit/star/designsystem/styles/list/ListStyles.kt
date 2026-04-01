@@ -13,6 +13,8 @@ import com.sdds.compose.uikit.ListStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdkit.star.designsystem.styles.divider.Default
+import com.sdkit.star.designsystem.styles.divider.Divider
 import com.sdkit.star.designsystem.styles.listitem.L
 import com.sdkit.star.designsystem.styles.listitem.ListItem
 import com.sdkit.star.designsystem.styles.listitem.M
@@ -62,6 +64,7 @@ public value class WrapperListXs(
 private val ListStyleBuilder.invariantProps: ListStyleBuilder
     @Composable
     get() = this
+        .dividerStyle(Divider.Default.style())
 
 public val List.L: WrapperListL
     @Composable

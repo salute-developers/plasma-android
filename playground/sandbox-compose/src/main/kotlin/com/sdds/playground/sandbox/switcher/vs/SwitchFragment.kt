@@ -4,10 +4,10 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup.LayoutParams
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.switcher.SwitchUiState
-import com.sdds.testing.vs.switcher.applyState
-import com.sdds.testing.vs.switcher.switch
 import com.sdds.uikit.Switch
+import com.sdds.uikit.fixtures.stories.switcher.SwitchUiState
+import com.sdds.uikit.fixtures.stories.switcher.applyState
+import com.sdds.uikit.fixtures.stories.switcher.switch
 
 /**
  * Фрагмент с компонентом Switch

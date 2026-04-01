@@ -7,8 +7,8 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.tabs.TabsTestCases
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.TabsTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

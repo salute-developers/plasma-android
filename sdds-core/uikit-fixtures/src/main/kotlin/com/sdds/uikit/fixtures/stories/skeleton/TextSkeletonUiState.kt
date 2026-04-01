@@ -1,0 +1,37 @@
+package com.sdds.uikit.fixtures.stories.skeleton
+
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
+import com.sdds.uikit.fixtures.UiState
+import kotlinx.parcelize.Parcelize
+
+/**
+ * Состояние компонента TextSkeleton
+ * @property variant вариация
+ * @property lineCount количество строк
+ * @property text текст
+ * @property width ширина строки
+ * @see TextSkeletonWidth
+ */
+@Parcelize
+@StoryUiState
+data class TextSkeletonUiState(
+    override val variant: String = "",
+    override val appearance: String = "",
+    val lineCount: Int = 3,
+    val text: String = "",
+    val width: TextSkeletonWidth = TextSkeletonWidth.Random,
+) : UiState, Parcelable {
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
+    }
+}
+
+/**
+ * Ширина TextSkeleton для песочницы компонента
+ */
+@Parcelize
+enum class TextSkeletonWidth : Parcelable {
+    Random,
+    FullWidth,
+}

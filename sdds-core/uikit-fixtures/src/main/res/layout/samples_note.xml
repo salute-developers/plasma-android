@@ -10,7 +10,6 @@
         android:id="@+id/note_simple"
         app:sd_title="Title"
         app:sd_text="Text"
-        app:sd_background="#2301"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
@@ -36,7 +35,6 @@
         android:id="@+id/note_compact_simple"
         app:sd_title="Title"
         app:sd_text="Text"
-        app:sd_background="#5401"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 

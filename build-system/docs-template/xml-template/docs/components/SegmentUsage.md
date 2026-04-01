@@ -8,6 +8,10 @@ title: Segment
 <!-- @sample: com/sdds/uikit/fixtures/Segment_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.segment.Segment.Simple -->
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.segment.item.SegmentItem.Simple -->
+
 ## Стиль Segment
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

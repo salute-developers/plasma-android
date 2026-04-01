@@ -9,8 +9,9 @@ title: Card
 
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/Card_Simple.xml -->
-
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.card.Card_Simple -->
 
 ## Стиль Card
 

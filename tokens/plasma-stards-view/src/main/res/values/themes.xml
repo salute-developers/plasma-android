@@ -12,6 +12,7 @@
         <item name="colorOnSurface">?sdkit_textOnDarkPrimary</item>
         <item name="colorOnPrimary">?sdkit_textOnLightPrimary</item>
         <item name="rippleColor">?sdkit_surfaceDefaultTransparentSecondary</item>
+        <item name="sdkit_overlayModal">@drawable/sdkit_overlay_modal_gradient</item>
 
         <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M</item>
         <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M</item>
@@ -66,6 +67,7 @@
         <item name="colorOnSurface">?sdkit_textOnDarkPrimary</item>
         <item name="colorOnPrimary">?sdkit_textOnLightPrimary</item>
         <item name="rippleColor">?sdkit_surfaceDefaultTransparentSecondary</item>
+        <item name="sdkit_overlayModal">@drawable/sdkit_overlay_modal_gradient</item>
 
         <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M</item>
         <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M</item>

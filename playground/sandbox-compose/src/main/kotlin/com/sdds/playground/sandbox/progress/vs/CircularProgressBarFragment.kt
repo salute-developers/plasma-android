@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.progress.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.progress.CircularProgressUiState
-import com.sdds.testing.vs.progress.applyState
-import com.sdds.testing.vs.progress.circularProgressBar
 import com.sdds.uikit.CircularProgressBar
+import com.sdds.uikit.fixtures.stories.progress.CircularProgressUiState
+import com.sdds.uikit.fixtures.stories.progress.applyState
+import com.sdds.uikit.fixtures.stories.progress.circularProgressBar
 
 /**
  * Фрагмент с компонентом CircularProgressBar

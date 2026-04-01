@@ -10,8 +10,6 @@
         android:id="@+id/spinner_simple"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:sd_startColor="#22E02D5A"
-        app:sd_endColor="#AA075207"
         app:sd_sweepAngle="320"
         />
     <!-- sample-end: id=Spinner_Simple -->

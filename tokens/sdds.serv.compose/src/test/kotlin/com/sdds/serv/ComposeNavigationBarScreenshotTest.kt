@@ -1,6 +1,15 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarContentBottomStart
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarInlineRelative
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarLongTextBottomStartInline
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarLongTextContentInlineCenterBottom
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarTextContentBottomCenterBottom
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarTextContentInlineCenter
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarTextHasActionEndInlineEndBottom
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.navigationbar.HasBackground
 import com.sdds.serv.styles.navigationbar.NavigationBarInternalPage
@@ -8,15 +17,6 @@ import com.sdds.serv.styles.navigationbar.NavigationBarMainPage
 import com.sdds.serv.styles.navigationbar.NoBackground
 import com.sdds.serv.styles.navigationbar.Rounded
 import com.sdds.serv.styles.navigationbar.Shadow
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.navigationbar.NavigationBarContentBottomStart
-import com.sdds.testing.compose.navigationbar.NavigationBarInlineRelative
-import com.sdds.testing.compose.navigationbar.NavigationBarLongTextBottomStartInline
-import com.sdds.testing.compose.navigationbar.NavigationBarLongTextContentInlineCenterBottom
-import com.sdds.testing.compose.navigationbar.NavigationBarTextContentBottomCenterBottom
-import com.sdds.testing.compose.navigationbar.NavigationBarTextContentInlineCenter
-import com.sdds.testing.compose.navigationbar.NavigationBarTextHasActionEndInlineEndBottom
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

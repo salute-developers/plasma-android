@@ -11,7 +11,7 @@ import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.viewTheme
-import com.sdds.testing.vs.UiState
+import com.sdds.uikit.fixtures.UiState
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -64,10 +64,10 @@ internal abstract class ComponentViewModel<State : UiState>(
     @CallSuper
     override fun updateProperty(name: String, value: Any?) {
         val valueString = value?.toString() ?: return
-
+        val currentState = internalUiState.value
         if (name == APPEARANCE_PROPERTY_NAME) {
             internalUiState.value =
-                internalUiState.value.updateVariant(appearance = valueString) as State
+                currentState.updateVariant(appearance = valueString, variant = currentState.variant) as State
         }
 
         if (name == SUBTHEME_PROPERTY_NAME) {
@@ -77,7 +77,7 @@ internal abstract class ComponentViewModel<State : UiState>(
 
         if (name == VARIANT_PROPERTY_NAME) {
             internalUiState.value =
-                internalUiState.value.updateVariant(variant = valueString) as State
+                currentState.updateVariant(appearance = currentState.appearance, variant = valueString) as State
         }
         if (name == colorVariantPropertyName) {
             internalUiState.value =

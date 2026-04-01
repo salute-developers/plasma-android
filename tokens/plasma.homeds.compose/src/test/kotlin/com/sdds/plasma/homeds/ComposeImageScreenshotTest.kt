@@ -1,6 +1,9 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ImageTestCase
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.image.Image
 import com.sdds.plasma.homeds.styles.image.Ratio16x9
@@ -10,9 +13,6 @@ import com.sdds.plasma.homeds.styles.image.Ratio2x1
 import com.sdds.plasma.homeds.styles.image.Ratio3x4
 import com.sdds.plasma.homeds.styles.image.Ratio4x3
 import com.sdds.plasma.homeds.styles.image.Ratio9x16
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.image.ImageTestCase
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

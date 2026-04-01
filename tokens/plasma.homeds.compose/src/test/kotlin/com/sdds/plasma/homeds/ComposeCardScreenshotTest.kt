@@ -1,6 +1,11 @@
 package com.sdds.plasma.homeds
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CardHorizontal
+import com.sdds.compose.uikit.fixtures.testcases.CardHorizontalExtra
+import com.sdds.compose.uikit.fixtures.testcases.CardVertical
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.homeds.styles.card.Card
 import com.sdds.plasma.homeds.styles.card.HasInnerPaddings
@@ -8,11 +13,6 @@ import com.sdds.plasma.homeds.styles.card.L
 import com.sdds.plasma.homeds.styles.card.M
 import com.sdds.plasma.homeds.styles.card.S
 import com.sdds.plasma.homeds.styles.card.Xl
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.card.CardHorizontal
-import com.sdds.testing.compose.card.CardHorizontalExtra
-import com.sdds.testing.compose.card.CardVertical
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

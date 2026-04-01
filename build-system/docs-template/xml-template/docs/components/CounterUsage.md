@@ -6,6 +6,8 @@ title: Counter
 <!-- @sample: com/sdds/uikit/fixtures/Counter_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.counter.Counter.Simple -->
+
 ## Стиль Counter
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

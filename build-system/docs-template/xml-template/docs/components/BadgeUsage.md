@@ -6,6 +6,8 @@ title: Badge
 <!-- @sample: com/sdds/uikit/fixtures/Badge_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.badge.Badge_Simple -->
+
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/IconBadge_Simple.xml -->
 ```

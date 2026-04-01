@@ -5,6 +5,7 @@ import android.content.res.Resources.Theme
 import android.content.res.TypedArray
 import android.graphics.ComposeShader
 import android.graphics.LinearGradient
+import android.graphics.Matrix
 import android.graphics.PointF
 import android.graphics.PorterDuff
 import android.graphics.RadialGradient
@@ -133,29 +134,53 @@ sealed class GradientShader : ShaderFactory {
      * Шейдер радиального градиента
      * @param colors цвета
      * @param positions точки остановки цветов
-     * @param radius относительный радиус от 0.0 до 1.0 (0-100%)
+     * @param radiusHorizontal относительный радиус по горизонтали (в процентах)
+     * @param radiusHorizontal относительный радиус по вертикали (в процентах)
      * @param centerX относительная координата центра по X от 0.0 до 1.0 (0-100%)
      * @param centerY относительная координата центра по Y от 0.0 до 1.0 (0-100%)
      */
     class Radial(
         private val colors: IntArray,
         private val positions: FloatArray,
-        private val radius: Float,
+        private val radiusHorizontal: Float,
+        private val radiusVertical: Float,
         private val centerX: Float,
         private val centerY: Float,
     ) : GradientShader() {
 
+        /**
+         * Шейдер радиального градиента
+         * @param colors цвета
+         * @param positions точки остановки цветов
+         * @param radius относительный радиус (в процентах)
+         * @param centerX относительная координата центра по X от 0.0 до 1.0 (0-100%)
+         * @param centerY относительная координата центра по Y от 0.0 до 1.0 (0-100%)
+         */
+        constructor(
+            colors: IntArray,
+            positions: FloatArray,
+            radius: Float,
+            centerX: Float,
+            centerY: Float,
+        ) : this(colors, positions, radius, radius, centerX, centerY)
+
         private var tileMode: TileMode = TileMode.CLAMP
+        private val localMatrix = Matrix()
 
         override fun resize(width: Float, height: Float): Shader {
+            val pivotX = width * centerX
+            val pivotY = height * centerY
             return RadialGradient(
-                width * centerX,
-                height * centerY,
-                java.lang.Float.max(width, height) * radius / 2f,
+                pivotX,
+                pivotY,
+                java.lang.Float.max(width, height),
                 colors,
                 positions,
                 tileMode,
-            )
+            ).apply {
+                localMatrix.setScale(radiusHorizontal, radiusVertical, pivotX, pivotY)
+                setLocalMatrix(localMatrix)
+            }
         }
 
         override fun setTileMode(tileMode: TileMode) {
@@ -254,7 +279,8 @@ private fun ShaderAppearance.toGradientShader(): GradientShader? {
         ShapeDrawable.GradientType.RADIAL -> GradientShader.Radial(
             colors = colors,
             positions = stops,
-            radius = radius,
+            radiusHorizontal = radiusHorizontal,
+            radiusVertical = radiusVertical,
             centerX = centerX,
             centerY = centerY,
         )
@@ -287,6 +313,7 @@ private fun TypedArray.obtainShaderLayers(theme: Theme): Array<GradientShader> {
     }
 }
 
+@Suppress("LongMethod")
 private fun TypedArray.obtainGradientShader(): GradientShader? {
     val type = ShapeDrawable.GradientType.values().getOrElse(
         getInt(R.styleable.SdShaderAppearance_sd_gradientType, 0),
@@ -331,19 +358,24 @@ private fun TypedArray.obtainGradientShader(): GradientShader? {
     } else {
         null
     }
+    val radius = getFloat(R.styleable.SdShaderAppearance_sd_radius, 0f)
+    val radiusHorizontal = getFloat(R.styleable.SdShaderAppearance_sd_radiusHorizontal, radius)
+    val radiusVertical = getFloat(R.styleable.SdShaderAppearance_sd_radiusVertical, radius)
     return ShaderAppearance(
         type = type,
         colors = colors,
         stops = stops,
         centerX = getFloat(R.styleable.SdShaderAppearance_sd_centerX, 0f),
         centerY = getFloat(R.styleable.SdShaderAppearance_sd_centerY, 0f),
-        radius = getFloat(R.styleable.SdShaderAppearance_sd_radius, 0f),
+        radiusHorizontal = radiusHorizontal,
+        radiusVertical = radiusVertical,
         angle = getFloat(R.styleable.SdShaderAppearance_sd_angle, 0f),
         startPoint = startPoint,
         endPoint = endPoint,
     ).toGradientShader()
 }
 
+@Suppress("LongMethod")
 private fun TypedArray.obtainShaderLayerAppearance(): ShaderAppearance {
     val type = ShapeDrawable.GradientType.values().getOrElse(
         getInt(R.styleable.SdShaderLayer_sd_gradientType, 0),
@@ -388,13 +420,17 @@ private fun TypedArray.obtainShaderLayerAppearance(): ShaderAppearance {
     } else {
         null
     }
+    val radius = getFloat(R.styleable.SdShaderLayer_sd_radius, 0f)
+    val radiusHorizontal = getFloat(R.styleable.SdShaderLayer_sd_radiusHorizontal, radius)
+    val radiusVertical = getFloat(R.styleable.SdShaderLayer_sd_radiusVertical, radius)
     return ShaderAppearance(
         type = type,
         colors = colors,
         stops = stops,
         centerX = getFloat(R.styleable.SdShaderLayer_sd_centerX, 0f),
         centerY = getFloat(R.styleable.SdShaderLayer_sd_centerY, 0f),
-        radius = getFloat(R.styleable.SdShaderLayer_sd_radius, 0f),
+        radiusHorizontal = radiusHorizontal,
+        radiusVertical = radiusVertical,
         angle = getFloat(R.styleable.SdShaderLayer_sd_angle, 0f),
         startPoint = startPoint,
         endPoint = endPoint,
@@ -407,7 +443,8 @@ private class ShaderAppearance(
     val stops: FloatArray,
     val centerX: Float,
     val centerY: Float,
-    val radius: Float,
+    val radiusHorizontal: Float,
+    val radiusVertical: Float,
     val angle: Float,
     val startPoint: PointF?,
     val endPoint: PointF?,

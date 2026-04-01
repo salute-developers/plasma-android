@@ -6,11 +6,11 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout.LayoutParams
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.segement.SegmentOrientation
-import com.sdds.testing.vs.segement.SegmentUiState
-import com.sdds.testing.vs.segement.applyState
-import com.sdds.testing.vs.segement.segment
 import com.sdds.uikit.Segment
+import com.sdds.uikit.fixtures.stories.segment.SegmentOrientation
+import com.sdds.uikit.fixtures.stories.segment.SegmentUiState
+import com.sdds.uikit.fixtures.stories.segment.applyState
+import com.sdds.uikit.fixtures.stories.segment.segment
 
 internal class SegmentFragment : ComponentFragment<SegmentUiState, Segment, SegmentViewModel>() {
 

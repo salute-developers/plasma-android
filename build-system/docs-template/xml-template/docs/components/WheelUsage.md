@@ -88,6 +88,8 @@ parentLayout.addView(wheel)
 <!-- @sample: com/sdds/uikit/fixtures/Wheel_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.wheel.Wheel.Simple -->
+
 А затем настроить его в `onViewCreated` или `onCreate`:
 
 ```kotlin

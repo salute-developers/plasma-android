@@ -6,6 +6,13 @@ import com.sdds.serv.R as DsR
 internal object SddsServEmbeddedChipGroupDenseVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
+            "Xl" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXl,
+            "Xl.Default" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXlDefault,
+            "Xl.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXlAccent,
+            "Xl.Negative" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXlNegative,
+            "Xl.Positive" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXlPositive,
+            "Xl.Secondary" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXlSecondary,
+            "Xl.Warning" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseXlWarning,
             "L" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseL,
             "L.Default" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseLDefault,
             "L.Accent" to DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupDenseLAccent,

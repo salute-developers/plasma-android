@@ -4,12 +4,11 @@ import android.view.ContextThemeWrapper
 import android.view.Gravity
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.autocomplete.AutocompleteUiState
-import com.sdds.testing.vs.autocomplete.applyState
-import com.sdds.testing.vs.autocomplete.autocomplete
-import com.sdds.testing.vs.overlay.applyState
-import com.sdds.testing.vs.popover.toGravity
 import com.sdds.uikit.Autocomplete
+import com.sdds.uikit.fixtures.stories.autocomplete.AutocompleteUiState
+import com.sdds.uikit.fixtures.stories.autocomplete.applyState
+import com.sdds.uikit.fixtures.stories.autocomplete.autocomplete
+import com.sdds.uikit.fixtures.stories.popover.toGravity
 
 internal class AutocompleteFragment : ComponentFragment<AutocompleteUiState, Autocomplete, AutocompleteViewModel>() {
 

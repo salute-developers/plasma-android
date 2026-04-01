@@ -1,8 +1,8 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.slider.SliderTestCases
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.SliderTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

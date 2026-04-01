@@ -1,8 +1,8 @@
 package com.sdkit.star.designsystem
 
 import android.view.View
-import com.sdds.testing.vs.ComponentScope
-import com.sdds.testing.vs.component
+import com.sdds.uikit.fixtures.ComponentScope
+import com.sdds.uikit.fixtures.component
 import org.hamcrest.Matcher
 
 internal fun themedComponent(

@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.carousel.CarouselContentAlignment
-import com.sdds.testing.vs.carousel.CarouselUiState
+import com.sdds.uikit.fixtures.stories.carousel.CarouselContentAlignment
+import com.sdds.uikit.fixtures.stories.carousel.CarouselUiState
 
 internal class CarouselViewModel(
     defaultState: CarouselUiState,

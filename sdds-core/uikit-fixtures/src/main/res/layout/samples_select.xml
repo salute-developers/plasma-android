@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- sample-start: id=Select_Trigger_Button -->
+    <com.sdds.uikit.Select
+        android:id="@+id/select_trigger_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.sdds.uikit.Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:sd_value="Выберите вариант"
+            android:layout_gravity="center"
+            />
+
+    </com.sdds.uikit.Select>
+    <!-- sample-end: id=Select_Trigger_Button -->
+
+    <!-- sample-start: id=Select_EmptyState_PlaceHolder -->
+    <com.sdds.uikit.Select
+        android:id="@+id/select_empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.sdds.uikit.Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:sd_value="Выберите вариант"
+            android:layout_gravity="center"
+            />
+
+        <!-- placeholder: app:sd_icon="@drawable/ic_plasma_36" -> app:sd_icon="Your icon"  -->
+        <com.sdds.uikit.dropdown.DropdownEmptyStateView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:sd_description="Нет данных"
+            app:sd_icon="@drawable/ic_plasma_36" />
+
+    </com.sdds.uikit.Select>
+    <!-- sample-end: id=Select_EmptyState_PlaceHolder -->
+
+    <!-- sample-start: id=Select_EmptyState_Footer -->
+    <com.sdds.uikit.Select
+        android:id="@+id/select_empty_state_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.sdds.uikit.Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:sd_value="Выберите вариант"
+            android:layout_gravity="center"
+            />
+
+        <com.sdds.uikit.dropdown.DropdownFooterView
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Загрузка…"
+                android:layout_gravity="center" />
+        </com.sdds.uikit.dropdown.DropdownFooterView>
+
+    </com.sdds.uikit.Select>
+    <!-- sample-end: id=Select_EmptyState_Footer -->
+
+</LinearLayout>

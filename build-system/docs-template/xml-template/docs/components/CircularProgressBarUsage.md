@@ -6,6 +6,8 @@ title: CircularProgressBar
 <!-- @sample: com/sdds/uikit/fixtures/CircularProgressBar_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.progressbar.circular.CircularProgressBar.Simple -->
+
 ## Стиль CircularProgressBar
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

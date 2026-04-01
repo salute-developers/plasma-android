@@ -19,7 +19,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:sd_icon="@drawable/ic_plasma_36"
-            app:sd_iconTint="#111"
             app:sd_slotIndex="2"/>
 
         <com.sdds.uikit.Button
@@ -34,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:sd_icon="@drawable/ic_plasma_36"
-            app:sd_iconTint="#111"
             app:sd_slotIndex="0"/>
 
     </com.sdds.uikit.ToolBar>

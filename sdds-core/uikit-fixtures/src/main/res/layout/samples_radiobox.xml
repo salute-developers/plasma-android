@@ -10,9 +10,6 @@
         android:id="@+id/radio_box_simple"
         android:text="Label"
         app:sd_description="Description"
-        app:sd_descriptionTextColor="#522"
-        app:sd_buttonBoxColor="#7777"
-        app:sd_buttonMarkColor="#111"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <!-- sample-end: id=RadioBox_Simple -->

@@ -37,7 +37,13 @@
     <attr name="sd_shapeColorAnimationEnabled" format="boolean" />
     <attr name="sd_disabledAlpha" format="float" />
     <attr name="sd_background" format="color|reference"/>
+    <attr name="sd_backgroundAnimationDuration" format="integer"/>
+    <attr name="sd_backgroundAnimationInterpolator" format="reference"/>
     <attr name="sd_textColor" format="color|reference"/>
+    <attr name="sd_textAnimationDuration" format="integer"/>
+    <attr name="sd_textAnimationInterpolator" format="reference"/>
+    <attr name="sd_imageAnimationDuration" format="integer"/>
+    <attr name="sd_imageAnimationInterpolator" format="reference"/>
 
     <declare-styleable name="SdViewStateHolder">
         <attr name="sd_viewState" format="enum">
@@ -122,6 +128,8 @@
         <attr name="sd_endY" format="float"/>
 
         <attr name="sd_radius" format="float" />
+        <attr name="sd_radiusHorizontal" format="float" />
+        <attr name="sd_radiusVertical" format="float" />
         <attr name="sd_centerX" format="float" />
         <attr name="sd_centerY" format="float" />
 
@@ -137,6 +145,8 @@
         <attr name="sd_angle"/>
 
         <attr name="sd_radius" />
+        <attr name="sd_radiusHorizontal" />
+        <attr name="sd_radiusVertical" />
         <attr name="sd_centerX" />
         <attr name="sd_centerY" />
         <attr name="sd_startX" />

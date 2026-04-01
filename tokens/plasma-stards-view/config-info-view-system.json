@@ -1623,6 +1623,33 @@
          ]
       },
       {
+         "key": "cell",
+         "coreName": "Cell",
+         "styleName": "CellSelect",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Sdkit.StarDs.Components.CellSelect.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.CellSelectL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.CellSelect.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.CellSelectM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.CellSelect.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.CellSelectS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Sdkit.StarDs.Components.CellSelect.Xs",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.CellSelectXs"
+            }
+         ]
+      },
+      {
          "key": "check-box",
          "coreName": "CheckBox",
          "styleName": "CheckBox",
@@ -2920,6 +2947,60 @@
                "name": "default",
                "viewReference": "Sdkit.StarDs.Components.OverlayView",
                "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.OverlayView"
+            }
+         ]
+      },
+      {
+         "key": "select",
+         "coreName": "Select",
+         "styleName": "Select",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Sdkit.StarDs.Components.Select.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.Select.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.Select.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Sdkit.StarDs.Components.Select.Xs",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectXs"
+            }
+         ]
+      },
+      {
+         "key": "select-item",
+         "coreName": "SelectIem",
+         "styleName": "SelectItem",
+         "variations": [
+            {
+               "name": "l",
+               "viewReference": "Sdkit.StarDs.Components.SelectItem.L",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectItemL"
+            },
+            {
+               "name": "m",
+               "viewReference": "Sdkit.StarDs.Components.SelectItem.M",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectItemM"
+            },
+            {
+               "name": "s",
+               "viewReference": "Sdkit.StarDs.Components.SelectItem.S",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectItemS"
+            },
+            {
+               "name": "xs",
+               "viewReference": "Sdkit.StarDs.Components.SelectItem.Xs",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.SelectItemXs"
             }
          ]
       },
@@ -5301,17 +5382,17 @@
             }
          ]
       },
-     {
-       "key": "modal",
-       "coreName": "Modal",
-       "styleName": "Modal",
-       "variations": [
-         {
-           "name": "default",
-           "viewReference": "Sdkit.StarDs.Components.Modal",
-           "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.Modal"
-         }
-       ]
-     }
+      {
+         "key": "modal",
+         "coreName": "Modal",
+         "styleName": "Modal",
+         "variations": [
+            {
+               "name": "default",
+               "viewReference": "Sdkit.StarDs.Components.Modal",
+               "viewOverlayReference": "Sdkit.StarDs.ComponentOverlays.Modal"
+            }
+         ]
+      }
    ]
 }

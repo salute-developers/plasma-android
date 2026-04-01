@@ -20,6 +20,8 @@ Tabs работает с дочерними элементами **TabItem** (т
 <!-- @sample: com/sdds/uikit/fixtures/Tabs_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.tabs.Tabs.Simple -->
+
 > Внутренний `Tabs` автоматически превратит дочерние `TabItem`/`IconTabItem` в элементы вкладок.
 
 ### Код (Kotlin)

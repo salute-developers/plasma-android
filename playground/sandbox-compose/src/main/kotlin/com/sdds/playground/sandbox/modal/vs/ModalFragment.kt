@@ -5,8 +5,8 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.modal.ModalUiState
-import com.sdds.testing.vs.modal.modalTrigger
+import com.sdds.uikit.fixtures.stories.modal.ModalUiState
+import com.sdds.uikit.fixtures.stories.modal.modalTrigger
 
 /**
  * Фрагмент с компонентом Modal

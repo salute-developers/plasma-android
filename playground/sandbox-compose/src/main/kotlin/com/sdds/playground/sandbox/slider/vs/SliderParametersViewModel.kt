@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.slider.Alignment
-import com.sdds.testing.vs.slider.SlideDirection
-import com.sdds.testing.vs.slider.SliderUiState
+import com.sdds.uikit.fixtures.stories.slider.Alignment
+import com.sdds.uikit.fixtures.stories.slider.SlideDirection
+import com.sdds.uikit.fixtures.stories.slider.SliderUiState
 
 /**
  * ViewModel компонента Slider

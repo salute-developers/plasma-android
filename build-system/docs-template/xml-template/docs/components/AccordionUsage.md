@@ -50,6 +50,8 @@ title: Accordion
 <!-- @sample: com/sdds/uikit/fixtures/Accordion_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.accordion.Accordion_Simple -->
+
 ### Kotlin: Простая настройка
 
 ```kotlin

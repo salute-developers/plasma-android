@@ -1,6 +1,9 @@
 package com.sdds.plasma.giga
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.SpinnerTest
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.spinner.Accent
 import com.sdds.plasma.giga.styles.spinner.Default
@@ -18,9 +21,6 @@ import com.sdds.plasma.giga.styles.spinner.Xl
 import com.sdds.plasma.giga.styles.spinner.Xs
 import com.sdds.plasma.giga.styles.spinner.Xxl
 import com.sdds.plasma.giga.styles.spinner.Xxs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.spinner.SpinnerTest
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

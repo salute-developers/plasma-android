@@ -4,9 +4,9 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.paginationdots.PaginationDotsTestCases
-import com.sdds.testing.vs.paginationdots.paginationDotsWithControls
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.stories.paginationdots.paginationDotsWithControls
+import com.sdds.uikit.fixtures.testcases.PaginationDotsTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

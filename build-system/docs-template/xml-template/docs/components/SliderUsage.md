@@ -12,6 +12,8 @@ title: Slider
 <!-- @sample: com/sdds/uikit/fixtures/Slider_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.slider.Slider.Simple -->
+
 ## Стили
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:sd_shimmer="#55111111"
         app:sd_autoStart="true"
         app:sd_lineCount="4"/>
     <!-- sample-end: id=TextSkeleton_Simple -->

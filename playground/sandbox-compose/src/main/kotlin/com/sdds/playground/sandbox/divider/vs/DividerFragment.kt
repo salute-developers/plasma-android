@@ -4,9 +4,9 @@ import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.divider.DividerUiState
-import com.sdds.testing.vs.divider.divider
 import com.sdds.uikit.Divider
+import com.sdds.uikit.fixtures.stories.divider.DividerUiState
+import com.sdds.uikit.fixtures.stories.divider.divider
 
 /**
  * Фрагмент с компонентом Divider

@@ -1,14 +1,14 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.TextSkeletonDefaultFullWidth
+import com.sdds.compose.uikit.fixtures.testcases.TextSkeletonDefaultNoTextRandom
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.textskeleton.Default
 import com.sdds.plasma.sd.service.styles.textskeleton.Lighter
 import com.sdds.plasma.sd.service.styles.textskeleton.TextSkeleton
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.textskeleton.TextSkeletonDefaultFullWidth
-import com.sdds.testing.compose.textskeleton.TextSkeletonDefaultNoTextRandom
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

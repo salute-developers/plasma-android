@@ -6,6 +6,8 @@ title: RadioBox
 <!-- @sample: com/sdds/uikit/fixtures/RadioBox_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.radiobox.RadioBox.Simple -->
+
 ## Стиль RadioBox
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

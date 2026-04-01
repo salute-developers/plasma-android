@@ -1,7 +1,10 @@
 import com.android.build.gradle.LibraryExtension
 import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import tasks.docs.ExtractCodeSnippetsTask
 import org.gradle.api.attributes.Attribute
+import utils.baseDetektConfigDirPath
+import utils.baseDetektConfigPath
 import utils.isAndroidLib
 
 
@@ -55,4 +58,12 @@ afterEvaluate {
 
 tasks.withType<Detekt>().configureEach {
     exclude("**/*Samples.kt")
+}
+
+configure<DetektExtension> {
+    val integrationConfig = "${project.baseDetektConfigDirPath()}/integration-config.yml"
+
+    if (file(integrationConfig).exists()) {
+        config = files(project.baseDetektConfigPath(), integrationConfig)
+    }
 }

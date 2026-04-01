@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.navigationdrawer.NavigationDrawerMode
-import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
+import com.sdds.uikit.fixtures.stories.navigationdrawer.NavigationDrawerMode
+import com.sdds.uikit.fixtures.stories.navigationdrawer.NavigationDrawerUiState
 
 internal class NavigationDrawerViewModel(
     defaultState: NavigationDrawerUiState,

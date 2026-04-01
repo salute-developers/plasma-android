@@ -1,11 +1,11 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.TextSkeletonDefaultNoText
+import com.sdds.compose.uikit.fixtures.testcases.TextSkeletonDefaultTextRandom
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.textskeleton.TextSkeletonDefaultNoText
-import com.sdds.testing.compose.textskeleton.TextSkeletonDefaultTextRandom
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.textskeleton.H1
 import com.sdkit.star.designsystem.styles.textskeleton.H2
 import com.sdkit.star.designsystem.styles.textskeleton.H3

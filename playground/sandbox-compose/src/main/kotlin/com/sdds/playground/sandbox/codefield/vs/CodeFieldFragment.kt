@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.codefield.CodeFieldUiState
-import com.sdds.testing.vs.codefield.applyState
-import com.sdds.testing.vs.codefield.codeField
-import com.sdds.testing.vs.counter.applyState
 import com.sdds.uikit.CodeField
+import com.sdds.uikit.fixtures.stories.codefield.CodeFieldUiState
+import com.sdds.uikit.fixtures.stories.codefield.applyState
+import com.sdds.uikit.fixtures.stories.codefield.codeField
 
 /**
  * Фрагмент с компонентом CodeField

@@ -1,0 +1,35 @@
+package com.sdds.uikit.fixtures.stories.notification
+
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
+import com.sdds.uikit.fixtures.UiState
+import com.sdds.uikit.overlays.OverlayPosition
+import kotlinx.parcelize.Parcelize
+
+/**
+ * Состояние компонента Notification
+ * @property variant вариация
+ * @property text текстовое сообщение
+ * @property position положение Notification
+ * @property autoDismiss автоматическое скрытие Notification
+ * @property focusable может ли Notification быть в фокусе
+ * @property hasClose отображается ли кнопка закрытия
+ * @property hasAnimation включает/выключает анимацию
+ */
+@Parcelize
+@StoryUiState
+data class NotificationUiState(
+    override val variant: String = "",
+    override val appearance: String = "",
+    val text: String = "Notification Text",
+    val position: OverlayPosition = OverlayPosition.BottomEnd,
+    val autoDismiss: Boolean = false,
+    val focusable: Boolean = false,
+    val hasClose: Boolean = true,
+    val hasAnimation: Boolean = true,
+) : Parcelable, UiState {
+
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
+    }
+}

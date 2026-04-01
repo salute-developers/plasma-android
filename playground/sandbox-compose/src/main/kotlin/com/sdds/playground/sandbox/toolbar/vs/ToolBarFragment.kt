@@ -4,10 +4,10 @@ import android.view.ContextThemeWrapper
 import android.widget.LinearLayout.HORIZONTAL
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.toolbar.ToolBarUiState
-import com.sdds.testing.vs.toolbar.applyState
-import com.sdds.testing.vs.toolbar.toolBar
 import com.sdds.uikit.ToolBar
+import com.sdds.uikit.fixtures.stories.toolbar.ToolBarUiState
+import com.sdds.uikit.fixtures.stories.toolbar.applyState
+import com.sdds.uikit.fixtures.stories.toolbar.toolBar
 
 /**
  * Фрагмент с компонентом ToolBar

@@ -4,8 +4,9 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.testing.vs.SDK_NUMBER
-import com.sdds.testing.vs.navigationdrawer.NavigationDrawerTestCases
+import com.sdds.uikit.fixtures.R.id
+import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.testcases.NavigationDrawerTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -21,7 +22,7 @@ class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+nig
     override fun testNavigationDrawerLabelAmountOne() {
         themedComponent(
             action = {
-                onView(withId(com.sdds.testing.R.id.navigation_drawer))
+                onView(withId(id.navigation_drawer))
                     .perform(click())
             },
         ) {
@@ -33,7 +34,7 @@ class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+nig
     override fun testNavigationDrawerExpandedNoLabel() {
         themedComponent(
             action = {
-                onView(withId(com.sdds.testing.R.id.navigation_drawer))
+                onView(withId(id.navigation_drawer))
                     .perform(click())
             },
         ) {
@@ -45,7 +46,7 @@ class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+nig
     override fun testNavigationDrawerCollapsedHasHeader() {
         themedComponent(
             action = {
-                onView(withId(com.sdds.testing.R.id.navigation_drawer))
+                onView(withId(id.navigation_drawer))
                     .perform(click())
             },
         ) {
@@ -57,7 +58,7 @@ class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+nig
     override fun testNavigationDrawerExpandedHasFooter() {
         themedComponent(
             action = {
-                onView(withId(com.sdds.testing.R.id.navigation_drawer))
+                onView(withId(id.navigation_drawer))
                     .perform(click())
             },
         ) {
@@ -69,7 +70,7 @@ class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+nig
     override fun testNavigationDrawerCollapsedCounter() {
         themedComponent(
             action = {
-                onView(withId(com.sdds.testing.R.id.navigation_drawer))
+                onView(withId(id.navigation_drawer))
                     .perform(click())
             },
         ) {
@@ -81,7 +82,7 @@ class ViewSystemNavigationDrawerScreenshotTest : NavigationDrawerTestCases("+nig
     override fun testNavigationDrawerCounterHasHeaderFooter() {
         themedComponent(
             action = {
-                onView(withId(com.sdds.testing.R.id.navigation_drawer))
+                onView(withId(id.navigation_drawer))
                     .perform(click())
             },
         ) {

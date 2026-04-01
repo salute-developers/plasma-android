@@ -30,6 +30,7 @@ internal class CellStyleGeneratorView(
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
     defStyleAttr: String = DEF_STYLE_ATTR,
+    styleComponentName: String,
 ) : ViewVariationGenerator<CellProperties>(
     xmlBuilderFactory = xmlBuilderFactory,
     resourceReferenceProvider = resourceReferenceProvider,
@@ -41,6 +42,7 @@ internal class CellStyleGeneratorView(
     viewColorStateGeneratorFactory = viewColorStateGeneratorFactory,
     colorStateListGeneratorFactory = colorStateListGeneratorFactory,
     defStyleAttr = defStyleAttr,
+    styleComponentName = styleComponentName,
 ) {
 
     override fun onCreateStyle(

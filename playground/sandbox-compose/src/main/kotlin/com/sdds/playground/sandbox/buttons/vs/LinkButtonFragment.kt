@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.buttons.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.button.ButtonUiState
-import com.sdds.testing.vs.button.applyState
-import com.sdds.testing.vs.button.linkButton
 import com.sdds.uikit.LinkButton
+import com.sdds.uikit.fixtures.stories.button.ButtonUiState
+import com.sdds.uikit.fixtures.stories.button.applyState
+import com.sdds.uikit.fixtures.stories.button.linkButton
 
 /**
  * Фрагмент с компонентом LinkButton
