@@ -92,6 +92,7 @@ data class ComponentKey(
         val Segment = ComponentKey(CoreComponentName.SEGMENT)
         val SegmentItem = ComponentKey(CoreComponentName.SEGMENT_ITEM)
         val Select = ComponentKey(CoreComponentName.SELECT)
+        val SelectItem = ComponentKey(CoreComponentName.SELECT_ITEM)
 
         val Switch = ComponentKey(CoreComponentName.SWITCH)
 
@@ -194,6 +195,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     SEGMENT,
     SEGMENT_ITEM,
     SELECT,
+    SELECT_ITEM,
 
     SWITCH,
 
@@ -300,6 +302,7 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.SEGMENT,
         CoreComponentName.SEGMENT_ITEM,
         CoreComponentName.SELECT,
+        CoreComponentName.SELECT_ITEM,
         CoreComponentName.SWITCH,
         CoreComponentName.WHEEL,
         CoreComponentName.MASK,

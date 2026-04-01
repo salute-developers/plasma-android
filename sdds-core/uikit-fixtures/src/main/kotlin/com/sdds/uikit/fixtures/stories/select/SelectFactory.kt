@@ -1,4 +1,4 @@
-package com.sdds.testing.vs.select
+package com.sdds.uikit.fixtures.stories.select
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,15 +6,15 @@ import android.view.ViewGroup
 import androidx.annotation.StyleRes
 import androidx.core.view.isVisible
 import com.sdds.icons.R
-import com.sdds.testing.databinding.LayoutComponentSelectBinding
-import com.sdds.testing.vs.popover.toPlacementMode
-import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Button
 import com.sdds.uikit.Chip
 import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.ListItem
 import com.sdds.uikit.Select
 import com.sdds.uikit.TextField
+import com.sdds.uikit.fixtures.databinding.LayoutComponentSelectBinding
+import com.sdds.uikit.fixtures.stories.popover.toPlacementMode
+import com.sdds.uikit.fixtures.styleWrapper
 
 private val SelectSuggestions = listOf(
     ListItem.simpleItem(0, "Иван Иванов", hasDisclosure = false),

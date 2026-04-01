@@ -137,6 +137,7 @@ import com.sdds.uikit.fixtures.stories.scrollbar.scrollBar
 import com.sdds.uikit.fixtures.stories.segment.SegmentUiState
 import com.sdds.uikit.fixtures.stories.segment.segment
 import com.sdds.uikit.fixtures.stories.segment.segmentItem
+import com.sdds.uikit.fixtures.stories.select.select
 import com.sdds.uikit.fixtures.stories.skeleton.rectSkeleton
 import com.sdds.uikit.fixtures.stories.skeleton.textSkeleton
 import com.sdds.uikit.fixtures.stories.slider.slider

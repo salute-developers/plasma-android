@@ -6,11 +6,11 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.popover.PopoverPlacementMode
-import com.sdds.testing.vs.popover.PopoverTriggerAlignment
-import com.sdds.testing.vs.select.SelectUiState
-import com.sdds.testing.vs.select.TriggerType
 import com.sdds.uikit.Select
+import com.sdds.uikit.fixtures.stories.popover.PopoverPlacementMode
+import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
+import com.sdds.uikit.fixtures.stories.select.SelectUiState
+import com.sdds.uikit.fixtures.stories.select.TriggerType
 
 internal class SelectParametersViewModel(
     defaultState: SelectUiState,

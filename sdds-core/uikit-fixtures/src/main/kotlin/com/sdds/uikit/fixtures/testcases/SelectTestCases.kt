@@ -1,14 +1,17 @@
-package com.sdds.testing.vs.select
+package com.sdds.uikit.fixtures.testcases
 
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
-import com.sdds.testing.R
-import com.sdds.testing.vs.ComponentScope
-import com.sdds.testing.vs.RoborazziConfig
-import com.sdds.testing.vs.popover.PopoverPlacementMode
-import com.sdds.testing.vs.popover.PopoverTriggerAlignment
-import com.sdds.testing.vs.popover.toGravity
 import com.sdds.uikit.Select
+import com.sdds.uikit.fixtures.ComponentScope
+import com.sdds.uikit.fixtures.R
+import com.sdds.uikit.fixtures.RoborazziConfig
+import com.sdds.uikit.fixtures.stories.popover.PopoverPlacementMode
+import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
+import com.sdds.uikit.fixtures.stories.popover.toGravity
+import com.sdds.uikit.fixtures.stories.select.SelectUiState
+import com.sdds.uikit.fixtures.stories.select.TriggerType
+import com.sdds.uikit.fixtures.stories.select.select
 
 /**
  * Тест-кейс для [Select]

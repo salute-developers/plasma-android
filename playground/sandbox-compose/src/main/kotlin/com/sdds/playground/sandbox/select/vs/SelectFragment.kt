@@ -4,11 +4,11 @@ import android.view.ContextThemeWrapper
 import android.view.Gravity
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.popover.toGravity
-import com.sdds.testing.vs.select.SelectUiState
-import com.sdds.testing.vs.select.applyState
-import com.sdds.testing.vs.select.select
 import com.sdds.uikit.Select
+import com.sdds.uikit.fixtures.stories.popover.toGravity
+import com.sdds.uikit.fixtures.stories.select.SelectUiState
+import com.sdds.uikit.fixtures.stories.select.applyState
+import com.sdds.uikit.fixtures.stories.select.select
 
 internal class SelectFragment : ComponentFragment<SelectUiState, Select, SelectParametersViewModel>() {
 
