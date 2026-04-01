@@ -65,7 +65,11 @@ fun Select.applyState(state: SelectUiState): Select = apply {
 }
 
 private fun Select.checkAndConfigureTriggerIfNeed(state: SelectUiState) {
-    val existingTrigger = if (getTrigger() is TextField) TriggerType.TextField else TriggerType.Button
+    val existingTrigger = when (getTrigger()) {
+        is TextField -> TriggerType.TextField
+        is Button -> TriggerType.Button
+        else -> null
+    }
     if (existingTrigger != state.triggerType) {
         val trigger = when (state.triggerType) {
             TriggerType.TextField -> getTextFieldTrigger(this.context)
