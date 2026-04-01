@@ -198,6 +198,13 @@ object PlasmaB2cComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.ToolBar,
+                mapOf(
+                    "ToolBarHorizontal" to PlasmaB2cToolBarHorizontalVariationsCompose,
+                    "ToolBarVertical" to PlasmaB2cToolBarVerticalVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to PlasmaB2cToastVariationsCompose,

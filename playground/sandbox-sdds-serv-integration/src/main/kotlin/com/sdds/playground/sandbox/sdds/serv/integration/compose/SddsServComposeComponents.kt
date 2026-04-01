@@ -204,6 +204,13 @@ object SddsServComposeComponents : ComponentsProviderCompose() {
                 ),
             ),
             ComposeComponent(
+                ComponentKey.ToolBar,
+                mapOf(
+                    "ToolBarHorizontal" to SddsServToolBarHorizontalVariationsCompose,
+                    "ToolBarVertical" to SddsServToolBarVerticalVariationsCompose,
+                ),
+            ),
+            ComposeComponent(
                 ComponentKey.Toast,
                 mapOf(
                     "Toast" to SddsServToastVariationsCompose,
