@@ -105,6 +105,18 @@ object PlasmaStardsViewComponents : ComponentsProviderView() {
                 ),
             ),
             ViewComponent(
+                ComponentKey.Select,
+                mapOf(
+                    "Select" to PlasmaStardsSelectVariationsView,
+                ),
+            ),
+            ViewComponent(
+                ComponentKey.SelectItem,
+                mapOf(
+                    "SelectItem" to PlasmaStardsSelectItemVariationsView,
+                ),
+            ),
+            ViewComponent(
                 ComponentKey.ProgressBar,
                 mapOf(
                     "ProgressBar" to PlasmaStardsProgressBarVariationsView,

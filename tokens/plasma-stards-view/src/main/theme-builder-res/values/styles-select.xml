@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Select" parent="Sdds.Components.Select"/>
+    <style name="Sdkit.StarDs.Components.Select.L">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonLDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuL</item>
+        <item name="sd_selectItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SelectItemL</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectL">
+        <item name="sd_selectStyle">@style/Sdkit.StarDs.Components.Select.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Select.M">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonMDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuM</item>
+        <item name="sd_selectItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SelectItemM</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectM">
+        <item name="sd_selectStyle">@style/Sdkit.StarDs.Components.Select.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Select.S">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonSDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuS</item>
+        <item name="sd_selectItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SelectItemS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectS">
+        <item name="sd_selectStyle">@style/Sdkit.StarDs.Components.Select.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Select.Xs">
+        <item name="sd_buttonStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.BasicButtonXsDefault</item>
+        <item name="sd_dropdownMenuStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.DropdownMenuXs</item>
+        <item name="sd_selectItemStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.SelectItemXs</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectXs">
+        <item name="sd_selectStyle">@style/Sdkit.StarDs.Components.Select.Xs</item>
+    </style>
+</resources>

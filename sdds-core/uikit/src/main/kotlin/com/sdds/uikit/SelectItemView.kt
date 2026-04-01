@@ -53,12 +53,17 @@ open class SelectItemView @JvmOverloads constructor(
     private var _itemType: Int = SELECT_ITEM_TYPE_SINGLE
     private var _controlSize: Int = 0
     private var _controlMargin: Int = 0
-    private val cell: CellLayout = CellLayout(this.context)
+    private val cell: CellLayout = CellLayout(this.context).apply {
+        isDuplicateParentStateEnabled = true
+        setForceDuplicateParentState(true)
+    }
     private val controlBox: FrameLayout = FrameLayout(this.context).apply {
+        isDuplicateParentStateEnabled = true
         clipChildren = false
     }
 
     private val iconView: ImageView = ImageView(context).apply {
+        isDuplicateParentStateEnabled = true
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             defaultFocusHighlightEnabled = false
         }
@@ -401,7 +406,7 @@ open class SelectItemView @JvmOverloads constructor(
                 SelectItemContent.DISCLOSURE -> CellContent.DISCLOSURE
                 else -> CellContent.START
             }
-            forceDuplicateParentState = params.forceDuplicateParentState
+            forceDuplicateParentState = true
         }
     }
 
