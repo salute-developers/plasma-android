@@ -7,6 +7,52 @@
         <item name="sd_lineSpacing">@dimen/serv_embedded_chip_group_wide_line_spacing</item>
         <item name="sd_disabledAlpha">0.4</item>
     </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl"/>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXl">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Default">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedChipXlDefault</item>
+        <item name="serv_chipgroupColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlDefault">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Accent">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedChipXlAccent</item>
+        <item name="serv_chipgroupColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlAccent">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Negative">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedChipXlNegative</item>
+        <item name="serv_chipgroupColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlNegative">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Positive">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedChipXlPositive</item>
+        <item name="serv_chipgroupColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlPositive">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedChipXlSecondary</item>
+        <item name="serv_chipgroupColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlSecondary">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Warning">
+        <item name="sd_chipStyleOverlay">@style/Serv.Sdds.ComponentOverlays.EmbeddedChipXlWarning</item>
+        <item name="serv_chipgroupColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideXlWarning">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.Xl.Warning</item>
+    </style>
     <style name="Serv.Sdds.Components.EmbeddedChipGroupWide.L"/>
     <style name="Serv.Sdds.ComponentOverlays.EmbeddedChipGroupWideL">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.EmbeddedChipGroupWide.L</item>

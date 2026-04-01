@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.select
+package com.sdds.playground.sandbox.select.compose
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
@@ -81,8 +81,8 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                                     enabled = selectUiState.enabled,
                                     placeholderText = if (value.isEmpty()) "Сотрудник" else null,
                                     captionText = "Выберите имя",
-                                    iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                                    iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                                    iconOpened = R.drawable.ic_chevron_up_24,
+                                    iconClosed = R.drawable.ic_chevron_down_24,
                                     chipsContent = getChipsContent(itemType, checkedStateManager.selectedItems),
                                     startContent = {
                                         Icon(
@@ -99,8 +99,8 @@ internal fun SelectScreen(componentKey: ComponentKey = ComponentKey.Select) {
                                     label = value,
                                     readonly = selectUiState.readOnly,
                                     enabled = selectUiState.enabled,
-                                    iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                                    iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                                    iconOpened = R.drawable.ic_chevron_up_24,
+                                    iconClosed = R.drawable.ic_chevron_down_24,
                                 )
                             }
                         }
@@ -152,8 +152,8 @@ internal fun SelectPreview(style: SelectStyle) {
             SelectButton(
                 modifier = Modifier.width(260.dp),
                 label = getButtonValue(SelectItemType.Single, stateManager.selectedItems),
-                iconOpened = com.sdds.icons.R.drawable.ic_chevron_up_24,
-                iconClosed = com.sdds.icons.R.drawable.ic_chevron_down_24,
+                iconOpened = R.drawable.ic_chevron_up_24,
+                iconClosed = R.drawable.ic_chevron_down_24,
             )
         },
         listContent = {

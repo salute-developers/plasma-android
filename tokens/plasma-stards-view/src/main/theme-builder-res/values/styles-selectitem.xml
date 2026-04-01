@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.SelectItem" parent="Sdds.Components.SelectItem">
+        <item name="sd_background">@color/sdkit_select_item_background</item>
+        <item name="sd_iconTint">?sdkit_textDefaultAccent</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_itemType">single</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SelectItem.L">
+        <item name="android:minHeight">@dimen/sdkit_select_item_l_min_height</item>
+        <item name="sd_controlSize">@dimen/sdkit_select_item_l_control_size</item>
+        <item name="sd_controlMargin">@dimen/sdkit_select_item_l_control_margin</item>
+        <item name="android:paddingStart">@dimen/sdkit_select_item_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_select_item_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_select_item_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_select_item_l_padding_bottom</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_cellStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CellSelectL</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectItemL">
+        <item name="sd_selectItemStyle">@style/Sdkit.StarDs.Components.SelectItem.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SelectItem.M">
+        <item name="android:minHeight">@dimen/sdkit_select_item_m_min_height</item>
+        <item name="sd_controlSize">@dimen/sdkit_select_item_m_control_size</item>
+        <item name="sd_controlMargin">@dimen/sdkit_select_item_m_control_margin</item>
+        <item name="android:paddingStart">@dimen/sdkit_select_item_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_select_item_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_select_item_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_select_item_m_padding_bottom</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_cellStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CellSelectM</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectItemM">
+        <item name="sd_selectItemStyle">@style/Sdkit.StarDs.Components.SelectItem.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SelectItem.S">
+        <item name="android:minHeight">@dimen/sdkit_select_item_s_min_height</item>
+        <item name="sd_controlSize">@dimen/sdkit_select_item_s_control_size</item>
+        <item name="sd_controlMargin">@dimen/sdkit_select_item_s_control_margin</item>
+        <item name="android:paddingStart">@dimen/sdkit_select_item_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_select_item_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_select_item_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_select_item_s_padding_bottom</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_cellStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CellSelectS</item>
+        <item name="sd_icon">@drawable/ic_done_24</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectItemS">
+        <item name="sd_selectItemStyle">@style/Sdkit.StarDs.Components.SelectItem.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.SelectItem.Xs">
+        <item name="android:minHeight">@dimen/sdkit_select_item_xs_min_height</item>
+        <item name="sd_controlSize">@dimen/sdkit_select_item_xs_control_size</item>
+        <item name="sd_controlMargin">@dimen/sdkit_select_item_xs_control_margin</item>
+        <item name="android:paddingStart">@dimen/sdkit_select_item_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_select_item_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/sdkit_select_item_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/sdkit_select_item_xs_padding_bottom</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_cellStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.CellSelectXs</item>
+        <item name="sd_icon">@drawable/ic_done_16</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.SelectItemXs">
+        <item name="sd_selectItemStyle">@style/Sdkit.StarDs.Components.SelectItem.Xs</item>
+    </style>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.SelectItemMultipleNormal" parent="Sdds.Components.SelectItem">
+        <item name="sd_background">@color/serv_select_item_multiple_normal_background</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_itemType">multiple</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemMultipleNormal.Xl">
+        <item name="android:minHeight">@dimen/serv_select_item_multiple_normal_xl_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_multiple_normal_xl_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_multiple_normal_xl_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_multiple_normal_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_multiple_normal_xl_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_multiple_normal_xl_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_multiple_normal_xl_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellL</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalXl">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemMultipleNormal.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemMultipleNormal.L">
+        <item name="android:minHeight">@dimen/serv_select_item_multiple_normal_l_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_multiple_normal_l_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_multiple_normal_l_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_multiple_normal_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_multiple_normal_l_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_multiple_normal_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_multiple_normal_l_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellL</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalL">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemMultipleNormal.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemMultipleNormal.M">
+        <item name="android:minHeight">@dimen/serv_select_item_multiple_normal_m_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_multiple_normal_m_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_multiple_normal_m_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_multiple_normal_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_multiple_normal_m_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_multiple_normal_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_multiple_normal_m_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellM</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalM">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemMultipleNormal.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemMultipleNormal.S">
+        <item name="android:minHeight">@dimen/serv_select_item_multiple_normal_s_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_multiple_normal_s_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_multiple_normal_s_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_multiple_normal_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_multiple_normal_s_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_multiple_normal_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_multiple_normal_s_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellS</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxMDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalS">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemMultipleNormal.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.SelectItemMultipleNormal.Xs">
+        <item name="android:minHeight">@dimen/serv_select_item_multiple_normal_xs_min_height</item>
+        <item name="sd_controlSize">@dimen/serv_select_item_multiple_normal_xs_control_size</item>
+        <item name="sd_controlMargin">@dimen/serv_select_item_multiple_normal_xs_control_margin</item>
+        <item name="android:paddingStart">@dimen/serv_select_item_multiple_normal_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_select_item_multiple_normal_xs_padding_end</item>
+        <item name="android:paddingTop">@dimen/serv_select_item_multiple_normal_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_select_item_multiple_normal_xs_padding_bottom</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_cellStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CellXs</item>
+        <item name="sd_checkBoxStyleOverlay">@style/Serv.Sdds.ComponentOverlays.CheckBoxSDefault</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.SelectItemMultipleNormalXs">
+        <item name="sd_selectItemStyle">@style/Serv.Sdds.Components.SelectItemMultipleNormal.Xs</item>
+    </style>
+</resources>

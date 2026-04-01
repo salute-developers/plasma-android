@@ -12,6 +12,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StyleRes
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
@@ -226,6 +227,19 @@ open class CellLayout @JvmOverloads constructor(
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
         resetDisclosure()
         applySelector(this)
+    }
+
+    /**
+     * Контролирует установку параметра forceDuplicateParentState на уровне [CellLayout]
+     */
+    fun setForceDuplicateParentState(forceDuplicate: Boolean) {
+        if (_forceDuplicateParentState != forceDuplicate) {
+            _forceDuplicateParentState = forceDuplicate
+            children.forEach { child ->
+                val childForceDuplicate = (child.layoutParams as? LayoutParams)?.forceDuplicateParentState ?: false
+                child.isDuplicateParentStateEnabled = childForceDuplicate && _forceDuplicateParentState
+            }
+        }
     }
 
     override fun setPressed(pressed: Boolean) {

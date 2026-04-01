@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.select
+package com.sdds.playground.sandbox.select.compose
 
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.window.PopupProperties

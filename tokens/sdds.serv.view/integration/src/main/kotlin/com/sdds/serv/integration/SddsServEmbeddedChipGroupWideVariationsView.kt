@@ -15,6 +15,13 @@ import com.sdds.serv.R as DsR
 internal object SddsServEmbeddedChipGroupWideVariationsView : AndroidViewStyleProvider() {
     override val variations: Map<String, AndroidViewStyleReference> =
         mapOf(
+            "Xl" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXl),
+            "Xl.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXlDefault),
+            "Xl.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXlAccent),
+            "Xl.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXlNegative),
+            "Xl.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXlPositive),
+            "Xl.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXlSecondary),
+            "Xl.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideXlWarning),
             "L" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideL),
             "L.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideLDefault),
             "L.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipGroupWideLAccent),

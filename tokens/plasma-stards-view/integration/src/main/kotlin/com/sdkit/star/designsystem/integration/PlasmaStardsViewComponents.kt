@@ -66,6 +66,7 @@ object PlasmaStardsViewComponents : ComponentProvider() {
                 ComponentKey.Cell,
                 mapOf(
                     "Cell" to PlasmaStardsCellVariationsView,
+                    "CellSelect" to PlasmaStardsCellSelectVariationsView,
                 ),
             ),
             Component(
@@ -109,6 +110,18 @@ object PlasmaStardsViewComponents : ComponentProvider() {
                 ComponentKey.Overlay,
                 mapOf(
                     "OverlayView" to PlasmaStardsOverlayViewVariationsView,
+                ),
+            ),
+            Component(
+                ComponentKey.Select,
+                mapOf(
+                    "Select" to PlasmaStardsSelectVariationsView,
+                ),
+            ),
+            Component(
+                ComponentKey.SelectItem,
+                mapOf(
+                    "SelectItem" to PlasmaStardsSelectItemVariationsView,
                 ),
             ),
             Component(

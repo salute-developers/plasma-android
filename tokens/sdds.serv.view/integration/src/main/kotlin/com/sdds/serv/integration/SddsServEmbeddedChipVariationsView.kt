@@ -15,6 +15,13 @@ import com.sdds.serv.R as DsR
 internal object SddsServEmbeddedChipVariationsView : AndroidViewStyleProvider() {
     override val variations: Map<String, AndroidViewStyleReference> =
         mapOf(
+            "Xl" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXl),
+            "Xl.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXlDefault),
+            "Xl.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXlAccent),
+            "Xl.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXlNegative),
+            "Xl.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXlPositive),
+            "Xl.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXlSecondary),
+            "Xl.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipXlWarning),
             "L" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipL),
             "L.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipLDefault),
             "L.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_EmbeddedChipLAccent),
