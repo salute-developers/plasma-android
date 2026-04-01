@@ -1,6 +1,9 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.IndicatorCommon
 import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.indicator.Accent
 import com.sdds.stylessalute.styles.indicator.Default
@@ -12,9 +15,6 @@ import com.sdds.stylessalute.styles.indicator.Negative
 import com.sdds.stylessalute.styles.indicator.Positive
 import com.sdds.stylessalute.styles.indicator.S
 import com.sdds.stylessalute.styles.indicator.Warning
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.indicator.IndicatorCommon
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

@@ -1,12 +1,12 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CircularProgress
+import com.sdds.compose.uikit.fixtures.testcases.CircularProgressMax
+import com.sdds.compose.uikit.fixtures.testcases.CircularProgressNoTrack
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.progress.CircularProgress
-import com.sdds.testing.compose.progress.CircularProgressMax
-import com.sdds.testing.compose.progress.CircularProgressNoTrack
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.circularprogressbar.Accent
 import com.sdkit.star.designsystem.styles.circularprogressbar.CircularProgressBar
 import com.sdkit.star.designsystem.styles.circularprogressbar.Default

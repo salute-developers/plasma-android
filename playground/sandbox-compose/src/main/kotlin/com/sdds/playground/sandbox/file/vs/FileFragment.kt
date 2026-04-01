@@ -6,11 +6,11 @@ import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.databinding.LayoutComponentFileBinding
-import com.sdds.testing.vs.file.FileUiState
-import com.sdds.testing.vs.file.applyState
-import com.sdds.testing.vs.file.fileLayoutBinding
 import com.sdds.uikit.File
+import com.sdds.uikit.fixtures.databinding.LayoutComponentFileBinding
+import com.sdds.uikit.fixtures.stories.file.FileUiState
+import com.sdds.uikit.fixtures.stories.file.applyState
+import com.sdds.uikit.fixtures.stories.file.fileLayoutBinding
 
 /**
  * Фрагмент с компонентом File

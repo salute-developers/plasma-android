@@ -2,17 +2,21 @@
 title: ButtonGroup
 ---
 
-Контент ButtonGroup формируется с помощью [Button](Button/ButtonUsage.md).
+Контент ButtonGroup формируется с помощью [Button](Button/BasicButtonUsage.md).
 
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/ButtonGroup_Simple.xml -->
 ```
 
-Или с помощью [IconButton](Button/ButtonUsage.md).
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.group.ButtonGroup_Simple -->
+
+Или с помощью [IconButton](Button/BasicButtonUsage.md).
 
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/IconButtonGroup_Simple.xml -->
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.group.IconButtonGroup_Simple -->
 
 ## Стиль ButtonGroup
 

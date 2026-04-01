@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.codefield.CodeFieldUiState
 import com.sdds.uikit.CodeField
+import com.sdds.uikit.fixtures.stories.codefield.CodeFieldUiState
 
 /**
  * ViewModel для экрана с компонентом CodeField

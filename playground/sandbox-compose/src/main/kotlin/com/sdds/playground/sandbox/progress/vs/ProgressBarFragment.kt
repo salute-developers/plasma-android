@@ -4,12 +4,11 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.progress.ProgressUiState
-import com.sdds.testing.vs.progress.applyState
-import com.sdds.testing.vs.progress.progressBar
 import com.sdds.uikit.ProgressBar
+import com.sdds.uikit.fixtures.stories.progress.ProgressUiState
+import com.sdds.uikit.fixtures.stories.progress.applyState
+import com.sdds.uikit.fixtures.stories.progress.progressBar
 
 /**
  * Фрагмент с компонентом ProgressBar

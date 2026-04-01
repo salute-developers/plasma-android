@@ -1,0 +1,20 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package ${{ packageName }}
+
+import com.sdds.sandbox.AndroidViewStyleProvider
+import com.sdds.sandbox.AndroidViewStyleReference
+import com.sdds.sandbox.viewStyleReference
+import ${{ themePackageName }}.R as DsR
+
+internal object ${{ themeName }}${{ styleName }}VariationsView : AndroidViewStyleProvider() {
+    override val variations: Map<String, AndroidViewStyleReference> =
+        mapOf(
+${{ variations }}
+        )
+}

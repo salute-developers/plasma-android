@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.badge.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.badge.BadgeUiState
-import com.sdds.testing.vs.badge.applyState
-import com.sdds.testing.vs.badge.badge
 import com.sdds.uikit.Badge
+import com.sdds.uikit.fixtures.stories.badge.BadgeUiState
+import com.sdds.uikit.fixtures.stories.badge.applyState
+import com.sdds.uikit.fixtures.stories.badge.badge
 
 /**
  * Фрагмент с компонентом Badge

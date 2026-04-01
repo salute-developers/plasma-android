@@ -4,10 +4,10 @@ import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.list.ListUiState
-import com.sdds.testing.vs.list.applyState
-import com.sdds.testing.vs.list.listView
 import com.sdds.uikit.ListView
+import com.sdds.uikit.fixtures.stories.list.ListUiState
+import com.sdds.uikit.fixtures.stories.list.applyState
+import com.sdds.uikit.fixtures.stories.list.listView
 
 internal class ListFragment : ComponentFragment<ListUiState, ListView, ListViewModel>() {
 

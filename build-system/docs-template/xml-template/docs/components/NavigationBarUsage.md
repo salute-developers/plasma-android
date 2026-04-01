@@ -9,6 +9,8 @@ title: NavigationBar
 <!-- @sample: com/sdds/uikit/fixtures/NavigationBar_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.navigationbar.NavigationBar.Simple -->
+
 ## Стиль NavigationBar
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

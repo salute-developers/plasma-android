@@ -1,13 +1,14 @@
 package com.sdds.uikit.fixtures.samples.accordion
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
 import com.sdds.docs.DocSample
-import com.sdds.uikit.fixtures.databinding.SamplesAccordionBinding
+import com.sdds.uikit.fixtures.R
+import com.sdds.uikit.fixtures.stories.accordion.accordion
 
 @DocSample
 fun Accordion_Simple(context: Context): View {
-    val binding = SamplesAccordionBinding.inflate(LayoutInflater.from(context))
-    return binding.accordionSimple
+    return accordion(
+        context,
+    ).apply { id = R.id.accordion }
 }

@@ -59,6 +59,14 @@ while IFS= read -r FILE; do
     fi
   fi
 
+  # integration-core
+  if [[ "$FILE" == integration-core/*/* ]]; then
+    FIRST=$(echo "$FILE" | cut -d '/' -f2)
+    MODULE=":integration-core:$FIRST"
+    MODULES_SET+=("$MODULE")
+    echo "✅ Matched: $MODULE"
+  fi
+
   # tokens/*
   if [[ "$FILE" == tokens/* ]]; then
     INCLUDE_SANDBOX=true
@@ -173,6 +181,33 @@ if [[ ${#IGNORED_MODULES[@]} -gt 0 ]]; then
   done
   UNIQUE_MODULES=$(printf "%s " "${FILTERED_MODULES[@]}")
 fi
+
+# Check which modules actually exist (to handle deleted modules)
+EXISTING_MODULES=()
+NON_EXISTENT_MODULES=()
+for MODULE in $UNIQUE_MODULES; do
+  # Convert Gradle module path to filesystem path
+  # :app -> app
+  # :core:ui -> core/ui
+  FS_PATH="${MODULE#:}"  # Remove leading colon
+  FS_PATH="${FS_PATH//://}"  # Replace colons with slashes
+
+  # Check if module directory exists
+  if [[ -d "$FS_PATH" ]]; then
+    EXISTING_MODULES+=("$MODULE")
+  else
+    NON_EXISTENT_MODULES+=("$MODULE")
+  fi
+done
+
+# Report non-existent modules
+if (( ${#NON_EXISTENT_MODULES[@]} > 0 )); then
+  echo "Warning: The following modules do not exist (they were likely deleted) and will be skipped:" >&2
+  printf '  - %s\n' "${NON_EXISTENT_MODULES[@]}" >&2
+fi
+
+# Replace CLEANED_MODULES with only existing modules
+UNIQUE_MODULES=$(printf "%s " "${EXISTING_MODULES[@]}")
 
 echo "✅ Final module list: $UNIQUE_MODULES"
 

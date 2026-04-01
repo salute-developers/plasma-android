@@ -9,6 +9,8 @@ title: ListItem
 <!-- @sample: com/sdds/uikit/fixtures/ListItemView_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.list.item.ListItem.Simple -->
+
 ## Стиль ListItem
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

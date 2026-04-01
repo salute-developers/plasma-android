@@ -7,6 +7,8 @@ title: LinkButton
 <!-- @sample: com/sdds/uikit/fixtures/LinkButton_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.LinkButton.Simple -->
+
 ## Стиль LinkButton
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
@@ -58,3 +60,5 @@ title: LinkButton
 ```kotlin
 // @sample: com/sdds/uikit/fixtures/samples/button/LinkButton_isLoading.kt
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.button.LinkButton.isLoading -->

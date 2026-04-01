@@ -6,8 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.card.CardOrientation
-import com.sdds.testing.vs.card.CardUiState
+import com.sdds.uikit.fixtures.stories.card.CardOrientation
+import com.sdds.uikit.fixtures.stories.card.CardUiState
 
 /**
  * ViewModel компонента Card

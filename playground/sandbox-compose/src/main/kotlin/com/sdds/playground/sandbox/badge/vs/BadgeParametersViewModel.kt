@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.testing.vs.badge.BadgeUiState
+import com.sdds.uikit.fixtures.stories.badge.BadgeUiState
 
 /**
  * ViewModel для экранов с компонентом Badge и IconBadge

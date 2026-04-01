@@ -5,10 +5,11 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.overlay.OverlayUiState
-import com.sdds.testing.vs.overlay.applyState
-import com.sdds.testing.vs.overlay.overlayWithTrigger
 import com.sdds.uikit.OverlayView
+import com.sdds.uikit.fixtures.R
+import com.sdds.uikit.fixtures.stories.overlay.OverlayUiState
+import com.sdds.uikit.fixtures.stories.overlay.applyState
+import com.sdds.uikit.fixtures.stories.overlay.overlayWithTrigger
 
 internal class OverlayFragment : ComponentFragment<OverlayUiState, View, OverlayViewModel>() {
 
@@ -27,6 +28,6 @@ internal class OverlayFragment : ComponentFragment<OverlayUiState, View, Overlay
     }
 
     override fun onComponentUpdate(component: View?, state: OverlayUiState) {
-        component?.findViewById<OverlayView>(com.sdds.testing.R.id.overlay)?.applyState(state)
+        component?.findViewById<OverlayView>(R.id.overlay)?.applyState(state)
     }
 }

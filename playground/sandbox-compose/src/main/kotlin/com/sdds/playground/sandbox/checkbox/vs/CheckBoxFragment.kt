@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.checkbox.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.checkbox.CheckBoxUiState
-import com.sdds.testing.vs.checkbox.applyState
-import com.sdds.testing.vs.checkbox.checkBox
 import com.sdds.uikit.CheckBox
+import com.sdds.uikit.fixtures.stories.checkbox.CheckBoxUiState
+import com.sdds.uikit.fixtures.stories.checkbox.applyState
+import com.sdds.uikit.fixtures.stories.checkbox.checkBox
 
 /**
  * Фрагмент с компонентом CheckBox

@@ -6,11 +6,11 @@ import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.databinding.LayoutComponentCellBinding
-import com.sdds.testing.vs.cell.CellUiState
-import com.sdds.testing.vs.cell.applyState
-import com.sdds.testing.vs.cell.cellLayoutBinding
 import com.sdds.uikit.CellLayout
+import com.sdds.uikit.fixtures.databinding.LayoutComponentCellBinding
+import com.sdds.uikit.fixtures.stories.cell.CellUiState
+import com.sdds.uikit.fixtures.stories.cell.applyState
+import com.sdds.uikit.fixtures.stories.cell.cellLayoutBinding
 
 /**
  * Фрагмент с компонентом CellLayout

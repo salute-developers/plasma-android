@@ -10,6 +10,10 @@ plugins {
 // Ничего не делаем
 tasks.register("lint")
 
+kotlin {
+    jvmToolchain(17)
+}
+
 dependencies {
     withVersionCatalogs {
         implementation(base.kotlin.stdlib)

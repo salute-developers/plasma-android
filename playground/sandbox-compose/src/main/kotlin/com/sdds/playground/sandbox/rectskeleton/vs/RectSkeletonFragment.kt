@@ -4,9 +4,9 @@ import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.skeleton.RectSkeletonUiState
-import com.sdds.testing.vs.skeleton.rectSkeleton
 import com.sdds.uikit.RectSkeleton
+import com.sdds.uikit.fixtures.stories.skeleton.RectSkeletonUiState
+import com.sdds.uikit.fixtures.stories.skeleton.rectSkeleton
 
 /**
  * Фрагмент с компонентом RectSkeleton

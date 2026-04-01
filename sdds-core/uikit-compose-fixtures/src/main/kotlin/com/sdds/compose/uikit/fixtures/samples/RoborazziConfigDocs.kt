@@ -9,7 +9,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.RoborazziRule
 import com.sdds.compose.docs.ComposableSample
-import com.sdds.docs.ComposableSamples
+import com.sdds.compose.docs.ComposableSamples
 import org.junit.Rule
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description

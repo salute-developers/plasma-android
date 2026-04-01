@@ -6,6 +6,8 @@ title: CheckBox
 <!-- @sample: com/sdds/uikit/fixtures/CheckBox_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.checkbox.CheckBox_Simple -->
+
 ## Стиль CheckBox
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

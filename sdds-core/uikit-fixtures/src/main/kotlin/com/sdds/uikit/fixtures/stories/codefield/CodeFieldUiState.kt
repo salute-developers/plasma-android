@@ -1,0 +1,39 @@
+package com.sdds.uikit.fixtures.stories.codefield
+
+import android.os.Parcelable
+import com.sdds.sandbox.StoryUiState
+import com.sdds.uikit.CodeField
+import com.sdds.uikit.fixtures.UiState
+import kotlinx.parcelize.Parcelize
+
+/**
+ * Состояние компонента CodeField
+ * @property variant стиль варианта компонента
+ * @property errorItem обработка некорректного символа
+ * @property codeLength длина кода
+ * @property hidden скрытие введенных символов
+ * @property caption подпись
+ * @property enabled возможность взаимодействия с компонентом
+ * @property captionAlignment выравнивание подписи
+ * @see CodeField.CaptionAlignment
+ * @property charValidateBehavior сценарий обработки некорректного символа
+ * @property codeValidateBehavior сценарий обработки некорректного кода
+ */
+@Parcelize
+@StoryUiState
+data class CodeFieldUiState(
+    override val variant: String = "",
+    override val appearance: String = "",
+    val errorItem: String = "q",
+    val codeLength: Int = 6,
+    val hidden: Boolean = false,
+    val caption: String = "Caption",
+    val enabled: Boolean = true,
+    val captionAlignment: CodeField.CaptionAlignment = CodeField.CaptionAlignment.Center,
+    val charValidateBehavior: CodeField.CharErrorBehavior = CodeField.CharErrorBehavior.Remove,
+    val codeValidateBehavior: CodeField.CodeErrorBehavior = CodeField.CodeErrorBehavior.Remove,
+) : UiState, Parcelable {
+    override fun updateVariant(appearance: String, variant: String): UiState {
+        return copy(appearance = appearance, variant = variant)
+    }
+}

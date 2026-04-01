@@ -4,12 +4,11 @@ import android.view.ContextThemeWrapper
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.button.ButtonUiState
-import com.sdds.testing.vs.button.applyState
-import com.sdds.testing.vs.button.basicButton
 import com.sdds.uikit.Button
+import com.sdds.uikit.fixtures.stories.button.ButtonUiState
+import com.sdds.uikit.fixtures.stories.button.applyState
+import com.sdds.uikit.fixtures.stories.button.basicButton
 
 /**
  * Фрагмент с компонентом BasicButton

@@ -1,6 +1,11 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CircularProgress
+import com.sdds.compose.uikit.fixtures.testcases.CircularProgressMax
+import com.sdds.compose.uikit.fixtures.testcases.CircularProgressNoTrack
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.circularprogressbar.Accent
 import com.sdds.serv.styles.circularprogressbar.CircularProgressBar
@@ -18,11 +23,6 @@ import com.sdds.serv.styles.circularprogressbar.Xl
 import com.sdds.serv.styles.circularprogressbar.Xs
 import com.sdds.serv.styles.circularprogressbar.Xxl
 import com.sdds.serv.styles.circularprogressbar.Xxs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.progress.CircularProgress
-import com.sdds.testing.compose.progress.CircularProgressMax
-import com.sdds.testing.compose.progress.CircularProgressNoTrack
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

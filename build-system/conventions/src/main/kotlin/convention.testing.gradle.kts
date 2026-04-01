@@ -21,6 +21,5 @@ withVersionCatalogs {
         add("testImplementation", test.roborazzi)
         add("testImplementation", test.roborazzi.rule)
         add("testImplementation", base.test.unit.robolectric)
-        add("testImplementation", "sdds-core:testing")
     }
 }

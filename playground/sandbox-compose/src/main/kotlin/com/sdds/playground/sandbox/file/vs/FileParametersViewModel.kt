@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.file.ActionPlacement
-import com.sdds.testing.vs.file.FileContentType
-import com.sdds.testing.vs.file.FileUiState
+import com.sdds.uikit.fixtures.stories.file.ActionPlacement
+import com.sdds.uikit.fixtures.stories.file.FileContentType
+import com.sdds.uikit.fixtures.stories.file.FileUiState
 
 /**
  * ViewModel для экранов с компонентом File

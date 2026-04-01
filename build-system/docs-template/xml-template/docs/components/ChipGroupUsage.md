@@ -8,6 +8,8 @@ title: ChipGroup
 <!-- @sample: com/sdds/uikit/fixtures/ChipGroup_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.chip.group.ChipGroup.Simple -->
+
 ## Стиль ChipGroup
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

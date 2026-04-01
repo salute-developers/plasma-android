@@ -23,6 +23,8 @@ Keep - некорректный код/символ сохраняется в п
 <!-- @sample: com/sdds/uikit/fixtures/CodeInput_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.codeinput.CodeInput.Simple -->
+
 ## Стиль CodeInput
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

@@ -1,0 +1,85 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdds.serv.integration
+
+import com.sdds.sandbox.AndroidViewStyleProvider
+import com.sdds.sandbox.AndroidViewStyleReference
+import com.sdds.sandbox.viewStyleReference
+import com.sdds.serv.R as DsR
+
+internal object SddsServBasicButtonVariationsView : AndroidViewStyleProvider() {
+    override val variations: Map<String, AndroidViewStyleReference> =
+        mapOf(
+            "Xl" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXl),
+            "Xl.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlDefault),
+            "Xl.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlSecondary),
+            "Xl.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlAccent),
+            "Xl.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlPositive),
+            "Xl.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlNegative),
+            "Xl.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlWarning),
+            "Xl.Clear" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlClear),
+            "Xl.Dark" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlDark),
+            "Xl.Black" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlBlack),
+            "Xl.White" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXlWhite),
+            "L" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonL),
+            "L.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLDefault),
+            "L.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLSecondary),
+            "L.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLAccent),
+            "L.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLPositive),
+            "L.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLNegative),
+            "L.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLWarning),
+            "L.Clear" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLClear),
+            "L.Dark" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLDark),
+            "L.Black" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLBlack),
+            "L.White" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonLWhite),
+            "M" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonM),
+            "M.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMDefault),
+            "M.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMSecondary),
+            "M.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMAccent),
+            "M.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMPositive),
+            "M.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMNegative),
+            "M.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMWarning),
+            "M.Clear" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMClear),
+            "M.Dark" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMDark),
+            "M.Black" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMBlack),
+            "M.White" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonMWhite),
+            "S" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonS),
+            "S.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSDefault),
+            "S.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSSecondary),
+            "S.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSAccent),
+            "S.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSPositive),
+            "S.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSNegative),
+            "S.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSWarning),
+            "S.Clear" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSClear),
+            "S.Dark" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSDark),
+            "S.Black" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSBlack),
+            "S.White" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonSWhite),
+            "Xs" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXs),
+            "Xs.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsDefault),
+            "Xs.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsSecondary),
+            "Xs.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsAccent),
+            "Xs.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsPositive),
+            "Xs.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsNegative),
+            "Xs.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsWarning),
+            "Xs.Clear" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsClear),
+            "Xs.Dark" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsDark),
+            "Xs.Black" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsBlack),
+            "Xs.White" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXsWhite),
+            "Xxs" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxs),
+            "Xxs.Default" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsDefault),
+            "Xxs.Secondary" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsSecondary),
+            "Xxs.Accent" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsAccent),
+            "Xxs.Positive" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsPositive),
+            "Xxs.Negative" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsNegative),
+            "Xxs.Warning" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsWarning),
+            "Xxs.Clear" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsClear),
+            "Xxs.Dark" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsDark),
+            "Xxs.Black" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsBlack),
+            "Xxs.White" to viewStyleReference(DsR.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsWhite),
+        )
+}

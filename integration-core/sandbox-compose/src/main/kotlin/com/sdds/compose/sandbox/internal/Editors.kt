@@ -1,0 +1,339 @@
+package com.sdds.compose.sandbox.internal
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusGroup
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.basicButtonBuilder
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.selection
+import com.sdds.sandbox.Property
+
+internal val LocalPropertyEditorStyle = compositionLocalOf { PropertyEditorStyle.create() }
+
+@Immutable
+internal interface PropertyEditorStyle {
+
+    val shape: Shape
+    val labelTextStyle: TextStyle
+    val labelTextColor: Color
+    val editorItemBackground: InteractiveColor
+    val editorItemShape: Shape
+    val editorItemPadding: Dp
+    val editorItemHeight: Dp
+    val editorItemTextStyle: TextStyle
+    val editorItemTextColor: InteractiveColor
+    val choiceEditorTextColor: Color
+    val backgroundColor: Color
+    val spacing: Dp
+
+    val headerHeight: Dp
+    val confirmButtonStyle: ButtonStyle
+    val textEditorStyle: TextFieldStyle
+
+    companion object {
+
+        fun create(
+            shape: Shape = RectangleShape,
+            labelTextStyle: TextStyle = TextStyle.Default,
+            labelTextColor: Color = Color.Black,
+            editorItemBackground: InteractiveColor = Color.LightGray.asInteractive(),
+            spacing: Dp = 16.dp,
+            confirmButtonStyle: ButtonStyle = ButtonStyle.basicButtonBuilder().style(),
+            textEditorStyle: TextFieldStyle = TextFieldStyle.builder().style(),
+            backgroundColor: Color = Color.Transparent,
+            editorItemShape: Shape = RoundedCornerShape(6.dp),
+            editorItemTextStyle: TextStyle = TextStyle.Default,
+            editorItemTextColor: InteractiveColor = Color.Black.asInteractive(),
+            headerHeight: Dp = 54.dp,
+            editorItemPadding: Dp = 6.dp,
+            editorItemHeight: Dp = 6.dp,
+            choiceEditorTextColor: Color = Color.Black,
+        ): PropertyEditorStyle =
+            PropertyEditorStyleImpl(
+                shape = shape,
+                labelTextStyle = labelTextStyle,
+                labelTextColor = labelTextColor,
+                editorItemBackground = editorItemBackground,
+                spacing = spacing,
+                confirmButtonStyle = confirmButtonStyle,
+                textEditorStyle = textEditorStyle,
+                backgroundColor = backgroundColor,
+                editorItemShape = editorItemShape,
+                editorItemTextStyle = editorItemTextStyle,
+                editorItemTextColor = editorItemTextColor,
+                editorItemHeight = editorItemHeight,
+                headerHeight = headerHeight,
+                editorItemPadding = editorItemPadding,
+                choiceEditorTextColor = choiceEditorTextColor,
+            )
+    }
+}
+
+/**
+ * Редактор свойств.
+ * Изменяет свое содержимое согласно подтипу [Property].
+ * @param property редактируемое свойство
+ * @param onConfirm колбэк завершения редактирования
+ * @param modifier модификатор
+ */
+@Composable
+internal fun PropertyEditor(
+    property: Property<*>?,
+    onConfirm: (String, String) -> Unit,
+    headerTitle: String,
+    modifier: Modifier = Modifier,
+    style: PropertyEditorStyle = LocalPropertyEditorStyle.current,
+) {
+    Column(
+        modifier = Modifier
+            .clip(style.shape)
+            .background(style.backgroundColor)
+            .then(modifier)
+            .padding(start = 4.dp, end = 4.dp, bottom = 24.dp),
+    ) {
+        EditorHeader(
+            title = headerTitle,
+            style = style,
+        )
+
+        when (property) {
+            is Property.SingleChoiceProperty -> ChoiceEditor(
+                onConfirm = { onConfirm(property.name, it) },
+                choices = property.variants,
+                currentValue = property.value,
+                style = style,
+                propertyName = property.name,
+            )
+
+            is Property.IntProperty, is Property.FloatProperty -> TextPropertyEditor(
+                onConfirm = { onConfirm(property.name, it) },
+                propertyName = property.name,
+                currentValue = property.value.toString(),
+                style = style,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal, imeAction = ImeAction.Done),
+            )
+
+            is Property.StringProperty -> TextPropertyEditor(
+                onConfirm = { onConfirm(property.name, it) },
+                propertyName = property.name,
+                currentValue = property.value,
+                style = style,
+            )
+
+            else -> Unit
+        }
+    }
+}
+
+@Composable
+private fun TextPropertyEditor(
+    onConfirm: (String) -> Unit,
+    propertyName: String,
+    currentValue: String,
+    style: PropertyEditorStyle,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default.copy(
+        keyboardType = KeyboardType.Text,
+        imeAction = ImeAction.Done,
+    ),
+) {
+    var textFieldValue by remember { mutableStateOf(currentValue) }
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusRequester = remember { FocusRequester() }
+
+    TextField(
+        style = style.textEditorStyle,
+        labelText = propertyName,
+        value = textFieldValue,
+        modifier = Modifier
+            .fillMaxWidth()
+            .focusRequester(focusRequester),
+        keyboardOptions = keyboardOptions,
+        keyboardActions = KeyboardActions(
+            onDone = {
+                onConfirm(textFieldValue)
+                keyboardController?.hide()
+            },
+        ),
+        onValueChange = { textFieldValue = it },
+        placeholderText = "",
+        focusSelectorSettings = FocusSelectorSettings.None,
+    )
+    Spacer(modifier = Modifier.height(style.spacing))
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+        keyboardController?.show()
+    }
+}
+
+@Composable
+private fun <T> ChoiceEditor(
+    onConfirm: (T) -> Unit,
+    propertyName: String,
+    currentValue: T,
+    choices: List<T>,
+    style: PropertyEditorStyle,
+) {
+    var selected by remember { mutableStateOf(currentValue) }
+    val selectedIndex = choices.indexOf(selected).coerceAtLeast(0)
+    val focusRequester = remember { List(choices.size) { FocusRequester() } }
+    val listState = rememberLazyListState()
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .focusGroup(),
+        verticalArrangement = Arrangement.spacedBy(style.spacing),
+    ) {
+        ChoiceEditorHeader(
+            modifier = Modifier
+                .onFocusChanged {
+                    if (it.isFocused) focusRequester[selectedIndex].requestFocus()
+                }
+                .focusable(),
+            propertyName = propertyName,
+            style = style,
+        )
+
+        LazyColumn(
+            state = listState,
+            verticalArrangement = Arrangement.spacedBy(style.editorItemPadding),
+        ) {
+            items(choices.size) {
+                val interactionSource = remember { MutableInteractionSource() }
+                val background = style.editorItemBackground.colorForInteraction(interactionSource)
+                val choice = choices[it]
+                val isSelected = choice == selected
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(style.editorItemHeight)
+                        .focusRequester(focusRequester[it])
+                        .selection(isSelected, interactionSource)
+                        .background(color = background, shape = style.editorItemShape)
+                        .clickable(
+                            onClick = {
+                                selected = choice
+                                onConfirm(choice)
+                            },
+                            indication = null,
+                            interactionSource = interactionSource,
+                        )
+                        .padding(horizontal = style.editorItemPadding),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = choice.toString(),
+                        style = style.editorItemTextStyle
+                            .copy(style.editorItemTextColor.colorForInteraction(interactionSource)),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ChoiceEditorHeader(
+    propertyName: String,
+    style: PropertyEditorStyle,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        modifier = modifier.padding(horizontal = style.editorItemPadding),
+        text = propertyName,
+        style = style.editorItemTextStyle.copy(style.choiceEditorTextColor),
+    )
+}
+
+@Composable
+private fun EditorHeader(
+    title: String,
+    style: PropertyEditorStyle,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(style.headerHeight)
+            .padding(style.editorItemPadding),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(
+            Modifier
+                .weight(1f)
+                .wrapContentWidth(Alignment.Start),
+        ) {
+            Text(
+                text = title.substringBefore(","),
+                style = style.labelTextStyle.copy(style.choiceEditorTextColor),
+            )
+            Text(
+                text = title.substringAfter(","),
+                style = style.labelTextStyle.copy(style.labelTextColor),
+            )
+        }
+    }
+}
+
+@Immutable
+private data class PropertyEditorStyleImpl(
+    override val shape: Shape,
+    override val labelTextStyle: TextStyle,
+    override val labelTextColor: Color,
+    override val spacing: Dp,
+    override val confirmButtonStyle: ButtonStyle,
+    override val editorItemBackground: InteractiveColor,
+    override val textEditorStyle: TextFieldStyle,
+    override val backgroundColor: Color,
+    override val editorItemShape: Shape,
+    override val editorItemTextStyle: TextStyle,
+    override val editorItemTextColor: InteractiveColor,
+    override val headerHeight: Dp,
+    override val editorItemPadding: Dp,
+    override val choiceEditorTextColor: Color,
+    override val editorItemHeight: Dp,
+) : PropertyEditorStyle

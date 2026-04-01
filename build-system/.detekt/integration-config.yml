@@ -1,0 +1,11 @@
+style:
+  MaxLineLength:
+    active: false
+comments:
+  active: true
+  UndocumentedPublicClass:
+    active: false
+  UndocumentedPublicFunction:
+    active: false
+  UndocumentedPublicProperty:
+    active: false

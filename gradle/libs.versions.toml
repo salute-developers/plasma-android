@@ -41,6 +41,7 @@ test-assertk = "0.28.1"
 kotlinSerialization = "1.4.0"
 kotlinKsp = "1.9.25-1.0.20"
 kotlinPoet = "1.12.0"
+kotlinCoroutines = "1.6.1"
 glide = "4.16.0"
 
 koilVersion-compose = "2.2.0"
@@ -93,7 +94,9 @@ base-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.
 base-kotlin-ksp = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "kotlinKsp" }
 base-kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 base-kotlin-poet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinPoet"}
+base-kotlin-poetKsp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlinPoet"}
 base-kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "global-kotlin"}
+base-kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines"}
 
 base-staticAnalysis-ktlint = { module = "com.pinterest:ktlint", version.ref = "staticAnalysis-ktlint" }
 base-staticAnalysis-detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "staticAnalysis-detekt" }

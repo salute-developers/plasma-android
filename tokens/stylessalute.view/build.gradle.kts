@@ -40,6 +40,7 @@ themeBuilder {
 }
 
 dependencies {
+    testImplementation("sdds-core:uikit-fixtures")
     implementation(icons.sdds.icons)
     implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)

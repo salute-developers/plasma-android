@@ -7,9 +7,9 @@ import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.button.ButtonIcon
-import com.sdds.testing.vs.button.ButtonUiState
 import com.sdds.uikit.Button
+import com.sdds.uikit.fixtures.stories.button.ButtonIcon
+import com.sdds.uikit.fixtures.stories.button.ButtonUiState
 
 /**
  * ViewModel для экранов с компонентом BasicButton и IconButton

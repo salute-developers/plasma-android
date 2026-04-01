@@ -1,6 +1,11 @@
 package com.sdds.plasma.giga
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.CounterCommon
+import com.sdds.compose.uikit.fixtures.testcases.CounterSizeLWhite
+import com.sdds.compose.uikit.fixtures.testcases.CounterSizeSPositiveLongNumber
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.counter.Accent
 import com.sdds.plasma.giga.styles.counter.Counter
@@ -14,11 +19,6 @@ import com.sdds.plasma.giga.styles.counter.Warning
 import com.sdds.plasma.giga.styles.counter.White
 import com.sdds.plasma.giga.styles.counter.Xs
 import com.sdds.plasma.giga.styles.counter.Xxs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.counter.CounterCommon
-import com.sdds.testing.compose.counter.CounterSizeLWhite
-import com.sdds.testing.compose.counter.CounterSizeSPositiveLongNumber
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

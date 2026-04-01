@@ -4,10 +4,10 @@ import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.loader.LoaderUiState
-import com.sdds.testing.vs.loader.applyState
-import com.sdds.testing.vs.loader.loader
 import com.sdds.uikit.Loader
+import com.sdds.uikit.fixtures.stories.loader.LoaderUiState
+import com.sdds.uikit.fixtures.stories.loader.applyState
+import com.sdds.uikit.fixtures.stories.loader.loader
 
 internal class LoaderFragment : ComponentFragment<LoaderUiState, Loader, LoaderViewModel>() {
 

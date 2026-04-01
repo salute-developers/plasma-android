@@ -6,6 +6,8 @@ title: TextField
 <!-- @sample: com/sdds/uikit/fixtures/TextField_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.textfield.TextField.Simple -->
+
 ## Стиль TextField
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  
@@ -84,6 +86,8 @@ title: TextField
 ```xml
 <!-- @sample: com/sdds/uikit/fixtures/TextArea_Simple.xml -->
 ```
+
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.textarea.TextArea.Simple -->
 
 ## TextField readOnly
 

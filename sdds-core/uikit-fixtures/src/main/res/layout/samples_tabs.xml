@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:sd_tabIndicatorColor="#FF0000"
         app:sd_tabIndicatorThickness="2dp"
         app:sd_tabsMinSpacing="8dp"
         app:sd_dividerEnabled="true"

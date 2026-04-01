@@ -6,9 +6,9 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.wheel.WheelControlsDisplayMode
-import com.sdds.testing.vs.wheel.WheelSeparatorType
-import com.sdds.testing.vs.wheel.WheelUiState
+import com.sdds.uikit.fixtures.stories.wheel.WheelControlsDisplayMode
+import com.sdds.uikit.fixtures.stories.wheel.WheelSeparatorType
+import com.sdds.uikit.fixtures.stories.wheel.WheelUiState
 
 internal class WheelViewModel(
     defaultState: WheelUiState,

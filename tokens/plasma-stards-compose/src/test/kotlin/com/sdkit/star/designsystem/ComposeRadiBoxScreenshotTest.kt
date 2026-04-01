@@ -1,17 +1,17 @@
 package com.sdkit.star.designsystem
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxDisabled
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxGroupSizeM
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxGroupSizeMDescription
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxGroupSizeS
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxGroupSizeSLabel
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxSizeM
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxSizeMNoDescription
+import com.sdds.compose.uikit.fixtures.testcases.RadioBoxSizeS
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.radiobox.RadioBoxDisabled
-import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeM
-import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeMDescription
-import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeS
-import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeSLabel
-import com.sdds.testing.compose.radiobox.RadioBoxSizeM
-import com.sdds.testing.compose.radiobox.RadioBoxSizeMNoDescription
-import com.sdds.testing.compose.radiobox.RadioBoxSizeS
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.radiobox.M
 import com.sdkit.star.designsystem.styles.radiobox.RadioBox
 import com.sdkit.star.designsystem.styles.radiobox.S

@@ -6,6 +6,8 @@ title: Switch
 <!-- @sample: com/sdds/uikit/fixtures/Switch_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.switcher.Switch.Simple -->
+
 ## Стиль Switch
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

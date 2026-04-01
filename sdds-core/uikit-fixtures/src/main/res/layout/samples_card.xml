@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- sample-start: id=Card_Simple -->
     <com.sdds.uikit.Card
@@ -16,25 +16,81 @@
         app:sd_crossAxisGap="20dp"
         app:sd_itemsPerLine="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello" />
-
-        <com.sdds.uikit.Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Label"
-            app:sd_value="Value" />
-
         <com.sdds.uikit.CardContent
             android:layout_width="wrap_content"
+            android:background="@android:color/darker_gray"
             android:layout_height="wrap_content">
 
-            <DatePicker
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Заголовок"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:contentDescription="icon"
+                        android:src="@drawable/ic_bulb_diode_fill_36" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Подзаголовок"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_power_16" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_reset_outline_16" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_settings_outline_16" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </com.sdds.uikit.CardContent>
+
     </com.sdds.uikit.Card>
     <!-- sample-end: id=Card_Simple -->
 

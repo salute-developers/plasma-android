@@ -7,10 +7,10 @@ import android.widget.FrameLayout
 import androidx.core.view.setMargins
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.navigationdrawer.NavigationDrawerUiState
-import com.sdds.testing.vs.navigationdrawer.applyState
-import com.sdds.testing.vs.navigationdrawer.navigationDrawer
 import com.sdds.uikit.NavigationDrawer
+import com.sdds.uikit.fixtures.stories.navigationdrawer.NavigationDrawerUiState
+import com.sdds.uikit.fixtures.stories.navigationdrawer.applyState
+import com.sdds.uikit.fixtures.stories.navigationdrawer.navigationDrawer
 
 internal class NavigationDrawerFragment :
     ComponentFragment<NavigationDrawerUiState, NavigationDrawer, NavigationDrawerViewModel>() {

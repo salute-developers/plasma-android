@@ -1,8 +1,8 @@
 plugins {
     id("convention.android-lib")
-    id("convention.testing")
     id("convention.maven-publish")
     id("convention.core-fixtures")
+    id("kotlin-parcelize")
     alias(libs.plugins.ksp)
 }
 
@@ -20,15 +20,32 @@ android {
     }
 }
 
+ksp {
+    arg("packageName", "com.sdds.docs")
+    arg("sandbox.packageName", "com.sdds.uikit.fixtures.stories")
+}
+
 dependencies {
     implementation(project(":uikit"))
-    implementation(project(":testing"))
+    implementation(project(":uikit-compose"))
     implementation(project(":icons"))
     implementation(project(":docs"))
     implementation(project(":docs-views"))
     ksp(project(":docs-ksp"))
+    implementation("integration-core:sandbox-core")
+    implementation("integration-core:sandbox-compose")
+    implementation("integration-core:sandbox-view")
+    ksp("integration-core:sandbox-ksp")
 
+    implementation(libs.base.glide)
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.recyclerView)
     implementation(libs.base.androidX.core)
+    implementation(libs.base.androidX.constraintLayout)
+    implementation(libs.base.android.material)
+    implementation(libs.base.test.unit.jUnit)
+    implementation(libs.test.roborazzi)
+    implementation(libs.test.roborazzi.rule)
+    implementation(libs.base.test.unit.robolectric)
+    implementation(libs.base.androidX.compose.foundation)
 }

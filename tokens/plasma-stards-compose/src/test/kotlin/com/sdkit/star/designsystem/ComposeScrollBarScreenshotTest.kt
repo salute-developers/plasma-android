@@ -4,11 +4,11 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performTouchInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ScrollBarM
+import com.sdds.compose.uikit.fixtures.testcases.ScrollBarS
 import com.sdds.compose.uikit.style.style
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.scrollbar.ScrollBarM
-import com.sdds.testing.compose.scrollbar.ScrollBarS
-import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.scrollbar.M
 import com.sdkit.star.designsystem.styles.scrollbar.S
 import com.sdkit.star.designsystem.styles.scrollbar.ScrollBar

@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.tabs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.tabs.TabsUiState
-import com.sdds.testing.vs.tabs.applyState
-import com.sdds.testing.vs.tabs.tabs
 import com.sdds.uikit.Tabs
+import com.sdds.uikit.fixtures.stories.tabs.TabsUiState
+import com.sdds.uikit.fixtures.stories.tabs.applyState
+import com.sdds.uikit.fixtures.stories.tabs.tabs
 
 internal class TabsFragment : ComponentFragment<TabsUiState, Tabs, TabsViewModel>() {
 

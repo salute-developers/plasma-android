@@ -4,9 +4,9 @@ import android.view.ContextThemeWrapper
 import android.widget.FrameLayout
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.image.ImageUiState
-import com.sdds.testing.vs.image.image
 import com.sdds.uikit.ImageView
+import com.sdds.uikit.fixtures.stories.image.ImageUiState
+import com.sdds.uikit.fixtures.stories.image.image
 
 /**
  * Фрагмент с компонентом ImageView

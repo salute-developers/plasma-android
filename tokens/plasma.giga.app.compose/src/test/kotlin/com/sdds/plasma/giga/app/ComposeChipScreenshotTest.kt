@@ -1,6 +1,17 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ChipDisabled
+import com.sdds.compose.uikit.fixtures.testcases.ChipGroupSizeLDense
+import com.sdds.compose.uikit.fixtures.testcases.ChipGroupSizeMSecondaryWideWrapped
+import com.sdds.compose.uikit.fixtures.testcases.ChipGroupSizeSAccentDense
+import com.sdds.compose.uikit.fixtures.testcases.ChipGroupSizeXsDefault
+import com.sdds.compose.uikit.fixtures.testcases.ChipSizeLDefault
+import com.sdds.compose.uikit.fixtures.testcases.ChipSizeMSecondaryPilled
+import com.sdds.compose.uikit.fixtures.testcases.ChipSizeSAccent
+import com.sdds.compose.uikit.fixtures.testcases.ChipSizeXSContentLeft
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.chip.Accent
 import com.sdds.plasma.giga.app.styles.chip.Chip
@@ -20,17 +31,6 @@ import com.sdds.plasma.giga.app.styles.chipgroup.M
 import com.sdds.plasma.giga.app.styles.chipgroup.S
 import com.sdds.plasma.giga.app.styles.chipgroup.Secondary
 import com.sdds.plasma.giga.app.styles.chipgroup.Xs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.chip.ChipDisabled
-import com.sdds.testing.compose.chip.ChipGroupSizeLDense
-import com.sdds.testing.compose.chip.ChipGroupSizeMSecondaryWideWrapped
-import com.sdds.testing.compose.chip.ChipGroupSizeSAccentDense
-import com.sdds.testing.compose.chip.ChipGroupSizeXsDefault
-import com.sdds.testing.compose.chip.ChipSizeLDefault
-import com.sdds.testing.compose.chip.ChipSizeMSecondaryPilled
-import com.sdds.testing.compose.chip.ChipSizeSAccent
-import com.sdds.testing.compose.chip.ChipSizeXSContentLeft
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

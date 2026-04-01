@@ -1,6 +1,11 @@
 package com.sdds.plasma.giga
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
+import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ListAmountThreeHasDisclosure
+import com.sdds.compose.uikit.fixtures.testcases.ListAmountThreeNoDisclosure
+import com.sdds.compose.uikit.fixtures.testcases.ListAmountTwenty
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.styles.list.L
 import com.sdds.plasma.giga.styles.list.ListNormal
@@ -9,11 +14,6 @@ import com.sdds.plasma.giga.styles.list.M
 import com.sdds.plasma.giga.styles.list.S
 import com.sdds.plasma.giga.styles.list.Xl
 import com.sdds.plasma.giga.styles.list.Xs
-import com.sdds.testing.compose.RoborazziConfigCompose
-import com.sdds.testing.compose.list.ListAmountThreeHasDisclosure
-import com.sdds.testing.compose.list.ListAmountThreeNoDisclosure
-import com.sdds.testing.compose.list.ListAmountTwenty
-import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner

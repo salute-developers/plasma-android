@@ -6,11 +6,11 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
-import com.sdds.testing.vs.popover.PopoverAlignment
-import com.sdds.testing.vs.popover.PopoverPlacement
-import com.sdds.testing.vs.popover.PopoverPlacementMode
-import com.sdds.testing.vs.popover.PopoverTriggerAlignment
-import com.sdds.testing.vs.tooltip.TooltipUiState
+import com.sdds.uikit.fixtures.stories.popover.PopoverAlignment
+import com.sdds.uikit.fixtures.stories.popover.PopoverPlacement
+import com.sdds.uikit.fixtures.stories.popover.PopoverPlacementMode
+import com.sdds.uikit.fixtures.stories.popover.PopoverTriggerAlignment
+import com.sdds.uikit.fixtures.stories.tooltip.TooltipUiState
 
 /**
  * ViewModel компонента Tooltip

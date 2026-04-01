@@ -6,6 +6,8 @@ title: Indicator
 <!-- @sample: com/sdds/uikit/fixtures/Indicator_Simple.xml -->
 ```
 
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.indicator.Indicator.Simple -->
+
 ## Стиль Indicator
 
 Существует набор сгенерированных стилей. Так же можно настроить стиль самостоятельно.  

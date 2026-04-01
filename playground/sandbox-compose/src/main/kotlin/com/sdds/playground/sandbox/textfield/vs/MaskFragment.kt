@@ -3,10 +3,10 @@ package com.sdds.playground.sandbox.textfield.vs
 import android.view.ContextThemeWrapper
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.testing.vs.mask.MaskUiState
-import com.sdds.testing.vs.mask.applyState
-import com.sdds.testing.vs.mask.maskedTextField
 import com.sdds.uikit.TextField
+import com.sdds.uikit.fixtures.stories.mask.MaskUiState
+import com.sdds.uikit.fixtures.stories.mask.applyState
+import com.sdds.uikit.fixtures.stories.mask.maskedTextField
 
 /**
  * Фрагмент с масками в TextField
