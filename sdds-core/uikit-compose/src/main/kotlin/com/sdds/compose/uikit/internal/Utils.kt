@@ -68,7 +68,3 @@ private val DummyInteractionSource = object : MutableInteractionSource {
 
 internal fun Modifier.clickableWithoutIndication(onClick: () -> Unit): Modifier =
     this.clickable(indication = null, interactionSource = DummyInteractionSource) { onClick.invoke() }
-
-internal fun testChange() {
-    println("test change")
-}
