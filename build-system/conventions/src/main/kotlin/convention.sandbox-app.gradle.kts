@@ -80,7 +80,7 @@ android {
     buildTypes {
         release {
             if (System.getenv("KEY_STORE_FILE") != null) {
-                productFlavors.getByName("app").signingConfig = signingConfigs.getByName("appRelease")
+                signingConfig = signingConfigs.getByName("release")
             }
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
