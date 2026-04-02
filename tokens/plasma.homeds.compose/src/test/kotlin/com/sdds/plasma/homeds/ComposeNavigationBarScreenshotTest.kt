@@ -7,6 +7,7 @@ import com.sdds.compose.uikit.fixtures.testcases.NavigationBarContentBottomStart
 import com.sdds.compose.uikit.fixtures.testcases.NavigationBarInlineRelative
 import com.sdds.compose.uikit.fixtures.testcases.NavigationBarLongTextBottomStartInline
 import com.sdds.compose.uikit.fixtures.testcases.NavigationBarLongTextContentInlineCenterBottom
+import com.sdds.compose.uikit.fixtures.testcases.NavigationBarLongTitleDescription
 import com.sdds.compose.uikit.fixtures.testcases.NavigationBarTextContentBottomCenterBottom
 import com.sdds.compose.uikit.fixtures.testcases.NavigationBarTextContentInlineCenter
 import com.sdds.compose.uikit.fixtures.testcases.NavigationBarTextHasActionEndInlineEndBottom
@@ -73,6 +74,13 @@ class ComposeNavigationBarScreenshotTest(
     fun testNavigationBarInlineRelative() {
         composeTestRule.content {
             NavigationBarInlineRelative(NavigationBarMainPage.Default.style())
+        }
+    }
+
+    @Test
+    fun testNavigationBarLongTitleDescription() {
+        composeTestRule.content {
+            NavigationBarLongTitleDescription(NavigationBarInternalPage.Default.style())
         }
     }
 }

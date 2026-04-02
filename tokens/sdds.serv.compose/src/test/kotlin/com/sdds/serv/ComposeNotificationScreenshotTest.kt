@@ -2,6 +2,8 @@ package com.sdds.serv
 
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipeLeft
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
@@ -163,5 +165,20 @@ class ComposeNotificationScreenshotTest(
         composeTestRule.onNodeWithText("Show").performClick()
         composeTestRule.waitForIdle()
         captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testNotificationCompactSwipeToClose() {
+        composeTestRule.content {
+            NotificationCompactLTopStartHasCloseText(
+                NotificationCompact.L.style(),
+                BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText("Notification").performTouchInput { swipeLeft() }
+        composeTestRule.waitForIdle()
     }
 }

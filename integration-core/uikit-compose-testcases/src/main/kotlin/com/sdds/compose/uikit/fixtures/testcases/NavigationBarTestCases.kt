@@ -191,6 +191,29 @@ fun NavigationBarInlineRelative(style: NavigationBarStyle) {
     )
 }
 
+/**
+ * PLASMA-T2471
+ */
+@Composable
+fun NavigationBarLongTitleDescription(style: NavigationBarStyle) {
+    NavigationBar(
+        style = style,
+        textPlacement = NavigationBarTextPlacement.Inline,
+        textAlign = NavigationBarTextAlign.Center,
+        contentPlacement = NavigationBarContentPlacement.Bottom,
+        titleContent = { Text(text = LONG_TEXT) },
+        descriptionContent = { Text(text = LONG_CONTENT) },
+        content = { Text(text = "Content") },
+        centerAlignmentStrategy = NavBarCenterAlignmentStrategy.Absolute,
+        actionStart = {
+            Icon(
+                painter = painterResource(R.drawable.ic_search_24),
+                contentDescription = "",
+            )
+        },
+    )
+}
+
 private const val LONG_TEXT =
     "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 

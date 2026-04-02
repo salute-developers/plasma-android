@@ -2,11 +2,14 @@ package com.sdds.plasma.homeds
 
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipeLeft
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.ToastMultiLine
 import com.sdds.compose.uikit.fixtures.testcases.ToastPilledDefaultCenterStart
 import com.sdds.compose.uikit.fixtures.testcases.ToastPilledNegativeCenterHasContentStartEnd
 import com.sdds.compose.uikit.fixtures.testcases.ToastPilledPositiveCenterEndHasContentStartEnd
@@ -161,5 +164,34 @@ class ComposeToastScreenshotTest(
         composeTestRule.onNodeWithText("Show").performClick()
         composeTestRule.waitForIdle()
         captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testToastMultiLine() {
+        composeTestRule.content {
+            ToastMultiLine(
+                style = Toast.Default.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testToastSwipeToClose() {
+        composeTestRule.content {
+            ToastPilledNegativeCenterHasContentStartEnd(
+                style = Toast.Negative.style(),
+                buttonStyle = BasicButton.M.Default.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        composeTestRule.onNodeWithText("Toast Text").performTouchInput { swipeLeft() }
+        composeTestRule.waitForIdle()
     }
 }
