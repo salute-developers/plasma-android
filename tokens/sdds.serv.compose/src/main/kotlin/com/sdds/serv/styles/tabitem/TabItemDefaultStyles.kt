@@ -12,8 +12,10 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.TabItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.styles.counter.Accent
@@ -225,7 +227,15 @@ public val TabItemDefault.L: WrapperTabItemDefaultL
             valuePadding(8.0.dp)
             actionPadding(10.0.dp)
         }
-        .counterStyle(Counter.S.Accent.style())
+        .counterStyle(Counter.S.Accent.modify {
+            colors {
+                backgroundColor(
+                    SddsServTheme.colors.surfaceDefaultSolidSecondary.asInteractive(
+                        setOf(InteractiveState.Selected) to SddsServTheme.colors.surfaceDefaultAccent
+                    )
+                )
+            }
+        }.style())
         .actionIcon(com.sdds.icons.R.drawable.ic_close_24)
         .wrap(::WrapperTabItemDefaultL)
 

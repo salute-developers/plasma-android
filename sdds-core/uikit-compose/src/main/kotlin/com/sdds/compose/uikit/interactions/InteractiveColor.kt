@@ -6,6 +6,8 @@ import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
@@ -13,6 +15,9 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import com.sdds.compose.uikit.internal.common.asBrush
+import com.sdds.compose.uikit.motion.MotionContext
+import com.sdds.compose.uikit.motion.MotionProperty
+import com.sdds.compose.uikit.motion.getColorAsState
 
 /**
  * "Интерактивный" цвет. Дает возможность определить цвета для каждого [Interaction] из [InteractionSource]
@@ -49,6 +54,16 @@ interface InteractiveColor {
     fun colorForInteractionAsState(interactionSource: InteractionSource, stateSet: Set<ValueState>): State<Color> {
         return rememberUpdatedState(colorForInteraction(interactionSource, stateSet))
     }
+
+    /**
+     * Возвращает цвет [Color], сохраненный в [State], согласно текущему состоянию [InteractionSource]
+     * и набору [stateSet]
+     */
+    @Composable
+    fun colorForInteractionAsState(
+        motionContext: MotionContext,
+        motionProperty: MotionProperty<Color>,
+    ): State<Color>
 }
 
 /**
@@ -142,6 +157,14 @@ private data class SimpleInteractiveColor(
     override fun colorForInteractionAsState(interactionSource: InteractionSource): State<Color> {
         return rememberUpdatedState(newValue = colorForInteraction(interactionSource))
     }
+
+    @Composable
+    override fun colorForInteractionAsState(
+        motionContext: MotionContext,
+        motionProperty: MotionProperty<Color>,
+    ): State<Color> {
+        return colorForInteractionAsState(motionContext.interactionSource)
+    }
 }
 
 @Immutable
@@ -165,6 +188,14 @@ private class ColorStateList(
     override fun colorForInteractionAsState(interactionSource: InteractionSource): State<Color> {
         return getValueAsState(interactionSource)
     }
+
+    @Composable
+    override fun colorForInteractionAsState(
+        motionContext: MotionContext,
+        motionProperty: MotionProperty<Color>,
+    ): State<Color> {
+        return getColorAsState(motionContext, motionProperty)
+    }
 }
 
 /**
@@ -179,6 +210,7 @@ fun InteractiveColor.asStatefulColor(): StatefulValue<Color> {
             setOf(InteractiveState.Activated) to activated,
             setOf(InteractiveState.Selected) to selected,
         )
+
         is ColorStateList -> this
         else -> Color.Transparent.asStatefulValue()
     }
@@ -196,6 +228,7 @@ fun InteractiveColor.asStatefulBrush(): StatefulValue<Brush> {
             setOf(InteractiveState.Activated) to activated.asBrush(),
             setOf(InteractiveState.Selected) to selected.asBrush(),
         )
+
         is ColorStateList -> this.transform { it.asBrush() }
         else -> Color.Transparent.asBrush().asStatefulValue()
     }

@@ -8,6 +8,8 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -96,6 +98,8 @@ interface TabsStyle : Style {
      */
     val dropdownMenuStyle: DropdownMenuStyle
 
+    val indicatorShape: Shape
+
     companion object {
         /**
          * Возвращает экземпляр [TabsStyleBuilder]
@@ -175,6 +179,8 @@ interface TabsStyleBuilder : StyleBuilder<TabsStyle> {
      * Устанавливает diclosure иконку [disclosureIcon]
      */
     fun disclosureIcon(@DrawableRes disclosureIcon: Int): TabsStyleBuilder
+
+    fun indicatorShape(shape: Shape): TabsStyleBuilder
 }
 
 @Immutable
@@ -192,6 +198,7 @@ private class DefaultTabsStyle(
     override val disclosureTextStyle: TextStyle,
     override val dividerStyle: DividerStyle,
     override val dropdownMenuStyle: DropdownMenuStyle,
+    override val indicatorShape: Shape,
 ) : TabsStyle {
 
     class Builder : TabsStyleBuilder {
@@ -210,6 +217,7 @@ private class DefaultTabsStyle(
         private var dividerStyle: DividerStyle? = null
 
         private var dropdownMenuStyle: DropdownMenuStyle? = null
+        private var indicatorShape: Shape? = null
 
         override fun shape(shape: CornerBasedShape) = apply {
             this.shape = shape
@@ -266,6 +274,10 @@ private class DefaultTabsStyle(
             this.disclosureIcon = disclosureIcon
         }
 
+        override fun indicatorShape(shape: Shape) = apply {
+            this.indicatorShape = shape
+        }
+
         override fun style(): TabsStyle {
             return DefaultTabsStyle(
                 shape = shape ?: RoundedCornerShape(0),
@@ -281,6 +293,7 @@ private class DefaultTabsStyle(
                 disclosureTextStyle = disclosureTextStyle ?: TextStyle.Default,
                 dropdownMenuStyle = dropdownMenuStyle ?: DropdownMenuStyle.builder().style(),
                 dividerStyle = dividerStyle ?: DividerStyle.builder().style(),
+                indicatorShape = indicatorShape ?: RectangleShape
             )
         }
     }

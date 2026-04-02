@@ -13,8 +13,10 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.TabItemStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.styles.counter.Counter
@@ -52,8 +54,6 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
                         to SddsSbComTheme.colors.surfaceDefaultTransparentSecondary,
                     setOf(InteractiveState.Pressed)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentAccentActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
                 ),
             )
             labelColor(
@@ -116,6 +116,14 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
             endContentSize(24.0.dp)
             counterPadding(5.0.dp)
         }
-        .counterStyle(Counter.Secondary.style())
+        .counterStyle(Counter.Secondary.modify {
+            colors {
+                backgroundColor(
+                    SddsSbComTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                        setOf(InteractiveState.Selected) to SddsSbComTheme.colors.surfaceDefaultAccent
+                    ),
+                )
+            }
+        }.style())
         .disableAlpha(0.4f)
         .wrap(::WrapperTabItemFolderDefault)

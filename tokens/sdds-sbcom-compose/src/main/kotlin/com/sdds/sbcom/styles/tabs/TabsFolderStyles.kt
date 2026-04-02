@@ -9,6 +9,7 @@ package com.sdds.sbcom.styles.tabs
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TabsStyleBuilder
@@ -46,18 +47,19 @@ public val TabsFolder.Default: WrapperTabsFolderDefault
                 SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive(),
             )
             indicatorColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
             )
         }
         .dimensions {
-            indicatorThickness(0.0.dp)
+            indicatorThickness(Dp.Unspecified)
             minSpacing(10.0.dp)
             contentPaddingStart(3.0.dp)
             contentPaddingEnd(3.0.dp)
             contentPaddingTop(3.0.dp)
             contentPaddingBottom(3.0.dp)
         }
+        .indicatorShape(CircleShape)
         .tabItemStyle(TabItemFolder.Default.style())
         .dividerEnabled(false)
-        .indicatorEnabled(false)
+        .indicatorEnabled(true)
         .wrap(::WrapperTabsFolderDefault)

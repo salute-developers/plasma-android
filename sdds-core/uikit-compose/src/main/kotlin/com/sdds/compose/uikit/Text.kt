@@ -1,10 +1,12 @@
 package com.sdds.compose.uikit
 
+import android.util.Log
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
@@ -142,10 +144,14 @@ fun ProvideTextStyle(value: TextStyle, color: Color? = null, content: @Composabl
 fun ProvideTextStyle(value: TextStyle, color: ColorProducer, content: @Composable () -> Unit) {
     val mergedStyle = LocalTextStyle.current.merge(value)
     CompositionLocalProvider(
-        LocalTextStyle provides mergedStyle,
-        LocalTextColorProducer provides color,
-        content = content,
-    )
+        LocalTextStyle provides mergedStyle.also { Log.e("Text", "ProvideTextStyle: textStyle $it", ) },
+        LocalTextColorProducer provides color.also { Log.e("Text", "ProvideTextStyle: color producer $it", ) },
+    ) {
+        content()
+        SideEffect {
+            Log.e("Text", "ProvideTextStyle: recompose", )
+        }
+    }
 }
 
 /**

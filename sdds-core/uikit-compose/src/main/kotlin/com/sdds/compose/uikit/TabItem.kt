@@ -5,25 +5,64 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.ValueState
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.components.tabs.LocalTabItemMotionStyle
+import com.sdds.compose.uikit.components.tabs.TabItemMotionStyle
+import com.sdds.compose.uikit.internal.tabs.BaseTabItem
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.rememberMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
+
+/**
+ * Таб (Вкладка). Элемент, предназначенный для использования в [Tabs].
+ * Может содержать контент в начале и в конце, основной текст, дополнительный текст, кнопку действия, счетчик.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента [TabItem]
+ * @param isSelected выбран ли таб
+ * @param label основной текст
+ * @param helpText дополнительный текст
+ * @param count текст счетчика [Counter]
+ * @param startContent контент в начале
+ * @param endContent контент в конце
+ * @param actionIcon ресурс иконки действия
+ * @param onActionClicked обработчик нажатия на иконку действия
+ * @param interactionSource источник взаимодействий [InteractionSource]
+ */
+@Composable
+fun TabItem(
+    content: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    style: TabItemStyle = LocalTabItemStyle.current,
+    isSelected: Boolean = false,
+    helperContent: (@Composable () -> Unit)? = null,
+    counter: (@Composable () -> Unit)? = null,
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
+    action: (@Composable () -> Unit)? = null,
+    motion: Motion<TabItemMotionStyle> = rememberMotion(LocalTabItemMotionStyle.current)
+) {
+    BaseTabItem(
+        modifier = modifier,
+        style = style,
+        isSelected = isSelected,
+        labelContent = content,
+        helperContent = helperContent,
+        counter = counter,
+        startContent = startContent,
+        endContent = endContent,
+        action = action,
+        motion = motion,
+    )
+}
 
 /**
  * Таб (Вкладка). Элемент, предназначенный для использования в [Tabs].
@@ -55,135 +94,39 @@ fun TabItem(
     onActionClicked: () -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val stateSet = remember(isSelected) {
-        if (isSelected) setOf(InteractiveState.Selected) else emptySet()
-    }
-    Row(
-        modifier = modifier
-            .defaultMinSize(
-                minHeight = style.dimensions.minHeight,
-                minWidth = style.dimensions.minWidth,
-            )
-            .background(
-                color = style.colors.backgroundColor.getValue(interactionSource, stateSet),
-                shape = style.shape,
-            )
-            .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-            ),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        StartContent(style, interactionSource, startContent, stateSet)
-
-        Row(
-            modifier = Modifier,
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(style.dimensions.valuePadding),
-        ) {
-            if (!label.isNullOrEmpty()) {
-                Text(
-                    text = label,
-                    style = style.labelStyle.copy(
-                        style.colors.labelColor.getValue(interactionSource, stateSet),
-                    ),
+    BaseTabItem(
+        modifier = modifier,
+        style = style,
+        isSelected = isSelected,
+        labelContent = if (!label.isNullOrEmpty()) {
+            { Text(label) }
+        } else null,
+        helperContent = if (!helpText.isNullOrEmpty()) {
+            { Text(helpText) }
+        } else null,
+        counter = if (!count.isNullOrEmpty()) {
+            { Counter(count = count) }
+        } else null,
+        startContent = startContent,
+        endContent = endContent,
+        action = if (actionIcon != null) {
+            {
+                Icon(
+                    painter = painterResource(id = actionIcon),
+                    contentDescription = "",
+                    modifier = Modifier.clickable(
+                        indication = null,
+                        interactionSource = remember { MutableInteractionSource() },
+                        onClick = onActionClicked,
+                    )
                 )
             }
-
-            if (!helpText.isNullOrEmpty()) {
-                Text(
-                    text = helpText,
-                    style = style.valueStyle.copy(
-                        style.colors.valueColor.getValue(interactionSource, stateSet),
-                    ),
-                )
-            }
-        }
-        CounterContent(style, count)
-        EndContent(style, interactionSource, endContent, stateSet)
-        ActionContent(style, interactionSource, actionIcon, stateSet, onActionClicked)
-    }
-}
-
-@Composable
-private fun CounterContent(
-    style: TabItemStyle,
-    count: String?,
-) {
-    if (count.isNullOrEmpty()) return
-    Counter(
-        modifier = Modifier
-            .padding(start = style.dimensions.counterPadding),
-        count = count,
-        style = style.counterStyle,
-    )
-}
-
-@Composable
-private fun StartContent(
-    style: TabItemStyle,
-    interactionSource: InteractionSource,
-    content: (@Composable () -> Unit)?,
-    stateSet: Set<ValueState>,
-) {
-    content ?: return
-    CompositionLocalProvider(
-        LocalTint provides style.colors.startContentColor.getValue(interactionSource, stateSet),
-    ) {
-        Box(
-            modifier = Modifier
-                .padding(end = style.dimensions.iconPadding)
-                .size(style.dimensions.startContentSize),
-            contentAlignment = Alignment.Center,
-        ) { content.invoke() }
-    }
-}
-
-@Composable
-private fun EndContent(
-    style: TabItemStyle,
-    interactionSource: InteractionSource,
-    content: (@Composable () -> Unit)?,
-    stateSet: Set<ValueState>,
-) {
-    content ?: return
-    CompositionLocalProvider(
-        LocalTint provides style.colors.endContentColor.getValue(interactionSource, stateSet),
-    ) {
-        Box(
-            modifier = Modifier
-                .padding(start = style.dimensions.iconPadding)
-                .size(style.dimensions.startContentSize),
-            contentAlignment = Alignment.Center,
-        ) { content.invoke() }
-    }
-}
-
-@Composable
-private fun ActionContent(
-    style: TabItemStyle,
-    interactionSource: InteractionSource,
-    actionIcon: Int?,
-    stateSet: Set<ValueState>,
-    onActionClicked: () -> Unit,
-) {
-    actionIcon ?: return
-    CompositionLocalProvider(
-        LocalIconDefaultSize provides DpSize(
-            width = style.dimensions.actionSize,
-            height = style.dimensions.actionSize,
-        ),
-    ) {
-        Icon(
-            modifier = Modifier
-                .padding(start = style.dimensions.actionPadding)
-                .clickable(indication = null, interactionSource = null, onClick = onActionClicked),
-            painter = painterResource(actionIcon),
-            contentDescription = "",
-            tint = style.colors.actionColor.getValue(interactionSource, stateSet),
+        } else null,
+        motion = rememberMotion(
+            LocalTabItemMotionStyle.current,
+            rememberMotionContext(interactionSource)
         )
-    }
+    )
 }
 
 @Composable

@@ -28,7 +28,8 @@ import kotlinx.coroutines.launch
 internal fun HorizontalTabsContainer(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
+    selectedTabIndexProvider: () -> Int,
+    selectedTabOffset: () -> Float,
     onTabClicked: (Int) -> Unit,
     clip: TabsClip,
     spacingDp: Dp,
@@ -39,7 +40,7 @@ internal fun HorizontalTabsContainer(
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     disclosureContent: @Composable (() -> Unit)?,
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
@@ -56,7 +57,8 @@ internal fun HorizontalTabsContainer(
         ShowMoreRow(
             style = style,
             enabled = enabled,
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndexProvider = selectedTabIndexProvider,
+            selectedTabOffset = selectedTabOffset,
             onTabClicked = onTabClicked,
             spacingDp = spacingDp,
             canStretch = canStretch,
@@ -75,7 +77,8 @@ internal fun HorizontalTabsContainer(
         RegularRow(
             style = style,
             enabled = enabled,
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndexProvider = selectedTabIndexProvider,
+            selectedTabOffset = selectedTabOffset,
             onTabClicked = onTabClicked,
             clip = clip,
             spacingDp = spacingDp,
@@ -96,7 +99,8 @@ internal fun HorizontalTabsContainer(
 private fun RegularRow(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
+    selectedTabIndexProvider: () -> Int,
+    selectedTabOffset: () -> Float,
     onTabClicked: (Int) -> Unit,
     clip: TabsClip,
     spacingDp: Dp,
@@ -107,7 +111,7 @@ private fun RegularRow(
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     onTabsMeasured: (Int, IntSize) -> Unit,
 ) {
     Row(
@@ -118,10 +122,12 @@ private fun RegularRow(
                 indicatorColor = style.colors.indicatorColor.colorForInteraction(
                     interactionSource,
                 ),
+                indicatorShape = style.indicatorShape,
                 indicatorThickness = style.dimensions.indicatorThickness,
                 spacingDp = spacingDp,
                 tabSizes = tabSizes,
-                selectedTabIndex = selectedTabIndex,
+                selectedTabIndexProvider = selectedTabIndexProvider,
+                selectedTabOffset = selectedTabOffset,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Horizontal,
                 clip = clip,
@@ -132,7 +138,6 @@ private fun RegularRow(
             TabItemContainer(
                 modifier = if (canStretch) Modifier.weight(1f) else Modifier,
                 enabled = enabled,
-                isSelected = index == selectedTabIndex,
                 stretch = canStretch,
                 onClick = {
                     onTabClicked(index)
@@ -161,7 +166,8 @@ private fun RegularRow(
 private fun ShowMoreRow(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
+    selectedTabIndexProvider: () -> Int,
+    selectedTabOffset: () -> Float,
     onTabClicked: (Int) -> Unit,
     spacingDp: Dp,
     canStretch: Boolean,
@@ -169,7 +175,7 @@ private fun ShowMoreRow(
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     disclosureContent: @Composable (() -> Unit)?,
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
@@ -181,7 +187,6 @@ private fun ShowMoreRow(
             {
                 TabItemContainer(
                     stretch = canStretch,
-                    isSelected = index == selectedTabIndex,
                     enabled = enabled,
                     onClick = { onTabClicked(index) },
                     onSizeMeasured = { intSize -> onTabsMeasured.invoke(index, intSize) },
@@ -196,10 +201,12 @@ private fun ShowMoreRow(
                 indicatorColor = style.colors.indicatorColor.colorForInteraction(
                     interactionSource,
                 ),
+                indicatorShape = style.indicatorShape,
                 indicatorThickness = style.dimensions.indicatorThickness,
                 spacingDp = spacingDp,
                 tabSizes = tabSizes,
-                selectedTabIndex = selectedTabIndex,
+                selectedTabIndexProvider = selectedTabIndexProvider,
+                selectedTabOffset = selectedTabOffset,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Horizontal,
                 clip = TabsClip.ShowMore,

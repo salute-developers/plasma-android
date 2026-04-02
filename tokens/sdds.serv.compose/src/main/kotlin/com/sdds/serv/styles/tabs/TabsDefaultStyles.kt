@@ -8,6 +8,7 @@
 package com.sdds.serv.styles.tabs
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
@@ -141,7 +142,7 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
     get() = this
         .colors {
             indicatorColor(
-                SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
+                SddsServTheme.colors.surfaceDefaultTransparentAccent.asInteractive(),
             )
             overflowNextIconColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(),
@@ -159,8 +160,9 @@ private val TabsStyleBuilder.invariantProps: TabsStyleBuilder
             )
         }
         .dimensions {
-            indicatorThickness(2.0.dp)
+            indicatorThickness(Dp.Unspecified)
         }
+        .indicatorShape(SddsServTheme.shapes.roundM)
         .dividerStyle(Divider.Default.style())
         .overflowNextIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .overflowPrevIcon(com.sdds.icons.R.drawable.ic_disclosure_left_outline_24)

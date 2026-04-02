@@ -58,11 +58,27 @@ interface TabScope {
     /**
      * Добавляет таб с контентом [content].
      *
+     * @param [content] получает в параметрах Boolean-значение, которое сигнализирует о том, выбран таб или нет
+     */
+    fun tabItem(content: @Composable () -> Unit)
+
+    /**
+     * Добавляет таб с контентом [content].
+     *
      * @param [dropdownAlias] текстовое представление таба, для отображения в раскрывающемся списке по нажатию на disclosure-кнопку.
      * В этот список попадают те табы, которые не поместились в основной контейнер.
      * @param [content] получает в параметрах Boolean-значение, которое сигнализирует о том, выбран таб или нет
      */
     fun tab(dropdownAlias: String = "", content: @Composable (Boolean) -> Unit)
+
+    /**
+     * Добавляет таб с контентом [content].
+     *
+     * @param [dropdownAlias] текстовое представление таба, для отображения в раскрывающемся списке по нажатию на disclosure-кнопку.
+     * В этот список попадают те табы, которые не поместились в основной контейнер.
+     * @param [content] получает в параметрах Boolean-значение, которое сигнализирует о том, выбран таб или нет
+     */
+    fun tabItem(dropdownAlias: String = "", content: @Composable () -> Unit)
 
     /**
      * Устанавливает контент для disclosure кнопки.
@@ -129,10 +145,11 @@ enum class TabsOrientation {
 @Composable
 @Suppress("LongMethod")
 fun Tabs(
+    selectedTabIndexProvider: () -> Int,
     modifier: Modifier = Modifier,
     style: TabsStyle = LocalTabsStyle.current,
-    selectedTabIndex: Int,
     onTabClicked: (Int) -> Unit,
+    selectedTabOffset: () -> Float = { 0f },
     clip: TabsClip = TabsClip.None,
     stretch: Boolean = false,
     enabled: Boolean = true,
@@ -143,7 +160,7 @@ fun Tabs(
     tabs: TabScope.() -> Unit,
 ) {
     var overflowIndex by remember { mutableIntStateOf(-1) }
-    val tabScope = remember { TabScopeImpl() }
+    val tabScope = remember(selectedTabIndexProvider) { TabScopeImpl(selectedTabIndexProvider) }
     tabScope.reset()
     tabScope.tabs()
     Box(modifier = modifier) {
@@ -198,7 +215,8 @@ fun Tabs(
                         .clipToBounds(),
                     style = style,
                     enabled = enabled,
-                    selectedTabIndex = selectedTabIndex,
+                    selectedTabIndexProvider = selectedTabIndexProvider,
+                    selectedTabOffset = selectedTabOffset,
                     onTabClicked = onTabClicked,
                     clip = clip,
                     canStretch = canStretch,
@@ -250,6 +268,57 @@ fun Tabs(
             onTabClicked = onTabClicked,
         )
     }
+}
+
+/**
+ * Элемент навигации, состоящий из нескольких вкладок.
+ * В компоненте доступно отображение максимум 10 табов.
+ *
+ * @param modifier модификатор
+ * @param style стиль компонента [TabsStyle]
+ * @param selectedTabIndex индекс выбранного таба
+ * @param onTabClicked обработчик нажатия на таб.
+ * В параметре лямбды доступен индекс нажатого таба.
+ * @param clip режимразмещения ограничения размеров контейнера с табами [TabsClip]
+ * @param stretch занимают ли табы доступное пространство
+ * @param enabled включает/выключает компонент
+ * @param indicatorEnabled включает индикатор выбранного таба
+ * @param dividerEnabled включает разделитель
+ * @param orientation ориентация расположения табов
+ * @param interactionSource источник взаимодействий
+ * @param tabs контент с табами. Наполняется с помощью функций из [TabScope]
+ */
+@Composable
+@Suppress("LongMethod")
+fun Tabs(
+    modifier: Modifier = Modifier,
+    style: TabsStyle = LocalTabsStyle.current,
+    selectedTabIndex: Int,
+    onTabClicked: (Int) -> Unit,
+    clip: TabsClip = TabsClip.None,
+    stretch: Boolean = false,
+    enabled: Boolean = true,
+    indicatorEnabled: Boolean = style.indicatorEnabled,
+    dividerEnabled: Boolean = style.dividerEnabled,
+    orientation: TabsOrientation = style.orientation,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    tabs: TabScope.() -> Unit,
+) {
+    Tabs(
+        modifier = modifier,
+        style = style,
+        selectedTabIndexProvider = { selectedTabIndex },
+        selectedTabOffset = { 0f },
+        onTabClicked = onTabClicked,
+        clip = clip,
+        stretch = stretch,
+        enabled = enabled,
+        indicatorEnabled = indicatorEnabled,
+        dividerEnabled = dividerEnabled,
+        orientation = orientation,
+        interactionSource = interactionSource,
+        tabs = tabs
+    )
 }
 
 internal object Tabs {

@@ -7,11 +7,14 @@ import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorProducer
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toolingGraphicsLayer
@@ -38,7 +41,7 @@ fun Icon(
     painter: Painter,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    tint: Color = LocalTint.current,
+    tint: Color,
     contentScale: ContentScale = ContentScale.Fit,
 ) {
     val colorFilter = if (tint == Color.Unspecified) null else ColorFilter.tint(tint)
@@ -57,6 +60,56 @@ fun Icon(
             .paint(
                 painter = painter,
                 colorFilter = colorFilter,
+                contentScale = contentScale,
+            )
+            .then(semantics),
+    )
+}
+
+@Composable
+fun Icon(
+    painter: Painter,
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    tintProvider: ColorProducer = LocalTintProvider.current,
+    contentScale: ContentScale = ContentScale.Fit,
+) {
+    val semantics = if (contentDescription != null) {
+        Modifier.semantics {
+            this.contentDescription = contentDescription
+            this.role = Role.Image
+        }
+    } else {
+        Modifier
+    }
+    val wrappedPainter = remember(painter, tintProvider) {
+        ColorFilterPainter(
+            delegate = painter,
+            colorFilterProvider = {
+                val tint = tintProvider()
+                if (tint == Color.Unspecified) null else ColorFilter.tint(tint)
+            }
+        )
+    }
+
+    Box(
+        modifier
+            .toolingGraphicsLayer()
+            .defaultSizeFor(painter, LocalIconDefaultSize.current)
+            .drawWithCache {
+                val tint = tintProvider.invoke()
+                val colorFilter = if (tint == Color.Unspecified) null else ColorFilter.tint(tint)
+                onDrawBehind {
+                    with(painter) {
+                        draw(
+                            size = size,
+                            colorFilter = colorFilter,
+                        )
+                    }
+                }
+            }
+            .paint(
+                painter = wrappedPainter,
                 contentScale = contentScale,
             )
             .then(semantics),
@@ -124,6 +177,8 @@ fun Icon(
  */
 val LocalTint = compositionLocalOf { Color.Gray }
 
+val LocalTintProvider = compositionLocalOf { ColorProducer { Color.Gray } }
+
 /**
  * CompositionLocal, содержащий предпочтительный размер [DpSize],
  * который будет использоваться компонентами [Icon] по умолчанию.
@@ -147,3 +202,22 @@ private fun Modifier.defaultSizeFor(
     )
 
 private fun Size.isInfinite() = width.isInfinite() && height.isInfinite()
+
+class ColorFilterPainter(
+    private val delegate: Painter,
+    private val colorFilterProvider: () -> ColorFilter?
+) : Painter() {
+
+    override val intrinsicSize: Size
+        get() = delegate.intrinsicSize
+
+    override fun DrawScope.onDraw() {
+        with(delegate) {
+            draw(
+                size = size,
+                alpha = 1f,
+                colorFilter = colorFilterProvider()
+            )
+        }
+    }
+}
