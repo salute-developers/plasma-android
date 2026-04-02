@@ -81,8 +81,14 @@ object TextSkeletonStory : ComposeBaseStory<TextSkeletonUiState, TextSkeletonSty
         style: TextSkeletonStyle,
         key: ComponentKey,
     ) {
+        val defaultTextStyle = if (style.textStyle == TextStyle.Default) {
+            LocalTextStyle.current
+        } else {
+            style.textStyle.copy(color = LocalTextStyle.current.color)
+        }
         TextSkeleton(
             style = style,
+            textStyle = defaultTextStyle,
             lineCount = 3,
         )
     }
