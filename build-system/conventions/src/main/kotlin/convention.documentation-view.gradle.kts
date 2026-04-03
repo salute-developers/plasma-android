@@ -11,6 +11,6 @@ extensions.configure<DocusaurusExtension>("docusaurus") {
 
 dependencies {
     "implementation"("sdds-core:docs-views")
-    "docsSnippets"("sdds-core:uikit-fixtures:unspecified:docs@jar")
-    "testImplementation"("sdds-core:uikit-fixtures")
+    "docsSnippets"("integration-core:uikit-fixtures:unspecified:docs@jar")
+    "testImplementation"("integration-core:uikit-fixtures")
 }

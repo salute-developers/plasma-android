@@ -96,6 +96,40 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
             }
         }
     }
+
+    @Composable
+    override fun Preview(
+        style: TabsStyle,
+        key: ComponentKey,
+    ) {
+        var selectedTab by remember { mutableIntStateOf(0) }
+        Tabs(
+            modifier = Modifier,
+            style = style,
+            selectedTabIndex = selectedTab,
+            onTabClicked = {
+                selectedTab = it
+            },
+        ) {
+            repeat(3) { index ->
+                val label = "Tab$index"
+                tab(dropdownAlias = label) { selected ->
+                    TabItem(
+                        isSelected = selected,
+                        label = label,
+                        startContent = {
+                            Icon(
+                                painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                                contentDescription = "",
+                            )
+                        },
+                        actionIcon = com.sdds.icons.R.drawable.ic_close_24,
+                        onActionClicked = {},
+                    )
+                }
+            }
+        }
+    }
 }
 
 @Story
@@ -145,25 +179,24 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
     ) {
         var selectedTab by remember { mutableIntStateOf(0) }
         Tabs(
-            modifier = Modifier,
             style = style,
+            enabled = true,
             selectedTabIndex = selectedTab,
             onTabClicked = {
                 selectedTab = it
             },
+            clip = TabsClip.Scroll,
+            stretch = false,
+            indicatorEnabled = false,
+            dividerEnabled = false,
         ) {
             repeat(3) { index ->
                 val label = "Tab$index"
                 tab(dropdownAlias = label) { selected ->
-                    TabItem(
+                    IconTabItem(
                         isSelected = selected,
-                        label = label,
-                        startContent = {
-                            Icon(
-                                painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
-                                contentDescription = "",
-                            )
-                        },
+                        count = null,
+                        icon = R.drawable.ic_plasma_24,
                         actionIcon = com.sdds.icons.R.drawable.ic_close_24,
                         onActionClicked = {},
                     )

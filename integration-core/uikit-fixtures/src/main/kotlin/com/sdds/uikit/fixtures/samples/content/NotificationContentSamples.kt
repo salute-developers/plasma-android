@@ -1,4 +1,4 @@
-package com.sdds.uikit.fixtures.samples.notification.content
+package com.sdds.uikit.fixtures.samples.content
 
 import android.content.Context
 import android.view.LayoutInflater

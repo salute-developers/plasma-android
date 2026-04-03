@@ -19,6 +19,10 @@ group = "integration-core"
 
 android {
     namespace = "com.sdds.compose.sandbox"
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 themeBuilder {
@@ -43,6 +47,7 @@ dependencies {
     implementation(libs.base.androidX.activity)
     implementation(libs.base.androidX.lifecycle.compose.viewmodel)
     implementation(libs.base.androidX.navigation.compose)
+    implementation(libs.base.kotlin.serialization.json)
 
 
     // Preview support

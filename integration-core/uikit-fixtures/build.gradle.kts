@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-group = "sdds-core"
+group = "integration-core"
 
 android {
     namespace = "com.sdds.uikit.fixtures"
@@ -26,16 +26,16 @@ ksp {
 }
 
 dependencies {
-    implementation(project(":uikit"))
-    implementation(project(":uikit-compose"))
-    implementation(project(":icons"))
-    implementation(project(":docs"))
-    implementation(project(":docs-views"))
-    ksp(project(":docs-ksp"))
-    implementation("integration-core:sandbox-core")
-    implementation("integration-core:sandbox-compose")
-    implementation("integration-core:sandbox-view")
-    ksp("integration-core:sandbox-ksp")
+    implementation(project(":sandbox-core"))
+    implementation(project(":sandbox-compose"))
+    implementation(project(":sandbox-view"))
+    ksp(project(":sandbox-ksp"))
+    implementation("sdds-core:uikit")
+    implementation("sdds-core:uikit-compose")
+    implementation("sdds-core:icons")
+    implementation("sdds-core:docs")
+    implementation("sdds-core:docs-views")
+    ksp("sdds-core:docs-ksp")
 
     implementation(libs.base.glide)
     implementation(libs.base.androidX.appcompat)
