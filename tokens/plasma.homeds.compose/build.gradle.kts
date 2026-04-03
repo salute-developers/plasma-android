@@ -38,7 +38,7 @@ themeBuilder {
 }
 
 dependencies {
-    testImplementation("sdds-core:uikit-compose-fixtures")
+    testImplementation("integration-core:uikit-compose-fixtures")
     implementation(libs.sdds.uikit.compose)
     implementation(icons.sdds.icons)
     implementation(libs.base.androidX.compose.foundation)

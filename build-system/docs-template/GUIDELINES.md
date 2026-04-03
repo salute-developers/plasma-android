@@ -30,7 +30,7 @@ sdds-uikit-compose-fixtures/
 
 Для sdds-core:uikit:
 ```
-sdds-core/uikit-fixtures/
+integration-core/uikit-fixtures/
 └── src/main/kotlin/
     └── com/sdds/uikit/fixtures/samples/button/
         └── ButtonSamples.kt
@@ -120,7 +120,7 @@ Button(
 
 ### 1. Где писать XML примеры
 
-XML‑примеры должны лежать в `res/` директории модуля `sdds-core/uikit-fixtures` или подмодуля `tokens/*/docs`
+XML‑примеры должны лежать в `res/` директории модуля `integration-core/uikit-fixtures` или подмодуля `tokens/*/docs`
 
 ---
 

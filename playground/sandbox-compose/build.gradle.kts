@@ -126,8 +126,8 @@ tasks.register("generateVersionDescription") {
 }
 
 dependencies {
-    implementation("sdds-core:uikit-fixtures")
-    implementation("sdds-core:uikit-compose-fixtures")
+    implementation("integration-core:uikit-fixtures")
+    implementation("integration-core:uikit-compose-fixtures")
     implementation(icons.sdds.icons)
     implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")

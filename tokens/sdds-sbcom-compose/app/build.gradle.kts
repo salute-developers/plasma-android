@@ -15,7 +15,7 @@ dependencies {
     implementation(project(":sdds-sbcom-compose"))
     implementation("integration-core:sandbox-core")
     implementation("integration-core:sandbox-compose")
-    implementation("sdds-core:uikit-compose-fixtures")
+    implementation("integration-core:uikit-compose-fixtures")
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.android.material)

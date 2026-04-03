@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-group = "sdds-core"
+group = "integration-core"
 
 android {
     namespace = "com.sdds.compose.uikit.fixtures"
@@ -27,14 +27,16 @@ ksp {
 }
 
 dependencies {
-    implementation(project(":uikit-compose"))
-    implementation(project(":icons"))
-    implementation(project(":docs"))
-    implementation(project(":docs-compose"))
-    implementation("integration-core:sandbox-core")
-    implementation("integration-core:sandbox-compose")
-    ksp(project(":docs-ksp"))
-    ksp("integration-core:sandbox-ksp")
+    implementation(project(":sandbox-core"))
+    implementation(project(":sandbox-compose"))
+    ksp(project(":sandbox-ksp"))
+    implementation("sdds-core:uikit-compose")
+    implementation("sdds-core:icons")
+    implementation("sdds-core:docs")
+    implementation("sdds-core:docs-compose")
+    ksp("sdds-core:docs-ksp")
+
+
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.test.roborazzi)
