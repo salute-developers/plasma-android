@@ -18,6 +18,8 @@ jobs:
   detect_changes:
     name: Detect changes
     uses: ./.github/workflows/detect-changes.yml
+    with:
+      includeTokensSubmodules: true
   lint:
     name: Perform lint analysis
     needs: detect_changes

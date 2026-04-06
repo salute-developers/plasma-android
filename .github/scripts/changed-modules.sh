@@ -2,8 +2,10 @@
 set -euo pipefail
 
 FROM_TAG=$1
+INCLUDE_TOKENS_SUBMODULES=${2:-false}
 
 echo "🔍 Detecting changed modules since $FROM_TAG"
+echo "📦 Include token submodules :apps and :docs is $INCLUDE_TOKENS_SUBMODULES"
 
 # Track if affected special dirs
 UIKIT_COMPOSE_CHANGED=false
@@ -138,6 +140,32 @@ if [[ ${#IGNORED_MODULES[@]} -gt 0 ]]; then
     fi
   done
   UNIQUE_MODULES=$(printf "%s " "${FILTERED_MODULES[@]}")
+fi
+
+if [[ "$INCLUDE_TOKENS_SUBMODULES" == "true" ]]; then
+  echo "📦 Adding :app and :docs submodules for token modules"
+
+  MODULES_WITH_TOKEN_SUBMODULES=()
+  for MODULE in $UNIQUE_MODULES; do
+    MODULES_WITH_TOKEN_SUBMODULES+=("$MODULE")
+
+    if [[ "$MODULE" == :tokens:* && "$MODULE" != *:app && "$MODULE" != *:docs ]]; then
+      for SUBMODULE in app docs; do
+        TOKEN_SUBMODULE="$MODULE:$SUBMODULE"
+        TOKEN_SUBMODULE_PATH="${TOKEN_SUBMODULE#:}"
+        TOKEN_SUBMODULE_PATH="${TOKEN_SUBMODULE_PATH//://}"
+
+        if [[ -d "$TOKEN_SUBMODULE_PATH" ]]; then
+          MODULES_WITH_TOKEN_SUBMODULES+=("$TOKEN_SUBMODULE")
+          echo "✅ Added token $SUBMODULE module: $TOKEN_SUBMODULE"
+        else
+          echo "⏭ Skipped missing token $SUBMODULE module: $TOKEN_SUBMODULE"
+        fi
+      done
+    fi
+  done
+
+  UNIQUE_MODULES=$(printf "%s\n" "${MODULES_WITH_TOKEN_SUBMODULES[@]:-}" | sort -u | xargs)
 fi
 
 # Check which modules actually exist (to handle deleted modules)

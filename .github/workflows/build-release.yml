@@ -49,15 +49,24 @@ jobs:
             exit 0
           fi
 
-          echo "### Release APK" >> $GITHUB_STEP_SUMMARY
+          : > build-summary.md
+          echo "### 📦 Собранные Release APK" >> build-summary.md
 
           find apk-results -name artifact.json | sort | while read -r path; do
             module=$(jq -r '.module' "$path")
             url=$(jq -r '.artifactUrl' "$path")
-            echo "- [$module]($url)" >> $GITHUB_STEP_SUMMARY
+
+            if [[ -z "$url" || "$url" == "null" ]]; then
+              echo "Skipping $module because artifact URL is empty"
+              continue
+            fi
+
+            echo "- 📥 [$module]($url)" >> build-summary.md
           done
 
-          cp "$GITHUB_STEP_SUMMARY" build-summary.md
+          echo >> build-summary.md
+          cat .github/templates/apk-installation-instructions.md >> build-summary.md
+          cat build-summary.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Attach comment
         if: success() && hashFiles('build-summary.md') != ''

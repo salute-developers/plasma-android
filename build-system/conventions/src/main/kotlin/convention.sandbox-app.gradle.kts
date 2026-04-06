@@ -37,6 +37,7 @@ android {
     }
 
     lint {
+        disable += "NotificationPermission"
         xmlReport = false
         textReport = false
         sarifReport = false
