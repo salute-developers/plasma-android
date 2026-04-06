@@ -33,6 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     if: always() && needs.build_apps.result == 'success'
     steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
       - name: Download APK metadata artifacts
         uses: actions/download-artifact@v4
         with:

@@ -96,15 +96,16 @@ jobs:
       - name: Prepare artifact metadata
         if: success()
         env:
-          ARTIFACT_URL: ${{ steps.upload_apk.outputs['artifact-url'] }}
+          ARTIFACT_ID: ${{ steps.upload_apk.outputs['artifact-id'] }}
         shell: bash
         run: |
           mkdir -p artifact-metadata
+          artifact_url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/$ARTIFACT_ID"
           jq -n \
             --arg module ":${{ env.SAFE_MODULE }}" \
             --arg buildType "${{ env.BUILD_TYPE }}" \
             --arg artifactName "${{ env.ARTIFACT_NAME }}" \
-            --arg artifactUrl "$ARTIFACT_URL" \
+            --arg artifactUrl "$artifact_url" \
             '{
               module: $module,
               buildType: $buildType,
