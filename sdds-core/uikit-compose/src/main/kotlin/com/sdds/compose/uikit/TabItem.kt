@@ -39,27 +39,33 @@ import com.sdds.compose.uikit.motion.rememberMotionContext
  */
 @Composable
 fun TabItem(
-    content: @Composable () -> Unit,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     style: TabItemStyle = LocalTabItemStyle.current,
     isSelected: Boolean = false,
+    enabled: Boolean = true,
     helperContent: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
-    motion: Motion<TabItemMotionStyle> = rememberMotion(LocalTabItemMotionStyle.current)
+    onClickLabel: String? = null,
+    motion: Motion<TabItemMotionStyle> = rememberMotion(LocalTabItemMotionStyle.current),
+    content: @Composable () -> Unit,
 ) {
     BaseTabItem(
         modifier = modifier,
         style = style,
         isSelected = isSelected,
+        enabled = enabled,
         labelContent = content,
         helperContent = helperContent,
         counter = counter,
         startContent = startContent,
         endContent = endContent,
         action = action,
+        onClick = onClick,
+        onClickLabel = onClickLabel,
         motion = motion,
     )
 }

@@ -20,7 +20,7 @@ import com.sdds.compose.uikit.fs.focusSelector
 internal fun TabItemContainer(
     modifier: Modifier = Modifier,
     stretch: Boolean,
-    onClick: () -> Unit,
+    onClick: (() -> Unit)?,
     onSizeMeasured: (IntSize) -> Unit,
     tabItemStyle: TabItemStyle,
     enabled: Boolean,
@@ -47,10 +47,10 @@ internal fun TabItemContainer(
                     isFocused.value
                 }
                 .clickable(
-                    enabled = enabled,
+                    enabled = enabled && onClick != null,
                     indication = null,
                     interactionSource = interactionSource,
-                ) { onClick.invoke() },
+                ) { onClick?.invoke() },
         ) {
             tabItemContent.invoke()
         }

@@ -3,8 +3,8 @@ package com.sdds.compose.uikit.components.tabs
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.ui.graphics.Color
 import com.sdds.compose.uikit.components.counter.CounterMotionStyle
+import com.sdds.compose.uikit.internal.common.FillStyle
 import com.sdds.compose.uikit.motion.MotionProperty
 import com.sdds.compose.uikit.motion.MotionStyle
 import com.sdds.compose.uikit.motion.MotionStyleBuilder
@@ -15,9 +15,17 @@ val LocalTabItemMotionStyle = compositionLocalOf { TabItemMotionStyle.builder().
 @Stable
 interface TabItemMotionStyle : MotionStyle {
 
-    val background: MotionProperty<Color>
+    val backgroundFillStyle: MotionProperty<FillStyle>
 
-    val textColor: MotionProperty<Color>
+    val labelFillStyle: MotionProperty<FillStyle>
+
+    val valueFillStyle: MotionProperty<FillStyle>
+
+    val startContentFillStyle: MotionProperty<FillStyle>
+
+    val endContentFillStyle: MotionProperty<FillStyle>
+
+    val actionFillStyle: MotionProperty<FillStyle>
 
     val counterMotionStyle: CounterMotionStyle?
 
@@ -29,30 +37,63 @@ interface TabItemMotionStyle : MotionStyle {
 @Stable
 interface TabItemMotionStyleBuilder : MotionStyleBuilder<TabItemMotionStyle> {
 
-    fun background(background: MotionProperty<Color>): TabItemMotionStyleBuilder
+    fun backgroundFillStyle(background: MotionProperty<FillStyle>): TabItemMotionStyleBuilder
 
-    fun textColor(textColor: MotionProperty<Color>): TabItemMotionStyleBuilder
+    fun labelFillStyle(label: MotionProperty<FillStyle>): TabItemMotionStyleBuilder
+
+    fun valueFillStyle(value: MotionProperty<FillStyle>): TabItemMotionStyleBuilder
+
+    fun startContentFillStyle(startContent: MotionProperty<FillStyle>): TabItemMotionStyleBuilder
+
+    fun endContentFillStyle(endContent: MotionProperty<FillStyle>): TabItemMotionStyleBuilder
+
+    fun actionFillStyle(action: MotionProperty<FillStyle>): TabItemMotionStyleBuilder
 
     fun counterMotionStyle(style: CounterMotionStyle): TabItemMotionStyleBuilder
 }
 
 @Immutable
 private class TabItemMotionStyleImpl(
-    override val background: MotionProperty<Color>,
-    override val textColor: MotionProperty<Color>,
-    override val counterMotionStyle: CounterMotionStyle?
+    override val backgroundFillStyle: MotionProperty<FillStyle>,
+    override val labelFillStyle: MotionProperty<FillStyle>,
+    override val valueFillStyle: MotionProperty<FillStyle>,
+    override val startContentFillStyle: MotionProperty<FillStyle>,
+    override val endContentFillStyle: MotionProperty<FillStyle>,
+    override val actionFillStyle: MotionProperty<FillStyle>,
+    override val counterMotionStyle: CounterMotionStyle?,
 ) : TabItemMotionStyle {
 
     class Builder : TabItemMotionStyleBuilder {
-        private var background: MotionProperty<Color>? = null
-        private var textColor: MotionProperty<Color>? = null
+        private var background: MotionProperty<FillStyle>? = null
+        private var label: MotionProperty<FillStyle>? = null
+        private var value: MotionProperty<FillStyle>? = null
+        private var startContent: MotionProperty<FillStyle>? = null
+        private var endContent: MotionProperty<FillStyle>? = null
+        private var action: MotionProperty<FillStyle>? = null
         private var counterMotionStyle: CounterMotionStyle? = null
-        override fun background(background: MotionProperty<Color>) = apply {
+
+        override fun backgroundFillStyle(background: MotionProperty<FillStyle>) = apply {
             this.background = background
         }
 
-        override fun textColor(textColor: MotionProperty<Color>) = apply {
-            this.textColor = textColor
+        override fun labelFillStyle(label: MotionProperty<FillStyle>) = apply {
+            this.label = label
+        }
+
+        override fun valueFillStyle(value: MotionProperty<FillStyle>) = apply {
+            this.value = value
+        }
+
+        override fun startContentFillStyle(startContent: MotionProperty<FillStyle>) = apply {
+            this.startContent = startContent
+        }
+
+        override fun endContentFillStyle(endContent: MotionProperty<FillStyle>) = apply {
+            this.endContent = endContent
+        }
+
+        override fun actionFillStyle(action: MotionProperty<FillStyle>) = apply {
+            this.action = action
         }
 
         override fun counterMotionStyle(style: CounterMotionStyle) = apply {
@@ -61,9 +102,13 @@ private class TabItemMotionStyleImpl(
 
         override fun style(): TabItemMotionStyle {
             return TabItemMotionStyleImpl(
-                background = background ?: noMotion(),
-                textColor = textColor ?: noMotion(),
-                counterMotionStyle = counterMotionStyle
+                backgroundFillStyle = background ?: noMotion(),
+                labelFillStyle = label ?: noMotion(),
+                counterMotionStyle = counterMotionStyle,
+                valueFillStyle = value ?: noMotion(),
+                startContentFillStyle = startContent ?: noMotion(),
+                endContentFillStyle = endContent ?: noMotion(),
+                actionFillStyle = action ?: noMotion()
             )
         }
 

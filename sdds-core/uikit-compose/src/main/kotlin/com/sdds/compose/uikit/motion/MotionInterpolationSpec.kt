@@ -12,6 +12,10 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.lerp
 import androidx.compose.ui.unit.toIntSize
 import androidx.compose.ui.unit.toSize
+import com.sdds.compose.uikit.internal.common.BrushFillStyle
+import com.sdds.compose.uikit.internal.common.ColorFillStyle
+import com.sdds.compose.uikit.internal.common.FillStyle
+import com.sdds.compose.uikit.internal.common.MixedBrushFillStyle
 
 fun interface ValueInterpolator<T> {
 
@@ -53,6 +57,18 @@ fun offsetInterpolator(): ValueInterpolator<Offset> =
 
 fun dpOffsetInterpolator(): ValueInterpolator<DpOffset> =
     ValueInterpolator { from, to, fraction -> lerp(from, to, fraction) }
+
+fun fillStyleInterpolator(): ValueInterpolator<FillStyle> =
+    ValueInterpolator { from, to, fraction ->
+        if (from is ColorFillStyle && to is ColorFillStyle) {
+            val color = lerp(from.color, to.color, fraction)
+            ColorFillStyle(color)
+        } else if (from is BrushFillStyle && to is BrushFillStyle) {
+            MixedBrushFillStyle(from.brush, to.brush, fraction)
+        } else {
+            to
+        }
+    }
 
 internal class MotionInterpolationSpecImpl<T>(
     override val interpolator: ValueInterpolator<T>

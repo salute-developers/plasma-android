@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit.internal.tabs
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.DpSize
 import com.sdds.compose.uikit.components.counter.LocalCounterMotionStyle
@@ -24,10 +26,12 @@ import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.components.tabs.TabItemMotionStyle
 import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.interactions.selection
-import com.sdds.compose.uikit.internal.common.backgroundFillColor
+import com.sdds.compose.uikit.internal.common.backgroundFill
+import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.MotionContext
 import com.sdds.compose.uikit.motion.getColorAsState
+import com.sdds.compose.uikit.motion.getFillStyleAsState
 import com.sdds.compose.uikit.motion.rememberMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.motion.tryProvide
@@ -37,20 +41,23 @@ internal fun BaseTabItem(
     modifier: Modifier = Modifier,
     style: TabItemStyle = LocalTabItemStyle.current,
     isSelected: Boolean = false,
+    enabled: Boolean = true,
     labelContent: (@Composable () -> Unit)? = null,
     helperContent: (@Composable () -> Unit)? = null,
     counter: (@Composable () -> Unit)? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     action: (@Composable () -> Unit)? = null,
+    onClick: (() -> Unit)? = null,
+    onClickLabel: String? = null,
     motion: Motion<TabItemMotionStyle> = rememberMotion(
         LocalTabItemMotionStyle.current,
         rememberMotionContext()
     )
 ) {
-    val backgroundColor = style.colors.backgroundColor.getColorAsState(
+    val backgroundColor = style.colors.backgroundFillStyle.getFillStyleAsState(
         motion.context,
-        motion.style.background,
+        motion.style.backgroundFillStyle,
     )
     Row(
         modifier = modifier
@@ -59,10 +66,19 @@ internal fun BaseTabItem(
                 minWidth = style.dimensions.minWidth,
             )
             .selection(isSelected, motion.context.interactionSource)
-            .backgroundFillColor(
-                colorProducer = { backgroundColor.value },
+            .clickable(
+                interactionSource = motion.context.interactionSource,
+                indication = null,
+                onClickLabel = onClickLabel,
+                enabled = enabled && onClick != null,
+                role = Role.Tab,
+                onClick = { onClick?.invoke() },
+            )
+            .backgroundFill(
+                fillStyleProducer = { backgroundColor.value },
                 shape = style.shape,
             )
+            .enable(enabled)
             .padding(
                 start = style.dimensions.paddingStart,
                 end = style.dimensions.paddingEnd,
@@ -102,8 +118,8 @@ internal fun CenterContent(
         ) {
             if (labelContent != null) {
 
-                val labelColor = style.colors.labelColor.getColorAsState(
-                    motionContext, motionStyle.textColor,
+                val labelColor = style.colors.labelFillStyle.getFillStyleAsState(
+                    motionContext, motionStyle.labelFillStyle,
                 )
                 ProvideTextStyle(style.labelStyle, color = { labelColor.value }) {
                     labelContent()
@@ -112,7 +128,7 @@ internal fun CenterContent(
 
             if (helperContent != null) {
                 val valueColor = style.colors.valueColor.getColorAsState(
-                    motionContext, motionStyle.textColor,
+                    motionContext, motionStyle.labelFillStyle,
                 )
                 ProvideTextStyle(style.valueStyle, color = { valueColor.value }) {
                     helperContent()
@@ -153,7 +169,7 @@ private fun StartContent(
             .size(style.dimensions.startContentSize),
         contentAlignment = Alignment.Center,
     ) {
-        val startContentColor = style.colors.startContentColor.getColorAsState(motionContext, motionStyle.textColor)
+        val startContentColor = style.colors.startContentColor.getColorAsState(motionContext, motionStyle.labelFillStyle)
         CompositionLocalProvider(
             LocalTintProvider provides { startContentColor.value },
         ) {
@@ -176,7 +192,7 @@ private fun EndContent(
             .size(style.dimensions.endContentSize),
         contentAlignment = Alignment.Center,
     ) {
-        val endContentColor = style.colors.endContentColor.getColorAsState(motionContext, motionStyle.textColor)
+        val endContentColor = style.colors.endContentColor.getColorAsState(motionContext, motionStyle.labelFillStyle)
         CompositionLocalProvider(
             LocalTintProvider provides { endContentColor.value },
         ) {
@@ -196,7 +212,7 @@ private fun ActionContent(
 
     Box(modifier = Modifier.padding(start = style.dimensions.actionPadding)) {
 
-        val actionColor = style.colors.actionColor.getColorAsState(motionContext, motionStyle.textColor)
+        val actionColor = style.colors.actionColor.getColorAsState(motionContext, motionStyle.labelFillStyle)
         CompositionLocalProvider(
             LocalIconDefaultSize provides DpSize(
                 width = style.dimensions.actionSize,

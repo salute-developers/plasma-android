@@ -48,7 +48,7 @@ internal fun TabsScreen(componentKey: ComponentKey = ComponentKey.Tabs) {
             key = componentKey.toString(),
         ),
         component = { tabsUiState, style ->
-            val pagerState = rememberPagerState { 3 }
+            val pagerState = rememberPagerState { tabsUiState.amount }
             val scope = rememberCoroutineScope()
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Tabs(
@@ -56,7 +56,7 @@ internal fun TabsScreen(componentKey: ComponentKey = ComponentKey.Tabs) {
                     enabled = tabsUiState.enabled,
                     selectedTabIndexProvider = { pagerState.currentPage },
                     selectedTabOffset = { pagerState.currentPageOffsetFraction },
-                    onTabClicked = {
+                    onDisclosureTabClicked = {
                         scope.launch {
                             pagerState.animateScrollToPage(it, pagerState.currentPageOffsetFraction)
                         }
@@ -66,7 +66,7 @@ internal fun TabsScreen(componentKey: ComponentKey = ComponentKey.Tabs) {
                     indicatorEnabled = true, //tabsUiState.indicatorEnabled,
                     dividerEnabled = tabsUiState.dividerEnabled,
                 ) {
-                    repeat(3) { index ->
+                    repeat(tabsUiState.amount) { index ->
                         val label = "${tabsUiState.tabItemLabel}$index"
 
                         tabItem(dropdownAlias = label) {
@@ -74,6 +74,14 @@ internal fun TabsScreen(componentKey: ComponentKey = ComponentKey.Tabs) {
                             val isTabSelected = rememberTabSelectedState(index, pagerState)
                             TabItem(
                                 isSelected = isTabSelected.value,
+                                onClick = {
+                                    scope.launch {
+                                        pagerState.animateScrollToPage(
+                                            index,
+                                            pagerState.currentPageOffsetFraction,
+                                        )
+                                    }
+                                },
                                 content = { Text(label) },
                                 helperContent = { Text(tabsUiState.tabItemValue) },
                                 counter = counter(tabsUiState, tabMotion.context),
@@ -157,8 +165,7 @@ internal fun TabsPreview(style: TabsStyle) {
     Tabs(
         modifier = Modifier,
         style = style,
-        selectedTabIndexProvider = { selectedTab.intValue },
-        selectedTabOffset = { 0f },
+        selectedTabIndex = selectedTab.intValue,
         onTabClicked = {
             selectedTab.intValue = it
         },

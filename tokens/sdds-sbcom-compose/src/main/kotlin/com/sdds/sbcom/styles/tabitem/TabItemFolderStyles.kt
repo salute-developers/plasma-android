@@ -9,12 +9,17 @@ package com.sdds.sbcom.styles.tabitem
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.TabItemStyleBuilder
+import com.sdds.compose.uikit.graphics.asLayered
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.internal.common.BrushFillStyle
+import com.sdds.compose.uikit.internal.common.asBrushFillStyle
+import com.sdds.compose.uikit.internal.common.asFillStyle
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
@@ -46,14 +51,10 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
         .shape(CircleShape)
         .labelStyle(SddsSbComTheme.typography.bodyMMedium)
         .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentSecondary,
+            backgroundFillStyle(
+                SddsSbComTheme.colors.surfaceDefaultClear.asBrushFillStyle().asStatefulValue(
                     setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccentActive,
+                        to SddsSbComTheme.gradients.backgroundDefaultGradient.asFillStyle(),
                 ),
             )
             labelColor(

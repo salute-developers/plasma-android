@@ -16,6 +16,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
+import com.sdds.compose.uikit.internal.common.FillStyleProducer
 
 /**
  * CompositionLocal для [TextBehaviour]
@@ -97,6 +98,32 @@ fun Text(
     )
 }
 
+@NonRestartableComposable
+@Composable
+fun Text(
+    text: AnnotatedString,
+    modifier: Modifier = Modifier,
+    style: TextStyle = LocalTextStyle.current,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    overflow: TextOverflow = LocalTextBehaviour.current.overflow,
+    softWrap: Boolean = LocalTextBehaviour.current.softWrap,
+    maxLines: Int = LocalTextBehaviour.current.maxLines,
+    inlineContent: Map<String, InlineTextContent> = mapOf(),
+    color: FillStyleProducer? = LocalTextFillStyleProducer.current,
+) {
+    BasicText(
+        text = text,
+        modifier = modifier,
+        style = style,
+        onTextLayout = onTextLayout,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        inlineContent = inlineContent,
+        color = color,
+    )
+}
+
 /**
  * CompositionLocal, содержащий предпочтительный [TextStyle], который будет использоваться компонентами [Text] по умолчанию.
  * Чтобы установить значение для этого CompositionLocal, см. [ProvideTextStyle],
@@ -108,6 +135,8 @@ val LocalTextStyle = compositionLocalOf(structuralEqualityPolicy()) { TextStyle.
  * CompositionLocal, содержащий [ColorProducer] для [Text]
  */
 val LocalTextColorProducer = compositionLocalOf<ColorProducer?>(structuralEqualityPolicy()) { null }
+
+val LocalTextFillStyleProducer = compositionLocalOf<FillStyleProducer?>(structuralEqualityPolicy()) { null }
 
 /**
  * Функция используется для установки текущего значения LocalTextStyle,
@@ -144,13 +173,24 @@ fun ProvideTextStyle(value: TextStyle, color: Color? = null, content: @Composabl
 fun ProvideTextStyle(value: TextStyle, color: ColorProducer, content: @Composable () -> Unit) {
     val mergedStyle = LocalTextStyle.current.merge(value)
     CompositionLocalProvider(
-        LocalTextStyle provides mergedStyle.also { Log.e("Text", "ProvideTextStyle: textStyle $it", ) },
-        LocalTextColorProducer provides color.also { Log.e("Text", "ProvideTextStyle: color producer $it", ) },
+        LocalTextStyle provides mergedStyle,
+        LocalTextColorProducer provides color,
     ) {
         content()
-        SideEffect {
-            Log.e("Text", "ProvideTextStyle: recompose", )
-        }
+    }
+}
+
+@Composable
+fun ProvideTextStyle(
+    style: TextStyle,
+    fillStyleProducer: FillStyleProducer,
+    content: @Composable () -> Unit) {
+    val mergedStyle = LocalTextStyle.current.merge(style)
+    CompositionLocalProvider(
+        LocalTextStyle provides mergedStyle,
+        LocalTextFillStyleProducer provides fillStyleProducer,
+    ) {
+        content()
     }
 }
 

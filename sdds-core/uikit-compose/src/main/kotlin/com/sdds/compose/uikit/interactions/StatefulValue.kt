@@ -43,6 +43,9 @@ open class StatefulValue<T> internal constructor(
     private val defaultValue: T? = null,
 ) {
 
+    val size: Int
+        get() = values.size
+
     /**
      * Возвращает значение, соответствующее переданному набору состояний.
      *
@@ -82,7 +85,7 @@ open class StatefulValue<T> internal constructor(
 
     private fun indexOfDefault(): Int = states.indexOfFirst { it.isEmpty() }.takeIf { it >= 0 } ?: 0
 
-    private fun indexOfStateSet(stateSet: Set<ValueState>): Int {
+    internal fun indexOfStateSet(stateSet: Set<ValueState>): Int {
         for (i in states.indices) {
             if (states[i].all { it in stateSet }) {
                 return i

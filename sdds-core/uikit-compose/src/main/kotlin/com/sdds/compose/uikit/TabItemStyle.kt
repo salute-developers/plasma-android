@@ -11,9 +11,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.transform
+import com.sdds.compose.uikit.internal.common.ColorFillStyle
+import com.sdds.compose.uikit.internal.common.FillStyle
+import com.sdds.compose.uikit.motion.asFillStyle
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -209,32 +212,68 @@ interface TabItemColors {
     /**
      * Цвет фона
      */
+    @Deprecated(
+        "Use backgroundFillStyle",
+        replaceWith = ReplaceWith("backgroundFillStyle"),
+    )
     val backgroundColor: StatefulValue<Color>
+
+    val backgroundFillStyle: StatefulValue<FillStyle>
 
     /**
      * Цвет основного текста
      */
+    @Deprecated(
+        "Use labelFillStyle",
+        replaceWith = ReplaceWith("labelFillStyle"),
+    )
     val labelColor: StatefulValue<Color>
+
+    val labelFillStyle: StatefulValue<FillStyle>
 
     /**
      * Цвет дополнительного текста
      */
+    @Deprecated(
+        "Use valueFillStyle",
+        replaceWith = ReplaceWith("valueFillStyle"),
+    )
     val valueColor: StatefulValue<Color>
+
+    val valueFillStyle: StatefulValue<FillStyle>
 
     /**
      * Цвет контента в начале
      */
+    @Deprecated(
+        "Use startContentFillStyle",
+        replaceWith = ReplaceWith("startContentFillStyle"),
+    )
     val startContentColor: StatefulValue<Color>
+
+    val startContentFillStyle: StatefulValue<FillStyle>
 
     /**
      * Цвет контента в конце
      */
+    @Deprecated(
+        "Use endContentFillStyle",
+        replaceWith = ReplaceWith("endContentFillStyle"),
+    )
     val endContentColor: StatefulValue<Color>
+
+    val endContentFillStyle: StatefulValue<FillStyle>
 
     /**
      * Цвет иконки действия
      */
+    @Deprecated(
+        "Use actionFillStyle",
+        replaceWith = ReplaceWith("actionFillStyle"),
+    )
     val actionColor: StatefulValue<Color>
+
+    val actionFillStyle: StatefulValue<FillStyle>
 
     companion object {
 
@@ -259,7 +298,10 @@ interface TabItemColorsBuilder {
     /**
      * Устанавливает цвет фона
      */
-    fun backgroundColor(backgroundColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun backgroundColor(backgroundColor: StatefulValue<Color>): TabItemColorsBuilder =
+        backgroundFillStyle(backgroundColor.transform { ColorFillStyle(it) })
+
+    fun backgroundFillStyle(backgroundFillStyle: StatefulValue<FillStyle>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет основного текста
@@ -270,7 +312,10 @@ interface TabItemColorsBuilder {
     /**
      * Устанавливает цвет основного текста
      */
-    fun labelColor(labelColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun labelColor(labelColor: StatefulValue<Color>): TabItemColorsBuilder =
+        labelFillStyle(labelColor.asFillStyle())
+
+    fun labelFillStyle(labelFillStyle: StatefulValue<FillStyle>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет дополнительного текста
@@ -281,7 +326,10 @@ interface TabItemColorsBuilder {
     /**
      * Устанавливает цвет дополнительного текста
      */
-    fun valueColor(valueColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun valueColor(valueColor: StatefulValue<Color>): TabItemColorsBuilder =
+        valueFillStyle(valueColor.asFillStyle())
+
+    fun valueFillStyle(valueFillStyle: StatefulValue<FillStyle>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет контента в начале
@@ -292,7 +340,10 @@ interface TabItemColorsBuilder {
     /**
      * Устанавливает цвет контента в начале
      */
-    fun startContentColor(startContentColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun startContentColor(startContentColor: StatefulValue<Color>): TabItemColorsBuilder =
+        startContentFillStyle(startContentColor.asFillStyle())
+
+    fun startContentFillStyle(startContentFillStyle: StatefulValue<FillStyle>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет контента в конце
@@ -303,7 +354,10 @@ interface TabItemColorsBuilder {
     /**
      * Устанавливает цвет контента в конце
      */
-    fun endContentColor(endContentColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun endContentColor(endContentColor: StatefulValue<Color>): TabItemColorsBuilder =
+        endContentFillStyle(endContentColor.asFillStyle())
+
+    fun endContentFillStyle(endContentFillStyle: StatefulValue<FillStyle>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет иконки действия
@@ -314,7 +368,10 @@ interface TabItemColorsBuilder {
     /**
      * Устанавливает цвет иконки действия
      */
-    fun actionColor(actionColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun actionColor(actionColor: StatefulValue<Color>): TabItemColorsBuilder =
+        actionFillStyle(actionColor.asFillStyle())
+
+    fun actionFillStyle(actionFillStyle: StatefulValue<FillStyle>): TabItemColorsBuilder
 
     /**
      * Возвращает [TabItemColors]
@@ -324,60 +381,67 @@ interface TabItemColorsBuilder {
 
 @Immutable
 private class DefaultTabItemColors(
-    override val backgroundColor: StatefulValue<Color>,
-    override val labelColor: StatefulValue<Color>,
-    override val valueColor: StatefulValue<Color>,
-    override val startContentColor: StatefulValue<Color>,
-    override val endContentColor: StatefulValue<Color>,
-    override val actionColor: StatefulValue<Color>,
+    override val backgroundFillStyle: StatefulValue<FillStyle>,
+    override val labelFillStyle: StatefulValue<FillStyle>,
+    override val valueFillStyle: StatefulValue<FillStyle>,
+    override val startContentFillStyle: StatefulValue<FillStyle>,
+    override val endContentFillStyle: StatefulValue<FillStyle>,
+    override val actionFillStyle: StatefulValue<FillStyle>,
 ) : TabItemColors {
 
+    @Deprecated("Use backgroundFillStyle", replaceWith = ReplaceWith("backgroundFillStyle"))
+    override val backgroundColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+    @Deprecated("Use labelFillStyle", replaceWith = ReplaceWith("labelFillStyle"))
+    override val labelColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+    @Deprecated("Use valueFillStyle", replaceWith = ReplaceWith("valueFillStyle"))
+    override val valueColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+    @Deprecated("Use startContentFillStyle", replaceWith = ReplaceWith("startContentFillStyle"))
+    override val startContentColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+    @Deprecated("Use endContentFillStyle", replaceWith = ReplaceWith("endContentFillStyle"))
+    override val endContentColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+    @Deprecated("Use actionFillStyle", replaceWith = ReplaceWith("actionFillStyle"))
+    override val actionColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
     class Builder : TabItemColorsBuilder {
-        private var backgroundColor: StatefulValue<Color>? = null
-        private var labelColor: StatefulValue<Color>? = null
-        private var valueColor: StatefulValue<Color>? = null
-        private var startContentColor: StatefulValue<Color>? = null
-        private var endContentColor: StatefulValue<Color>? = null
-        private var actionColor: StatefulValue<Color>? = null
+        private var backgroundFillStyle: StatefulValue<FillStyle>? = null
+        private var labelFillStyle: StatefulValue<FillStyle>? = null
+        private var valueFillStyle: StatefulValue<FillStyle>? = null
+        private var startContentFillStyle: StatefulValue<FillStyle>? = null
+        private var endContentFillStyle: StatefulValue<FillStyle>? = null
+        private var actionFillStyle: StatefulValue<FillStyle>? = null
 
-        override fun backgroundColor(backgroundColor: StatefulValue<Color>) = apply {
-            this.backgroundColor = backgroundColor
+        override fun backgroundFillStyle(backgroundFillStyle: StatefulValue<FillStyle>) = apply {
+            this.backgroundFillStyle = backgroundFillStyle
         }
 
-        override fun labelColor(labelColor: StatefulValue<Color>) = apply {
-            this.labelColor = labelColor
+        override fun labelFillStyle(labelFillStyle: StatefulValue<FillStyle>) = apply {
+            this.labelFillStyle = labelFillStyle
         }
 
-        override fun valueColor(valueColor: StatefulValue<Color>) = apply {
-            this.valueColor = valueColor
+        override fun valueFillStyle(valueFillStyle: StatefulValue<FillStyle>) = apply {
+            this.valueFillStyle = valueFillStyle
         }
 
-        override fun startContentColor(startContentColor: StatefulValue<Color>) = apply {
-            this.startContentColor = startContentColor
+        override fun startContentFillStyle(startContentFillStyle: StatefulValue<FillStyle>) = apply {
+            this.startContentFillStyle = startContentFillStyle
         }
 
-        override fun endContentColor(endContentColor: StatefulValue<Color>) = apply {
-            this.endContentColor = endContentColor
+        override fun endContentFillStyle(endContentFillStyle: StatefulValue<FillStyle>) = apply {
+            this.endContentFillStyle = endContentFillStyle
         }
 
-        override fun actionColor(actionColor: StatefulValue<Color>) = apply {
-            this.actionColor = actionColor
+        override fun actionFillStyle(actionFillStyle: StatefulValue<FillStyle>) = apply {
+            this.actionFillStyle = actionFillStyle
         }
 
         override fun build(): TabItemColors {
             return DefaultTabItemColors(
-                backgroundColor = backgroundColor
-                    ?: Color.Transparent.asStatefulValue(),
-                labelColor = labelColor
-                    ?: Color.Black.asStatefulValue(setOf(InteractiveState.Selected) to Color.DarkGray),
-                valueColor = valueColor
-                    ?: Color.Gray.asStatefulValue(setOf(InteractiveState.Selected) to Color.LightGray),
-                startContentColor = startContentColor
-                    ?: Color.DarkGray.asStatefulValue(setOf(InteractiveState.Selected) to Color.Gray),
-                endContentColor = endContentColor
-                    ?: Color.DarkGray.asStatefulValue(setOf(InteractiveState.Selected) to Color.Gray),
-                actionColor = actionColor
-                    ?: Color.DarkGray.asStatefulValue(setOf(InteractiveState.Selected) to Color.Gray),
+                backgroundFillStyle = backgroundFillStyle ?: ColorFillStyle.Transparent.asStatefulValue(),
+                labelFillStyle = labelFillStyle ?: ColorFillStyle.Transparent.asStatefulValue(),
+                valueFillStyle = valueFillStyle ?: ColorFillStyle.Transparent.asStatefulValue(),
+                startContentFillStyle = startContentFillStyle ?: ColorFillStyle.Transparent.asStatefulValue(),
+                endContentFillStyle = endContentFillStyle ?: ColorFillStyle.Transparent.asStatefulValue(),
+                actionFillStyle = actionFillStyle ?: ColorFillStyle.Transparent.asStatefulValue(),
             )
         }
     }

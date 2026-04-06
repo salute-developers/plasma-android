@@ -199,7 +199,7 @@ private fun <T> StatefulValue<T>.interpolateAsState(
 }
 
 @Composable
-private fun <T : Any, V : AnimationVector> StatefulValue<T>.getValueAsState(
+internal fun <T : Any, V : AnimationVector> StatefulValue<T>.getValueAsState(
     context: MotionContext,
     motionProperty: MotionProperty<T>,
     converter: TwoWayConverter<T, V>,

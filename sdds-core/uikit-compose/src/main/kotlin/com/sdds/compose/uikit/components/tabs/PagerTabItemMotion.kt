@@ -12,56 +12,17 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.MotionChannelKey
 import com.sdds.compose.uikit.motion.backwardVector
+import com.sdds.compose.uikit.motion.changes
 import com.sdds.compose.uikit.motion.changesFrom
 import com.sdds.compose.uikit.motion.changesTo
 import com.sdds.compose.uikit.motion.colorInterpolator
+import com.sdds.compose.uikit.motion.fillStyleInterpolator
 import com.sdds.compose.uikit.motion.forwardVector
 import com.sdds.compose.uikit.motion.interpolation
 import com.sdds.compose.uikit.motion.rememberMotion
 import com.sdds.compose.uikit.motion.rememberMotionContext
 import com.sdds.compose.uikit.motion.updateInterpolationChannel
 import kotlin.math.absoluteValue
-
-@Immutable
-object TabInterpolationChannel : MotionChannelKey
-
-private val PagerTabItemCounterMotionStyle = CounterMotionStyle.builder()
-    .backgroundColor(
-        interpolation("CounterBackgroundColor") {
-            segment {
-                channel(TabInterpolationChannel)
-                vector { state -> state.backwardVector() }
-                condition { state -> state changesFrom InteractiveState.Selected }
-            } interpolatesBy { colorInterpolator() }
-
-            segment {
-                channel(TabInterpolationChannel)
-                vector { state -> state.forwardVector() }
-                condition { state -> state changesTo InteractiveState.Selected }
-            } interpolatesBy { colorInterpolator() }
-
-        }
-    )
-    .style()
-
-val PagerTabItemMotionStyle = TabItemMotionStyle.builder()
-    .textColor(
-        interpolation {
-            segment {
-                channel(TabInterpolationChannel)
-                vector { state -> state.backwardVector() }
-                condition { state -> state changesFrom InteractiveState.Selected }
-            } interpolatesBy { colorInterpolator() }
-
-            segment {
-                channel(TabInterpolationChannel)
-                vector { state -> state.forwardVector() }
-                condition { state -> state changesTo InteractiveState.Selected }
-            } interpolatesBy { colorInterpolator() }
-        }
-    )
-    .counterMotionStyle(PagerTabItemCounterMotionStyle)
-    .style()
 
 @Composable
 fun rememberTabItemPagerMotion(
@@ -93,3 +54,49 @@ fun rememberTabSelectedState(tabIndex: Int, pagerState: PagerState): State<Boole
         }
     }
 }
+
+@Immutable
+private object TabInterpolationChannel : MotionChannelKey
+
+private val PagerTabItemCounterMotionStyle = CounterMotionStyle.builder()
+    .backgroundColor(
+        interpolation("CounterBackgroundColor") {
+            segment {
+                channel(TabInterpolationChannel)
+                vector { state -> state.backwardVector() }
+                condition { state -> state changesFrom InteractiveState.Selected }
+            } interpolatesBy { colorInterpolator() }
+
+            segment {
+                channel(TabInterpolationChannel)
+                vector { state -> state.forwardVector() }
+                condition { state -> state changesTo InteractiveState.Selected }
+            } interpolatesBy { colorInterpolator() }
+
+        }
+    )
+    .style()
+
+private val PagerTabItemSelectInterpolationMotion = interpolation {
+    segment {
+        channel(TabInterpolationChannel)
+        vector { state -> state.backwardVector() }
+        condition { state -> state changes InteractiveState.Pressed }
+    } interpolatesBy { fillStyleInterpolator() }
+
+    segment {
+        channel(TabInterpolationChannel)
+        vector { state -> state.forwardVector() }
+        condition { state -> state changesTo InteractiveState.Selected }
+    } interpolatesBy { fillStyleInterpolator() }
+}
+
+val PagerTabItemMotionStyle = TabItemMotionStyle.builder()
+    .labelFillStyle(PagerTabItemSelectInterpolationMotion)
+    .backgroundFillStyle(PagerTabItemSelectInterpolationMotion)
+    .valueFillStyle(PagerTabItemSelectInterpolationMotion)
+    .startContentFillStyle(PagerTabItemSelectInterpolationMotion)
+    .endContentFillStyle(PagerTabItemSelectInterpolationMotion)
+    .actionFillStyle(PagerTabItemSelectInterpolationMotion)
+    .counterMotionStyle(PagerTabItemCounterMotionStyle)
+    .style()

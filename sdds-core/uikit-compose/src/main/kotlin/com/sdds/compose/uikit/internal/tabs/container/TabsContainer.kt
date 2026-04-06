@@ -6,20 +6,25 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.LocalTabsStyle
-import com.sdds.compose.uikit.Tabs.DISABLE_ALPHA
 import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TriggerInfo
+import com.sdds.compose.uikit.internal.tabs.Tabs.DISABLE_ALPHA
+import com.sdds.compose.uikit.internal.tabs.scrollToTabIfNeeded
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
 internal fun TabsContainer(
@@ -28,7 +33,7 @@ internal fun TabsContainer(
     enabled: Boolean,
     selectedTabIndexProvider: () -> Int,
     selectedTabOffset: () -> Float,
-    onTabClicked: (Int) -> Unit,
+    onTabClicked: ((Int) -> Unit)? = null,
     clip: TabsClip = TabsClip.None,
     spacingDp: Dp,
     spacingPx: Int,
@@ -91,6 +96,20 @@ internal fun TabsContainer(
                 onDisclosureClick = onDisclosureClick,
                 onOverflowTab = onOverflowTab,
             )
+        }
+    }
+
+    if (clip == TabsClip.Scroll) {
+        val selectedTabIndex by rememberUpdatedState(selectedTabIndexProvider())
+        LaunchedEffect(selectedTabIndex) {
+            coroutineScope.launch {
+                scrollToTabIfNeeded(
+                    selectedIndex = selectedTabIndex,
+                    tabSizes = tabSizes,
+                    spacing = spacingPx,
+                    scrollState = scrollState,
+                )
+            }
         }
     }
 }

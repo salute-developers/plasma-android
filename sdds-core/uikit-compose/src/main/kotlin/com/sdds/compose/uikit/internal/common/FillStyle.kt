@@ -1,7 +1,5 @@
 package com.sdds.compose.uikit.internal.common
 
-import androidx.compose.animation.VectorConverter
-import androidx.compose.animation.core.AnimationVector
 import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.animation.core.AnimationVector4D
 import androidx.compose.animation.core.TwoWayConverter
@@ -15,12 +13,19 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.colorspace.ColorSpace
 import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import androidx.compose.ui.graphics.drawOutline
 import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.util.fastCoerceIn
+import com.sdds.compose.uikit.graphics.asBrush
+import com.sdds.compose.uikit.graphics.asLayered
+
+fun interface FillStyleProducer {
+
+    operator fun invoke(): FillStyle
+}
 
 @Stable
 sealed interface FillStyle {
@@ -45,6 +50,15 @@ data class BrushFillStyle(val brush: Brush) : FillStyle {
 
 @Immutable
 internal class MixedBrushFillStyle(val from: Brush, val to: Brush, val fraction: Float) : FillStyle
+
+
+fun Color.asFillStyle(): ColorFillStyle = ColorFillStyle(this)
+
+fun Color.asBrushFillStyle(): BrushFillStyle = BrushFillStyle(this.asBrush())
+
+fun Brush.asFillStyle(): BrushFillStyle = BrushFillStyle(this)
+
+fun List<ShaderBrush>.asFillStyle(): BrushFillStyle = BrushFillStyle(this.asLayered())
 
 fun Modifier.backgroundFillColor(
     colorProducer: () -> Color,
@@ -119,10 +133,10 @@ private val ColorFillStyleToVector: (colorSpace: ColorSpace) -> TwoWayConverter<
             },
             convertFromVector = { vector ->
                 val color = Color(
-                    vector.v2.fastCoerceIn(0f, 1f), // L (red)
-                    vector.v3.fastCoerceIn(-0.5f, 0.5f), // a (blue)
-                    vector.v4.fastCoerceIn(-0.5f, 0.5f), // b (green)
-                    vector.v1.fastCoerceIn(0f, 1f), // alpha
+                    vector.v2.coerceIn(0f, 1f), // L (red)
+                    vector.v3.coerceIn(-0.5f, 0.5f), // a (blue)
+                    vector.v4.coerceIn(-0.5f, 0.5f), // b (green)
+                    vector.v1.coerceIn(0f, 1f), // alpha
                     ColorSpaces.Oklab
                 )
                     .convert(colorSpace)

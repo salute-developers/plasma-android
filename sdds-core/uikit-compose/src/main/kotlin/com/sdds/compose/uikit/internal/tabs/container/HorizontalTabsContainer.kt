@@ -30,7 +30,7 @@ internal fun HorizontalTabsContainer(
     enabled: Boolean,
     selectedTabIndexProvider: () -> Int,
     selectedTabOffset: () -> Float,
-    onTabClicked: (Int) -> Unit,
+    onTabClicked: ((Int) -> Unit)? = null,
     clip: TabsClip,
     spacingDp: Dp,
     spacingPx: Int,
@@ -101,7 +101,7 @@ private fun RegularRow(
     enabled: Boolean,
     selectedTabIndexProvider: () -> Int,
     selectedTabOffset: () -> Float,
-    onTabClicked: (Int) -> Unit,
+    onTabClicked: ((Int) -> Unit)?,
     clip: TabsClip,
     spacingDp: Dp,
     spacingPx: Int,
@@ -139,19 +139,7 @@ private fun RegularRow(
                 modifier = if (canStretch) Modifier.weight(1f) else Modifier,
                 enabled = enabled,
                 stretch = canStretch,
-                onClick = {
-                    onTabClicked(index)
-                    if (clip == TabsClip.Scroll) {
-                        coroutineScope.launch {
-                            scrollToTabIfNeeded(
-                                selectedIndex = index,
-                                tabSizes = tabSizes,
-                                spacing = spacingPx,
-                                scrollState = scrollState,
-                            )
-                        }
-                    }
-                },
+                onClick = { onTabClicked?.invoke(index) },
                 onSizeMeasured = { intSize ->
                     onTabsMeasured.invoke(index, intSize)
                 },
@@ -168,7 +156,7 @@ private fun ShowMoreRow(
     enabled: Boolean,
     selectedTabIndexProvider: () -> Int,
     selectedTabOffset: () -> Float,
-    onTabClicked: (Int) -> Unit,
+    onTabClicked: ((Int) -> Unit)?,
     spacingDp: Dp,
     canStretch: Boolean,
     scrollState: ScrollState,
@@ -188,7 +176,9 @@ private fun ShowMoreRow(
                 TabItemContainer(
                     stretch = canStretch,
                     enabled = enabled,
-                    onClick = { onTabClicked(index) },
+                    onClick = onTabClicked?.let { tabClicked ->
+                        { tabClicked(index) }
+                    },
                     onSizeMeasured = { intSize -> onTabsMeasured.invoke(index, intSize) },
                     tabItemStyle = style.tabItemStyle,
                     tabItemContent = tabItem,
