@@ -13,43 +13,56 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-release:
-    name: Build release artifacts
+  detect_changes:
+    name: Detect changes
+    uses: ./.github/workflows/detect-changes.yml
+
+  build_apps:
+    name: Build release APKs
+    needs: detect_changes
+    if: ${{ join(fromJson(needs.detect_changes.outputs.changed_tokens)) != '' }}
+    uses: ./.github/workflows/build-token-apps-common.yml
+    secrets: inherit
+    with:
+      modules: ${{ needs.detect_changes.outputs.changed_tokens }}
+      ref: ${{ github.head_ref }}
+      release: true
+
+  create_comment:
+    name: Attach APK comment
+    needs: build_apps
     runs-on: ubuntu-latest
+    if: always() && needs.build_apps.result == 'success'
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: Prepare environment
-        uses: ./.github/actions/prepare-android-env
-
-      - name: Extract branch name
-        id: extract_branch
-        shell: bash
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-
-      - name: Run assembleReleaseAll
-        run: ./gradlew :playground:sandbox-compose:assembleRelease -PbranchName=${{ steps.extract_branch.outputs.branch }}
-
-      - name: Upload APK
-        id: upload_apk
-        if: success()
-        uses: actions/upload-artifact@v4.3.1
+      - name: Download APK metadata artifacts
+        uses: actions/download-artifact@v4
         with:
-          name: artifacts
-          path: | 
-            **/build/outputs/apk/**/*.apk
+          pattern: sandbox-*-release-metadata
+          path: apk-results
 
-      - name: Generate comment with artifact link
+      - name: Collect APK URLs and generate summary
+        id: collect_summary
         shell: bash
-        if: steps.upload_apk.outputs.artifact-url
         run: |
-          sed "s|__APK_URL__|${{ steps.upload_apk.outputs.artifact-url }}|g" \
-            .github/templates/apk-installation-instructions.md > build-summary.md
+          if [ ! -d apk-results ]; then
+            echo "No APK metadata artifacts found." >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
 
-      - name: Attach comment to PR
+          echo "### Release APK" >> $GITHUB_STEP_SUMMARY
+
+          find apk-results -name artifact.json | sort | while read -r path; do
+            module=$(jq -r '.module' "$path")
+            url=$(jq -r '.artifactUrl' "$path")
+            echo "- [$module]($url)" >> $GITHUB_STEP_SUMMARY
+          done
+
+          cp "$GITHUB_STEP_SUMMARY" build-summary.md
+
+      - name: Attach comment
+        if: success() && hashFiles('build-summary.md') != ''
         uses: marocchino/sticky-pull-request-comment@v2
-        if: steps.upload_apk.outputs.artifact-url
         with:
+          header: apk-release
           path: build-summary.md
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

@@ -1,0 +1,118 @@
+name: 'Build tokens apps common'
+
+on:
+  workflow_call:
+    inputs:
+      modules:
+        type: string
+        description: 'Список модулей в формате json (например, [":tokens:plasma-stards", ":tokens:plasma-stards-compose"])'
+        required: true
+      ref:
+        type: string
+        description: 'Название ветки, тэга или хэш коммита'
+        required: true
+      is_repository_dispatch:
+        type: boolean
+        description: 'True если workflow вызван через repository_dispatch'
+        required: false
+        default: false
+      release:
+        type: boolean
+        description: 'Собирать release APK, иначе debug'
+        required: false
+        default: false
+
+jobs:
+  build:
+    name: Build apps
+    runs-on: ubuntu-latest
+    if: inputs.modules != '' && inputs.modules != '[]' && inputs.ref != ''
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJson(inputs.modules) }}
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: |
+          if [[ "${{ inputs.is_repository_dispatch }}" == "true" ]]; then
+            echo "branch=main" >> $GITHUB_OUTPUT
+          else
+            echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Prepare artifact info
+        shell: bash
+        run: |
+          module="${{ matrix.module }}"
+          module="${module#:}"
+          safe_path="${module//:/\/}"
+          build_type="debug"
+          if [[ "${{ inputs.release }}" == "true" ]]; then
+            build_type="release"
+          fi
+          artifact_name="sandbox-${module//:/_}-${build_type}-apk"
+          metadata_name="sandbox-${module//:/_}-${build_type}-metadata"
+          echo "MODULE_PATH=tokens/$safe_path/app" >> $GITHUB_ENV
+          echo "SAFE_MODULE=$module" >> $GITHUB_ENV
+          echo "ARTIFACT_NAME=$artifact_name" >> $GITHUB_ENV
+          echo "METADATA_ARTIFACT_NAME=$metadata_name" >> $GITHUB_ENV
+          echo "BUILD_TYPE=$build_type" >> $GITHUB_ENV
+
+      - name: Decrypt Keystore
+        if: inputs.release
+        run: |
+          echo "${{ secrets.KEY_STORE_FILE }}" | base64 -d -i >  ${{ env.MODULE_PATH }}/keystore.jks
+
+      - name: Build APK
+        env:
+          KEY_STORE_FILE: "keystore.jks"
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_PASSWORD }}
+        run: |
+          task="assembleDebug"
+          if [[ "${{ inputs.release }}" == "true" ]]; then
+            task="assembleRelease"
+          fi
+          ./gradlew ${{ matrix.module }}:app:${task} -PbranchName=${{ steps.extract_branch.outputs.branch }}
+
+      - name: Upload APK
+        id: upload_apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.MODULE_PATH }}/build/outputs/apk/${{ env.BUILD_TYPE }}/*.apk
+
+      - name: Prepare artifact metadata
+        if: success()
+        shell: bash
+        run: |
+          mkdir -p artifact-metadata
+          jq -n \
+            --arg module ":${{ env.SAFE_MODULE }}" \
+            --arg buildType "${{ env.BUILD_TYPE }}" \
+            --arg artifactName "${{ env.ARTIFACT_NAME }}" \
+            --arg artifactUrl "${{ steps.upload_apk.outputs.artifact-url }}" \
+            '{
+              module: $module,
+              buildType: $buildType,
+              artifactName: $artifactName,
+              artifactUrl: $artifactUrl
+            }' > artifact-metadata/artifact.json
+
+      - name: Upload artifact metadata
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.METADATA_ARTIFACT_NAME }}
+          path: artifact-metadata/artifact.json
