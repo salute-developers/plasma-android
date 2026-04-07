@@ -2,16 +2,16 @@
 set -euo pipefail
 
 FROM_TAG=$1
+INCLUDE_TOKENS_SUBMODULES=${2:-false}
 
 echo "🔍 Detecting changed modules since $FROM_TAG"
+echo "📦 Include token submodules :apps and :docs is $INCLUDE_TOKENS_SUBMODULES"
 
 # Track if affected special dirs
 UIKIT_COMPOSE_CHANGED=false
+INTEGR_COMPOSE_CHANGED=false
 UIKIT_CHANGED=false
-TESTING_CHANGED=false
-TESTING_CHANGED_TARGET=""
-TESTING_SEEN_VS=false
-TESTING_SEEN_COMPOSE=false
+INTEGR_CHANGED=false
 
 declare -a MODULES_SET=()
 CHANGED_TOKENS=false
@@ -19,10 +19,6 @@ INCLUDE_SANDBOX=false
 
 while IFS= read -r FILE; do
   echo "➡️ Checking file: $FILE"
-
-  if [[ "$FILE" == sdds-core/*/* ]]; then
-    INCLUDE_SANDBOX=true
-  fi
 
   # sdds-haze
   if [[ "$FILE" == third-party/sdds-haze/*/* ]]; then
@@ -38,19 +34,10 @@ while IFS= read -r FILE; do
   # sdds-core (excluding icons/ and testing/)
   if [[ "$FILE" == sdds-core/*/* ]]; then
     FIRST=$(echo "$FILE" | cut -d '/' -f2)
-    if [[ "$FIRST" == "uikit-compose" || "$FIRST" == "uikit-compose-fixtures" ]]; then
+    if [[ "$FIRST" == "uikit-compose" ]]; then
       UIKIT_COMPOSE_CHANGED=true
-    elif [[ "$FIRST" == "uikit" || "$FIRST" == "uikit-fixtures" ]]; then
+    elif [[ "$FIRST" == "uikit" ]]; then
       UIKIT_CHANGED=true
-    elif [[ "$FIRST" == "testing" ]]; then
-      TESTING_CHANGED=true
-      # Track which testing flavors changed
-      if [[ "$FILE" == */vs/* ]]; then
-        TESTING_SEEN_VS=true
-      fi
-      if [[ "$FILE" == */compose/* ]]; then
-        TESTING_SEEN_COMPOSE=true
-      fi
     fi
     if [[ "$FIRST" != "icons" && "$FIRST" != "testing" && "$FIRST" != "gradle" ]]; then
       MODULE=":sdds-core:$FIRST"
@@ -62,6 +49,14 @@ while IFS= read -r FILE; do
   # integration-core
   if [[ "$FILE" == integration-core/*/* ]]; then
     FIRST=$(echo "$FILE" | cut -d '/' -f2)
+     if [[ "$FIRST" == "uikit-compose-fixtures" || "$FIRST" == "sandbox-compose" ]]; then
+        INTEGR_COMPOSE_CHANGED=true
+     elif [[ "$FIRST" == "uikit-fixtures" || "$FIRST" == "sandbox-view"  ]]; then
+        INTEGR_CHANGED=true
+     elif [[ "$FIRST" == "sandbox-ksp" || "$FIRST" == "sandbox-core" ]]; then
+       INTEGR_COMPOSE_CHANGED=true
+       INTEGR_CHANGED=true
+     fi
     MODULE=":integration-core:$FIRST"
     MODULES_SET+=("$MODULE")
     echo "✅ Matched: $MODULE"
@@ -69,37 +64,11 @@ while IFS= read -r FILE; do
 
   # tokens/*
   if [[ "$FILE" == tokens/* ]]; then
-    INCLUDE_SANDBOX=true
     CHANGED_TOKENS=true
-  fi
-
-  # playground/sandbox-compose
-  if [[ "$FILE" == playground/sandbox-compose/* ]]; then
-    MODULE=":playground:sandbox-compose"
-    MODULES_SET+=("$MODULE")
-    echo "✅ Matched: $MODULE"
   fi
 done < <(git diff --name-only "$FROM_TAG" HEAD)
 
-# Resolve testing target based on observed paths
-if [[ "$TESTING_CHANGED" == true ]]; then
-  if [[ "$TESTING_SEEN_VS" == true && "$TESTING_SEEN_COMPOSE" == true ]]; then
-    TESTING_CHANGED_TARGET="all"
-  elif [[ "$TESTING_SEEN_VS" == true ]]; then
-    TESTING_CHANGED_TARGET="view"
-  elif [[ "$TESTING_SEEN_COMPOSE" == true ]]; then
-    TESTING_CHANGED_TARGET="compose"
-  else
-    # Default when testing changed but neither subfolder matched explicitly
-    TESTING_CHANGED_TARGET="none"
-  fi
-else
-  TESTING_CHANGED_TARGET="none"
-fi
-
-echo "🧪 Testing target resolved: $TESTING_CHANGED_TARGET"
-
-if [[ "$UIKIT_COMPOSE_CHANGED" == true || "$UIKIT_CHANGED" == true || "$TESTING_CHANGED" == true ]]; then
+if [[ "$UIKIT_COMPOSE_CHANGED" == true || "$UIKIT_CHANGED" == true || "$INTEGR_COMPOSE_CHANGED" == true || "$INTEGR_CHANGED" == true ]]; then
   echo "🔁 Resolving token modules due to changes in uikit or testing"
 
   for DIR in tokens/*/; do
@@ -112,18 +81,14 @@ if [[ "$UIKIT_COMPOSE_CHANGED" == true || "$UIKIT_CHANGED" == true || "$TESTING_
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
       echo "🔗 Added view token module due to uikit change: $MODULE"
-    elif [[ "$TESTING_CHANGED_TARGET" == "view" && "$NAME" == *view* ]]; then
+    elif [[ "$INTEGR_CHANGED" == true && "$NAME" == *view* ]]; then
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
-      echo "🔗 Added view token module due to testing change: $MODULE"
-    elif [[ "$TESTING_CHANGED_TARGET" == "compose" && "$NAME" == *compose* ]]; then
+      echo "🔗 Added view token module due to integration change: $MODULE"
+    elif [[ "$INTEGR_COMPOSE_CHANGED" == true && "$NAME" == *compose* ]]; then
       MODULE=":tokens:$NAME"
       MODULES_SET+=("$MODULE")
-      echo "🔗 Added compose token module due to testing change: $MODULE"
-    elif [[ "$TESTING_CHANGED_TARGET" == "all" && ( "$NAME" == *view* || "$NAME" == *compose* ) ]]; then
-      MODULE=":tokens:$NAME"
-      MODULES_SET+=("$MODULE")
-      echo "🔗 Added token module for all testing targets: $MODULE"
+      echo "🔗 Added compose token module due to integration compose change: $MODULE"
     fi
   done
 fi
@@ -145,13 +110,8 @@ if [[ "$CHANGED_TOKENS" == true ]]; then
   done
 fi
 
-if [[ "$INCLUDE_SANDBOX" == true ]]; then
-  MODULE=":playground:sandbox-compose"
-  MODULES_SET+=("$MODULE")
-  echo "📦 Included sandbox-compose due to core/tokens changes"
-fi
-
 UNIQUE_MODULES=$(printf "%s\n" "${MODULES_SET[@]:-}" | sort -u | xargs)
+echo "✅ Pre Final module list: $UNIQUE_MODULES"
 
 # Apply ignore list from .ignore-changed-modules (if exists)
 IGNORED_MODULES=()
@@ -182,6 +142,32 @@ if [[ ${#IGNORED_MODULES[@]} -gt 0 ]]; then
   UNIQUE_MODULES=$(printf "%s " "${FILTERED_MODULES[@]}")
 fi
 
+if [[ "$INCLUDE_TOKENS_SUBMODULES" == "true" ]]; then
+  echo "📦 Adding :app and :docs submodules for token modules"
+
+  MODULES_WITH_TOKEN_SUBMODULES=()
+  for MODULE in $UNIQUE_MODULES; do
+    MODULES_WITH_TOKEN_SUBMODULES+=("$MODULE")
+
+    if [[ "$MODULE" == :tokens:* && "$MODULE" != *:app && "$MODULE" != *:docs ]]; then
+      for SUBMODULE in app docs; do
+        TOKEN_SUBMODULE="$MODULE:$SUBMODULE"
+        TOKEN_SUBMODULE_PATH="${TOKEN_SUBMODULE#:}"
+        TOKEN_SUBMODULE_PATH="${TOKEN_SUBMODULE_PATH//://}"
+
+        if [[ -d "$TOKEN_SUBMODULE_PATH" ]]; then
+          MODULES_WITH_TOKEN_SUBMODULES+=("$TOKEN_SUBMODULE")
+          echo "✅ Added token $SUBMODULE module: $TOKEN_SUBMODULE"
+        else
+          echo "⏭ Skipped missing token $SUBMODULE module: $TOKEN_SUBMODULE"
+        fi
+      done
+    fi
+  done
+
+  UNIQUE_MODULES=$(printf "%s\n" "${MODULES_WITH_TOKEN_SUBMODULES[@]:-}" | sort -u | xargs)
+fi
+
 # Check which modules actually exist (to handle deleted modules)
 EXISTING_MODULES=()
 NON_EXISTENT_MODULES=()
@@ -207,12 +193,9 @@ if (( ${#NON_EXISTENT_MODULES[@]} > 0 )); then
 fi
 
 # Replace CLEANED_MODULES with only existing modules
-UNIQUE_MODULES=$(printf "%s " "${EXISTING_MODULES[@]}")
+UNIQUE_MODULES=$(printf "%s " "${EXISTING_MODULES[@]:-}")
 
 echo "✅ Final module list: $UNIQUE_MODULES"
-
-# Output testing target for GitHub Actions
-echo "testing_changed_target=$TESTING_CHANGED_TARGET" >> "$GITHUB_OUTPUT"
 
 # Output for GitHub Actions
 echo "modules=$UNIQUE_MODULES" >> "$GITHUB_OUTPUT"

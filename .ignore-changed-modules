@@ -5,5 +5,5 @@
 :sdds-core:docs-compose
 :sdds-core:docs-ksp
 :sdds-core:docs-views
-:sdds-core:uikit-compose-fixtures
-:sdds-core:uikit-fixtures
+:integration-core:uikit-compose-fixtures
+:integration-core:uikit-fixtures

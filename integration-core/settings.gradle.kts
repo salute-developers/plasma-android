@@ -25,4 +25,8 @@ include(
     ":sandbox-compose",
     ":sandbox-view",
     ":sandbox-ksp",
+    ":uikit-fixtures",
+    ":uikit-testcases",
+    ":uikit-compose-fixtures",
+    ":uikit-compose-testcases",
 )

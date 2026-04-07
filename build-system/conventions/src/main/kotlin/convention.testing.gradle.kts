@@ -17,6 +17,7 @@ android {
 
 withVersionCatalogs {
     dependencies {
+        add("testImplementation", "integration-core:uikit-testcases")
         add("testImplementation", base.test.unit.jUnit)
         add("testImplementation", test.roborazzi)
         add("testImplementation", test.roborazzi.rule)

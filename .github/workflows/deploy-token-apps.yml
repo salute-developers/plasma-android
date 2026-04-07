@@ -1,0 +1,77 @@
+name: 'Deploy tokens apps'
+
+on:
+  repository_dispatch:
+    types: [publish-tokens]
+  workflow_dispatch:
+    inputs:
+      modules:
+        type: string
+        description: 'Список модулей в формате json (например, [":tokens:plasma-stards", ":tokens:plasma-stards-compose"])'
+        required: true
+      tag:
+        description: "Тэг для релиза"
+        required: true
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  state:
+    name: Prepare state
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.prepare.outputs.ref }}
+      modules: ${{ steps.prepare.outputs.modules }}
+
+    steps:
+      - name: Prepare modules and tag
+        id: prepare
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            echo "Using modules and tag from repository_dispatch event"
+            # Ensure modules is a JSON string for downstream fromJson()
+            echo "modules=${{ toJson(github.event.client_payload.modules) }}" >> $GITHUB_OUTPUT
+            echo "ref=${{ github.event.client_payload.tag }}" >> $GITHUB_OUTPUT
+            echo "Debug: modules (json) -> ${{ toJson(github.event.client_payload.modules) }}"
+          else
+            echo "Using modules and tag from workflow_dispatch input"
+            echo "Input modules ${{ github.event.inputs.modules }}"
+            echo "modules=${{ github.event.inputs.modules }}" >> $GITHUB_OUTPUT
+            echo "ref=${{ github.event.inputs.tag }}" >> $GITHUB_OUTPUT
+          fi
+
+  deploy:
+    name: Deploy Apps
+    needs: state
+    uses: ./.github/workflows/build-token-apps-common.yml
+    secrets: inherit
+    with:
+      modules: ${{ needs.state.outputs.modules }}
+      ref: ${{ needs.state.outputs.ref }}
+      is_repository_dispatch: ${{ github.event_name == 'repository_dispatch' }}
+      release: true
+
+  release:
+    name: Create Release
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download APK artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: sandbox-*-release-apk
+          path: artifacts
+
+      - name: Create or Update Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ needs.state.outputs.ref }}
+          draft: true
+          allowUpdates: true
+          omitBody: true
+          generateReleaseNotes: true
+          artifacts: artifacts/**/*.apk
