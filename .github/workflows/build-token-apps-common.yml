@@ -62,7 +62,7 @@ jobs:
           fi
           artifact_name="sandbox-${module//:/_}-${build_type}-apk"
           metadata_name="sandbox-${module//:/_}-${build_type}-metadata"
-          echo "MODULE_PATH=tokens/$safe_path/app" >> $GITHUB_ENV
+          echo "MODULE_PATH=$safe_path/app" >> $GITHUB_ENV
           echo "SAFE_MODULE=$module" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=$artifact_name" >> $GITHUB_ENV
           echo "METADATA_ARTIFACT_NAME=$metadata_name" >> $GITHUB_ENV
