@@ -96,7 +96,7 @@ jobs:
       - name: Prepare artifact metadata
         if: success()
         env:
-          ARTIFACT_ID: ${{ steps.upload_apk.outputs['artifact-id'] }}
+          ARTIFACT_ID: ${{ steps.upload_apk.outputs.artifact-id }}
         shell: bash
         run: |
           mkdir -p artifact-metadata
