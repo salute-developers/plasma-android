@@ -8,7 +8,6 @@ import android.view.ViewGroup.MarginLayoutParams
 import android.widget.FrameLayout.LayoutParams
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
-import androidx.annotation.StyleRes
 import androidx.fragment.app.FragmentActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers
@@ -110,12 +109,6 @@ fun component(
             .captureRoboImage()
     }
 }
-
-/**
- * Оборачивает [Context] в [ContextThemeWrapper] с overlay стилем [style]
- */
-fun Context.styleWrapper(@StyleRes style: Int? = null): Context =
-    style?.let { ContextThemeWrapper(this, it) } ?: this
 
 private fun View.horizontalScrollable(): HorizontalScrollView {
     return HorizontalScrollView(context).apply {

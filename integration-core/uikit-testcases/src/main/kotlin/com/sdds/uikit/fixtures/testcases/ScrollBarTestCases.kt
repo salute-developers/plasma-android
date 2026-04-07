@@ -1,7 +1,6 @@
 package com.sdds.uikit.fixtures.testcases
 
 import android.view.ViewGroup
-import com.sdds.uikit.ScrollBar
 import com.sdds.uikit.fixtures.ComponentScope
 import com.sdds.uikit.fixtures.RoborazziConfig
 import com.sdds.uikit.fixtures.stories.scrollbar.ScrollBarUiState

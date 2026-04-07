@@ -1,6 +1,6 @@
 package com.sdds.uikit.fixtures.testcases
 
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.sdds.uikit.Select
 import com.sdds.uikit.fixtures.ComponentScope
@@ -78,8 +78,8 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
         state,
     ).apply {
         layoutParams = FrameLayout.LayoutParams(
-            WRAP_CONTENT,
-            WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
         ).apply {
             gravity = state.triggerAlignment.toGravity()
         }

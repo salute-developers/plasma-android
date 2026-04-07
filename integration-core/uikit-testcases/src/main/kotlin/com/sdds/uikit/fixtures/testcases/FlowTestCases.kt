@@ -8,7 +8,6 @@ import com.sdds.uikit.fixtures.stories.flow.FlowArrangement
 import com.sdds.uikit.fixtures.stories.flow.FlowOrientation
 import com.sdds.uikit.fixtures.stories.flow.FlowUiState
 import com.sdds.uikit.fixtures.stories.flow.flowLayout
-import java.util.concurrent.Flow
 
 /**
  * Тест-кейсы для [Flow]

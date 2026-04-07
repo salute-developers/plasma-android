@@ -13,11 +13,15 @@ import java.io.File
 
 /**
  * Базовая конфигурация Roborazzi для тестов
+ * @property viewSample информация о примере
  */
 open class RoborazziConfigDocsXml(
     val viewSample: ViewSampleInfo,
 ) {
 
+    /**
+     * Устанавливает тему для скриншотов
+     */
     @Before
     fun setUpTheme() {
         TextAppearanceConfig.shouldLoadFontSynchronously = true
@@ -45,6 +49,11 @@ open class RoborazziConfigDocsXml(
         ),
     )
 
+    /**
+     * Информация о примере
+     * @property id идентификатор примера
+     * @property sample обертка над примеров в документацию
+     */
     @Suppress("UndocumentedPublicClass")
     data class ViewSampleInfo(val id: String, val sample: ViewSample)
 

@@ -1,7 +1,6 @@
 package com.sdds.uikit.fixtures.testcases
 
 import android.view.View
-import com.sdds.uikit.TextSkeleton
 import com.sdds.uikit.fixtures.ComponentScope
 import com.sdds.uikit.fixtures.RoborazziConfig
 import com.sdds.uikit.fixtures.stories.skeleton.TextSkeletonUiState

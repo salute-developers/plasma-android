@@ -19,6 +19,7 @@ android {
         compileSdk = versions.global.compileSdk.get().toInt()
 
         defaultConfig {
+            resourceConfigurations += setOf("en", "ru")
             minSdk = versions.global.minSdk.get().toInt()
             targetSdk = versions.global.targetSdk.get().toInt()
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -83,7 +84,8 @@ android {
             if (System.getenv("KEY_STORE_FILE") != null) {
                 signingConfig = signingConfigs.getByName("release")
             }
-            isMinifyEnabled = false
+            isShrinkResources = true
+            isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
