@@ -47,6 +47,8 @@ title: Icon
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_ImageVector.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.Icon_Image -->
+
 ### ImageBitmap
 
 Используется для отображения растровых изображений:
@@ -69,6 +71,8 @@ title: Icon
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Brush.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.IconCompositionLocal_Simple -->
+
 ## Настройка размера
 
 Размер изображения (иконки) определяется:  
@@ -80,6 +84,8 @@ title: Icon
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_DefaultSize.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.IconCompositionLocalSize_Simple -->
 
 ## Semantics
 

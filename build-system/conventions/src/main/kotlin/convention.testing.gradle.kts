@@ -8,6 +8,9 @@ android {
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
+            all {
+                it.systemProperty("moduleDir", projectDir.absolutePath)
+            }
         }
     }
     tasks.withType<Test> {

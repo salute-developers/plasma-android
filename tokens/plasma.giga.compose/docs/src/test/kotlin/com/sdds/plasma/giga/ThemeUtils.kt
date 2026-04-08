@@ -6,6 +6,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
@@ -31,8 +32,10 @@ import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
+import com.sdds.compose.uikit.LocalLinkButtonStyle
 import com.sdds.compose.uikit.LocalListStyle
 import com.sdds.compose.uikit.LocalLoaderStyle
 import com.sdds.compose.uikit.LocalModalBottomSheetStyle
@@ -109,11 +112,17 @@ import com.sdds.plasma.giga.styles.dropdownmenu.M
 import com.sdds.plasma.giga.styles.iconbadge.Default
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeSolid
 import com.sdds.plasma.giga.styles.iconbadge.M
+import com.sdds.plasma.giga.styles.iconbutton.Clear
+import com.sdds.plasma.giga.styles.iconbutton.IconButton
+import com.sdds.plasma.giga.styles.iconbutton.M
 import com.sdds.plasma.giga.styles.image.Image
 import com.sdds.plasma.giga.styles.image.Ratio3x4
 import com.sdds.plasma.giga.styles.indicator.Default
 import com.sdds.plasma.giga.styles.indicator.Indicator
 import com.sdds.plasma.giga.styles.indicator.M
+import com.sdds.plasma.giga.styles.linkbutton.Default
+import com.sdds.plasma.giga.styles.linkbutton.LinkButton
+import com.sdds.plasma.giga.styles.linkbutton.M
 import com.sdds.plasma.giga.styles.list.ListNormal
 import com.sdds.plasma.giga.styles.list.M
 import com.sdds.plasma.giga.styles.loader.Default
@@ -172,11 +181,37 @@ import com.sdds.plasma.giga.theme.darkPlasmaGigaColors
 import com.sdds.plasma.giga.theme.darkPlasmaGigaGradients
 import com.sdds.plasma.giga.theme.lightPlasmaGigaColors
 import com.sdds.plasma.giga.theme.lightPlasmaGigaGradients
+import org.json.JSONObject
+import java.io.File
 
 private val DarkColors = darkPlasmaGigaColors()
 private val LightColors = lightPlasmaGigaColors()
 private val DarkGradients = darkPlasmaGigaGradients()
 private val LightGradients = lightPlasmaGigaGradients()
+
+val LocalProvidedStyles = compositionLocalOf { emptySet<String>() }
+
+val ProvidedStyleKeys: Set<String> by lazy {
+    val moduleDir = System.getProperty("moduleDir") ?: ""
+    println("mooduleDir: $moduleDir")
+    val jsonFile = File(moduleDir).parentFile?.resolve("config-info-compose.json")
+        ?: return@lazy emptySet()
+
+    if (!jsonFile.exists()) return@lazy emptySet()
+
+    val json = JSONObject(jsonFile.readText())
+    val components = json.getJSONArray("components")
+
+    buildSet {
+        for (i in 0 until components.length()) {
+            val component = components.getJSONObject(i)
+            val key = component.getString("key")
+                .replace("-", "")
+                .lowercase()
+            add(key)
+        }
+    }
+}
 
 /**
  * Тема для тестов
@@ -212,6 +247,7 @@ fun ThemeSetup(
         gradients = if (darkTheme) DarkGradients else LightGradients,
     ) {
         CompositionLocalProvider(
+            LocalProvidedStyles provides ProvidedStyleKeys,
             LocalAccordionStyle provides AccordionSolidActionStart.H3.style(),
             LocalAvatarGroupStyle provides AvatarGroup.S.style(),
             LocalAvatarStyle provides Avatar.M.style(),
@@ -219,6 +255,8 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
+            LocalIconButtonStyle provides IconButton.M.Clear.style(),
+            LocalLinkButtonStyle provides LinkButton.M.Default.style(),
             LocalCardStyle provides CardSolid.M.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),

@@ -238,8 +238,11 @@ fun Project.filterComponents(docsDir: File, componentsConfig: File) {
 }
 
 fun File.needScreenshots(components: Set<String>): Boolean {
-    val componentName = name.removeSuffix("Usage.md")
-    return components.any { it.contains(componentName) || componentName.contains(it) }
+    val componentName = name.removeSuffix("Usage.md").lowercase()
+    return components.any { key ->
+        val k = key.lowercase().replace("-", "")
+        componentName == k || componentName.endsWith(k)
+    }
 }
 
 fun Project.resolveComponents(componentsConfig: File): Set<String> {

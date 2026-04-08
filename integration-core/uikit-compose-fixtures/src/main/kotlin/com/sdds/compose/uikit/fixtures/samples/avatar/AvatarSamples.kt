@@ -67,7 +67,7 @@ fun Avatar_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun Avatar_ActionDisabled() {
     composableCodeSnippet {
         Avatar(

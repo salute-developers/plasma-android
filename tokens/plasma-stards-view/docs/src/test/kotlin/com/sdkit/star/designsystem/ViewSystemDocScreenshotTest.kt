@@ -20,7 +20,8 @@ class ViewSystemDocScreenshotTest(viewSample: ViewSampleInfo) :
     @Test
     fun docs_view_screenshot_test() {
         try {
-            themedComponent(
+            themedComponentStyleProvided(
+                sampleId = viewSample.id,
                 factory = {
                     viewSample.sample.reference(context)
                 },

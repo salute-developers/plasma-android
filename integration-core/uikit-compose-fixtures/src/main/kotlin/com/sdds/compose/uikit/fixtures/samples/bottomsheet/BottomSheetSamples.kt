@@ -109,7 +109,7 @@ fun ModalBottomSheet_Simple() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ModalBottomSheet_HalfExpanded_Skip() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
@@ -138,7 +138,7 @@ fun ModalBottomSheet_HalfExpanded_Skip() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ModalBottomSheet_HalfExpanded_Fraction() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
@@ -167,7 +167,7 @@ fun ModalBottomSheet_HalfExpanded_Fraction() {
 }
 
 @Composable
-@DocSample(needScreenshot = true)
+@DocSample(needScreenshot = false)
 fun ModalBottomSheet_HalfExpanded_Height() {
     composableCodeSnippet {
         val sheetState = rememberModalBottomSheetState(
