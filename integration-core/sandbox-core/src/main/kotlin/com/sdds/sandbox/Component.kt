@@ -98,6 +98,7 @@ data class ComponentKey(
 
         val TextField = ComponentKey(CoreComponentName.TEXT_FIELD)
         val TextArea = ComponentKey(CoreComponentName.TEXT_AREA)
+        val Text = ComponentKey(CoreComponentName.TEXT)
         val Popover = ComponentKey(CoreComponentName.POPOVER)
         val Tooltip = ComponentKey(CoreComponentName.TOOLTIP)
         val Overlay = ComponentKey(CoreComponentName.OVERLAY)
@@ -119,6 +120,7 @@ data class ComponentKey(
         val ScrollBar = ComponentKey(CoreComponentName.SCROLL_BAR)
         val Slider = ComponentKey(CoreComponentName.SLIDER)
         val Image = ComponentKey(CoreComponentName.IMAGE)
+        val Icon = ComponentKey(CoreComponentName.ICON)
         val ButtonGroup = ComponentKey(CoreComponentName.BUTTON_GROUP)
         val TabBar = ComponentKey(CoreComponentName.TAB_BAR)
         val TabBarItem = ComponentKey(CoreComponentName.TAB_BAR_ITEM)
@@ -201,6 +203,7 @@ private enum class CoreComponentName(displayName: String? = null) {
 
     TEXT_FIELD,
     TEXT_AREA,
+    TEXT,
     POPOVER,
     TOOLTIP,
     OVERLAY,
@@ -221,6 +224,7 @@ private enum class CoreComponentName(displayName: String? = null) {
     WHEEL,
     SCROLL_BAR,
     SLIDER,
+    ICON,
     IMAGE,
     TAB_BAR,
     TAB_BAR_ITEM,
@@ -272,12 +276,14 @@ private fun CoreComponentName.group(): ComponentGroup {
         CoreComponentName.CHIP_GROUP,
         CoreComponentName.DIVIDER,
         CoreComponentName.IMAGE,
+        CoreComponentName.ICON,
         CoreComponentName.INDICATOR,
         CoreComponentName.LIST,
         CoreComponentName.LIST_ITEM,
         CoreComponentName.RECT_SKELETON,
         CoreComponentName.SPINNER,
         CoreComponentName.TEXT_SKELETON,
+        CoreComponentName.TEXT,
         CoreComponentName.LOADER,
         CoreComponentName.PROGRESS,
         CoreComponentName.CIRCULAR_PROGRESS,

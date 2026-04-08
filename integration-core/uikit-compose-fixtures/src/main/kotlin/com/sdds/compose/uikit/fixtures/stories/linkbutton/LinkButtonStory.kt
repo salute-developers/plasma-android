@@ -41,7 +41,7 @@ enum class ButtonIcon {
 }
 
 @Story
-object IconBasicButtonStory : ComposeBaseStory<LinkButtonUiState, ButtonStyle>(
+object LinkButtonStory : ComposeBaseStory<LinkButtonUiState, ButtonStyle>(
     ComponentKey.LinkButton,
     LinkButtonUiState(),
     LinkButtonUiStatePropertiesProducer,

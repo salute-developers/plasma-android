@@ -1,28 +1,24 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.graphics.toolingGraphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
+import com.sdds.compose.uikit.graphics.brush.BrushProducer
+import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.internal.icon.BaseIcon
 
 /**
  * Иконка. Рисует предоставленный [painter]
@@ -32,6 +28,7 @@ import androidx.compose.ui.unit.DpSize
  * @param modifier модификатор
  * @param tint цвет иконки
  * @param contentScale правило скейлинга
+ * @param brush поставщик кисти для отрисовки иконки. Имеет приоритет над [tint]
  */
 @Composable
 fun Icon(
@@ -40,26 +37,14 @@ fun Icon(
     modifier: Modifier = Modifier,
     tint: Color = LocalTint.current,
     contentScale: ContentScale = ContentScale.Fit,
+    brush: BrushProducer? = LocalTintBrushProducer.current,
 ) {
-    val colorFilter = if (tint == Color.Unspecified) null else ColorFilter.tint(tint)
-    val semantics = if (contentDescription != null) {
-        Modifier.semantics {
-            this.contentDescription = contentDescription
-            this.role = Role.Image
-        }
-    } else {
-        Modifier
-    }
-    Box(
-        modifier
-            .toolingGraphicsLayer()
-            .defaultSizeFor(painter, LocalIconDefaultSize.current)
-            .paint(
-                painter = painter,
-                colorFilter = colorFilter,
-                contentScale = contentScale,
-            )
-            .then(semantics),
+    BaseIcon(
+        source = { painter },
+        contentDescription = contentDescription,
+        modifier = modifier,
+        brushProducer = brush ?: BrushProducer { tint.asBrush() },
+        contentScale = contentScale,
     )
 }
 
@@ -71,6 +56,7 @@ fun Icon(
  * @param modifier модификатор
  * @param tint цвет иконки
  * @param contentScale правило скейлинга
+ * @param brush поставщик кисти для отрисовки иконки. Имеет приоритет над [tint]
  */
 @Composable
 @NonRestartableComposable
@@ -80,6 +66,7 @@ fun Icon(
     modifier: Modifier = Modifier,
     tint: Color = LocalTint.current,
     contentScale: ContentScale = ContentScale.Fit,
+    brush: BrushProducer? = LocalTintBrushProducer.current,
 ) {
     Icon(
         painter = rememberVectorPainter(imageVector),
@@ -87,6 +74,7 @@ fun Icon(
         modifier = modifier,
         tint = tint,
         contentScale = contentScale,
+        brush = brush,
     )
 }
 
@@ -98,6 +86,7 @@ fun Icon(
  * @param modifier модификатор
  * @param tint цвет иконки
  * @param contentScale правило скейлинга
+ * @param brush поставщик кисти для отрисовки иконки. Имеет приоритет над [tint]
  */
 @Composable
 @NonRestartableComposable
@@ -107,6 +96,7 @@ fun Icon(
     modifier: Modifier = Modifier,
     tint: Color = LocalTint.current,
     contentScale: ContentScale = ContentScale.Fit,
+    brush: BrushProducer? = LocalTintBrushProducer.current,
 ) {
     val painter = remember(bitmap) { BitmapPainter(bitmap) }
     Icon(
@@ -115,6 +105,34 @@ fun Icon(
         modifier = modifier,
         tint = tint,
         contentScale = contentScale,
+        brush = brush,
+    )
+}
+
+/**
+ * Иконка. Рисует предоставленный [source] с использованием [fillStyleProducer].
+ *
+ * @param source источник изображения
+ * @param contentDescription описание содержимого контента
+ * @param modifier модификатор
+ * @param brush поставщик кисти для отрисовки иконки
+ * @param contentScale правило скейлинга
+ */
+@Composable
+@NonRestartableComposable
+fun Icon(
+    source: ImageSource,
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    brush: BrushProducer? = LocalTintBrushProducer.current,
+    contentScale: ContentScale = ContentScale.Fit,
+) {
+    BaseIcon(
+        source = source,
+        contentDescription = contentDescription,
+        modifier = modifier,
+        brushProducer = brush,
+        contentScale = contentScale,
     )
 }
 
@@ -122,7 +140,20 @@ fun Icon(
  * CompositionLocal, содержащий предпочтительный [Color],
  * который будет использоваться компонентами [Icon] по умолчанию.
  */
+@Deprecated(
+    "Use LocalTintBrushProducer",
+    replaceWith = ReplaceWith(
+        "LocalTintBrushProducer",
+        imports = arrayOf("com.sdds.compose.uikit.LocalTintBrushProducer"),
+    ),
+)
 val LocalTint = compositionLocalOf { Color.Gray }
+
+/**
+ * CompositionLocal, содержащий заливку [BrushProducer],
+ * который будет использоваться компонентами [Icon] по умолчанию.
+ */
+val LocalTintBrushProducer = compositionLocalOf<BrushProducer?> { null }
 
 /**
  * CompositionLocal, содержащий предпочтительный размер [DpSize],
@@ -130,20 +161,47 @@ val LocalTint = compositionLocalOf { Color.Gray }
  */
 val LocalIconDefaultSize = compositionLocalOf { DpSize.Unspecified }
 
-private fun Modifier.defaultSizeFor(
-    painter: Painter,
-    defaultSize: DpSize,
-) =
-    this.then(
-        if (painter.intrinsicSize == Size.Unspecified || painter.intrinsicSize.isInfinite()) {
-            Modifier.size(defaultSize)
-        } else {
-            if (defaultSize == DpSize.Unspecified) {
-                Modifier
-            } else {
-                Modifier.size(defaultSize)
-            }
-        },
-    )
+/**
+ * Источник изображения для компонента [Icon].
+ *
+ * Позволяет отложенно получить [Painter] из различных типов источников.
+ */
+@Stable
+fun interface ImageSource {
 
-private fun Size.isInfinite() = width.isInfinite() && height.isInfinite()
+    /**
+     * Возвращает [Painter] для отрисовки изображения.
+     */
+    @Composable
+    fun painter(): Painter
+}
+
+/**
+ * Создает [ImageSource] на основе drawable-ресурса.
+ *
+ * @param id идентификатор drawable-ресурса
+ */
+@Composable
+fun resourceImageSource(@DrawableRes id: Int): ImageSource {
+    return ImageSource { painterResource(id) }
+}
+
+/**
+ * Создает [ImageSource] на основе [ImageVector].
+ *
+ * @param imageVector векторное изображение
+ */
+@Composable
+fun imageVectorSource(imageVector: ImageVector): ImageSource {
+    return ImageSource { rememberVectorPainter(imageVector) }
+}
+
+/**
+ * Создает [ImageSource] на основе [ImageBitmap].
+ *
+ * @param bitmap растровое изображение
+ */
+@Composable
+fun bitmapSource(bitmap: ImageBitmap): ImageSource {
+    return ImageSource { remember(bitmap) { BitmapPainter(bitmap) } }
+}

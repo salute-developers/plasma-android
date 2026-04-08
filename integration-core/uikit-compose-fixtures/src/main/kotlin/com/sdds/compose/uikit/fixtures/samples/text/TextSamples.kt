@@ -5,7 +5,6 @@ import androidx.compose.foundation.text.InlineTextContent
 import androidx.compose.foundation.text.appendInlineContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.SpanStyle
@@ -13,12 +12,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sdds.compose.docs.composableCodeSnippet
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.annotatedStringSource
+import com.sdds.compose.uikit.graphics.brush.asBrush
+import com.sdds.compose.uikit.resourceImageSource
+import com.sdds.compose.uikit.stringSource
 import com.sdds.docs.DocSample
 
 @Composable
@@ -26,17 +28,17 @@ import com.sdds.docs.DocSample
 fun Text_Simple() {
     composableCodeSnippet {
         Text(
-            text = "Hello, world!",
+            source = stringSource("Hello, world!"),
         )
     }
 }
 
 @Composable
 @DocSample(needScreenshot = true)
-fun TextStyle_Simple() {
+fun Text_String() {
     composableCodeSnippet {
         Text(
-            text = "Hello, world",
+            source = stringSource("Текст со строковым источником"),
             style = TextStyle(fontSize = 16.sp),
         )
     }
@@ -44,7 +46,7 @@ fun TextStyle_Simple() {
 
 @Composable
 @DocSample(needScreenshot = true)
-fun Text_Custom() {
+fun Text_Annotated() {
     composableCodeSnippet {
         val text = buildAnnotatedString {
             append("Текст с ")
@@ -53,7 +55,7 @@ fun Text_Custom() {
             }
         }
         Text(
-            text = text,
+            source = annotatedStringSource(text),
             style = TextStyle(fontSize = 16.sp),
         )
     }
@@ -61,12 +63,12 @@ fun Text_Custom() {
 
 @Composable
 @DocSample(needScreenshot = true)
-fun Text_Style() {
+fun Text_ProvideStyle() {
     composableCodeSnippet {
-        ProvideTextStyle(TextStyle(color = Color.Gray, fontSize = 20.sp)) {
+        ProvideTextStyle(TextStyle(fontSize = 20.sp), color = { Color.Gray }) {
             Column {
-                Text("Заголовок")
-                Text("Описание")
+                Text(source = stringSource("Заголовок"))
+                Text(source = stringSource("Описание"))
             }
         }
     }
@@ -74,24 +76,16 @@ fun Text_Style() {
 
 @Composable
 @DocSample(needScreenshot = true)
-fun TextInlineContent_Simple() {
+fun Text_InlineContent() {
     composableCodeSnippet {
         val inlineContent = mapOf(
             "icon" to InlineTextContent(
                 placeholder = Placeholder(16.sp, 16.sp, PlaceholderVerticalAlign.Center),
             ) {
                 Icon(
-                    imageVector = ImageVector.Builder(
-                        name = "icon",
-                        defaultWidth = 16.dp,
-                        defaultHeight = 16.dp,
-                        viewportWidth = 16f,
-                        viewportHeight = 16f,
-                    ).apply {
-                        // путь
-                    }
-                        .build(),
+                    source = resourceImageSource(com.sdds.icons.R.drawable.ic_alarm_done_fill_36),
                     contentDescription = null,
+                    brush = { Color.Red.asBrush() },
                 )
             },
         )
@@ -102,7 +96,7 @@ fun TextInlineContent_Simple() {
         }
 
         Text(
-            text = text,
+            source = annotatedStringSource(text),
             inlineContent = inlineContent,
         )
     }
@@ -110,10 +104,10 @@ fun TextInlineContent_Simple() {
 
 @Composable
 @DocSample(needScreenshot = true)
-fun TextFormat_Simple() {
+fun Text_Formatting() {
     composableCodeSnippet {
         Text(
-            text = "Длинное описание чего то, содержащее много строк",
+            source = stringSource("Длинное описание чего то, содержащее много строк"),
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
             softWrap = true,

@@ -2,8 +2,8 @@
 title: Icon
 ---
 
-`Icon` используется для отображения изображений (иконок) в разных форматах (векторных, растровых  
-или на основе painter), с поддержкой окрашивания (`tint`) и семантического описания контента для систем доступности.  
+`Icon` используется для отображения изображений в разных форматах через `ImageSource`,  
+с поддержкой окрашивания через `brushProducer` и семантического описания контента для систем доступности.  
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Simple.kt
@@ -13,51 +13,61 @@ title: Icon
 
 ## Варианты использования
 
-`Icon` поддерживает несколько типов входных данных:  
+`Icon` принимает `ImageSource`, который можно создать из нескольких типов источников:
+
+- drawable-ресурс
 
 - Painter
 
 - ImageVector
 
-- ImageBitMap
+- ImageBitmap
+
+### Drawable resource
+
+Для ресурсов удобно использовать `resourceImageSource`. 
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Simple.kt
+```
 
 ### Painter
 
-Используется, если необходимо отрисовать иконку через painter (например из ресурсов):  
+Используется, если необходимо вручную создать `ImageSource` на основе `Painter`:  
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Image.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Painter.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.Icon_Image -->
+### ImageVector
+
+Используется для отображения векторной иконки через `ImageVector`.
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_ImageVector.kt
+```
 
 ### ImageBitmap
 
-Используется для отображения растровых изображений (например, аватаров):  
+Используется для отображения растровых изображений:
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Bitmap.kt
-```  
-
-## Настройка tint
-
- Окрас иконки можно задать через параметр `tint`.  
- Если tint = Color.Unspecified, окрашивание не применяется.
-
-```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconTint_Simple.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.Icon_Simple -->
+## Цвет и кисть
 
-Так же цвет окрашивания можно задать по умолчанию, глобально, через CompositionLocal. Для этого существует  
-специальный CompositionLocal - `LocalTint`.  
+Если нужен общий цвет по умолчанию, его можно задать через composition local `LocalTintBrushProducer`:
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconCompositionLocal_Simple.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_LocalTint.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.IconCompositionLocal_Simple -->
+или напрямую через `brushProducer`:
+
+```kotlin
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_Brush.kt
+```
 
 ## Настройка размера
 
@@ -68,10 +78,8 @@ title: Icon
 - либо значением из `LocalIconDefaultSize` (специальный CompositionLocal)
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/icon/IconCompositionLocalSize_Simple.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/icon/Icon_DefaultSize.kt
 ```
-
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.icon.IconCompositionLocalSize_Simple -->
 
 ## Semantics
 

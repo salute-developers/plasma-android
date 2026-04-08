@@ -83,7 +83,7 @@ internal class ComponentViewModel<State : UiState, S : Style>(
 
     @Suppress("UNCHECKED_CAST")
     private fun updateUiStateWithDefaultVariant(state: State, themeState: ComposeTheme) {
-        val defaultAppearance = getDefaultAppearances(themeState)
+        val defaultAppearance = runCatching { getDefaultAppearances(themeState) }.getOrNull() ?: return
         val appearance = state.appearance.ifEmpty { defaultAppearance }
         val styleProvider = getStyleProvider(appearance, themeState) ?: return
         if (state.variant.isNotEmpty() &&
@@ -139,7 +139,7 @@ internal class ComponentViewModel<State : UiState, S : Style>(
     }
 
     private fun getAppearances(themeState: ComposeTheme): Set<String> {
-        return themeState.getAppearances(componentKey)
+        return runCatching { themeState.getAppearances(componentKey) }.getOrNull() ?: emptySet()
     }
 
     private fun getDefaultAppearances(themeState: ComposeTheme): String {
