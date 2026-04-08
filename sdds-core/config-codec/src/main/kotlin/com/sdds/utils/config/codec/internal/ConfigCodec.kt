@@ -3,28 +3,29 @@ package com.sdds.utils.config.codec.internal
 internal object ConfigCodec {
 
     fun encode(config: CommonConfig): NativeConfig {
-        val nativeConfig = NativeConfig(props = config.commonValues)
+        val nativeConfig = NativeConfig(props = config.invariants)
 
-        val viewProperty = config.properties.findLast { it.id == "view" }
-        val rootsViews = viewProperty?.values
+        val viewVariationId = config.colorSchemeVariationId
+        val viewVariation = config.variations.findLast { it.id == viewVariationId }
+        val rootsViews = viewVariation?.values
             ?.filter { it.targets == null }
             ?.associate { it.name to NativeViewVariation(it.props) }
             .orEmpty()
 
-        val targetRegistry = config.properties.flatMap { prop ->
+        val targetRegistry = config.variations.flatMap { prop ->
             prop.values.map { value ->
-                ConfigPropertyTargetInfo(prop.id, value.name)
+                TargetInfo(prop.id, value.name)
             }
         }.groupBy { it.id }
 
-        val targetViewRegistry = viewProperty?.values
+        val targetViewRegistry = viewVariation?.values
             ?.filter { it.targets != null }
-            ?.flatMap { value ->
-                value.targets!!.map { value.copy(targets = setOf(it)) }
+            ?.flatMap { viewValue ->
+                viewValue.targets!!.map { target -> viewValue.copy(targets = setOf(target)) }
             }
             ?.groupBy { it.targets!!.first() }
             ?.mapValues { entry ->
-                entry.value.associate { it.name to NativeViewVariation(it.props) }
+                entry.value.associate { viewValue -> viewValue.name to NativeViewVariation(viewValue.props) }
             }
             ?.mapKeys { entry ->
                 entry.key.properties.joinToString(".") { it.value }
@@ -32,13 +33,14 @@ internal object ConfigCodec {
             .orEmpty()
             .also { println("target views $it") }
 
-        val variations = config.properties.filter { it.id != "view" }
+        val variations = config.variations
+            .filter { it.id != viewVariationId }
             .flatMap { property ->
                 property.values
                     .flatMap { value ->
                         value.toNativeVariation(
                             property.id,
-                            config.rootPropertyId,
+                            config.rootVariationId,
                             targetRegistry,
                             targetViewRegistry
                         )
@@ -53,7 +55,7 @@ internal object ConfigCodec {
         val variationRegistry = config.variations.associateBy { it.id }
 
         val viewPropertyValues = config.view.map { (name, view) ->
-            ConfigPropertyValue(
+            VariationValue(
                 name = name,
                 props = view.props,
                 targets = null
@@ -66,7 +68,7 @@ internal object ConfigCodec {
                     var targetId = ""
                     val targets = variation.id.split(".")
                         .map { id ->
-                            ConfigPropertyTargetInfo(
+                            TargetInfo(
                                 id = variationRegistry["$targetId$id"]?.kind.orEmpty(),
                                 value = id
                             ).also {
@@ -74,8 +76,8 @@ internal object ConfigCodec {
                             }
                         }
                         .toSet()
-                        .let { ConfigPropertyTarget(it) }
-                    ConfigPropertyValue(
+                        .let { VariationValueTarget(it) }
+                    VariationValue(
                         name = name,
                         props = view.props,
                         targets = setOf(targets)
@@ -84,9 +86,9 @@ internal object ConfigCodec {
             }
 
         val viewValues = (viewPropertyValues + targetViews).toSet()
-        val viewProperty = ConfigProperty(
-            id = "view",
-            name = "view",
+        val viewProperty = Variation(
+            id = NATIVE_VIEW_VARIATION_NAME,
+            name = NATIVE_VIEW_VARIATION_NAME,
             values = viewValues
         )
             .takeIf { viewValues.isNotEmpty() }
@@ -99,20 +101,20 @@ internal object ConfigCodec {
                 .dropLast(1)
                 .takeIf { it.isNotEmpty() }
                 ?.map { id ->
-                    ConfigPropertyTargetInfo(
+                    TargetInfo(
                         id = variationRegistry["$targetId$id"]?.kind.orEmpty(),
                         value = id
                     ).also { targetId = "$targetId$id." }
                 }
                 ?.toSet()
-                ?.let { setOf(ConfigPropertyTarget(it)) }
+                ?.let { setOf(VariationValueTarget(it)) }
 
-            val value = ConfigPropertyValue(
+            val value = VariationValue(
                 name = variation.id.removePrefix("${variation.parent}."),
                 props = variation.props,
                 targets = targets
             )
-            ConfigProperty(
+            Variation(
                 id = variation.kind,
                 name = variation.kind,
                 values = setOf(value)
@@ -120,17 +122,20 @@ internal object ConfigCodec {
         }.mergeConfigProperty()
 
         return CommonConfig(
-            commonValues = config.props,
-            properties = viewProperty + variationPropertyValues,
-            rootPropertyId = "size"
+            invariants = config.props,
+            variations = viewProperty + variationPropertyValues,
+            rootVariationId = NATIVE_SIZE_VARIATION_NAME,
+            colorSchemeVariationId = NATIVE_VIEW_VARIATION_NAME,
         )
     }
+    private const val NATIVE_VIEW_VARIATION_NAME = "view"
+    private const val NATIVE_SIZE_VARIATION_NAME = "size"
 }
 
-private fun ConfigPropertyValue.toNativeVariation(
+private fun VariationValue.toNativeVariation(
     propertyId: String,
     rootPropertyId: String,
-    targetRegistry: Map<String, List<ConfigPropertyTargetInfo>>,
+    targetRegistry: Map<String, List<TargetInfo>>,
     targetViewRegistry: Map<String, Map<String, NativeViewVariation>> = emptyMap(),
 ): List<NativeVariation> {
 
@@ -170,7 +175,7 @@ private fun ConfigPropertyValue.toNativeVariation(
         )
 }
 
-private fun List<ConfigProperty>.mergeConfigProperty(): List<ConfigProperty> {
+private fun List<Variation>.mergeConfigProperty(): List<Variation> {
     return groupBy { it.id }.map { (id, group) ->
         val name = group.first().name
 
@@ -183,14 +188,14 @@ private fun List<ConfigProperty>.mergeConfigProperty(): List<ConfigProperty> {
                     .toSet()
                     .takeIf { it.isNotEmpty() }
 
-                ConfigPropertyValue(
+                VariationValue(
                     name = key.first,
                     props = key.second,
                     targets = mergedTargets
                 )
             }.toSet()
 
-        ConfigProperty(
+        Variation(
             id = id,
             name = name,
             values = mergedValues
