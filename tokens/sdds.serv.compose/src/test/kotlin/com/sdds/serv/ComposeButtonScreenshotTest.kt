@@ -1,5 +1,7 @@
 package com.sdds.serv
 
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performTouchInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
@@ -188,6 +190,17 @@ class ComposeButtonScreenshotTest(
     fun testButtonSizeXxsDefault() {
         composeTestRule.content {
             ButtonSizeXxsDefault(style = BasicButton.Xxs.Default.style())
+        }
+    }
+
+    @Test
+    fun testButtonClearClick() {
+        composeTestRule.content {
+            ButtonSizeMAccent(style = BasicButton.L.Clear.style())
+        }
+        composeTestRule.onNodeWithText("Label").performTouchInput {
+            down(center)
+            advanceEventTime(1000)
         }
     }
 

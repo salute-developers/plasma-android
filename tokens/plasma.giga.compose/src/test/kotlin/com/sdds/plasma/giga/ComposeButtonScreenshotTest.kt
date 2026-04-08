@@ -1,5 +1,7 @@
 package com.sdds.plasma.giga
 
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performTouchInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
@@ -174,6 +176,17 @@ class ComposeButtonScreenshotTest(
     fun testButtonSizeLWhite() {
         composeTestRule.content {
             ButtonSizeLWhite(style = BasicButton.L.White.style())
+        }
+    }
+
+    @Test
+    fun testButtonClearClick() {
+        composeTestRule.content {
+            ButtonSizeMAccent(style = BasicButton.L.Clear.style())
+        }
+        composeTestRule.onNodeWithText("Label").performTouchInput {
+            down(center)
+            advanceEventTime(1000)
         }
     }
 

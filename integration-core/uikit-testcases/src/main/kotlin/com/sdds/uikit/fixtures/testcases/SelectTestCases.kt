@@ -83,9 +83,10 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
         ).apply {
             gravity = state.triggerAlignment.toGravity()
         }
+            .apply { id = R.id.select }
     }
 
-    fun ComponentScope.selectTextFieldTopStartSingle(style: Int): Select =
+    fun ComponentScope.selectTextFieldTopStartSingle(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -94,19 +95,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.START_TOP,
                     dropdownPlacementMode = PopoverPlacementMode.LOOSE,
                     selectionMode = Select.SelectionMode.SINGLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectButtonTopEnd(style: Int): Select =
+    fun ComponentScope.selectButtonTopEnd(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -115,19 +114,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.Button,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.END_TOP,
                     dropdownPlacementMode = PopoverPlacementMode.LOOSE,
                     selectionMode = Select.SelectionMode.SINGLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectTextFieldTopCenterEmptyState(style: Int): Select =
+    fun ComponentScope.selectTextFieldTopCenterEmptyState(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -136,19 +133,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = true,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.CENTER_TOP,
                     dropdownPlacementMode = PopoverPlacementMode.LOOSE,
                     selectionMode = Select.SelectionMode.MULTIPLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectMultipleTightButtonCenterStrict(style: Int): Select =
+    fun ComponentScope.selectMultipleTightButtonCenterStrict(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -157,19 +152,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.Button,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.CENTER,
                     dropdownPlacementMode = PopoverPlacementMode.STRICT,
                     selectionMode = Select.SelectionMode.MULTIPLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectSingleNormalTextFieldCenterStartStrict(style: Int): Select =
+    fun ComponentScope.selectSingleNormalTextFieldCenterStartStrict(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -178,19 +171,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.START_CENTER,
                     dropdownPlacementMode = PopoverPlacementMode.STRICT,
                     selectionMode = Select.SelectionMode.SINGLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectSingleTightButtonCenterEndEmptyState(style: Int): Select =
+    fun ComponentScope.selectSingleTightButtonCenterEndEmptyState(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -199,19 +190,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = true,
-                    triggerType = TriggerType.Button,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.END_CENTER,
                     dropdownPlacementMode = PopoverPlacementMode.LOOSE,
                     selectionMode = Select.SelectionMode.SINGLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectMultipleNormalTextFieldLoadingBottomStart(style: Int): Select =
+    fun ComponentScope.selectMultipleNormalTextFieldLoadingBottomStart(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -220,19 +209,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = true,
                     withEmptyState = false,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.START_BOTTOM,
                     dropdownPlacementMode = PopoverPlacementMode.LOOSE,
                     selectionMode = Select.SelectionMode.MULTIPLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectMultipleTightTextFieldBottomEnd(style: Int): Select =
+    fun ComponentScope.selectMultipleTightTextFieldBottomEnd(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -241,19 +228,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.END_BOTTOM,
                     dropdownPlacementMode = PopoverPlacementMode.LOOSE,
                     selectionMode = Select.SelectionMode.MULTIPLE,
                     readOnly = false,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectMultipleNormalCenterDisabled(style: Int): Select =
+    fun ComponentScope.selectMultipleNormalCenterDisabled(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -262,19 +247,17 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.CENTER,
                     dropdownPlacementMode = PopoverPlacementMode.STRICT,
                     selectionMode = Select.SelectionMode.MULTIPLE,
                     readOnly = false,
                     enabled = false,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 
-    fun ComponentScope.selectMultipleNormalCenterReadOnly(style: Int): Select =
+    fun ComponentScope.selectMultipleNormalCenterReadOnly(style: Int, triggerType: TriggerType): Select =
         fillSize {
             baseSelect(
                 style = style,
@@ -283,15 +266,13 @@ abstract class SelectTestCases(mode: String) : RoborazziConfig(mode) {
                     appearance = "",
                     showLoading = false,
                     withEmptyState = false,
-                    triggerType = TriggerType.TextField,
+                    triggerType = triggerType,
                     triggerAlignment = PopoverTriggerAlignment.CENTER,
                     dropdownPlacementMode = PopoverPlacementMode.STRICT,
                     selectionMode = Select.SelectionMode.MULTIPLE,
                     readOnly = true,
                     enabled = true,
                 ),
-            ).apply {
-                id = R.id.select
-            }
+            )
         }
 }

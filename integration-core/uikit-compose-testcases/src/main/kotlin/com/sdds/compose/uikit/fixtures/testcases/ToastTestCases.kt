@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.Toast
 import com.sdds.compose.uikit.ToastStyle
 import com.sdds.compose.uikit.overlay.LocalOverlayManager
@@ -308,6 +309,53 @@ fun ToastRoundedDefaultBottomEndHasContentStartEnd(
                         ),
                         durationMillis = null,
                         content = { ToastForTestContentStartEnd(style = style) },
+                    )
+                },
+            )
+        }
+    }
+}
+
+/**
+ * PLASMA-T2589
+ */
+@Composable
+fun ToastMultiLine(
+    style: ToastStyle,
+    buttonStyle: ButtonStyle,
+) {
+    OverlayHost {
+        Box(modifier = Modifier.fillMaxSize()) {
+            val overlayManager = LocalOverlayManager.current
+            Button(
+                style = buttonStyle,
+                modifier = Modifier
+                    .align(Alignment.Center),
+                label = "Show",
+                onClick = {
+                    overlayManager.showToast(
+                        position = OverlayPosition.Center,
+                        animationSpec = OverlayAnimationSpec(
+                            EnterTransition.None,
+                            ExitTransition.None,
+                        ),
+                        durationMillis = null,
+                        content = {
+                            Toast(
+                                style = style,
+                                contentStart = {
+                                    Icon(painter = painterResource(R.drawable.ic_shazam_16), "")
+                                },
+                                contentEnd = {
+                                    Icon(
+                                        painter = painterResource(R.drawable.ic_close_16),
+                                        contentDescription = "",
+                                    )
+                                },
+                            ) {
+                                Text("First line\nSecond Line")
+                            }
+                        },
                     )
                 },
             )

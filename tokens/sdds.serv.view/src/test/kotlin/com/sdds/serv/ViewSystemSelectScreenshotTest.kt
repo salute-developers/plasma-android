@@ -10,6 +10,7 @@ import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.uikit.fixtures.SDK_NUMBER
+import com.sdds.uikit.fixtures.stories.select.TriggerType
 import com.sdds.uikit.fixtures.testcases.SelectTestCases
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,7 +34,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectTextFieldTopStartSingle(R.style.Serv_Sdds_ComponentOverlays_SelectSingleNormalXl)
+            selectTextFieldTopStartSingle(
+                R.style.Serv_Sdds_ComponentOverlays_SelectSingleNormalXl,
+                triggerType = TriggerType.TextField,
+            )
         }
         captureScreenRoboImage()
     }
@@ -50,7 +54,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectButtonTopEnd(R.style.Serv_Sdds_ComponentOverlays_SelectSingleTightL)
+            selectButtonTopEnd(
+                R.style.Serv_Sdds_ComponentOverlays_SelectSingleTightL,
+                triggerType = TriggerType.Button,
+            )
         }
         captureScreenRoboImage()
     }
@@ -64,7 +71,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectTextFieldTopCenterEmptyState(R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalM)
+            selectTextFieldTopCenterEmptyState(
+                R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalM,
+                triggerType = TriggerType.TextField,
+            )
         }
         captureScreenRoboImage()
     }
@@ -82,7 +92,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectMultipleTightButtonCenterStrict(R.style.Serv_Sdds_ComponentOverlays_SelectMultipleTightS)
+            selectMultipleTightButtonCenterStrict(
+                R.style.Serv_Sdds_ComponentOverlays_SelectMultipleTightS,
+                triggerType = TriggerType.Button,
+            )
         }
         captureScreenRoboImage()
     }
@@ -99,7 +112,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectSingleNormalTextFieldCenterStartStrict(R.style.Serv_Sdds_ComponentOverlays_SelectSingleNormalXs)
+            selectSingleNormalTextFieldCenterStartStrict(
+                R.style.Serv_Sdds_ComponentOverlays_SelectSingleNormalXs,
+                triggerType = TriggerType.TextField,
+            )
         }
         captureScreenRoboImage()
     }
@@ -114,7 +130,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectSingleTightButtonCenterEndEmptyState(R.style.Serv_Sdds_ComponentOverlays_SelectSingleTightL)
+            selectSingleTightButtonCenterEndEmptyState(
+                R.style.Serv_Sdds_ComponentOverlays_SelectSingleTightL,
+                triggerType = TriggerType.Button,
+            )
         }
         captureScreenRoboImage()
     }
@@ -128,7 +147,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectMultipleNormalTextFieldLoadingBottomStart(R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalL)
+            selectMultipleNormalTextFieldLoadingBottomStart(
+                R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalL,
+                triggerType = TriggerType.TextField,
+            )
         }
         captureScreenRoboImage()
     }
@@ -149,7 +171,10 @@ class ViewSystemSelectScreenshotTest(
             },
             skipDefaultCaptureRoboImage = true,
         ) {
-            selectMultipleTightTextFieldBottomEnd(R.style.Serv_Sdds_ComponentOverlays_SelectMultipleTightL)
+            selectMultipleTightTextFieldBottomEnd(
+                R.style.Serv_Sdds_ComponentOverlays_SelectMultipleTightL,
+                triggerType = TriggerType.TextField,
+            )
         }
         captureScreenRoboImage()
     }
@@ -157,14 +182,20 @@ class ViewSystemSelectScreenshotTest(
     @Test
     override fun testSelectMultipleNormalCenterDisabled() {
         themedComponent {
-            selectMultipleNormalCenterDisabled(R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalXl)
+            selectMultipleNormalCenterDisabled(
+                R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalXl,
+                triggerType = TriggerType.TextField,
+            )
         }
     }
 
     @Test
     override fun testSelectMultipleNormalCenterReadOnly() {
         themedComponent {
-            selectMultipleNormalCenterReadOnly(R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalL)
+            selectMultipleNormalCenterReadOnly(
+                R.style.Serv_Sdds_ComponentOverlays_SelectMultipleNormalL,
+                triggerType = TriggerType.TextField,
+            )
         }
     }
 }
