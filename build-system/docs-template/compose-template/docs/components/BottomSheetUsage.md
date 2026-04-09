@@ -1,5 +1,5 @@
 ---
-title: ModalBottomSheet
+title: BottomSheet
 ---
 
 Модальное, диалоговое окно в формате bottom sheet. Используется для отображения дополнительного контента

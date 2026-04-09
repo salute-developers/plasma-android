@@ -27,14 +27,11 @@ class ComposeDocScreenshotTest(composableSample: ComposableSampleInfo) : Roboraz
                 val providedStyles = LocalProvidedStyles.current
                 SideEffect {
                     val componentName = composableSample.id
-                        .substringBeforeLast(".")
-                        .split(".")
-                    val component = componentName.takeLast(2).joinToString("").lowercase()
-                    val lastSegment = componentName.last().lowercase()
+                        .substringAfterLast(".")
+                        .substringBefore("_")
+                        .lowercase()
                     shouldCapture = providedStyles.any { styleKey ->
-                        val key = styleKey.replace("-", "").lowercase()
-                        component.contains(key) || key.contains(component) ||
-                            key.contains(lastSegment) || lastSegment.contains(key)
+                        componentName == styleKey.lowercase()
                     }
                     println(" componentName: $componentName, ищем в: $providedStyles, совпали: $shouldCapture")
                 }

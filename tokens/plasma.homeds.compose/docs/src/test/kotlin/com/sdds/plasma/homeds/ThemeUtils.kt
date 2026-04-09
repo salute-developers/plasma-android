@@ -180,58 +180,12 @@ val ProvidedStyleKeys: Set<String> by lazy {
     buildSet {
         for (i in 0 until components.length()) {
             val component = components.getJSONObject(i)
-            val key = component.getString("key")
-                .replace("-", "")
-                .lowercase()
-            add(key)
+            add(component.getString("key").replace("-", "").lowercase())
+            add(component.getString("coreName").lowercase())
+            add(component.getString("styleName").lowercase())
         }
     }
 }
-
-// val ProvidedStyleKeys = setOf(
-//    "avatar",
-//    "avatarGroup",
-//    "badge",
-//    "button",
-//    "buttongroup",
-//    "card",
-//    "cell",
-//    "checkbox",
-//    "chip",
-//    "chipgroup",
-//    "circularProgressBar",
-//    "collapsingNavigationBar",
-//    "editable",
-//    "formItem",
-//    "codeInput",
-//    "counter",
-//    "divider",
-//    "drawer",
-//    "icon",
-//    "image",
-//    "indicator",
-//    "list",
-//    "loader",
-//    "modal",
-//    "modalBottomSheet",
-//    "navigationBar",
-//    "note",
-//    "noteCompact",
-//    "progressBar",
-//    "radioBox",
-//    "radioBoxGroup",
-//    "rectSkeleton",
-//    "scrollBar",
-//    "spinner",
-//    "switch",
-//    "tabBar",
-//    "text",
-//    "textField",
-//    "textSkeleton",
-//    "toast",
-//    "tooltip",
-//    "wheel"
-// )
 
 /**
  * Тема для тестов

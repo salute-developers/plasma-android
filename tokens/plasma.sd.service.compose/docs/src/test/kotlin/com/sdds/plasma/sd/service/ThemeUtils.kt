@@ -218,10 +218,9 @@ val ProvidedStyleKeys: Set<String> by lazy {
     buildSet {
         for (i in 0 until components.length()) {
             val component = components.getJSONObject(i)
-            val key = component.getString("key")
-                .replace("-", "")
-                .lowercase()
-            add(key)
+            add(component.getString("key").replace("-", "").lowercase())
+            add(component.getString("coreName").lowercase())
+            add(component.getString("styleName").lowercase())
         }
     }
 }
