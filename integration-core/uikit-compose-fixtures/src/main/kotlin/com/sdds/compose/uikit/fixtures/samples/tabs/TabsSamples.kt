@@ -1,15 +1,14 @@
 package com.sdds.compose.uikit.fixtures.samples.tabs
 
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.docs.composableCodeSnippet
+import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DropdownMenuStyle
@@ -17,48 +16,71 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TabItem
 import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.Tabs
-import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsOrientation
 import com.sdds.compose.uikit.TabsStyle
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemPagerMotion
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabSelectedState
+import com.sdds.compose.uikit.resourceImageSource
 import com.sdds.docs.DocSample
 import com.sdds.icons.R
+import kotlinx.coroutines.launch
 
 @Composable
 @DocSample(needScreenshot = true)
 fun Tabs_Simple() {
     composableCodeSnippet {
-        var selectedTab by remember { mutableIntStateOf(0) }
+        val pagerState = rememberPagerState { 5 }
+        val scope = rememberCoroutineScope()
         Tabs(
-            selectedTabIndex = selectedTab,
-            clip = TabsClip.Scroll,
-            orientation = TabsOrientation.Horizontal,
-            onTabClicked = {
-                selectedTab = it
-            },
+            selectedTabIndexProvider = { pagerState.currentPage },
+            selectedTabOffset = { pagerState.currentPageOffsetFraction },
         ) {
-            repeat(5) { index ->
-                val label = "Label$index"
-                tab(dropdownAlias = label) { selected ->
+            repeat(pagerState.pageCount) { index ->
+                tabItem {
+                    // Анимация TabItem при изменении состояния pagerState
+                    val tabMotion = rememberTabItemPagerMotion(index, pagerState)
+                    // Состояние выбора текущего таба
+                    val isTabSelected = rememberTabSelectedState(index, pagerState)
                     TabItem(
-                        isSelected = selected,
-                        label = label,
-                        helpText = "HelpText",
-                        count = "2",
+                        isSelected = isTabSelected.value,
+                        onClick = {
+                            scope.launch {
+                                pagerState.animateScrollToPage(
+                                    index,
+                                    pagerState.currentPageOffsetFraction,
+                                )
+                            }
+                        },
+                        content = { Text("Tab$index") },
+                        helperContent = { Text("Value") },
+                        counter = {
+                            Counter(
+                                count = "3",
+                                // Делимся контекстом с Counter, чтобы он анимировлся синхронно с TabItem
+                                motion = rememberCounterMotion(motionContext = tabMotion.context),
+                            )
+                        },
                         startContent = {
                             Icon(
-                                painter = painterResource(R.drawable.ic_plasma_24),
+                                source = resourceImageSource(R.drawable.ic_plasma_24),
                                 contentDescription = "",
                             )
                         },
-                        actionIcon = R.drawable.ic_close_24,
-                        onActionClicked = {},
+                        motion = tabMotion,
                     )
                 }
             }
         }
+
+        HorizontalPager(
+            state = pagerState,
+            pageContent = {},
+        )
     }
 }
 

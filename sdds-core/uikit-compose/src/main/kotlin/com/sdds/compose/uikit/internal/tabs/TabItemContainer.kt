@@ -20,12 +20,11 @@ import com.sdds.compose.uikit.fs.focusSelector
 internal fun TabItemContainer(
     modifier: Modifier = Modifier,
     stretch: Boolean,
-    isSelected: Boolean,
-    onClick: () -> Unit,
+    onClick: (() -> Unit)?,
     onSizeMeasured: (IntSize) -> Unit,
     tabItemStyle: TabItemStyle,
     enabled: Boolean,
-    tabItemContent: @Composable (Boolean) -> Unit,
+    tabItemContent: @Composable () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isFocused = interactionSource.collectIsFocusedAsState()
@@ -34,6 +33,15 @@ internal fun TabItemContainer(
     CompositionLocalProvider(
         LocalTabItemStyle provides tabItemStyle,
     ) {
+        val clickableModifier = if (enabled && onClick != null) {
+            Modifier.clickable(
+                indication = null,
+                interactionSource = interactionSource,
+                onClick = onClick,
+            )
+        } else {
+            Modifier
+        }
         Box(
             propagateMinConstraints = stretch,
             modifier = modifier
@@ -47,13 +55,9 @@ internal fun TabItemContainer(
                 ) {
                     isFocused.value
                 }
-                .clickable(
-                    enabled = enabled,
-                    indication = null,
-                    interactionSource = interactionSource,
-                ) { onClick.invoke() },
+                .then(clickableModifier),
         ) {
-            tabItemContent.invoke(isSelected)
+            tabItemContent.invoke()
         }
     }
 }
