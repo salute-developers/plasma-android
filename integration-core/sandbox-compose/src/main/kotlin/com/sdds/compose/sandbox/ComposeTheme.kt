@@ -9,6 +9,7 @@ import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.style.Style
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.ComponentProvider
+import com.sdds.sandbox.ComponentProviderUtils.plus
 import com.sdds.sandbox.Theme
 import com.sdds.sandbox.ThemeManager
 import kotlinx.coroutines.flow.Flow
@@ -33,10 +34,15 @@ import kotlinx.coroutines.flow.Flow
  */
 class ComposeTheme(
     val displayName: String,
-    override val components: ComponentProvider,
+    components: ComponentProvider,
     val themeWrapper: @Composable (@Composable () -> Unit) -> Unit,
     val subthemes: Map<SubTheme, @Composable (@Composable () -> Unit) -> Unit> = emptyMap(),
 ) : Theme {
+
+    /**
+     * @see Theme.components
+     */
+    override val components: ComponentProvider = components + CommonComponentsProvider
 
     companion object {
         /**
