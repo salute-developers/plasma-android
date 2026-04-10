@@ -54,6 +54,7 @@ val LocalTextBrushProducer = compositionLocalOf<BrushProducer?>(structuralEquali
  * @param softWrap должен ли текст разрываться при мягких разрывах строк
  * @param maxLines максимальное количество строк
  * @param color цвет текста
+ * @param brush кисть для текста (приоритетней над [color])
  */
 @NonRestartableComposable
 @Composable
@@ -66,6 +67,7 @@ fun Text(
     softWrap: Boolean = LocalTextBehaviour.current.softWrap,
     maxLines: Int = LocalTextBehaviour.current.maxLines,
     color: ColorProducer? = LocalTextColorProducer.current,
+    brush: BrushProducer? = LocalTextBrushProducer.current,
 ) {
     Text(
         source = stringSource(text),
@@ -75,11 +77,7 @@ fun Text(
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
-        brush = if (color != null) {
-            BrushProducer { color.invoke().asBrush() }
-        } else {
-            LocalTextBrushProducer.current
-        },
+        brush = brush ?: color?.let { BrushProducer { color.invoke().asBrush() } },
     )
 }
 
@@ -95,6 +93,8 @@ fun Text(
  * @param maxLines максимальное количество строк
  * @param inlineContent словарь хранит composables, которые заменяют определенные диапазоны текста.
  * Он используется для вставки composables в текстовый layout. См. [InlineTextContent]
+ * @param color цвет текста
+ * @param brush кисть для текста (приоритетней над [color])
  */
 @NonRestartableComposable
 @Composable
@@ -108,6 +108,7 @@ fun Text(
     maxLines: Int = LocalTextBehaviour.current.maxLines,
     inlineContent: Map<String, InlineTextContent> = mapOf(),
     color: ColorProducer? = LocalTextColorProducer.current,
+    brush: BrushProducer? = LocalTextBrushProducer.current,
 ) {
     Text(
         source = annotatedStringSource(text),
@@ -118,11 +119,7 @@ fun Text(
         softWrap = softWrap,
         maxLines = maxLines,
         inlineContent = inlineContent,
-        brush = if (color != null) {
-            BrushProducer { color.invoke().asBrush() }
-        } else {
-            LocalTextBrushProducer.current
-        },
+        brush = brush ?: color?.let { BrushProducer { color.invoke().asBrush() } },
     )
 }
 
