@@ -33,7 +33,7 @@ internal fun BaseText(
     val isSolidColor by remember(brushProducer) {
         derivedStateOf { brushProducer != null && brushProducer.invoke() is SolidColor }
     }
-    val resolvedStyle by remember(brushProducer, isSolidColor) {
+    val resolvedStyle by remember(style, brushProducer, isSolidColor) {
         derivedStateOf {
             if (brushProducer != null && !isSolidColor) {
                 style.copy(brush = brushProducer.invoke())
