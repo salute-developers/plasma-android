@@ -18,6 +18,16 @@ import androidx.compose.runtime.rememberUpdatedState
 interface ValueState
 
 /**
+ * Множество состояний [ValueState]
+ */
+typealias ValueStateSet = Set<ValueState>
+
+/**
+ * Создает [ValueStateSet] из набора [state]
+ */
+fun valueStateSetOf(vararg state: ValueState): ValueStateSet = setOf(*state)
+
+/**
  * Абстрактный класс, представляющий список значений, соответствующих наборам состояний [ValueState].
  *
  * Используется для сопоставления значения типа [T] с определённым набором состояний (stateSet).
@@ -68,9 +78,11 @@ open class StatefulValue<T> internal constructor(
         defaultValue: T? = this.defaultValue,
     ): StatefulValue<T> = StatefulValue(states, values, defaultValue)
 
+    internal fun getValues(): List<T> = values
+
     private fun indexOfDefault(): Int = states.indexOfFirst { it.isEmpty() }.takeIf { it >= 0 } ?: 0
 
-    private fun indexOfStateSet(stateSet: Set<ValueState>): Int {
+    internal fun indexOfStateSet(stateSet: Set<ValueState>): Int {
         for (i in states.indices) {
             if (states[i].all { it in stateSet }) {
                 return i
