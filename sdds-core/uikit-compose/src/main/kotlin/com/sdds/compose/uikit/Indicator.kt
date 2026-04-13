@@ -4,6 +4,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -11,15 +12,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.toIntSize
+import androidx.compose.ui.unit.toSize
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.internal.common.background
 import com.sdds.compose.uikit.internal.common.drawOutline
+import com.sdds.compose.uikit.internal.drawWithLayer
 
 /**
  * Компонент [Indicator]
@@ -74,6 +82,9 @@ fun Modifier.indicator(
  * @param verticalMode размещение относительно границ
  * @see IndicatorMode
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
+ * @param alpha прозрачность индикатора
+ * @param cutoutEnabled включен ли вырез под индикатор
+ * @param cutoutPadding внутренний отступ выреза
  */
 @Suppress("ComposableModifierFactory")
 @Composable
@@ -87,10 +98,26 @@ fun Modifier.indicator(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     stateSet: Set<ValueState> = emptySet(),
     alpha: () -> Float = { 1f },
+    cutoutEnabled: Boolean = false,
+    cutoutPadding: Dp = 3.dp,
 ): Modifier = composed {
     val brush = style.color.backgroundBrush?.getValue(interactionSource, stateSet)
     val color = style.color.backgroundColor.takeIf { brush == null }?.colorForInteraction(interactionSource, stateSet)
     val shape = style.shape
+    val cutoutModifier = if (cutoutEnabled) {
+        Modifier.cutout(
+            alignment = Alignment.BottomEnd,
+            size = DpSize(
+                style.dimensions.width + cutoutPadding * 2,
+                style.dimensions.height + cutoutPadding * 2,
+            ),
+            horizontalPadding = horizontalPadding - cutoutPadding,
+            verticalPadding = verticalPadding - cutoutPadding,
+            shape = style.shape,
+        )
+    } else {
+        Modifier
+    }
     this then Modifier
         .drawWithCache {
             val horizontalOffset = horizontalPadding.roundToPx()
@@ -133,6 +160,7 @@ fun Modifier.indicator(
                 }
             }
         }
+        .then(cutoutModifier)
 }
 
 /**
@@ -149,4 +177,51 @@ enum class IndicatorMode {
      * Размещение снаружи границ
      */
     Outer,
+}
+
+private fun Modifier.cutout(
+    alignment: Alignment,
+    size: DpSize,
+    horizontalPadding: Dp = 0.dp,
+    verticalPadding: Dp = 0.dp,
+    shape: Shape = CircleShape,
+): Modifier = drawWithCache {
+    val horizontalOffset = horizontalPadding.roundToPx()
+    val verticalOffset = verticalPadding.roundToPx()
+
+    val parentSize = IntSize(
+        this.size.width.toInt(),
+        this.size.height.toInt(),
+    )
+
+    val alignedOffset = alignment.align(
+        size = size.toSize().toIntSize(),
+        parentSize,
+        layoutDirection,
+    )
+
+    val outline = shape.createOutline(
+        size.toSize(),
+        layoutDirection,
+        this,
+    )
+
+    val offset = alignedOffset - IntOffset(
+        horizontalOffset,
+        verticalOffset,
+    )
+
+    onDrawWithContent {
+        drawWithLayer {
+            drawContent()
+
+            translate(offset.x.toFloat(), offset.y.toFloat()) {
+                drawOutline(
+                    outline,
+                    color = Color.Transparent,
+                    blendMode = BlendMode.Clear,
+                )
+            }
+        }
+    }
 }

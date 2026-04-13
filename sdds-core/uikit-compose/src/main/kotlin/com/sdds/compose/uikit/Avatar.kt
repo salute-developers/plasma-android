@@ -38,6 +38,11 @@ import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.cutout.ProvideCutoutState
+import com.sdds.compose.uikit.graphics.cutout.cutoutTarget
+import com.sdds.compose.uikit.graphics.cutout.rememberCutoutState
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.getValueAsState
@@ -199,26 +204,32 @@ fun Avatar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: @Composable BoxScope.() -> Unit,
 ) {
+    val cutoutState = rememberCutoutState()
     Box(modifier.requiredSize(style.dimensionValues.width, style.dimensionValues.height)) {
-        Box(
-            modifier = Modifier
-                .avatar(
-                    interactionSource = interactionSource,
-                    style = style,
-                    status = status,
-                    action = action,
-                    actionEnabled = actionEnabled,
-                    placeholder = placeholder,
-                ),
-            contentAlignment = Alignment.Center,
-            propagateMinConstraints = false,
-            content = content,
-        )
-        ProvideExtraStyle(
-            style.badgeStyle,
-            style.counterStyle,
-        ) {
-            extra?.invoke(this@Box)
+        ProvideCutoutState(cutoutState) {
+            Box(
+                modifier = Modifier
+                    .cutoutTarget()
+                    .avatar(
+                        interactionSource = interactionSource,
+                        style = style,
+                        status = status,
+                        action = action,
+                        actionEnabled = actionEnabled,
+                        placeholder = placeholder,
+                        statusCutoutEnabled = style.statusCutoutEnabled,
+                        statusCutoutPadding = style.dimensionValues.statusCutoutPadding,
+                    ),
+                contentAlignment = Alignment.Center,
+                propagateMinConstraints = false,
+                content = content,
+            )
+            ProvideExtraStyle(
+                style.badgeStyle,
+                style.counterStyle,
+            ) {
+                extra?.invoke(this@Box)
+            }
         }
     }
 }
@@ -231,10 +242,7 @@ fun Avatar(
  * ```kotlin
  * AsyncImage(
  *      modifier = Modifier.avatar(
- *          shape: Shape = RoundedCornerShape(50),
- *          statusColor: Color = Color.DarkGray,
- *          statusSize: Dp = 8.dp,
- *          statusOffset: Offset = Offset.Zero,
+ *          ...
  *      ),
  *      model = "https://cdn.example.com/test.png",
  *      ...
@@ -272,10 +280,7 @@ fun Modifier.avatar(
  * ```kotlin
  * AsyncImage(
  *      modifier = Modifier.avatar(
- *          shape: Shape = RoundedCornerShape(50),
- *          statusColor: Color = Color.DarkGray,
- *          statusSize: Dp = 8.dp,
- *          statusOffset: Offset = Offset.Zero,
+ *         ...
  *      ),
  *      model = "https://cdn.example.com/test.png",
  *      ...
@@ -287,6 +292,8 @@ fun Modifier.avatar(
  * @param action иконка действия [Painter]
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
+ * @param statusCutoutEnabled включен ли вырез под индикатор статуса
+ * @param statusCutoutPadding внутренний отступ выреза индикатора статуса
  */
 @Suppress("ComposableModifierFactory")
 @Composable
@@ -297,6 +304,8 @@ fun Modifier.avatar(
     action: Painter? = null,
     actionEnabled: Boolean = false,
     placeholder: AvatarPlaceholder? = null,
+    statusCutoutEnabled: Boolean = false,
+    statusCutoutPadding: Dp = 3.dp,
 ): Modifier = composed {
     val dimensions = style.dimensionValues
     val colors = style.colors
@@ -308,6 +317,8 @@ fun Modifier.avatar(
             horizontalPadding = dimensions.statusOffsetX,
             verticalPadding = dimensions.statusOffsetY,
             stateSet = stateSet,
+            cutoutEnabled = statusCutoutEnabled,
+            cutoutPadding = statusCutoutPadding,
         )
     } else {
         Modifier
