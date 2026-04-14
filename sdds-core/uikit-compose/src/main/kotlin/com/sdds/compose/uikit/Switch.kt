@@ -16,8 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitch
 import com.sdds.compose.uikit.internal.checkable.switch.BaseSwitchLayout
 import com.sdds.compose.uikit.internal.checkable.switch.SwitchToggle
@@ -201,15 +203,25 @@ private fun SwitchDimensions.toDimensionValues(): SwitchDimensionValues {
     return object : SwitchDimensionValues {
         override val toggleTrackWidth: Dp = this@toDimensionValues.toggleWidth
         override val toggleTrackHeight: Dp = this@toDimensionValues.toggleHeight
-        override val toggleThumbWidth: Dp = this@toDimensionValues.thumbDiameter
-        override val toggleThumbHeight: Dp = this@toDimensionValues.thumbDiameter
-        override val toggleThumbPadding: Dp = 2.dp
+        override val toggleThumbWidths: StatefulValue<Dp> = this@toDimensionValues.thumbDiameter.asStatefulValue()
+
+        @Deprecated("Use toggleThumbWidth", replaceWith = ReplaceWith("toggleThumbWidths"))
+        override val toggleThumbWidth: Dp = toggleThumbWidths.getDefaultValue()
+        override val toggleThumbHeights: StatefulValue<Dp> = this@toDimensionValues.thumbDiameter.asStatefulValue()
+
+        @Deprecated("Use toggleThumbHeights", replaceWith = ReplaceWith("toggleThumbHeights"))
+        override val toggleThumbHeight: Dp = toggleThumbHeights.getDefaultValue()
+        override val toggleThumbPaddings: StatefulValue<Dp> = 2.dp.asStatefulValue()
+
+        @Deprecated("Use toggleThumbPaddings", replaceWith = ReplaceWith("toggleThumbPaddings"))
+        override val toggleThumbPadding: Dp = toggleThumbPaddings.getDefaultValue()
         override val textPadding: Dp = this@toDimensionValues.horizontalSpacing
         override val descriptionPadding: Dp = this@toDimensionValues.verticalSpacing
         override val paddingTop: Dp = 0.dp
         override val paddingStart: Dp = 0.dp
         override val paddingEnd: Dp = 0.dp
         override val paddingBottom: Dp = 0.dp
+        override val toggleThumbBorderWidth: StatefulValue<Dp> = 0.dp.asStatefulValue()
     }
 }
 
