@@ -137,8 +137,8 @@ internal fun ChipDimensions.toDimensionsSet(): BaseIconText.Dimensions {
         startContentSize = this.contentStartSize,
         endContentMargin = this.contentEndPadding,
         startContentMargin = this.contentStartPadding,
-        endPadding = this.paddingEnd,
-        startPadding = this.paddingStart,
+        startPadding = this.startPaddings,
+        endPadding = this.endPaddings,
     )
 }
 

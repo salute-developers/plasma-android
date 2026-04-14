@@ -39,6 +39,7 @@ public val TextField.Default: WrapperTextFieldDefault
     @Composable
     @JvmName("WrapperTextFieldDefault")
     get() = TextFieldStyle.builder(this)
+        .singleLine(false)
         .shape(SddsSbComTheme.shapes.roundL)
         .dimensions {
             boxPaddingStart(16.0.dp)

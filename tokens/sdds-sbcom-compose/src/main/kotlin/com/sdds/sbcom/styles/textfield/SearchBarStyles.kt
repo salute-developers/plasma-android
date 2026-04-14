@@ -39,6 +39,7 @@ public val SearchBar.Default: WrapperSearchBarDefault
     @Composable
     @JvmName("WrapperSearchBarDefault")
     get() = TextFieldStyle.builder(this)
+        .singleLine(true)
         .shape(CircleShape)
         .dimensions {
             boxPaddingStart(16.0.dp)

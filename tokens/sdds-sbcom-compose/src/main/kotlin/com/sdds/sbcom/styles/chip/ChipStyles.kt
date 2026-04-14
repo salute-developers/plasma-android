@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -122,7 +123,7 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             paddingEnd(8.0.dp)
             contentStartPadding(3.0.dp)
             contentEndPadding(3.0.dp)
-            contentStartSize(16.0.dp)
+            contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
         }
         .disableAlpha(0.4f)
@@ -133,7 +134,11 @@ public val Chip.ChipSlotPadding: WrapperChipChipSlotPadding
     get() = ChipStyle.builder(this)
         .invariantProps
         .dimensions {
-            paddingStart(8.0.dp)
+            paddingStart(
+                8.0.dp.asStatefulValue(
+                    setOf(InteractiveState.Selected) to 1.0.dp,
+                ),
+            )
         }
         .wrap(::WrapperChipChipSlotPadding)
 

@@ -27,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.SwitchColorValues
 import com.sdds.compose.uikit.SwitchDimensionValues
 import com.sdds.compose.uikit.SwitchStates
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.lerp
 
 /**
@@ -59,6 +60,10 @@ internal fun SwitchToggle(
         animationSpec = tween(durationMillis = animationDuration),
         label = "thumbPosition",
     )
+    val toggleWidth = dimensions.toggleThumbWidths.getValueAsState(interactionSource, stateSet)
+    val toggleHeight = dimensions.toggleThumbHeights.getValueAsState(interactionSource, stateSet)
+    val toggleThumbPadding = dimensions.toggleThumbPaddings.getValueAsState(interactionSource, stateSet)
+    val toggleThumbBorderWidth = dimensions.toggleThumbBorderWidth.getValueAsState(interactionSource, stateSet)
 
     Box(
         modifier = modifier
@@ -72,14 +77,21 @@ internal fun SwitchToggle(
                 )
                 val thumbOutline = createOutline(
                     shape = thumbShape,
-                    widthPx = dimensions.toggleThumbWidth.toPx(),
-                    heightPx = dimensions.toggleThumbHeight.toPx(),
+                    widthPx = toggleWidth.value.toPx(),
+                    heightPx = toggleHeight.value.toPx(),
                 )
-                val trackBorderStroke = Stroke(width = 0f)
+                val trackBorderStroke = Stroke(width = toggleThumbBorderWidth.value.toPx())
 
                 onDrawBehind {
                     drawTrack(trackOutline, trackColor.value, trackBorderColor.value, trackBorderStroke)
-                    drawThumb(thumbOutline, thumbColor.value, thumbPosition, dimensions)
+                    drawThumb(
+                        thumbOutline = thumbOutline,
+                        thumbColor = thumbColor.value,
+                        thumbPosition = thumbPosition,
+                        toggleThumbPadding = toggleThumbPadding.value.toPx(),
+                        toggleThumbWidth = toggleWidth.value.toPx(),
+                        toggleThumbHeight = toggleHeight.value.toPx(),
+                    )
                 }
             },
     )
@@ -124,15 +136,17 @@ private fun DrawScope.drawThumb(
     thumbOutline: Outline,
     thumbColor: Color,
     thumbPosition: Float,
-    dimensions: SwitchDimensionValues,
+    toggleThumbPadding: Float,
+    toggleThumbWidth: Float,
+    toggleThumbHeight: Float,
 ) {
     val startOffset = lerp(
-        dimensions.toggleThumbPadding.toPx(),
-        size.width - dimensions.toggleThumbWidth.toPx() - dimensions.toggleThumbPadding.toPx(),
+        toggleThumbPadding,
+        size.width - toggleThumbWidth - toggleThumbPadding,
         thumbPosition,
     )
     val topOffset =
-        (dimensions.toggleTrackHeight.toPx() - dimensions.toggleThumbHeight.toPx()) / 2f
+        (size.height - toggleThumbHeight) / 2f
     translate(
         left = startOffset,
         top = topOffset,

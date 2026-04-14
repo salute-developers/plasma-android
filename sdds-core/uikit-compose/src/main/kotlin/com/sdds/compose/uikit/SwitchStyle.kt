@@ -510,17 +510,35 @@ interface SwitchDimensionValues {
     /**
      * Ширина подвижной части
      */
+    @Deprecated("Use toggleThumbWidth", ReplaceWith("toggleThumbWidths"))
     val toggleThumbWidth: Dp
+
+    /**
+     * Ширины подвижной части
+     */
+    val toggleThumbWidths: StatefulValue<Dp>
 
     /**
      * Высота подвижной части
      */
+    @Deprecated("Use toggleThumbHeights", ReplaceWith("toggleThumbHeights"))
     val toggleThumbHeight: Dp
+
+    /**
+     * Высоты подвижной части
+     */
+    val toggleThumbHeights: StatefulValue<Dp>
 
     /**
      * Горизонтальный отступ подвижной части
      */
+    @Deprecated("Use toggleThumbPaddings", ReplaceWith("toggleThumbPaddings"))
     val toggleThumbPadding: Dp
+
+    /**
+     * Горизонтальный отступ подвижной части
+     */
+    val toggleThumbPaddings: StatefulValue<Dp>
 
     /**
      * Отступ до текста
@@ -552,6 +570,11 @@ interface SwitchDimensionValues {
      */
     val paddingBottom: Dp
 
+    /**
+     * Толщина границы подвижной части переключателя
+     */
+    val toggleThumbBorderWidth: StatefulValue<Dp>
+
     companion object {
 
         /**
@@ -579,17 +602,35 @@ interface SwitchDimensionValuesBuilder {
     /**
      * Устанавливает ширину подвижной части
      */
-    fun toggleThumbWidth(toggleThumbWidth: Dp): SwitchDimensionValuesBuilder
+    fun toggleThumbWidth(toggleThumbWidth: Dp): SwitchDimensionValuesBuilder =
+        toggleThumbWidth(toggleThumbWidth.asStatefulValue())
+
+    /**
+     * Устанавливает ширины подвижной части
+     */
+    fun toggleThumbWidth(toggleThumbWidth: StatefulValue<Dp>): SwitchDimensionValuesBuilder
 
     /**
      * Устанавливает высоту подвижной части
      */
-    fun toggleThumbHeight(toggleThumbHeight: Dp): SwitchDimensionValuesBuilder
+    fun toggleThumbHeight(toggleThumbHeight: Dp): SwitchDimensionValuesBuilder =
+        toggleThumbHeight(toggleThumbHeight.asStatefulValue())
+
+    /**
+     * Устанавливает высоты подвижной части
+     */
+    fun toggleThumbHeight(toggleThumbHeight: StatefulValue<Dp>): SwitchDimensionValuesBuilder
 
     /**
      * Устанавливает горизонтальный отступ до подвижной части
      */
-    fun toggleThumbPadding(toggleThumbPadding: Dp): SwitchDimensionValuesBuilder
+    fun toggleThumbPadding(toggleThumbPadding: Dp): SwitchDimensionValuesBuilder =
+        toggleThumbPadding(toggleThumbPadding.asStatefulValue())
+
+    /**
+     * Устанавливает горизонтальный отступ до подвижной части
+     */
+    fun toggleThumbPadding(toggleThumbPadding: StatefulValue<Dp>): SwitchDimensionValuesBuilder
 
     /**
      * Устанавливает отступ до текста
@@ -622,6 +663,17 @@ interface SwitchDimensionValuesBuilder {
     fun paddingBottom(paddingBottom: Dp): SwitchDimensionValuesBuilder
 
     /**
+     * Устанавливает толщину рамки подвижной части рамки
+     */
+    fun toggleThumbBorderWidth(borderWidth: Dp): SwitchDimensionValuesBuilder =
+        toggleThumbBorderWidth(borderWidth.asStatefulValue())
+
+    /**
+     * Устанавливает толщину рамки подвижной части переключателя
+     */
+    fun toggleThumbBorderWidth(borderWidth: StatefulValue<Dp>): SwitchDimensionValuesBuilder
+
+    /**
      * Возвращает экземпляр [SwitchDimensionValues]
      */
     fun build(): SwitchDimensionValues
@@ -631,29 +683,38 @@ interface SwitchDimensionValuesBuilder {
 private class DefaultSwitchDimensionValues(
     override val toggleTrackWidth: Dp,
     override val toggleTrackHeight: Dp,
-    override val toggleThumbWidth: Dp,
-    override val toggleThumbPadding: Dp,
-    override val toggleThumbHeight: Dp,
     override val textPadding: Dp,
     override val descriptionPadding: Dp,
     override val paddingTop: Dp,
     override val paddingStart: Dp,
     override val paddingEnd: Dp,
     override val paddingBottom: Dp,
+    override val toggleThumbWidths: StatefulValue<Dp>,
+    override val toggleThumbHeights: StatefulValue<Dp>,
+    override val toggleThumbBorderWidth: StatefulValue<Dp>,
+    override val toggleThumbPaddings: StatefulValue<Dp>,
 ) : SwitchDimensionValues {
+
+    @Deprecated("Use toggleThumbWidth", replaceWith = ReplaceWith("toggleThumbWidths"))
+    override val toggleThumbWidth: Dp = toggleThumbWidths.getDefaultValue()
+
+    @Deprecated("Use toggleThumbHeights", replaceWith = ReplaceWith("toggleThumbHeights"))
+    override val toggleThumbHeight: Dp = toggleThumbHeights.getDefaultValue()
+    override val toggleThumbPadding: Dp = toggleThumbPaddings.getDefaultValue()
 
     class Builder : SwitchDimensionValuesBuilder {
         private var toggleTrackWidth: Dp? = null
         private var toggleTrackHeight: Dp? = null
-        private var toggleThumbWidth: Dp? = null
-        private var toggleThumbHeight: Dp? = null
-        private var toggleThumbPadding: Dp? = null
+        private var toggleThumbWidth: StatefulValue<Dp>? = null
+        private var toggleThumbHeight: StatefulValue<Dp>? = null
+        private var toggleThumbPadding: StatefulValue<Dp>? = null
         private var textPadding: Dp? = null
         private var descriptionPadding: Dp? = null
         private var paddingTop: Dp? = null
         private var paddingStart: Dp? = null
         private var paddingEnd: Dp? = null
         private var paddingBottom: Dp? = null
+        private var toggleThumbBorderWidth: StatefulValue<Dp>? = null
 
         override fun toggleTrackWidth(toggleTrackWidth: Dp) = apply {
             this.toggleTrackWidth = toggleTrackWidth
@@ -663,15 +724,15 @@ private class DefaultSwitchDimensionValues(
             this.toggleTrackHeight = toggleTrackHeight
         }
 
-        override fun toggleThumbWidth(toggleThumbWidth: Dp) = apply {
+        override fun toggleThumbWidth(toggleThumbWidth: StatefulValue<Dp>) = apply {
             this.toggleThumbWidth = toggleThumbWidth
         }
 
-        override fun toggleThumbHeight(toggleThumbHeight: Dp) = apply {
+        override fun toggleThumbHeight(toggleThumbHeight: StatefulValue<Dp>) = apply {
             this.toggleThumbHeight = toggleThumbHeight
         }
 
-        override fun toggleThumbPadding(toggleThumbPadding: Dp) = apply {
+        override fun toggleThumbPadding(toggleThumbPadding: StatefulValue<Dp>) = apply {
             this.toggleThumbPadding = toggleThumbPadding
         }
 
@@ -699,19 +760,24 @@ private class DefaultSwitchDimensionValues(
             this.paddingBottom = paddingBottom
         }
 
+        override fun toggleThumbBorderWidth(borderWidth: StatefulValue<Dp>) = apply {
+            this.toggleThumbBorderWidth = borderWidth
+        }
+
         override fun build(): SwitchDimensionValues {
             return DefaultSwitchDimensionValues(
                 toggleTrackWidth = toggleTrackWidth ?: 44.dp,
                 toggleTrackHeight = toggleTrackHeight ?: 28.dp,
-                toggleThumbWidth = toggleThumbWidth ?: 24.dp,
-                toggleThumbHeight = toggleThumbHeight ?: 24.dp,
-                toggleThumbPadding = toggleThumbPadding ?: 2.dp,
+                toggleThumbWidths = toggleThumbWidth ?: 24.dp.asStatefulValue(),
+                toggleThumbHeights = toggleThumbHeight ?: 24.dp.asStatefulValue(),
+                toggleThumbPaddings = toggleThumbPadding ?: 2.dp.asStatefulValue(),
                 textPadding = textPadding ?: 12.dp,
                 descriptionPadding = descriptionPadding ?: 2.dp,
                 paddingStart = this.paddingStart ?: 0.dp,
                 paddingTop = this.paddingTop ?: 0.dp,
                 paddingEnd = this.paddingEnd ?: 0.dp,
                 paddingBottom = this.paddingBottom ?: 0.dp,
+                toggleThumbBorderWidth = toggleThumbBorderWidth ?: 0.dp.asStatefulValue(),
             )
         }
     }

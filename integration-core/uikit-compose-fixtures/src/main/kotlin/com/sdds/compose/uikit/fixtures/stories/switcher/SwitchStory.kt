@@ -31,7 +31,7 @@ data class SwitchUiState(
     val label: String = "Label",
     val description: String = "Description",
     val enabled: Boolean = true,
-    val toggleable: Boolean = false,
+    val toggleable: Boolean = true,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
@@ -53,9 +53,9 @@ object SwitchStory : ComposeBaseStory<SwitchUiState, SwitchStyle>(
         var activeState by remember { mutableStateOf(false) }
         Switch(
             active = activeState,
-            label = state.label,
+            label = state.label.takeIf { it.isNotBlank() },
             style = style,
-            description = state.description,
+            description = state.description.takeIf { it.isNotBlank() },
             enabled = state.enabled,
             onActiveChanged = {
                 if (state.toggleable) activeState = it

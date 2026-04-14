@@ -98,7 +98,7 @@ public val CheckBox.Default: WrapperCheckBoxDefault
                 ),
             )
             toggleBorderOffset(0.0.dp)
-            toggleBorderWidth(0.0.dp)
+            toggleBorderWidth(1.5.dp)
             togglePadding(1.0.dp)
             paddingStart(9.0.dp)
             paddingEnd(9.0.dp)
