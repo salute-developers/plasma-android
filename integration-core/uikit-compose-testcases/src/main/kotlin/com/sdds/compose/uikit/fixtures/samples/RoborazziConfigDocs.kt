@@ -8,8 +8,11 @@ import androidx.compose.ui.test.onRoot
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.RoborazziOptions
 import com.github.takahirom.roborazzi.RoborazziRule
+import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.compose.docs.ComposableSample
 import com.sdds.compose.docs.ComposableSamples
+import org.json.JSONObject
+import org.junit.AfterClass
 import org.junit.Rule
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
@@ -25,6 +28,8 @@ import java.io.File
 open class RoborazziConfigDocs(
     val composableSample: ComposableSampleInfo,
 ) {
+
+    private val providedStyles: Set<String> by lazy { ProvidedStyleKeys }
 
     /**
      * Правило для регистрации Activity до запуска тестов
@@ -75,6 +80,27 @@ open class RoborazziConfigDocs(
     @Suppress("UndocumentedPublicClass")
     data class ComposableSampleInfo(val id: String, val sample: ComposableSample)
 
+    /**
+     * Добавляем скриншот, если компонент входит в список
+     */
+    fun ifNeedScreenshot() {
+        var shouldCapture = true
+        val componentName = composableSample.id
+            .substringAfterLast(".")
+            .substringBefore("_")
+            .lowercase()
+        shouldCapture = providedStyles.any { styleKey ->
+            componentName == styleKey.lowercase()
+        }
+        println(" componentName: $componentName, ищем в: $providedStyles, совпали: $shouldCapture")
+        if (shouldCapture) {
+            composeTestRule.onRoot().captureRoboImage()
+        } else {
+            skippedTests.add(composableSample.id)
+            println("Skipped tests: ${composableSample.id}")
+        }
+    }
+
     companion object {
         /**
          * Папка для сохранения скриншотов
@@ -83,6 +109,44 @@ open class RoborazziConfigDocs(
             System.getProperty("rootDir"),
             "override-docs/static/screenshots-docusaurus",
         )
+
+        private val skippedTests = mutableListOf<String>()
+
+        /**
+         * Поиск названия компонентов в config-info-view-system.json
+         */
+        val ProvidedStyleKeys: Set<String> by lazy {
+            val moduleDir = System.getProperty("moduleDir") ?: ""
+            println("mooduleDir: $moduleDir")
+            val jsonFile = File(moduleDir).parentFile?.resolve("config-info-compose.json")
+                ?: return@lazy emptySet()
+
+            if (!jsonFile.exists()) return@lazy emptySet()
+
+            val json = JSONObject(jsonFile.readText())
+            val components = json.getJSONArray("components")
+
+            buildSet {
+                for (i in 0 until components.length()) {
+                    val component = components.getJSONObject(i)
+                    add(component.getString("key").replace("-", "").lowercase())
+                    add(component.getString("coreName").lowercase())
+                    add(component.getString("styleName").lowercase())
+                }
+            }
+        }
+
+        /**
+         * Выводим список пропущенных тестов
+         */
+        @AfterClass
+        @JvmStatic
+        fun skippedTests() {
+            if (skippedTests.isNotEmpty()) {
+                println("Skipped tests: ${skippedTests.size} screenshots:")
+                skippedTests.forEach { println(" - $it") }
+            }
+        }
 
         /**
          * Параметризированные тесты

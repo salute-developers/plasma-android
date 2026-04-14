@@ -6,6 +6,7 @@ import com.github.takahirom.roborazzi.RoborazziRule
 import com.sdds.docs.ViewSample
 import com.sdds.docs.ViewSamples
 import com.sdds.uikit.utils.TextAppearanceConfig
+import org.json.JSONObject
 import org.junit.Before
 import org.junit.Rule
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -65,6 +66,33 @@ open class RoborazziConfigDocsXml(
             System.getProperty("rootDir"),
             "override-docs/static/screenshots-docusaurus",
         )
+
+        /**
+         * Поиск названия компонентов в config-info-view-system.json
+         */
+        val ProvidedStyleKeys: Set<String> by lazy {
+            val moduleDir = System.getProperty("moduleDir") ?: ""
+            println("mooduleDir: $moduleDir")
+            val jsonFile = File(moduleDir).parentFile?.resolve("config-info-view-system.json")
+                ?: return@lazy emptySet()
+
+            if (!jsonFile.exists()) return@lazy emptySet()
+
+            println("jsonFile: ${jsonFile.absolutePath}")
+            println("jsonFile.exists(): ${jsonFile.exists()}")
+
+            val json = JSONObject(jsonFile.readText())
+            val components = json.getJSONArray("components")
+
+            buildSet {
+                for (i in 0 until components.length()) {
+                    val component = components.getJSONObject(i)
+                    add(component.getString("key").replace("-", "").lowercase())
+                    add(component.getString("coreName").lowercase())
+                    add(component.getString("styleName").lowercase())
+                }
+            }
+        }
 
         /**
          * Параметризированные тесты

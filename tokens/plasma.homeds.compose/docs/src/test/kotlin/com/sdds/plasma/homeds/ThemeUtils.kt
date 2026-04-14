@@ -6,7 +6,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
@@ -156,36 +155,11 @@ import com.sdds.plasma.homeds.theme.darkPlasmaHomeDsColors
 import com.sdds.plasma.homeds.theme.darkPlasmaHomeDsGradients
 import com.sdds.plasma.homeds.theme.lightPlasmaHomeDsColors
 import com.sdds.plasma.homeds.theme.lightPlasmaHomeDsGradients
-import org.json.JSONObject
-import java.io.File
 
 private val DarkColors = darkPlasmaHomeDsColors()
 private val LightColors = lightPlasmaHomeDsColors()
 private val DarkGradients = darkPlasmaHomeDsGradients()
 private val LightGradients = lightPlasmaHomeDsGradients()
-
-val LocalProvidedStyles = compositionLocalOf { emptySet<String>() }
-
-val ProvidedStyleKeys: Set<String> by lazy {
-    val moduleDir = System.getProperty("moduleDir") ?: ""
-    println("mooduleDir: $moduleDir")
-    val jsonFile = File(moduleDir).parentFile?.resolve("config-info-compose.json")
-        ?: return@lazy emptySet()
-
-    if (!jsonFile.exists()) return@lazy emptySet()
-
-    val json = JSONObject(jsonFile.readText())
-    val components = json.getJSONArray("components")
-
-    buildSet {
-        for (i in 0 until components.length()) {
-            val component = components.getJSONObject(i)
-            add(component.getString("key").replace("-", "").lowercase())
-            add(component.getString("coreName").lowercase())
-            add(component.getString("styleName").lowercase())
-        }
-    }
-}
 
 /**
  * Тема для тестов
@@ -221,7 +195,6 @@ fun ThemeSetup(
         gradients = if (darkTheme) DarkGradients else LightGradients,
     ) {
         CompositionLocalProvider(
-            LocalProvidedStyles provides ProvidedStyleKeys,
             LocalAvatarGroupStyle provides AvatarGroup.S.style(),
             LocalAvatarStyle provides Avatar.M.style(),
             LocalBadgeStyle provides BadgeSolid.M.Default.style(),

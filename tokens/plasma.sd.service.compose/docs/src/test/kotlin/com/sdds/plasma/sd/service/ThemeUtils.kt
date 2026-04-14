@@ -6,7 +6,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
@@ -194,36 +193,11 @@ import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceColors
 import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceGradients
 import com.sdds.plasma.sd.service.theme.lightPlasmaSdServiceColors
 import com.sdds.plasma.sd.service.theme.lightPlasmaSdServiceGradients
-import org.json.JSONObject
-import java.io.File
 
 private val DarkColors = darkPlasmaSdServiceColors()
 private val LightColors = lightPlasmaSdServiceColors()
 private val DarkGradients = darkPlasmaSdServiceGradients()
 private val LightGradients = lightPlasmaSdServiceGradients()
-
-val LocalProvidedStyles = compositionLocalOf { emptySet<String>() }
-
-val ProvidedStyleKeys: Set<String> by lazy {
-    val moduleDir = System.getProperty("moduleDir") ?: ""
-    println("mooduleDir: $moduleDir")
-    val jsonFile = File(moduleDir).parentFile?.resolve("config-info-compose.json")
-        ?: return@lazy emptySet()
-
-    if (!jsonFile.exists()) return@lazy emptySet()
-
-    val json = JSONObject(jsonFile.readText())
-    val components = json.getJSONArray("components")
-
-    buildSet {
-        for (i in 0 until components.length()) {
-            val component = components.getJSONObject(i)
-            add(component.getString("key").replace("-", "").lowercase())
-            add(component.getString("coreName").lowercase())
-            add(component.getString("styleName").lowercase())
-        }
-    }
-}
 
 /**
  * Тема для тестов
@@ -258,7 +232,6 @@ fun ThemeSetup(
         gradients = if (darkTheme) DarkGradients else LightGradients,
     ) {
         CompositionLocalProvider(
-            LocalProvidedStyles provides ProvidedStyleKeys,
             LocalAccordionStyle provides AccordionSolidActionStart.H3.style(),
             LocalAutocompleteStyle provides AutocompleteNormal.M.style(),
             LocalAvatarGroupStyle provides AvatarGroup.S.style(),

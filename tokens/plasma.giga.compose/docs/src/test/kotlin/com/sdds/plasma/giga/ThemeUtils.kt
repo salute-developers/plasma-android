@@ -6,7 +6,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
@@ -181,36 +180,11 @@ import com.sdds.plasma.giga.theme.darkPlasmaGigaColors
 import com.sdds.plasma.giga.theme.darkPlasmaGigaGradients
 import com.sdds.plasma.giga.theme.lightPlasmaGigaColors
 import com.sdds.plasma.giga.theme.lightPlasmaGigaGradients
-import org.json.JSONObject
-import java.io.File
 
 private val DarkColors = darkPlasmaGigaColors()
 private val LightColors = lightPlasmaGigaColors()
 private val DarkGradients = darkPlasmaGigaGradients()
 private val LightGradients = lightPlasmaGigaGradients()
-
-val LocalProvidedStyles = compositionLocalOf { emptySet<String>() }
-
-val ProvidedStyleKeys: Set<String> by lazy {
-    val moduleDir = System.getProperty("moduleDir") ?: ""
-    println("mooduleDir: $moduleDir")
-    val jsonFile = File(moduleDir).parentFile?.resolve("config-info-compose.json")
-        ?: return@lazy emptySet()
-
-    if (!jsonFile.exists()) return@lazy emptySet()
-
-    val json = JSONObject(jsonFile.readText())
-    val components = json.getJSONArray("components")
-
-    buildSet {
-        for (i in 0 until components.length()) {
-            val component = components.getJSONObject(i)
-            add(component.getString("key").replace("-", "").lowercase())
-            add(component.getString("coreName").lowercase())
-            add(component.getString("styleName").lowercase())
-        }
-    }
-}
 
 /**
  * Тема для тестов
@@ -246,7 +220,6 @@ fun ThemeSetup(
         gradients = if (darkTheme) DarkGradients else LightGradients,
     ) {
         CompositionLocalProvider(
-            LocalProvidedStyles provides ProvidedStyleKeys,
             LocalAccordionStyle provides AccordionSolidActionStart.H3.style(),
             LocalAvatarGroupStyle provides AvatarGroup.S.style(),
             LocalAvatarStyle provides Avatar.M.style(),

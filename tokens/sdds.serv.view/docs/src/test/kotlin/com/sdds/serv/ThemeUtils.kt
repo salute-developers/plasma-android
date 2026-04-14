@@ -3,9 +3,8 @@ package com.sdds.serv
 import android.view.View
 import com.sdds.uikit.fixtures.ComponentScope
 import com.sdds.uikit.fixtures.component
+import com.sdds.uikit.fixtures.samples.RoborazziConfigDocsXml.Companion.ProvidedStyleKeys
 import org.hamcrest.Matcher
-import org.json.JSONObject
-import java.io.File
 
 internal fun themedComponent(
     viewMatcherFactory: ((View) -> Matcher<View>)? = null,
@@ -39,6 +38,7 @@ internal fun themedComponentStyleProvided(
         component.contains(key) || key.contains(component) ||
             key.contains(lastSegment) || lastSegment.contains(key)
     }
+    println(" componentName: $componentName, ищем в: $ProvidedStyleKeys, совпали: $shouldCapture")
 
     if (!shouldCapture) {
         println("Пропущены: $sampleId")
@@ -50,29 +50,4 @@ internal fun themedComponentStyleProvided(
         skipDefaultCaptureRoboImage = skipDefaultCaptureRoboImage,
         factory = factory,
     )
-}
-
-val ProvidedStyleKeys: Set<String> by lazy {
-    val moduleDir = System.getProperty("moduleDir") ?: ""
-    println("mooduleDir: $moduleDir")
-    val jsonFile = File(moduleDir).parentFile?.resolve("config-info-view-system.json")
-        ?: return@lazy emptySet()
-
-    if (!jsonFile.exists()) return@lazy emptySet()
-
-    println("jsonFile: ${jsonFile.absolutePath}")
-    println("jsonFile.exists(): ${jsonFile.exists()}")
-
-    val json = JSONObject(jsonFile.readText())
-    val components = json.getJSONArray("components")
-
-    buildSet {
-        for (i in 0 until components.length()) {
-            val component = components.getJSONObject(i)
-            val key = component.getString("key")
-                .replace("-", "")
-                .lowercase()
-            add(key)
-        }
-    }
 }
