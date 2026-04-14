@@ -1,12 +1,6 @@
 package com.sdds.compose.uikit.motion
 
-import androidx.compose.animation.core.FiniteAnimationSpec
-import androidx.compose.animation.core.SnapSpec
-import androidx.compose.animation.core.SpringSpec
-import androidx.compose.animation.core.TweenSpec
 import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.snap
-import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.derivedStateOf
@@ -150,17 +144,3 @@ private val StatefulValue<Brush>.isSolidColors: Boolean
 
 private val StatefulValue<Brush>.iShaderBrushes: Boolean
     get() = getValues().all { it is ShaderBrush }
-
-private fun <T> FiniteAnimationSpec<T>.toFloatAnimationSpec(): FiniteAnimationSpec<Float> = when (this) {
-    is TweenSpec -> tween(
-        durationMillis = durationMillis,
-        delayMillis = delay,
-        easing = easing,
-    )
-    is SpringSpec -> SpringSpec(
-        dampingRatio = dampingRatio,
-        stiffness = stiffness,
-    )
-    is SnapSpec -> snap(delayMillis = delay)
-    else -> snap()
-}

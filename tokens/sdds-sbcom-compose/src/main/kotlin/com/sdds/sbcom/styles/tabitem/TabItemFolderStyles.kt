@@ -17,8 +17,8 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.sbcom.styles.counter.Counter
-import com.sdds.sbcom.styles.counter.Secondary
+import com.sdds.sbcom.styles.counter.Default
+import com.sdds.sbcom.styles.counter.TabItemFolderCounter
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -42,80 +42,42 @@ public val TabItemFolder.Default: WrapperTabItemFolderDefault
     @JvmName("WrapperTabItemFolderDefault")
     get() = TabItemStyle.builder(this)
         .shape(CircleShape)
-        .labelStyle(SddsSbComTheme.typography.bodyMMedium)
+        .labelStyle(
+            SddsSbComTheme.typography.bodyMNormal.asStatefulValue(
+                setOf(InteractiveState.Selected) to SddsSbComTheme.typography.bodyMMedium,
+            ),
+        )
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultClear.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentSecondary,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccentActive,
-                    setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentAccent,
-                ),
+                SddsSbComTheme.colors.surfaceDefaultClear.asStatefulValue(),
             )
             labelColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
+                SddsSbComTheme.colors.textDefaultParagraph.asStatefulValue(
                     setOf(InteractiveState.Selected)
                         to SddsSbComTheme.colors.textDefaultAccent,
                 ),
             )
             startContentColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
+                SddsSbComTheme.colors.textDefaultParagraph.asStatefulValue(
                     setOf(InteractiveState.Selected)
                         to SddsSbComTheme.colors.textDefaultAccent,
                 ),
             )
             endContentColor(
-                SddsSbComTheme.colors.textDefaultSecondary.asStatefulValue(
-                    setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultAccentActive,
-                    setOf(
-                        InteractiveState.Selected,
-                        InteractiveState.Hovered,
-                    )
-                        to SddsSbComTheme.colors.textDefaultAccentHover,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultSecondaryHover,
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultSecondaryActive,
+                SddsSbComTheme.colors.textDefaultParagraph.asStatefulValue(
                     setOf(InteractiveState.Selected)
                         to SddsSbComTheme.colors.textDefaultAccent,
                 ),
             )
         }
         .dimensions {
-            minHeight(32.0.dp)
+            minHeight(26.0.dp)
             paddingStart(12.0.dp)
             paddingEnd(12.0.dp)
-            startContentSize(24.0.dp)
-            endContentSize(24.0.dp)
-            counterPadding(5.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
+            counterPadding(4.0.dp)
         }
-        .counterStyle(Counter.Secondary.style())
+        .counterStyle(TabItemFolderCounter.Default.style())
         .disableAlpha(0.4f)
         .wrap(::WrapperTabItemFolderDefault)

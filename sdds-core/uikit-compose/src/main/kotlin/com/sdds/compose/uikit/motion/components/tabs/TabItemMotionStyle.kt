@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.motion.MotionProperty
 import com.sdds.compose.uikit.motion.MotionStyle
 import com.sdds.compose.uikit.motion.MotionStyleBuilder
@@ -35,9 +36,19 @@ interface TabItemMotionStyle : MotionStyle {
     val labelColor: MotionProperty<Brush>
 
     /**
+     * Анимационное свойство стиля основного текста (label) TabItem.
+     */
+    val labelStyle: MotionProperty<TextStyle>
+
+    /**
      * Анимационное свойство цвета дополнительного значения (value), отображаемого в TabItem.
      */
     val valueColor: MotionProperty<Brush>
+
+    /**
+     * Анимационное свойство стиля дополнительного значения (value), отображаемого в TabItem.
+     */
+    val valueStyle: MotionProperty<TextStyle>
 
     /**
      * Анимационное свойство цвета контента, расположенного в начале TabItem.
@@ -85,9 +96,19 @@ interface TabItemMotionStyleBuilder : MotionStyleBuilder<TabItemMotionStyle> {
     fun labelColor(label: MotionProperty<Brush>): TabItemMotionStyleBuilder
 
     /**
+     * Устанавливает анимационное свойство стиля label.
+     */
+    fun labelStyle(label: MotionProperty<TextStyle>): TabItemMotionStyleBuilder
+
+    /**
      * Устанавливает анимационное свойство цвета value.
      */
     fun valueColor(value: MotionProperty<Brush>): TabItemMotionStyleBuilder
+
+    /**
+     * Устанавливает анимационное свойство стиля value.
+     */
+    fun valueStyle(value: MotionProperty<TextStyle>): TabItemMotionStyleBuilder
 
     /**
      * Устанавливает анимационное свойство цвета начального контента.
@@ -119,6 +140,8 @@ private class TabItemMotionStyleImpl(
     override val endContentColor: MotionProperty<Brush>,
     override val actionColor: MotionProperty<Brush>,
     override val counterMotionStyle: CounterMotionStyle?,
+    override val labelStyle: MotionProperty<TextStyle>,
+    override val valueStyle: MotionProperty<TextStyle>,
 ) : TabItemMotionStyle {
 
     class Builder : TabItemMotionStyleBuilder {
@@ -128,6 +151,8 @@ private class TabItemMotionStyleImpl(
         private var startContent: MotionProperty<Brush>? = null
         private var endContent: MotionProperty<Brush>? = null
         private var action: MotionProperty<Brush>? = null
+        private var labelStyle: MotionProperty<TextStyle>? = null
+        private var valueStyle: MotionProperty<TextStyle>? = null
         private var counterMotionStyle: CounterMotionStyle? = null
 
         override fun backgroundColor(background: MotionProperty<Brush>) = apply {
@@ -138,8 +163,16 @@ private class TabItemMotionStyleImpl(
             this.label = label
         }
 
+        override fun labelStyle(label: MotionProperty<TextStyle>) = apply {
+            this.labelStyle = label
+        }
+
         override fun valueColor(value: MotionProperty<Brush>) = apply {
             this.value = value
+        }
+
+        override fun valueStyle(value: MotionProperty<TextStyle>) = apply {
+            this.valueStyle = value
         }
 
         override fun startContentColor(startContent: MotionProperty<Brush>) = apply {
@@ -167,6 +200,8 @@ private class TabItemMotionStyleImpl(
                 startContentColor = startContent ?: noMotion(),
                 endContentColor = endContent ?: noMotion(),
                 actionColor = action ?: noMotion(),
+                labelStyle = labelStyle ?: noMotion(),
+                valueStyle = valueStyle ?: noMotion(),
             )
         }
     }

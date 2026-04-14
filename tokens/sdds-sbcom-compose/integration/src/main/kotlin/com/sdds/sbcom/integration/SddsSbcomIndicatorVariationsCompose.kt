@@ -11,20 +11,20 @@ import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.sbcom.styles.indicator.Danger
-import com.sdds.sbcom.styles.indicator.GlobalWhite
 import com.sdds.sbcom.styles.indicator.Indicator
-import com.sdds.sbcom.styles.indicator.Mute
-import com.sdds.sbcom.styles.indicator.Success
-import com.sdds.sbcom.styles.indicator.Warning
+import com.sdds.sbcom.styles.indicator.StateDanger
+import com.sdds.sbcom.styles.indicator.StateGlobalWhite
+import com.sdds.sbcom.styles.indicator.StateMute
+import com.sdds.sbcom.styles.indicator.StateSuccess
+import com.sdds.sbcom.styles.indicator.StateWarning
 
 internal object SddsSbcomIndicatorVariationsCompose : ComposeStyleProvider<IndicatorStyle>() {
     override val variations: Map<String, ComposeStyleReference<IndicatorStyle>> =
         mapOf(
-            "Success" to ComposeStyleReference { Indicator.Success.style() },
-            "GlobalWhite" to ComposeStyleReference { Indicator.GlobalWhite.style() },
-            "Mute" to ComposeStyleReference { Indicator.Mute.style() },
-            "Danger" to ComposeStyleReference { Indicator.Danger.style() },
-            "Warning" to ComposeStyleReference { Indicator.Warning.style() },
+            "StateSuccess" to ComposeStyleReference { Indicator.StateSuccess.style() },
+            "StateGlobalWhite" to ComposeStyleReference { Indicator.StateGlobalWhite.style() },
+            "StateMute" to ComposeStyleReference { Indicator.StateMute.style() },
+            "StateDanger" to ComposeStyleReference { Indicator.StateDanger.style() },
+            "StateWarning" to ComposeStyleReference { Indicator.StateWarning.style() },
         )
 }

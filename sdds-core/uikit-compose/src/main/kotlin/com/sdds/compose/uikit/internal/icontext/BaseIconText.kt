@@ -23,9 +23,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
@@ -250,12 +252,12 @@ private fun IconTextContent(
     startContent?.let {
         CompositionLocalProvider(
             LocalTint provides startContentColor,
+            LocalIconDefaultSize provides dimensions.startContentSize.let { DpSize(it, it) },
         ) {
             Box(
                 modifier = Modifier
                     .layoutId(START_CONTENT)
-                    .padding(end = dimensions.startContentMargin)
-                    .requiredSize(dimensions.startContentSize),
+                    .padding(end = dimensions.startContentMargin),
             ) {
                 startContent()
             }
@@ -272,12 +274,12 @@ private fun IconTextContent(
     endContent?.let {
         CompositionLocalProvider(
             LocalTint provides endContentColor,
+            LocalIconDefaultSize provides dimensions.endContentSize.let { DpSize(it, it) },
         ) {
             Box(
                 modifier = Modifier
                     .layoutId(END_CONTENT)
-                    .padding(start = dimensions.endContentMargin)
-                    .requiredSize(dimensions.endContentSize),
+                    .padding(start = dimensions.endContentMargin),
             ) {
                 endContent()
             }

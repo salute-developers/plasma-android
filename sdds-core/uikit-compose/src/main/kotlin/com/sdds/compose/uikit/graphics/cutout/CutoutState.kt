@@ -182,7 +182,7 @@ fun Modifier.cutoutTarget(
  */
 fun Modifier.cutout(
     shape: Shape = CircleShape,
-    padding: PaddingValues = PaddingValues(horizontal = 0.dp, vertical = 0.dp),
+    padding: PaddingValues = PaddingValues(horizontal = 3.dp, vertical = 3.dp),
     enabled: Boolean = true,
     state: CutoutState? = null,
 ): Modifier = composed {

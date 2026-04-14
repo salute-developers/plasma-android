@@ -38,7 +38,18 @@ interface TabItemStyle : Style {
     /**
      * Стиль основного текста
      */
+    @Deprecated(
+        "Use labelStyles",
+        replaceWith = ReplaceWith(
+            "labelStyles",
+        ),
+    )
     val labelStyle: TextStyle
+
+    /**
+     * Стиль основного текста
+     */
+    val labelStyles: StatefulValue<TextStyle>
 
     /**
      * Стиль дополнительного текста
@@ -98,7 +109,13 @@ interface TabItemStyleBuilder : StyleBuilder<TabItemStyle> {
     /**
      * Устанавливает стиль основного текста
      */
-    fun labelStyle(labelStyle: TextStyle): TabItemStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): TabItemStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль основного текста
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): TabItemStyleBuilder
 
     /**
      * Устанавливает стиль дополнительного текста
@@ -138,12 +155,13 @@ private class DefaultTabItemStyle(
     override val counterStyle: CounterStyle,
     override val actionIcon: Int?,
     override val disableAlpha: Float,
+    override val labelStyles: StatefulValue<TextStyle>,
 ) : TabItemStyle {
 
     class Builder : TabItemStyleBuilder {
         private var disabledAlpha: Float? = null
         private var shape: CornerBasedShape? = null
-        private var labelStyle: TextStyle? = null
+        private var labelStyles: StatefulValue<TextStyle>? = null
         private var valueStyle: TextStyle? = null
         private var colorsBuilder: TabItemColorsBuilder = TabItemColors.builder()
         private var dimensionsBuilder: TabItemDimensionsBuilder =
@@ -159,8 +177,8 @@ private class DefaultTabItemStyle(
             this.disabledAlpha = disabledAlpha
         }
 
-        override fun labelStyle(labelStyle: TextStyle) = apply {
-            this.labelStyle = labelStyle
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
+            this.labelStyles = labelStyle
         }
 
         override fun valueStyle(valueStyle: TextStyle) = apply {
@@ -189,13 +207,14 @@ private class DefaultTabItemStyle(
         override fun style(): TabItemStyle {
             return DefaultTabItemStyle(
                 shape = shape ?: RoundedCornerShape(25),
-                labelStyle = labelStyle ?: TextStyle.Default,
+                labelStyle = labelStyles?.getDefaultValue() ?: TextStyle.Default,
                 valueStyle = valueStyle ?: TextStyle.Default,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 actionIcon = actionIcon,
                 counterStyle = counterStyle ?: CounterStyle.builder().style(),
                 disableAlpha = disabledAlpha ?: 0.4F,
+                labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
             )
         }
     }

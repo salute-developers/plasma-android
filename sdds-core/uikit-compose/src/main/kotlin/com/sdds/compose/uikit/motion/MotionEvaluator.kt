@@ -9,6 +9,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.lerp
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.IntSize
@@ -101,4 +103,20 @@ fun genericBrushEvaluator(): MotionEvaluator<Brush> =
         } else {
             to
         }
+    }
+
+/**
+ * Возвращает evaluator для интерполяции [TextStyle].
+ */
+fun genericTextStyleEvaluator(): MotionEvaluator<TextStyle> =
+    MotionEvaluator { from, to, fraction ->
+        lerp(from, to, fraction)
+    }
+
+/**
+ * Возвращает evaluator для дискретной интерполяции [TextStyle].
+ */
+fun discreteTextStyleEvaluator(): MotionEvaluator<TextStyle> =
+    MotionEvaluator { from, to, fraction ->
+        if (fraction < 0.5f) from else to
     }

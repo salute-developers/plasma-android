@@ -15,8 +15,8 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.styles.chip.Chip
-import com.sdds.sbcom.styles.chip.Default
-import com.sdds.sbcom.styles.chip.HasContentStart
+import com.sdds.sbcom.styles.chip.ChipSlotAvatar
+import com.sdds.sbcom.styles.chip.ChipSlotPadding
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -27,18 +27,18 @@ import kotlin.jvm.JvmName
 public interface WrapperChipGroup : BuilderWrapper<ChipGroupStyle, ChipGroupStyleBuilder>
 
 /**
- * Обертка для вариации Default
+ * Обертка для вариации ChipSlotPadding
  */
 @JvmInline
-public value class WrapperChipGroupDefault(
+public value class WrapperChipGroupChipSlotPadding(
     public override val builder: ChipGroupStyleBuilder,
 ) : WrapperChipGroup
 
 /**
- * Обертка для вариации HasContentStart
+ * Обертка для вариации ChipSlotAvatar
  */
 @JvmInline
-public value class WrapperChipGroupHasContentStart(
+public value class WrapperChipGroupChipSlotAvatar(
     public override val builder: ChipGroupStyleBuilder,
 ) : WrapperChipGroup
 
@@ -51,18 +51,18 @@ private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
         }
         .disableAlpha(0.4f)
 
-public val ChipGroup.Default: WrapperChipGroupDefault
+public val ChipGroup.ChipSlotPadding: WrapperChipGroupChipSlotPadding
     @Composable
-    @JvmName("WrapperChipGroupDefault")
+    @JvmName("WrapperChipGroupChipSlotPadding")
     get() = ChipGroupStyle.builder(this)
         .invariantProps
-        .chipStyle(Chip.Default.style())
-        .wrap(::WrapperChipGroupDefault)
+        .chipStyle(Chip.ChipSlotPadding.style())
+        .wrap(::WrapperChipGroupChipSlotPadding)
 
-public val ChipGroup.HasContentStart: WrapperChipGroupHasContentStart
+public val ChipGroup.ChipSlotAvatar: WrapperChipGroupChipSlotAvatar
     @Composable
-    @JvmName("WrapperChipGroupHasContentStart")
+    @JvmName("WrapperChipGroupChipSlotAvatar")
     get() = ChipGroupStyle.builder(this)
         .invariantProps
-        .chipStyle(Chip.HasContentStart.style())
-        .wrap(::WrapperChipGroupHasContentStart)
+        .chipStyle(Chip.ChipSlotAvatar.style())
+        .wrap(::WrapperChipGroupChipSlotAvatar)

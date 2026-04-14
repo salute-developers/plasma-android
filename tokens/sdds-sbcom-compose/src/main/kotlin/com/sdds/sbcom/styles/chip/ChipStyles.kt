@@ -27,18 +27,18 @@ import kotlin.jvm.JvmName
 public interface WrapperChip : BuilderWrapper<ChipStyle, ChipStyleBuilder>
 
 /**
- * Обертка для вариации Default
+ * Обертка для вариации ChipSlotPadding
  */
 @JvmInline
-public value class WrapperChipDefault(
+public value class WrapperChipChipSlotPadding(
     public override val builder: ChipStyleBuilder,
 ) : WrapperChip
 
 /**
- * Обертка для вариации HasContentStart
+ * Обертка для вариации ChipSlotAvatar
  */
 @JvmInline
-public value class WrapperChipHasContentStart(
+public value class WrapperChipChipSlotAvatar(
     public override val builder: ChipStyleBuilder,
 ) : WrapperChip
 
@@ -51,18 +51,18 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
             backgroundColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
                     setOf(InteractiveState.Selected, InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                     setOf(InteractiveState.Pressed)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryActive,
                     setOf(InteractiveState.Hovered)
                         to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                 ),
             )
             contentStartColor(
@@ -127,22 +127,22 @@ private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
         }
         .disableAlpha(0.4f)
 
-public val Chip.Default: WrapperChipDefault
+public val Chip.ChipSlotPadding: WrapperChipChipSlotPadding
     @Composable
-    @JvmName("WrapperChipDefault")
+    @JvmName("WrapperChipChipSlotPadding")
     get() = ChipStyle.builder(this)
         .invariantProps
         .dimensions {
             paddingStart(8.0.dp)
         }
-        .wrap(::WrapperChipDefault)
+        .wrap(::WrapperChipChipSlotPadding)
 
-public val Chip.HasContentStart: WrapperChipHasContentStart
+public val Chip.ChipSlotAvatar: WrapperChipChipSlotAvatar
     @Composable
-    @JvmName("WrapperChipHasContentStart")
+    @JvmName("WrapperChipChipSlotAvatar")
     get() = ChipStyle.builder(this)
         .invariantProps
         .dimensions {
             paddingStart(1.0.dp)
         }
-        .wrap(::WrapperChipHasContentStart)
+        .wrap(::WrapperChipChipSlotAvatar)

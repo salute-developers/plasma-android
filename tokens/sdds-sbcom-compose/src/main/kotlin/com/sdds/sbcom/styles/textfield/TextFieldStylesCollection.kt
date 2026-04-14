@@ -26,7 +26,7 @@ public enum class TextFieldStyles(
     public val key: String,
 ) {
     TextFieldDefault("TextField.Default"),
-    TextFieldError("TextField.Error"),
+    SearchBarDefault("SearchBar.Default"),
 }
 
 /**
@@ -36,7 +36,7 @@ public enum class TextFieldStyles(
 public fun TextFieldStyles.style(modifyAction: @Composable TextFieldStyleBuilder.() -> Unit = {}): TextFieldStyle {
     val builder = when (this) {
         TextFieldStyles.TextFieldDefault -> TextField.Default
-        TextFieldStyles.TextFieldError -> TextField.Error
+        TextFieldStyles.SearchBarDefault -> SearchBar.Default
     }
     return builder.modify(modifyAction).style()
 }

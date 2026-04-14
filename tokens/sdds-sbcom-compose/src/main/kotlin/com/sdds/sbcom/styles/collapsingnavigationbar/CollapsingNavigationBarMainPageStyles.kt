@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CollapsingNavigationBarStates
 import com.sdds.compose.uikit.CollapsingNavigationBarStyle
 import com.sdds.compose.uikit.CollapsingNavigationBarStyleBuilder
-import com.sdds.compose.uikit.graphics.asLayered
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -44,7 +43,7 @@ public val CollapsingNavigationBarMainPage.Default: WrapperCollapsingNavigationB
     @JvmName("WrapperCollapsingNavigationBarMainPageDefault")
     get() = CollapsingNavigationBarStyle.builder(this)
         .titleStyle(
-            SddsSbComTheme.typography.headerH1Medium.asStatefulValue(
+            SddsSbComTheme.typography.headerH1Normal.asStatefulValue(
                 setOf(CollapsingNavigationBarStates.Collapsed) to
                     SddsSbComTheme.typography.headerH2Medium,
             ),
@@ -56,8 +55,8 @@ public val CollapsingNavigationBarMainPage.Default: WrapperCollapsingNavigationB
             ),
         )
         .colors {
-            background(
-                SddsSbComTheme.gradients.surfaceDefaultTransparentNavi.asLayered().asStatefulValue(),
+            backgroundColor(
+                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asStatefulValue(),
             )
             titleColor(
                 SddsSbComTheme.colors.textDefaultPrimary.asStatefulValue(),

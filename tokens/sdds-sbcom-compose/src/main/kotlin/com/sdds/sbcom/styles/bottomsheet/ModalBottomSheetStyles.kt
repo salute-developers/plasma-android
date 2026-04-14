@@ -43,10 +43,10 @@ public val ModalBottomSheet.Default: WrapperModalBottomSheetDefault
         .shape(SddsSbComTheme.shapes.roundXxl.adjustBy(all = -4.0.dp))
         .handleShape(CircleShape)
         .dimensions {
-            paddingStart(0.0.dp)
-            paddingEnd(0.0.dp)
-            paddingTop(0.0.dp)
-            paddingBottom(0.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
+            paddingTop(16.0.dp)
+            paddingBottom(16.0.dp)
             handleHeight(4.0.dp)
             handleWidth(32.0.dp)
             handleOffset(16.0.dp)
@@ -56,7 +56,7 @@ public val ModalBottomSheet.Default: WrapperModalBottomSheetDefault
                 SddsSbComTheme.colors.surfaceDefaultSolidCard.asInteractive(),
             )
             handleColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentDeep.asInteractive(),
+                SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
             )
         }
         .handlePlacement(BottomSheetHandlePlacement.Inner)

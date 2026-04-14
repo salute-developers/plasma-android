@@ -33,6 +33,8 @@ data class ListUiState(
     override val variant: String = "",
     override val appearance: String = "",
     val title: String = "Title",
+    val subtitle: String = "Subtitle",
+    val label: String = "Label",
     val hasDisclosure: Boolean = true,
     val amount: Int = 3,
     val hasDivider: Boolean = false,
@@ -76,6 +78,8 @@ object ListStory : ComposeBaseStory<ListUiState, ListStyle>(
                             .focusable(interactionSource = interactionSource),
                         startContent = getStartContent(it, state.startContent),
                         titleContent = { Text("${state.title} $it") },
+                        labelContent = { Text("${state.label} $it") },
+                        subtitleContent = { Text("${state.subtitle} $it") },
                         disclosureEnabled = state.hasDisclosure,
                         interactionSource = interactionSource,
                     )

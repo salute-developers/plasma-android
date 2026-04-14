@@ -15,6 +15,7 @@ import com.sdds.compose.uikit.motion.Motion
 import com.sdds.compose.uikit.motion.MotionChannelKey
 import com.sdds.compose.uikit.motion.changes
 import com.sdds.compose.uikit.motion.components.counter.CounterMotionStyle
+import com.sdds.compose.uikit.motion.discreteTextStyleEvaluator
 import com.sdds.compose.uikit.motion.finite
 import com.sdds.compose.uikit.motion.genericBrushEvaluator
 import com.sdds.compose.uikit.motion.has
@@ -77,11 +78,18 @@ private val PagerTabItemCounterMotionStyle = CounterMotionStyle.builder()
     .textBrush(PagerTabItemCounterInterpolation)
     .style()
 
-private val PagerTabItemInterpolationMotion = interpolation(TabInterpolationChannel, label = "PagerTabItem") {
+private val PagerTabItemBrushInterpolationMotion = interpolation(TabInterpolationChannel, label = "PagerTabItem") {
     segment {
         vector { state -> state pointTo InteractiveState.Selected }
         condition { state -> state has InteractiveState.Selected }
     } evaluatesBy { genericBrushEvaluator() }
+}
+
+private val PagerTabItemTextStyleInterpolationMotion = interpolation(TabInterpolationChannel, label = "PagerTabItem") {
+    segment {
+        vector { state -> state pointTo InteractiveState.Selected }
+        condition { state -> state has InteractiveState.Selected }
+    } evaluatesBy { discreteTextStyleEvaluator() }
 }
 
 private val PagerTabItemTransitionMotion = transition<Brush> (label = "PagerTabItemTransition") {
@@ -93,12 +101,14 @@ private val PagerTabItemTransitionMotion = transition<Brush> (label = "PagerTabI
 }
 
 private val PagerTabItemMotionStyle = TabItemMotionStyle.builder()
-    .labelColor(PagerTabItemInterpolationMotion)
+    .labelColor(PagerTabItemBrushInterpolationMotion)
     .backgroundColor(PagerTabItemTransitionMotion)
-    .valueColor(PagerTabItemInterpolationMotion)
-    .startContentColor(PagerTabItemInterpolationMotion)
-    .endContentColor(PagerTabItemInterpolationMotion)
-    .actionColor(PagerTabItemInterpolationMotion)
+    .valueColor(PagerTabItemBrushInterpolationMotion)
+    .startContentColor(PagerTabItemBrushInterpolationMotion)
+    .endContentColor(PagerTabItemBrushInterpolationMotion)
+    .actionColor(PagerTabItemBrushInterpolationMotion)
+    .labelStyle(PagerTabItemTextStyleInterpolationMotion)
+    .valueStyle(PagerTabItemTextStyleInterpolationMotion)
     .counterMotionStyle(PagerTabItemCounterMotionStyle)
     .style()
 

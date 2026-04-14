@@ -26,6 +26,7 @@ public enum class ListItemStyles(
     public val key: String,
 ) {
     DropdownMenuItemDefault("DropdownMenuItem.Default"),
+    ListItemDefault("ListItem.Default"),
 }
 
 /**
@@ -35,6 +36,7 @@ public enum class ListItemStyles(
 public fun ListItemStyles.style(modifyAction: @Composable ListItemStyleBuilder.() -> Unit = {}): ListItemStyle {
     val builder = when (this) {
         ListItemStyles.DropdownMenuItemDefault -> DropdownMenuItem.Default
+        ListItemStyles.ListItemDefault -> ListItem.Default
     }
     return builder.modify(modifyAction).style()
 }

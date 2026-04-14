@@ -4,6 +4,7 @@ import androidx.compose.animation.VectorConverter
 import androidx.compose.animation.core.AnimationVector
 import androidx.compose.animation.core.TwoWayConverter
 import androidx.compose.animation.core.VectorConverter
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateValue
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -199,7 +200,7 @@ private fun <T : Any, V : AnimationVector> StatefulValue<T>.animateAsState(
 }
 
 @Composable
-private fun <T> StatefulValue<T>.interpolateAsState(
+internal fun <T> StatefulValue<T>.interpolateAsState(
     context: MotionContext,
     motionProperty: InterpolationMotionProperty<T>,
     stateSnapshot: MotionStateSnapshot,
@@ -236,5 +237,37 @@ internal fun <T : Any, V : AnimationVector> StatefulValue<T>.getValueAsState(
         is TransitionMotionProperty -> animateAsState(context, motionProperty, converter, state, defaultValue)
         is InterpolationMotionProperty -> interpolateAsState(context, motionProperty, state, defaultValue)
         else -> rememberUpdatedState(getValue(state.target, defaultValue))
+    }
+}
+
+@Composable
+internal fun <T> StatefulValue<T>.evaluateTransition(
+    evaluator: MotionEvaluator<T>,
+    context: MotionContext,
+    motionProperty: TransitionMotionProperty<T>,
+    stateSnapshot: MotionStateSnapshot,
+    defaultValue: T?,
+): State<T> {
+    val segment = motionProperty.resolve(stateSnapshot)
+    val from = getValue(stateSnapshot.initial, defaultValue)
+    val to = getValue(stateSnapshot.target, defaultValue)
+    val channel = context.transitionChannel.provide(stateSnapshot)
+    val animatedIndex = channel.transition.animateFloat(
+        label = motionProperty.label.orEmpty(),
+        transitionSpec = { segment.spec().animationSpec.toFloatAnimationSpec() },
+    ) { states ->
+        indexOfStateSet(states).toFloat()
+    }
+    val fromIndex = indexOfStateSet(stateSnapshot.initial).toFloat()
+    val toIndex = indexOfStateSet(stateSnapshot.target).toFloat()
+    return remember(from, to, animatedIndex, fromIndex, toIndex, evaluator) {
+        derivedStateOf {
+            val fraction = if (fromIndex == toIndex) {
+                1f
+            } else {
+                ((animatedIndex.value - fromIndex) / (toIndex - fromIndex)).coerceIn(0f, 1f)
+            }
+            evaluator.evaluate(from, to, fraction)
+        }
     }
 }

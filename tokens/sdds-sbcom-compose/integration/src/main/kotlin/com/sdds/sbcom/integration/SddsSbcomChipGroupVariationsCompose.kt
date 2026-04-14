@@ -12,13 +12,13 @@ import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.chipgroup.ChipGroup
-import com.sdds.sbcom.styles.chipgroup.Default
-import com.sdds.sbcom.styles.chipgroup.HasContentStart
+import com.sdds.sbcom.styles.chipgroup.ChipSlotAvatar
+import com.sdds.sbcom.styles.chipgroup.ChipSlotPadding
 
 internal object SddsSbcomChipGroupVariationsCompose : ComposeStyleProvider<ChipGroupStyle>() {
     override val variations: Map<String, ComposeStyleReference<ChipGroupStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { ChipGroup.Default.style() },
-            "HasContentStart" to ComposeStyleReference { ChipGroup.HasContentStart.style() },
+            "ChipSlotPadding" to ComposeStyleReference { ChipGroup.ChipSlotPadding.style() },
+            "ChipSlotAvatar" to ComposeStyleReference { ChipGroup.ChipSlotAvatar.style() },
         )
 }

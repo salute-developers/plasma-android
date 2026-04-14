@@ -25,26 +25,26 @@ import kotlin.Unit
 public enum class SpinnerStyles(
     public val key: String,
 ) {
-    SpinnerMPrimary("Spinner.M.Primary"),
-    SpinnerMSecondary("Spinner.M.Secondary"),
-    SpinnerMGlobalWhite("Spinner.M.GlobalWhite"),
-    SpinnerMAccent("Spinner.M.Accent"),
-    SpinnerMDanger("Spinner.M.Danger"),
-    SpinnerSPrimary("Spinner.S.Primary"),
-    SpinnerSSecondary("Spinner.S.Secondary"),
-    SpinnerSGlobalWhite("Spinner.S.GlobalWhite"),
-    SpinnerSAccent("Spinner.S.Accent"),
-    SpinnerSDanger("Spinner.S.Danger"),
-    SpinnerXsPrimary("Spinner.Xs.Primary"),
-    SpinnerXsSecondary("Spinner.Xs.Secondary"),
-    SpinnerXsGlobalWhite("Spinner.Xs.GlobalWhite"),
-    SpinnerXsAccent("Spinner.Xs.Accent"),
-    SpinnerXsDanger("Spinner.Xs.Danger"),
-    SpinnerXxsPrimary("Spinner.Xxs.Primary"),
-    SpinnerXxsSecondary("Spinner.Xxs.Secondary"),
-    SpinnerXxsGlobalWhite("Spinner.Xxs.GlobalWhite"),
-    SpinnerXxsAccent("Spinner.Xxs.Accent"),
-    SpinnerXxsDanger("Spinner.Xxs.Danger"),
+    SpinnerSize40ModeColorPrimary("Spinner.Size40.ModeColorPrimary"),
+    SpinnerSize40ModeColorSecondary("Spinner.Size40.ModeColorSecondary"),
+    SpinnerSize40ModeColorGlobalWhite("Spinner.Size40.ModeColorGlobalWhite"),
+    SpinnerSize40ModeColorAccent("Spinner.Size40.ModeColorAccent"),
+    SpinnerSize40ModeColorDanger("Spinner.Size40.ModeColorDanger"),
+    SpinnerSize32ModeColorPrimary("Spinner.Size32.ModeColorPrimary"),
+    SpinnerSize32ModeColorSecondary("Spinner.Size32.ModeColorSecondary"),
+    SpinnerSize32ModeColorGlobalWhite("Spinner.Size32.ModeColorGlobalWhite"),
+    SpinnerSize32ModeColorAccent("Spinner.Size32.ModeColorAccent"),
+    SpinnerSize32ModeColorDanger("Spinner.Size32.ModeColorDanger"),
+    SpinnerSize24ModeColorPrimary("Spinner.Size24.ModeColorPrimary"),
+    SpinnerSize24ModeColorSecondary("Spinner.Size24.ModeColorSecondary"),
+    SpinnerSize24ModeColorGlobalWhite("Spinner.Size24.ModeColorGlobalWhite"),
+    SpinnerSize24ModeColorAccent("Spinner.Size24.ModeColorAccent"),
+    SpinnerSize24ModeColorDanger("Spinner.Size24.ModeColorDanger"),
+    SpinnerSize16ModeColorPrimary("Spinner.Size16.ModeColorPrimary"),
+    SpinnerSize16ModeColorSecondary("Spinner.Size16.ModeColorSecondary"),
+    SpinnerSize16ModeColorGlobalWhite("Spinner.Size16.ModeColorGlobalWhite"),
+    SpinnerSize16ModeColorAccent("Spinner.Size16.ModeColorAccent"),
+    SpinnerSize16ModeColorDanger("Spinner.Size16.ModeColorDanger"),
 }
 
 /**
@@ -53,26 +53,26 @@ public enum class SpinnerStyles(
 @Composable
 public fun SpinnerStyles.style(modifyAction: @Composable SpinnerStyleBuilder.() -> Unit = {}): SpinnerStyle {
     val builder = when (this) {
-        SpinnerStyles.SpinnerMPrimary -> Spinner.M.Primary
-        SpinnerStyles.SpinnerMSecondary -> Spinner.M.Secondary
-        SpinnerStyles.SpinnerMGlobalWhite -> Spinner.M.GlobalWhite
-        SpinnerStyles.SpinnerMAccent -> Spinner.M.Accent
-        SpinnerStyles.SpinnerMDanger -> Spinner.M.Danger
-        SpinnerStyles.SpinnerSPrimary -> Spinner.S.Primary
-        SpinnerStyles.SpinnerSSecondary -> Spinner.S.Secondary
-        SpinnerStyles.SpinnerSGlobalWhite -> Spinner.S.GlobalWhite
-        SpinnerStyles.SpinnerSAccent -> Spinner.S.Accent
-        SpinnerStyles.SpinnerSDanger -> Spinner.S.Danger
-        SpinnerStyles.SpinnerXsPrimary -> Spinner.Xs.Primary
-        SpinnerStyles.SpinnerXsSecondary -> Spinner.Xs.Secondary
-        SpinnerStyles.SpinnerXsGlobalWhite -> Spinner.Xs.GlobalWhite
-        SpinnerStyles.SpinnerXsAccent -> Spinner.Xs.Accent
-        SpinnerStyles.SpinnerXsDanger -> Spinner.Xs.Danger
-        SpinnerStyles.SpinnerXxsPrimary -> Spinner.Xxs.Primary
-        SpinnerStyles.SpinnerXxsSecondary -> Spinner.Xxs.Secondary
-        SpinnerStyles.SpinnerXxsGlobalWhite -> Spinner.Xxs.GlobalWhite
-        SpinnerStyles.SpinnerXxsAccent -> Spinner.Xxs.Accent
-        SpinnerStyles.SpinnerXxsDanger -> Spinner.Xxs.Danger
+        SpinnerStyles.SpinnerSize40ModeColorPrimary -> Spinner.Size40.ModeColorPrimary
+        SpinnerStyles.SpinnerSize40ModeColorSecondary -> Spinner.Size40.ModeColorSecondary
+        SpinnerStyles.SpinnerSize40ModeColorGlobalWhite -> Spinner.Size40.ModeColorGlobalWhite
+        SpinnerStyles.SpinnerSize40ModeColorAccent -> Spinner.Size40.ModeColorAccent
+        SpinnerStyles.SpinnerSize40ModeColorDanger -> Spinner.Size40.ModeColorDanger
+        SpinnerStyles.SpinnerSize32ModeColorPrimary -> Spinner.Size32.ModeColorPrimary
+        SpinnerStyles.SpinnerSize32ModeColorSecondary -> Spinner.Size32.ModeColorSecondary
+        SpinnerStyles.SpinnerSize32ModeColorGlobalWhite -> Spinner.Size32.ModeColorGlobalWhite
+        SpinnerStyles.SpinnerSize32ModeColorAccent -> Spinner.Size32.ModeColorAccent
+        SpinnerStyles.SpinnerSize32ModeColorDanger -> Spinner.Size32.ModeColorDanger
+        SpinnerStyles.SpinnerSize24ModeColorPrimary -> Spinner.Size24.ModeColorPrimary
+        SpinnerStyles.SpinnerSize24ModeColorSecondary -> Spinner.Size24.ModeColorSecondary
+        SpinnerStyles.SpinnerSize24ModeColorGlobalWhite -> Spinner.Size24.ModeColorGlobalWhite
+        SpinnerStyles.SpinnerSize24ModeColorAccent -> Spinner.Size24.ModeColorAccent
+        SpinnerStyles.SpinnerSize24ModeColorDanger -> Spinner.Size24.ModeColorDanger
+        SpinnerStyles.SpinnerSize16ModeColorPrimary -> Spinner.Size16.ModeColorPrimary
+        SpinnerStyles.SpinnerSize16ModeColorSecondary -> Spinner.Size16.ModeColorSecondary
+        SpinnerStyles.SpinnerSize16ModeColorGlobalWhite -> Spinner.Size16.ModeColorGlobalWhite
+        SpinnerStyles.SpinnerSize16ModeColorAccent -> Spinner.Size16.ModeColorAccent
+        SpinnerStyles.SpinnerSize16ModeColorDanger -> Spinner.Size16.ModeColorDanger
     }
     return builder.modify(modifyAction).style()
 }

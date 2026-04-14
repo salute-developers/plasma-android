@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
@@ -23,6 +24,7 @@ import com.sdds.compose.uikit.ProvideTextBehaviour
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.TabItemStyle
 import com.sdds.compose.uikit.graphics.backgroundBrush
+import com.sdds.compose.uikit.interactions.getValue
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.motion.Motion
@@ -31,6 +33,7 @@ import com.sdds.compose.uikit.motion.components.counter.LocalCounterMotionStyle
 import com.sdds.compose.uikit.motion.components.tabs.TabItemMotionStyle
 import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemMotion
 import com.sdds.compose.uikit.motion.getBrushAsState
+import com.sdds.compose.uikit.motion.getTextStyleAsState
 import com.sdds.compose.uikit.motion.tryProvide
 
 @Composable
@@ -116,8 +119,9 @@ internal fun CenterContent(
         ) {
             if (labelContent != null) {
                 val labelBrush = style.colors.labelBrush.getBrushAsState(motionContext, motionStyle.labelColor)
+                val labelStyle by style.labelStyles.getTextStyleAsState(motionContext, motionStyle.labelStyle)
                 ProvideTextStyle(
-                    style.labelStyle,
+                    labelStyle,
                     brush = { labelBrush.value },
                 ) {
                     labelContent()

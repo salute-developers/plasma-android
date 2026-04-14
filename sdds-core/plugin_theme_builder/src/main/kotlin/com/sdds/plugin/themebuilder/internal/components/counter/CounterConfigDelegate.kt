@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.counter.compose.CounterC
 import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
@@ -48,6 +49,7 @@ internal class CounterConfigDelegate : ComponentConfigDelegate<CounterConfig>() 
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
             componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
+            styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
         )
     }
 }

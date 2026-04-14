@@ -53,6 +53,7 @@ internal class TabsComposeVariationGenerator(
     ): List<String> {
         return listOfNotNull(
             shapeCall(props, variationId),
+            indicatorShapeCall(props, variationId),
             colorsCall(props),
             dimensionsCall(props, variationId),
             tabItemStyleCall(props, ktFileBuilder),
@@ -118,6 +119,12 @@ internal class TabsComposeVariationGenerator(
     private fun shapeCall(props: TabsProperties, variationId: String): String? {
         return props.shape?.let {
             getShape(it, variationId)
+        }
+    }
+
+    private fun indicatorShapeCall(props: TabsProperties, variationId: String): String? {
+        return props.indicatorShape?.let {
+            getShape(it, variationId, shapeName = "indicatorShape")
         }
     }
 

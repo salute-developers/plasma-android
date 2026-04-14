@@ -43,46 +43,38 @@ public value class WrapperCircularProgressBarTerminate(
 ) : WrapperCircularProgressBar
 
 /**
- * Обертка для вариации Xxl
+ * Обертка для вариации Size40
  */
 @JvmInline
-public value class WrapperCircularProgressBarXxl(
+public value class WrapperCircularProgressBarSize40(
     public override val builder: CircularProgressBarStyleBuilder,
 ) : WrapperCircularProgressBarView
 
 /**
- * Обертка для вариации M
+ * Обертка для вариации Size32
  */
 @JvmInline
-public value class WrapperCircularProgressBarM(
+public value class WrapperCircularProgressBarSize32(
     public override val builder: CircularProgressBarStyleBuilder,
 ) : WrapperCircularProgressBarView
 
 /**
- * Обертка для вариации S
+ * Обертка для вариации Size24
  */
 @JvmInline
-public value class WrapperCircularProgressBarS(
+public value class WrapperCircularProgressBarSize24(
     public override val builder: CircularProgressBarStyleBuilder,
 ) : WrapperCircularProgressBarView
 
 /**
- * Обертка для вариации Xs
+ * Обертка для вариации Size16
  */
 @JvmInline
-public value class WrapperCircularProgressBarXs(
+public value class WrapperCircularProgressBarSize16(
     public override val builder: CircularProgressBarStyleBuilder,
 ) : WrapperCircularProgressBarView
 
-/**
- * Обертка для вариации Xxs
- */
-@JvmInline
-public value class WrapperCircularProgressBarXxs(
-    public override val builder: CircularProgressBarStyleBuilder,
-) : WrapperCircularProgressBarView
-
-public val WrapperCircularProgressBarView.Primary: WrapperCircularProgressBarTerminate
+public val WrapperCircularProgressBarView.ModeColorPrimary: WrapperCircularProgressBarTerminate
     @Composable
     get() = builder
         .colors {
@@ -92,7 +84,7 @@ public val WrapperCircularProgressBarView.Primary: WrapperCircularProgressBarTer
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
-public val WrapperCircularProgressBarView.Secondary: WrapperCircularProgressBarTerminate
+public val WrapperCircularProgressBarView.ModeColorSecondary: WrapperCircularProgressBarTerminate
     @Composable
     get() = builder
         .colors {
@@ -102,7 +94,7 @@ public val WrapperCircularProgressBarView.Secondary: WrapperCircularProgressBarT
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
-public val WrapperCircularProgressBarView.GlobalWhite: WrapperCircularProgressBarTerminate
+public val WrapperCircularProgressBarView.ModeColorGlobalWhite: WrapperCircularProgressBarTerminate
     @Composable
     get() = builder
         .colors {
@@ -112,17 +104,17 @@ public val WrapperCircularProgressBarView.GlobalWhite: WrapperCircularProgressBa
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
-public val WrapperCircularProgressBarView.Accent: WrapperCircularProgressBarTerminate
+public val WrapperCircularProgressBarView.ModeColorAccent: WrapperCircularProgressBarTerminate
     @Composable
     get() = builder
         .colors {
             indicatorColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccent).asStatefulValue(),
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultAccentPrimary).asStatefulValue(),
             )
         }
         .wrap(::WrapperCircularProgressBarTerminate)
 
-public val WrapperCircularProgressBarView.Danger: WrapperCircularProgressBarTerminate
+public val WrapperCircularProgressBarView.ModeColorDanger: WrapperCircularProgressBarTerminate
     @Composable
     get() = builder
         .colors {
@@ -140,24 +132,11 @@ private val CircularProgressBarStyleBuilder.invariantProps: CircularProgressBarS
                 SolidColor(SddsSbComTheme.colors.surfaceDefaultTransparentSecondary).asStatefulValue(),
             )
         }
-        .valueEnabled(false)
+        .valueEnabled(true)
 
-public val CircularProgressBar.Xxl: WrapperCircularProgressBarXxl
+public val CircularProgressBar.Size40: WrapperCircularProgressBarSize40
     @Composable
-    @JvmName("WrapperCircularProgressBarXxl")
-    get() = CircularProgressBarStyle.builder(this)
-        .invariantProps
-        .dimensions {
-            width(112.0.dp)
-            height(112.0.dp)
-            trackThickness(8.0.dp)
-            progressThickness(8.0.dp)
-        }
-        .wrap(::WrapperCircularProgressBarXxl)
-
-public val CircularProgressBar.M: WrapperCircularProgressBarM
-    @Composable
-    @JvmName("WrapperCircularProgressBarM")
+    @JvmName("WrapperCircularProgressBarSize40")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
         .dimensions {
@@ -167,11 +146,11 @@ public val CircularProgressBar.M: WrapperCircularProgressBarM
             progressThickness(3.0.dp)
             iconSize(24.0.dp)
         }
-        .wrap(::WrapperCircularProgressBarM)
+        .wrap(::WrapperCircularProgressBarSize40)
 
-public val CircularProgressBar.S: WrapperCircularProgressBarS
+public val CircularProgressBar.Size32: WrapperCircularProgressBarSize32
     @Composable
-    @JvmName("WrapperCircularProgressBarS")
+    @JvmName("WrapperCircularProgressBarSize32")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
         .dimensions {
@@ -181,11 +160,11 @@ public val CircularProgressBar.S: WrapperCircularProgressBarS
             progressThickness(2.0.dp)
             iconSize(20.0.dp)
         }
-        .wrap(::WrapperCircularProgressBarS)
+        .wrap(::WrapperCircularProgressBarSize32)
 
-public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
+public val CircularProgressBar.Size24: WrapperCircularProgressBarSize24
     @Composable
-    @JvmName("WrapperCircularProgressBarXs")
+    @JvmName("WrapperCircularProgressBarSize24")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
         .dimensions {
@@ -195,11 +174,11 @@ public val CircularProgressBar.Xs: WrapperCircularProgressBarXs
             progressThickness(1.5.dp)
             iconSize(16.0.dp)
         }
-        .wrap(::WrapperCircularProgressBarXs)
+        .wrap(::WrapperCircularProgressBarSize24)
 
-public val CircularProgressBar.Xxs: WrapperCircularProgressBarXxs
+public val CircularProgressBar.Size16: WrapperCircularProgressBarSize16
     @Composable
-    @JvmName("WrapperCircularProgressBarXxs")
+    @JvmName("WrapperCircularProgressBarSize16")
     get() = CircularProgressBarStyle.builder(this)
         .invariantProps
         .dimensions {
@@ -209,4 +188,4 @@ public val CircularProgressBar.Xxs: WrapperCircularProgressBarXxs
             progressThickness(1.0.dp)
             iconSize(12.0.dp)
         }
-        .wrap(::WrapperCircularProgressBarXxs)
+        .wrap(::WrapperCircularProgressBarSize16)

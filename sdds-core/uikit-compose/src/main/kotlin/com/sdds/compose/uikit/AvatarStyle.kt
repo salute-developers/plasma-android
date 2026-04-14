@@ -81,6 +81,11 @@ interface AvatarStyle : Style {
      */
     val statusCutoutEnabled: Boolean
 
+    /**
+     * Стиль бейджа с иконкой
+     */
+    val iconBadgeStyle: BadgeStyle?
+
     companion object {
 
         /**
@@ -137,6 +142,11 @@ interface AvatarStyleBuilder : StyleBuilder<AvatarStyle> {
      * Устанавливает стиль бейджа [badgeStyle]
      */
     fun badgeStyle(badgeStyle: BadgeStyle): AvatarStyleBuilder
+
+    /**
+     * Устанавливает стиль бейджа [badgeStyle]
+     */
+    fun iconBadgeStyle(badgeStyle: BadgeStyle): AvatarStyleBuilder
 
     /**
      * Устанавливает стиль счетчика [counterStyle]
@@ -425,6 +435,7 @@ private data class DefaultAvatarStyle(
     override val statusStyle: IndicatorStyle?,
     override val dimensionValues: AvatarDimensionValues,
     override val statusCutoutEnabled: Boolean,
+    override val iconBadgeStyle: BadgeStyle?,
 ) : AvatarStyle {
 
     @Suppress("OVERRIDE_DEPRECATION")
@@ -436,6 +447,7 @@ private data class DefaultAvatarStyle(
         private var dimensionsBuilder: AvatarDimensionsBuilder = AvatarDimensionsBuilder.builder()
         private var textStyle: TextStyle? = null
         private var badgeStyle: BadgeStyle? = null
+        private var iconBadgeStyle: BadgeStyle? = null
         private var counterStyle: CounterStyle? = null
         private var statusStyle: IndicatorStyle? = null
         private var statusCutoutEnabled: Boolean? = null
@@ -478,6 +490,10 @@ private data class DefaultAvatarStyle(
             this.badgeStyle = badgeStyle
         }
 
+        override fun iconBadgeStyle(badgeStyle: BadgeStyle): AvatarStyleBuilder = apply {
+            this.iconBadgeStyle = badgeStyle
+        }
+
         override fun counterStyle(counterStyle: CounterStyle): AvatarStyleBuilder = apply {
             this.counterStyle = counterStyle
         }
@@ -496,6 +512,7 @@ private data class DefaultAvatarStyle(
                 statusStyle = statusStyle,
                 dimensionValues = dimensionsBuilder.build(),
                 statusCutoutEnabled = statusCutoutEnabled ?: false,
+                iconBadgeStyle = iconBadgeStyle,
             )
     }
 }

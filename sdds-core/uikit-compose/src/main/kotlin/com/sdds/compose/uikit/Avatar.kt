@@ -226,6 +226,7 @@ fun Avatar(
             )
             ProvideExtraStyle(
                 style.badgeStyle,
+                style.iconBadgeStyle,
                 style.counterStyle,
             ) {
                 extra?.invoke(this@Box)
@@ -417,12 +418,14 @@ enum class AvatarStatus : ValueState {
 @Composable
 private fun ProvideExtraStyle(
     badgeStyle: BadgeStyle?,
+    iconBadgeStyle: BadgeStyle?,
     counterStyle: CounterStyle?,
     content: @Composable () -> Unit,
 ) {
-    if (badgeStyle != null || counterStyle != null) {
+    if (badgeStyle != null || iconBadgeStyle != null || counterStyle != null) {
         CompositionLocalProvider(
             LocalBadgeStyle provides (badgeStyle ?: LocalBadgeStyle.current),
+            LocalIconBadgeStyle provides (iconBadgeStyle ?: LocalIconBadgeStyle.current),
             LocalCounterStyle provides (counterStyle ?: LocalCounterStyle.current),
             content = content,
         )

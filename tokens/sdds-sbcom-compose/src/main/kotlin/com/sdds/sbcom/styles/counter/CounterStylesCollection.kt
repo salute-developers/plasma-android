@@ -25,10 +25,10 @@ import kotlin.Unit
 public enum class CounterStyles(
     public val key: String,
 ) {
-    CounterPrimary("Counter.Primary"),
-    CounterSecondary("Counter.Secondary"),
-    CounterAccent("Counter.Accent"),
-    CounterDanger("Counter.Danger"),
+    CounterMuteNo("Counter.MuteNo"),
+    CounterMuteYes("Counter.MuteYes"),
+    TabBarCounterDefault("TabBarCounter.Default"),
+    TabItemFolderCounterDefault("TabItemFolderCounter.Default"),
 }
 
 /**
@@ -37,10 +37,10 @@ public enum class CounterStyles(
 @Composable
 public fun CounterStyles.style(modifyAction: @Composable CounterStyleBuilder.() -> Unit = {}): CounterStyle {
     val builder = when (this) {
-        CounterStyles.CounterPrimary -> Counter.Primary
-        CounterStyles.CounterSecondary -> Counter.Secondary
-        CounterStyles.CounterAccent -> Counter.Accent
-        CounterStyles.CounterDanger -> Counter.Danger
+        CounterStyles.CounterMuteNo -> Counter.MuteNo
+        CounterStyles.CounterMuteYes -> Counter.MuteYes
+        CounterStyles.TabBarCounterDefault -> TabBarCounter.Default
+        CounterStyles.TabItemFolderCounterDefault -> TabItemFolderCounter.Default
     }
     return builder.modify(modifyAction).style()
 }

@@ -25,8 +25,8 @@ import kotlin.Unit
 public enum class ChipStyles(
     public val key: String,
 ) {
-    ChipDefault("Chip.Default"),
-    ChipHasContentStart("Chip.HasContentStart"),
+    ChipChipSlotPadding("Chip.ChipSlotPadding"),
+    ChipChipSlotAvatar("Chip.ChipSlotAvatar"),
 }
 
 /**
@@ -35,8 +35,8 @@ public enum class ChipStyles(
 @Composable
 public fun ChipStyles.style(modifyAction: @Composable ChipStyleBuilder.() -> Unit = {}): ChipStyle {
     val builder = when (this) {
-        ChipStyles.ChipDefault -> Chip.Default
-        ChipStyles.ChipHasContentStart -> Chip.HasContentStart
+        ChipStyles.ChipChipSlotPadding -> Chip.ChipSlotPadding
+        ChipStyles.ChipChipSlotAvatar -> Chip.ChipSlotAvatar
     }
     return builder.modify(modifyAction).style()
 }

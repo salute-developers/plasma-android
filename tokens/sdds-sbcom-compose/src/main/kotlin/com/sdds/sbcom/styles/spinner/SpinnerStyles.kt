@@ -42,38 +42,38 @@ public value class WrapperSpinnerTerminate(
 ) : WrapperSpinner
 
 /**
- * Обертка для вариации M
+ * Обертка для вариации Size40
  */
 @JvmInline
-public value class WrapperSpinnerM(
+public value class WrapperSpinnerSize40(
     public override val builder: SpinnerStyleBuilder,
 ) : WrapperSpinnerView
 
 /**
- * Обертка для вариации S
+ * Обертка для вариации Size32
  */
 @JvmInline
-public value class WrapperSpinnerS(
+public value class WrapperSpinnerSize32(
     public override val builder: SpinnerStyleBuilder,
 ) : WrapperSpinnerView
 
 /**
- * Обертка для вариации Xs
+ * Обертка для вариации Size24
  */
 @JvmInline
-public value class WrapperSpinnerXs(
+public value class WrapperSpinnerSize24(
     public override val builder: SpinnerStyleBuilder,
 ) : WrapperSpinnerView
 
 /**
- * Обертка для вариации Xxs
+ * Обертка для вариации Size16
  */
 @JvmInline
-public value class WrapperSpinnerXxs(
+public value class WrapperSpinnerSize16(
     public override val builder: SpinnerStyleBuilder,
 ) : WrapperSpinnerView
 
-public val WrapperSpinnerView.Primary: WrapperSpinnerTerminate
+public val WrapperSpinnerView.ModeColorPrimary: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
@@ -86,7 +86,7 @@ public val WrapperSpinnerView.Primary: WrapperSpinnerTerminate
         }
         .wrap(::WrapperSpinnerTerminate)
 
-public val WrapperSpinnerView.Secondary: WrapperSpinnerTerminate
+public val WrapperSpinnerView.ModeColorSecondary: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
@@ -99,7 +99,7 @@ public val WrapperSpinnerView.Secondary: WrapperSpinnerTerminate
         }
         .wrap(::WrapperSpinnerTerminate)
 
-public val WrapperSpinnerView.GlobalWhite: WrapperSpinnerTerminate
+public val WrapperSpinnerView.ModeColorGlobalWhite: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
@@ -112,12 +112,12 @@ public val WrapperSpinnerView.GlobalWhite: WrapperSpinnerTerminate
         }
         .wrap(::WrapperSpinnerTerminate)
 
-public val WrapperSpinnerView.Accent: WrapperSpinnerTerminate
+public val WrapperSpinnerView.ModeColorAccent: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
             startColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
             )
             endColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
@@ -125,7 +125,7 @@ public val WrapperSpinnerView.Accent: WrapperSpinnerTerminate
         }
         .wrap(::WrapperSpinnerTerminate)
 
-public val WrapperSpinnerView.Danger: WrapperSpinnerTerminate
+public val WrapperSpinnerView.ModeColorDanger: WrapperSpinnerTerminate
     @Composable
     get() = builder
         .colors {
@@ -149,42 +149,42 @@ private val SpinnerStyleBuilder.invariantProps: SpinnerStyleBuilder
             )
         }
 
-public val Spinner.M: WrapperSpinnerM
+public val Spinner.Size40: WrapperSpinnerSize40
     @Composable
-    @JvmName("WrapperSpinnerM")
+    @JvmName("WrapperSpinnerSize40")
     get() = SpinnerStyle.builder(this)
         .invariantProps
         .dimensions {
             size(40.0.dp)
         }
-        .wrap(::WrapperSpinnerM)
+        .wrap(::WrapperSpinnerSize40)
 
-public val Spinner.S: WrapperSpinnerS
+public val Spinner.Size32: WrapperSpinnerSize32
     @Composable
-    @JvmName("WrapperSpinnerS")
+    @JvmName("WrapperSpinnerSize32")
     get() = SpinnerStyle.builder(this)
         .invariantProps
         .dimensions {
             size(32.0.dp)
         }
-        .wrap(::WrapperSpinnerS)
+        .wrap(::WrapperSpinnerSize32)
 
-public val Spinner.Xs: WrapperSpinnerXs
+public val Spinner.Size24: WrapperSpinnerSize24
     @Composable
-    @JvmName("WrapperSpinnerXs")
+    @JvmName("WrapperSpinnerSize24")
     get() = SpinnerStyle.builder(this)
         .invariantProps
         .dimensions {
             size(24.0.dp)
         }
-        .wrap(::WrapperSpinnerXs)
+        .wrap(::WrapperSpinnerSize24)
 
-public val Spinner.Xxs: WrapperSpinnerXxs
+public val Spinner.Size16: WrapperSpinnerSize16
     @Composable
-    @JvmName("WrapperSpinnerXxs")
+    @JvmName("WrapperSpinnerSize16")
     get() = SpinnerStyle.builder(this)
         .invariantProps
         .dimensions {
             size(16.0.dp)
         }
-        .wrap(::WrapperSpinnerXxs)
+        .wrap(::WrapperSpinnerSize16)

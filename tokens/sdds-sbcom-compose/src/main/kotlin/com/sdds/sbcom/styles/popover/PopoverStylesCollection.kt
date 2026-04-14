@@ -25,10 +25,7 @@ import kotlin.Unit
 public enum class PopoverStyles(
     public val key: String,
 ) {
-    PopoverMDefault("Popover.M.Default"),
-    PopoverMAccent("Popover.M.Accent"),
-    PopoverSDefault("Popover.S.Default"),
-    PopoverSAccent("Popover.S.Accent"),
+    PopoverDefault("Popover.Default"),
 }
 
 /**
@@ -37,10 +34,7 @@ public enum class PopoverStyles(
 @Composable
 public fun PopoverStyles.style(modifyAction: @Composable PopoverStyleBuilder.() -> Unit = {}): PopoverStyle {
     val builder = when (this) {
-        PopoverStyles.PopoverMDefault -> Popover.M.Default
-        PopoverStyles.PopoverMAccent -> Popover.M.Accent
-        PopoverStyles.PopoverSDefault -> Popover.S.Default
-        PopoverStyles.PopoverSAccent -> Popover.S.Accent
+        PopoverStyles.PopoverDefault -> Popover.Default
     }
     return builder.modify(modifyAction).style()
 }

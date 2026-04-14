@@ -605,7 +605,7 @@ private class DefaultTabsDimensions(
 
         override fun build(): TabsDimensions {
             return DefaultTabsDimensions(
-                indicatorThickness = indicatorThickness ?: 2.dp,
+                indicatorThickness = indicatorThickness ?: Dp.Unspecified,
                 minSpacing = minSpacing ?: 4.dp,
                 minHeight = minHeight ?: 32.dp,
                 contentPaddingStart = contentPaddingStart ?: 0.dp,
