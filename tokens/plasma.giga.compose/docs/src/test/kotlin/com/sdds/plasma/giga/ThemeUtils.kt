@@ -31,8 +31,10 @@ import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
+import com.sdds.compose.uikit.LocalLinkButtonStyle
 import com.sdds.compose.uikit.LocalListStyle
 import com.sdds.compose.uikit.LocalLoaderStyle
 import com.sdds.compose.uikit.LocalModalBottomSheetStyle
@@ -109,11 +111,17 @@ import com.sdds.plasma.giga.styles.dropdownmenu.M
 import com.sdds.plasma.giga.styles.iconbadge.Default
 import com.sdds.plasma.giga.styles.iconbadge.IconBadgeSolid
 import com.sdds.plasma.giga.styles.iconbadge.M
+import com.sdds.plasma.giga.styles.iconbutton.Clear
+import com.sdds.plasma.giga.styles.iconbutton.IconButton
+import com.sdds.plasma.giga.styles.iconbutton.M
 import com.sdds.plasma.giga.styles.image.Image
 import com.sdds.plasma.giga.styles.image.Ratio3x4
 import com.sdds.plasma.giga.styles.indicator.Default
 import com.sdds.plasma.giga.styles.indicator.Indicator
 import com.sdds.plasma.giga.styles.indicator.M
+import com.sdds.plasma.giga.styles.linkbutton.Default
+import com.sdds.plasma.giga.styles.linkbutton.LinkButton
+import com.sdds.plasma.giga.styles.linkbutton.M
 import com.sdds.plasma.giga.styles.list.ListNormal
 import com.sdds.plasma.giga.styles.list.M
 import com.sdds.plasma.giga.styles.loader.Default
@@ -219,6 +227,8 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
+            LocalIconButtonStyle provides IconButton.M.Clear.style(),
+            LocalLinkButtonStyle provides LinkButton.M.Default.style(),
             LocalCardStyle provides CardSolid.M.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),

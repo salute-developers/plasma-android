@@ -23,14 +23,20 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.LocalIconDefaultSize
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 
 /**
  * Базовый компонент для отрисовки
@@ -52,7 +58,10 @@ internal fun BaseIconText(
     Layout(
         modifier = modifier
             .then(dimensionsSet.height?.let { Modifier.height(it) } ?: Modifier)
-            .padding(start = dimensionsSet.startPadding, end = dimensionsSet.endPadding),
+            .padding(
+                start = dimensionsSet.startPadding.getValueAsState(interactionSource).value,
+                end = dimensionsSet.endPadding.getValueAsState(interactionSource).value,
+            ),
         measurePolicy = measurePolicy,
         content = {
             val contentColor = colorsSet.contentColor.colorForInteraction(interactionSource)
@@ -96,7 +105,10 @@ internal fun BaseIconText(
     Layout(
         modifier = modifier
             .then(dimensionsSet.height?.let { Modifier.height(it) } ?: Modifier)
-            .padding(start = dimensionsSet.startPadding, end = dimensionsSet.endPadding),
+            .padding(
+                start = dimensionsSet.startPadding.getValueAsState(interactionSource).value,
+                end = dimensionsSet.endPadding.getValueAsState(interactionSource).value,
+            ),
         measurePolicy = measurePolicy,
         content = {
             val contentColor = colorsSet.contentColor.colorForInteraction(interactionSource)
@@ -199,6 +211,7 @@ private fun IconTextContent(
                 dimensions.startContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
             }
             Box(
+                contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .layoutId(START_CONTENT)
                     .padding(end = startSpacing)
@@ -225,6 +238,7 @@ private fun IconTextContent(
                 dimensions.endContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
             }
             Box(
+                contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .layoutId(END_CONTENT)
                     .padding(start = endSpacing)
@@ -250,12 +264,12 @@ private fun IconTextContent(
     startContent?.let {
         CompositionLocalProvider(
             LocalTint provides startContentColor,
+            LocalIconDefaultSize provides dimensions.startContentSize.let { DpSize(it, it) },
         ) {
             Box(
                 modifier = Modifier
                     .layoutId(START_CONTENT)
-                    .padding(end = dimensions.startContentMargin)
-                    .requiredSize(dimensions.startContentSize),
+                    .padding(end = dimensions.startContentMargin),
             ) {
                 startContent()
             }
@@ -272,12 +286,12 @@ private fun IconTextContent(
     endContent?.let {
         CompositionLocalProvider(
             LocalTint provides endContentColor,
+            LocalIconDefaultSize provides dimensions.endContentSize.let { DpSize(it, it) },
         ) {
             Box(
                 modifier = Modifier
                     .layoutId(END_CONTENT)
-                    .padding(start = dimensions.endContentMargin)
-                    .requiredSize(dimensions.endContentSize),
+                    .padding(start = dimensions.endContentMargin),
             ) {
                 endContent()
             }
@@ -308,9 +322,28 @@ internal object BaseIconText {
         val endContentSize: Dp = 16.dp,
         val startContentMargin: Dp = 0.dp,
         val endContentMargin: Dp = 0.dp,
-        val startPadding: Dp = 0.dp,
-        val endPadding: Dp = 0.dp,
-    )
+        val startPadding: StatefulValue<Dp>,
+        val endPadding: StatefulValue<Dp>,
+    ) {
+
+        constructor(
+            height: Dp? = null,
+            startContentSize: Dp = 16.dp,
+            endContentSize: Dp = 16.dp,
+            startContentMargin: Dp = 0.dp,
+            endContentMargin: Dp = 0.dp,
+            startPadding: Dp = 0.dp,
+            endPadding: Dp = 0.dp,
+        ) : this(
+            height,
+            startContentSize,
+            endContentSize,
+            startContentMargin,
+            endContentMargin,
+            startPadding.asStatefulValue(),
+            endPadding.asStatefulValue(),
+        )
+    }
 
     /**
      * Цвета, которые используются внутри компонента.

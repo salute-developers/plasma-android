@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.CounterStyleBuilder
-import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -33,98 +32,30 @@ public value class WrapperCounterTerminate(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounter
 
-public val Counter.Primary: WrapperCounterTerminate
+public val Counter.MuteNo: WrapperCounterTerminate
     @Composable
     get() = CounterStyle.builder(this)
         .invariantProps
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultSolidDefaultHover,
-                ),
+                SddsSbComTheme.colors.surfaceDefaultAccentPrimary.asInteractive(),
             )
             textColor(
-                SddsSbComTheme.colors.textInversePrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textInversePrimaryHover,
-                ),
+                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
         .wrap(::WrapperCounterTerminate)
 
-public val Counter.Secondary: WrapperCounterTerminate
+public val Counter.MuteYes: WrapperCounterTerminate
     @Composable
     get() = CounterStyle.builder(this)
         .invariantProps
         .colors {
             backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultTransparentTertiaryHover,
-                ),
+                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
             )
             textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-        }
-        .wrap(::WrapperCounterTerminate)
-
-public val Counter.Accent: WrapperCounterTerminate
-    @Composable
-    get() = CounterStyle.builder(this)
-        .invariantProps
-        .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultAccent.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultAccentHover,
-                ),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
-            )
-        }
-        .wrap(::WrapperCounterTerminate)
-
-public val Counter.Danger: WrapperCounterTerminate
-    @Composable
-    get() = CounterStyle.builder(this)
-        .invariantProps
-        .colors {
-            backgroundColor(
-                SddsSbComTheme.colors.surfaceDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.surfaceDefaultNegativeHover,
-                ),
-            )
-            textColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textOnDarkPrimaryHover,
-                ),
+                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
         .wrap(::WrapperCounterTerminate)

@@ -20,8 +20,17 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.sbcom.styles.indicator.Indicator
-import com.sdds.sbcom.styles.indicator.Success
+import com.sdds.sbcom.styles.iconbadge.Size14
+import com.sdds.sbcom.styles.iconbadge.Size16
+import com.sdds.sbcom.styles.iconbadge.Size18
+import com.sdds.sbcom.styles.iconbadge.Size20
+import com.sdds.sbcom.styles.iconbadge.VoiceChatBadge
+import com.sdds.sbcom.styles.indicator.AvatarIndicator
+import com.sdds.sbcom.styles.indicator.Size10
+import com.sdds.sbcom.styles.indicator.Size12
+import com.sdds.sbcom.styles.indicator.Size14
+import com.sdds.sbcom.styles.indicator.Size6
+import com.sdds.sbcom.styles.indicator.Size8
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -31,14 +40,6 @@ import kotlin.jvm.JvmName
  * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperAvatar : BuilderWrapper<AvatarStyle, AvatarStyleBuilder>
-
-/**
- * Обертка для вариации Size180
- */
-@JvmInline
-public value class WrapperAvatarSize180(
-    public override val builder: AvatarStyleBuilder,
-) : WrapperAvatar
 
 /**
  * Обертка для вариации Size72
@@ -61,14 +62,6 @@ public value class WrapperAvatarSize64(
  */
 @JvmInline
 public value class WrapperAvatarSize56(
-    public override val builder: AvatarStyleBuilder,
-) : WrapperAvatar
-
-/**
- * Обертка для вариации Size48
- */
-@JvmInline
-public value class WrapperAvatarSize48(
     public override val builder: AvatarStyleBuilder,
 ) : WrapperAvatar
 
@@ -120,64 +113,23 @@ public value class WrapperAvatarSize24(
     public override val builder: AvatarStyleBuilder,
 ) : WrapperAvatar
 
-/**
- * Обертка для вариации Size20
- */
-@JvmInline
-public value class WrapperAvatarSize20(
-    public override val builder: AvatarStyleBuilder,
-) : WrapperAvatar
-
 private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
     @Composable
     get() = this
         .shape(CircleShape)
+        .dimensions {
+            statusCutoutPadding(3.0.dp)
+        }
         .colors {
             backgroundColor(
-                SddsSbComTheme.gradients.backgroundDefaultGradient.asLayered().asStatefulValue(),
+
+                SddsSbComTheme.gradients.personaDefaultBlueSurfaceAccentGradient.asLayered().asStatefulValue(),
             )
             textColor(
-                SddsSbComTheme.colors.textInversePrimary.asInteractive(),
+                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .statusStyle(
-            Indicator.Success.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
-
-public val Avatar.Size180: WrapperAvatarSize180
-    @Composable
-    @JvmName("WrapperAvatarSize180")
-    get() = AvatarStyle.builder(this)
-        .invariantProps
-        .dimensions {
-            width(180.0.dp)
-            height(180.0.dp)
-        }
-        .textStyle(SddsSbComTheme.typography.displaySBold)
-        .statusStyle(
-            Indicator.Success.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
-        .wrap(::WrapperAvatarSize180)
+        .statusCutoutEnabled(true)
 
 public val Avatar.Size72: WrapperAvatarSize72
     @Composable
@@ -187,15 +139,18 @@ public val Avatar.Size72: WrapperAvatarSize72
         .dimensions {
             width(72.0.dp)
             height(72.0.dp)
+            statusOffsetX(4.0.dp)
+            statusOffsetY(4.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH2Bold)
+        .textStyle(SddsSbComTheme.typography.headerH1Medium)
+        .iconBadgeStyle(VoiceChatBadge.Size20.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size14.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -212,15 +167,18 @@ public val Avatar.Size64: WrapperAvatarSize64
         .dimensions {
             width(64.0.dp)
             height(64.0.dp)
+            statusOffsetX(3.0.dp)
+            statusOffsetY(3.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH2Bold)
+        .textStyle(SddsSbComTheme.typography.headerH1Medium)
+        .iconBadgeStyle(VoiceChatBadge.Size20.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size12.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -237,15 +195,18 @@ public val Avatar.Size56: WrapperAvatarSize56
         .dimensions {
             width(56.0.dp)
             height(56.0.dp)
+            statusOffsetX(4.0.dp)
+            statusOffsetY(4.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH2Bold)
+        .textStyle(SddsSbComTheme.typography.headerH2Medium)
+        .iconBadgeStyle(VoiceChatBadge.Size20.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size10.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -253,31 +214,6 @@ public val Avatar.Size56: WrapperAvatarSize56
                 .style(),
         )
         .wrap(::WrapperAvatarSize56)
-
-public val Avatar.Size48: WrapperAvatarSize48
-    @Composable
-    @JvmName("WrapperAvatarSize48")
-    get() = AvatarStyle.builder(this)
-        .invariantProps
-        .dimensions {
-            width(48.0.dp)
-            height(48.0.dp)
-        }
-        .textStyle(SddsSbComTheme.typography.headerH3Bold)
-        .statusStyle(
-            Indicator.Success.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
-        .wrap(::WrapperAvatarSize48)
 
 public val Avatar.Size44: WrapperAvatarSize44
     @Composable
@@ -287,15 +223,18 @@ public val Avatar.Size44: WrapperAvatarSize44
         .dimensions {
             width(44.0.dp)
             height(44.0.dp)
+            statusOffsetX(3.0.dp)
+            statusOffsetY(3.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH3Bold)
+        .textStyle(SddsSbComTheme.typography.headerH3Medium)
+        .iconBadgeStyle(VoiceChatBadge.Size18.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size8.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -312,15 +251,18 @@ public val Avatar.Size40: WrapperAvatarSize40
         .dimensions {
             width(40.0.dp)
             height(40.0.dp)
+            statusOffsetX(2.0.dp)
+            statusOffsetY(2.0.dp)
         }
-        .textStyle(SddsSbComTheme.typography.headerH3Bold)
+        .textStyle(SddsSbComTheme.typography.headerH4Medium)
+        .iconBadgeStyle(VoiceChatBadge.Size16.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size8.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -337,15 +279,18 @@ public val Avatar.Size36: WrapperAvatarSize36
         .dimensions {
             width(36.0.dp)
             height(36.0.dp)
+            statusOffsetX(2.0.dp)
+            statusOffsetY(2.0.dp)
         }
         .textStyle(SddsSbComTheme.typography.bodyLMedium)
+        .iconBadgeStyle(VoiceChatBadge.Size14.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size6.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -362,15 +307,18 @@ public val Avatar.Size32: WrapperAvatarSize32
         .dimensions {
             width(32.0.dp)
             height(32.0.dp)
+            statusOffsetX(1.0.dp)
+            statusOffsetY(1.0.dp)
         }
         .textStyle(SddsSbComTheme.typography.bodySMedium)
+        .iconBadgeStyle(VoiceChatBadge.Size14.style())
         .statusStyle(
-            Indicator.Success.modify {
+            AvatarIndicator.Size6.modify {
                 color {
                     backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                        SddsSbComTheme.colors.textDefaultTertiary.asInteractive(
                             setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
+                                to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                         ),
                     )
                 }
@@ -389,19 +337,6 @@ public val Avatar.Size26: WrapperAvatarSize26
             height(26.0.dp)
         }
         .textStyle(SddsSbComTheme.typography.bodyXxsMedium)
-        .statusStyle(
-            Indicator.Success.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize26)
 
 public val Avatar.Size24: WrapperAvatarSize24
@@ -414,42 +349,4 @@ public val Avatar.Size24: WrapperAvatarSize24
             height(24.0.dp)
         }
         .textStyle(SddsSbComTheme.typography.bodyXxsMedium)
-        .statusStyle(
-            Indicator.Success.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
         .wrap(::WrapperAvatarSize24)
-
-public val Avatar.Size20: WrapperAvatarSize20
-    @Composable
-    @JvmName("WrapperAvatarSize20")
-    get() = AvatarStyle.builder(this)
-        .invariantProps
-        .dimensions {
-            width(20.0.dp)
-            height(20.0.dp)
-        }
-        .textStyle(SddsSbComTheme.typography.bodyXxsBold)
-        .statusStyle(
-            Indicator.Success.modify {
-                color {
-                    backgroundColor(
-                        SddsSbComTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
-                            setOf(AvatarStatus.Active)
-                                to SddsSbComTheme.colors.surfaceDefaultPositive,
-                        ),
-                    )
-                }
-            }
-                .style(),
-        )
-        .wrap(::WrapperAvatarSize20)

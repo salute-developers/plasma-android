@@ -1349,8 +1349,8 @@ private class DefaultTextFieldScrollBarBuilder : TextFieldScrollBarBuilder {
             scrollBarPaddingEnd != null
         return if (configured) {
             ScrollBar(
-                indicatorColor = scrollBarTrackColor ?: Color.Gray.asInteractive(),
-                backgroundColor = scrollBarThumbColor ?: Color.LightGray.asInteractive(),
+                indicatorColor = scrollBarThumbColor ?: Color.Gray.asInteractive(),
+                backgroundColor = scrollBarTrackColor ?: Color.LightGray.asInteractive(),
                 indicatorThickness = scrollBarThickness ?: 1.dp,
                 padding = PaddingValues(
                     top = scrollBarPaddingTop ?: 2.dp,

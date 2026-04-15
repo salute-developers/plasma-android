@@ -25,31 +25,26 @@ import kotlin.Unit
 public enum class CircularProgressBarStyles(
     public val key: String,
 ) {
-    CircularProgressBarXxlPrimary("CircularProgressBar.Xxl.Primary"),
-    CircularProgressBarXxlSecondary("CircularProgressBar.Xxl.Secondary"),
-    CircularProgressBarXxlGlobalWhite("CircularProgressBar.Xxl.GlobalWhite"),
-    CircularProgressBarXxlAccent("CircularProgressBar.Xxl.Accent"),
-    CircularProgressBarXxlDanger("CircularProgressBar.Xxl.Danger"),
-    CircularProgressBarMPrimary("CircularProgressBar.M.Primary"),
-    CircularProgressBarMSecondary("CircularProgressBar.M.Secondary"),
-    CircularProgressBarMGlobalWhite("CircularProgressBar.M.GlobalWhite"),
-    CircularProgressBarMAccent("CircularProgressBar.M.Accent"),
-    CircularProgressBarMDanger("CircularProgressBar.M.Danger"),
-    CircularProgressBarSPrimary("CircularProgressBar.S.Primary"),
-    CircularProgressBarSSecondary("CircularProgressBar.S.Secondary"),
-    CircularProgressBarSGlobalWhite("CircularProgressBar.S.GlobalWhite"),
-    CircularProgressBarSAccent("CircularProgressBar.S.Accent"),
-    CircularProgressBarSDanger("CircularProgressBar.S.Danger"),
-    CircularProgressBarXsPrimary("CircularProgressBar.Xs.Primary"),
-    CircularProgressBarXsSecondary("CircularProgressBar.Xs.Secondary"),
-    CircularProgressBarXsGlobalWhite("CircularProgressBar.Xs.GlobalWhite"),
-    CircularProgressBarXsAccent("CircularProgressBar.Xs.Accent"),
-    CircularProgressBarXsDanger("CircularProgressBar.Xs.Danger"),
-    CircularProgressBarXxsPrimary("CircularProgressBar.Xxs.Primary"),
-    CircularProgressBarXxsSecondary("CircularProgressBar.Xxs.Secondary"),
-    CircularProgressBarXxsGlobalWhite("CircularProgressBar.Xxs.GlobalWhite"),
-    CircularProgressBarXxsAccent("CircularProgressBar.Xxs.Accent"),
-    CircularProgressBarXxsDanger("CircularProgressBar.Xxs.Danger"),
+    CircularProgressBarSize40ModeColorPrimary("CircularProgressBar.Size40.ModeColorPrimary"),
+    CircularProgressBarSize40ModeColorSecondary("CircularProgressBar.Size40.ModeColorSecondary"),
+    CircularProgressBarSize40ModeColorGlobalWhite("CircularProgressBar.Size40.ModeColorGlobalWhite"),
+    CircularProgressBarSize40ModeColorAccent("CircularProgressBar.Size40.ModeColorAccent"),
+    CircularProgressBarSize40ModeColorDanger("CircularProgressBar.Size40.ModeColorDanger"),
+    CircularProgressBarSize32ModeColorPrimary("CircularProgressBar.Size32.ModeColorPrimary"),
+    CircularProgressBarSize32ModeColorSecondary("CircularProgressBar.Size32.ModeColorSecondary"),
+    CircularProgressBarSize32ModeColorGlobalWhite("CircularProgressBar.Size32.ModeColorGlobalWhite"),
+    CircularProgressBarSize32ModeColorAccent("CircularProgressBar.Size32.ModeColorAccent"),
+    CircularProgressBarSize32ModeColorDanger("CircularProgressBar.Size32.ModeColorDanger"),
+    CircularProgressBarSize24ModeColorPrimary("CircularProgressBar.Size24.ModeColorPrimary"),
+    CircularProgressBarSize24ModeColorSecondary("CircularProgressBar.Size24.ModeColorSecondary"),
+    CircularProgressBarSize24ModeColorGlobalWhite("CircularProgressBar.Size24.ModeColorGlobalWhite"),
+    CircularProgressBarSize24ModeColorAccent("CircularProgressBar.Size24.ModeColorAccent"),
+    CircularProgressBarSize24ModeColorDanger("CircularProgressBar.Size24.ModeColorDanger"),
+    CircularProgressBarSize16ModeColorPrimary("CircularProgressBar.Size16.ModeColorPrimary"),
+    CircularProgressBarSize16ModeColorSecondary("CircularProgressBar.Size16.ModeColorSecondary"),
+    CircularProgressBarSize16ModeColorGlobalWhite("CircularProgressBar.Size16.ModeColorGlobalWhite"),
+    CircularProgressBarSize16ModeColorAccent("CircularProgressBar.Size16.ModeColorAccent"),
+    CircularProgressBarSize16ModeColorDanger("CircularProgressBar.Size16.ModeColorDanger"),
 }
 
 /**
@@ -61,38 +56,46 @@ public fun CircularProgressBarStyles.style(
     CircularProgressBarStyleBuilder.() -> Unit = {},
 ): CircularProgressBarStyle {
     val builder = when (this) {
-        CircularProgressBarStyles.CircularProgressBarXxlPrimary -> CircularProgressBar.Xxl.Primary
-        CircularProgressBarStyles.CircularProgressBarXxlSecondary ->
-            CircularProgressBar.Xxl.Secondary
-        CircularProgressBarStyles.CircularProgressBarXxlGlobalWhite ->
-            CircularProgressBar.Xxl.GlobalWhite
-        CircularProgressBarStyles.CircularProgressBarXxlAccent -> CircularProgressBar.Xxl.Accent
-        CircularProgressBarStyles.CircularProgressBarXxlDanger -> CircularProgressBar.Xxl.Danger
-        CircularProgressBarStyles.CircularProgressBarMPrimary -> CircularProgressBar.M.Primary
-        CircularProgressBarStyles.CircularProgressBarMSecondary -> CircularProgressBar.M.Secondary
-        CircularProgressBarStyles.CircularProgressBarMGlobalWhite ->
-            CircularProgressBar.M.GlobalWhite
-        CircularProgressBarStyles.CircularProgressBarMAccent -> CircularProgressBar.M.Accent
-        CircularProgressBarStyles.CircularProgressBarMDanger -> CircularProgressBar.M.Danger
-        CircularProgressBarStyles.CircularProgressBarSPrimary -> CircularProgressBar.S.Primary
-        CircularProgressBarStyles.CircularProgressBarSSecondary -> CircularProgressBar.S.Secondary
-        CircularProgressBarStyles.CircularProgressBarSGlobalWhite ->
-            CircularProgressBar.S.GlobalWhite
-        CircularProgressBarStyles.CircularProgressBarSAccent -> CircularProgressBar.S.Accent
-        CircularProgressBarStyles.CircularProgressBarSDanger -> CircularProgressBar.S.Danger
-        CircularProgressBarStyles.CircularProgressBarXsPrimary -> CircularProgressBar.Xs.Primary
-        CircularProgressBarStyles.CircularProgressBarXsSecondary -> CircularProgressBar.Xs.Secondary
-        CircularProgressBarStyles.CircularProgressBarXsGlobalWhite ->
-            CircularProgressBar.Xs.GlobalWhite
-        CircularProgressBarStyles.CircularProgressBarXsAccent -> CircularProgressBar.Xs.Accent
-        CircularProgressBarStyles.CircularProgressBarXsDanger -> CircularProgressBar.Xs.Danger
-        CircularProgressBarStyles.CircularProgressBarXxsPrimary -> CircularProgressBar.Xxs.Primary
-        CircularProgressBarStyles.CircularProgressBarXxsSecondary ->
-            CircularProgressBar.Xxs.Secondary
-        CircularProgressBarStyles.CircularProgressBarXxsGlobalWhite ->
-            CircularProgressBar.Xxs.GlobalWhite
-        CircularProgressBarStyles.CircularProgressBarXxsAccent -> CircularProgressBar.Xxs.Accent
-        CircularProgressBarStyles.CircularProgressBarXxsDanger -> CircularProgressBar.Xxs.Danger
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorPrimary ->
+            CircularProgressBar.Size40.ModeColorPrimary
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorSecondary ->
+            CircularProgressBar.Size40.ModeColorSecondary
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorGlobalWhite ->
+            CircularProgressBar.Size40.ModeColorGlobalWhite
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorAccent ->
+            CircularProgressBar.Size40.ModeColorAccent
+        CircularProgressBarStyles.CircularProgressBarSize40ModeColorDanger ->
+            CircularProgressBar.Size40.ModeColorDanger
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorPrimary ->
+            CircularProgressBar.Size32.ModeColorPrimary
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorSecondary ->
+            CircularProgressBar.Size32.ModeColorSecondary
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorGlobalWhite ->
+            CircularProgressBar.Size32.ModeColorGlobalWhite
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorAccent ->
+            CircularProgressBar.Size32.ModeColorAccent
+        CircularProgressBarStyles.CircularProgressBarSize32ModeColorDanger ->
+            CircularProgressBar.Size32.ModeColorDanger
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorPrimary ->
+            CircularProgressBar.Size24.ModeColorPrimary
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorSecondary ->
+            CircularProgressBar.Size24.ModeColorSecondary
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorGlobalWhite ->
+            CircularProgressBar.Size24.ModeColorGlobalWhite
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorAccent ->
+            CircularProgressBar.Size24.ModeColorAccent
+        CircularProgressBarStyles.CircularProgressBarSize24ModeColorDanger ->
+            CircularProgressBar.Size24.ModeColorDanger
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorPrimary ->
+            CircularProgressBar.Size16.ModeColorPrimary
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorSecondary ->
+            CircularProgressBar.Size16.ModeColorSecondary
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorGlobalWhite ->
+            CircularProgressBar.Size16.ModeColorGlobalWhite
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorAccent ->
+            CircularProgressBar.Size16.ModeColorAccent
+        CircularProgressBarStyles.CircularProgressBarSize16ModeColorDanger ->
+            CircularProgressBar.Size16.ModeColorDanger
     }
     return builder.modify(modifyAction).style()
 }

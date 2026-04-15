@@ -15,7 +15,6 @@ import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
-import com.sdds.compose.uikit.LocalLinkButtonStyle
 import com.sdds.compose.uikit.LocalLoaderStyle
 import com.sdds.compose.uikit.LocalModalBottomSheetStyle
 import com.sdds.compose.uikit.LocalModalStyle
@@ -33,9 +32,9 @@ import com.sdds.compose.uikit.LocalTooltipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.avatar.Avatar
 import com.sdds.sbcom.styles.avatar.Size36
-import com.sdds.sbcom.styles.basicbutton.AccentFilled
 import com.sdds.sbcom.styles.basicbutton.BasicButton
-import com.sdds.sbcom.styles.basicbutton.M
+import com.sdds.sbcom.styles.basicbutton.ModeAccentFilled
+import com.sdds.sbcom.styles.basicbutton.Size40
 import com.sdds.sbcom.styles.bottomsheet.Default
 import com.sdds.sbcom.styles.bottomsheet.ModalBottomSheet
 import com.sdds.sbcom.styles.buttongroup.BasicButtonGroup
@@ -43,30 +42,28 @@ import com.sdds.sbcom.styles.buttongroup.Default
 import com.sdds.sbcom.styles.checkbox.CheckBox
 import com.sdds.sbcom.styles.checkbox.Default
 import com.sdds.sbcom.styles.chip.Chip
-import com.sdds.sbcom.styles.chip.Default
+import com.sdds.sbcom.styles.chip.ChipSlotPadding
 import com.sdds.sbcom.styles.chipgroup.ChipGroup
-import com.sdds.sbcom.styles.chipgroup.Default
-import com.sdds.sbcom.styles.circularprogressbar.Accent
+import com.sdds.sbcom.styles.chipgroup.ChipSlotPadding
 import com.sdds.sbcom.styles.circularprogressbar.CircularProgressBar
-import com.sdds.sbcom.styles.circularprogressbar.M
+import com.sdds.sbcom.styles.circularprogressbar.ModeColorPrimary
+import com.sdds.sbcom.styles.circularprogressbar.Size40
 import com.sdds.sbcom.styles.collapsingnavigationbar.CollapsingNavigationBarMainPage
 import com.sdds.sbcom.styles.collapsingnavigationbar.Default
-import com.sdds.sbcom.styles.counter.Accent
 import com.sdds.sbcom.styles.counter.Counter
+import com.sdds.sbcom.styles.counter.MuteNo
 import com.sdds.sbcom.styles.divider.Default
 import com.sdds.sbcom.styles.divider.Divider
 import com.sdds.sbcom.styles.dropdownmenu.Default
 import com.sdds.sbcom.styles.dropdownmenu.DropdownMenu
-import com.sdds.sbcom.styles.iconbutton.AccentFilled
 import com.sdds.sbcom.styles.iconbutton.IconButton
-import com.sdds.sbcom.styles.iconbutton.M
+import com.sdds.sbcom.styles.iconbutton.ModeAccentFilled
+import com.sdds.sbcom.styles.iconbutton.Size40
 import com.sdds.sbcom.styles.indicator.Indicator
-import com.sdds.sbcom.styles.indicator.Success
-import com.sdds.sbcom.styles.linkbutton.Accent
-import com.sdds.sbcom.styles.linkbutton.LinkButton
-import com.sdds.sbcom.styles.linkbutton.M
-import com.sdds.sbcom.styles.loader.Default
+import com.sdds.sbcom.styles.indicator.StateSuccess
 import com.sdds.sbcom.styles.loader.Loader
+import com.sdds.sbcom.styles.loader.ModeColorPrimary
+import com.sdds.sbcom.styles.loader.Size40
 import com.sdds.sbcom.styles.modal.Default
 import com.sdds.sbcom.styles.modal.Modal
 import com.sdds.sbcom.styles.overlay.Default
@@ -79,8 +76,8 @@ import com.sdds.sbcom.styles.scrollbar.Default
 import com.sdds.sbcom.styles.scrollbar.ScrollBar
 import com.sdds.sbcom.styles.segment.Default
 import com.sdds.sbcom.styles.segment.Segment
-import com.sdds.sbcom.styles.spinner.Accent
-import com.sdds.sbcom.styles.spinner.M
+import com.sdds.sbcom.styles.spinner.ModeColorPrimary
+import com.sdds.sbcom.styles.spinner.Size40
 import com.sdds.sbcom.styles.spinner.Spinner
 import com.sdds.sbcom.styles.switcher.Default
 import com.sdds.sbcom.styles.switcher.Switch
@@ -100,28 +97,27 @@ internal fun DefaultComponents(
     CompositionLocalProvider(
         LocalAvatarStyle provides Avatar.Size36.style(),
         LocalButtonGroupStyle provides BasicButtonGroup.Default.style(),
-        LocalButtonStyle provides BasicButton.M.AccentFilled.style(),
+        LocalButtonStyle provides BasicButton.Size40.ModeAccentFilled.style(),
         LocalCheckBoxStyle provides CheckBox.Default.style(),
-        LocalChipGroupStyle provides ChipGroup.Default.style(),
-        LocalChipStyle provides Chip.Default.style(),
-        LocalCircularProgressBarStyle provides CircularProgressBar.M.Accent.style(),
+        LocalChipGroupStyle provides ChipGroup.ChipSlotPadding.style(),
+        LocalChipStyle provides Chip.ChipSlotPadding.style(),
+        LocalCircularProgressBarStyle provides CircularProgressBar.Size40.ModeColorPrimary.style(),
         LocalCollapsingNavigationBarStyle provides CollapsingNavigationBarMainPage.Default.style(),
-        LocalCounterStyle provides Counter.Accent.style(),
+        LocalCounterStyle provides Counter.MuteNo.style(),
         LocalDividerStyle provides Divider.Default.style(),
-        LocalIndicatorStyle provides Indicator.Success.style(),
-        LocalLoaderStyle provides Loader.Default.style(),
+        LocalIndicatorStyle provides Indicator.StateSuccess.style(),
+        LocalLoaderStyle provides Loader.Size40.ModeColorPrimary.style(),
         LocalModalBottomSheetStyle provides ModalBottomSheet.Default.style(),
         LocalOverlayStyle provides Overlay.Default.style(),
         LocalRadioBoxStyle provides RadioBox.Default.style(),
         LocalRectSkeletonStyle provides RectSkeleton.Default.style(),
-        LocalSpinnerStyle provides Spinner.M.Accent.style(),
+        LocalSpinnerStyle provides Spinner.Size40.ModeColorPrimary.style(),
         LocalSwitchStyle provides Switch.Default.style(),
         LocalTabBarStyle provides TabBar.Default.style(),
         LocalTextFieldStyle provides TextField.Default.style(),
         LocalTooltipStyle provides Tooltip.Default.style(),
         LocalDropdownMenuStyle provides DropdownMenu.Default.style(),
-        LocalIconButtonStyle provides IconButton.M.AccentFilled.style(),
-        LocalLinkButtonStyle provides LinkButton.M.Accent.style(),
+        LocalIconButtonStyle provides IconButton.Size40.ModeAccentFilled.style(),
         LocalModalStyle provides Modal.Default.style(),
         LocalScrollBarStyle provides ScrollBar.Default.style(),
         LocalSegmentStyle provides Segment.Default.style(),

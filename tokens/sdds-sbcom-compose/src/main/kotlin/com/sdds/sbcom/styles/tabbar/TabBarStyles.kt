@@ -12,8 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TabBarStyle
 import com.sdds.compose.uikit.TabBarStyleBuilder
-import com.sdds.compose.uikit.graphics.asLayered
-import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
@@ -46,7 +45,7 @@ public val TabBar.Default: WrapperTabBarDefault
         .shadow(SddsSbComTheme.shadows.upSoftM)
         .colors {
             backgroundColor(
-                SddsSbComTheme.gradients.surfaceDefaultTransparentNavi.asLayered().asStatefulValue(),
+                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(),
             )
         }
         .dimensions {

@@ -22,6 +22,7 @@ internal class IndicatorComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderName: String,
 ) : ComposeVariationGenerator<IndicatorProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -33,6 +34,7 @@ internal class IndicatorComposeVariationGenerator(
     componentPackage = componentPackage,
     outputLocation = outputLocation,
     componentName = componentName,
+    styleBuilderName = styleBuilderName,
 ) {
     override val componentStyleName = "IndicatorStyle"
 

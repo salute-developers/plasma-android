@@ -14,6 +14,6 @@ dependencies {
     implementation(project(":plasma.homeds.compose"))
     implementation("integration-core:sandbox-core")
     implementation("integration-core:sandbox-compose")
-    implementation("sdds-core:uikit-compose-fixtures")
+    implementation("integration-core:uikit-compose-fixtures")
     implementation(libs.base.androidX.compose.foundation)
 }

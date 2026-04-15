@@ -1,8 +1,6 @@
 package com.sdds.serv
 
-import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
 import com.sdds.compose.uikit.fixtures.samples.RoborazziConfigDocs
 import org.junit.Test
@@ -23,7 +21,7 @@ class ComposeDocScreenshotTest(composableSample: ComposableSampleInfo) : Roboraz
                 composableSample.sample.reference.invoke()
             }
             composeTestRule.waitForIdle()
-            composeTestRule.onRoot().captureRoboImage()
+            ifNeedScreenshot()
         } catch (e: Throwable) {
             throw AssertionError(
                 "Screenshot test failed: \n${composableSample.id}",

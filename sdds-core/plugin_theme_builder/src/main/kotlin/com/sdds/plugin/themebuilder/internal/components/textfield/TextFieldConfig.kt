@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components.textfield
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -121,6 +122,7 @@ internal data class TextFieldProperties(
     val scrollBarTrackColorReadOnly: Color? = null,
     val scrollBarThumbColor: Color? = null,
     val scrollBarThumbColorReadOnly: Color? = null,
+    val singleLine: BooleanValue? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -203,6 +205,7 @@ internal data class TextFieldProperties(
             scrollBarTrackColorReadOnly = scrollBarTrackColorReadOnly ?: otherProps.scrollBarTrackColorReadOnly,
             scrollBarThumbColor = scrollBarThumbColor ?: otherProps.scrollBarThumbColor,
             scrollBarThumbColorReadOnly = scrollBarThumbColorReadOnly ?: otherProps.scrollBarThumbColorReadOnly,
+            singleLine = singleLine ?: otherProps.singleLine,
         )
     }
 }

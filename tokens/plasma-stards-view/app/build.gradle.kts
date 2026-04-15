@@ -13,6 +13,6 @@ dependencies {
     implementation("integration-core:sandbox-core")
     implementation("integration-core:sandbox-compose")
     implementation("integration-core:sandbox-view")
-    implementation("sdds-core:uikit-fixtures")
+    implementation("integration-core:uikit-fixtures")
     implementation(libs.sdds.uikit.compose)
 }

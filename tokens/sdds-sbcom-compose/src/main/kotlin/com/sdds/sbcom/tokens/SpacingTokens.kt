@@ -24,14 +24,14 @@ public object SpacingTokens {
     public val spacing2x: Dp = 4.0.dp
 
     /**
-     * spacing 3x
-     */
-    public val spacing3x: Dp = 6.0.dp
-
-    /**
      * spacing 4x
      */
     public val spacing4x: Dp = 8.0.dp
+
+    /**
+     * spacing 3x
+     */
+    public val spacing3x: Dp = 6.0.dp
 
     /**
      * spacing 6x
@@ -42,16 +42,6 @@ public object SpacingTokens {
      * spacing 8x
      */
     public val spacing8x: Dp = 16.0.dp
-
-    /**
-     * spacing 10x
-     */
-    public val spacing10x: Dp = 20.0.dp
-
-    /**
-     * spacing 12x
-     */
-    public val spacing12x: Dp = 24.0.dp
 
     /**
      * spacing 16x
@@ -82,4 +72,14 @@ public object SpacingTokens {
      * spacing 60x
      */
     public val spacing60x: Dp = 120.0.dp
+
+    /**
+     * spacing 10x
+     */
+    public val spacing10x: Dp = 20.0.dp
+
+    /**
+     * spacing 12x
+     */
+    public val spacing12x: Dp = 24.0.dp
 }

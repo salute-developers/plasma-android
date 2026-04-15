@@ -2,9 +2,11 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.style.Style
 
 /**
@@ -60,13 +62,25 @@ interface CounterColors {
      * Цвет фона
      * @see InteractiveColor
      */
+    @Deprecated("Use backgroundBrush")
     val backgroundColor: InteractiveColor
+
+    /**
+     * Кисть фона
+     */
+    val backgroundBrush: StatefulValue<Brush>
 
     /**
      * Цвет текста
      * @see InteractiveColor
      */
+    @Deprecated("Use textBrush")
     val textColor: InteractiveColor
+
+    /**
+     * Кисть текста
+     */
+    val textBrush: StatefulValue<Brush>
 }
 
 /**

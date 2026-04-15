@@ -2,6 +2,12 @@ name: 'Detect changes'
 
 on:
   workflow_call:
+    inputs:
+      includeTokensSubmodules:
+        type: boolean
+        description: 'If true, :app and :docs submodules of tokens: modules will be included'
+        default: false
+        required: false
     outputs:
       changed:
         description: 'All changed modules'
@@ -31,7 +37,7 @@ jobs:
       - name: Determine changed modules
         id: changed_modules
         run: |
-          .github/scripts/changed-modules.sh "${{ github.event.pull_request.base.ref }}"
+          .github/scripts/changed-modules.sh "${{ github.event.pull_request.base.ref }}" ${{ inputs.includeTokensSubmodules }}
 
       - name: Filter modules
         id: filtered_modules

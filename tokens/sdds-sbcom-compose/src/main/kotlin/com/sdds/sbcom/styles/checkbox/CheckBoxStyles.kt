@@ -63,9 +63,9 @@ public val CheckBox.Default: WrapperCheckBoxDefault
             toggleColor(
                 SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(CheckBoxStates.Checked)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                     setOf(CheckBoxStates.Indeterminate)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                 ),
             )
             toggleIconColor(
@@ -74,9 +74,9 @@ public val CheckBox.Default: WrapperCheckBoxDefault
             toggleBorderColor(
                 SddsSbComTheme.colors.textDefaultParagraph.asInteractive(
                     setOf(CheckBoxStates.Checked)
-                        to SddsSbComTheme.colors.outlineDefaultClear,
+                        to SddsSbComTheme.colors.surfaceDefaultClear,
                     setOf(CheckBoxStates.Indeterminate)
-                        to SddsSbComTheme.colors.outlineDefaultClear,
+                        to SddsSbComTheme.colors.surfaceDefaultClear,
                 ),
             )
         }
@@ -98,7 +98,7 @@ public val CheckBox.Default: WrapperCheckBoxDefault
                 ),
             )
             toggleBorderOffset(0.0.dp)
-            toggleBorderWidth(0.0.dp)
+            toggleBorderWidth(1.5.dp)
             togglePadding(1.0.dp)
             paddingStart(9.0.dp)
             paddingEnd(9.0.dp)

@@ -14,9 +14,9 @@ import com.sdds.compose.uikit.ButtonGroupStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.sbcom.styles.iconbutton.AccentGrey
 import com.sdds.sbcom.styles.iconbutton.IconButton
-import com.sdds.sbcom.styles.iconbutton.M
+import com.sdds.sbcom.styles.iconbutton.ModeAccentGrey
+import com.sdds.sbcom.styles.iconbutton.Size40
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -41,5 +41,5 @@ public val IconButtonGroup.Default: WrapperIconButtonGroupDefault
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(IconButton.M.AccentGrey.style())
+        .buttonStyle(IconButton.Size40.ModeAccentGrey.style())
         .wrap(::WrapperIconButtonGroupDefault)

@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import com.sdds.compose.uikit.TabScope
 
-internal class TabScopeImpl : TabScope {
+internal class TabScopeImpl(private val selectedTabIndexProvider: () -> Int) : TabScope {
     private val _tabs = mutableListOf<TabContent>()
 
     val tabs: List<TabContent>
@@ -16,6 +16,11 @@ internal class TabScopeImpl : TabScope {
     fun reset() = _tabs.clear()
 
     override fun tab(content: @Composable ((Boolean) -> Unit)) {
+        val currentTabIndex = tabs.lastIndex + 1
+        _tabs.add(TabContent(main = { content(selectedTabIndexProvider() == currentTabIndex) }))
+    }
+
+    override fun tabItem(content: @Composable () -> Unit) {
         _tabs.add(TabContent(content))
     }
 
@@ -23,6 +28,11 @@ internal class TabScopeImpl : TabScope {
         dropdownAlias: String,
         content: @Composable ((Boolean) -> Unit),
     ) {
+        val currentTabIndex = tabs.lastIndex + 1
+        _tabs.add(TabContent({ content(selectedTabIndexProvider() == currentTabIndex) }, dropdownAlias))
+    }
+
+    override fun tabItem(dropdownAlias: String, content: @Composable () -> Unit) {
         _tabs.add(TabContent(content, dropdownAlias))
     }
 
@@ -32,7 +42,7 @@ internal class TabScopeImpl : TabScope {
 
     @Immutable
     data class TabContent(
-        val main: @Composable (Boolean) -> Unit,
+        val main: @Composable () -> Unit,
         val dropdownAlias: String = "",
     )
 }

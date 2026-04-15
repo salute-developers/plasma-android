@@ -32,6 +32,7 @@ internal data class SwitchProperties(
     val paddingTop: Dimension? = null,
     val paddingEnd: Dimension? = null,
     val paddingBottom: Dimension? = null,
+    val toggleTrackBorderWidth: Dimension? = null,
 
     val labelColor: Color? = null,
     val descriptionColor: Color? = null,
@@ -70,6 +71,7 @@ internal data class SwitchProperties(
             paddingEnd = paddingEnd ?: otherProps.paddingEnd,
             paddingBottom = paddingBottom ?: otherProps.paddingBottom,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
+            toggleTrackBorderWidth = toggleTrackBorderWidth ?: otherProps.toggleTrackBorderWidth,
         )
     }
 }

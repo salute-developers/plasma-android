@@ -22,6 +22,7 @@ internal class CounterComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderName: String,
 ) : ComposeVariationGenerator<CounterProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -29,6 +30,7 @@ internal class CounterComposeVariationGenerator(
     dimensAggregator = dimensAggregator,
     resourceReferenceProvider = resourceReferenceProvider,
     namespace = namespace,
+    styleBuilderName = styleBuilderName,
     ktFileBuilderFactory = ktFileBuilderFactory,
     componentPackage = componentPackage,
     outputLocation = outputLocation,

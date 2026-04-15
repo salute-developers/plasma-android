@@ -63,6 +63,11 @@ interface BlurStyle {
     val tint: Color
 
     /**
+     * Кисть размытия. Если не null, то приоритетнее [tint]
+     */
+    val tintBrush: Brush?
+
+    /**
      * Интенсивность шума для имитации матового эффекта
      */
     val noiseFactor: Float
@@ -86,6 +91,8 @@ interface BlurStyle {
          * @param tint цветовой оттенок, накладываемый поверх блюра
          * @param noiseFactor интенсивность шума для имитации матового эффекта
          * @param fallbackBackground фон, используемый при отсутствии blur
+         * @param tintBrush кисть для цветового оттенка, накладываемый поверх блюра.
+         * Если не null, то приоритетнее [tint]
          */
         fun create(
             shape: Shape = RectangleShape,
@@ -93,12 +100,14 @@ interface BlurStyle {
             tint: Color = Color.Unspecified,
             noiseFactor: Float = 0f,
             fallbackBackground: Brush = FallbackBackground,
+            tintBrush: Brush? = null,
         ): BlurStyle = BlurStyleImpl(
             shape = shape,
             blurRadius = blurRadius,
             tint = tint,
             noiseFactor = noiseFactor,
             fallbackBackground = fallbackBackground,
+            tintBrush = tintBrush,
         )
     }
 }
@@ -121,6 +130,8 @@ fun rememberBlurState(): BlurState {
  * @param blurRadius радиус размытия
  * @param tint цветовой оттенок, накладываемый поверх блюра
  * @param fallbackBackground фон, используемый при отсутствии blur
+ * @param tintBrush кисть для цветового оттенка, накладываемый поверх блюра.
+ * Если не null, то приоритетнее [tint]
  */
 @Composable
 fun rememberBlurStyle(
@@ -128,6 +139,7 @@ fun rememberBlurStyle(
     blurRadius: Dp = 20.dp,
     tint: Color = Color.Unspecified,
     fallbackBackground: Brush = FallbackBackground,
+    tintBrush: Brush? = null,
 ): BlurStyle {
     return remember(
         shape,
@@ -140,6 +152,7 @@ fun rememberBlurStyle(
             blurRadius = blurRadius,
             tint = tint,
             fallbackBackground = fallbackBackground,
+            tintBrush = tintBrush,
         )
     }
 }

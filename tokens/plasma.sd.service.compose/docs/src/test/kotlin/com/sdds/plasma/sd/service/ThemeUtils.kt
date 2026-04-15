@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.LocalBadgeStyle
 import com.sdds.compose.uikit.LocalButtonGroupStyle
 import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.LocalCardStyle
+import com.sdds.compose.uikit.LocalCarouselStyle
 import com.sdds.compose.uikit.LocalCellStyle
 import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
@@ -33,6 +34,7 @@ import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalFileStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
 import com.sdds.compose.uikit.LocalListStyle
@@ -83,6 +85,8 @@ import com.sdds.plasma.sd.service.styles.buttongroup.Dense
 import com.sdds.plasma.sd.service.styles.buttongroup.M
 import com.sdds.plasma.sd.service.styles.card.CardSolid
 import com.sdds.plasma.sd.service.styles.card.M
+import com.sdds.plasma.sd.service.styles.carousel.ButtonsPlacementOuter
+import com.sdds.plasma.sd.service.styles.carousel.Carousel
 import com.sdds.plasma.sd.service.styles.cell.Cell
 import com.sdds.plasma.sd.service.styles.cell.M
 import com.sdds.plasma.sd.service.styles.checkbox.CheckBox
@@ -119,6 +123,9 @@ import com.sdds.plasma.sd.service.styles.file.M
 import com.sdds.plasma.sd.service.styles.iconbadge.Default
 import com.sdds.plasma.sd.service.styles.iconbadge.IconBadgeSolid
 import com.sdds.plasma.sd.service.styles.iconbadge.M
+import com.sdds.plasma.sd.service.styles.iconbutton.Clear
+import com.sdds.plasma.sd.service.styles.iconbutton.IconButton
+import com.sdds.plasma.sd.service.styles.iconbutton.M
 import com.sdds.plasma.sd.service.styles.image.Image
 import com.sdds.plasma.sd.service.styles.image.Ratio3x4
 import com.sdds.plasma.sd.service.styles.indicator.Default
@@ -233,7 +240,9 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
+            LocalIconButtonStyle provides IconButton.M.Clear.style(),
             LocalCardStyle provides CardSolid.M.style(),
+            LocalCarouselStyle provides Carousel.ButtonsPlacementOuter.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
             LocalCheckBoxStyle provides CheckBox.M.Default.style(),

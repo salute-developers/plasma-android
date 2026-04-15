@@ -37,6 +37,7 @@ internal data class BlurStyleImpl(
     override val tint: Color = Color.Unspecified,
     override val noiseFactor: Float = 0f,
     override val fallbackBackground: Brush = FallbackBackground,
+    override val tintBrush: Brush? = null,
 ) : BlurStyle
 
 internal class HazeBlurState(val hazeState: HazeState) : BlurState
@@ -81,7 +82,9 @@ internal fun Modifier.applyBackgroundBlur(
 
 private fun BlurStyle.toHazeStyle(): HazeBlurStyle =
     HazeBlurStyle(
-        colorEffect = HazeColorEffect.tint(tint),
+        colorEffect = tintBrush?.let {
+            HazeColorEffect.tint(it)
+        } ?: HazeColorEffect.tint(tint),
         blurRadius = blurRadius,
         noiseFactor = noiseFactor,
         fallbackColorEffect = HazeColorEffect.tint(fallbackBackground),

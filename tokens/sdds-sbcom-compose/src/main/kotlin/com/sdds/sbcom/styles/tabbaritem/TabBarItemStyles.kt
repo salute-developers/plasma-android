@@ -18,10 +18,10 @@ import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.sbcom.styles.counter.Counter
-import com.sdds.sbcom.styles.counter.Danger
-import com.sdds.sbcom.styles.indicator.Danger
+import com.sdds.sbcom.styles.counter.Default
+import com.sdds.sbcom.styles.counter.TabBarCounter
 import com.sdds.sbcom.styles.indicator.Indicator
+import com.sdds.sbcom.styles.indicator.StateDanger
 import com.sdds.sbcom.theme.SddsSbComTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -67,13 +67,13 @@ public val TabBarItem.Default: WrapperTabBarItemDefault
             )
         }
         .dimensions {
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
             paddingTop(4.0.dp)
             paddingBottom(5.0.dp)
             iconSize(24.0.dp)
             minHeight(48.0.dp)
         }
-        .indicatorStyle(Indicator.Danger.style())
-        .counterStyle(Counter.Danger.style())
+        .indicatorStyle(Indicator.StateDanger.style())
+        .counterStyle(TabBarCounter.Default.style())
         .wrap(::WrapperTabBarItemDefault)

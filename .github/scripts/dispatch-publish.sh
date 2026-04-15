@@ -48,10 +48,6 @@ for MODULE in "${MODULES[@]}"; do
       EVENT_TYPE="publish-plugin-theme-builder"
       PAYLOAD="{\"tag\": \"$TAG\"}"
       ;;
-    ":playground:sandbox-compose")
-      EVENT_TYPE="publish-sandbox"
-      PAYLOAD="{\"tag\": \"$TAG\"}"
-      ;;
     ":sdds-haze:haze")
       EVENT_TYPE="publish-haze"
       PAYLOAD="{\"tag\": \"$TAG\"}"

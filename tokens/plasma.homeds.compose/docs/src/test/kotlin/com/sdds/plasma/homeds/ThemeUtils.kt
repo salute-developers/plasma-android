@@ -29,8 +29,10 @@ import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalEditableStyle
 import com.sdds.compose.uikit.LocalFormItemStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
+import com.sdds.compose.uikit.LocalLinkButtonStyle
 import com.sdds.compose.uikit.LocalListStyle
 import com.sdds.compose.uikit.LocalLoaderStyle
 import com.sdds.compose.uikit.LocalModalBottomSheetStyle
@@ -67,7 +69,6 @@ import com.sdds.plasma.homeds.styles.buttongroup.Default
 import com.sdds.plasma.homeds.styles.buttongroup.Dense
 import com.sdds.plasma.homeds.styles.buttongroup.M
 import com.sdds.plasma.homeds.styles.card.Card
-import com.sdds.plasma.homeds.styles.card.M
 import com.sdds.plasma.homeds.styles.card.Xl
 import com.sdds.plasma.homeds.styles.cell.Cell
 import com.sdds.plasma.homeds.styles.cell.M
@@ -99,11 +100,17 @@ import com.sdds.plasma.homeds.styles.formitem.FormItem
 import com.sdds.plasma.homeds.styles.iconbadge.Default
 import com.sdds.plasma.homeds.styles.iconbadge.IconBadgeSolid
 import com.sdds.plasma.homeds.styles.iconbadge.M
+import com.sdds.plasma.homeds.styles.iconbutton.Clear
+import com.sdds.plasma.homeds.styles.iconbutton.IconButton
+import com.sdds.plasma.homeds.styles.iconbutton.M
 import com.sdds.plasma.homeds.styles.image.Image
 import com.sdds.plasma.homeds.styles.image.Ratio3x4
 import com.sdds.plasma.homeds.styles.indicator.Default
 import com.sdds.plasma.homeds.styles.indicator.Indicator
 import com.sdds.plasma.homeds.styles.indicator.M
+import com.sdds.plasma.homeds.styles.linkbutton.Default
+import com.sdds.plasma.homeds.styles.linkbutton.LinkButton
+import com.sdds.plasma.homeds.styles.linkbutton.M
 import com.sdds.plasma.homeds.styles.list.List
 import com.sdds.plasma.homeds.styles.list.S
 import com.sdds.plasma.homeds.styles.loader.Default
@@ -194,6 +201,8 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
+            LocalIconButtonStyle provides IconButton.M.Clear.style(),
+            LocalLinkButtonStyle provides LinkButton.M.Default.style(),
             LocalCardStyle provides Card.Xl.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),

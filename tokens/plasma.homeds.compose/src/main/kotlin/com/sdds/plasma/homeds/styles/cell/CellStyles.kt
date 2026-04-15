@@ -149,7 +149,7 @@ public val Cell.S: WrapperCellS
         .titleStyle(PlasmaHomeDsTheme.typography.bodySNormal)
         .subtitleStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
         .disclosureTextStyle(PlasmaHomeDsTheme.typography.bodyXsNormal)
-        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_16)
+        .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
         .dimensions {
             contentPaddingStart(6.0.dp)
             contentPaddingEnd(6.0.dp)

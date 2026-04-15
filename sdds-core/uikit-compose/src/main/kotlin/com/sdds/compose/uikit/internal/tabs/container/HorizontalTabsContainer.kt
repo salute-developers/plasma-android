@@ -19,27 +19,23 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.internal.tabs.TabItemContainer
 import com.sdds.compose.uikit.internal.tabs.TabItemDisclosure
-import com.sdds.compose.uikit.internal.tabs.scrollToTabIfNeeded
 import com.sdds.compose.uikit.internal.tabs.tabIndicator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @Composable
 internal fun HorizontalTabsContainer(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
-    onTabClicked: (Int) -> Unit,
+    selectedTabIndexProvider: () -> Int,
+    selectedTabOffset: () -> Float,
+    onTabClicked: ((Int) -> Unit)? = null,
     clip: TabsClip,
     spacingDp: Dp,
-    spacingPx: Int,
     canStretch: Boolean,
-    coroutineScope: CoroutineScope,
     scrollState: ScrollState,
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     disclosureContent: @Composable (() -> Unit)?,
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
@@ -56,7 +52,8 @@ internal fun HorizontalTabsContainer(
         ShowMoreRow(
             style = style,
             enabled = enabled,
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndexProvider = selectedTabIndexProvider,
+            selectedTabOffset = selectedTabOffset,
             onTabClicked = onTabClicked,
             spacingDp = spacingDp,
             canStretch = canStretch,
@@ -75,13 +72,12 @@ internal fun HorizontalTabsContainer(
         RegularRow(
             style = style,
             enabled = enabled,
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndexProvider = selectedTabIndexProvider,
+            selectedTabOffset = selectedTabOffset,
             onTabClicked = onTabClicked,
             clip = clip,
             spacingDp = spacingDp,
-            spacingPx = spacingPx,
             canStretch = canStretch,
-            coroutineScope = coroutineScope,
             scrollState = scrollState,
             indicatorEnabled = indicatorEnabled,
             interactionSource = interactionSource,
@@ -96,18 +92,17 @@ internal fun HorizontalTabsContainer(
 private fun RegularRow(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
-    onTabClicked: (Int) -> Unit,
+    selectedTabIndexProvider: () -> Int,
+    selectedTabOffset: () -> Float,
+    onTabClicked: ((Int) -> Unit)?,
     clip: TabsClip,
     spacingDp: Dp,
-    spacingPx: Int,
     canStretch: Boolean,
-    coroutineScope: CoroutineScope,
     scrollState: ScrollState,
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     onTabsMeasured: (Int, IntSize) -> Unit,
 ) {
     Row(
@@ -118,10 +113,12 @@ private fun RegularRow(
                 indicatorColor = style.colors.indicatorColor.colorForInteraction(
                     interactionSource,
                 ),
+                indicatorShape = style.indicatorShape,
                 indicatorThickness = style.dimensions.indicatorThickness,
                 spacingDp = spacingDp,
                 tabSizes = tabSizes,
-                selectedTabIndex = selectedTabIndex,
+                selectedTabIndexProvider = selectedTabIndexProvider,
+                selectedTabOffset = selectedTabOffset,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Horizontal,
                 clip = clip,
@@ -132,21 +129,8 @@ private fun RegularRow(
             TabItemContainer(
                 modifier = if (canStretch) Modifier.weight(1f) else Modifier,
                 enabled = enabled,
-                isSelected = index == selectedTabIndex,
                 stretch = canStretch,
-                onClick = {
-                    onTabClicked(index)
-                    if (clip == TabsClip.Scroll) {
-                        coroutineScope.launch {
-                            scrollToTabIfNeeded(
-                                selectedIndex = index,
-                                tabSizes = tabSizes,
-                                spacing = spacingPx,
-                                scrollState = scrollState,
-                            )
-                        }
-                    }
-                },
+                onClick = { onTabClicked?.invoke(index) },
                 onSizeMeasured = { intSize ->
                     onTabsMeasured.invoke(index, intSize)
                 },
@@ -161,15 +145,16 @@ private fun RegularRow(
 private fun ShowMoreRow(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
-    onTabClicked: (Int) -> Unit,
+    selectedTabIndexProvider: () -> Int,
+    selectedTabOffset: () -> Float,
+    onTabClicked: ((Int) -> Unit)?,
     spacingDp: Dp,
     canStretch: Boolean,
     scrollState: ScrollState,
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     disclosureContent: @Composable (() -> Unit)?,
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
@@ -181,9 +166,12 @@ private fun ShowMoreRow(
             {
                 TabItemContainer(
                     stretch = canStretch,
-                    isSelected = index == selectedTabIndex,
                     enabled = enabled,
-                    onClick = { onTabClicked(index) },
+                    onClick = onTabClicked?.let { tabClicked ->
+                        {
+                            tabClicked(index)
+                        }
+                    },
                     onSizeMeasured = { intSize -> onTabsMeasured.invoke(index, intSize) },
                     tabItemStyle = style.tabItemStyle,
                     tabItemContent = tabItem,
@@ -196,10 +184,12 @@ private fun ShowMoreRow(
                 indicatorColor = style.colors.indicatorColor.colorForInteraction(
                     interactionSource,
                 ),
+                indicatorShape = style.indicatorShape,
                 indicatorThickness = style.dimensions.indicatorThickness,
                 spacingDp = spacingDp,
                 tabSizes = tabSizes,
-                selectedTabIndex = selectedTabIndex,
+                selectedTabIndexProvider = selectedTabIndexProvider,
+                selectedTabOffset = selectedTabOffset,
                 scrollState = scrollState,
                 orientation = TabsOrientation.Horizontal,
                 clip = TabsClip.ShowMore,

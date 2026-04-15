@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.SwitchStates
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.sbcom.theme.SddsSbComTheme
@@ -50,13 +51,13 @@ public val Switch.Default: WrapperSwitchDefault
             toggleTrackColor(
                 SddsSbComTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.surfaceDefaultAccent,
+                        to SddsSbComTheme.colors.surfaceDefaultAccentPrimary,
                 ),
             )
             toggleTrackBorderColor(
                 SddsSbComTheme.colors.outlineDefaultTransparentPrimary.asInteractive(
                     setOf(SwitchStates.Checked)
-                        to SddsSbComTheme.colors.outlineDefaultClear,
+                        to SddsSbComTheme.colors.outlineDefaultTransparentClear,
                 ),
             )
             toggleThumbColor(
@@ -69,11 +70,28 @@ public val Switch.Default: WrapperSwitchDefault
         .dimensionValues {
             toggleTrackWidth(52.0.dp)
             toggleTrackHeight(32.0.dp)
-            toggleThumbWidth(24.0.dp)
-            toggleThumbHeight(24.0.dp)
-            toggleThumbPadding(4.0.dp)
+            toggleThumbWidth(
+                16.0.dp.asStatefulValue(
+                    setOf(SwitchStates.Checked) to 24.0.dp,
+                ),
+            )
+            toggleThumbHeight(
+                16.0.dp.asStatefulValue(
+                    setOf(SwitchStates.Checked) to 24.0.dp,
+                ),
+            )
+            toggleThumbPadding(
+                8.0.dp.asStatefulValue(
+                    setOf(SwitchStates.Checked) to 4.0.dp,
+                ),
+            )
             textPadding(12.0.dp)
             descriptionPadding(4.0.dp)
+            toggleTrackBorderWidth(
+                1.5.dp.asStatefulValue(
+                    setOf(SwitchStates.Checked) to 0.0.dp,
+                ),
+            )
         }
         .disableAlpha(0.4f)
         .wrap(::WrapperSwitchDefault)

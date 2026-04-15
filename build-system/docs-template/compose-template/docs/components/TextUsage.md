@@ -2,8 +2,8 @@
 title: Text
 ---
 
-`Text` используется для отображения текста в Compose. Оборачивает `BasicText`, добавляя поддержку  
-локального стиля `LocalTextStyle` и возможность объединения стилей через `ProvideTextStyle`.  
+`Text` используется для отображения текста в Compose. Обеспечивает поддержку  
+локального стиля `LocalTextStyle`, настраиваемого поведения и работу через универсальный `TextSource`.  
 
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Simple.kt
@@ -13,31 +13,31 @@ title: Text
 
 ## Варианты использования
 
-Компонент использует два типа входных данных:  
+Компонент принимает `TextSource`, который можно создать из разных источников текста:
 
 - Обычная строка (`String`)
-
-- Аннотированная строка (`AnnotatedString`)  
+- Аннотированная строка (`AnnotatedString`)
+- Строковый ресурс (`@StringRes`)
 
 ### String
 
-Используется для простого отображения текста.
+Используется для простого отображения текста через `stringSource`.
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/text/TextStyle_Simple.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_String.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.TextStyle_Simple -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_String -->
 
 ### AnnotatedString
 
-Поддерживает различные стили внутри одного текста и возможность вставки встроенных composable-элементов.
+Поддерживает различные стили внутри одного текста и возможность вставки встроенных composable-элементов через `annotatedStringSource`.
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Custom.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Annotated.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Custom -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Annotated -->
 
 ## Настройка стиля текста
 
@@ -46,27 +46,29 @@ title: Text
 стилем (`LocalTextStyle`), заполняя недостоющие пераметры.
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Style.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_ProvideStyle.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Style -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_ProvideStyle -->
+
+Для задания цвета или кисти по умолчанию можно использовать overload `ProvideTextStyle(..., brush = ...)`.
 
 ## Inline Content
 
 Текст с типом `AnnotatedString` поддерживает отображение встроенных composable через параметр `inlineContent`.  
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/text/TextInlineContent_Simple.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_InlineContent.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.TextInlineContent_Simple -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_InlineContent -->
 
 ## Параметры отображения
 
 Компонент поддерживает стандартные параметры форматирования текста:  
 
 ```kotlin
-// @sample: com/sdds/compose/uikit/fixtures/samples/text/TextFormat_Simple.kt
+// @sample: com/sdds/compose/uikit/fixtures/samples/text/Text_Formatting.kt
 ```
 
-<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.TextFormat_Simple -->
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.text.Text_Formatting -->

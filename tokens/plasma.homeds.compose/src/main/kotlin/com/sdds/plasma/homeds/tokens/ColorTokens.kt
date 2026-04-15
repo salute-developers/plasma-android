@@ -1075,7 +1075,7 @@ public object DarkColorTokens {
     /**
      * Основной прозрачный фон поверхности/контрола
      */
-    public val SurfaceDefaultTransparentPrimary: Color = Color(0x0FFFFFFF)
+    public val SurfaceDefaultTransparentPrimary: Color = Color(0x0FF9F9F9)
 
     /**
      * Основной прозрачный фон поверхности/контрола

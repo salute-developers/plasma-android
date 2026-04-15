@@ -6,6 +6,8 @@ title: IconButton
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/IconButton_Simple.kt
 ```
 
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.button.IconButton_Simple -->
+
 ## Стиль IconButton
 
 Стиль IconButton можно настроить с помощью ButtonStyle.builder(). Так же существует набор сгенерированных стилей.
@@ -23,6 +25,8 @@ title: IconButton
 ```kotlin
 // @sample: com/sdds/compose/uikit/fixtures/samples/button/IconButton_isLoading.kt
 ```
+
+<!-- @screenshot: com.sdds.compose.uikit.fixtures.samples.button.IconButton.isLoading -->
 
 ## Произвольный контент в IconButton
 

@@ -7,11 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
@@ -37,7 +38,18 @@ interface TabItemStyle : Style {
     /**
      * Стиль основного текста
      */
+    @Deprecated(
+        "Use labelStyles",
+        replaceWith = ReplaceWith(
+            "labelStyles",
+        ),
+    )
     val labelStyle: TextStyle
+
+    /**
+     * Стиль основного текста
+     */
+    val labelStyles: StatefulValue<TextStyle>
 
     /**
      * Стиль дополнительного текста
@@ -97,7 +109,13 @@ interface TabItemStyleBuilder : StyleBuilder<TabItemStyle> {
     /**
      * Устанавливает стиль основного текста
      */
-    fun labelStyle(labelStyle: TextStyle): TabItemStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): TabItemStyleBuilder =
+        labelStyle(labelStyle.asStatefulValue())
+
+    /**
+     * Устанавливает стиль основного текста
+     */
+    fun labelStyle(labelStyle: StatefulValue<TextStyle>): TabItemStyleBuilder
 
     /**
      * Устанавливает стиль дополнительного текста
@@ -137,12 +155,13 @@ private class DefaultTabItemStyle(
     override val counterStyle: CounterStyle,
     override val actionIcon: Int?,
     override val disableAlpha: Float,
+    override val labelStyles: StatefulValue<TextStyle>,
 ) : TabItemStyle {
 
     class Builder : TabItemStyleBuilder {
         private var disabledAlpha: Float? = null
         private var shape: CornerBasedShape? = null
-        private var labelStyle: TextStyle? = null
+        private var labelStyles: StatefulValue<TextStyle>? = null
         private var valueStyle: TextStyle? = null
         private var colorsBuilder: TabItemColorsBuilder = TabItemColors.builder()
         private var dimensionsBuilder: TabItemDimensionsBuilder =
@@ -158,8 +177,8 @@ private class DefaultTabItemStyle(
             this.disabledAlpha = disabledAlpha
         }
 
-        override fun labelStyle(labelStyle: TextStyle) = apply {
-            this.labelStyle = labelStyle
+        override fun labelStyle(labelStyle: StatefulValue<TextStyle>) = apply {
+            this.labelStyles = labelStyle
         }
 
         override fun valueStyle(valueStyle: TextStyle) = apply {
@@ -188,13 +207,14 @@ private class DefaultTabItemStyle(
         override fun style(): TabItemStyle {
             return DefaultTabItemStyle(
                 shape = shape ?: RoundedCornerShape(25),
-                labelStyle = labelStyle ?: TextStyle.Default,
+                labelStyle = labelStyles?.getDefaultValue() ?: TextStyle.Default,
                 valueStyle = valueStyle ?: TextStyle.Default,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 actionIcon = actionIcon,
                 counterStyle = counterStyle ?: CounterStyle.builder().style(),
                 disableAlpha = disabledAlpha ?: 0.4F,
+                labelStyles = labelStyles ?: TextStyle.Default.asStatefulValue(),
             )
         }
     }
@@ -209,32 +229,86 @@ interface TabItemColors {
     /**
      * Цвет фона
      */
+    @Deprecated(
+        "Use backgroundFillStyle",
+        replaceWith = ReplaceWith("backgroundFillStyle"),
+    )
     val backgroundColor: StatefulValue<Color>
+
+    /**
+     * Кисть фона
+     */
+    val backgroundBrush: StatefulValue<Brush>
 
     /**
      * Цвет основного текста
      */
+    @Deprecated(
+        "Use labelFillStyle",
+        replaceWith = ReplaceWith("labelFillStyle"),
+    )
     val labelColor: StatefulValue<Color>
+
+    /**
+     * Кисть основного текста
+     */
+    val labelBrush: StatefulValue<Brush>
 
     /**
      * Цвет дополнительного текста
      */
+    @Deprecated(
+        "Use valueFillStyle",
+        replaceWith = ReplaceWith("valueFillStyle"),
+    )
     val valueColor: StatefulValue<Color>
+
+    /**
+     * Кисть дополнительного текста
+     */
+    val valueBrush: StatefulValue<Brush>
 
     /**
      * Цвет контента в начале
      */
+    @Deprecated(
+        "Use startContentFillStyle",
+        replaceWith = ReplaceWith("startContentFillStyle"),
+    )
     val startContentColor: StatefulValue<Color>
+
+    /**
+     * Кисть контента в начале
+     */
+    val startContentBrush: StatefulValue<Brush>
 
     /**
      * Цвет контента в конце
      */
+    @Deprecated(
+        "Use endContentFillStyle",
+        replaceWith = ReplaceWith("endContentFillStyle"),
+    )
     val endContentColor: StatefulValue<Color>
+
+    /**
+     * Кисть контента в конце
+     */
+    val endContentBrush: StatefulValue<Brush>
 
     /**
      * Цвет иконки действия
      */
+    @Deprecated(
+        "Use actionFillStyle",
+        replaceWith = ReplaceWith("actionFillStyle"),
+    )
     val actionColor: StatefulValue<Color>
+
+    /**
+     * Кисть иконки действия
+     */
+    val actionBrush: StatefulValue<Brush>
 
     companion object {
 
@@ -254,67 +328,103 @@ interface TabItemColorsBuilder {
      * Устанавливает цвет фона
      */
     fun backgroundColor(backgroundColor: Color): TabItemColorsBuilder =
-        backgroundColor(backgroundColor.asStatefulValue())
+        backgroundBrush(backgroundColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет фона
      */
-    fun backgroundColor(backgroundColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun backgroundColor(backgroundColor: StatefulValue<Color>): TabItemColorsBuilder =
+        backgroundBrush(backgroundColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть фона
+     */
+    fun backgroundBrush(backgroundBrush: StatefulValue<Brush>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет основного текста
      */
     fun labelColor(labelColor: Color): TabItemColorsBuilder =
-        labelColor(labelColor.asStatefulValue())
+        labelBrush(labelColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет основного текста
      */
-    fun labelColor(labelColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun labelColor(labelColor: StatefulValue<Color>): TabItemColorsBuilder =
+        labelBrush(labelColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть основного текста
+     */
+    fun labelBrush(labelBrush: StatefulValue<Brush>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет дополнительного текста
      */
     fun valueColor(valueColor: Color): TabItemColorsBuilder =
-        valueColor(valueColor.asStatefulValue())
+        valueBrush(valueColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет дополнительного текста
      */
-    fun valueColor(valueColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun valueColor(valueColor: StatefulValue<Color>): TabItemColorsBuilder =
+        valueBrush(valueColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть дополнительного текста
+     */
+    fun valueBrush(valueBrush: StatefulValue<Brush>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет контента в начале
      */
     fun startContentColor(startContentColor: Color): TabItemColorsBuilder =
-        startContentColor(startContentColor.asStatefulValue())
+        startContentBrush(startContentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента в начале
      */
-    fun startContentColor(startContentColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun startContentColor(startContentColor: StatefulValue<Color>): TabItemColorsBuilder =
+        startContentBrush(startContentColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в начале
+     */
+    fun startContentBrush(startContentBrush: StatefulValue<Brush>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет контента в конце
      */
     fun endContentColor(endContentColor: Color): TabItemColorsBuilder =
-        endContentColor(endContentColor.asStatefulValue())
+        endContentBrush(endContentColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет контента в конце
      */
-    fun endContentColor(endContentColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun endContentColor(endContentColor: StatefulValue<Color>): TabItemColorsBuilder =
+        endContentBrush(endContentColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть контента в конце
+     */
+    fun endContentBrush(endContentBrush: StatefulValue<Brush>): TabItemColorsBuilder
 
     /**
      * Устанавливает цвет иконки действия
      */
     fun actionColor(actionColor: Color): TabItemColorsBuilder =
-        actionColor(actionColor.asStatefulValue())
+        actionBrush(actionColor.asStatefulBrush())
 
     /**
      * Устанавливает цвет иконки действия
      */
-    fun actionColor(actionColor: StatefulValue<Color>): TabItemColorsBuilder
+    fun actionColor(actionColor: StatefulValue<Color>): TabItemColorsBuilder =
+        actionBrush(actionColor.asStatefulBrush())
+
+    /**
+     * Устанавливает кисть иконки действия
+     */
+    fun actionBrush(actionBrush: StatefulValue<Brush>): TabItemColorsBuilder
 
     /**
      * Возвращает [TabItemColors]
@@ -324,60 +434,72 @@ interface TabItemColorsBuilder {
 
 @Immutable
 private class DefaultTabItemColors(
-    override val backgroundColor: StatefulValue<Color>,
-    override val labelColor: StatefulValue<Color>,
-    override val valueColor: StatefulValue<Color>,
-    override val startContentColor: StatefulValue<Color>,
-    override val endContentColor: StatefulValue<Color>,
-    override val actionColor: StatefulValue<Color>,
+    override val backgroundBrush: StatefulValue<Brush>,
+    override val labelBrush: StatefulValue<Brush>,
+    override val valueBrush: StatefulValue<Brush>,
+    override val startContentBrush: StatefulValue<Brush>,
+    override val endContentBrush: StatefulValue<Brush>,
+    override val actionBrush: StatefulValue<Brush>,
 ) : TabItemColors {
 
+    @Deprecated("Use backgroundFillStyle", replaceWith = ReplaceWith("backgroundFillStyle"))
+    override val backgroundColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
+    @Deprecated("Use labelFillStyle", replaceWith = ReplaceWith("labelFillStyle"))
+    override val labelColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
+    @Deprecated("Use valueFillStyle", replaceWith = ReplaceWith("valueFillStyle"))
+    override val valueColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
+    @Deprecated("Use startContentFillStyle", replaceWith = ReplaceWith("startContentFillStyle"))
+    override val startContentColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
+    @Deprecated("Use endContentFillStyle", replaceWith = ReplaceWith("endContentFillStyle"))
+    override val endContentColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
+    @Deprecated("Use actionFillStyle", replaceWith = ReplaceWith("actionFillStyle"))
+    override val actionColor: StatefulValue<Color> = Color.Transparent.asStatefulValue()
+
     class Builder : TabItemColorsBuilder {
-        private var backgroundColor: StatefulValue<Color>? = null
-        private var labelColor: StatefulValue<Color>? = null
-        private var valueColor: StatefulValue<Color>? = null
-        private var startContentColor: StatefulValue<Color>? = null
-        private var endContentColor: StatefulValue<Color>? = null
-        private var actionColor: StatefulValue<Color>? = null
+        private var backgroundBrush: StatefulValue<Brush>? = null
+        private var labelBrush: StatefulValue<Brush>? = null
+        private var valueBrush: StatefulValue<Brush>? = null
+        private var startContentBrush: StatefulValue<Brush>? = null
+        private var endContentBrush: StatefulValue<Brush>? = null
+        private var actionBrush: StatefulValue<Brush>? = null
 
-        override fun backgroundColor(backgroundColor: StatefulValue<Color>) = apply {
-            this.backgroundColor = backgroundColor
+        override fun backgroundBrush(backgroundBrush: StatefulValue<Brush>) = apply {
+            this.backgroundBrush = backgroundBrush
         }
 
-        override fun labelColor(labelColor: StatefulValue<Color>) = apply {
-            this.labelColor = labelColor
+        override fun labelBrush(labelBrush: StatefulValue<Brush>) = apply {
+            this.labelBrush = labelBrush
         }
 
-        override fun valueColor(valueColor: StatefulValue<Color>) = apply {
-            this.valueColor = valueColor
+        override fun valueBrush(valueBrush: StatefulValue<Brush>) = apply {
+            this.valueBrush = valueBrush
         }
 
-        override fun startContentColor(startContentColor: StatefulValue<Color>) = apply {
-            this.startContentColor = startContentColor
+        override fun startContentBrush(startContentBrush: StatefulValue<Brush>) = apply {
+            this.startContentBrush = startContentBrush
         }
 
-        override fun endContentColor(endContentColor: StatefulValue<Color>) = apply {
-            this.endContentColor = endContentColor
+        override fun endContentBrush(endContentBrush: StatefulValue<Brush>) = apply {
+            this.endContentBrush = endContentBrush
         }
 
-        override fun actionColor(actionColor: StatefulValue<Color>) = apply {
-            this.actionColor = actionColor
+        override fun actionBrush(actionBrush: StatefulValue<Brush>) = apply {
+            this.actionBrush = actionBrush
         }
 
         override fun build(): TabItemColors {
             return DefaultTabItemColors(
-                backgroundColor = backgroundColor
-                    ?: Color.Transparent.asStatefulValue(),
-                labelColor = labelColor
-                    ?: Color.Black.asStatefulValue(setOf(InteractiveState.Selected) to Color.DarkGray),
-                valueColor = valueColor
-                    ?: Color.Gray.asStatefulValue(setOf(InteractiveState.Selected) to Color.LightGray),
-                startContentColor = startContentColor
-                    ?: Color.DarkGray.asStatefulValue(setOf(InteractiveState.Selected) to Color.Gray),
-                endContentColor = endContentColor
-                    ?: Color.DarkGray.asStatefulValue(setOf(InteractiveState.Selected) to Color.Gray),
-                actionColor = actionColor
-                    ?: Color.DarkGray.asStatefulValue(setOf(InteractiveState.Selected) to Color.Gray),
+                backgroundBrush = backgroundBrush ?: Color.Transparent.asStatefulBrush(),
+                labelBrush = labelBrush ?: Color.Transparent.asStatefulBrush(),
+                valueBrush = valueBrush ?: Color.Transparent.asStatefulBrush(),
+                startContentBrush = startContentBrush ?: Color.Transparent.asStatefulBrush(),
+                endContentBrush = endContentBrush ?: Color.Transparent.asStatefulBrush(),
+                actionBrush = actionBrush ?: Color.Transparent.asStatefulBrush(),
             )
         }
     }

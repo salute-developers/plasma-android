@@ -25,18 +25,15 @@ import kotlin.Unit
 public enum class AvatarStyles(
     public val key: String,
 ) {
-    AvatarSize180("Avatar.Size180"),
     AvatarSize72("Avatar.Size72"),
     AvatarSize64("Avatar.Size64"),
     AvatarSize56("Avatar.Size56"),
-    AvatarSize48("Avatar.Size48"),
     AvatarSize44("Avatar.Size44"),
     AvatarSize40("Avatar.Size40"),
     AvatarSize36("Avatar.Size36"),
     AvatarSize32("Avatar.Size32"),
     AvatarSize26("Avatar.Size26"),
     AvatarSize24("Avatar.Size24"),
-    AvatarSize20("Avatar.Size20"),
 }
 
 /**
@@ -45,18 +42,15 @@ public enum class AvatarStyles(
 @Composable
 public fun AvatarStyles.style(modifyAction: @Composable AvatarStyleBuilder.() -> Unit = {}): AvatarStyle {
     val builder = when (this) {
-        AvatarStyles.AvatarSize180 -> Avatar.Size180
         AvatarStyles.AvatarSize72 -> Avatar.Size72
         AvatarStyles.AvatarSize64 -> Avatar.Size64
         AvatarStyles.AvatarSize56 -> Avatar.Size56
-        AvatarStyles.AvatarSize48 -> Avatar.Size48
         AvatarStyles.AvatarSize44 -> Avatar.Size44
         AvatarStyles.AvatarSize40 -> Avatar.Size40
         AvatarStyles.AvatarSize36 -> Avatar.Size36
         AvatarStyles.AvatarSize32 -> Avatar.Size32
         AvatarStyles.AvatarSize26 -> Avatar.Size26
         AvatarStyles.AvatarSize24 -> Avatar.Size24
-        AvatarStyles.AvatarSize20 -> Avatar.Size20
     }
     return builder.modify(modifyAction).style()
 }

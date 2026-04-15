@@ -8,10 +8,6 @@
          "styleName": "Avatar",
          "variations": [
             {
-               "name": "size-180",
-               "composeReference": "Avatar.Size180"
-            },
-            {
                "name": "size-72",
                "composeReference": "Avatar.Size72"
             },
@@ -22,10 +18,6 @@
             {
                "name": "size-56",
                "composeReference": "Avatar.Size56"
-            },
-            {
-               "name": "size-48",
-               "composeReference": "Avatar.Size48"
             },
             {
                "name": "size-44",
@@ -50,10 +42,44 @@
             {
                "name": "size-24",
                "composeReference": "Avatar.Size24"
+            }
+         ]
+      },
+      {
+         "key": "indicator",
+         "coreName": "Indicator",
+         "styleName": "AvatarIndicator",
+         "variations": [
+            {
+               "name": "size-14",
+               "composeReference": "AvatarIndicator.Size14"
             },
             {
-               "name": "size-20",
-               "composeReference": "Avatar.Size20"
+               "name": "size-12",
+               "composeReference": "AvatarIndicator.Size12"
+            },
+            {
+               "name": "size-10",
+               "composeReference": "AvatarIndicator.Size10"
+            },
+            {
+               "name": "size-8",
+               "composeReference": "AvatarIndicator.Size8"
+            },
+            {
+               "name": "size-6",
+               "composeReference": "AvatarIndicator.Size6"
+            }
+         ]
+      },
+      {
+         "key": "avatar-group",
+         "coreName": "AvatarGroup",
+         "styleName": "AvatarGroup",
+         "variations": [
+            {
+               "name": "size-24",
+               "composeReference": "AvatarGroup.Size24"
             }
          ]
       },
@@ -63,84 +89,164 @@
          "styleName": "BasicButton",
          "variations": [
             {
-               "name": "m.primary",
-               "composeReference": "BasicButton.M.Primary"
+               "name": "size-48.mode-primary",
+               "composeReference": "BasicButton.Size48.ModePrimary"
             },
             {
-               "name": "m.accent-filled",
-               "composeReference": "BasicButton.M.AccentFilled"
+               "name": "size-48.mode-accent-filled",
+               "composeReference": "BasicButton.Size48.ModeAccentFilled"
             },
             {
-               "name": "m.accent-white",
-               "composeReference": "BasicButton.M.AccentWhite"
+               "name": "size-48.mode-accent-white",
+               "composeReference": "BasicButton.Size48.ModeAccentWhite"
             },
             {
-               "name": "m.accent-grey",
-               "composeReference": "BasicButton.M.AccentGrey"
+               "name": "size-48.mode-accent-grey",
+               "composeReference": "BasicButton.Size48.ModeAccentGrey"
             },
             {
-               "name": "m.danger-tint",
-               "composeReference": "BasicButton.M.DangerTint"
+               "name": "size-48.mode-danger-tint",
+               "composeReference": "BasicButton.Size48.ModeDangerTint"
             },
             {
-               "name": "s.primary",
-               "composeReference": "BasicButton.S.Primary"
+               "name": "size-48.bg-no.mode-primary",
+               "composeReference": "BasicButton.Size48.BgNo.ModePrimary"
             },
             {
-               "name": "s.accent-filled",
-               "composeReference": "BasicButton.S.AccentFilled"
+               "name": "size-48.bg-no.mode-accent-filled",
+               "composeReference": "BasicButton.Size48.BgNo.ModeAccentFilled"
             },
             {
-               "name": "s.accent-white",
-               "composeReference": "BasicButton.S.AccentWhite"
+               "name": "size-48.bg-no.mode-accent-white",
+               "composeReference": "BasicButton.Size48.BgNo.ModeAccentWhite"
             },
             {
-               "name": "s.accent-grey",
-               "composeReference": "BasicButton.S.AccentGrey"
+               "name": "size-48.bg-no.mode-accent-grey",
+               "composeReference": "BasicButton.Size48.BgNo.ModeAccentGrey"
             },
             {
-               "name": "s.danger-tint",
-               "composeReference": "BasicButton.S.DangerTint"
+               "name": "size-48.bg-no.mode-danger-tint",
+               "composeReference": "BasicButton.Size48.BgNo.ModeDangerTint"
             },
             {
-               "name": "xs.primary",
-               "composeReference": "BasicButton.Xs.Primary"
+               "name": "size-40.mode-primary",
+               "composeReference": "BasicButton.Size40.ModePrimary"
             },
             {
-               "name": "xs.accent-filled",
-               "composeReference": "BasicButton.Xs.AccentFilled"
+               "name": "size-40.mode-accent-filled",
+               "composeReference": "BasicButton.Size40.ModeAccentFilled"
             },
             {
-               "name": "xs.accent-white",
-               "composeReference": "BasicButton.Xs.AccentWhite"
+               "name": "size-40.mode-accent-white",
+               "composeReference": "BasicButton.Size40.ModeAccentWhite"
             },
             {
-               "name": "xs.accent-grey",
-               "composeReference": "BasicButton.Xs.AccentGrey"
+               "name": "size-40.mode-accent-grey",
+               "composeReference": "BasicButton.Size40.ModeAccentGrey"
             },
             {
-               "name": "xs.danger-tint",
-               "composeReference": "BasicButton.Xs.DangerTint"
+               "name": "size-40.mode-danger-tint",
+               "composeReference": "BasicButton.Size40.ModeDangerTint"
             },
             {
-               "name": "xxs.primary",
-               "composeReference": "BasicButton.Xxs.Primary"
+               "name": "size-40.bg-no.mode-primary",
+               "composeReference": "BasicButton.Size40.BgNo.ModePrimary"
             },
             {
-               "name": "xxs.accent-filled",
-               "composeReference": "BasicButton.Xxs.AccentFilled"
+               "name": "size-40.bg-no.mode-accent-filled",
+               "composeReference": "BasicButton.Size40.BgNo.ModeAccentFilled"
             },
             {
-               "name": "xxs.accent-white",
-               "composeReference": "BasicButton.Xxs.AccentWhite"
+               "name": "size-40.bg-no.mode-accent-white",
+               "composeReference": "BasicButton.Size40.BgNo.ModeAccentWhite"
             },
             {
-               "name": "xxs.accent-grey",
-               "composeReference": "BasicButton.Xxs.AccentGrey"
+               "name": "size-40.bg-no.mode-accent-grey",
+               "composeReference": "BasicButton.Size40.BgNo.ModeAccentGrey"
             },
             {
-               "name": "xxs.danger-tint",
-               "composeReference": "BasicButton.Xxs.DangerTint"
+               "name": "size-40.bg-no.mode-danger-tint",
+               "composeReference": "BasicButton.Size40.BgNo.ModeDangerTint"
+            },
+            {
+               "name": "size-32.mode-primary",
+               "composeReference": "BasicButton.Size32.ModePrimary"
+            },
+            {
+               "name": "size-32.mode-accent-filled",
+               "composeReference": "BasicButton.Size32.ModeAccentFilled"
+            },
+            {
+               "name": "size-32.mode-accent-white",
+               "composeReference": "BasicButton.Size32.ModeAccentWhite"
+            },
+            {
+               "name": "size-32.mode-accent-grey",
+               "composeReference": "BasicButton.Size32.ModeAccentGrey"
+            },
+            {
+               "name": "size-32.mode-danger-tint",
+               "composeReference": "BasicButton.Size32.ModeDangerTint"
+            },
+            {
+               "name": "size-32.bg-no.mode-primary",
+               "composeReference": "BasicButton.Size32.BgNo.ModePrimary"
+            },
+            {
+               "name": "size-32.bg-no.mode-accent-filled",
+               "composeReference": "BasicButton.Size32.BgNo.ModeAccentFilled"
+            },
+            {
+               "name": "size-32.bg-no.mode-accent-white",
+               "composeReference": "BasicButton.Size32.BgNo.ModeAccentWhite"
+            },
+            {
+               "name": "size-32.bg-no.mode-accent-grey",
+               "composeReference": "BasicButton.Size32.BgNo.ModeAccentGrey"
+            },
+            {
+               "name": "size-32.bg-no.mode-danger-tint",
+               "composeReference": "BasicButton.Size32.BgNo.ModeDangerTint"
+            },
+            {
+               "name": "size-24.mode-primary",
+               "composeReference": "BasicButton.Size24.ModePrimary"
+            },
+            {
+               "name": "size-24.mode-accent-filled",
+               "composeReference": "BasicButton.Size24.ModeAccentFilled"
+            },
+            {
+               "name": "size-24.mode-accent-white",
+               "composeReference": "BasicButton.Size24.ModeAccentWhite"
+            },
+            {
+               "name": "size-24.mode-accent-grey",
+               "composeReference": "BasicButton.Size24.ModeAccentGrey"
+            },
+            {
+               "name": "size-24.mode-danger-tint",
+               "composeReference": "BasicButton.Size24.ModeDangerTint"
+            },
+            {
+               "name": "size-24.bg-no.mode-primary",
+               "composeReference": "BasicButton.Size24.BgNo.ModePrimary"
+            },
+            {
+               "name": "size-24.bg-no.mode-accent-filled",
+               "composeReference": "BasicButton.Size24.BgNo.ModeAccentFilled"
+            },
+            {
+               "name": "size-24.bg-no.mode-accent-white",
+               "composeReference": "BasicButton.Size24.BgNo.ModeAccentWhite"
+            },
+            {
+               "name": "size-24.bg-no.mode-accent-grey",
+               "composeReference": "BasicButton.Size24.BgNo.ModeAccentGrey"
+            },
+            {
+               "name": "size-24.bg-no.mode-danger-tint",
+               "composeReference": "BasicButton.Size24.BgNo.ModeDangerTint"
             }
          ]
       },
@@ -150,110 +256,100 @@
          "styleName": "IconButton",
          "variations": [
             {
-               "name": "m.accent-filled",
-               "composeReference": "IconButton.M.AccentFilled"
+               "name": "size-48.mode-accent-filled",
+               "composeReference": "IconButton.Size48.ModeAccentFilled"
             },
             {
-               "name": "m.accent-grey",
-               "composeReference": "IconButton.M.AccentGrey"
+               "name": "size-48.mode-accent-grey",
+               "composeReference": "IconButton.Size48.ModeAccentGrey"
             },
             {
-               "name": "m.danger-tint",
-               "composeReference": "IconButton.M.DangerTint"
+               "name": "size-48.mode-danger-tint",
+               "composeReference": "IconButton.Size48.ModeDangerTint"
             },
             {
-               "name": "s.accent-filled",
-               "composeReference": "IconButton.S.AccentFilled"
+               "name": "size-48.bg-no.mode-accent-filled",
+               "composeReference": "IconButton.Size48.BgNo.ModeAccentFilled"
             },
             {
-               "name": "s.accent-grey",
-               "composeReference": "IconButton.S.AccentGrey"
+               "name": "size-48.bg-no.mode-accent-grey",
+               "composeReference": "IconButton.Size48.BgNo.ModeAccentGrey"
             },
             {
-               "name": "s.danger-tint",
-               "composeReference": "IconButton.S.DangerTint"
+               "name": "size-48.bg-no.mode-danger-tint",
+               "composeReference": "IconButton.Size48.BgNo.ModeDangerTint"
             },
             {
-               "name": "xs.accent-filled",
-               "composeReference": "IconButton.Xs.AccentFilled"
+               "name": "size-40.mode-accent-filled",
+               "composeReference": "IconButton.Size40.ModeAccentFilled"
             },
             {
-               "name": "xs.accent-grey",
-               "composeReference": "IconButton.Xs.AccentGrey"
+               "name": "size-40.mode-accent-grey",
+               "composeReference": "IconButton.Size40.ModeAccentGrey"
             },
             {
-               "name": "xs.danger-tint",
-               "composeReference": "IconButton.Xs.DangerTint"
-            }
-         ]
-      },
-      {
-         "key": "icon-button",
-         "coreName": "IconButton",
-         "styleName": "IconButtonClear",
-         "variations": [
-            {
-               "name": "m.accent",
-               "composeReference": "IconButtonClear.M.Accent"
+               "name": "size-40.mode-danger-tint",
+               "composeReference": "IconButton.Size40.ModeDangerTint"
             },
             {
-               "name": "m.danger-tint",
-               "composeReference": "IconButtonClear.M.DangerTint"
+               "name": "size-40.bg-no.mode-accent-filled",
+               "composeReference": "IconButton.Size40.BgNo.ModeAccentFilled"
             },
             {
-               "name": "s.accent",
-               "composeReference": "IconButtonClear.S.Accent"
+               "name": "size-40.bg-no.mode-accent-grey",
+               "composeReference": "IconButton.Size40.BgNo.ModeAccentGrey"
             },
             {
-               "name": "s.danger-tint",
-               "composeReference": "IconButtonClear.S.DangerTint"
+               "name": "size-40.bg-no.mode-danger-tint",
+               "composeReference": "IconButton.Size40.BgNo.ModeDangerTint"
             },
             {
-               "name": "xs.accent",
-               "composeReference": "IconButtonClear.Xs.Accent"
+               "name": "size-32.mode-accent-filled",
+               "composeReference": "IconButton.Size32.ModeAccentFilled"
             },
             {
-               "name": "xs.danger-tint",
-               "composeReference": "IconButtonClear.Xs.DangerTint"
-            }
-         ]
-      },
-      {
-         "key": "link-button",
-         "coreName": "LinkButton",
-         "styleName": "LinkButton",
-         "variations": [
-            {
-               "name": "m.accent",
-               "composeReference": "LinkButton.M.Accent"
+               "name": "size-32.mode-accent-grey",
+               "composeReference": "IconButton.Size32.ModeAccentGrey"
             },
             {
-               "name": "m.danger-tint",
-               "composeReference": "LinkButton.M.DangerTint"
+               "name": "size-32.mode-danger-tint",
+               "composeReference": "IconButton.Size32.ModeDangerTint"
             },
             {
-               "name": "s.accent",
-               "composeReference": "LinkButton.S.Accent"
+               "name": "size-32.bg-no.mode-accent-filled",
+               "composeReference": "IconButton.Size32.BgNo.ModeAccentFilled"
             },
             {
-               "name": "s.danger-tint",
-               "composeReference": "LinkButton.S.DangerTint"
+               "name": "size-32.bg-no.mode-accent-grey",
+               "composeReference": "IconButton.Size32.BgNo.ModeAccentGrey"
             },
             {
-               "name": "xs.accent",
-               "composeReference": "LinkButton.Xs.Accent"
+               "name": "size-32.bg-no.mode-danger-tint",
+               "composeReference": "IconButton.Size32.BgNo.ModeDangerTint"
             },
             {
-               "name": "xs.danger-tint",
-               "composeReference": "LinkButton.Xs.DangerTint"
+               "name": "size-24.mode-accent-filled",
+               "composeReference": "IconButton.Size24.ModeAccentFilled"
             },
             {
-               "name": "xxs.accent",
-               "composeReference": "LinkButton.Xxs.Accent"
+               "name": "size-24.mode-accent-grey",
+               "composeReference": "IconButton.Size24.ModeAccentGrey"
             },
             {
-               "name": "xxs.danger-tint",
-               "composeReference": "LinkButton.Xxs.DangerTint"
+               "name": "size-24.mode-danger-tint",
+               "composeReference": "IconButton.Size24.ModeDangerTint"
+            },
+            {
+               "name": "size-24.bg-no.mode-accent-filled",
+               "composeReference": "IconButton.Size24.BgNo.ModeAccentFilled"
+            },
+            {
+               "name": "size-24.bg-no.mode-accent-grey",
+               "composeReference": "IconButton.Size24.BgNo.ModeAccentGrey"
+            },
+            {
+               "name": "size-24.bg-no.mode-danger-tint",
+               "composeReference": "IconButton.Size24.BgNo.ModeDangerTint"
             }
          ]
       },
@@ -285,12 +381,12 @@
          "styleName": "Chip",
          "variations": [
             {
-               "name": "default",
-               "composeReference": "Chip.Default"
+               "name": "chip-slot-padding",
+               "composeReference": "Chip.ChipSlotPadding"
             },
             {
-               "name": "has-content-start",
-               "composeReference": "Chip.HasContentStart"
+               "name": "chip-slot-avatar",
+               "composeReference": "Chip.ChipSlotAvatar"
             }
          ]
       },
@@ -300,12 +396,12 @@
          "styleName": "ChipGroup",
          "variations": [
             {
-               "name": "default",
-               "composeReference": "ChipGroup.Default"
+               "name": "chip-slot-padding",
+               "composeReference": "ChipGroup.ChipSlotPadding"
             },
             {
-               "name": "has-content-start",
-               "composeReference": "ChipGroup.HasContentStart"
+               "name": "chip-slot-avatar",
+               "composeReference": "ChipGroup.ChipSlotAvatar"
             }
          ]
       },
@@ -315,20 +411,34 @@
          "styleName": "Counter",
          "variations": [
             {
-               "name": "primary",
-               "composeReference": "Counter.Primary"
+               "name": "mute-no",
+               "composeReference": "Counter.MuteNo"
             },
             {
-               "name": "secondary",
-               "composeReference": "Counter.Secondary"
-            },
+               "name": "mute-yes",
+               "composeReference": "Counter.MuteYes"
+            }
+         ]
+      },
+      {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "TabBarCounter",
+         "variations": [
             {
-               "name": "accent",
-               "composeReference": "Counter.Accent"
-            },
+               "name": "Default",
+               "composeReference": "TabBarCounter.Default"
+            }
+         ]
+      },
+      {
+         "key": "counter",
+         "coreName": "Counter",
+         "styleName": "TabItemFolderCounter",
+         "variations": [
             {
-               "name": "danger",
-               "composeReference": "Counter.Danger"
+               "name": "Default",
+               "composeReference": "TabItemFolderCounter.Default"
             }
          ]
       },
@@ -349,24 +459,24 @@
          "styleName": "Indicator",
          "variations": [
             {
-               "name": "success",
-               "composeReference": "Indicator.Success"
+               "name": "state-success",
+               "composeReference": "Indicator.StateSuccess"
             },
             {
-               "name": "global-white",
-               "composeReference": "Indicator.GlobalWhite"
+               "name": "state-global-white",
+               "composeReference": "Indicator.StateGlobalWhite"
             },
             {
-               "name": "mute",
-               "composeReference": "Indicator.Mute"
+               "name": "state-mute",
+               "composeReference": "Indicator.StateMute"
             },
             {
-               "name": "danger",
-               "composeReference": "Indicator.Danger"
+               "name": "state-danger",
+               "composeReference": "Indicator.StateDanger"
             },
             {
-               "name": "warning",
-               "composeReference": "Indicator.Warning"
+               "name": "state-warning",
+               "composeReference": "Indicator.StateWarning"
             }
          ]
       },
@@ -376,8 +486,84 @@
          "styleName": "Loader",
          "variations": [
             {
-               "name": "Default",
-               "composeReference": "Loader.Default"
+               "name": "size-40.mode-color-primary",
+               "composeReference": "Loader.Size40.ModeColorPrimary"
+            },
+            {
+               "name": "size-40.mode-color-secondary",
+               "composeReference": "Loader.Size40.ModeColorSecondary"
+            },
+            {
+               "name": "size-40.mode-color-global-white",
+               "composeReference": "Loader.Size40.ModeColorGlobalWhite"
+            },
+            {
+               "name": "size-40.mode-color-accent",
+               "composeReference": "Loader.Size40.ModeColorAccent"
+            },
+            {
+               "name": "size-40.mode-color-danger",
+               "composeReference": "Loader.Size40.ModeColorDanger"
+            },
+            {
+               "name": "size-32.mode-color-primary",
+               "composeReference": "Loader.Size32.ModeColorPrimary"
+            },
+            {
+               "name": "size-32.mode-color-secondary",
+               "composeReference": "Loader.Size32.ModeColorSecondary"
+            },
+            {
+               "name": "size-32.mode-color-global-white",
+               "composeReference": "Loader.Size32.ModeColorGlobalWhite"
+            },
+            {
+               "name": "size-32.mode-color-accent",
+               "composeReference": "Loader.Size32.ModeColorAccent"
+            },
+            {
+               "name": "size-32.mode-color-danger",
+               "composeReference": "Loader.Size32.ModeColorDanger"
+            },
+            {
+               "name": "size-24.mode-color-primary",
+               "composeReference": "Loader.Size24.ModeColorPrimary"
+            },
+            {
+               "name": "size-24.mode-color-secondary",
+               "composeReference": "Loader.Size24.ModeColorSecondary"
+            },
+            {
+               "name": "size-24.mode-color-global-white",
+               "composeReference": "Loader.Size24.ModeColorGlobalWhite"
+            },
+            {
+               "name": "size-24.mode-color-accent",
+               "composeReference": "Loader.Size24.ModeColorAccent"
+            },
+            {
+               "name": "size-24.mode-color-danger",
+               "composeReference": "Loader.Size24.ModeColorDanger"
+            },
+            {
+               "name": "size-16.mode-color-primary",
+               "composeReference": "Loader.Size16.ModeColorPrimary"
+            },
+            {
+               "name": "size-16.mode-color-secondary",
+               "composeReference": "Loader.Size16.ModeColorSecondary"
+            },
+            {
+               "name": "size-16.mode-color-global-white",
+               "composeReference": "Loader.Size16.ModeColorGlobalWhite"
+            },
+            {
+               "name": "size-16.mode-color-accent",
+               "composeReference": "Loader.Size16.ModeColorAccent"
+            },
+            {
+               "name": "size-16.mode-color-danger",
+               "composeReference": "Loader.Size16.ModeColorDanger"
             }
          ]
       },
@@ -398,104 +584,84 @@
          "styleName": "CircularProgressBar",
          "variations": [
             {
-               "name": "xxl.primary",
-               "composeReference": "CircularProgressBar.Xxl.Primary"
+               "name": "size-40.mode-color-primary",
+               "composeReference": "CircularProgressBar.Size40.ModeColorPrimary"
             },
             {
-               "name": "xxl.secondary",
-               "composeReference": "CircularProgressBar.Xxl.Secondary"
+               "name": "size-40.mode-color-secondary",
+               "composeReference": "CircularProgressBar.Size40.ModeColorSecondary"
             },
             {
-               "name": "xxl.global-white",
-               "composeReference": "CircularProgressBar.Xxl.GlobalWhite"
+               "name": "size-40.mode-color-global-white",
+               "composeReference": "CircularProgressBar.Size40.ModeColorGlobalWhite"
             },
             {
-               "name": "xxl.accent",
-               "composeReference": "CircularProgressBar.Xxl.Accent"
+               "name": "size-40.mode-color-accent",
+               "composeReference": "CircularProgressBar.Size40.ModeColorAccent"
             },
             {
-               "name": "xxl.danger",
-               "composeReference": "CircularProgressBar.Xxl.Danger"
+               "name": "size-40.mode-color-danger",
+               "composeReference": "CircularProgressBar.Size40.ModeColorDanger"
             },
             {
-               "name": "m.primary",
-               "composeReference": "CircularProgressBar.M.Primary"
+               "name": "size-32.mode-color-primary",
+               "composeReference": "CircularProgressBar.Size32.ModeColorPrimary"
             },
             {
-               "name": "m.secondary",
-               "composeReference": "CircularProgressBar.M.Secondary"
+               "name": "size-32.mode-color-secondary",
+               "composeReference": "CircularProgressBar.Size32.ModeColorSecondary"
             },
             {
-               "name": "m.global-white",
-               "composeReference": "CircularProgressBar.M.GlobalWhite"
+               "name": "size-32.mode-color-global-white",
+               "composeReference": "CircularProgressBar.Size32.ModeColorGlobalWhite"
             },
             {
-               "name": "m.accent",
-               "composeReference": "CircularProgressBar.M.Accent"
+               "name": "size-32.mode-color-accent",
+               "composeReference": "CircularProgressBar.Size32.ModeColorAccent"
             },
             {
-               "name": "m.danger",
-               "composeReference": "CircularProgressBar.M.Danger"
+               "name": "size-32.mode-color-danger",
+               "composeReference": "CircularProgressBar.Size32.ModeColorDanger"
             },
             {
-               "name": "s.primary",
-               "composeReference": "CircularProgressBar.S.Primary"
+               "name": "size-24.mode-color-primary",
+               "composeReference": "CircularProgressBar.Size24.ModeColorPrimary"
             },
             {
-               "name": "s.secondary",
-               "composeReference": "CircularProgressBar.S.Secondary"
+               "name": "size-24.mode-color-secondary",
+               "composeReference": "CircularProgressBar.Size24.ModeColorSecondary"
             },
             {
-               "name": "s.global-white",
-               "composeReference": "CircularProgressBar.S.GlobalWhite"
+               "name": "size-24.mode-color-global-white",
+               "composeReference": "CircularProgressBar.Size24.ModeColorGlobalWhite"
             },
             {
-               "name": "s.accent",
-               "composeReference": "CircularProgressBar.S.Accent"
+               "name": "size-24.mode-color-accent",
+               "composeReference": "CircularProgressBar.Size24.ModeColorAccent"
             },
             {
-               "name": "s.danger",
-               "composeReference": "CircularProgressBar.S.Danger"
+               "name": "size-24.mode-color-danger",
+               "composeReference": "CircularProgressBar.Size24.ModeColorDanger"
             },
             {
-               "name": "xs.primary",
-               "composeReference": "CircularProgressBar.Xs.Primary"
+               "name": "size-16.mode-color-primary",
+               "composeReference": "CircularProgressBar.Size16.ModeColorPrimary"
             },
             {
-               "name": "xs.secondary",
-               "composeReference": "CircularProgressBar.Xs.Secondary"
+               "name": "size-16.mode-color-secondary",
+               "composeReference": "CircularProgressBar.Size16.ModeColorSecondary"
             },
             {
-               "name": "xs.global-white",
-               "composeReference": "CircularProgressBar.Xs.GlobalWhite"
+               "name": "size-16.mode-color-global-white",
+               "composeReference": "CircularProgressBar.Size16.ModeColorGlobalWhite"
             },
             {
-               "name": "xs.accent",
-               "composeReference": "CircularProgressBar.Xs.Accent"
+               "name": "size-16.mode-color-accent",
+               "composeReference": "CircularProgressBar.Size16.ModeColorAccent"
             },
             {
-               "name": "xs.danger",
-               "composeReference": "CircularProgressBar.Xs.Danger"
-            },
-            {
-               "name": "xxs.primary",
-               "composeReference": "CircularProgressBar.Xxs.Primary"
-            },
-            {
-               "name": "xxs.secondary",
-               "composeReference": "CircularProgressBar.Xxs.Secondary"
-            },
-            {
-               "name": "xxs.global-white",
-               "composeReference": "CircularProgressBar.Xxs.GlobalWhite"
-            },
-            {
-               "name": "xxs.accent",
-               "composeReference": "CircularProgressBar.Xxs.Accent"
-            },
-            {
-               "name": "xxs.danger",
-               "composeReference": "CircularProgressBar.Xxs.Danger"
+               "name": "size-16.mode-color-danger",
+               "composeReference": "CircularProgressBar.Size16.ModeColorDanger"
             }
          ]
       },
@@ -505,20 +671,8 @@
          "styleName": "Popover",
          "variations": [
             {
-               "name": "m.default",
-               "composeReference": "Popover.M.Default"
-            },
-            {
-               "name": "m.accent",
-               "composeReference": "Popover.M.Accent"
-            },
-            {
-               "name": "s.default",
-               "composeReference": "Popover.S.Default"
-            },
-            {
-               "name": "s.accent",
-               "composeReference": "Popover.S.Accent"
+               "name": "Default",
+               "composeReference": "Popover.Default"
             }
          ]
       },
@@ -530,28 +684,6 @@
             {
                "name": "Default",
                "composeReference": "RadioBox.Default"
-            }
-         ]
-      },
-      {
-         "key": "segment",
-         "coreName": "Segment",
-         "styleName": "Segment",
-         "variations": [
-            {
-               "name": "Default",
-               "composeReference": "Segment.Default"
-            }
-         ]
-      },
-      {
-         "key": "segment-item",
-         "coreName": "SegmentItem",
-         "styleName": "SegmentItem",
-         "variations": [
-            {
-               "name": "Default",
-               "composeReference": "SegmentItem.Default"
             }
          ]
       },
@@ -572,12 +704,8 @@
          "styleName": "TextField",
          "variations": [
             {
-               "name": "default",
+               "name": "Default",
                "composeReference": "TextField.Default"
-            },
-            {
-               "name": "error",
-               "composeReference": "TextField.Error"
             }
          ]
       },
@@ -624,84 +752,84 @@
          "styleName": "Spinner",
          "variations": [
             {
-               "name": "m.primary",
-               "composeReference": "Spinner.M.Primary"
+               "name": "size-40.mode-color-primary",
+               "composeReference": "Spinner.Size40.ModeColorPrimary"
             },
             {
-               "name": "m.secondary",
-               "composeReference": "Spinner.M.Secondary"
+               "name": "size-40.mode-color-secondary",
+               "composeReference": "Spinner.Size40.ModeColorSecondary"
             },
             {
-               "name": "m.global-white",
-               "composeReference": "Spinner.M.GlobalWhite"
+               "name": "size-40.mode-color-global-white",
+               "composeReference": "Spinner.Size40.ModeColorGlobalWhite"
             },
             {
-               "name": "m.accent",
-               "composeReference": "Spinner.M.Accent"
+               "name": "size-40.mode-color-accent",
+               "composeReference": "Spinner.Size40.ModeColorAccent"
             },
             {
-               "name": "m.danger",
-               "composeReference": "Spinner.M.Danger"
+               "name": "size-40.mode-color-danger",
+               "composeReference": "Spinner.Size40.ModeColorDanger"
             },
             {
-               "name": "s.primary",
-               "composeReference": "Spinner.S.Primary"
+               "name": "size-32.mode-color-primary",
+               "composeReference": "Spinner.Size32.ModeColorPrimary"
             },
             {
-               "name": "s.secondary",
-               "composeReference": "Spinner.S.Secondary"
+               "name": "size-32.mode-color-secondary",
+               "composeReference": "Spinner.Size32.ModeColorSecondary"
             },
             {
-               "name": "s.global-white",
-               "composeReference": "Spinner.S.GlobalWhite"
+               "name": "size-32.mode-color-global-white",
+               "composeReference": "Spinner.Size32.ModeColorGlobalWhite"
             },
             {
-               "name": "s.accent",
-               "composeReference": "Spinner.S.Accent"
+               "name": "size-32.mode-color-accent",
+               "composeReference": "Spinner.Size32.ModeColorAccent"
             },
             {
-               "name": "s.danger",
-               "composeReference": "Spinner.S.Danger"
+               "name": "size-32.mode-color-danger",
+               "composeReference": "Spinner.Size32.ModeColorDanger"
             },
             {
-               "name": "xs.primary",
-               "composeReference": "Spinner.Xs.Primary"
+               "name": "size-24.mode-color-primary",
+               "composeReference": "Spinner.Size24.ModeColorPrimary"
             },
             {
-               "name": "xs.secondary",
-               "composeReference": "Spinner.Xs.Secondary"
+               "name": "size-24.mode-color-secondary",
+               "composeReference": "Spinner.Size24.ModeColorSecondary"
             },
             {
-               "name": "xs.global-white",
-               "composeReference": "Spinner.Xs.GlobalWhite"
+               "name": "size-24.mode-color-global-white",
+               "composeReference": "Spinner.Size24.ModeColorGlobalWhite"
             },
             {
-               "name": "xs.accent",
-               "composeReference": "Spinner.Xs.Accent"
+               "name": "size-24.mode-color-accent",
+               "composeReference": "Spinner.Size24.ModeColorAccent"
             },
             {
-               "name": "xs.danger",
-               "composeReference": "Spinner.Xs.Danger"
+               "name": "size-24.mode-color-danger",
+               "composeReference": "Spinner.Size24.ModeColorDanger"
             },
             {
-               "name": "xxs.primary",
-               "composeReference": "Spinner.Xxs.Primary"
+               "name": "size-16.mode-color-primary",
+               "composeReference": "Spinner.Size16.ModeColorPrimary"
             },
             {
-               "name": "xxs.secondary",
-               "composeReference": "Spinner.Xxs.Secondary"
+               "name": "size-16.mode-color-secondary",
+               "composeReference": "Spinner.Size16.ModeColorSecondary"
             },
             {
-               "name": "xxs.global-white",
-               "composeReference": "Spinner.Xxs.GlobalWhite"
+               "name": "size-16.mode-color-global-white",
+               "composeReference": "Spinner.Size16.ModeColorGlobalWhite"
             },
             {
-               "name": "xxs.accent",
-               "composeReference": "Spinner.Xxs.Accent"
+               "name": "size-16.mode-color-accent",
+               "composeReference": "Spinner.Size16.ModeColorAccent"
             },
             {
-               "name": "xxs.danger",
-               "composeReference": "Spinner.Xxs.Danger"
+               "name": "size-16.mode-color-danger",
+               "composeReference": "Spinner.Size16.ModeColorDanger"
             }
          ]
       },
@@ -724,6 +852,28 @@
             {
                "name": "Default",
                "composeReference": "DropdownMenuItem.Default"
+            }
+         ]
+      },
+      {
+         "key": "list",
+         "coreName": "List",
+         "styleName": "List",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "List.Default"
+            }
+         ]
+      },
+      {
+         "key": "list-item",
+         "coreName": "ListItem",
+         "styleName": "ListItem",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "ListItem.Default"
             }
          ]
       },
@@ -834,6 +984,55 @@
             {
                "name": "Default",
                "composeReference": "CollapsingNavigationBarInternalPage.Default"
+            }
+         ]
+      },
+      {
+         "key": "text-field",
+         "coreName": "TextField",
+         "styleName": "SearchBar",
+         "variations": [
+            {
+               "name": "Default",
+               "composeReference": "SearchBar.Default"
+            }
+         ]
+      },
+      {
+         "key": "icon-badge",
+         "coreName": "IconBadge",
+         "styleName": "Mention",
+         "variations": [
+            {
+               "name": "mute-no",
+               "composeReference": "Mention.MuteNo"
+            },
+            {
+               "name": "mute-yes",
+               "composeReference": "Mention.MuteYes"
+            }
+         ]
+      },
+      {
+         "key": "icon-badge",
+         "coreName": "IconBadge",
+         "styleName": "VoiceChatBadge",
+         "variations": [
+            {
+               "name": "size-20",
+               "composeReference": "VoiceChatBadge.Size20"
+            },
+            {
+               "name": "size-18",
+               "composeReference": "VoiceChatBadge.Size18"
+            },
+            {
+               "name": "size-16",
+               "composeReference": "VoiceChatBadge.Size16"
+            },
+            {
+               "name": "size-14",
+               "composeReference": "VoiceChatBadge.Size14"
             }
          ]
       }
