@@ -6,4 +6,6 @@
 :sdds-core:docs-ksp
 :sdds-core:docs-views
 :integration-core:uikit-compose-fixtures
+:integration-core:uikit-compose-testcases
 :integration-core:uikit-fixtures
+:integration-core:uikit-testcases
