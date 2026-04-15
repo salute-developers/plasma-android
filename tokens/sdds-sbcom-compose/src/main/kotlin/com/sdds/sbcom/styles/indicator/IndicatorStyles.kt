@@ -32,7 +32,7 @@ public value class WrapperIndicatorTerminate(
     public override val builder: IndicatorStyleBuilder,
 ) : WrapperIndicator
 
-public val Indicator.Success: WrapperIndicatorTerminate
+public val Indicator.StateSuccess: WrapperIndicatorTerminate
     @Composable
     get() = IndicatorStyle.builder(this)
         .invariantProps
@@ -43,29 +43,29 @@ public val Indicator.Success: WrapperIndicatorTerminate
         }
         .wrap(::WrapperIndicatorTerminate)
 
-public val Indicator.GlobalWhite: WrapperIndicatorTerminate
+public val Indicator.StateGlobalWhite: WrapperIndicatorTerminate
     @Composable
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
             backgroundColor(
-                SddsSbComTheme.colors.textOnDarkPrimary.asInteractive(),
+                SddsSbComTheme.colors.surfaceDefaultSolidPrimary.asInteractive(),
             )
         }
         .wrap(::WrapperIndicatorTerminate)
 
-public val Indicator.Mute: WrapperIndicatorTerminate
+public val Indicator.StateMute: WrapperIndicatorTerminate
     @Composable
     get() = IndicatorStyle.builder(this)
         .invariantProps
         .color {
             backgroundColor(
-                SddsSbComTheme.colors.textDefaultTertiary.asInteractive(),
+                SddsSbComTheme.colors.textDefaultParagraph.asInteractive(),
             )
         }
         .wrap(::WrapperIndicatorTerminate)
 
-public val Indicator.Danger: WrapperIndicatorTerminate
+public val Indicator.StateDanger: WrapperIndicatorTerminate
     @Composable
     get() = IndicatorStyle.builder(this)
         .invariantProps
@@ -76,7 +76,7 @@ public val Indicator.Danger: WrapperIndicatorTerminate
         }
         .wrap(::WrapperIndicatorTerminate)
 
-public val Indicator.Warning: WrapperIndicatorTerminate
+public val Indicator.StateWarning: WrapperIndicatorTerminate
     @Composable
     get() = IndicatorStyle.builder(this)
         .invariantProps

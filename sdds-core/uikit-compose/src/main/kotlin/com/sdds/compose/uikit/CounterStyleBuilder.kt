@@ -5,12 +5,16 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.graphics.brush.asStatefulBrush
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulBrush
 import com.sdds.compose.uikit.style.StyleBuilder
 
 /**
@@ -58,32 +62,44 @@ interface CounterStyleBuilder : StyleBuilder<CounterStyle> {
 interface CounterColorsBuilder {
 
     /**
-     * Устанавливает цвет фона компонента [backgroundColor]
+     * Устанавливает цвет фона компонента [backgroundBrush]
      * @see CounterColors.backgroundColor
      * @see InteractiveColor
      */
-    fun backgroundColor(bColor: InteractiveColor): CounterColorsBuilder
+    fun backgroundColor(bColor: InteractiveColor): CounterColorsBuilder =
+        backgroundBrush(bColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона компонента [backgroundColor]
+     * Устанавливает цвет фона компонента [backgroundBrush]
      * @see CounterColors.backgroundColor
      */
     fun backgroundColor(bColor: Color): CounterColorsBuilder =
-        backgroundColor(bColor.asInteractive())
+        backgroundBrush(bColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона компонента [textColor]
+     * Устанавливает кисть фона компонента [brush]
+     */
+    fun backgroundBrush(brush: StatefulValue<Brush>): CounterColorsBuilder
+
+    /**
+     * Устанавливает цвет текста компонента [textBrush]
      * @see CounterColors.textColor
      * @see InteractiveColor
      */
-    fun textColor(tColor: InteractiveColor): CounterColorsBuilder
+    fun textColor(tColor: InteractiveColor): CounterColorsBuilder =
+        textBrush(tColor.asStatefulBrush())
 
     /**
-     * Устанавливает цвет фона компонента [textColor]
+     * Устанавливает цвет текста компонента [textBrush]
      * @see CounterColors.textColor
      */
     fun textColor(tColor: Color): CounterColorsBuilder =
-        textColor(tColor.asInteractive())
+        textBrush(tColor.asStatefulBrush())
+
+    /**
+     * Устанавливает ксить текста компонента [brush]
+     */
+    fun textBrush(brush: StatefulValue<Brush>): CounterColorsBuilder
 
     /**
      * Возвращает готовый экземпляр [CounterColors]
@@ -182,25 +198,32 @@ private class DefaultCounterDimensions(
 
 @Immutable
 private class DefaultCounterColors(
-    override val backgroundColor: InteractiveColor,
-    override val textColor: InteractiveColor,
+    override val backgroundBrush: StatefulValue<Brush>,
+    override val textBrush: StatefulValue<Brush>,
 ) : CounterColors {
-    class Builder : CounterColorsBuilder {
-        private var backgroundColor: InteractiveColor? = null
-        private var textColor: InteractiveColor? = null
 
-        override fun backgroundColor(bColor: InteractiveColor): CounterColorsBuilder = apply {
-            this.backgroundColor = bColor
+    @Deprecated("Use backgroundBrush")
+    override val backgroundColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    @Deprecated("Use textBrush")
+    override val textColor: InteractiveColor = Color.Transparent.asInteractive()
+
+    class Builder : CounterColorsBuilder {
+        private var backgroundColor: StatefulValue<Brush>? = null
+        private var textColor: StatefulValue<Brush>? = null
+
+        override fun backgroundBrush(brush: StatefulValue<Brush>) = apply {
+            this.backgroundColor = brush
         }
 
-        override fun textColor(tColor: InteractiveColor): CounterColorsBuilder = apply {
-            this.textColor = tColor
+        override fun textBrush(brush: StatefulValue<Brush>) = apply {
+            this.textColor = brush
         }
 
         override fun build(): CounterColors {
             return DefaultCounterColors(
-                backgroundColor = backgroundColor ?: Color.Black.asInteractive(),
-                textColor = textColor ?: Color.White.asInteractive(),
+                backgroundBrush = backgroundColor ?: Color.Black.asStatefulBrush(),
+                textBrush = textColor ?: Color.White.asStatefulBrush(),
             )
         }
     }

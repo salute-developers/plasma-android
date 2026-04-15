@@ -66,8 +66,8 @@ tasks.withType<Detekt>().configureEach {
             required.set(false)
         }
     }
-    exclude("**/resources/**", "**/build/**")
     include("**/*.kt")
+    exclude("**/resources/**", "**/build/**", "**/tokens/*.kt", "**/theme/*.kt", "**/styles/*.kt")
 }
 
 tasks.withType<Detekt>().configureEach {

@@ -25,8 +25,8 @@ import kotlin.Unit
 public enum class ChipGroupStyles(
     public val key: String,
 ) {
-    ChipGroupDefault("ChipGroup.Default"),
-    ChipGroupHasContentStart("ChipGroup.HasContentStart"),
+    ChipGroupChipSlotPadding("ChipGroup.ChipSlotPadding"),
+    ChipGroupChipSlotAvatar("ChipGroup.ChipSlotAvatar"),
 }
 
 /**
@@ -35,8 +35,8 @@ public enum class ChipGroupStyles(
 @Composable
 public fun ChipGroupStyles.style(modifyAction: @Composable ChipGroupStyleBuilder.() -> Unit = {}): ChipGroupStyle {
     val builder = when (this) {
-        ChipGroupStyles.ChipGroupDefault -> ChipGroup.Default
-        ChipGroupStyles.ChipGroupHasContentStart -> ChipGroup.HasContentStart
+        ChipGroupStyles.ChipGroupChipSlotPadding -> ChipGroup.ChipSlotPadding
+        ChipGroupStyles.ChipGroupChipSlotAvatar -> ChipGroup.ChipSlotAvatar
     }
     return builder.modify(modifyAction).style()
 }

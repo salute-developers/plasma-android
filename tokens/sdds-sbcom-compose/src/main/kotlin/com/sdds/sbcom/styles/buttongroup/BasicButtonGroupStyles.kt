@@ -15,9 +15,9 @@ import com.sdds.compose.uikit.ButtonGroupStyleBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.sbcom.styles.basicbutton.AccentGrey
 import com.sdds.sbcom.styles.basicbutton.BasicButton
-import com.sdds.sbcom.styles.basicbutton.M
+import com.sdds.sbcom.styles.basicbutton.ModeAccentGrey
+import com.sdds.sbcom.styles.basicbutton.Size40
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -44,5 +44,5 @@ public val BasicButtonGroup.Default: WrapperBasicButtonGroupDefault
         .dimensions {
             spacing(8.0.dp)
         }
-        .buttonStyle(BasicButton.M.AccentGrey.style())
+        .buttonStyle(BasicButton.Size40.ModeAccentGrey.style())
         .wrap(::WrapperBasicButtonGroupDefault)

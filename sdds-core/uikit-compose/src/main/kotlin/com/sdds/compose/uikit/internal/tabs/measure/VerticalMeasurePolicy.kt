@@ -6,8 +6,8 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.Constraints
-import com.sdds.compose.uikit.Tabs
 import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.tabs.Tabs
 import com.sdds.compose.uikit.internal.widthOrZero
 
 internal class VerticalMeasurePolicy : MeasurePolicy {

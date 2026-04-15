@@ -48,7 +48,7 @@ public val DropdownMenu.Default: WrapperDropdownMenuDefault
         .shadow(SddsSbComTheme.shadows.downHardM)
         .colors {
             backgroundColor(
-                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidCard).asStatefulValue(),
+                SolidColor(SddsSbComTheme.colors.surfaceDefaultSolidPrimary).asStatefulValue(),
             )
         }
         .dimensions {

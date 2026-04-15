@@ -25,6 +25,19 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
+                ComponentKey.Indicator,
+                mapOf(
+                    "AvatarIndicator" to SddsSbcomAvatarIndicatorVariationsCompose,
+                    "Indicator" to SddsSbcomIndicatorVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.AvatarGroup,
+                mapOf(
+                    "AvatarGroup" to SddsSbcomAvatarGroupVariationsCompose,
+                ),
+            ),
+            Component(
                 ComponentKey.BasicButton,
                 mapOf(
                     "BasicButton" to SddsSbcomBasicButtonVariationsCompose,
@@ -34,13 +47,6 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.IconButton,
                 mapOf(
                     "IconButton" to SddsSbcomIconButtonVariationsCompose,
-                    "IconButtonClear" to SddsSbcomIconButtonClearVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.LinkButton,
-                mapOf(
-                    "LinkButton" to SddsSbcomLinkButtonVariationsCompose,
                 ),
             ),
             Component(
@@ -71,18 +77,14 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.Counter,
                 mapOf(
                     "Counter" to SddsSbcomCounterVariationsCompose,
+                    "TabBarCounter" to SddsSbcomTabBarCounterVariationsCompose,
+                    "TabItemFolderCounter" to SddsSbcomTabItemFolderCounterVariationsCompose,
                 ),
             ),
             Component(
                 ComponentKey.Divider,
                 mapOf(
                     "Divider" to SddsSbcomDividerVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.Indicator,
-                mapOf(
-                    "Indicator" to SddsSbcomIndicatorVariationsCompose,
                 ),
             ),
             Component(
@@ -116,18 +118,6 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ),
             ),
             Component(
-                ComponentKey.Segment,
-                mapOf(
-                    "Segment" to SddsSbcomSegmentVariationsCompose,
-                ),
-            ),
-            Component(
-                ComponentKey.SegmentItem,
-                mapOf(
-                    "SegmentItem" to SddsSbcomSegmentItemVariationsCompose,
-                ),
-            ),
-            Component(
                 ComponentKey.Switch,
                 mapOf(
                     "Switch" to SddsSbcomSwitchVariationsCompose,
@@ -137,6 +127,7 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.TextField,
                 mapOf(
                     "TextField" to SddsSbcomTextFieldVariationsCompose,
+                    "SearchBar" to SddsSbcomSearchBarVariationsCompose,
                 ),
             ),
             Component(
@@ -167,12 +158,14 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 ComponentKey.List,
                 mapOf(
                     "DropdownMenuList" to SddsSbcomDropdownMenuListVariationsCompose,
+                    "List" to SddsSbcomListVariationsCompose,
                 ),
             ),
             Component(
                 ComponentKey.ListItem,
                 mapOf(
                     "DropdownMenuItem" to SddsSbcomDropdownMenuItemVariationsCompose,
+                    "ListItem" to SddsSbcomListItemVariationsCompose,
                 ),
             ),
             Component(
@@ -223,6 +216,13 @@ object SddsSbcomComposeComponents : ComponentProvider() {
                 mapOf(
                     "CollapsingNavigationBarMainPage" to SddsSbcomCollapsingNavigationBarMainPageVariationsCompose,
                     "CollapsingNavigationBarInternalPage" to SddsSbcomCollapsingNavigationBarInternalPageVariationsCompose,
+                ),
+            ),
+            Component(
+                ComponentKey.IconBadge,
+                mapOf(
+                    "Mention" to SddsSbcomMentionVariationsCompose,
+                    "VoiceChatBadge" to SddsSbcomVoiceChatBadgeVariationsCompose,
                 ),
             ),
         ).associateBy { it.key }

@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 
 internal class AvatarVariationGeneratorCompose(
     private val badgeStylePackage: String,
+    private val iconBadgeStylePackage: String,
     private val counterStylePackage: String,
     private val statusStylePackage: String,
     themeClassName: String,
@@ -52,8 +53,10 @@ internal class AvatarVariationGeneratorCompose(
         colorsCall(props),
         textStyleCall(props),
         badgeStyleCall(props, ktFileBuilder),
+        iconBadgeStyleCall(props, ktFileBuilder),
         counterStyleCall(props, ktFileBuilder),
         statusStyleCall(variationNode.mergedProps, ktFileBuilder),
+        statusCutoutEnabledCall(props),
     )
 
     private fun shapeCall(props: AvatarProperties, variationId: String): String? {
@@ -84,6 +87,9 @@ internal class AvatarVariationGeneratorCompose(
             props.statusOffsetY?.let {
                 appendDimension("statusOffsetY", it, variationId)
             }
+            props.statusCutoutPadding?.let {
+                appendDimension("statusCutoutPadding", it, variationId)
+            }
             append("}")
         }
     }
@@ -107,6 +113,20 @@ internal class AvatarVariationGeneratorCompose(
                 it.value.getComponentStyle(
                     ktFileBuilder,
                     badgeStylePackage,
+                )
+            }.style())"
+        }
+    }
+
+    private fun iconBadgeStyleCall(
+        props: AvatarProperties,
+        ktFileBuilder: KtFileBuilder,
+    ): String? {
+        return props.iconBadgeStyle?.let {
+            ".iconBadgeStyle(${
+                it.value.getComponentStyle(
+                    ktFileBuilder,
+                    iconBadgeStylePackage,
                 )
             }.style())"
         }
@@ -141,6 +161,14 @@ internal class AvatarVariationGeneratorCompose(
         }
     }
 
+    private fun statusCutoutEnabledCall(
+        props: AvatarProperties,
+    ): String? {
+        return props.statusCutoutEnabled?.let { enabled ->
+            ".statusCutoutEnabled(${enabled.value})"
+        }
+    }
+
     private fun statusColorsCall(props: AvatarProperties): String? {
         if (props.activeStatusColor == null && props.inactiveStatusColor == null) return null
         val combined = props.inactiveStatusColor?.combine(props.activeStatusColor, "AvatarStatus.Active")
@@ -158,7 +186,8 @@ internal class AvatarVariationGeneratorCompose(
         return width != null ||
             height != null ||
             statusOffsetX != null ||
-            statusOffsetY != null
+            statusOffsetY != null ||
+            statusCutoutPadding != null
     }
 
     private fun AvatarProperties.hasColors(): Boolean {

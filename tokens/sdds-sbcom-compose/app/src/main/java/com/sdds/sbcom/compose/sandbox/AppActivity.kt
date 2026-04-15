@@ -3,6 +3,7 @@ package com.sdds.sbcom.compose.sandbox
 import android.os.Bundle
 import com.sdds.compose.sandbox.ui.SandboxActivity
 import com.sdds.compose.uikit.fixtures.stories.registerCoreStories
+import com.sdds.sbcom.compose.sandbox.stories.registerStories
 import com.sdds.sbcom.integration.registerTheme
 
 /**
@@ -21,6 +22,7 @@ class AppActivity : SandboxActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         registerCoreStories()
+        registerStories()
         registerTheme()
     }
 }

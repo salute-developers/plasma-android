@@ -21,6 +21,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class TabsProperties(
     val shape: Shape? = null,
+    val indicatorShape: Shape? = null,
     val backgroundColor: Color? = null,
     val indicatorColor: Color? = null,
     val overflowNextIconColor: Color? = null,
@@ -50,6 +51,7 @@ internal data class TabsProperties(
         val otherProps = parent as? TabsProperties ?: return this
         return copy(
             shape = shape ?: otherProps.shape,
+            indicatorShape = indicatorShape ?: otherProps.indicatorShape,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             indicatorColor = indicatorColor ?: otherProps.indicatorColor,
             overflowNextIconColor = overflowNextIconColor ?: otherProps.overflowNextIconColor,

@@ -19,27 +19,22 @@ import com.sdds.compose.uikit.TabsStyle
 import com.sdds.compose.uikit.TriggerInfo
 import com.sdds.compose.uikit.internal.tabs.TabItemContainer
 import com.sdds.compose.uikit.internal.tabs.TabItemDisclosure
-import com.sdds.compose.uikit.internal.tabs.scrollToTabIfNeeded
 import com.sdds.compose.uikit.internal.tabs.tabIndicator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 @Composable
 internal fun VerticalTabsContainer(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
-    onTabClicked: (Int) -> Unit,
+    selectedTabIndexProvider: () -> Int,
+    onTabClicked: ((Int) -> Unit)? = null,
     clip: TabsClip,
     spacingDp: Dp,
-    spacingPx: Int,
     canStretch: Boolean,
-    coroutineScope: CoroutineScope,
     scrollState: ScrollState,
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     disclosureContent: @Composable (() -> Unit)?,
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
@@ -55,7 +50,7 @@ internal fun VerticalTabsContainer(
         ShowMoreColumn(
             style = style,
             enabled = enabled,
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndexProvider = selectedTabIndexProvider,
             onTabClicked = onTabClicked,
             spacingDp = spacingDp,
             canStretch = canStretch,
@@ -74,13 +69,11 @@ internal fun VerticalTabsContainer(
         RegularColumn(
             style = style,
             enabled = enabled,
-            selectedTabIndex = selectedTabIndex,
+            selectedTabIndexProvider = selectedTabIndexProvider,
             onTabClicked = onTabClicked,
             clip = clip,
             spacingDp = spacingDp,
-            spacingPx = spacingPx,
             canStretch = canStretch,
-            coroutineScope = coroutineScope,
             scrollState = scrollState,
             indicatorEnabled = indicatorEnabled,
             interactionSource = interactionSource,
@@ -95,18 +88,16 @@ internal fun VerticalTabsContainer(
 private fun RegularColumn(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
-    onTabClicked: (Int) -> Unit,
+    selectedTabIndexProvider: () -> Int,
+    onTabClicked: ((Int) -> Unit)?,
     clip: TabsClip,
     spacingDp: Dp,
-    spacingPx: Int,
     canStretch: Boolean,
-    coroutineScope: CoroutineScope,
     scrollState: ScrollState,
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     onTabsMeasured: (Int, IntSize) -> Unit,
 ) {
     Column(
@@ -117,10 +108,12 @@ private fun RegularColumn(
                 indicatorColor = style.colors.indicatorColor.colorForInteraction(
                     interactionSource,
                 ),
+                indicatorShape = style.indicatorShape,
                 indicatorThickness = style.dimensions.indicatorThickness,
                 spacingDp = spacingDp,
                 tabSizes = tabSizes,
-                selectedTabIndex = selectedTabIndex,
+                selectedTabIndexProvider = selectedTabIndexProvider,
+                selectedTabOffset = { 0f },
                 scrollState = scrollState,
                 orientation = TabsOrientation.Vertical,
                 clip = clip,
@@ -131,20 +124,7 @@ private fun RegularColumn(
             TabItemContainer(
                 modifier = if (canStretch) Modifier.weight(1f) else Modifier,
                 stretch = canStretch,
-                isSelected = index == selectedTabIndex,
-                onClick = {
-                    onTabClicked(index)
-                    if (clip == TabsClip.Scroll) {
-                        coroutineScope.launch {
-                            scrollToTabIfNeeded(
-                                selectedIndex = index,
-                                tabSizes = tabSizes,
-                                spacing = spacingPx,
-                                scrollState = scrollState,
-                            )
-                        }
-                    }
-                },
+                onClick = { onTabClicked?.invoke(index) },
                 onSizeMeasured = { intSize -> onTabsMeasured.invoke(index, intSize) },
                 tabItemStyle = style.tabItemStyle,
                 enabled = enabled,
@@ -158,15 +138,15 @@ private fun RegularColumn(
 private fun ShowMoreColumn(
     style: TabsStyle,
     enabled: Boolean,
-    selectedTabIndex: Int,
-    onTabClicked: (Int) -> Unit,
+    selectedTabIndexProvider: () -> Int,
+    onTabClicked: ((Int) -> Unit)?,
     spacingDp: Dp,
     canStretch: Boolean,
     scrollState: ScrollState,
     indicatorEnabled: Boolean,
     interactionSource: InteractionSource,
     tabSizes: SnapshotStateList<Int>,
-    tabs: List<@Composable ((Boolean) -> Unit)>,
+    tabs: List<@Composable (() -> Unit)>,
     disclosureContent: @Composable (() -> Unit)?,
     dropdownTriggerInfo: MutableState<TriggerInfo>,
     onDisclosureClick: () -> Unit,
@@ -178,8 +158,11 @@ private fun ShowMoreColumn(
             {
                 TabItemContainer(
                     stretch = canStretch,
-                    isSelected = index == selectedTabIndex,
-                    onClick = { onTabClicked(index) },
+                    onClick = onTabClicked?.let { tabClicked ->
+                        {
+                            tabClicked(index)
+                        }
+                    },
                     onSizeMeasured = { intSize -> onTabsMeasured.invoke(index, intSize) },
                     tabItemStyle = style.tabItemStyle,
                     tabItemContent = tabItem,
@@ -193,10 +176,12 @@ private fun ShowMoreColumn(
                 indicatorColor = style.colors.indicatorColor.colorForInteraction(
                     interactionSource,
                 ),
+                indicatorShape = style.indicatorShape,
                 indicatorThickness = style.dimensions.indicatorThickness,
                 spacingDp = spacingDp,
                 tabSizes = tabSizes,
-                selectedTabIndex = selectedTabIndex,
+                selectedTabIndexProvider = selectedTabIndexProvider,
+                selectedTabOffset = { 0f },
                 scrollState = scrollState,
                 orientation = TabsOrientation.Vertical,
                 clip = TabsClip.ShowMore,

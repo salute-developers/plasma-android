@@ -39,6 +39,7 @@ internal class AvatarConfigDelegate : ComponentConfigDelegate<AvatarConfig>() {
     ): ComponentStyleGenerator<AvatarConfig> {
         return AvatarVariationGeneratorCompose(
             badgeStylePackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.badge",
+            iconBadgeStylePackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.iconbadge",
             counterStylePackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.counter",
             statusStylePackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.indicator",
             themeClassName = deps.themeClassName,

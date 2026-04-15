@@ -11,7 +11,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.StatefulValue
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
@@ -225,12 +227,24 @@ interface ChipDimensions {
     /**
      * Отступ в начале
      */
+    @Deprecated("Use startPaddings", replaceWith = ReplaceWith("startPaddings"))
     val paddingStart: Dp
+
+    /**
+     * Отступы в начале
+     */
+    val startPaddings: StatefulValue<Dp>
 
     /**
      * Отступ в конце
      */
+    @Deprecated("Use endPaddings", replaceWith = ReplaceWith("endPaddings"))
     val paddingEnd: Dp
+
+    /**
+     * Отступы в конце
+     */
+    val endPaddings: StatefulValue<Dp>
 
     companion object {
 
@@ -274,12 +288,24 @@ interface ChipDimensionsBuilder {
     /**
      * Устанавливает отступ в начале
      */
-    fun paddingStart(paddingStart: Dp): ChipDimensionsBuilder
+    fun paddingStart(paddingStart: Dp): ChipDimensionsBuilder =
+        paddingStart(paddingStart.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в начале
+     */
+    fun paddingStart(paddingStart: StatefulValue<Dp>): ChipDimensionsBuilder
 
     /**
      * Устанавливает отступ в конце
      */
-    fun paddingEnd(paddingEnd: Dp): ChipDimensionsBuilder
+    fun paddingEnd(paddingEnd: Dp): ChipDimensionsBuilder =
+        paddingEnd(paddingEnd.asStatefulValue())
+
+    /**
+     * Устанавливает отступы в конце
+     */
+    fun paddingEnd(paddingEnd: StatefulValue<Dp>): ChipDimensionsBuilder
 
     /**
      * Возвращает экземпляр [ChipDimensions]
@@ -293,9 +319,15 @@ private class DefaultChipDimensions(
     override val contentEndSize: Dp,
     override val contentStartPadding: Dp,
     override val contentEndPadding: Dp,
-    override val paddingStart: Dp,
-    override val paddingEnd: Dp,
+    override val startPaddings: StatefulValue<Dp>,
+    override val endPaddings: StatefulValue<Dp>,
 ) : ChipDimensions {
+
+    @Deprecated("Use startPaddings", replaceWith = ReplaceWith("startPaddings"))
+    override val paddingStart: Dp = startPaddings.getDefaultValue()
+
+    @Deprecated("Use endPaddings", replaceWith = ReplaceWith("endPaddings"))
+    override val paddingEnd: Dp = endPaddings.getDefaultValue()
 
     class Builder : ChipDimensionsBuilder {
         private var height: Dp? = null
@@ -303,8 +335,8 @@ private class DefaultChipDimensions(
         private var contentEndSize: Dp? = null
         private var contentStartPadding: Dp? = null
         private var contentEndPadding: Dp? = null
-        private var paddingStart: Dp? = null
-        private var paddingEnd: Dp? = null
+        private var startPaddings: StatefulValue<Dp>? = null
+        private var endPaddings: StatefulValue<Dp>? = null
         override fun height(height: Dp) = apply {
             this.height = height
         }
@@ -325,12 +357,12 @@ private class DefaultChipDimensions(
             this.contentEndPadding = contentEndPadding
         }
 
-        override fun paddingStart(paddingStart: Dp) = apply {
-            this.paddingStart = paddingStart
+        override fun paddingStart(paddingStart: StatefulValue<Dp>) = apply {
+            this.startPaddings = paddingStart
         }
 
-        override fun paddingEnd(paddingEnd: Dp) = apply {
-            this.paddingEnd = paddingEnd
+        override fun paddingEnd(paddingEnd: StatefulValue<Dp>) = apply {
+            this.endPaddings = paddingEnd
         }
 
         override fun build(): ChipDimensions {
@@ -340,8 +372,8 @@ private class DefaultChipDimensions(
                 contentEndSize = contentEndSize ?: 24.dp,
                 contentStartPadding = contentStartPadding ?: 16.dp,
                 contentEndPadding = contentEndPadding ?: 16.dp,
-                paddingStart = paddingStart ?: 16.dp,
-                paddingEnd = paddingEnd ?: 16.dp,
+                startPaddings = startPaddings ?: 16.dp.asStatefulValue(),
+                endPaddings = endPaddings ?: 16.dp.asStatefulValue(),
             )
         }
     }

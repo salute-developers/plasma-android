@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.Divider
+import com.sdds.compose.uikit.DividerOrientation
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.fixtures.stories.DividerUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.DividerUiStateTransformer
@@ -20,6 +21,7 @@ import com.sdds.sandbox.UiState
 data class DividerUiState(
     override val variant: String = "",
     override val appearance: String = "",
+    val orientation: DividerOrientation = DividerOrientation.Horizontal,
 ) : UiState {
     override fun updateVariant(appearance: String, variant: String): UiState {
         return copy(appearance = appearance, variant = variant)
@@ -38,7 +40,7 @@ object DividerStory : ComposeBaseStory<DividerUiState, DividerStyle>(
         style: DividerStyle,
         state: DividerUiState,
     ) {
-        Divider(style = style)
+        Divider(style = style, orientation = state.orientation)
     }
 
     @Composable

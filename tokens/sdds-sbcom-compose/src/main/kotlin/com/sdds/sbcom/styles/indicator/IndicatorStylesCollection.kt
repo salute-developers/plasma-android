@@ -25,11 +25,16 @@ import kotlin.Unit
 public enum class IndicatorStyles(
     public val key: String,
 ) {
-    IndicatorSuccess("Indicator.Success"),
-    IndicatorGlobalWhite("Indicator.GlobalWhite"),
-    IndicatorMute("Indicator.Mute"),
-    IndicatorDanger("Indicator.Danger"),
-    IndicatorWarning("Indicator.Warning"),
+    AvatarIndicatorSize14("AvatarIndicator.Size14"),
+    AvatarIndicatorSize12("AvatarIndicator.Size12"),
+    AvatarIndicatorSize10("AvatarIndicator.Size10"),
+    AvatarIndicatorSize8("AvatarIndicator.Size8"),
+    AvatarIndicatorSize6("AvatarIndicator.Size6"),
+    IndicatorStateSuccess("Indicator.StateSuccess"),
+    IndicatorStateGlobalWhite("Indicator.StateGlobalWhite"),
+    IndicatorStateMute("Indicator.StateMute"),
+    IndicatorStateDanger("Indicator.StateDanger"),
+    IndicatorStateWarning("Indicator.StateWarning"),
 }
 
 /**
@@ -38,11 +43,16 @@ public enum class IndicatorStyles(
 @Composable
 public fun IndicatorStyles.style(modifyAction: @Composable IndicatorStyleBuilder.() -> Unit = {}): IndicatorStyle {
     val builder = when (this) {
-        IndicatorStyles.IndicatorSuccess -> Indicator.Success
-        IndicatorStyles.IndicatorGlobalWhite -> Indicator.GlobalWhite
-        IndicatorStyles.IndicatorMute -> Indicator.Mute
-        IndicatorStyles.IndicatorDanger -> Indicator.Danger
-        IndicatorStyles.IndicatorWarning -> Indicator.Warning
+        IndicatorStyles.AvatarIndicatorSize14 -> AvatarIndicator.Size14
+        IndicatorStyles.AvatarIndicatorSize12 -> AvatarIndicator.Size12
+        IndicatorStyles.AvatarIndicatorSize10 -> AvatarIndicator.Size10
+        IndicatorStyles.AvatarIndicatorSize8 -> AvatarIndicator.Size8
+        IndicatorStyles.AvatarIndicatorSize6 -> AvatarIndicator.Size6
+        IndicatorStyles.IndicatorStateSuccess -> Indicator.StateSuccess
+        IndicatorStyles.IndicatorStateGlobalWhite -> Indicator.StateGlobalWhite
+        IndicatorStyles.IndicatorStateMute -> Indicator.StateMute
+        IndicatorStyles.IndicatorStateDanger -> Indicator.StateDanger
+        IndicatorStyles.IndicatorStateWarning -> Indicator.StateWarning
     }
     return builder.modify(modifyAction).style()
 }

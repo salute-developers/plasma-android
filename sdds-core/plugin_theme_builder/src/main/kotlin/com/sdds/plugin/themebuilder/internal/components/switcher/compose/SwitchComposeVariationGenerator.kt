@@ -163,6 +163,9 @@ internal class SwitchComposeVariationGenerator(
                 props.paddingBottom?.let {
                     appendDimension("padding_bottom", it, variationId)
                 }
+                props.toggleTrackBorderWidth?.let {
+                    appendDimension("toggle_track_border_width", it, variationId)
+                }
                 append("}")
             }
         } else {

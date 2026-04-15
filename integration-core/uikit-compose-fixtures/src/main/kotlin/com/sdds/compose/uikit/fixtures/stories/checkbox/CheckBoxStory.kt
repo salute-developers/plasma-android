@@ -3,6 +3,9 @@ package com.sdds.compose.uikit.fixtures.stories.checkbox
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.state.ToggleableState
+import androidx.compose.ui.state.ToggleableState.Indeterminate
+import androidx.compose.ui.state.ToggleableState.Off
+import androidx.compose.ui.state.ToggleableState.On
 import com.sdds.compose.sandbox.ComposeBaseStory
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStyle
@@ -25,7 +28,7 @@ import com.sdds.sandbox.UiState
 data class CheckBoxUiState(
     override val variant: String = "",
     override val appearance: String = "",
-    val state: ToggleableState = ToggleableState.Indeterminate,
+    val state: ToggleableState = Indeterminate,
     val label: String = "Label",
     val description: String = "Description",
     val enabled: Boolean = true,
@@ -52,8 +55,12 @@ object CheckBoxStory : ComposeBaseStory<CheckBoxUiState, CheckBoxStyle>(
         CheckBox(
             style = style,
             state = state.state,
-            label = state.label,
-            description = state.description,
+            onClick = {
+                val toggleableState = if (state.state == On) Off else On
+                updateState(state.copy(state = toggleableState))
+            },
+            label = state.label.takeIf { it.isNotBlank() },
+            description = state.description.takeIf { it.isNotBlank() },
             enabled = state.enabled,
         )
     }
@@ -65,7 +72,7 @@ object CheckBoxStory : ComposeBaseStory<CheckBoxUiState, CheckBoxStyle>(
     ) {
         CheckBox(
             style = style,
-            state = ToggleableState.On,
+            state = On,
             enabled = true,
             label = "Label",
             description = "Description",

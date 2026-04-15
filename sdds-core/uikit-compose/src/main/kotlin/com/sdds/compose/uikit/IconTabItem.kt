@@ -1,29 +1,17 @@
 package com.sdds.compose.uikit
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.DpSize
-import androidx.compose.ui.unit.IntOffset
-import com.sdds.compose.uikit.interactions.InteractiveState
-import com.sdds.compose.uikit.interactions.ValueState
-import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.internal.tabs.BaseIconTabItem
+import com.sdds.compose.uikit.motion.Motion
+import com.sdds.compose.uikit.motion.components.tabs.TabItemMotionStyle
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemMotion
+import com.sdds.compose.uikit.motion.rememberMotionContext
 
 /**
  * Таб (Вкладка). Элемент, предназначенный для использования в [Tabs].
@@ -39,6 +27,11 @@ import com.sdds.compose.uikit.interactions.getValue
  * @param interactionSource источник взаимодействий
  */
 @Composable
+@Deprecated(
+    "Use IconTabItem with onClick",
+    replaceWith = ReplaceWith("IconTabItem(onClick = {})"),
+)
+@NonRestartableComposable
 fun IconTabItem(
     modifier: Modifier = Modifier,
     style: TabItemStyle = LocalTabItemStyle.current,
@@ -49,90 +42,88 @@ fun IconTabItem(
     count: String? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val stateSet = remember(isSelected) {
-        if (isSelected) setOf(InteractiveState.Selected) else emptySet()
-    }
-    Row(
-        modifier = modifier
-            .defaultMinSize(
-                minHeight = style.dimensions.minHeight,
-                minWidth = style.dimensions.minWidth,
-            )
-            .padding(
-                start = style.dimensions.paddingStart,
-                end = style.dimensions.paddingEnd,
-            )
-            .background(
-                color = style.colors.backgroundColor.getValue(interactionSource, stateSet),
-                shape = style.shape,
-            ),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
+    BaseIconTabItem(
+        modifier = modifier,
+        style = style,
+        isSelected = isSelected,
+        action = actionContent(actionIcon, onActionClicked),
+        counter = counterContent(count),
+        motion = rememberTabItemMotion(motionContext = rememberMotionContext(interactionSource)),
     ) {
-        Row(
-            modifier = Modifier,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            icon?.let {
-                Box {
-                    Icon(
-                        modifier = Modifier.size(style.dimensions.startContentSize),
-                        painter = painterResource(icon),
-                        contentDescription = "",
-                        tint = style.colors.startContentColor.getValue(interactionSource, stateSet),
-                    )
-                    if (!count.isNullOrEmpty()) { TabItemCounter(count, style) }
-                }
-            }
-            ActionContent(style, interactionSource, actionIcon, stateSet, onActionClicked)
-        }
-    }
-}
-
-@Composable
-private fun ActionContent(
-    style: TabItemStyle,
-    interactionSource: InteractionSource,
-    actionIcon: Int?,
-    stateSet: Set<ValueState>,
-    onActionClicked: () -> Unit,
-) {
-    actionIcon ?: return
-    CompositionLocalProvider(
-        LocalIconDefaultSize provides DpSize(
-            width = style.dimensions.actionSize,
-            height = style.dimensions.actionSize,
-        ),
-    ) {
+        icon ?: return@BaseIconTabItem
         Icon(
-            modifier = Modifier
-                .padding(start = style.dimensions.actionPadding)
-                .clickable(indication = null, interactionSource = null, onClick = onActionClicked),
-            painter = painterResource(actionIcon),
+            source = resourceImageSource(icon),
             contentDescription = "",
-            tint = style.colors.actionColor.getValue(interactionSource, stateSet),
         )
     }
 }
 
+/**
+ * Таб (Вкладка). Элемент, предназначенный для использования в [Tabs].
+ * Может содержать иконку, кнопку действия, счетчик.
+ *
+ * @param onClick колбэк нажатия на таб
+ * @param modifier модификатор
+ * @param style стиль компонента [TabItem]
+ * @param isSelected выбран ли таб
+ * @param enabled включен ли таб
+ * @param action слот для кнопки/иконки действия
+ * @param counter слот для счетчика [Counter]
+ * @param onClickLabel лейбл обработчика нажатия на таб
+ * @param motion источник взаимодействий
+ * @param content слот для основной иконки
+ */
 @Composable
-private fun BoxScope.TabItemCounter(
-    count: String,
-    style: TabItemStyle,
+@NonRestartableComposable
+fun IconTabItem(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    style: TabItemStyle = LocalTabItemStyle.current,
+    isSelected: Boolean = false,
+    enabled: Boolean = true,
+    action: (@Composable () -> Unit)? = null,
+    counter: (@Composable () -> Unit)? = null,
+    onClickLabel: String? = null,
+    motion: Motion<TabItemMotionStyle> = rememberTabItemMotion(),
+    content: @Composable () -> Unit,
 ) {
-    Box(
-        modifier = Modifier
-            .align(Alignment.TopEnd)
-            .offset {
-                IntOffset(
-                    x = style.dimensions.counterOffsetX.roundToPx(),
-                    y = -style.dimensions.counterOffsetX.roundToPx(),
-                )
-            },
-    ) {
-        Counter(
-            style = style.counterStyle,
-            count = count,
+    BaseIconTabItem(
+        modifier = modifier,
+        style = style,
+        isSelected = isSelected,
+        enabled = enabled,
+        action = action,
+        counter = counter,
+        onClick = onClick,
+        onClickLabel = onClickLabel,
+        motion = motion,
+        content = content,
+    )
+}
+
+private fun counterContent(
+    count: String?,
+): (@Composable () -> Unit)? {
+    count ?: return null
+    return {
+        Counter(count = count)
+    }
+}
+
+private fun actionContent(
+    icon: Int?,
+    onActionClicked: () -> Unit = {},
+): (@Composable () -> Unit)? {
+    icon ?: return null
+    return {
+        Icon(
+            modifier = Modifier.clickable(
+                indication = null,
+                interactionSource = null,
+                onClick = onActionClicked,
+            ),
+            source = resourceImageSource(icon),
+            contentDescription = "",
         )
     }
 }

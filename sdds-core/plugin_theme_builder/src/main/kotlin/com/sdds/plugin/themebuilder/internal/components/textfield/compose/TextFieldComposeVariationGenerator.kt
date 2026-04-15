@@ -52,6 +52,7 @@ internal class TextFieldComposeVariationGenerator(
         variationId: String,
     ): List<String> {
         return listOfNotNull(
+            singleLineCall(props),
             shapeCall(props, variationId),
             indicatorAlignmentCall(props),
             dimensionsCall(props, variationId),
@@ -85,23 +86,22 @@ internal class TextFieldComposeVariationGenerator(
         )
     }
 
-    override fun invariantBuilderCalls() = listOf(singleLineCall())
-
     private fun indicatorAlignmentCall(props: TextFieldProperties): String? {
         return props.indicatorAlignmentMode?.let {
             ".indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.${it.value.capitalized()})"
         }
     }
 
-    private fun singleLineCall(): String {
-        return when (textFieldType) {
-            TextFieldType.TextField -> ".singleLine(true)"
-            TextFieldType.TextArea -> ".singleLine(false)"
+    private fun singleLineCall(props: TextFieldProperties): String {
+        val isSingleLine = when (textFieldType) {
+            TextFieldType.TextField -> props.singleLine?.value ?: true
+            TextFieldType.TextArea -> props.singleLine?.value ?: false
         }
+        return ".singleLine($isSingleLine)"
     }
 
     private fun scrollBarCall(props: TextFieldProperties, variationId: String): String? {
-        return if (textFieldType == TextFieldType.TextArea && props.hasScrollBar()) {
+        return if (props.hasScrollBar()) {
             buildString {
                 appendLine(".scrollBar {")
                 props.scrollBarThickness?.let {

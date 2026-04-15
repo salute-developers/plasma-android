@@ -49,9 +49,11 @@ object RadioBoxStory : ComposeBaseStory<RadioBoxUiState, RadioBoxStyle>(
         RadioBox(
             style = style,
             checked = state.checked,
-            onClick = {},
-            label = state.label,
-            description = state.description,
+            onClick = {
+                updateState(state.copy(checked = !state.checked))
+            },
+            label = state.label.takeIf { it.isNotBlank() },
+            description = state.description.takeIf { it.isNotBlank() },
             enabled = state.enabled,
         )
     }

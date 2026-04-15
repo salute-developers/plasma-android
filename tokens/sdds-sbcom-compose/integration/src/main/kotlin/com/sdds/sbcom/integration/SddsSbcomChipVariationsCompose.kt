@@ -12,13 +12,13 @@ import com.sdds.compose.sandbox.ComposeStyleReference
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.sbcom.styles.chip.Chip
-import com.sdds.sbcom.styles.chip.Default
-import com.sdds.sbcom.styles.chip.HasContentStart
+import com.sdds.sbcom.styles.chip.ChipSlotAvatar
+import com.sdds.sbcom.styles.chip.ChipSlotPadding
 
 internal object SddsSbcomChipVariationsCompose : ComposeStyleProvider<ChipStyle>() {
     override val variations: Map<String, ComposeStyleReference<ChipStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Chip.Default.style() },
-            "HasContentStart" to ComposeStyleReference { Chip.HasContentStart.style() },
+            "ChipSlotPadding" to ComposeStyleReference { Chip.ChipSlotPadding.style() },
+            "ChipSlotAvatar" to ComposeStyleReference { Chip.ChipSlotAvatar.style() },
         )
 }

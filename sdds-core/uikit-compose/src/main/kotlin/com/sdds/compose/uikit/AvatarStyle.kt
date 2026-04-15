@@ -76,6 +76,16 @@ interface AvatarStyle : Style {
      */
     val dimensionValues: AvatarDimensionValues
 
+    /**
+     * Включен ли вырез под индикатор статуса
+     */
+    val statusCutoutEnabled: Boolean
+
+    /**
+     * Стиль бейджа с иконкой
+     */
+    val iconBadgeStyle: BadgeStyle?
+
     companion object {
 
         /**
@@ -134,9 +144,19 @@ interface AvatarStyleBuilder : StyleBuilder<AvatarStyle> {
     fun badgeStyle(badgeStyle: BadgeStyle): AvatarStyleBuilder
 
     /**
+     * Устанавливает стиль бейджа [badgeStyle]
+     */
+    fun iconBadgeStyle(badgeStyle: BadgeStyle): AvatarStyleBuilder
+
+    /**
      * Устанавливает стиль счетчика [counterStyle]
      */
     fun counterStyle(counterStyle: CounterStyle): AvatarStyleBuilder
+
+    /**
+     * Включает/выключает вырез под индикатор статуса
+     */
+    fun statusCutoutEnabled(statusCutoutEnabled: Boolean): AvatarStyleBuilder
 }
 
 /**
@@ -338,6 +358,11 @@ interface AvatarDimensionValues {
      * Высота аватара
      */
     val height: Dp
+
+    /**
+     * Внутренний отступ выреза индикатора статуса
+     */
+    val statusCutoutPadding: Dp
 }
 
 /**
@@ -364,6 +389,11 @@ interface AvatarDimensionsBuilder {
      * Устанавливает высоту аватара [height]
      */
     fun height(height: Dp): AvatarDimensionsBuilder
+
+    /**
+     * Устанавливает Внутренний отступ выреза индикатора статуса [statusCutoutPadding]
+     */
+    fun statusCutoutPadding(statusCutoutPadding: Dp): AvatarDimensionsBuilder
 
     /**
      * Возвращает [AvatarDimensionValues]
@@ -404,6 +434,8 @@ private data class DefaultAvatarStyle(
     override val counterStyle: CounterStyle?,
     override val statusStyle: IndicatorStyle?,
     override val dimensionValues: AvatarDimensionValues,
+    override val statusCutoutEnabled: Boolean,
+    override val iconBadgeStyle: BadgeStyle?,
 ) : AvatarStyle {
 
     @Suppress("OVERRIDE_DEPRECATION")
@@ -415,8 +447,10 @@ private data class DefaultAvatarStyle(
         private var dimensionsBuilder: AvatarDimensionsBuilder = AvatarDimensionsBuilder.builder()
         private var textStyle: TextStyle? = null
         private var badgeStyle: BadgeStyle? = null
+        private var iconBadgeStyle: BadgeStyle? = null
         private var counterStyle: CounterStyle? = null
         private var statusStyle: IndicatorStyle? = null
+        private var statusCutoutEnabled: Boolean? = null
 
         override fun shape(shape: Shape) = apply {
             this.shape = shape
@@ -456,8 +490,16 @@ private data class DefaultAvatarStyle(
             this.badgeStyle = badgeStyle
         }
 
+        override fun iconBadgeStyle(badgeStyle: BadgeStyle): AvatarStyleBuilder = apply {
+            this.iconBadgeStyle = badgeStyle
+        }
+
         override fun counterStyle(counterStyle: CounterStyle): AvatarStyleBuilder = apply {
             this.counterStyle = counterStyle
+        }
+
+        override fun statusCutoutEnabled(statusCutoutEnabled: Boolean) = apply {
+            this.statusCutoutEnabled = statusCutoutEnabled
         }
 
         override fun style(): AvatarStyle =
@@ -469,6 +511,8 @@ private data class DefaultAvatarStyle(
                 counterStyle = counterStyle,
                 statusStyle = statusStyle,
                 dimensionValues = dimensionsBuilder.build(),
+                statusCutoutEnabled = statusCutoutEnabled ?: false,
+                iconBadgeStyle = iconBadgeStyle,
             )
     }
 }
@@ -588,6 +632,7 @@ private data class DefaultAvatarDimensionValues(
     override val statusOffsetY: Dp = 0.dp,
     override val width: Dp = 0.dp,
     override val height: Dp = 0.dp,
+    override val statusCutoutPadding: Dp,
 ) : AvatarDimensionValues {
 
     class Builder : AvatarDimensionsBuilder {
@@ -595,6 +640,7 @@ private data class DefaultAvatarDimensionValues(
         private var statusOffsetY: Dp = 0.dp
         private var width: Dp = 0.dp
         private var height: Dp = 0.dp
+        private var statusCutoutPadding: Dp = 3.dp
 
         override fun statusOffsetX(statusOffsetX: Dp): AvatarDimensionsBuilder = apply {
             this.statusOffsetX = statusOffsetX
@@ -612,12 +658,17 @@ private data class DefaultAvatarDimensionValues(
             this.height = height
         }
 
+        override fun statusCutoutPadding(statusCutoutPadding: Dp) = apply {
+            this.statusCutoutPadding = statusCutoutPadding
+        }
+
         override fun build(): AvatarDimensionValues {
             return DefaultAvatarDimensionValues(
                 statusOffsetX,
                 statusOffsetY,
                 width,
                 height,
+                statusCutoutPadding,
             )
         }
     }

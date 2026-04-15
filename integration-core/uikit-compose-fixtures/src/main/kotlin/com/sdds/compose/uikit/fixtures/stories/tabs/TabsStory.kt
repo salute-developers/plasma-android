@@ -1,44 +1,64 @@
 package com.sdds.compose.uikit.fixtures.stories.tabs
 
-import androidx.annotation.DrawableRes
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.sandbox.ComposeBaseStory
+import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.IconTabItem
 import com.sdds.compose.uikit.TabItem
+import com.sdds.compose.uikit.TabScope
 import com.sdds.compose.uikit.Tabs
 import com.sdds.compose.uikit.TabsClip
 import com.sdds.compose.uikit.TabsStyle
+import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.fixtures.stories.TabsUiStatePropertiesProducer
 import com.sdds.compose.uikit.fixtures.stories.TabsUiStateTransformer
+import com.sdds.compose.uikit.motion.MotionContext
+import com.sdds.compose.uikit.motion.components.counter.rememberCounterMotion
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabItemPagerMotion
+import com.sdds.compose.uikit.motion.components.tabs.rememberTabSelectedState
+import com.sdds.compose.uikit.resourceImageSource
+import com.sdds.compose.uikit.stringSource
 import com.sdds.icons.R
 import com.sdds.sandbox.ComponentKey
 import com.sdds.sandbox.Story
 import com.sdds.sandbox.StoryUiState
 import com.sdds.sandbox.UiState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @StoryUiState
 data class TabsUiState(
     override val variant: String = "",
     override val appearance: String = "",
     val amount: Int = 5,
-    val icon: TabItemIcon = TabItemIcon.None,
+    val icon: TabItemIcon = TabItemIcon.End,
     val tabItemLabel: String = "Tab",
     val tabItemValue: String = "",
     val enabled: Boolean = true,
     val stretch: Boolean = false,
     val clip: TabsClip = TabsClip.Scroll,
-    val counter: Boolean = false,
+    val counter: Boolean = true,
     val count: String = "1",
     val actionEnabled: Boolean = false,
-    val dividerEnabled: Boolean = true,
+    val dividerEnabled: Boolean = false,
     val indicatorEnabled: Boolean = true,
 ) : UiState {
 
@@ -66,31 +86,32 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
         style: TabsStyle,
         state: TabsUiState,
     ) {
-        var selectedTab by remember { mutableIntStateOf(0) }
-        Tabs(
-            style = style,
-            enabled = state.enabled,
-            selectedTabIndex = selectedTab,
-            onTabClicked = {
-                selectedTab = it
-            },
-            clip = state.clip,
-            stretch = state.stretch,
-            indicatorEnabled = state.indicatorEnabled,
-            dividerEnabled = state.dividerEnabled,
-        ) {
+        val pagerState = rememberPagerState { state.amount }
+        val scope = rememberCoroutineScope()
+        CommonTabsContent(pagerState, scope, state, style) {
             repeat(state.amount) { index ->
                 val label = "${state.tabItemLabel}$index"
-                tab(dropdownAlias = label) { selected ->
+
+                tabItem(dropdownAlias = label) {
+                    val tabMotion = rememberTabItemPagerMotion(index, pagerState)
+                    val isTabSelected = rememberTabSelectedState(index, pagerState)
                     TabItem(
-                        isSelected = selected,
-                        label = label,
-                        helpText = state.tabItemValue,
-                        count = if (state.counter) state.count else null,
+                        isSelected = isTabSelected.value,
+                        onClick = {
+                            scope.launch {
+                                pagerState.animateScrollToPage(
+                                    index,
+                                    pagerState.currentPageOffsetFraction,
+                                )
+                            }
+                        },
+                        content = { Text(stringSource(label)) },
+                        helperContent = { Text(stringSource(state.tabItemValue)) },
+                        counter = counter(state, tabMotion.context),
                         startContent = startIcon(state),
                         endContent = endIcon(state),
-                        actionIcon = actionIcon(state, style),
-                        onActionClicked = {},
+                        action = actionIconContent(state, style),
+                        motion = tabMotion,
                     )
                 }
             }
@@ -104,27 +125,23 @@ object TabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
     ) {
         var selectedTab by remember { mutableIntStateOf(0) }
         Tabs(
-            modifier = Modifier,
+            selectedTabIndexProvider = { selectedTab },
             style = style,
-            selectedTabIndex = selectedTab,
-            onTabClicked = {
-                selectedTab = it
-            },
+            onDisclosureTabClicked = { selectedTab = it },
         ) {
             repeat(3) { index ->
                 val label = "Tab$index"
-                tab(dropdownAlias = label) { selected ->
+                tabItem(dropdownAlias = label) {
                     TabItem(
-                        isSelected = selected,
-                        label = label,
+                        isSelected = index == selectedTab,
+                        onClick = { selectedTab = index },
                         startContent = {
                             Icon(
-                                painter = painterResource(com.sdds.icons.R.drawable.ic_plasma_24),
+                                painter = painterResource(R.drawable.ic_plasma_24),
                                 contentDescription = "",
                             )
                         },
-                        actionIcon = com.sdds.icons.R.drawable.ic_close_24,
-                        onActionClicked = {},
+                        content = { Text(label) },
                     )
                 }
             }
@@ -144,28 +161,33 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
         style: TabsStyle,
         state: TabsUiState,
     ) {
-        var selectedTab by remember { mutableIntStateOf(0) }
-        Tabs(
-            style = style,
-            enabled = state.enabled,
-            selectedTabIndex = selectedTab,
-            onTabClicked = {
-                selectedTab = it
-            },
-            clip = state.clip,
-            stretch = state.stretch,
-            indicatorEnabled = state.indicatorEnabled,
-            dividerEnabled = state.dividerEnabled,
-        ) {
+        val pagerState = rememberPagerState { state.amount }
+        val scope = rememberCoroutineScope()
+        CommonTabsContent(pagerState, scope, state, style) {
             repeat(state.amount) { index ->
                 val label = "${state.tabItemLabel}$index"
-                tab(dropdownAlias = label) { selected ->
+                tabItem(dropdownAlias = label) {
+                    val tabMotion = rememberTabItemPagerMotion(index, pagerState)
+                    val isTabSelected by rememberTabSelectedState(index, pagerState)
                     IconTabItem(
-                        isSelected = selected,
-                        count = if (state.counter) state.count else null,
-                        icon = R.drawable.ic_plasma_24,
-                        actionIcon = actionIcon(state, style),
-                        onActionClicked = {},
+                        isSelected = isTabSelected,
+                        onClick = {
+                            scope.launch {
+                                pagerState.animateScrollToPage(
+                                    index,
+                                    pagerState.currentPageOffsetFraction,
+                                )
+                            }
+                        },
+                        counter = counter(state, tabMotion.context),
+                        action = actionIconContent(state, style),
+                        content = {
+                            Icon(
+                                source = resourceImageSource(R.drawable.ic_plasma_24),
+                                contentDescription = "$label icon",
+                            )
+                        },
+                        motion = tabMotion,
                     )
                 }
             }
@@ -179,26 +201,22 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
     ) {
         var selectedTab by remember { mutableIntStateOf(0) }
         Tabs(
+            selectedTabIndexProvider = { selectedTab },
             style = style,
-            enabled = true,
-            selectedTabIndex = selectedTab,
-            onTabClicked = {
-                selectedTab = it
-            },
-            clip = TabsClip.Scroll,
-            stretch = false,
-            indicatorEnabled = false,
-            dividerEnabled = false,
+            onDisclosureTabClicked = { selectedTab = it },
         ) {
             repeat(3) { index ->
                 val label = "Tab$index"
-                tab(dropdownAlias = label) { selected ->
+                tabItem(dropdownAlias = label) {
                     IconTabItem(
-                        isSelected = selected,
-                        count = null,
-                        icon = R.drawable.ic_plasma_24,
-                        actionIcon = com.sdds.icons.R.drawable.ic_close_24,
-                        onActionClicked = {},
+                        isSelected = index == selectedTab,
+                        onClick = { selectedTab = index },
+                        content = {
+                            Icon(
+                                source = resourceImageSource(R.drawable.ic_plasma_24),
+                                contentDescription = "$label icon",
+                            )
+                        },
                     )
                 }
             }
@@ -206,10 +224,61 @@ object IconTabsStory : ComposeBaseStory<TabsUiState, TabsStyle>(
     }
 }
 
-@DrawableRes
-private fun actionIcon(state: TabsUiState, style: TabsStyle): Int? {
-    return if (state.actionEnabled) {
-        style.tabItemStyle.actionIcon
+@Composable
+private fun CommonTabsContent(
+    pagerState: PagerState,
+    scope: CoroutineScope,
+    state: TabsUiState,
+    style: TabsStyle,
+    tabs: TabScope.() -> Unit,
+) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Tabs(
+            style = style,
+            enabled = state.enabled,
+            selectedTabIndexProvider = { pagerState.currentPage },
+            selectedTabOffset = { pagerState.currentPageOffsetFraction },
+            onDisclosureTabClicked = {
+                scope.launch {
+                    pagerState.animateScrollToPage(it, pagerState.currentPageOffsetFraction)
+                }
+            },
+            clip = state.clip,
+            stretch = state.stretch,
+            indicatorEnabled = state.indicatorEnabled,
+            dividerEnabled = state.dividerEnabled,
+            tabs = tabs,
+        )
+
+        Box(contentAlignment = Alignment.Center) {
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp),
+                pageContent = {},
+            )
+            Text("Swipe here to change tabs")
+        }
+    }
+}
+
+private fun counter(state: TabsUiState, motionContext: MotionContext): (@Composable () -> Unit)? {
+    return if (state.counter) {
+        {
+            Counter(count = state.count, motion = rememberCounterMotion(motionContext = motionContext))
+        }
+    } else {
+        null
+    }
+}
+
+private fun actionIconContent(state: TabsUiState, style: TabsStyle): (@Composable () -> Unit)? {
+    val actionIconRes = style.tabItemStyle.actionIcon
+    return if (state.actionEnabled && actionIconRes != null) {
+        {
+            Icon(source = resourceImageSource(actionIconRes), contentDescription = "")
+        }
     } else {
         null
     }
@@ -219,7 +288,7 @@ private fun endIcon(state: TabsUiState): (@Composable () -> Unit)? {
     return if (state.icon == TabItemIcon.End) {
         {
             Icon(
-                painter = painterResource(R.drawable.ic_plasma_24),
+                source = resourceImageSource(R.drawable.ic_plasma_24),
                 contentDescription = "",
             )
         }
@@ -232,7 +301,7 @@ private fun startIcon(state: TabsUiState): (@Composable () -> Unit)? {
     return if (state.icon == TabItemIcon.Start) {
         {
             Icon(
-                painter = painterResource(R.drawable.ic_plasma_24),
+                source = resourceImageSource(R.drawable.ic_plasma_24),
                 contentDescription = "",
             )
         }

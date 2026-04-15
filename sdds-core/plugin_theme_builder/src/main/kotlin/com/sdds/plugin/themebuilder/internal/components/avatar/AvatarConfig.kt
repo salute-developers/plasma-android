@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.components.avatar
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeProperties
+import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -30,8 +31,12 @@ internal data class AvatarProperties(
     val inactiveStatusColor: Color? = null,
     val textColor: Color? = null,
 
+    val statusCutoutEnabled: BooleanValue? = null,
+    val statusCutoutPadding: Dimension? = null,
+
     val statusStyle: ComponentStyle<IndicatorProperties>? = null,
     val badgeStyle: ComponentStyle<BadgeProperties>? = null,
+    val iconBadgeStyle: ComponentStyle<BadgeProperties>? = null,
     val counterStyle: ComponentStyle<CounterProperties>? = null,
 ) : PropertyOwner {
 
@@ -51,7 +56,10 @@ internal data class AvatarProperties(
             textColor = textColor ?: otherProps.textColor,
             statusStyle = statusStyle ?: otherProps.statusStyle,
             badgeStyle = badgeStyle ?: otherProps.badgeStyle,
+            iconBadgeStyle = iconBadgeStyle ?: otherProps.iconBadgeStyle,
             counterStyle = counterStyle ?: otherProps.counterStyle,
+            statusCutoutEnabled = statusCutoutEnabled ?: otherProps.statusCutoutEnabled,
+            statusCutoutPadding = statusCutoutPadding ?: otherProps.statusCutoutPadding,
         )
     }
 }

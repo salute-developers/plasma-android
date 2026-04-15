@@ -9,14 +9,14 @@ package com.sdds.sbcom.integration
 
 import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
-import com.sdds.compose.uikit.SegmentStyle
+import com.sdds.compose.uikit.ListStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.sbcom.styles.segment.Default
-import com.sdds.sbcom.styles.segment.Segment
+import com.sdds.sbcom.styles.list.Default
+import com.sdds.sbcom.styles.list.List
 
-internal object SddsSbcomSegmentVariationsCompose : ComposeStyleProvider<SegmentStyle>() {
-    override val variations: Map<String, ComposeStyleReference<SegmentStyle>> =
+internal object SddsSbcomListVariationsCompose : ComposeStyleProvider<ListStyle>() {
+    override val variations: Map<String, ComposeStyleReference<ListStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Segment.Default.style() },
+            "Default" to ComposeStyleReference { List.Default.style() },
         )
 }

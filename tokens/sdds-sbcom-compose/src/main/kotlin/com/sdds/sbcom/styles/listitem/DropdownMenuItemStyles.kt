@@ -37,7 +37,7 @@ public val DropdownMenuItem.Default: WrapperDropdownMenuItemDefault
     @Composable
     @JvmName("WrapperDropdownMenuItemDefault")
     get() = ListItemStyle.builder(this)
-        .shape(SddsSbComTheme.shapes.roundL)
+        .shape(SddsSbComTheme.shapes.roundXxs)
         .titleStyle(SddsSbComTheme.typography.bodyLNormal)
         .subtitleStyle(SddsSbComTheme.typography.bodyMNormal)
         .disclosureIcon(com.sdds.icons.R.drawable.ic_disclosure_right_outline_24)
@@ -63,11 +63,12 @@ public val DropdownMenuItem.Default: WrapperDropdownMenuItemDefault
             )
         }
         .dimensions {
-            contentPaddingEnd(8.0.dp)
-            height(40.0.dp)
-            paddingStart(8.0.dp)
-            paddingEnd(8.0.dp)
-            paddingTop(8.0.dp)
-            paddingBottom(8.0.dp)
+            contentPaddingEnd(12.0.dp)
+            contentPaddingStart(12.0.dp)
+            height(48.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
+            paddingTop(12.0.dp)
+            paddingBottom(12.0.dp)
         }
         .wrap(::WrapperDropdownMenuItemDefault)
