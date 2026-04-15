@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.draw.BlurredEdgeTreatment
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.isUnspecified
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
@@ -80,7 +81,7 @@ public class BlurVisualEffect : VisualEffect {
 
     private fun VisualEffectContext.createClipPathIfNeeded(): Path? {
         val clipShape = shape
-        if (clipShape === RectangleShape) return null
+        if (clipShape === RectangleShape || size.isUnspecified) return null
 
         val outline = clipShape.createOutline(
             size = size,
