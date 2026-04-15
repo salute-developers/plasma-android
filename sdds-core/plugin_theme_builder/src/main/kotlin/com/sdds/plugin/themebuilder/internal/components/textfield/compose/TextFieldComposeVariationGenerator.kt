@@ -101,7 +101,7 @@ internal class TextFieldComposeVariationGenerator(
     }
 
     private fun scrollBarCall(props: TextFieldProperties, variationId: String): String? {
-        return if (textFieldType == TextFieldType.TextArea && props.hasScrollBar()) {
+        return if (props.hasScrollBar()) {
             buildString {
                 appendLine(".scrollBar {")
                 props.scrollBarThickness?.let {

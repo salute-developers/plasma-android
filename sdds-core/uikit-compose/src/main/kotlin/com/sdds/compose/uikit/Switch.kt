@@ -221,7 +221,7 @@ private fun SwitchDimensions.toDimensionValues(): SwitchDimensionValues {
         override val paddingStart: Dp = 0.dp
         override val paddingEnd: Dp = 0.dp
         override val paddingBottom: Dp = 0.dp
-        override val toggleThumbBorderWidth: StatefulValue<Dp> = 0.dp.asStatefulValue()
+        override val toggleTrackBorderWidth: StatefulValue<Dp> = 0.dp.asStatefulValue()
     }
 }
 

@@ -571,9 +571,9 @@ interface SwitchDimensionValues {
     val paddingBottom: Dp
 
     /**
-     * Толщина границы подвижной части переключателя
+     * Толщина рамки неподвижной части переключателя
      */
-    val toggleThumbBorderWidth: StatefulValue<Dp>
+    val toggleTrackBorderWidth: StatefulValue<Dp>
 
     companion object {
 
@@ -663,15 +663,15 @@ interface SwitchDimensionValuesBuilder {
     fun paddingBottom(paddingBottom: Dp): SwitchDimensionValuesBuilder
 
     /**
-     * Устанавливает толщину рамки подвижной части рамки
+     * Устанавливает толщину рамки неподвижной части переключателя
      */
-    fun toggleThumbBorderWidth(borderWidth: Dp): SwitchDimensionValuesBuilder =
-        toggleThumbBorderWidth(borderWidth.asStatefulValue())
+    fun toggleTrackBorderWidth(borderWidth: Dp): SwitchDimensionValuesBuilder =
+        toggleTrackBorderWidth(borderWidth.asStatefulValue())
 
     /**
-     * Устанавливает толщину рамки подвижной части переключателя
+     * Устанавливает толщину рамки неподвижной части переключателя
      */
-    fun toggleThumbBorderWidth(borderWidth: StatefulValue<Dp>): SwitchDimensionValuesBuilder
+    fun toggleTrackBorderWidth(borderWidth: StatefulValue<Dp>): SwitchDimensionValuesBuilder
 
     /**
      * Возвращает экземпляр [SwitchDimensionValues]
@@ -691,7 +691,7 @@ private class DefaultSwitchDimensionValues(
     override val paddingBottom: Dp,
     override val toggleThumbWidths: StatefulValue<Dp>,
     override val toggleThumbHeights: StatefulValue<Dp>,
-    override val toggleThumbBorderWidth: StatefulValue<Dp>,
+    override val toggleTrackBorderWidth: StatefulValue<Dp>,
     override val toggleThumbPaddings: StatefulValue<Dp>,
 ) : SwitchDimensionValues {
 
@@ -714,7 +714,7 @@ private class DefaultSwitchDimensionValues(
         private var paddingStart: Dp? = null
         private var paddingEnd: Dp? = null
         private var paddingBottom: Dp? = null
-        private var toggleThumbBorderWidth: StatefulValue<Dp>? = null
+        private var toggleTrackBorderWidth: StatefulValue<Dp>? = null
 
         override fun toggleTrackWidth(toggleTrackWidth: Dp) = apply {
             this.toggleTrackWidth = toggleTrackWidth
@@ -760,8 +760,8 @@ private class DefaultSwitchDimensionValues(
             this.paddingBottom = paddingBottom
         }
 
-        override fun toggleThumbBorderWidth(borderWidth: StatefulValue<Dp>) = apply {
-            this.toggleThumbBorderWidth = borderWidth
+        override fun toggleTrackBorderWidth(borderWidth: StatefulValue<Dp>) = apply {
+            this.toggleTrackBorderWidth = borderWidth
         }
 
         override fun build(): SwitchDimensionValues {
@@ -777,7 +777,7 @@ private class DefaultSwitchDimensionValues(
                 paddingTop = this.paddingTop ?: 0.dp,
                 paddingEnd = this.paddingEnd ?: 0.dp,
                 paddingBottom = this.paddingBottom ?: 0.dp,
-                toggleThumbBorderWidth = toggleThumbBorderWidth ?: 0.dp.asStatefulValue(),
+                toggleTrackBorderWidth = toggleTrackBorderWidth ?: 0.dp.asStatefulValue(),
             )
         }
     }

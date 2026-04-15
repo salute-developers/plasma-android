@@ -87,7 +87,11 @@ public val Switch.Default: WrapperSwitchDefault
             )
             textPadding(12.0.dp)
             descriptionPadding(4.0.dp)
-            toggleThumbBorderWidth(1.5.dp)
+            toggleTrackBorderWidth(
+                1.5.dp.asStatefulValue(
+                    setOf(SwitchStates.Checked) to 0.0.dp,
+                ),
+            )
         }
         .disableAlpha(0.4f)
         .wrap(::WrapperSwitchDefault)

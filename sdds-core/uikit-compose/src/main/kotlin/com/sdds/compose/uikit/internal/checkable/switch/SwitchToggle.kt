@@ -63,27 +63,30 @@ internal fun SwitchToggle(
     val toggleWidth = dimensions.toggleThumbWidths.getValueAsState(interactionSource, stateSet)
     val toggleHeight = dimensions.toggleThumbHeights.getValueAsState(interactionSource, stateSet)
     val toggleThumbPadding = dimensions.toggleThumbPaddings.getValueAsState(interactionSource, stateSet)
-    val toggleThumbBorderWidth = dimensions.toggleThumbBorderWidth.getValueAsState(interactionSource, stateSet)
+    val toggleTrackBorderWidth = dimensions.toggleTrackBorderWidth.getValueAsState(interactionSource, stateSet)
 
     Box(
         modifier = modifier
             .requiredWidth(dimensions.toggleTrackWidth)
             .requiredHeight(dimensions.toggleTrackHeight)
             .drawWithCache {
+                val strokeWidth = toggleTrackBorderWidth.value.toPx()
                 val trackOutline = createOutline(
                     shape = trackShape,
-                    widthPx = dimensions.toggleTrackWidth.toPx(),
-                    heightPx = dimensions.toggleTrackHeight.toPx(),
+                    widthPx = dimensions.toggleTrackWidth.toPx() - strokeWidth * 2,
+                    heightPx = dimensions.toggleTrackHeight.toPx() - strokeWidth * 2,
                 )
                 val thumbOutline = createOutline(
                     shape = thumbShape,
                     widthPx = toggleWidth.value.toPx(),
                     heightPx = toggleHeight.value.toPx(),
                 )
-                val trackBorderStroke = Stroke(width = toggleThumbBorderWidth.value.toPx())
+                val trackBorderStroke = Stroke(width = strokeWidth)
 
                 onDrawBehind {
-                    drawTrack(trackOutline, trackColor.value, trackBorderColor.value, trackBorderStroke)
+                    translate(strokeWidth, strokeWidth) {
+                        drawTrack(trackOutline, trackColor.value, trackBorderColor.value, trackBorderStroke)
+                    }
                     drawThumb(
                         thumbOutline = thumbOutline,
                         thumbColor = thumbColor.value,

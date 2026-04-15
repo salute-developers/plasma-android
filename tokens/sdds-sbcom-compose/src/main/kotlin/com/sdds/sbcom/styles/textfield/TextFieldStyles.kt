@@ -13,7 +13,6 @@ import com.sdds.compose.uikit.TextFieldHelperTextPlacement
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
-import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -74,12 +73,7 @@ public val TextField.Default: WrapperTextFieldDefault
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
             )
             endContentColor(
-                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                        to SddsSbComTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered)
-                        to SddsSbComTheme.colors.textDefaultPrimaryHover,
-                ),
+                SddsSbComTheme.colors.textDefaultPrimary.asInteractive(),
             )
             captionColor(
                 SddsSbComTheme.colors.textDefaultSecondary.asInteractive(),
@@ -92,6 +86,18 @@ public val TextField.Default: WrapperTextFieldDefault
             )
             cursorColor(
                 SddsSbComTheme.colors.textDefaultAccent.asInteractive(),
+            )
+        }
+        .scrollBar {
+            scrollBarThickness(4.0.dp)
+            scrollBarPaddingTop(21.0.dp)
+            scrollBarPaddingBottom(21.0.dp)
+            scrollBarPaddingEnd(12.0.dp)
+            scrollBarTrackColor(
+                SddsSbComTheme.colors.surfaceDefaultClear.asInteractive(),
+            )
+            scrollBarThumbColor(
+                SddsSbComTheme.colors.outlineDefaultDefault.asInteractive(),
             )
         }
         .wrap(::WrapperTextFieldDefault)
