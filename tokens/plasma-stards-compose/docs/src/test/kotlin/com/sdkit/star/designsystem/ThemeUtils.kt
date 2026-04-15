@@ -28,6 +28,7 @@ import com.sdds.compose.uikit.LocalDividerStyle
 import com.sdds.compose.uikit.LocalDrawerStyle
 import com.sdds.compose.uikit.LocalDropdownMenuStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
 import com.sdds.compose.uikit.LocalListStyle
@@ -96,6 +97,9 @@ import com.sdkit.star.designsystem.styles.dropdownmenu.M
 import com.sdkit.star.designsystem.styles.iconbadge.Default
 import com.sdkit.star.designsystem.styles.iconbadge.IconBadgeSolid
 import com.sdkit.star.designsystem.styles.iconbadge.M
+import com.sdkit.star.designsystem.styles.iconbutton.Clear
+import com.sdkit.star.designsystem.styles.iconbutton.IconButton
+import com.sdkit.star.designsystem.styles.iconbutton.M
 import com.sdkit.star.designsystem.styles.image.Image
 import com.sdkit.star.designsystem.styles.image.Ratio3x4
 import com.sdkit.star.designsystem.styles.indicator.Default
@@ -202,6 +206,7 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
+            LocalIconButtonStyle provides IconButton.M.Clear.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
             LocalCheckBoxStyle provides CheckBox.M.Default.style(),

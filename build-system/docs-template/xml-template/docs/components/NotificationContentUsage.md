@@ -70,4 +70,4 @@ val trigger = Button(context).apply {
 <!-- @sample: com/sdds/uikit/fixtures/NotificationContent_Simple.xml -->
 ```
 
-<!-- @screenshot: com.sdds.uikit.fixtures.samples.notification.content.NotificationContent.Simple -->
+<!-- @screenshot: com.sdds.uikit.fixtures.samples.notificationcontent.NotificationContent.Simple -->

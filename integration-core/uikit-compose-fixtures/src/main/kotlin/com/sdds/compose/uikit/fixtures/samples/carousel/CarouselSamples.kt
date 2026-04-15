@@ -162,23 +162,10 @@ fun Carousel_Style() {
                 indicatorPadding(8.0.dp)
                 gap(8.dp)
             }
-            .prevButtonStyle(
-                placeholder(
-                    ButtonStyle.iconButtonBuilder().style(),
-                    "/** Стиль компонента IconButton */",
-                ),
-            )
-            .nextButtonStyle(
-                placeholder(
-                    ButtonStyle.iconButtonBuilder().style(),
-                    "/** Стиль компонента IconButton */",
-                ),
-            )
+            .prevButtonStyle(placeholder(ButtonStyle.iconButtonBuilder().style(), "/** Стиль компонента IconButton */"))
+            .nextButtonStyle(placeholder(ButtonStyle.iconButtonBuilder().style(), "/** Стиль компонента IconButton */"))
             .indicatorStyle(
-                placeholder(
-                    PaginationDotsStyle.builder().style(),
-                    "/** Стиль компонента PaginationDots */",
-                ),
+                placeholder(PaginationDotsStyle.builder().style(), "/** Стиль компонента PaginationDots */"),
             )
             .prevButtonIcon(R.drawable.ic_chevron_left_36)
             .nextButtonIcon(R.drawable.ic_chevron_right_36)

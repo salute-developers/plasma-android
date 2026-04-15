@@ -35,6 +35,7 @@ import com.sdds.compose.uikit.LocalEditableStyle
 import com.sdds.compose.uikit.LocalFileStyle
 import com.sdds.compose.uikit.LocalFormItemStyle
 import com.sdds.compose.uikit.LocalIconBadgeStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalImageStyle
 import com.sdds.compose.uikit.LocalIndicatorStyle
 import com.sdds.compose.uikit.LocalListStyle
@@ -130,6 +131,9 @@ import com.sdds.serv.styles.formitem.M
 import com.sdds.serv.styles.iconbadge.Default
 import com.sdds.serv.styles.iconbadge.IconBadgeSolid
 import com.sdds.serv.styles.iconbadge.M
+import com.sdds.serv.styles.iconbutton.Clear
+import com.sdds.serv.styles.iconbutton.IconButton
+import com.sdds.serv.styles.iconbutton.M
 import com.sdds.serv.styles.image.Image
 import com.sdds.serv.styles.image.Ratio3x4
 import com.sdds.serv.styles.indicator.Default
@@ -258,6 +262,7 @@ fun ThemeSetup(
             LocalIconBadgeStyle provides IconBadgeSolid.M.Default.style(),
             LocalButtonGroupStyle provides BasicButtonGroup.M.Dense.Default.style(),
             LocalButtonStyle provides BasicButton.M.Default.style(),
+            LocalIconButtonStyle provides IconButton.M.Clear.style(),
             LocalCardStyle provides CardSolid.M.style(),
             LocalCellStyle provides Cell.M.style(),
             LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
