@@ -1,4 +1,3 @@
-import com.sdds.plugin.themebuilder.DefaultThemeTypography.SMALL
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 import utils.componentsName
@@ -25,14 +24,8 @@ android {
 }
 
 themeBuilder {
-    themeSource {
-        url("file:///Users/alex/Projects/theme-converter/themes/sdds_sbcom/0.8.0-alpha.zip")
-        name(themeAlias)
-    }
-    componentSource {
-        url("file:///Users/alex/Projects/theme-converter/components/sdds_sbcom/0.2.0.zip")
-        name(themeAlias)
-    }
+    themeSource(name = themeName, version = themeVersion, alias = themeAlias)
+    componentSource(name = componentsName, version = componentsVersion, alias = themeAlias)
     compose {
         componentsMetaStyleClass(true)
     }
