@@ -75,3 +75,51 @@ fun SwitchOffDisabled(style: SwitchStyle) {
         enabled = false,
     )
 }
+
+/**
+ * Switch On
+ */
+@Composable
+fun SwitchOn(style: SwitchStyle) {
+    Switch(
+        style = style,
+        active = true,
+        enabled = true,
+    )
+}
+
+/**
+ * Switch Off
+ */
+@Composable
+fun SwitchOff(style: SwitchStyle) {
+    Switch(
+        style = style,
+        active = false,
+        enabled = true,
+    )
+}
+
+/**
+ * Switch On disabled
+ */
+@Composable
+fun SwitchOnDisabledNoText(style: SwitchStyle) {
+    Switch(
+        style = style,
+        active = true,
+        enabled = false,
+    )
+}
+
+/**
+ * Switch Off disabled
+ */
+@Composable
+fun SwitchOffDisabledNoText(style: SwitchStyle) {
+    Switch(
+        style = style,
+        active = false,
+        enabled = false,
+    )
+}

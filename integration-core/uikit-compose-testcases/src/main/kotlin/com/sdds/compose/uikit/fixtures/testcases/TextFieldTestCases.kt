@@ -891,3 +891,30 @@ fun TextFieldXlDefault(style: TextFieldStyle) {
         )
     }
 }
+
+/**
+ * TextField иконка справа
+ */
+@Composable
+fun TextFieldIconRight(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    TextField(
+        value = value,
+        style = style,
+        captionText = "Caption",
+        counterText = "0/100",
+        labelText = "Label",
+        placeholderText = "Placeholder",
+        optionalText = "",
+        onValueChange = { value = it },
+        enabled = true,
+        readOnly = false,
+        focusSelectorSettings = FocusSelectorSettings.None,
+        endContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_shazam_24),
+                contentDescription = "",
+            )
+        },
+    )
+}
