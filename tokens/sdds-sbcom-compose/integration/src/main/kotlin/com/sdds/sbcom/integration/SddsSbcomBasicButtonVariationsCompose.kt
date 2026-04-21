@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -32,17 +34,9 @@ import com.sdds.sbcom.styles.basicbutton.resolve
 internal object SddsSbcomBasicButtonVariationsCompose : ComposeStyleProvider<ButtonStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(
-                name = "size",
-                value = "Size48",
-                variants = listOf("Size48", "Size40", "Size32", "Size24"),
-            ),
+            Property.SingleChoiceProperty(name = "size", value = "Size48", variants = listOf("Size48", "Size40", "Size32", "Size24")),
             Property.SingleChoiceProperty(name = "bg", value = "Yes", variants = listOf("Yes", "No")),
-            Property.SingleChoiceProperty(
-                name = "mode",
-                value = "Primary",
-                variants = listOf("Primary", "AccentFilled", "AccentWhite", "AccentGrey", "DangerTint"),
-            ),
+            Property.SingleChoiceProperty(name = "mode", value = "Primary", variants = listOf("Primary", "AccentFilled", "AccentWhite", "AccentGrey", "DangerTint")),
         )
 
     override val variations: Map<String, ComposeStyleReference<ButtonStyle>> =
@@ -53,9 +47,7 @@ internal object SddsSbcomBasicButtonVariationsCompose : ComposeStyleProvider<But
             "BasicButton.Size48.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size48.ModeAccentGrey.style() },
             "BasicButton.Size48.ModeDangerTint" to ComposeStyleReference { BasicButton.Size48.ModeDangerTint.style() },
             "BasicButton.Size48.BgNo.ModePrimary" to ComposeStyleReference { BasicButton.Size48.BgNo.ModePrimary.style() },
-            "BasicButton.Size48.BgNo.ModeAccentFilled" to ComposeStyleReference {
-                BasicButton.Size48.BgNo.ModeAccentFilled.style()
-            },
+            "BasicButton.Size48.BgNo.ModeAccentFilled" to ComposeStyleReference { BasicButton.Size48.BgNo.ModeAccentFilled.style() },
             "BasicButton.Size48.BgNo.ModeAccentWhite" to ComposeStyleReference { BasicButton.Size48.BgNo.ModeAccentWhite.style() },
             "BasicButton.Size48.BgNo.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size48.BgNo.ModeAccentGrey.style() },
             "BasicButton.Size48.BgNo.ModeDangerTint" to ComposeStyleReference { BasicButton.Size48.BgNo.ModeDangerTint.style() },
@@ -65,9 +57,7 @@ internal object SddsSbcomBasicButtonVariationsCompose : ComposeStyleProvider<But
             "BasicButton.Size40.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size40.ModeAccentGrey.style() },
             "BasicButton.Size40.ModeDangerTint" to ComposeStyleReference { BasicButton.Size40.ModeDangerTint.style() },
             "BasicButton.Size40.BgNo.ModePrimary" to ComposeStyleReference { BasicButton.Size40.BgNo.ModePrimary.style() },
-            "BasicButton.Size40.BgNo.ModeAccentFilled" to ComposeStyleReference {
-                BasicButton.Size40.BgNo.ModeAccentFilled.style()
-            },
+            "BasicButton.Size40.BgNo.ModeAccentFilled" to ComposeStyleReference { BasicButton.Size40.BgNo.ModeAccentFilled.style() },
             "BasicButton.Size40.BgNo.ModeAccentWhite" to ComposeStyleReference { BasicButton.Size40.BgNo.ModeAccentWhite.style() },
             "BasicButton.Size40.BgNo.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size40.BgNo.ModeAccentGrey.style() },
             "BasicButton.Size40.BgNo.ModeDangerTint" to ComposeStyleReference { BasicButton.Size40.BgNo.ModeDangerTint.style() },
@@ -77,9 +67,7 @@ internal object SddsSbcomBasicButtonVariationsCompose : ComposeStyleProvider<But
             "BasicButton.Size32.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size32.ModeAccentGrey.style() },
             "BasicButton.Size32.ModeDangerTint" to ComposeStyleReference { BasicButton.Size32.ModeDangerTint.style() },
             "BasicButton.Size32.BgNo.ModePrimary" to ComposeStyleReference { BasicButton.Size32.BgNo.ModePrimary.style() },
-            "BasicButton.Size32.BgNo.ModeAccentFilled" to ComposeStyleReference {
-                BasicButton.Size32.BgNo.ModeAccentFilled.style()
-            },
+            "BasicButton.Size32.BgNo.ModeAccentFilled" to ComposeStyleReference { BasicButton.Size32.BgNo.ModeAccentFilled.style() },
             "BasicButton.Size32.BgNo.ModeAccentWhite" to ComposeStyleReference { BasicButton.Size32.BgNo.ModeAccentWhite.style() },
             "BasicButton.Size32.BgNo.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size32.BgNo.ModeAccentGrey.style() },
             "BasicButton.Size32.BgNo.ModeDangerTint" to ComposeStyleReference { BasicButton.Size32.BgNo.ModeDangerTint.style() },
@@ -89,9 +77,7 @@ internal object SddsSbcomBasicButtonVariationsCompose : ComposeStyleProvider<But
             "BasicButton.Size24.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size24.ModeAccentGrey.style() },
             "BasicButton.Size24.ModeDangerTint" to ComposeStyleReference { BasicButton.Size24.ModeDangerTint.style() },
             "BasicButton.Size24.BgNo.ModePrimary" to ComposeStyleReference { BasicButton.Size24.BgNo.ModePrimary.style() },
-            "BasicButton.Size24.BgNo.ModeAccentFilled" to ComposeStyleReference {
-                BasicButton.Size24.BgNo.ModeAccentFilled.style()
-            },
+            "BasicButton.Size24.BgNo.ModeAccentFilled" to ComposeStyleReference { BasicButton.Size24.BgNo.ModeAccentFilled.style() },
             "BasicButton.Size24.BgNo.ModeAccentWhite" to ComposeStyleReference { BasicButton.Size24.BgNo.ModeAccentWhite.style() },
             "BasicButton.Size24.BgNo.ModeAccentGrey" to ComposeStyleReference { BasicButton.Size24.BgNo.ModeAccentGrey.style() },
             "BasicButton.Size24.BgNo.ModeDangerTint" to ComposeStyleReference { BasicButton.Size24.BgNo.ModeDangerTint.style() },

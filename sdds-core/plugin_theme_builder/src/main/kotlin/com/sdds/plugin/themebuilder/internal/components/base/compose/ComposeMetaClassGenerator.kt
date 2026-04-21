@@ -304,7 +304,7 @@ internal class ComposeMetaClassGenerator(
             description = "Возвращает экземпляр [$enumClassName] для ${appearance.appearance.name}",
             body = listOf(
                 "return when {\n",
-                *whenBranches.toTypedArray(),
+                whenBranches.joinToString(""),
                 "    else -> error(\"Unsupported ${appearance.appearance.name} style combination\")\n",
                 "}\n",
             ),

@@ -47,6 +47,9 @@ class ComposeStyleReference<S : Style>(
  */
 abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleReference<S>>() {
 
+    /**
+     * Параметры выбора стиля
+     */
     open val bindings: Set<Property<*>> = emptySet()
 
     /**
@@ -69,9 +72,9 @@ abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleRefer
     }
 
     /**
-     * Получает экземпляр стиля по значениям bindings.
+     * Получает экземпляр стиля по значениям [bindings].
      *
-     * @param bindings карта выбранных значений bindings
+     * @param bindings карта выбранных значений параметров стиля
      * @return экземпляр стиля указанного типа
      */
     @Composable
@@ -84,7 +87,7 @@ abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleRefer
      * Получает ключ стиля по значениям bindings.
      *
      * По умолчанию возвращает стиль вариации по умолчанию, чтобы сохранить
-     * обратную совместимость для провайдеров без metadata-based bindings.
+     * обратную совместимость для провайдеров без параметров выбора стиля.
      *
      * @param bindings карта выбранных значений bindings
      * @return экземпляр стиля указанного типа

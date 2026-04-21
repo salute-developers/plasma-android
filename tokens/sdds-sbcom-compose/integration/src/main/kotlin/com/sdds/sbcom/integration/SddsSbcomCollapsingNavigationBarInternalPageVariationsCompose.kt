@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -18,8 +20,6 @@ internal object SddsSbcomCollapsingNavigationBarInternalPageVariationsCompose : 
 
     override val variations: Map<String, ComposeStyleReference<CollapsingNavigationBarStyle>> =
         mapOf(
-            "CollapsingNavigationBarInternalPage.Default" to ComposeStyleReference {
-                CollapsingNavigationBarInternalPage.Default.style()
-            },
+            "CollapsingNavigationBarInternalPage.Default" to ComposeStyleReference { CollapsingNavigationBarInternalPage.Default.style() },
         )
 }
