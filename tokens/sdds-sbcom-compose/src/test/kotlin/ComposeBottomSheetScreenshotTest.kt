@@ -1,10 +1,16 @@
 package com.sdds.sbcom
 
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureScreenRoboImage
 import com.sdds.compose.uikit.fixtures.RoborazziConfigCompose
 import com.sdds.compose.uikit.fixtures.SDK_NUMBER
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetFooterAuto
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderAuto
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFixedHandleOuter
+import com.sdds.compose.uikit.fixtures.testcases.BottomSheetHeaderFooterFixedHandleInner
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetNoHeaderFooterAuto
 import com.sdds.compose.uikit.fixtures.testcases.BottomSheetNoHeaderFooterHalfExpanded
 import com.sdds.compose.uikit.style.style
@@ -28,6 +34,34 @@ class ComposeBottomSheetScreenshotTest(
 
     @OptIn(ExperimentalRoborazziApi::class)
     @Test
+    fun testBottomSheetHeaderFooterFixedHandleInner() {
+        composeTestRule.content {
+            BottomSheetHeaderFooterFixedHandleInner(
+                ModalBottomSheet.Default.style(),
+                BasicButton.Size48.ModePrimary.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testBottomSheetHeaderFixedHandleOuter() {
+        composeTestRule.content {
+            BottomSheetHeaderFixedHandleOuter(
+                ModalBottomSheet.Default.style(),
+                BasicButton.Size48.ModePrimary.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
     fun testBottomSheetHalfExpanded() {
         composeTestRule.content {
             BottomSheetNoHeaderFooterHalfExpanded(
@@ -47,6 +81,34 @@ class ComposeBottomSheetScreenshotTest(
                 BasicButton.Size48.ModePrimary.style(),
             )
         }
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testBottomSheetFooterAuto() {
+        composeTestRule.content {
+            BottomSheetFooterAuto(
+                ModalBottomSheet.Default.style(),
+                BasicButton.Size48.ModePrimary.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
+        captureScreenRoboImage()
+    }
+
+    @OptIn(ExperimentalRoborazziApi::class)
+    @Test
+    fun testBottomSheetHeaderAuto() {
+        composeTestRule.content {
+            BottomSheetHeaderAuto(
+                ModalBottomSheet.Default.style(),
+                BasicButton.Size48.ModePrimary.style(),
+            )
+        }
+        composeTestRule.onNodeWithText("Show").performClick()
+        composeTestRule.waitForIdle()
         captureScreenRoboImage()
     }
 }
