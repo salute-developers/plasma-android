@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -29,11 +31,7 @@ import com.sdds.sbcom.styles.avatar.resolve
 internal object SddsSbcomAvatarVariationsCompose : ComposeStyleProvider<AvatarStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(
-                name = "size",
-                value = "Size72",
-                variants = listOf("Size72", "Size64", "Size56", "Size44", "Size40", "Size36", "Size32", "Size26", "Size24"),
-            ),
+            Property.SingleChoiceProperty(name = "size", value = "Size72", variants = listOf("Size72", "Size64", "Size56", "Size44", "Size40", "Size36", "Size32", "Size26", "Size24")),
         )
 
     override val variations: Map<String, ComposeStyleReference<AvatarStyle>> =

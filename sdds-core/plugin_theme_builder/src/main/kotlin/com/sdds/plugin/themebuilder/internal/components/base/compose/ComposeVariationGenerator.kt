@@ -373,6 +373,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
     }
 
+    @Suppress("NestedBlockDepth")
     private fun getVariationPropsDict() = mutableMapOf<String, List<VariationProp>>().apply {
         if (variations.isEmpty()) {
             if (viewVariations.isEmpty()) {

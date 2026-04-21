@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -24,11 +26,7 @@ import com.sdds.sbcom.styles.iconbadge.resolve
 internal object SddsSbcomVoiceChatBadgeVariationsCompose : ComposeStyleProvider<BadgeStyle>() {
     override val bindings: Set<Property<*>> =
         setOf(
-            Property.SingleChoiceProperty(
-                name = "size",
-                value = "Size20",
-                variants = listOf("Size20", "Size18", "Size16", "Size14"),
-            ),
+            Property.SingleChoiceProperty(name = "size", value = "Size20", variants = listOf("Size20", "Size18", "Size16", "Size14")),
         )
 
     override val variations: Map<String, ComposeStyleReference<BadgeStyle>> =
