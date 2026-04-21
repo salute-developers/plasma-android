@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.overlay
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -27,15 +29,17 @@ internal data class OverlayProperties(
 @Serializable
 internal data class OverlayView(
     override val props: OverlayProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<OverlayProperties> {
     override fun merge(parent: ViewVariation<OverlayProperties>): ViewVariation<OverlayProperties> =
-        copy(props = props.merge(parent.props) as OverlayProperties)
+        copy(props = props.merge(parent.props) as OverlayProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class OverlayVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, OverlayView> = emptyMap(),
     override val props: OverlayProperties,
 ) : ChildVariation<OverlayProperties>
@@ -45,4 +49,5 @@ internal data class OverlayConfig(
     override val view: Map<String, OverlayView> = emptyMap(),
     override val props: OverlayProperties,
     override val variations: List<OverlayVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<OverlayProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.list.item
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -72,6 +74,7 @@ internal data class ListItemView(override val props: ListItemProperties) :
 internal data class ListItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ListItemView> = emptyMap(),
     override val props: ListItemProperties,
 ) : ChildVariation<ListItemProperties>
@@ -81,4 +84,5 @@ internal data class ListItemConfig(
     override val view: Map<String, ListItemView> = emptyMap(),
     override val props: ListItemProperties,
     override val variations: List<ListItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ListItemProperties>, ComponentConfig

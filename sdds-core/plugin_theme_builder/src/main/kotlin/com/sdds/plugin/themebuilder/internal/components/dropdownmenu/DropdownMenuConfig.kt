@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.dropdownmenu
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -63,16 +65,20 @@ internal data class DropdownMenuProperties(
 }
 
 @Serializable
-internal data class DropdownMenuView(override val props: DropdownMenuProperties) :
+internal data class DropdownMenuView(
+    override val props: DropdownMenuProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<DropdownMenuProperties> {
     override fun merge(parent: ViewVariation<DropdownMenuProperties>): ViewVariation<DropdownMenuProperties> =
-        copy(props = props.merge(parent.props) as DropdownMenuProperties)
+        copy(props = props.merge(parent.props) as DropdownMenuProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class DropdownMenuVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, DropdownMenuView> = emptyMap(),
     override val props: DropdownMenuProperties,
 ) : ChildVariation<DropdownMenuProperties>
@@ -82,4 +88,5 @@ internal data class DropdownMenuConfig(
     override val view: Map<String, DropdownMenuView> = emptyMap(),
     override val props: DropdownMenuProperties,
     override val variations: List<DropdownMenuVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<DropdownMenuProperties>, ComponentConfig

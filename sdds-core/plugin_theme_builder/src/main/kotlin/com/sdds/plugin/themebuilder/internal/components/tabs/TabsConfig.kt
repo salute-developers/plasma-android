@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.tabs
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -81,15 +83,17 @@ internal data class TabsProperties(
 @Serializable
 internal data class TabsView(
     override val props: TabsProperties = TabsProperties(),
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<TabsProperties> {
     override fun merge(parent: ViewVariation<TabsProperties>): ViewVariation<TabsProperties> =
-        copy(props = props.merge(parent.props) as TabsProperties)
+        copy(props = props.merge(parent.props) as TabsProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class TabsVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, TabsView> = emptyMap(),
     override val props: TabsProperties,
 ) : ChildVariation<TabsProperties>
@@ -99,4 +103,5 @@ internal data class TabsConfig(
     override val view: Map<String, TabsView> = emptyMap(),
     override val props: TabsProperties = TabsProperties(),
     override val variations: List<TabsVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<TabsProperties>, ComponentConfig

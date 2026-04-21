@@ -51,6 +51,7 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
             appearance = component.styleName,
             coreName = component.componentName.techToCamelCase(),
             styleName = result.styleName,
+            props = result.props,
             styleClassName = result.styleClassName,
             styleBuilderClassName = result.styleBuilderClassName,
             componentPackage = result.componentPackage,
@@ -58,6 +59,7 @@ internal abstract class ComponentConfigDelegate<C : Config<out PropertyOwner>> :
                 VariationInfo(
                     name = it.key,
                     composeReference = it.value,
+                    props = result.variationProps[it.key].orEmpty(),
                 )
             },
         )

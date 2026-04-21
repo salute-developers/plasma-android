@@ -47,6 +47,7 @@ internal class CellConfigDelegate : ComponentConfigDelegate<CellConfig>() {
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
             componentName = component.styleName.techToSnakeCase(),
+            styleBuilderName = "${component.componentName.techToCamelCase()}StyleBuilder",
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             avatarStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.avatar",
             iconButtonStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.iconbutton",

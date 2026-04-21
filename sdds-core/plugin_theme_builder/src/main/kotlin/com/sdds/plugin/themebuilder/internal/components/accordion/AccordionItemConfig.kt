@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.accordion
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -67,16 +69,20 @@ internal data class AccordionItemProperties(
 }
 
 @Serializable
-internal data class AccordionItemView(override val props: AccordionItemProperties) :
+internal data class AccordionItemView(
+    override val props: AccordionItemProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<AccordionItemProperties> {
     override fun merge(parent: ViewVariation<AccordionItemProperties>): ViewVariation<AccordionItemProperties> =
-        copy(props = props.merge(parent.props) as AccordionItemProperties)
+        copy(props = props.merge(parent.props) as AccordionItemProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class AccordionItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, AccordionItemView> = emptyMap(),
     override val props: AccordionItemProperties,
 ) : ChildVariation<AccordionItemProperties>
@@ -86,4 +92,5 @@ internal data class AccordionItemConfig(
     override val view: Map<String, AccordionItemView> = emptyMap(),
     override val props: AccordionItemProperties,
     override val variations: List<AccordionItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<AccordionItemProperties>, ComponentConfig

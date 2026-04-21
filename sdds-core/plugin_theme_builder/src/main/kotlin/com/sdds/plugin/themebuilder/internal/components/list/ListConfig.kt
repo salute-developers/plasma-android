@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.list
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -43,15 +45,19 @@ internal data class ListProperties(
 }
 
 @Serializable
-internal data class ListView(override val props: ListProperties) : ViewVariation<ListProperties> {
+internal data class ListView(
+    override val props: ListProperties,
+    override val binding: List<Binding>? = null,
+) : ViewVariation<ListProperties> {
     override fun merge(parent: ViewVariation<ListProperties>): ViewVariation<ListProperties> =
-        copy(props = props.merge(parent.props) as ListProperties)
+        copy(props = props.merge(parent.props) as ListProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ListVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ListView> = emptyMap(),
     override val props: ListProperties,
 ) : ChildVariation<ListProperties>
@@ -61,4 +67,5 @@ internal data class ListConfig(
     override val view: Map<String, ListView> = emptyMap(),
     override val props: ListProperties,
     override val variations: List<ListVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ListProperties>, ComponentConfig

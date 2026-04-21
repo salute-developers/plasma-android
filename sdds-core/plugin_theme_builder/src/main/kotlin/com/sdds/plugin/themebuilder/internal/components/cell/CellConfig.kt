@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.cell
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -59,16 +61,20 @@ internal data class CellProperties(
 }
 
 @Serializable
-internal data class CellView(override val props: CellProperties) :
+internal data class CellView(
+    override val props: CellProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<CellProperties> {
     override fun merge(parent: ViewVariation<CellProperties>): ViewVariation<CellProperties> =
-        copy(props = props.merge(parent.props) as CellProperties)
+        copy(props = props.merge(parent.props) as CellProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CellVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CellView> = emptyMap(),
     override val props: CellProperties,
 ) : ChildVariation<CellProperties>
@@ -78,4 +84,5 @@ internal data class CellConfig(
     override val view: Map<String, CellView> = emptyMap(),
     override val props: CellProperties,
     override val variations: List<CellVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CellProperties>, ComponentConfig

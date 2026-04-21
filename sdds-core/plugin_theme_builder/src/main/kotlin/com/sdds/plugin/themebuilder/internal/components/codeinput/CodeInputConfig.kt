@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.codeinput
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -51,15 +53,17 @@ internal data class CodeInputProperties(
 @Serializable
 internal data class CodeInputView(
     override val props: CodeInputProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<CodeInputProperties> {
     override fun merge(parent: ViewVariation<CodeInputProperties>): ViewVariation<CodeInputProperties> =
-        copy(props = props.merge(parent.props) as CodeInputProperties)
+        copy(props = props.merge(parent.props) as CodeInputProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CodeInputVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CodeInputView> = emptyMap(),
     override val props: CodeInputProperties,
 ) : ChildVariation<CodeInputProperties>
@@ -69,4 +73,5 @@ internal data class CodeInputConfig(
     override val view: Map<String, CodeInputView> = emptyMap(),
     override val props: CodeInputProperties,
     override val variations: List<CodeInputVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CodeInputProperties>, ComponentConfig

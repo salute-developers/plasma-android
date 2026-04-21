@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.popover
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -39,16 +41,20 @@ internal data class PopoverProperties(
 }
 
 @Serializable
-internal data class PopoverView(override val props: PopoverProperties) :
+internal data class PopoverView(
+    override val props: PopoverProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<PopoverProperties> {
     override fun merge(parent: ViewVariation<PopoverProperties>): ViewVariation<PopoverProperties> =
-        copy(props = props.merge(parent.props) as PopoverProperties)
+        copy(props = props.merge(parent.props) as PopoverProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class PopoverVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, PopoverView> = emptyMap(),
     override val props: PopoverProperties,
 ) : ChildVariation<PopoverProperties>
@@ -58,4 +64,5 @@ internal data class PopoverConfig(
     override val view: Map<String, PopoverView> = emptyMap(),
     override val props: PopoverProperties,
     override val variations: List<PopoverVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<PopoverProperties>, ComponentConfig

@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.slider
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -90,15 +92,17 @@ internal data class SliderProperties(
 @Serializable
 internal data class SliderView(
     override val props: SliderProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<SliderProperties> {
     override fun merge(parent: ViewVariation<SliderProperties>): ViewVariation<SliderProperties> =
-        copy(props = props.merge(parent.props) as SliderProperties)
+        copy(props = props.merge(parent.props) as SliderProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class SliderVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, SliderView> = emptyMap(),
     override val props: SliderProperties,
 ) : ChildVariation<SliderProperties>
@@ -108,4 +112,5 @@ internal data class SliderConfig(
     override val view: Map<String, SliderView> = emptyMap(),
     override val props: SliderProperties,
     override val variations: List<SliderVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<SliderProperties>, ComponentConfig

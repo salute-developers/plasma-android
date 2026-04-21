@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.badge
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -57,15 +59,17 @@ internal data class BadgeProperties(
 @Serializable
 internal data class BadgeView(
     override val props: BadgeProperties = BadgeProperties(),
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<BadgeProperties> {
     override fun merge(parent: ViewVariation<BadgeProperties>): ViewVariation<BadgeProperties> =
-        copy(props = props.merge(parent.props) as BadgeProperties)
+        copy(props = props.merge(parent.props) as BadgeProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class BadgeVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, BadgeView> = emptyMap(),
     override val props: BadgeProperties,
 ) : ChildVariation<BadgeProperties>
@@ -75,4 +79,5 @@ internal data class BadgeConfig(
     override val view: Map<String, BadgeView> = emptyMap(),
     override val props: BadgeProperties = BadgeProperties(),
     override val variations: List<BadgeVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<BadgeProperties>, ComponentConfig

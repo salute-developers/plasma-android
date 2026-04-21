@@ -2,6 +2,8 @@ package com.sdds.plugin.themebuilder.internal.components.avatar
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeProperties
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.BooleanValue
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
@@ -67,15 +69,17 @@ internal data class AvatarProperties(
 @Serializable
 internal data class AvatarView(
     override val props: AvatarProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<AvatarProperties> {
     override fun merge(parent: ViewVariation<AvatarProperties>): ViewVariation<AvatarProperties> =
-        copy(props = props.merge(parent.props) as AvatarProperties)
+        copy(props = props.merge(parent.props) as AvatarProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class AvatarVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, AvatarView> = emptyMap(),
     override val props: AvatarProperties,
 ) : ChildVariation<AvatarProperties>
@@ -85,4 +89,5 @@ internal data class AvatarConfig(
     override val view: Map<String, AvatarView> = emptyMap(),
     override val props: AvatarProperties,
     override val variations: List<AvatarVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<AvatarProperties>, ComponentConfig

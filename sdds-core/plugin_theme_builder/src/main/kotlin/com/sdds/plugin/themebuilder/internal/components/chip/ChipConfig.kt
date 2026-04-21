@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.chip
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -53,16 +55,20 @@ internal data class ChipProperties(
 }
 
 @Serializable
-internal data class ChipView(override val props: ChipProperties) :
+internal data class ChipView(
+    override val props: ChipProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<ChipProperties> {
     override fun merge(parent: ViewVariation<ChipProperties>): ViewVariation<ChipProperties> =
-        copy(props = props.merge(parent.props) as ChipProperties)
+        copy(props = props.merge(parent.props) as ChipProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class ChipVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, ChipView> = emptyMap(),
     override val props: ChipProperties,
 ) : ChildVariation<ChipProperties>
@@ -72,4 +78,5 @@ internal data class ChipConfig(
     override val view: Map<String, ChipView> = emptyMap(),
     override val props: ChipProperties,
     override val variations: List<ChipVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<ChipProperties>, ComponentConfig

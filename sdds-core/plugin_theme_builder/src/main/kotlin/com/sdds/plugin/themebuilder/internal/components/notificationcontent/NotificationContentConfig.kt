@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.notificationcontent
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -76,18 +78,22 @@ internal data class NotificationContentProperties(
 }
 
 @Serializable
-internal data class NotificationContentView(override val props: NotificationContentProperties) :
+internal data class NotificationContentView(
+    override val props: NotificationContentProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<NotificationContentProperties> {
     override fun merge(
         parent: ViewVariation<NotificationContentProperties>,
     ): ViewVariation<NotificationContentProperties> =
-        copy(props = props.merge(parent.props) as NotificationContentProperties)
+        copy(props = props.merge(parent.props) as NotificationContentProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class NotificationContentVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, NotificationContentView> = emptyMap(),
     override val props: NotificationContentProperties,
 ) : ChildVariation<NotificationContentProperties>
@@ -97,4 +103,5 @@ internal data class NotificationContentConfig(
     override val view: Map<String, NotificationContentView> = emptyMap(),
     override val props: NotificationContentProperties,
     override val variations: List<NotificationContentVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<NotificationContentProperties>, ComponentConfig

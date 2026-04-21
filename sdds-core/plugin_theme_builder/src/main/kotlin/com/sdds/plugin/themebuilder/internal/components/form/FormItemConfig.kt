@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.form
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
@@ -95,16 +97,20 @@ internal data class FormItemProperties(
 }
 
 @Serializable
-internal data class FormItemView(override val props: FormItemProperties) :
+internal data class FormItemView(
+    override val props: FormItemProperties,
+    override val binding: List<Binding>? = null,
+) :
     ViewVariation<FormItemProperties> {
     override fun merge(parent: ViewVariation<FormItemProperties>): ViewVariation<FormItemProperties> =
-        copy(props = props.merge(parent.props) as FormItemProperties)
+        copy(props = props.merge(parent.props) as FormItemProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class FormItemVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, FormItemView> = emptyMap(),
     override val props: FormItemProperties,
 ) : ChildVariation<FormItemProperties>
@@ -114,4 +120,5 @@ internal data class FormItemConfig(
     override val view: Map<String, FormItemView> = emptyMap(),
     override val props: FormItemProperties,
     override val variations: List<FormItemVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<FormItemProperties>, ComponentConfig

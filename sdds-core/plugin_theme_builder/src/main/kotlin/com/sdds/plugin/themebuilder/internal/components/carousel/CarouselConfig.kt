@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.components.carousel
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Binding
+import com.sdds.plugin.themebuilder.internal.components.base.Bindings
 import com.sdds.plugin.themebuilder.internal.components.base.ChildVariation
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
@@ -47,15 +49,17 @@ internal data class CarouselProperties(
 @Serializable
 internal data class CarouselView(
     override val props: CarouselProperties,
+    override val binding: List<Binding>? = null,
 ) : ViewVariation<CarouselProperties> {
     override fun merge(parent: ViewVariation<CarouselProperties>): ViewVariation<CarouselProperties> =
-        copy(props = props.merge(parent.props) as CarouselProperties)
+        copy(props = props.merge(parent.props) as CarouselProperties, binding = binding ?: parent.binding)
 }
 
 @Serializable
 internal data class CarouselVariation(
     override val id: String,
     override val parent: String? = null,
+    override val binding: List<Binding>? = null,
     override val view: Map<String, CarouselView> = emptyMap(),
     override val props: CarouselProperties,
 ) : ChildVariation<CarouselProperties>
@@ -65,4 +69,5 @@ internal data class CarouselConfig(
     override val view: Map<String, CarouselView> = emptyMap(),
     override val props: CarouselProperties,
     override val variations: List<CarouselVariation> = emptyList(),
+    override val bindings: List<Bindings> = emptyList(),
 ) : Config<CarouselProperties>, ComponentConfig
