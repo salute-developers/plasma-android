@@ -3,6 +3,7 @@ package utils
 import org.gradle.api.Project
 import org.gradle.api.logging.Logger
 import org.jetbrains.kotlin.com.google.gson.GsonBuilder
+import org.jetbrains.kotlin.com.google.gson.JsonArray
 import org.jetbrains.kotlin.com.google.gson.JsonObject
 import java.io.File
 
@@ -131,6 +132,7 @@ fun Project.changelogUrl(deploy: Boolean = true): String {
 fun Project.transformTemplate(templateDir: File, snippetsDir: File, componentsConfig: File) {
     val versionInfo = versionInfo()
     val components = resolveComponents(componentsConfig)
+    val styleApis = resolveStyleApis(componentsConfig)
     templateDir
         .walkTopDown()
         .filter { file -> file.isFile && (file.extension == "md" || file.name == "docusaurus.config.ts") }
@@ -151,7 +153,8 @@ fun Project.transformTemplate(templateDir: File, snippetsDir: File, componentsCo
                 .replace("{{ docs-api-href }}", docsApiHref)
                 .replaceKotlinSnippets(snippetsDir)
                 .replaceXmlSnippets(snippetsDir)
-                .replaceScreenshots(templateDir, templateFile.needScreenshots(components), logger)
+                .replaceStyleApi(templateFile, styleApis, logger, components)
+                .replaceScreenshots(templateDir, templateFile.definedInComponents(components), logger)
 
             val destFile = File(
                 templateDir,
@@ -224,6 +227,29 @@ private fun String.replaceScreenshots(templateDir: File, needScreenshots: Boolea
     }
 }
 
+private fun String.replaceStyleApi(
+    templateFile: File,
+    styleApis: Map<String, List<StyleApiDoc>>,
+    logger: Logger,
+    components: Set<String>,
+): String {
+    return replace(STYLE_API_REGEX) {
+        val componentName = templateFile.name.removeSuffix("Usage.md")
+        val hasStyles = templateFile.definedInComponents(components)
+        val docs = styleApis[componentName].orEmpty()
+        when {
+            hasStyles && docs.isNotEmpty() -> docs.joinToString("\n\n") { it.toMarkdown() }
+            hasStyles -> {
+                logger.info("Style API metadata not found for ${templateFile.name}")
+                ""
+            }
+            else -> """:::warning
+            У компонента нет готовых стилей. Если нужен стиль, обратитесь в поддержку. 
+            :::""".trim()
+        }
+    }
+}
+
 fun Project.filterComponents(docsDir: File, componentsConfig: File) {
     val components = resolveComponents(componentsConfig)
 
@@ -237,7 +263,7 @@ fun Project.filterComponents(docsDir: File, componentsConfig: File) {
         }
 }
 
-fun File.needScreenshots(components: Set<String>): Boolean {
+fun File.definedInComponents(components: Set<String>): Boolean {
     val componentName = name.removeSuffix("Usage.md").lowercase()
     return components.any { it.lowercase() == componentName }
 }
@@ -247,6 +273,46 @@ fun Project.resolveComponents(componentsConfig: File): Set<String> {
     val info = gson.fromJson(componentsConfig.readText(), JsonObject::class.java)
     val components = info.getAsJsonArray("components")
     return components.map { it.asJsonObject.get("coreName").asString }.toSet()
+}
+
+private fun resolveStyleApis(componentsConfig: File): Map<String, List<StyleApiDoc>> {
+    val gson = GsonBuilder().setPrettyPrinting().create()
+    val info = gson.fromJson(componentsConfig.readText(), JsonObject::class.java)
+    val components = info.getAsJsonArray("components")
+    return components.mapNotNull { componentElement ->
+        val component = componentElement.asJsonObject
+        val styleApi = component.getAsJsonObjectOrNull("styleApi") ?: return@mapNotNull null
+        StyleApiDoc(
+            coreName = component.get("coreName").asString,
+            styleName = component.get("styleName").asString,
+            receiverClassName = styleApi.get("receiverClassName").asString,
+            functionName = styleApi.get("functionName")?.asString ?: "style",
+            returnTypeName = styleApi.get("returnTypeName")?.asString.orEmpty(),
+            params = styleApi.getAsJsonArrayOrEmpty("params").map { paramElement ->
+                val param = paramElement.asJsonObject
+                StyleApiParamDoc(
+                    name = param.get("name").asString,
+                    typeName = param.get("typeName").asString,
+                    defaultValue = param.getAsJsonObjectOrNull("defaultValue")?.toStyleApiValueDoc(),
+                    values = param.getAsJsonArrayOrEmpty("values").map { valueElement ->
+                        valueElement.asJsonObject.toStyleApiValueDoc()
+                    },
+                )
+            },
+            variations = component.getAsJsonArrayOrEmpty("variations").mapNotNull { variationElement ->
+                val variation = variationElement.asJsonObject
+                val composeReference = variation.get("composeReference")?.takeUnless { it.isJsonNull }?.asString
+                    ?: return@mapNotNull null
+                StyleVariationDoc(
+                    composeReference = composeReference,
+                    props = variation.getAsJsonArrayOrEmpty("props").associate { propElement ->
+                        val prop = propElement.asJsonObject
+                        prop.get("name").asString to prop.get("value").asString
+                    },
+                )
+            },
+        )
+    }.groupBy { it.coreName }
 }
 
 fun Project.mergePlusPrefixedDocs(docsDir: File) {
@@ -293,3 +359,128 @@ fun Project.mergePlusPrefixedDocs(docsDir: File) {
 }
 
 private const val BASE_DOC_URL = "https://plasma.sberdevices.ru"
+private val STYLE_API_REGEX = "<!--\\s*@style-api\\s*-->".toRegex()
+
+private data class StyleApiDoc(
+    val coreName: String,
+    val styleName: String,
+    val receiverClassName: String,
+    val functionName: String,
+    val returnTypeName: String,
+    val params: List<StyleApiParamDoc>,
+    val variations: List<StyleVariationDoc>,
+) {
+    fun toMarkdown(): String {
+        val header = if (styleName == coreName) {
+            "### Параметры стиля"
+        } else {
+            "### Параметры стиля `$styleName`"
+        }
+        return buildString {
+            if (params.isNotEmpty()) {
+                appendLine(header)
+                appendLine()
+                appendLine("| Параметр | Тип | Возможные значения |")
+                appendLine("| --- | --- | --- |")
+                params.forEach { param ->
+                    appendLine(
+                        "| `${param.name}` | `${param.typeName}` | ${param.valuesColumn} |"
+                    )
+                }
+                appendLine()
+            }
+            appendLine("Пример выбора готового стиля:")
+            appendLine("```kotlin")
+            append(exampleCall())
+            exampleDotNotationCall()?.let { dotExample ->
+                appendLine()
+                appendLine()
+                appendLine("// или через dot notation")
+                append(dotExample)
+                appendLine()
+            }
+            appendLine("```")
+        }
+    }
+
+    private fun exampleCall(): String {
+        val invocation = receiverClassName.removeSuffix(".Companion")
+        val args = params.joinToString(",\n") { param ->
+            "    ${param.name} = ${param.exampleValueExpression()}"
+        }
+        return buildString {
+            append("val style = ")
+            append(invocation)
+            append('.')
+            append(functionName)
+            append('(')
+            if (args.isNotBlank()) {
+                append('\n')
+                append(args)
+                append('\n')
+            }
+            append(")")
+        }
+    }
+
+    private fun exampleDotNotationCall(): String? {
+        val composeReference = variations.firstOrNull { variation ->
+            params.all { param ->
+                val actualValue = variation.props[param.name] ?: param.defaultValue?.value
+                actualValue == param.exampleRawValue()
+            }
+        }?.composeReference ?: variations.firstOrNull()?.composeReference
+        return composeReference?.let { "val style = $it.style()" }
+    }
+}
+
+private data class StyleApiParamDoc(
+    val name: String,
+    val typeName: String,
+    val defaultValue: StyleApiValueDoc?,
+    val values: List<StyleApiValueDoc>,
+) {
+    val valuesColumn: String
+        get() = if (values.isEmpty()) "-" else values.joinToString(", ") { "`${it.codeName}`" }
+
+    fun exampleValueExpression(): String {
+        val selectedValue = defaultValue ?: values.firstOrNull()
+        return when {
+            selectedValue == null -> error("No values available for `$name`")
+            typeName == "Boolean" -> selectedValue.codeName
+            else -> "$typeName.${selectedValue.codeName}"
+        }
+    }
+
+    fun exampleRawValue(): String {
+        return (defaultValue ?: values.firstOrNull())?.value
+            ?: error("No values available for `$name`")
+    }
+}
+
+private data class StyleApiValueDoc(
+    val value: String,
+    val codeName: String,
+)
+
+private data class StyleVariationDoc(
+    val composeReference: String,
+    val props: Map<String, String>,
+)
+
+private fun JsonObject.getAsJsonObjectOrNull(name: String): JsonObject? {
+    val element = get(name) ?: return null
+    return if (element.isJsonNull) null else element.asJsonObject
+}
+
+private fun JsonObject.getAsJsonArrayOrEmpty(name: String): JsonArray {
+    val element = get(name) ?: return JsonArray()
+    return if (element.isJsonNull) JsonArray() else element.asJsonArray
+}
+
+private fun JsonObject.toStyleApiValueDoc(): StyleApiValueDoc {
+    return StyleApiValueDoc(
+        value = get("value").asString,
+        codeName = get("codeName").asString,
+    )
+}

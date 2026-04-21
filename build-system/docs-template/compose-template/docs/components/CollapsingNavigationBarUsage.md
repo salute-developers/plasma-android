@@ -14,7 +14,9 @@ title: CollapsingNavigationBar
 
 ## Стиль CollapsingNavigationBar
 
-Стиль CollapsingNavigationBar можно настроить с помощью CollapsingNavigationBarStyle.builder(). Так же существует набор сгенерированных стилей.
+В большинстве случаев можно использовать готовые сгенерированные стили, а при необходимости создать собственный стиль через соответствующий builder. Подробнее о том, как работают `Style`, `StyleBuilder` и stateful-параметры стиля, см. в разделе [Стилизация компонентов](../theme/Styles.md).
+
+<!-- @style-api -->
 
 ### Создание стиля с помощью builder()
 
