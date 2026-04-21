@@ -8,17 +8,23 @@
 package ${{ packageName }}
 
 import androidx.compose.runtime.Composable
+import com.sdds.sandbox.Property
 import com.sdds.compose.uikit.${{ coreStyleClass }}
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.sandbox.ComposeStyleProvider
 import com.sdds.compose.sandbox.ComposeStyleReference
 import ${{ themePackageName }}.styles.${{ componentPackage }}.${{ styleName }}
 
+${{ bindingImports }}
 ${{ variationImports }}
 
 internal object ${{ themeName }}${{ styleName }}VariationsCompose : ComposeStyleProvider<${{ coreStyleClass }}>() {
+    ${{ bindingsDeclaration }}
+
     override val variations: Map<String, ComposeStyleReference<${{ coreStyleClass }}>> =
         mapOf(
 ${{ variations }}
         )
+
+    ${{ bindingStyleDeclaration }}
 }

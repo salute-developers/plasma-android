@@ -1,0 +1,5 @@
+override fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return ${{ receiver }}.resolve(
+            ${{ params }},
+        ).key
+    }
