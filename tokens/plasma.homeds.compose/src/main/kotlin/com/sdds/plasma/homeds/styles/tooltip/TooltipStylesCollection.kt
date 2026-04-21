@@ -27,16 +27,49 @@ public enum class TooltipStyles(
 ) {
     TooltipM("Tooltip.M"),
     TooltipS("Tooltip.S"),
+    ;
+
+    /**
+     * Typed API для подбора стиля tooltip
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для tooltip
+ */
+public enum class TooltipSize {
+    M,
+    S,
 }
 
 /**
  * Возвращает [TooltipStyle] для [TooltipStyles]
  */
 @Composable
-public fun TooltipStyles.style(modifyAction: @Composable TooltipStyleBuilder.() -> Unit = {}): TooltipStyle {
+public fun TooltipStyles.style(modify: @Composable TooltipStyleBuilder.() -> Unit = {}): TooltipStyle {
     val builder = when (this) {
         TooltipStyles.TooltipM -> Tooltip.M
         TooltipStyles.TooltipS -> Tooltip.S
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [TooltipStyles] для tooltip
+ */
+public fun TooltipStyles.Companion.resolve(size: TooltipSize = TooltipSize.M): TooltipStyles = when {
+    size == TooltipSize.M -> TooltipStyles.TooltipM
+    size == TooltipSize.S -> TooltipStyles.TooltipS
+    else -> error("Unsupported tooltip style combination")
+}
+
+/**
+ * Возвращает [TooltipStyle] для tooltip
+ */
+@Composable
+public fun TooltipStyles.Companion.style(
+    size: TooltipSize = TooltipSize.M,
+    modify: @Composable
+    TooltipStyleBuilder.() -> Unit = {},
+): TooltipStyle = resolve(size).style(modify)

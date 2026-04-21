@@ -26,15 +26,33 @@ public enum class LoaderStyles(
     public val key: String,
 ) {
     LoaderDefault("Loader.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля loader
+     */
+    public companion object
 }
 
 /**
  * Возвращает [LoaderStyle] для [LoaderStyles]
  */
 @Composable
-public fun LoaderStyles.style(modifyAction: @Composable LoaderStyleBuilder.() -> Unit = {}): LoaderStyle {
+public fun LoaderStyles.style(modify: @Composable LoaderStyleBuilder.() -> Unit = {}): LoaderStyle {
     val builder = when (this) {
         LoaderStyles.LoaderDefault -> Loader.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [LoaderStyles] для loader
+ */
+public fun LoaderStyles.Companion.resolve(): LoaderStyles = LoaderStyles.LoaderDefault
+
+/**
+ * Возвращает [LoaderStyle] для loader
+ */
+@Composable
+public fun LoaderStyles.Companion.style(modify: @Composable LoaderStyleBuilder.() -> Unit = {}):
+    LoaderStyle = resolve().style(modify)

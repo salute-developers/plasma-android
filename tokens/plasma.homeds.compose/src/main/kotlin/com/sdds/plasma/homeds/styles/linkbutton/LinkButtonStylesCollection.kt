@@ -67,13 +67,44 @@ public enum class LinkButtonStyles(
     LinkButtonXxsNegative("LinkButton.Xxs.Negative"),
     LinkButtonXxsWarning("LinkButton.Xxs.Warning"),
     LinkButtonXxsInfo("LinkButton.Xxs.Info"),
+    ;
+
+    /**
+     * Typed API для подбора стиля link-button
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для link-button
+ */
+public enum class LinkButtonSize {
+    Xl,
+    L,
+    M,
+    S,
+    Xs,
+    Xxs,
+}
+
+/**
+ * Возможные значения свойства view для link-button
+ */
+public enum class LinkButtonView {
+    Default,
+    Secondary,
+    Accent,
+    Positive,
+    Negative,
+    Warning,
+    Info,
 }
 
 /**
  * Возвращает [ButtonStyle] для [LinkButtonStyles]
  */
 @Composable
-public fun LinkButtonStyles.style(modifyAction: @Composable LinkButtonStyleBuilder.() -> Unit = {}): ButtonStyle {
+public fun LinkButtonStyles.style(modify: @Composable LinkButtonStyleBuilder.() -> Unit = {}): ButtonStyle {
     val builder = when (this) {
         LinkButtonStyles.LinkButtonXlDefault -> LinkButton.Xl.Default
         LinkButtonStyles.LinkButtonXlSecondary -> LinkButton.Xl.Secondary
@@ -118,5 +149,100 @@ public fun LinkButtonStyles.style(modifyAction: @Composable LinkButtonStyleBuild
         LinkButtonStyles.LinkButtonXxsWarning -> LinkButton.Xxs.Warning
         LinkButtonStyles.LinkButtonXxsInfo -> LinkButton.Xxs.Info
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [LinkButtonStyles] для link-button
+ */
+public fun LinkButtonStyles.Companion.resolve(
+    size: LinkButtonSize = LinkButtonSize.Xl,
+    view: LinkButtonView = LinkButtonView.Default,
+): LinkButtonStyles = when {
+    size == LinkButtonSize.Xl && view == LinkButtonView.Default ->
+        LinkButtonStyles.LinkButtonXlDefault
+    size == LinkButtonSize.Xl && view == LinkButtonView.Secondary ->
+        LinkButtonStyles.LinkButtonXlSecondary
+    size == LinkButtonSize.Xl && view == LinkButtonView.Accent ->
+        LinkButtonStyles.LinkButtonXlAccent
+    size == LinkButtonSize.Xl && view == LinkButtonView.Positive ->
+        LinkButtonStyles.LinkButtonXlPositive
+    size == LinkButtonSize.Xl && view == LinkButtonView.Negative ->
+        LinkButtonStyles.LinkButtonXlNegative
+    size == LinkButtonSize.Xl && view == LinkButtonView.Warning ->
+        LinkButtonStyles.LinkButtonXlWarning
+    size == LinkButtonSize.Xl && view == LinkButtonView.Info -> LinkButtonStyles.LinkButtonXlInfo
+    size == LinkButtonSize.L && view == LinkButtonView.Default ->
+        LinkButtonStyles.LinkButtonLDefault
+    size == LinkButtonSize.L && view == LinkButtonView.Secondary ->
+        LinkButtonStyles.LinkButtonLSecondary
+    size == LinkButtonSize.L && view == LinkButtonView.Accent -> LinkButtonStyles.LinkButtonLAccent
+    size == LinkButtonSize.L && view == LinkButtonView.Positive ->
+        LinkButtonStyles.LinkButtonLPositive
+    size == LinkButtonSize.L && view == LinkButtonView.Negative ->
+        LinkButtonStyles.LinkButtonLNegative
+    size == LinkButtonSize.L && view == LinkButtonView.Warning ->
+        LinkButtonStyles.LinkButtonLWarning
+    size == LinkButtonSize.L && view == LinkButtonView.Info -> LinkButtonStyles.LinkButtonLInfo
+    size == LinkButtonSize.M && view == LinkButtonView.Default ->
+        LinkButtonStyles.LinkButtonMDefault
+    size == LinkButtonSize.M && view == LinkButtonView.Secondary ->
+        LinkButtonStyles.LinkButtonMSecondary
+    size == LinkButtonSize.M && view == LinkButtonView.Accent -> LinkButtonStyles.LinkButtonMAccent
+    size == LinkButtonSize.M && view == LinkButtonView.Positive ->
+        LinkButtonStyles.LinkButtonMPositive
+    size == LinkButtonSize.M && view == LinkButtonView.Negative ->
+        LinkButtonStyles.LinkButtonMNegative
+    size == LinkButtonSize.M && view == LinkButtonView.Warning ->
+        LinkButtonStyles.LinkButtonMWarning
+    size == LinkButtonSize.M && view == LinkButtonView.Info -> LinkButtonStyles.LinkButtonMInfo
+    size == LinkButtonSize.S && view == LinkButtonView.Default ->
+        LinkButtonStyles.LinkButtonSDefault
+    size == LinkButtonSize.S && view == LinkButtonView.Secondary ->
+        LinkButtonStyles.LinkButtonSSecondary
+    size == LinkButtonSize.S && view == LinkButtonView.Accent -> LinkButtonStyles.LinkButtonSAccent
+    size == LinkButtonSize.S && view == LinkButtonView.Positive ->
+        LinkButtonStyles.LinkButtonSPositive
+    size == LinkButtonSize.S && view == LinkButtonView.Negative ->
+        LinkButtonStyles.LinkButtonSNegative
+    size == LinkButtonSize.S && view == LinkButtonView.Warning ->
+        LinkButtonStyles.LinkButtonSWarning
+    size == LinkButtonSize.S && view == LinkButtonView.Info -> LinkButtonStyles.LinkButtonSInfo
+    size == LinkButtonSize.Xs && view == LinkButtonView.Default ->
+        LinkButtonStyles.LinkButtonXsDefault
+    size == LinkButtonSize.Xs && view == LinkButtonView.Secondary ->
+        LinkButtonStyles.LinkButtonXsSecondary
+    size == LinkButtonSize.Xs && view == LinkButtonView.Accent ->
+        LinkButtonStyles.LinkButtonXsAccent
+    size == LinkButtonSize.Xs && view == LinkButtonView.Positive ->
+        LinkButtonStyles.LinkButtonXsPositive
+    size == LinkButtonSize.Xs && view == LinkButtonView.Negative ->
+        LinkButtonStyles.LinkButtonXsNegative
+    size == LinkButtonSize.Xs && view == LinkButtonView.Warning ->
+        LinkButtonStyles.LinkButtonXsWarning
+    size == LinkButtonSize.Xs && view == LinkButtonView.Info -> LinkButtonStyles.LinkButtonXsInfo
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Default ->
+        LinkButtonStyles.LinkButtonXxsDefault
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Secondary ->
+        LinkButtonStyles.LinkButtonXxsSecondary
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Accent ->
+        LinkButtonStyles.LinkButtonXxsAccent
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Positive ->
+        LinkButtonStyles.LinkButtonXxsPositive
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Negative ->
+        LinkButtonStyles.LinkButtonXxsNegative
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Warning ->
+        LinkButtonStyles.LinkButtonXxsWarning
+    size == LinkButtonSize.Xxs && view == LinkButtonView.Info -> LinkButtonStyles.LinkButtonXxsInfo
+    else -> error("Unsupported link-button style combination")
+}
+
+/**
+ * Возвращает [ButtonStyle] для link-button
+ */
+@Composable
+public fun LinkButtonStyles.Companion.style(
+    size: LinkButtonSize = LinkButtonSize.Xl,
+    view: LinkButtonView = LinkButtonView.Default,
+    modify: @Composable LinkButtonStyleBuilder.() -> Unit = {},
+): ButtonStyle = resolve(size, view).style(modify)

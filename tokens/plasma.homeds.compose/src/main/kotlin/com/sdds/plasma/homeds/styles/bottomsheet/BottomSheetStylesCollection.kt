@@ -26,6 +26,12 @@ public enum class BottomSheetStyles(
     public val key: String,
 ) {
     ModalBottomSheetDefault("ModalBottomSheet.Default"),
+    ;
+
+    /**
+     * Typed API для подбора стиля modal-bottom-sheet
+     */
+    public companion object
 }
 
 /**
@@ -33,11 +39,27 @@ public enum class BottomSheetStyles(
  */
 @Composable
 public fun BottomSheetStyles.style(
-    modifyAction: @Composable ModalBottomSheetStyleBuilder.() -> Unit =
+    modify: @Composable ModalBottomSheetStyleBuilder.() -> Unit =
         {},
 ): ModalBottomSheetStyle {
     val builder = when (this) {
         BottomSheetStyles.ModalBottomSheetDefault -> ModalBottomSheet.Default
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [BottomSheetStyles] для modal-bottom-sheet
+ */
+public fun BottomSheetStyles.Companion.resolve(): BottomSheetStyles =
+    BottomSheetStyles.ModalBottomSheetDefault
+
+/**
+ * Возвращает [ModalBottomSheetStyle] для modal-bottom-sheet
+ */
+@Composable
+public fun BottomSheetStyles.Companion.style(
+    modify: @Composable
+    ModalBottomSheetStyleBuilder.() -> Unit = {},
+): ModalBottomSheetStyle =
+    resolve().style(modify)

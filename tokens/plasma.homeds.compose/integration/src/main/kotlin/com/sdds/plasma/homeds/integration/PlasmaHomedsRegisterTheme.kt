@@ -27,7 +27,7 @@ fun SandboxActivity.registerTheme(componentProvider: ComponentProvider = Compone
                 colors = if (isDark) darkPlasmaHomeDsColors() else lightPlasmaHomeDsColors(),
                 gradients = if (isDark) darkPlasmaHomeDsGradients() else lightPlasmaHomeDsGradients(),
             ) {
-                it.invoke()
+                it()
             }
         },
         subthemes = mapOf(

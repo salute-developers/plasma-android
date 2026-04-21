@@ -33,13 +33,38 @@ public enum class AvatarStyles(
     AvatarMPilled("Avatar.M.Pilled"),
     AvatarS("Avatar.S"),
     AvatarSPilled("Avatar.S.Pilled"),
+    ;
+
+    /**
+     * Typed API для подбора стиля avatar
+     */
+    public companion object
+}
+
+/**
+ * Возможные значения свойства size для avatar
+ */
+public enum class AvatarSize {
+    Xxl,
+    L,
+    M,
+    S,
+    Xs,
+}
+
+/**
+ * Возможные значения свойства shape для avatar
+ */
+public enum class AvatarShape {
+    Default,
+    Pilled,
 }
 
 /**
  * Возвращает [AvatarStyle] для [AvatarStyles]
  */
 @Composable
-public fun AvatarStyles.style(modifyAction: @Composable AvatarStyleBuilder.() -> Unit = {}): AvatarStyle {
+public fun AvatarStyles.style(modify: @Composable AvatarStyleBuilder.() -> Unit = {}): AvatarStyle {
     val builder = when (this) {
         AvatarStyles.AvatarXxl -> Avatar.Xxl
         AvatarStyles.AvatarXxlPilled -> Avatar.Xxl.Pilled
@@ -50,5 +75,34 @@ public fun AvatarStyles.style(modifyAction: @Composable AvatarStyleBuilder.() ->
         AvatarStyles.AvatarS -> Avatar.S
         AvatarStyles.AvatarSPilled -> Avatar.S.Pilled
     }
-    return builder.modify(modifyAction).style()
+    return builder.modify(modify).style()
 }
+
+/**
+ * Возвращает экземпляр [AvatarStyles] для avatar
+ */
+public fun AvatarStyles.Companion.resolve(
+    size: AvatarSize = AvatarSize.Xxl,
+    shape: AvatarShape =
+        AvatarShape.Default,
+): AvatarStyles = when {
+    size == AvatarSize.Xxl && shape == AvatarShape.Pilled -> AvatarStyles.AvatarXxlPilled
+    size == AvatarSize.L && shape == AvatarShape.Pilled -> AvatarStyles.AvatarLPilled
+    size == AvatarSize.M && shape == AvatarShape.Pilled -> AvatarStyles.AvatarMPilled
+    size == AvatarSize.S && shape == AvatarShape.Pilled -> AvatarStyles.AvatarSPilled
+    size == AvatarSize.Xxl -> AvatarStyles.AvatarXxl
+    size == AvatarSize.L -> AvatarStyles.AvatarL
+    size == AvatarSize.M -> AvatarStyles.AvatarM
+    size == AvatarSize.S -> AvatarStyles.AvatarS
+    else -> error("Unsupported avatar style combination")
+}
+
+/**
+ * Возвращает [AvatarStyle] для avatar
+ */
+@Composable
+public fun AvatarStyles.Companion.style(
+    size: AvatarSize = AvatarSize.Xxl,
+    shape: AvatarShape = AvatarShape.Default,
+    modify: @Composable AvatarStyleBuilder.() -> Unit = {},
+): AvatarStyle = resolve(size, shape).style(modify)

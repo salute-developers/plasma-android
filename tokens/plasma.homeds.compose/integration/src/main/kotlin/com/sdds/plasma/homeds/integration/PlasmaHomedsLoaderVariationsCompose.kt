@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.homeds.styles.loader.Default
 import com.sdds.plasma.homeds.styles.loader.Loader
 
 internal object PlasmaHomedsLoaderVariationsCompose : ComposeStyleProvider<LoaderStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<LoaderStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Loader.Default.style() },
+            "Loader.Default" to ComposeStyleReference { Loader.Default.style() },
         )
 }

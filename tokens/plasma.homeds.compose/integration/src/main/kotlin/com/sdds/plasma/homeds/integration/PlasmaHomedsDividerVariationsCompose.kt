@@ -2,6 +2,8 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "UndocumentedPublicFunction",
+    "CyclomaticComplexMethod",
     "ktlint:standard:max-line-length",
 )
 
@@ -15,8 +17,9 @@ import com.sdds.plasma.homeds.styles.divider.Default
 import com.sdds.plasma.homeds.styles.divider.Divider
 
 internal object PlasmaHomedsDividerVariationsCompose : ComposeStyleProvider<DividerStyle>() {
+
     override val variations: Map<String, ComposeStyleReference<DividerStyle>> =
         mapOf(
-            "Default" to ComposeStyleReference { Divider.Default.style() },
+            "Divider.Default" to ComposeStyleReference { Divider.Default.style() },
         )
 }
