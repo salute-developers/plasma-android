@@ -1,0 +1,1 @@
+booleanBindingValue(bindings, "${{ name }}", ${{ defaultValue }})

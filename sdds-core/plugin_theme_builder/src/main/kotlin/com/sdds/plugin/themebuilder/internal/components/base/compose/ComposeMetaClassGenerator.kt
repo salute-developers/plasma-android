@@ -269,7 +269,6 @@ internal class ComposeMetaClassGenerator(
             appendRootFun(
                 name = "resolve",
                 receiver = receiverType,
-                modifiers = listOf(KtFileBuilder.Modifier.PRIVATE),
                 returnType = ClassName(componentPackage, enumClassName),
                 body = listOf(
                     "return $enumClassName.${fallbackStyle.reference.toStyleEnumName()}",
@@ -300,8 +299,8 @@ internal class ComposeMetaClassGenerator(
             name = "resolve",
             receiver = receiverType,
             params = params,
-            modifiers = listOf(KtFileBuilder.Modifier.PRIVATE),
             returnType = ClassName(componentPackage, enumClassName),
+            description = "Возвращает экземпляр [$enumClassName] для ${appearance.appearance.name}",
             body = listOf(
                 "return when {\n",
                 *whenBranches.toTypedArray(),

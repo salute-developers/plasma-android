@@ -2,6 +2,7 @@ package com.sdds.compose.sandbox
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.style.Style
+import com.sdds.sandbox.Property
 import com.sdds.sandbox.StyleProvider
 import com.sdds.sandbox.StyleReference
 
@@ -46,6 +47,8 @@ class ComposeStyleReference<S : Style>(
  */
 abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleReference<S>>() {
 
+    open val bindings: Set<Property<*>> = emptySet()
+
     /**
      * Получает экземпляр стиля по его ключу и немедленно создает его.
      *
@@ -63,5 +66,42 @@ abstract class ComposeStyleProvider<S : Style> : StyleProvider<ComposeStyleRefer
     @Composable
     fun style(key: String): S {
         return styleReference(key).get().invoke()
+    }
+
+    /**
+     * Получает экземпляр стиля по значениям bindings.
+     *
+     * @param bindings карта выбранных значений bindings
+     * @return экземпляр стиля указанного типа
+     */
+    @Composable
+    fun style(bindings: Map<String, Any?>): S {
+        val key = resolveStyleKey(bindings)
+        return style(key)
+    }
+
+    /**
+     * Получает ключ стиля по значениям bindings.
+     *
+     * По умолчанию возвращает стиль вариации по умолчанию, чтобы сохранить
+     * обратную совместимость для провайдеров без metadata-based bindings.
+     *
+     * @param bindings карта выбранных значений bindings
+     * @return экземпляр стиля указанного типа
+     */
+    open fun resolveStyleKey(bindings: Map<String, Any?>): String {
+        return defaultVariant
+    }
+
+    protected fun booleanBindingValue(
+        bindings: Map<String, Any?>,
+        name: String,
+        defaultValue: Boolean,
+    ): Boolean {
+        return when (val value = bindings[name]) {
+            is Boolean -> value
+            is String -> value.toBooleanStrictOrNull() ?: defaultValue
+            else -> defaultValue
+        }
     }
 }
