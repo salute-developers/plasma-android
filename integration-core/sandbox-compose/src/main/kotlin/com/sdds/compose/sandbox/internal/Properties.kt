@@ -9,12 +9,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
@@ -151,6 +154,7 @@ internal fun PropertiesList(
     onReset: () -> Unit,
     headerTitle: String,
     properties: List<Property<*>>,
+    styleProperties: List<Property<*>>,
     modifier: Modifier = Modifier,
     style: PropertiesListStyle = LocalPropertiesListStyle.current,
 ) {
@@ -159,63 +163,101 @@ internal fun PropertiesList(
             .clip(style.shape)
             .background(style.backgroundColor)
             .then(modifier)
-            .padding(horizontal = 4.dp),
+            .padding(horizontal = 4.dp)
+            .verticalScroll(rememberScrollState()),
     ) {
         PropertiesHeader(
             title = headerTitle,
             style = style,
             onResetClicked = onReset,
         )
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(style.spaceBetweenProperties),
-        ) {
-            items(properties.size) {
-                when (val property = properties[it]) {
-                    is Property.BooleanProperty ->
-                        SwitchPropertyListItem(
-                            style = style,
-                            onClick = { onSelect(property) },
-                            propertyName = property.name,
-                            propertyValue = property.value,
-                        )
+        PropertiesListSection(
+            sectionTitle = "Стилизация",
+            onSelect = onSelect,
+            properties = styleProperties,
+            modifier = modifier,
+            style = style,
+        )
+        Spacer(Modifier.size(30.dp))
+        PropertiesListSection(
+            sectionTitle = "Состояние",
+            onSelect = onSelect,
+            properties = properties,
+            modifier = modifier,
+            style = style,
+        )
+    }
+}
 
-                    is Property.IntProperty ->
-                        ValuePropertyListItem(
-                            style = style,
-                            onClick = { onSelect(property) },
-                            propertyName = property.name,
-                            propertyValue = property.value.toString(),
-                            icon = painterResource(id = Icons.ic_keyboard_outline_16),
-                        )
+@Composable
+private fun PropertiesListSection(
+    sectionTitle: String,
+    onSelect: (Property<*>) -> Unit,
+    properties: List<Property<*>>,
+    modifier: Modifier = Modifier,
+    style: PropertiesListStyle = LocalPropertiesListStyle.current,
+) {
+    if (properties.isEmpty()) return
+    val interactionSource = remember { MutableInteractionSource() }
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(style.spaceBetweenProperties),
+    ) {
+        val sectionHeaderColor = style.propertyLabelTextColor.colorForInteractionAsState(interactionSource)
+        Text(
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(horizontal = style.propertyPaddings),
+            text = sectionTitle,
+            style = style.headerTextStyle,
+            color = { sectionHeaderColor.value },
+        )
 
-                    is Property.FloatProperty ->
-                        ValuePropertyListItem(
-                            style = style,
-                            onClick = { onSelect(property) },
-                            propertyName = property.name,
-                            propertyValue = property.value.toString(),
-                            icon = painterResource(id = Icons.ic_keyboard_outline_16),
-                        )
+        repeat(properties.size) {
+            when (val property = properties[it]) {
+                is Property.BooleanProperty ->
+                    SwitchPropertyListItem(
+                        style = style,
+                        onClick = { onSelect(property) },
+                        propertyName = property.name,
+                        propertyValue = property.value,
+                    )
 
-                    is Property.SingleChoiceProperty ->
-                        ValuePropertyListItem(
-                            style = style,
-                            onClick = { onSelect(property) },
-                            propertyName = property.name,
-                            propertyValue = property.value,
-                            icon = painterResource(id = Icons.ic_disclosure_right_outline_16),
-                        )
+                is Property.IntProperty ->
+                    ValuePropertyListItem(
+                        style = style,
+                        onClick = { onSelect(property) },
+                        propertyName = property.name,
+                        propertyValue = property.value.toString(),
+                        icon = painterResource(id = Icons.ic_keyboard_outline_16),
+                    )
 
-                    is Property.StringProperty ->
-                        ValuePropertyListItem(
-                            style = style,
-                            onClick = { onSelect(property) },
-                            propertyName = property.name,
-                            propertyValue = property.value,
-                            icon = painterResource(id = Icons.ic_keyboard_outline_16),
-                        )
-                }
+                is Property.FloatProperty ->
+                    ValuePropertyListItem(
+                        style = style,
+                        onClick = { onSelect(property) },
+                        propertyName = property.name,
+                        propertyValue = property.value.toString(),
+                        icon = painterResource(id = Icons.ic_keyboard_outline_16),
+                    )
+
+                is Property.SingleChoiceProperty ->
+                    ValuePropertyListItem(
+                        style = style,
+                        onClick = { onSelect(property) },
+                        propertyName = property.name,
+                        propertyValue = property.value,
+                        icon = painterResource(id = Icons.ic_disclosure_right_outline_16),
+                    )
+
+                is Property.StringProperty ->
+                    ValuePropertyListItem(
+                        style = style,
+                        onClick = { onSelect(property) },
+                        propertyName = property.name,
+                        propertyValue = property.value,
+                        icon = painterResource(id = Icons.ic_keyboard_outline_16),
+                    )
             }
         }
     }
